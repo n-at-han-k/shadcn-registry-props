@@ -1,0 +1,324 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "abui",
+  "homepage": "https://abui.io",
+  "items": [
+    {
+      "name": "design-system",
+      "type": "registry:style",
+      "registryDependencies": [
+        "@abui/debug-utils",
+        "@abui/breakpoint-display",
+        "@abui/extra-breakpoints",
+        "@abui/orientation-media-queries"
+      ],
+      "cssVars": {
+        "light": {
+          "primary": "oklch(0.546 0.245 262.881)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "radius": "0.625rem"
+        },
+        "dark": {
+          "primary": "oklch(0.600 0.214 259.815)",
+          "primary-foreground": "oklch(0.985 0 0)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/abui/rules/AGENTS.md",
+          "type": "registry:file",
+          "target": "~/AGENTS.md"
+        }
+      ]
+    },
+    {
+      "name": "orientation-media-queries",
+      "type": "registry:style",
+      "title": "Orientation Media Queries",
+      "description": "A set of device orientation media queries.",
+      "css": {
+        "@custom-variant portrait (@media (orientation: portrait))": {},
+        "@custom-variant landscape (@media (orientation: landscape))": {}
+      }
+    },
+    {
+      "name": "extra-breakpoints",
+      "type": "registry:style",
+      "title": "Extra Breakpoints",
+      "description": "Adds XS, XXS and 3XL breakpoints.",
+      "cssVars": {
+        "theme": {
+          "--breakpoint-xxs": "20rem",
+          "--breakpoint-xs": "30rem",
+          "--breakpoint-3xl": "116rem"
+        }
+      }
+    },
+    {
+      "name": "debug-utils",
+      "type": "registry:style",
+      "title": "Debug Utils",
+      "description": "A set of debug utility classes.",
+      "css": {
+        "@utility debug-red": {
+          "border": "1px dashed red"
+        },
+        "@utility debug-blue": {
+          "border": "1px dashed blue"
+        },
+        "@utility debug-green": {
+          "border": "1px dashed green"
+        },
+        "@utility debug-yellow": {
+          "border": "1px dashed yellow"
+        },
+        "@utility debug-purple": {
+          "border": "1px dashed purple"
+        },
+        "@utility debug-orange": {
+          "border": "1px dashed orange"
+        },
+        "@utility debug-pink": {
+          "border": "1px dashed pink"
+        }
+      }
+    },
+    {
+      "name": "breakpoint-display",
+      "type": "registry:component",
+      "title": "Breakpoint Display",
+      "description": "A breakpoint display component.",
+      "files": [
+        {
+          "path": "registry/abui/utils/breakpoint-display.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-tabs",
+      "type": "registry:component",
+      "title": "Radio Tabs",
+      "description": "A radio tabs component.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/radio-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-rows",
+      "type": "registry:component",
+      "title": "Radio Rows",
+      "description": "A radio rows component.",
+      "files": [
+        {
+          "path": "registry/abui/ui/radio-rows.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "color-swatch-selector",
+      "type": "registry:component",
+      "title": "Color Swatch Selector",
+      "description": "A color swatch selector component.",
+      "files": [
+        {
+          "path": "registry/abui/ui/color-swatch-selector.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label-selector",
+      "type": "registry:component",
+      "title": "Label Selector",
+      "description": "A text label selector component for sizes, variants, and other text-based options.",
+      "dependencies": [
+        "@radix-ui/react-radio-group",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/label-selector.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:component",
+      "title": "Spinner",
+      "description": "A customizable loading spinner component with size, speed, and color variants.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:component",
+      "title": "Scroll Progress",
+      "description": "A scroll progress indicator that shows reading progress as a horizontal bar at the top or bottom of the viewport.",
+      "dependencies": [
+        "motion@12"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/scroll-progress.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "text-gradient",
+      "type": "registry:component",
+      "title": "Text Gradient",
+      "description": "A text gradient effect component.",
+      "files": [
+        {
+          "path": "registry/abui/effects/text-gradient.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:block",
+      "title": "Timeline",
+      "description": "A Gantt-chart style timeline with draggable time slots.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "@dnd-kit/core",
+        "tunnel-rat"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/timeline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "availability",
+      "type": "registry:block",
+      "title": "Availability",
+      "description": "A weekly availability designer with draggable and resizable time slots.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/availability.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "calendar-year",
+      "type": "registry:block",
+      "title": "Calendar Year",
+      "description": "A calendar year component.",
+      "dependencies": [
+        "dayjs"
+      ],
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/calendar-year.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "accordion-multiselect",
+      "type": "registry:component",
+      "title": "Accordion Multiselect",
+      "description": "An accordion multiselect component with categories and services.",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "@radix-ui/react-checkbox",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/accordion-multiselect.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scroll-reveal-content-a",
+      "type": "registry:block",
+      "title": "Scroll Reveal Content A",
+      "description": "A block that shows 3 parts of content with a specific image for each part, and a fancy line grow expand during scroll.",
+      "dependencies": [
+        "motion@12"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/marketing/scroll-reveal-content-a.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "timeline-steps",
+      "type": "registry:component",
+      "title": "Timeline Steps",
+      "description": "A component for displaying chronological events, activities, or steps",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/ui/timeline-steps.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toc",
+      "type": "registry:component",
+      "title": "Table of Contents",
+      "description": "A table of contents component with active anchor tracking and depth-aware line styling. Features two variants: default (straight line) and clerk (depth-responsive line that follows hierarchy).",
+      "files": [
+        {
+          "path": "registry/abui/ui/toc.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "animated-chart",
+      "type": "registry:block",
+      "title": "Animated Chart",
+      "description": "An animated column chart with spring physics, viewport-triggered animations, and support for dynamic data transitions.",
+      "dependencies": [
+        "motion@12"
+      ],
+      "files": [
+        {
+          "path": "registry/abui/marketing/animated-chart.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

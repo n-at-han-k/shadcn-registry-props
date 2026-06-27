@@ -1,0 +1,260 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "HA-Components",
+  "homepage": "https://hacomponents.keshuac.com",
+  "items": [
+    {
+      "name": "type-generator",
+      "type": "registry:item",
+      "title": "Type Generator",
+      "description": "Script to generate types",
+      "devDependencies": [
+        "tsx",
+        "ws",
+        "dotenv"
+      ],
+      "files": [
+        {
+          "path": "scripts/generate_entities.ts",
+          "target": "scripts/generate_entities.ts",
+          "type": "registry:file"
+        },
+        {
+          "path": "types/entity-types.ts",
+          "target": "types/entity-types.ts",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "auth",
+      "type": "registry:block",
+      "title": "Auth Files and Components",
+      "description": "A complex component used to setup Auth.",
+      "files": [
+        {
+          "path": "providers/HomeAssistantProvider.tsx",
+          "target": "providers/HomeAssistantProvider.tsx",
+          "type": "registry:item"
+        },
+        {
+          "path": "lib/haAuth.ts",
+          "target": "lib/haAuth.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/haWebsocket.ts",
+          "target": "lib/haWebsocket.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "camera",
+      "type": "registry:block",
+      "title": "Simple Camera Component",
+      "description": "A WebRTC Camera component for go2RTC",
+      "dependencies": [
+        "media-chrome"
+      ],
+      "registryDependencies": [
+        "tooltip",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/camera.tsx",
+          "target": "components/ha-ui/camera.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/ha-ui/ui/retry-button.tsx",
+          "target": "components/ha-ui/ui/retry-button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/ha-ui/ui/status-indicator.tsx",
+          "target": "components/ha-ui/ui/status-indicator.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/video-rtc.tsx",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "trigger",
+      "type": "registry:component",
+      "title": "Simple Trigger Button Component",
+      "description": "Button that with an attached Entity trigger",
+      "registryDependencies": [
+        "button",
+        "@ha-components/auth"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/trigger.tsx",
+          "target": "components/ha-ui/trigger.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "title": "Simple Toggle Switch Component",
+      "description": "Switch with an attached Entity trigger",
+      "registryDependencies": [
+        "@ha-components/switch",
+        "@ha-components/auth"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/toggle.tsx",
+          "target": "components/ha-ui/toggle.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "light",
+      "type": "registry:component",
+      "title": "Simple Light Control Component",
+      "description": "A component which allows full control of a light",
+      "dependencies": [
+        "react-colorful",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "@ha-components/accordion",
+        "@ha-components/slider",
+        "@ha-components/popover",
+        "@ha-components/auth"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/light.tsx",
+          "target": "components/ha-ui/light.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "weather",
+      "type": "registry:block",
+      "title": "Simple Weather Component",
+      "dependencies": [
+        "@mdi/react",
+        "@mdi/js"
+      ],
+      "registryDependencies": [
+        "button",
+        "@ha-components/auth"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/weather.tsx",
+          "target": "components/ha-ui/weather.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "proxy",
+      "type": "registry:block",
+      "title": "Python Websocket Proxy Server",
+      "description": "Development websocket server for camera component",
+      "files": [
+        {
+          "path": "proxy/.python-version",
+          "target": "proxy/.python-version",
+          "type": "registry:file"
+        },
+        {
+          "path": "proxy/proxy_server.py",
+          "target": "proxy/proxy_server.py",
+          "type": "registry:lib"
+        },
+        {
+          "path": "proxy/pyproject.toml",
+          "target": "proxy/pyproject.toml",
+          "type": "registry:lib"
+        },
+        {
+          "path": "proxy/uv.lock",
+          "target": "proxy/uv.lock",
+          "type": "registry:file"
+        },
+        {
+          "path": "proxy/requirements.txt",
+          "target": "proxy/requirements.txt",
+          "type": "registry:file"
+        },
+        {
+          "path": "proxy/README.md",
+          "target": "proxy/README.md",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/ui/accordion.tsx",
+          "target": "components/ha-ui/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/ui/popover.tsx",
+          "target": "components/ha-ui/ui/popover.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slider"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/ui/slider.tsx",
+          "target": "components/ha-ui/ui/slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ],
+      "files": [
+        {
+          "path": "components/ha-ui/ui/switch.tsx",
+          "target": "components/ha-ui/ui/switch.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

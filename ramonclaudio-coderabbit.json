@@ -1,0 +1,538 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ramonclaudio-coderabbit",
+  "homepage": "https://github.com/ramonclaudio/coderabbit-shadcn-registry",
+  "items": [
+    {
+      "name": "core",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:block",
+      "title": "CodeRabbit Core",
+      "description": "Core CodeRabbit integration with types, API client, server actions, and React hook. Add a storage adapter separately for persistence.",
+      "categories": [
+        "api",
+        "hooks",
+        "developer-tools"
+      ],
+      "files": [],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/client.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/actions.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/react.json"
+      ],
+      "envVars": {
+        "CODERABBIT_API_KEY": ""
+      },
+      "docs": "Core CodeRabbit setup. Get CODERABBIT_API_KEY from https://app.coderabbit.ai/settings/api-keys (requires Pro plan). Add a storage adapter (localstorage, convex, supabase, postgres, mysql) for report persistence."
+    },
+    {
+      "name": "types",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit Types",
+      "description": "Pure TypeScript types for CodeRabbit API integration. Framework-agnostic type definitions with zero dependencies.",
+      "categories": [
+        "types",
+        "api"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/types.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "client",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit API Client",
+      "description": "Framework-agnostic CodeRabbit API client. Works in Node.js, Deno, Bun, Edge runtimes, and browsers. Single endpoint for generating developer activity reports with 10-minute timeout support.",
+      "categories": [
+        "api-client",
+        "developer-tools"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/client.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "envVars": {
+        "CODERABBIT_API_KEY": ""
+      },
+      "docs": "Set CODERABBIT_API_KEY environment variable or pass apiKey in config. Get API key from https://app.coderabbit.ai/settings/api-keys (requires Pro plan subscription)."
+    },
+    {
+      "name": "storage-adapter",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit Storage Adapter Interface",
+      "description": "TypeScript interface for implementing custom storage backends. Implement this to add support for any database.",
+      "categories": [
+        "storage",
+        "database"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/storage-adapter.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "storage-localstorage",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit LocalStorage Adapter",
+      "description": "Browser localStorage adapter for CodeRabbit reports. Perfect for client-side apps and prototyping. No database required.",
+      "categories": [
+        "storage",
+        "browser"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/storage-localstorage.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Browser-only storage using localStorage. Data persists across sessions but is limited to ~5-10MB."
+    },
+    {
+      "name": "storage-convex",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit Convex Adapter",
+      "description": "Convex database adapter with real-time sync and auth support. Includes schema definitions for the reports table.",
+      "categories": [
+        "storage",
+        "database",
+        "real-time"
+      ],
+      "dependencies": [
+        "convex"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/storage-convex.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/lib/storage-convex-schema.ts",
+          "type": "registry:file",
+          "target": "~/convex/coderabbit-schema.ts"
+        }
+      ],
+      "docs": "Import coderabbitReportsTable in your convex/schema.ts and add as 'coderabbit_reports' table. Pass ConvexReactClient instance and api to ConvexStorageAdapter constructor."
+    },
+    {
+      "name": "storage-supabase",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit Supabase Adapter",
+      "description": "Supabase (PostgreSQL) adapter with Row Level Security support. Includes SQL schema and RLS policies.",
+      "categories": [
+        "storage",
+        "database"
+      ],
+      "dependencies": [
+        "@supabase/supabase-js"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/storage-supabase.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Create a Supabase client and pass to SupabaseStorageAdapter. Run the SQL schema from the adapter file to create the coderabbit_reports table with RLS policies."
+    },
+    {
+      "name": "storage-postgres",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit PostgreSQL Adapter",
+      "description": "PostgreSQL adapter with connection pooling. Works with Neon, Vercel Postgres, Railway, AWS RDS, Google Cloud SQL, etc.",
+      "categories": [
+        "storage",
+        "database"
+      ],
+      "dependencies": [
+        "pg",
+        "@types/pg"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/storage-postgres.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Create a PostgreSQL connection pool and pass to PostgresStorageAdapter. Run the SQL schema from the adapter file to create the coderabbit_reports table."
+    },
+    {
+      "name": "storage-mysql",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit MySQL Adapter",
+      "description": "MySQL/MariaDB adapter with connection pooling. Works with PlanetScale, AWS RDS, Google Cloud SQL, Azure, etc.",
+      "categories": [
+        "storage",
+        "database"
+      ],
+      "dependencies": [
+        "mysql2",
+        "@types/mysql2"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/storage-mysql.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Create a MySQL connection pool and pass to MySQLStorageAdapter. Run the SQL schema from the adapter file to create the coderabbit_reports table."
+    },
+    {
+      "name": "actions",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:lib",
+      "title": "CodeRabbit Server Actions",
+      "description": "Next.js server actions for CodeRabbit API. Handles API calls server-side where CODERABBIT_API_KEY is securely available.",
+      "categories": [
+        "nextjs",
+        "server-actions"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/client.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/actions.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Import and use checkCodeRabbitConfig() and generateReportAction() in your client components. The API key is read server-side from CODERABBIT_API_KEY env var."
+    },
+    {
+      "name": "react",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:hook",
+      "title": "CodeRabbit React Hook",
+      "description": "React hook for generating CodeRabbit reports with built-in loading and error states. Uses server actions by default for secure API key handling in Next.js.",
+      "categories": [
+        "hooks",
+        "react"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "registryDependencies": [
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/client.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/actions.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/hooks/use-coderabbit.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "report-form",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:component",
+      "title": "CodeRabbit Report Form",
+      "description": "Full-featured form component for collecting report parameters. Includes template selection, custom prompts, filters, and grouping options.",
+      "categories": [
+        "forms",
+        "components"
+      ],
+      "dependencies": [
+        "react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "select",
+        "textarea",
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/report-form/report-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "branding",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:component",
+      "title": "CodeRabbit Branding",
+      "description": "CodeRabbit logo and icon components with dark/light theme support. Includes SVG assets.",
+      "categories": [
+        "branding",
+        "components"
+      ],
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/branding.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/public/coderabbit-dark-icon.svg",
+          "type": "registry:file",
+          "target": "~/public/coderabbit/coderabbit-dark-icon.svg"
+        },
+        {
+          "path": "registry/default/public/coderabbit-light-icon.svg",
+          "type": "registry:file",
+          "target": "~/public/coderabbit/coderabbit-light-icon.svg"
+        },
+        {
+          "path": "registry/default/public/coderabbit-dark-logo.svg",
+          "type": "registry:file",
+          "target": "~/public/coderabbit/coderabbit-dark-logo.svg"
+        },
+        {
+          "path": "registry/default/public/coderabbit-light-logo.svg",
+          "type": "registry:file",
+          "target": "~/public/coderabbit/coderabbit-light-logo.svg"
+        }
+      ]
+    },
+    {
+      "name": "report-card",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:component",
+      "title": "CodeRabbit Report Card",
+      "description": "Display component for CodeRabbit reports with expandable cards, status badges, and markdown rendering. Supports Daily Standup, Sprint Report, and Release Notes formats.",
+      "categories": [
+        "reports",
+        "components"
+      ],
+      "dependencies": [
+        "react",
+        "lucide-react",
+        "react-markdown"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge",
+        "card",
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/branding.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/report-card/report-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "localstorage",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:block",
+      "title": "CodeRabbit with LocalStorage",
+      "description": "Complete CodeRabbit integration with browser localStorage. Perfect for prototyping and client-side apps. No database required.",
+      "categories": [
+        "complete",
+        "browser"
+      ],
+      "files": [],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "select",
+        "textarea",
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/client.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-localstorage.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/react.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-form.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/branding.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-card.json"
+      ],
+      "envVars": {
+        "CODERABBIT_API_KEY": ""
+      },
+      "docs": "Get CODERABBIT_API_KEY from https://app.coderabbit.ai/settings/api-keys (requires Pro plan)."
+    },
+    {
+      "name": "convex",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:block",
+      "title": "CodeRabbit with Convex",
+      "description": "Complete CodeRabbit integration with Convex database. Includes real-time sync, auth support, and schema definitions. Perfect for production apps.",
+      "categories": [
+        "complete",
+        "database",
+        "real-time"
+      ],
+      "files": [],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "select",
+        "textarea",
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/client.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-convex.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/react.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-form.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/branding.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-card.json"
+      ],
+      "envVars": {
+        "CODERABBIT_API_KEY": "",
+        "CONVEX_DEPLOYMENT": "",
+        "CONVEX_URL": ""
+      },
+      "docs": "Get CODERABBIT_API_KEY from https://app.coderabbit.ai/settings/api-keys (requires Pro plan). Run 'npx convex dev' to get your Convex deployment URL. Import coderabbitReportsTable in your convex/schema.ts."
+    },
+    {
+      "name": "supabase",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:block",
+      "title": "CodeRabbit with Supabase",
+      "description": "Complete CodeRabbit integration with Supabase (PostgreSQL). Includes Row Level Security policies. Perfect for apps with authentication.",
+      "categories": [
+        "complete",
+        "database"
+      ],
+      "files": [],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "select",
+        "textarea",
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/client.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-supabase.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/react.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-form.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/branding.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-card.json"
+      ],
+      "envVars": {
+        "CODERABBIT_API_KEY": "",
+        "SUPABASE_URL": "",
+        "SUPABASE_ANON_KEY": ""
+      },
+      "docs": "Get CODERABBIT_API_KEY from https://app.coderabbit.ai/settings/api-keys (requires Pro plan). Run the SQL schema from storage-supabase.ts."
+    },
+    {
+      "name": "postgres",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:block",
+      "title": "CodeRabbit with PostgreSQL",
+      "description": "Complete CodeRabbit integration with PostgreSQL. Works with Neon, Vercel Postgres, Railway, AWS RDS, etc.",
+      "categories": [
+        "complete",
+        "database"
+      ],
+      "files": [],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "select",
+        "textarea",
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/client.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-postgres.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/react.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-form.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/branding.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-card.json"
+      ],
+      "envVars": {
+        "CODERABBIT_API_KEY": "",
+        "POSTGRES_HOST": "",
+        "POSTGRES_PORT": "5432",
+        "POSTGRES_DATABASE": "",
+        "POSTGRES_USER": "",
+        "POSTGRES_PASSWORD": ""
+      },
+      "docs": "Get CODERABBIT_API_KEY from https://app.coderabbit.ai/settings/api-keys (requires Pro plan). Run the SQL schema from storage-postgres.ts."
+    },
+    {
+      "name": "mysql",
+      "author": "Ray <hello@ramonclaudio.com>",
+      "type": "registry:block",
+      "title": "CodeRabbit with MySQL",
+      "description": "Complete CodeRabbit integration with MySQL/MariaDB. Works with PlanetScale, AWS RDS, Google Cloud SQL, Azure, etc.",
+      "categories": [
+        "complete",
+        "database"
+      ],
+      "files": [],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "select",
+        "textarea",
+        "https://coderabbit-shadcn-registry.vercel.app/r/types.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/client.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-adapter.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/storage-mysql.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/react.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-form.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/branding.json",
+        "https://coderabbit-shadcn-registry.vercel.app/r/report-card.json"
+      ],
+      "envVars": {
+        "CODERABBIT_API_KEY": "",
+        "MYSQL_HOST": "",
+        "MYSQL_PORT": "3306",
+        "MYSQL_DATABASE": "",
+        "MYSQL_USER": "",
+        "MYSQL_PASSWORD": ""
+      },
+      "docs": "Get CODERABBIT_API_KEY from https://app.coderabbit.ai/settings/api-keys (requires Pro plan). Run the SQL schema from storage-mysql.ts."
+    }
+  ]
+}

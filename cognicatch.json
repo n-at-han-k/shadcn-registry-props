@@ -1,0 +1,72 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cognicatch-ui",
+  "homepage": "https://cognicatch.dev",
+  "items": [
+    {
+      "name": "adaptive-banner",
+      "type": "registry:component",
+      "title": "Adaptive Banner",
+      "description": "A graceful fallback UI banner for error handling and alerts.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/AdaptiveBanner.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "adaptive-fatal-error",
+      "type": "registry:component",
+      "title": "Adaptive Fatal Error",
+      "description": "A full-screen, accessible modal for unrecoverable crashes.",
+      "dependencies": [
+        "lucide-react",
+        "@radix-ui/react-dialog"
+      ],
+      "files": [
+        {
+          "path": "components/AdaptiveFatalError.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "adaptive-toast",
+      "type": "registry:component",
+      "title": "Adaptive Toast",
+      "description": "A pre-styled, recovery-ready wrapper around Sonner for error notifications.",
+      "dependencies": [
+        "sonner",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/AdaptiveToast.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "adaptive-error-boundary",
+      "type": "registry:component",
+      "title": "Adaptive Error Boundary",
+      "description": "A ready-to-use Error Boundary that degrades UI gracefully using toasts, banners, or modals.",
+      "dependencies": [],
+      "registryDependencies": [
+        "adaptive-banner",
+        "adaptive-fatal-error",
+        "adaptive-toast"
+      ],
+      "files": [
+        {
+          "path": "components/AdaptiveErrorBoundary.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

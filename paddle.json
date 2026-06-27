@@ -1,0 +1,482 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "paddle",
+  "homepage": "https://developer.paddle.com/",
+  "items": [
+    {
+      "name": "paddle-helpers",
+      "type": "registry:lib",
+      "title": "Paddle helpers",
+      "description": "Shared display types, format utilities, and payment method display for Paddle UI components. No SDK dependency — safe to install without @paddle/paddle-js.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/paddle-helpers/lib/paddle-types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/new-york/blocks/paddle-helpers/lib/paddle-format.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/new-york/blocks/paddle-helpers/lib/paddle-payment-method-display.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/new-york/blocks/paddle-helpers/lib/payment-method-icons.tsx",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "paddle-client",
+      "type": "registry:lib",
+      "title": "Paddle client utilities",
+      "description": "Paddle.js initialization singleton, SDK type re-exports, checkout event mapper, and SDK-layer hooks used by all client-side Paddle blocks.",
+      "dependencies": [
+        "@paddle/paddle-js"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-helpers"
+      ],
+      "envVars": {
+        "NEXT_PUBLIC_PADDLE_CLIENT_TOKEN": "",
+        "NEXT_PUBLIC_PADDLE_ENV": "sandbox"
+      },
+      "docs": "Create a client-side token at Paddle > Developer Tools > Authentication. Sandbox tokens start with test_ (use sandbox-vendors.paddle.com). Live tokens start with live_ (use vendors.paddle.com). Set NEXT_PUBLIC_PADDLE_ENV to 'sandbox' or 'production' to match your token. See: https://developer.paddle.com/paddlejs/client-side-tokens",
+      "files": [
+        {
+          "path": "registry/new-york/blocks/paddle-client/lib/paddle-instance.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/new-york/blocks/paddle-client/lib/paddle-sdk-types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/new-york/blocks/paddle-client/lib/hooks/use-paddle-prices.tsx",
+          "type": "registry:hook"
+        },
+        {
+          "path": "registry/new-york/blocks/paddle-client/lib/hooks/use-checkout.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "pricing-select-cards",
+      "type": "registry:component",
+      "title": "Pricing select cards",
+      "description": "Selectable pricing cards with localized prices from Paddle, available in stacked and grid layouts. Uses RadioGroup for single-plan selection — designed for express checkout flows.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "card",
+        "badge",
+        "skeleton",
+        "radio-group"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/pricing-select-cards/components/pricing-select-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/pricing-select-cards/components/pricing-select-card-stacked.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/pricing-select-cards/components/pricing-select-card-grid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/pricing-select-cards/components/pricing-select-card-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "express-checkout",
+      "type": "registry:block",
+      "title": "Express checkout",
+      "description": "Mobile-first checkout experience with pricing cards and sheet-style checkout drawer. Automatically resizes based on the height of the checkout.",
+      "categories": [
+        "checkout"
+      ],
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-client",
+        "@paddle/pricing-select-cards",
+        "drawer",
+        "button"
+      ],
+      "docs": "Each plan requires a price ID (starts with pri_). Create and/or find yours in your Paddle dashboard under Catalog > Prices. Use sandbox price IDs while NEXT_PUBLIC_PADDLE_ENV is 'sandbox'.",
+      "files": [
+        {
+          "path": "registry/new-york/blocks/express-checkout/components/express-checkout.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/express-checkout/components/express-checkout-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/express-checkout/hooks/use-checkout-drawer.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "billing-interval-toggle",
+      "type": "registry:component",
+      "title": "Billing interval toggle",
+      "description": "Segmented control for switching between billing intervals. Renders labels automatically from interval keys (month -> Monthly, year -> Annually). Designed for pricing pages and plan selectors.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/billing-interval-toggle/components/billing-interval-toggle.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pricing-cards",
+      "type": "registry:component",
+      "title": "Pricing cards",
+      "description": "Responsive pricing tier cards with plan name, localized price, feature list, and per-card CTA. Supports current-plan highlighting and selection state for pricing pages and plan change flows.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "card",
+        "badge",
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/pricing-cards/components/pricing-tier-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/pricing-cards/components/pricing-tier-card-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pricing-display",
+      "type": "registry:block",
+      "title": "Pricing display",
+      "description": "Pricing section with localized prices, billing interval toggle, and built-in overlay checkout. Supports current-plan highlighting and plan change selection flows via currentPriceIds and selectedPriceId props.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "@paddle/paddle-client",
+        "@paddle/paddle-helpers",
+        "@paddle/pricing-cards",
+        "@paddle/billing-interval-toggle"
+      ],
+      "docs": "Each plan requires a price ID (starts with pri_). For multi-interval plans, pass priceId as an object keyed by interval (e.g. { month: 'pri_monthly', year: 'pri_yearly' }). Create and/or find yours in your Paddle dashboard under Catalog > Prices.",
+      "files": [
+        {
+          "path": "registry/new-york/blocks/pricing-display/components/pricing-display.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkout-summary",
+      "type": "registry:component",
+      "title": "Checkout summary",
+      "description": "Order summary for inline checkout: line items, totals, recurring/trial info, and refund policy link. Compliance-ready display for Paddle inline checkout.",
+      "categories": [
+        "checkout"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "card",
+        "separator",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/checkout-summary/components/checkout-summary.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/checkout-summary/components/paddle-checkout-summary.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/checkout-summary/lib/checkout-summary-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "inline-checkout",
+      "type": "registry:block",
+      "title": "Inline checkout",
+      "description": "Inline checkout block with order summary, Paddle payment frame, and real-time event updates. Supports reactive item changes, plan switching, and quantity updates.",
+      "categories": [
+        "checkout"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "@paddle/paddle-client",
+        "@paddle/checkout-summary",
+        "card"
+      ],
+      "docs": "Each item requires a price ID (starts with pri_). Create and/or find yours in your Paddle dashboard under Catalog > Prices. Use sandbox price IDs while NEXT_PUBLIC_PADDLE_ENV is 'sandbox'.",
+      "files": [
+        {
+          "path": "registry/new-york/blocks/inline-checkout/components/inline-checkout.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "subscription-status-card",
+      "type": "registry:component",
+      "title": "Subscription status card",
+      "description": "Subscription overview card showing plan details, status, billing cycle, line item breakdown, discount, scheduled changes, and optional action buttons. Supports single and multi-item subscriptions, past-due alerts, collection mode indicators, and configurable badge position.",
+      "categories": [
+        "subscription"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "card",
+        "badge",
+        "button",
+        "separator",
+        "alert",
+        "skeleton"
+      ],
+      "cssVars": {
+        "light": {
+          "success": "oklch(0.723 0.157 150)",
+          "success-foreground": "oklch(0.266 0.065 152)",
+          "warning": "oklch(0.769 0.163 70)",
+          "warning-foreground": "oklch(0.286 0.066 53)",
+          "info": "oklch(0.623 0.163 255)",
+          "info-foreground": "oklch(0.235 0.063 258)"
+        },
+        "dark": {
+          "success": "oklch(0.423 0.095 152)",
+          "success-foreground": "oklch(0.92 0.042 154)",
+          "warning": "oklch(0.437 0.096 54)",
+          "warning-foreground": "oklch(0.94 0.034 82)",
+          "info": "oklch(0.423 0.095 258)",
+          "info-foreground": "oklch(0.92 0.042 252)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/new-york/blocks/subscription-status-card/components/subscription-status-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/subscription-status-card/components/paddle-subscription-status-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/subscription-status-card/lib/subscription-status-card-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "subscription-alert",
+      "type": "registry:component",
+      "title": "Subscription alert",
+      "description": "Contextual alerts for subscription events: payment failures, scheduled cancellations, pauses, trials. Derives the correct alert from subscription state automatically.",
+      "categories": [
+        "subscription"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "alert"
+      ],
+      "cssVars": {
+        "light": {
+          "warning": "oklch(0.769 0.163 70)",
+          "warning-foreground": "oklch(0.286 0.066 53)",
+          "info": "oklch(0.623 0.163 255)",
+          "info-foreground": "oklch(0.235 0.063 258)"
+        },
+        "dark": {
+          "warning": "oklch(0.437 0.096 54)",
+          "warning-foreground": "oklch(0.94 0.034 82)",
+          "info": "oklch(0.423 0.095 258)",
+          "info-foreground": "oklch(0.92 0.042 252)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/new-york/blocks/subscription-alert/components/subscription-alert.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/subscription-alert/components/paddle-subscription-alert.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/subscription-alert/lib/subscription-alert-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "subscription-payment-card",
+      "type": "registry:component",
+      "title": "Subscription payment card",
+      "description": "Payment method and next billing summary card. Auto-resolves payment method display labels from Paddle type/brand/last4 fields. Shows next payment amount, date, and portal link to update payment details.",
+      "categories": [
+        "subscription"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "card",
+        "skeleton",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/subscription-payment-card/components/subscription-payment-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/subscription-payment-card/components/paddle-subscription-payment-card.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/subscription-payment-card/lib/subscription-payment-card-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "plan-change-preview",
+      "type": "registry:component",
+      "title": "Plan change preview",
+      "description": "Compact plan change summary card with side-by-side plan comparison, proration breakdown, upgrade/downgrade badge, discount, scheduled change warning, and optional confirm/cancel actions. Decision-support view for plan change flows.",
+      "categories": [
+        "subscription"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "card",
+        "badge",
+        "skeleton",
+        "separator",
+        "alert"
+      ],
+      "cssVars": {
+        "light": {
+          "success": "oklch(0.723 0.157 150)",
+          "success-foreground": "oklch(0.266 0.065 152)",
+          "warning": "oklch(0.769 0.163 70)",
+          "warning-foreground": "oklch(0.286 0.066 53)"
+        },
+        "dark": {
+          "success": "oklch(0.423 0.095 152)",
+          "success-foreground": "oklch(0.92 0.042 154)",
+          "warning": "oklch(0.437 0.096 54)",
+          "warning-foreground": "oklch(0.94 0.034 82)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/new-york/blocks/plan-change-preview/components/plan-change-preview.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/plan-change-preview/components/paddle-plan-change-preview.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/plan-change-preview/lib/plan-change-preview-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "plan-change-breakdown",
+      "type": "registry:component",
+      "title": "Plan change breakdown",
+      "description": "Detailed financial breakdown of a subscription plan change. Invoice-style view with per-transaction line items, proration periods, tax, credits, and totals for immediate, next, and recurring billing. Financial-transparency view complementing the compact plan-change-preview.",
+      "categories": [
+        "subscription"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@paddle/paddle-helpers",
+        "card",
+        "badge",
+        "skeleton",
+        "separator"
+      ],
+      "cssVars": {
+        "light": {
+          "success": "oklch(0.723 0.157 150)",
+          "success-foreground": "oklch(0.266 0.065 152)"
+        },
+        "dark": {
+          "success": "oklch(0.423 0.095 152)",
+          "success-foreground": "oklch(0.92 0.042 154)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/new-york/blocks/plan-change-breakdown/components/plan-change-breakdown.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/plan-change-breakdown/components/paddle-plan-change-breakdown.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/plan-change-breakdown/lib/plan-change-breakdown-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    }
+  ]
+}

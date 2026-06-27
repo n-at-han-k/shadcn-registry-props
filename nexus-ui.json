@@ -1,0 +1,437 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "nexus-ui",
+  "homepage": "https://nexus-ui.dev",
+  "items": [
+    {
+      "name": "prompt-input",
+      "type": "registry:ui",
+      "title": "Prompt Input",
+      "description": "Composable chat input with auto-resizing textarea and action slots",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "textarea",
+        "scroll-area",
+        "tooltip",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/prompt-input.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/prompt-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "suggestions",
+      "type": "registry:ui",
+      "title": "Suggestions",
+      "description": "Prompt suggestion chips for guiding user input",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/suggestions.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/suggestions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "attachments",
+      "type": "registry:ui",
+      "title": "Attachments",
+      "description": "Composable file attachments for chat inputs and messages with preview, variants, and upload wiring",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/attachments.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/attachments.tsx"
+        },
+        {
+          "path": "lib/use-on-change.ts",
+          "type": "registry:file",
+          "target": "~/lib/use-on-change.ts"
+        }
+      ]
+    },
+    {
+      "name": "model-selector",
+      "type": "registry:ui",
+      "title": "Model Selector",
+      "description": "Dropdown for selecting AI models with radio groups, sub-menus, and custom items",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/model-selector.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/model-selector.tsx"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "Chat message layout with markdown, optional avatar, actions, and attachments",
+      "dependencies": [
+        "streamdown",
+        "@streamdown/cjk",
+        "@streamdown/code",
+        "@streamdown/math",
+        "@streamdown/mermaid",
+        "radix-ui",
+        "@radix-ui/react-slot",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "button",
+        "avatar",
+        "tooltip",
+        "kbd"
+      ],
+      "css": {
+        "@source \"../node_modules/streamdown/dist/index.js\"": {},
+        "@source \"../node_modules/@streamdown/code/dist/*.js\"": {},
+        "@source \"../node_modules/@streamdown/mermaid/dist/*.js\"": {},
+        "@source \"../node_modules/@streamdown/math/dist/*.js\"": {},
+        "@source \"../node_modules/@streamdown/cjk/dist/*.js\"": {},
+        "@layer base": {
+          "code": {
+            "counter-reset": "line"
+          },
+          "code .line::before": {
+            "counter-increment": "line",
+            "content": "counter(line)",
+            "display": "inline-block",
+            "width": "1rem",
+            "margin-right": "1.25rem",
+            "text-align": "right",
+            "color": "#737373",
+            "padding-left": "0",
+            "font-size": "14px"
+          },
+          "code .line": {
+            "padding-left": "0px !important"
+          },
+          ".no-scrollbar": {
+            "-ms-overflow-style": "none",
+            "scrollbar-width": "none"
+          },
+          ".no-scrollbar::-webkit-scrollbar": {
+            "display": "none"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "components/nexus-ui/message.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/message.tsx"
+        },
+        {
+          "path": "components/nexus-ui/codeblock.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/codeblock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "thread",
+      "type": "registry:ui",
+      "title": "Thread",
+      "description": "Scrollable chat thread with stick-to-bottom scrolling and jump-to-bottom control",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "use-stick-to-bottom"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/thread.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/thread.tsx"
+        }
+      ]
+    },
+    {
+      "name": "citation",
+      "type": "registry:ui",
+      "title": "Citation",
+      "description": "Inline source references with hover preview and multi-source carousel",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "tldts"
+      ],
+      "registryDependencies": [
+        "carousel",
+        "hover-card"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/citation.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/citation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image",
+      "type": "registry:ui",
+      "title": "Image",
+      "description": "Image renderer for URLs, base64, and byte payloads with preview, loader, lightbox, and action slots",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "@radix-ui/react-dialog"
+      ],
+      "registryDependencies": [
+        "tooltip",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/image.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/image.tsx"
+        }
+      ]
+    },
+    {
+      "name": "reasoning",
+      "type": "registry:ui",
+      "title": "Reasoning",
+      "description": "Collapsible model reasoning trace with streaming-aware labels and markdown body",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "streamdown"
+      ],
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "css": {
+        "@import \"tw-shimmer\"": {},
+        "@layer utilities": {
+          "@keyframes reasoning-expand": {
+            "from": {
+              "height": "0"
+            },
+            "to": {
+              "height": "var(--radix-collapsible-content-height)"
+            }
+          },
+          "@keyframes reasoning-collapse": {
+            "from": {
+              "height": "var(--radix-collapsible-content-height)"
+            },
+            "to": {
+              "height": "0"
+            }
+          },
+          ".animate-collapsible-down": {
+            "animation": "reasoning-expand 0.2s ease-out"
+          },
+          ".animate-collapsible-up": {
+            "animation": "reasoning-collapse 0.2s ease-out"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "components/nexus-ui/reasoning.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/reasoning.tsx"
+        },
+        {
+          "path": "lib/use-on-change.ts",
+          "type": "registry:file",
+          "target": "~/lib/use-on-change.ts"
+        }
+      ]
+    },
+    {
+      "name": "feedback-bar",
+      "type": "registry:ui",
+      "title": "Feedback Bar",
+      "description": "Feedback prompt bar for per-message or thread ratings with action and close slots",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "tooltip",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/feedback-bar.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/feedback-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-shimmer",
+      "type": "registry:ui",
+      "title": "Text Shimmer",
+      "description": "Animated shimmer text for loading, tool runs, and other in-progress UI",
+      "files": [
+        {
+          "path": "components/nexus-ui/text-shimmer.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/text-shimmer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toaster",
+      "type": "registry:ui",
+      "title": "Toaster",
+      "description": "Headless toast notifications powered by Sonner, with variant-aware styling and custom action/cancel controls",
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "next-themes",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/toaster.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/toaster.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chain-of-thought",
+      "type": "registry:ui",
+      "title": "Chain of Thought",
+      "description": "Structured multi-step thought timeline with step status, optional expandable output, and auto-close when steps finish",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "css": {
+        "@import \"tw-shimmer\"": {},
+        "@layer utilities": {
+          "@keyframes reasoning-expand": {
+            "from": {
+              "height": "0"
+            },
+            "to": {
+              "height": "var(--radix-collapsible-content-height)"
+            }
+          },
+          "@keyframes reasoning-collapse": {
+            "from": {
+              "height": "var(--radix-collapsible-content-height)"
+            },
+            "to": {
+              "height": "0"
+            }
+          },
+          ".animate-collapsible-down": {
+            "animation": "reasoning-expand 0.2s ease-out"
+          },
+          ".animate-collapsible-up": {
+            "animation": "reasoning-collapse 0.2s ease-out"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "components/nexus-ui/chain-of-thought.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/chain-of-thought.tsx"
+        },
+        {
+          "path": "lib/use-on-change.ts",
+          "type": "registry:file",
+          "target": "~/lib/use-on-change.ts"
+        }
+      ]
+    },
+    {
+      "name": "tool",
+      "type": "registry:ui",
+      "title": "Tool",
+      "description": "Tool call component with state-aware header and JSON input/output blocks",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "@react-symbols/icons",
+        "shiki"
+      ],
+      "registryDependencies": [
+        "badge",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/tool.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/tool.tsx"
+        },
+        {
+          "path": "components/nexus-ui/codeblock-new.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/codeblock-new.tsx"
+        },
+        {
+          "path": "lib/shiki/highlighter.ts",
+          "type": "registry:file",
+          "target": "~/lib/shiki/highlighter.ts"
+        }
+      ]
+    },
+    {
+      "name": "questions",
+      "type": "registry:ui",
+      "title": "Questions",
+      "description": "Follow-up clarification questions with single or multiple choice, carousel navigation, and batch submission",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "carousel",
+        "button",
+        "card",
+        "checkbox"
+      ],
+      "files": [
+        {
+          "path": "components/nexus-ui/questions.tsx",
+          "type": "registry:file",
+          "target": "~/components/nexus-ui/questions.tsx"
+        }
+      ]
+    }
+  ]
+}

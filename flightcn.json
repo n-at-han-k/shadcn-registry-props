@@ -1,0 +1,53 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flightcn",
+  "homepage": "https://flightcn.yencheng.dev",
+  "items": [
+    {
+      "name": "flight",
+      "type": "registry:ui",
+      "title": "Flight",
+      "description": "A flight route visualization component with airport markers, great-circle arc lines, and a built-in 515-airport database.",
+      "dependencies": [
+        "@turf/great-circle",
+        "@turf/bearing"
+      ],
+      "registryDependencies": [
+        "https://mapcn.dev/r/map.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/flight.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/flight.tsx"
+        },
+        {
+          "path": "src/registry/flight-airports.ts",
+          "type": "registry:ui",
+          "target": "components/ui/flight-airports.ts"
+        },
+        {
+          "path": "src/registry/flight-airports-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/flight-airports-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "satellite",
+      "type": "registry:ui",
+      "title": "Satellite",
+      "description": "A globe-based satellite orbit overlay with animated motion, ground tracks, and custom SVG marker support.",
+      "registryDependencies": [
+        "https://mapcn.dev/r/map.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/satellite-orbit.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/satellite-orbit.tsx"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,925 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "Sora UI",
+  "homepage": "https://ui.soralabs.io.vn",
+  "items": [
+    {
+      "name": "index",
+      "type": "registry:style",
+      "dependencies": [
+        "tw-animate-css",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "cssVars": {},
+      "files": []
+    },
+    {
+      "name": "demo-accordion",
+      "type": "registry:ui",
+      "title": "Accordion Demo",
+      "description": "FAQ accordion with animated panels.",
+      "registryDependencies": [
+        "@soralabs/accordion"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/primitives/disclosure/accordion/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/disclosure/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-cursor-trail-reveal",
+      "type": "registry:ui",
+      "title": "Cursor Trail Reveal Demo",
+      "description": "Full-page contact layout with cursor trail image reveals on desktop.",
+      "registryDependencies": [
+        "@soralabs/cursor-trail-reveal",
+        "@soralabs/text-reveal-block",
+        "@soralabs/text-scramble"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/primitives/effects/cursor-trail-reveal/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/effects/cursor-trail-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-custom-cursor",
+      "type": "registry:ui",
+      "title": "Custom Cursor Demo",
+      "description": "Custom cursor demo with Sora icons and shape variants.",
+      "registryDependencies": [
+        "@soralabs/custom-cursor"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/primitives/effects/custom-cursor/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/effects/custom-cursor.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "CustomCursorExample": {
+            "color": {
+              "value": "#ff4c24"
+            },
+            "followStiffness": {
+              "value": 150,
+              "min": 50,
+              "max": 300,
+              "step": 10
+            },
+            "followDamping": {
+              "value": 22,
+              "min": 10,
+              "max": 40,
+              "step": 1
+            },
+            "className": {
+              "value": "w-full"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "demo-dock-nav",
+      "type": "registry:ui",
+      "title": "Dock Nav Demo",
+      "description": "Apple-style dock navigation demo with app icons.",
+      "registryDependencies": [
+        "@soralabs/dock-nav"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/primitives/effects/dock-nav/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/effects/dock-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-draw-underline-link",
+      "type": "registry:ui",
+      "title": "Draw Underline Link Demo",
+      "description": "Scrollable catalog preview with two centered link instances.",
+      "registryDependencies": [
+        "@soralabs/draw-underline-link"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/primitives/texts/draw-underline-link/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/texts/draw-underline-link.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-text-reveal-mask",
+      "type": "registry:ui",
+      "title": "Text Reveal (Mask) Demo",
+      "description": "Scroll-triggered masked text reveal with rich text emphasis.",
+      "registryDependencies": [
+        "@soralabs/text-reveal-mask"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/primitives/texts/text-reveal-mask/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/texts/text-reveal-mask.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "MaskedTextRevealExample": {
+            "splitBy": {
+              "value": "lines",
+              "options": {
+                "Lines": "lines",
+                "Words": "words",
+                "Characters": "chars"
+              }
+            },
+            "stagger": {
+              "value": 0.1,
+              "min": 0.01,
+              "max": 0.5,
+              "step": 0.01
+            },
+            "duration": {
+              "value": 0.8,
+              "min": 0.1,
+              "max": 2,
+              "step": 0.1
+            },
+            "yPercent": {
+              "value": 110,
+              "min": 50,
+              "max": 200,
+              "step": 5
+            },
+            "delay": {
+              "value": 0,
+              "min": 0,
+              "max": 2,
+              "step": 0.1
+            },
+            "viewportMargin": {
+              "value": "0px 0px -20% 0px"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "demo-text-roll",
+      "type": "registry:ui",
+      "title": "Text Roll Demo",
+      "description": "Interactive copy button with chromatic text roll feedback.",
+      "registryDependencies": [
+        "@soralabs/text-roll"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/primitives/texts/text-roll/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/texts/text-roll.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "TextRollPlayground": {
+            "className": {
+              "value": "font-medium text-lg tabular-nums"
+            },
+            "stagger": {
+              "value": 45,
+              "min": 0,
+              "max": 120,
+              "step": 5
+            },
+            "duration": {
+              "value": 300,
+              "min": 100,
+              "max": 600,
+              "step": 25
+            },
+            "bounce": {
+              "value": 0.6,
+              "min": 0,
+              "max": 1,
+              "step": 0.1
+            },
+            "chromatic": {
+              "value": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "hooks-use-auto-height",
+      "type": "registry:hook",
+      "title": "useAutoHeight",
+      "description": "A hook that allows you to automatically adjust the height of an element based on its content.",
+      "files": [
+        {
+          "path": "registry/hooks/use-auto-height/index.tsx",
+          "type": "registry:hook",
+          "target": "hooks/use-auto-height.tsx"
+        }
+      ]
+    },
+    {
+      "name": "char-stagger-button",
+      "type": "registry:ui",
+      "title": "Char Stagger Button",
+      "description": "A button with per-character stagger animation on hover.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/buttons/char-stagger-button/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/buttons/char-stagger-button.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "CharStaggerButton": {
+            "label": {
+              "value": "Staggering Button"
+            },
+            "variant": {
+              "value": "default",
+              "options": {
+                "Default": "default",
+                "Link": "link"
+              }
+            },
+            "staggerDelay": {
+              "value": 0.01,
+              "min": 0,
+              "max": 0.1,
+              "step": 0.005
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "section-cta",
+      "type": "registry:ui",
+      "title": "Section CTA",
+      "description": "A chip-style call-to-action link with sliding label and rotating icon chips on hover.",
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/buttons/section-cta/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/buttons/section-cta.tsx"
+        }
+      ],
+      "meta": {
+        "inspiration": {
+          "type": "inspired",
+          "label": "Annnimate",
+          "url": "https://www.annnimate.com"
+        },
+        "demoProps": {
+          "SectionCta": {
+            "label": {
+              "value": "Explore components"
+            },
+            "variant": {
+              "value": "accent",
+              "options": {
+                "Accent": "accent",
+                "Inverted": "inverted",
+                "Outline": "outline",
+                "Ghost": "ghost"
+              }
+            },
+            "size": {
+              "value": "default",
+              "options": {
+                "Small": "sm",
+                "Default": "default",
+                "Large": "lg"
+              }
+            },
+            "duration": {
+              "value": 0.7,
+              "min": 0.2,
+              "max": 2,
+              "step": 0.1
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "An animated FAQ accordion with expandable panels.",
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@soralabs/hooks-use-auto-height"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/disclosure/accordion/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/disclosure/accordion.tsx"
+        }
+      ],
+      "meta": {
+        "inspiration": {
+          "type": "reimplemented",
+          "label": "Annnimate",
+          "url": "https://www.annnimate.com"
+        }
+      }
+    },
+    {
+      "name": "cursor-trail-reveal",
+      "type": "registry:ui",
+      "title": "Cursor Trail Reveal",
+      "description": "Desktop cursor trail that reveals staggered image strips with clip-path wipes as the pointer moves.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/effects/cursor-trail-reveal/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/effects/cursor-trail-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "custom-cursor",
+      "type": "registry:ui",
+      "title": "Custom Cursor",
+      "description": "A smooth custom cursor that morphs when hovering interactive targets.",
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/effects/custom-cursor/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/effects/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dock-nav",
+      "type": "registry:ui",
+      "title": "Dock Nav",
+      "description": "An Apple-style dock navigation bar with expanding icons and tooltips on hover.",
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/effects/dock-nav/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/effects/dock-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pixelated-image-reveal",
+      "type": "registry:ui",
+      "title": "Pixelated Image Reveal",
+      "description": "An image card that reveals a second image through a randomized pixel grid on hover.",
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/effects/pixelated-image-reveal/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/effects/pixelated-image-reveal.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "PixelatedImageReveal": {
+            "alt": {
+              "value": "Pixelated image reveal demo"
+            },
+            "pixelColor": {
+              "value": "#ff4c24"
+            },
+            "gridSize": {
+              "value": 7,
+              "min": 3,
+              "max": 12,
+              "step": 1
+            },
+            "stepDuration": {
+              "value": 0.3,
+              "min": 0.1,
+              "max": 1,
+              "step": 0.05
+            },
+            "aspect": {
+              "value": "square",
+              "options": {
+                "Square": "square",
+                "Video": "video",
+                "Auto": "auto"
+              }
+            },
+            "className": {
+              "value": "mx-auto w-72"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "draw-underline-link",
+      "type": "registry:ui",
+      "title": "Draw Underline Link",
+      "description": "A link with a hand-drawn SVG underline that animates on hover.",
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/texts/draw-underline-link/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/texts/draw-underline-link.tsx"
+        }
+      ],
+      "meta": {
+        "inspiration": {
+          "type": "reimplemented",
+          "label": "Osmo",
+          "url": "https://osmo.supply"
+        },
+        "demoProps": {
+          "DrawUnderlineLink": {
+            "label": {
+              "value": "Hover me"
+            },
+            "variant": {
+              "value": "default",
+              "options": {
+                "Default": "default",
+                "Small": "sm",
+                "Large": "lg"
+              }
+            },
+            "duration": {
+              "value": 0.5,
+              "min": 0.2,
+              "max": 2,
+              "step": 0.1
+            },
+            "underlineColor": {
+              "value": "#ff4c24"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "text-reveal-block",
+      "type": "registry:ui",
+      "title": "Text Reveal (Block)",
+      "description": "Line-by-line text reveal with a colored block wipe, powered by GSAP SplitText.",
+      "dependencies": [
+        "gsap",
+        "@gsap/react"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/texts/text-reveal-block/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/texts/text-reveal-block.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "TextRevealBlock": {
+            "as": {
+              "value": "h2",
+              "options": {
+                "h1": "h1",
+                "h2": "h2",
+                "p": "p"
+              }
+            },
+            "text": {
+              "value": "Framed in shadow and light, every line arrives with deliberate tension."
+            },
+            "className": {
+              "value": "mx-auto max-w-lg text-center font-semibold text-2xl leading-tight tracking-tight"
+            },
+            "animateOnScroll": {
+              "value": false
+            },
+            "blockColor": {
+              "value": "#fe0100"
+            },
+            "stagger": {
+              "value": 0.15,
+              "min": 0,
+              "max": 0.5,
+              "step": 0.05
+            },
+            "duration": {
+              "value": 0.75,
+              "min": 0.2,
+              "max": 2,
+              "step": 0.05
+            },
+            "delay": {
+              "value": 0,
+              "min": 0,
+              "max": 1,
+              "step": 0.05
+            },
+            "direction": {
+              "value": "left",
+              "options": {
+                "left": "left",
+                "right": "right",
+                "up": "up",
+                "down": "down"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "text-reveal-blur",
+      "type": "registry:ui",
+      "title": "Text Reveal (Blur)",
+      "description": "A scroll-triggered text reveal animation with blur and opacity.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/texts/text-reveal-blur/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/texts/text-reveal-blur.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "BlurTextReveal": {
+            "as": {
+              "value": "h2",
+              "options": {
+                "h2": "h2",
+                "p": "p",
+                "span": "span"
+              }
+            },
+            "className": {
+              "value": "text-center font-bold text-3xl"
+            },
+            "text": {
+              "value": "Blur Text Animation"
+            },
+            "splitBy": {
+              "value": "words",
+              "options": {
+                "Words": "words",
+                "Characters": "characters"
+              }
+            },
+            "staggerDelay": {
+              "value": 0.05,
+              "min": 0.01,
+              "max": 0.5,
+              "step": 0.01
+            },
+            "delay": {
+              "value": 0,
+              "min": 0,
+              "max": 2,
+              "step": 0.1
+            },
+            "duration": {
+              "value": 0.5,
+              "min": 0.1,
+              "max": 2,
+              "step": 0.1
+            },
+            "blur": {
+              "value": 4,
+              "min": 0,
+              "max": 20,
+              "step": 1
+            },
+            "yOffset": {
+              "value": 0,
+              "min": -50,
+              "max": 50,
+              "step": 1
+            },
+            "viewportMargin": {
+              "value": "0px 0px -10% 0px"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "text-reveal-mask",
+      "type": "registry:ui",
+      "title": "Text Reveal (Mask)",
+      "description": "A scroll-triggered masked slide-up text reveal animation.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/texts/text-reveal-mask/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/texts/text-reveal-mask.tsx"
+        }
+      ],
+      "meta": {
+        "inspiration": {
+          "type": "reimplemented",
+          "label": "Annnimate",
+          "url": "https://www.annnimate.com"
+        },
+        "demoProps": {
+          "MaskedTextReveal": {
+            "as": {
+              "value": "h2",
+              "options": {
+                "h2": "h2",
+                "p": "p",
+                "span": "span"
+              }
+            },
+            "className": {
+              "value": "mx-auto max-w-3xl text-center text-3xl leading-tight font-normal tracking-tight text-foreground/75 [&_strong]:font-medium [&_strong]:text-foreground"
+            },
+            "text": {
+              "value": "Every stride is a statement. Every finish line a new beginning. We build gear for athletes who refuse to settle for yesterday's pace. Push beyond limits. Outrun expectations. This is where champions are made."
+            },
+            "splitBy": {
+              "value": "lines",
+              "options": {
+                "Lines": "lines",
+                "Words": "words",
+                "Characters": "chars"
+              }
+            },
+            "stagger": {
+              "value": 0.1,
+              "min": 0.01,
+              "max": 0.5,
+              "step": 0.01
+            },
+            "duration": {
+              "value": 0.8,
+              "min": 0.1,
+              "max": 2,
+              "step": 0.1
+            },
+            "yPercent": {
+              "value": 110,
+              "min": 50,
+              "max": 200,
+              "step": 5
+            },
+            "delay": {
+              "value": 0,
+              "min": 0,
+              "max": 2,
+              "step": 0.1
+            },
+            "viewportMargin": {
+              "value": "0px 0px -25% 0px"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "text-roll",
+      "type": "registry:ui",
+      "title": "Text Roll",
+      "description": "A per-character vertical text roll animation for label swaps and micro-interactions.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/texts/text-roll/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/texts/text-roll.tsx"
+        }
+      ],
+      "meta": {
+        "inspiration": {
+          "type": "inspired",
+          "label": "slot-text",
+          "url": "https://textmotion.dev/"
+        }
+      }
+    },
+    {
+      "name": "text-scramble",
+      "type": "registry:ui",
+      "title": "Text Scramble",
+      "description": "A text scramble reveal animation that decodes characters on mount or when re-triggered.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/texts/text-scramble/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/texts/text-scramble.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "TextScramble": {
+            "children": {
+              "value": "Sora UI"
+            },
+            "as": {
+              "value": "p",
+              "options": {
+                "p": "p",
+                "h2": "h2",
+                "span": "span"
+              }
+            },
+            "className": {
+              "value": "font-mono text-2xl font-bold uppercase tracking-widest text-foreground"
+            },
+            "scrambleColor": {
+              "value": ""
+            },
+            "holdDuration": {
+              "value": 0,
+              "min": 0,
+              "max": 2,
+              "step": 0.1
+            },
+            "duration": {
+              "value": 0.5,
+              "min": 0.2,
+              "max": 3,
+              "step": 0.1
+            },
+            "speed": {
+              "value": 0.03,
+              "min": 0.01,
+              "max": 0.15,
+              "step": 0.01
+            },
+            "trigger": {
+              "value": true
+            },
+            "triggerOnHover": {
+              "value": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "text-underline",
+      "type": "registry:ui",
+      "title": "Text Underline",
+      "description": "A CSS-only link underline that slides through on hover.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/texts/text-underline/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/texts/text-underline.tsx"
+        }
+      ],
+      "meta": {
+        "inspiration": {
+          "type": "reimplemented",
+          "label": "Annnimate",
+          "url": "https://www.annnimate.com"
+        },
+        "demoProps": {
+          "TextUnderline": {
+            "label": {
+              "value": "Performance Collection"
+            },
+            "underlineColor": {
+              "value": "brand",
+              "options": {
+                "Current": "currentColor",
+                "Brand": "brand",
+                "Brand Muted": "brand-muted",
+                "Gray": "gray"
+              }
+            },
+            "underlineHeight": {
+              "value": "thin",
+              "options": {
+                "Thin": "thin",
+                "Medium": "medium",
+                "Thick": "thick"
+              }
+            },
+            "duration": {
+              "value": "normal",
+              "options": {
+                "Fast": "fast",
+                "Normal": "normal",
+                "Slow": "slow"
+              }
+            },
+            "initialScale": {
+              "value": "0",
+              "options": {
+                "0%": "0",
+                "25%": "25",
+                "50%": "50",
+                "75%": "75"
+              }
+            },
+            "anchor": {
+              "value": "left",
+              "options": {
+                "Left (slide through)": "left",
+                "Center (expand)": "center"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "mapcn",
+  "homepage": "https://mapcn.dev",
+  "items": [
+    {
+      "name": "map",
+      "type": "registry:ui",
+      "title": "Map",
+      "description": "A MapLibre-powered map component with markers, popups, tooltips, routes, and controls.",
+      "dependencies": [
+        "maplibre-gl",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/registry/map.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/map.tsx"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          ".maplibregl-popup-content": {
+            "@apply bg-transparent! shadow-none! p-0! rounded-none!": {}
+          },
+          ".maplibregl-popup-tip": {
+            "@apply hidden!": {}
+          }
+        }
+      },
+      "meta": {
+        "components": [
+          {
+            "title": "Map",
+            "href": "/llm/map",
+            "description": "Base MapLibre-powered map component."
+          },
+          {
+            "title": "Controls",
+            "href": "/docs/controls",
+            "description": "Zoom, geolocate, fullscreen, and compass controls."
+          },
+          {
+            "title": "Markers",
+            "href": "/docs/markers",
+            "description": "Map markers with labels, tooltips, and popup composition."
+          },
+          {
+            "title": "Popups",
+            "href": "/docs/popups",
+            "description": "Standalone and marker-attached popup content."
+          },
+          {
+            "title": "Routes",
+            "href": "/docs/routes",
+            "description": "Line routes with optional markers and interaction handlers."
+          },
+          {
+            "title": "Arcs",
+            "href": "/docs/arcs",
+            "description": "Curved connection arcs between coordinates."
+          },
+          {
+            "title": "GeoJSON",
+            "href": "/docs/geojson",
+            "description": "GeoJSON sources and layers for custom map data."
+          },
+          {
+            "title": "Clusters",
+            "href": "/docs/clusters",
+            "description": "Clustered point layers for dense datasets."
+          }
+        ]
+      }
+    },
+    {
+      "name": "analytics-map",
+      "type": "registry:block",
+      "title": "Analytics Map",
+      "description": "Real-time analytics overview with a world map, breakdown cards, and device stats.",
+      "dependencies": [
+        "recharts",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@mapcn/map",
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/analytics-map/page.tsx",
+          "type": "registry:page",
+          "target": "app/analytics/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/analytics-map/data.ts",
+          "type": "registry:component",
+          "target": "app/analytics/data.ts"
+        },
+        {
+          "path": "src/registry/blocks/analytics-map/components/overview-card.tsx",
+          "type": "registry:component",
+          "target": "app/analytics/components/overview-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/analytics-map/components/breakdown-card.tsx",
+          "type": "registry:component",
+          "target": "app/analytics/components/breakdown-card.tsx"
+        }
+      ],
+      "categories": [
+        "analytics",
+        "dashboard"
+      ],
+      "meta": {
+        "iframeHeight": "940px"
+      }
+    },
+    {
+      "name": "choropleth",
+      "type": "registry:block",
+      "title": "Choropleth",
+      "description": "World choropleth map shading countries by a metric, with a hover tooltip and legend.",
+      "dependencies": [
+        "maplibre-gl",
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "@mapcn/map"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/choropleth/page.tsx",
+          "type": "registry:page",
+          "target": "app/choropleth/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/choropleth/data.ts",
+          "type": "registry:component",
+          "target": "app/choropleth/data.ts"
+        },
+        {
+          "path": "src/lib/use-world-data.ts",
+          "type": "registry:lib",
+          "target": "@lib/use-world-data.ts"
+        }
+      ],
+      "categories": [
+        "visualization",
+        "choropleth"
+      ],
+      "meta": {
+        "iframeHeight": "720px"
+      }
+    },
+    {
+      "name": "uptime-monitor",
+      "type": "registry:block",
+      "title": "Uptime Monitor",
+      "description": "Status-page style map of edge network locations with live health, latency, and uptime.",
+      "dependencies": [
+        "maplibre-gl"
+      ],
+      "registryDependencies": [
+        "@mapcn/map"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/uptime-monitor/page.tsx",
+          "type": "registry:page",
+          "target": "app/uptime-monitor/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/uptime-monitor/data.ts",
+          "type": "registry:component",
+          "target": "app/uptime-monitor/data.ts"
+        },
+        {
+          "path": "src/registry/blocks/uptime-monitor/components/edge-node-marker.tsx",
+          "type": "registry:component",
+          "target": "app/uptime-monitor/components/edge-node-marker.tsx"
+        },
+        {
+          "path": "src/registry/blocks/uptime-monitor/components/status-sidebar.tsx",
+          "type": "registry:component",
+          "target": "app/uptime-monitor/components/status-sidebar.tsx"
+        }
+      ],
+      "categories": [
+        "monitoring",
+        "status"
+      ],
+      "meta": {
+        "iframeHeight": "720px"
+      }
+    },
+    {
+      "name": "logistics-network",
+      "type": "registry:block",
+      "title": "Logistics Network",
+      "description": "Domestic logistics map with a sidebar of stats.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@mapcn/map",
+        "sidebar",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/logistics-network/page.tsx",
+          "type": "registry:page",
+          "target": "app/logistics/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/logistics-network/data.ts",
+          "type": "registry:component",
+          "target": "app/logistics/data.ts"
+        },
+        {
+          "path": "src/registry/blocks/logistics-network/components/filter-sidebar.tsx",
+          "type": "registry:component",
+          "target": "app/logistics/components/filter-sidebar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/logistics-network/components/network-map.tsx",
+          "type": "registry:component",
+          "target": "app/logistics/components/network-map.tsx"
+        }
+      ],
+      "categories": [
+        "logistics",
+        "network"
+      ],
+      "meta": {
+        "iframeHeight": "800px"
+      }
+    },
+    {
+      "name": "store-locator",
+      "type": "registry:block",
+      "title": "Store Locator",
+      "description": "Searchable store list synced with map markers.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@mapcn/map",
+        "input",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/store-locator/page.tsx",
+          "type": "registry:page",
+          "target": "app/store-locator/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/store-locator/data.ts",
+          "type": "registry:component",
+          "target": "app/store-locator/data.ts"
+        },
+        {
+          "path": "src/registry/blocks/store-locator/components/store-list.tsx",
+          "type": "registry:component",
+          "target": "app/store-locator/components/store-list.tsx"
+        },
+        {
+          "path": "src/registry/blocks/store-locator/components/locator-map.tsx",
+          "type": "registry:component",
+          "target": "app/store-locator/components/locator-map.tsx"
+        }
+      ],
+      "categories": [
+        "store-locator",
+        "locator"
+      ],
+      "meta": {
+        "iframeHeight": "800px"
+      }
+    },
+    {
+      "name": "heatmap",
+      "type": "registry:block",
+      "title": "Heatmap",
+      "description": "Globe-projected heatmap visualizing earthquake density with zoom-dependent styling.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@mapcn/map"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/heatmap/page.tsx",
+          "type": "registry:page",
+          "target": "app/heatmap/page.tsx"
+        }
+      ],
+      "categories": [
+        "visualization",
+        "heatmap"
+      ],
+      "meta": {
+        "iframeHeight": "800px"
+      }
+    },
+    {
+      "name": "delivery-tracker",
+      "type": "registry:block",
+      "title": "Delivery Tracker",
+      "description": "Live order tracking with route progress, courier position, and order details.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@mapcn/map",
+        "card",
+        "badge",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/delivery-tracker/page.tsx",
+          "type": "registry:page",
+          "target": "app/delivery/page.tsx"
+        }
+      ],
+      "categories": [
+        "tracking",
+        "delivery"
+      ],
+      "meta": {
+        "iframeHeight": "680px"
+      }
+    }
+  ]
+}

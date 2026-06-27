@@ -1,0 +1,1190 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "nteract",
+  "homepage": "https://nteract.io",
+  "items": [
+    {
+      "name": "ansi-output",
+      "type": "registry:component",
+      "title": "ANSI Output",
+      "description": "Components for rendering ANSI escape sequences as colored text in notebook outputs. Includes AnsiOutput, AnsiStreamOutput, and AnsiErrorOutput variants.",
+      "dependencies": [
+        "anser",
+        "escape-carriage"
+      ],
+      "files": [
+        {
+          "path": "registry/outputs/ansi-output.tsx",
+          "type": "registry:component",
+          "target": "components/outputs/ansi-output.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "ansi-black": "#3c3c3c",
+          "ansi-red": "#c23621",
+          "ansi-green": "#25bc24",
+          "ansi-yellow": "#adad27",
+          "ansi-blue": "#492ee1",
+          "ansi-magenta": "#d338d3",
+          "ansi-cyan": "#33bbc8",
+          "ansi-white": "#cbcccd",
+          "ansi-bright-black": "#818383",
+          "ansi-bright-red": "#fc391f",
+          "ansi-bright-green": "#31e722",
+          "ansi-bright-yellow": "#eaec23",
+          "ansi-bright-blue": "#5833ff",
+          "ansi-bright-magenta": "#f935f8",
+          "ansi-bright-cyan": "#14f0f0",
+          "ansi-bright-white": "#e9ebeb",
+          "ansi-black-bg": "#3c3c3c",
+          "ansi-red-bg": "#c23621",
+          "ansi-green-bg": "#25bc24",
+          "ansi-yellow-bg": "#b5a000",
+          "ansi-blue-bg": "#492ee1",
+          "ansi-magenta-bg": "#d338d3",
+          "ansi-cyan-bg": "#33bbc8",
+          "ansi-white-bg": "#cbcccd"
+        },
+        "dark": {
+          "ansi-black": "#6e7681",
+          "ansi-red": "#f97583",
+          "ansi-green": "#85e89d",
+          "ansi-yellow": "#ffea7f",
+          "ansi-blue": "#79b8ff",
+          "ansi-magenta": "#f692ce",
+          "ansi-cyan": "#56d4dd",
+          "ansi-white": "#fafbfc",
+          "ansi-bright-black": "#959da5",
+          "ansi-bright-red": "#fdaeb7",
+          "ansi-bright-green": "#bef5cb",
+          "ansi-bright-yellow": "#fff5b1",
+          "ansi-bright-blue": "#c8e1ff",
+          "ansi-bright-magenta": "#fedbf0",
+          "ansi-bright-cyan": "#a9f1f7",
+          "ansi-bright-white": "#ffffff",
+          "ansi-black-bg": "#484f58",
+          "ansi-red-bg": "#b31d28",
+          "ansi-green-bg": "#176f2c",
+          "ansi-yellow-bg": "#735c0f",
+          "ansi-blue-bg": "#1158c7",
+          "ansi-magenta-bg": "#5a32a3",
+          "ansi-cyan-bg": "#0e7481",
+          "ansi-white-bg": "#959da5"
+        }
+      },
+      "css": {
+        "@layer base": {
+          ".ansi-black-fg": {
+            "color": "var(--ansi-black)"
+          },
+          ".ansi-red-fg": {
+            "color": "var(--ansi-red)"
+          },
+          ".ansi-green-fg": {
+            "color": "var(--ansi-green)"
+          },
+          ".ansi-yellow-fg": {
+            "color": "var(--ansi-yellow)"
+          },
+          ".ansi-blue-fg": {
+            "color": "var(--ansi-blue)"
+          },
+          ".ansi-magenta-fg": {
+            "color": "var(--ansi-magenta)"
+          },
+          ".ansi-cyan-fg": {
+            "color": "var(--ansi-cyan)"
+          },
+          ".ansi-white-fg": {
+            "color": "var(--ansi-white)"
+          },
+          ".ansi-bright-black-fg": {
+            "color": "var(--ansi-bright-black)"
+          },
+          ".ansi-bright-red-fg": {
+            "color": "var(--ansi-bright-red)"
+          },
+          ".ansi-bright-green-fg": {
+            "color": "var(--ansi-bright-green)"
+          },
+          ".ansi-bright-yellow-fg": {
+            "color": "var(--ansi-bright-yellow)"
+          },
+          ".ansi-bright-blue-fg": {
+            "color": "var(--ansi-bright-blue)"
+          },
+          ".ansi-bright-magenta-fg": {
+            "color": "var(--ansi-bright-magenta)"
+          },
+          ".ansi-bright-cyan-fg": {
+            "color": "var(--ansi-bright-cyan)"
+          },
+          ".ansi-bright-white-fg": {
+            "color": "var(--ansi-bright-white)"
+          },
+          ".ansi-black-bg": {
+            "background-color": "var(--ansi-black-bg)"
+          },
+          ".ansi-red-bg": {
+            "background-color": "var(--ansi-red-bg)"
+          },
+          ".ansi-green-bg": {
+            "background-color": "var(--ansi-green-bg)"
+          },
+          ".ansi-yellow-bg": {
+            "background-color": "var(--ansi-yellow-bg)"
+          },
+          ".ansi-blue-bg": {
+            "background-color": "var(--ansi-blue-bg)"
+          },
+          ".ansi-magenta-bg": {
+            "background-color": "var(--ansi-magenta-bg)"
+          },
+          ".ansi-cyan-bg": {
+            "background-color": "var(--ansi-cyan-bg)"
+          },
+          ".ansi-white-bg": {
+            "background-color": "var(--ansi-white-bg)"
+          }
+        }
+      }
+    },
+    {
+      "name": "image-output",
+      "type": "registry:component",
+      "title": "Image Output",
+      "description": "Component for rendering images in notebook outputs. Handles base64-encoded image data from Jupyter kernels as well as regular URLs. Supports PNG, JPEG, GIF, and WebP.",
+      "files": [
+        {
+          "path": "registry/outputs/image-output.tsx",
+          "type": "registry:component",
+          "target": "components/outputs/image-output.tsx"
+        }
+      ]
+    },
+    {
+      "name": "html-output",
+      "type": "registry:component",
+      "title": "HTML Output",
+      "description": "Component for rendering HTML content in notebook outputs. Handles pandas DataFrames, rich HTML displays, and interactive visualizations. Requires iframe isolation for security.",
+      "files": [
+        {
+          "path": "registry/outputs/html-output.tsx",
+          "type": "registry:component",
+          "target": "components/outputs/html-output.tsx"
+        }
+      ]
+    },
+    {
+      "name": "svg-output",
+      "type": "registry:component",
+      "title": "SVG Output",
+      "description": "Component for rendering SVG graphics in notebook outputs. Handles matplotlib figures, diagrams, and other vector graphics with proper scaling.",
+      "files": [
+        {
+          "path": "registry/outputs/svg-output.tsx",
+          "type": "registry:component",
+          "target": "components/outputs/svg-output.tsx"
+        }
+      ]
+    },
+    {
+      "name": "markdown-output",
+      "type": "registry:component",
+      "title": "Markdown Output",
+      "description": "Component for rendering Markdown content in notebook outputs. Supports GitHub Flavored Markdown (GFM) with tables, task lists, and syntax-highlighted code blocks.",
+      "dependencies": [
+        "react-markdown",
+        "remark-gfm",
+        "remark-math",
+        "rehype-katex",
+        "rehype-raw",
+        "react-syntax-highlighter",
+        "@types/react-syntax-highlighter",
+        "katex"
+      ],
+      "files": [
+        {
+          "path": "registry/outputs/markdown-output.tsx",
+          "type": "registry:component",
+          "target": "components/outputs/markdown-output.tsx"
+        },
+        {
+          "path": "lib/dark-mode.ts",
+          "type": "registry:lib",
+          "target": "lib/dark-mode.ts"
+        }
+      ]
+    },
+    {
+      "name": "json-output",
+      "type": "registry:component",
+      "title": "JSON Output",
+      "description": "Component for rendering JSON data in an interactive, expandable tree view. Useful for inspecting complex data structures and API responses.",
+      "dependencies": [
+        "@uiw/react-json-view"
+      ],
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "registry/outputs/json-output.tsx",
+          "type": "registry:component",
+          "target": "components/outputs/json-output.tsx"
+        }
+      ]
+    },
+    {
+      "name": "media-provider",
+      "type": "registry:component",
+      "title": "Media Provider",
+      "description": "React context provider for shared media rendering configuration. Provides renderers and priority settings to all nested MediaRouter instances.",
+      "files": [
+        {
+          "path": "registry/outputs/media-provider.tsx",
+          "type": "registry:component",
+          "target": "components/outputs/media-provider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "media-router",
+      "type": "registry:component",
+      "title": "Media Router",
+      "description": "MIME type-based output dispatcher that automatically selects the best renderer for Jupyter outputs. Supports custom renderers and priority ordering for platform-specific MIME types.",
+      "registryDependencies": [
+        "@nteract/media-provider",
+        "@nteract/ansi-output",
+        "@nteract/markdown-output",
+        "@nteract/html-output",
+        "@nteract/image-output",
+        "@nteract/svg-output",
+        "@nteract/json-output"
+      ],
+      "files": [
+        {
+          "path": "registry/outputs/media-router.tsx",
+          "type": "registry:component",
+          "target": "components/outputs/media-router.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cell-header",
+      "type": "registry:component",
+      "title": "CellHeader",
+      "description": "Slot-based header layout for notebook cells with left/right content areas and optional drag support.",
+      "files": [
+        {
+          "path": "registry/cell/CellHeader.tsx",
+          "type": "registry:component",
+          "target": "components/cell/CellHeader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cell-type-button",
+      "type": "registry:component",
+      "title": "CellTypeButton",
+      "description": "Styled buttons for different notebook cell types with color coding. Includes CodeCellButton, MarkdownCellButton, SqlCellButton, and AiCellButton convenience components.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/CellTypeButton.tsx",
+          "type": "registry:component",
+          "target": "components/cell/CellTypeButton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "execution-status",
+      "type": "registry:component",
+      "title": "ExecutionStatus",
+      "description": "A badge component that displays the execution state of a notebook cell. Shows queued, running, or error states.",
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/ExecutionStatus.tsx",
+          "type": "registry:component",
+          "target": "components/cell/ExecutionStatus.tsx"
+        }
+      ]
+    },
+    {
+      "name": "play-button",
+      "type": "registry:component",
+      "title": "PlayButton",
+      "description": "Cell execution control button that shows Play, Stop, or Loading states based on execution state. Used in notebook cell toolbars.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/PlayButton.tsx",
+          "type": "registry:component",
+          "target": "components/cell/PlayButton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "runtime-health-indicator",
+      "type": "registry:component",
+      "title": "RuntimeHealthIndicator",
+      "description": "A visual indicator for kernel connection status. Shows idle, busy, connecting, or disconnected states with color-coded dots. Can display kernel name and optionally function as a button.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/RuntimeHealthIndicator.tsx",
+          "type": "registry:component",
+          "target": "components/cell/RuntimeHealthIndicator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cell-controls",
+      "type": "registry:component",
+      "title": "CellControls",
+      "description": "Cell action menu with source visibility toggle, move controls, and dropdown menu for delete and clear operations.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/CellControls.tsx",
+          "type": "registry:component",
+          "target": "components/cell/CellControls.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cell-container",
+      "type": "registry:component",
+      "title": "CellContainer",
+      "description": "A focus and selection wrapper for notebook cells with gutter ribbon system. Color-coded ribbons indicate cell type, with action area for play button and execution count.",
+      "files": [
+        {
+          "path": "registry/cell/CellContainer.tsx",
+          "type": "registry:component",
+          "target": "components/cell/CellContainer.tsx"
+        },
+        {
+          "path": "registry/cell/gutter-colors.ts",
+          "type": "registry:lib",
+          "target": "components/cell/gutter-colors.ts"
+        }
+      ]
+    },
+    {
+      "name": "cell-betweener",
+      "type": "registry:component",
+      "title": "CellBetweener",
+      "description": "Spacer component that maintains gutter ribbon continuity between cells. Creates an unbroken 'paper edge' effect down the left side of the notebook.",
+      "registryDependencies": [
+        "@nteract/cell-container"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/CellBetweener.tsx",
+          "type": "registry:component",
+          "target": "components/cell/CellBetweener.tsx"
+        }
+      ]
+    },
+    {
+      "name": "output-area",
+      "type": "registry:component",
+      "title": "OutputArea",
+      "description": "Wrapper component for rendering multiple Jupyter outputs with collapsible state and scroll behavior.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@nteract/media-router",
+        "@nteract/ansi-output",
+        "@nteract/isolated-frame",
+        "@nteract/widget-store",
+        "@nteract/markdown-output",
+        "@nteract/error-boundary",
+        "@nteract/highlight-text"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/OutputArea.tsx",
+          "type": "registry:component",
+          "target": "components/cell/OutputArea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "execution-count",
+      "type": "registry:component",
+      "title": "ExecutionCount",
+      "description": "Displays the classic Jupyter execution count indicator with bracket notation. Shows [ ]: for never executed, [*]: for executing, and [n]: for executed cells.",
+      "files": [
+        {
+          "path": "registry/cell/ExecutionCount.tsx",
+          "type": "registry:component",
+          "target": "components/cell/ExecutionCount.tsx"
+        }
+      ]
+    },
+    {
+      "name": "collaborator-avatars",
+      "type": "registry:component",
+      "title": "CollaboratorAvatars",
+      "description": "Display avatars of users collaborating on a notebook with overflow handling.",
+      "registryDependencies": [
+        "avatar",
+        "hover-card"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/CollaboratorAvatars.tsx",
+          "type": "registry:component",
+          "target": "components/cell/CollaboratorAvatars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "presence-bookmarks",
+      "type": "registry:component",
+      "title": "PresenceBookmarks",
+      "description": "Shows stacked user avatars indicating who is present on a cell. Displays a HoverCard with user details and a +N overflow indicator when users exceed the limit.",
+      "registryDependencies": [
+        "avatar",
+        "hover-card"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/PresenceBookmarks.tsx",
+          "type": "registry:component",
+          "target": "components/cell/PresenceBookmarks.tsx"
+        }
+      ]
+    },
+    {
+      "name": "codemirror-editor",
+      "type": "registry:component",
+      "title": "CodeMirror Editor",
+      "description": "A CodeMirror 6 editor component for notebook cells with syntax highlighting, key bindings, and language support for Python, IPython (with magics and shell commands), Markdown, SQL, HTML, JavaScript, TypeScript, and JSON.",
+      "dependencies": [
+        "@codemirror/view",
+        "@codemirror/state",
+        "@codemirror/commands",
+        "@codemirror/autocomplete",
+        "@codemirror/language",
+        "@codemirror/lint",
+        "@codemirror/lang-python",
+        "@codemirror/lang-markdown",
+        "@codemirror/lang-sql",
+        "@codemirror/lang-html",
+        "@codemirror/lang-javascript",
+        "@codemirror/lang-json",
+        "@uiw/react-codemirror",
+        "@uiw/codemirror-theme-github"
+      ],
+      "files": [
+        {
+          "path": "registry/editor/codemirror-editor.tsx",
+          "type": "registry:component",
+          "target": "components/editor/codemirror-editor.tsx"
+        },
+        {
+          "path": "registry/editor/extensions.ts",
+          "type": "registry:component",
+          "target": "components/editor/extensions.ts"
+        },
+        {
+          "path": "registry/editor/languages.ts",
+          "type": "registry:component",
+          "target": "components/editor/languages.ts"
+        },
+        {
+          "path": "registry/editor/themes.ts",
+          "type": "registry:component",
+          "target": "components/editor/themes.ts"
+        },
+        {
+          "path": "registry/editor/ipython.ts",
+          "type": "registry:component",
+          "target": "components/editor/ipython.ts"
+        },
+        {
+          "path": "registry/editor/search-highlight.ts",
+          "type": "registry:component",
+          "target": "components/editor/search-highlight.ts"
+        },
+        {
+          "path": "registry/editor/index.ts",
+          "type": "registry:component",
+          "target": "components/editor/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "widget-store",
+      "type": "registry:lib",
+      "title": "Widget Store",
+      "description": "Pure React state management for Jupyter widget models. Handles comm_open, comm_msg, and comm_close messages with fine-grained subscriptions via useSyncExternalStore. Includes comm protocol router and buffer utilities.",
+      "files": [
+        {
+          "path": "registry/widgets/widget-store.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/widget-store.ts"
+        },
+        {
+          "path": "registry/widgets/widget-store-context.tsx",
+          "type": "registry:lib",
+          "target": "components/widgets/widget-store-context.tsx"
+        },
+        {
+          "path": "registry/widgets/use-comm-router.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/use-comm-router.ts"
+        },
+        {
+          "path": "registry/widgets/buffer-utils.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/buffer-utils.ts"
+        },
+        {
+          "path": "registry/widgets/link-subscriptions.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/link-subscriptions.ts"
+        },
+        {
+          "path": "registry/widgets/canvas-manager-subscriptions.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/canvas-manager-subscriptions.ts"
+        }
+      ]
+    },
+    {
+      "name": "anywidget-view",
+      "type": "registry:lib",
+      "title": "AnyWidget View",
+      "description": "React component for rendering anywidget ESM modules with the AFM (AnyWidget Frontend Module) interface. Handles dynamic ESM loading, CSS injection, and two-way state synchronization.",
+      "registryDependencies": [
+        "@nteract/widget-store"
+      ],
+      "files": [
+        {
+          "path": "registry/widgets/anywidget-view.tsx",
+          "type": "registry:lib",
+          "target": "components/widgets/anywidget-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "widget-view",
+      "type": "registry:lib",
+      "title": "Widget View",
+      "description": "Universal widget router that renders Jupyter widgets. Routes anywidgets to ESM loader and standard ipywidgets to built-in shadcn-backed components.",
+      "registryDependencies": [
+        "@nteract/widget-store",
+        "@nteract/anywidget-view",
+        "@nteract/error-boundary"
+      ],
+      "files": [
+        {
+          "path": "registry/widgets/widget-view.tsx",
+          "type": "registry:lib",
+          "target": "components/widgets/widget-view.tsx"
+        },
+        {
+          "path": "registry/widgets/widget-registry.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/widget-registry.ts"
+        }
+      ]
+    },
+    {
+      "name": "widget-controls",
+      "type": "registry:component",
+      "title": "Widget Controls",
+      "description": "Built-in shadcn-backed widget components for standard ipywidgets including controls (IntSlider, FloatSlider, IntRangeSlider, FloatRangeSlider, IntProgress, Button, Checkbox, Text, Textarea, HTML, ColorPicker, Dropdown, RadioButtons, ToggleButton, ToggleButtons, SelectMultiple) and layout containers (VBox, HBox, Box, GridBox, Accordion, Tab).",
+      "registryDependencies": [
+        "@nteract/widget-view",
+        "@nteract/output-area",
+        "slider",
+        "progress",
+        "button",
+        "checkbox",
+        "input",
+        "textarea",
+        "label",
+        "select",
+        "radio-group",
+        "toggle",
+        "toggle-group",
+        "accordion",
+        "tabs",
+        "command",
+        "popover",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry/widgets/controls/index.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/controls/index.ts"
+        },
+        {
+          "path": "registry/widgets/use-layout-styles.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/use-layout-styles.ts"
+        },
+        {
+          "path": "registry/widgets/layout-utils.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/layout-utils.ts"
+        },
+        {
+          "path": "registry/widgets/controls/int-slider.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/int-slider.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/float-slider.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/float-slider.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/int-range-slider.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/int-range-slider.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/float-range-slider.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/float-range-slider.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/int-progress.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/int-progress.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/float-progress.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/float-progress.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/button-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/button-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/checkbox-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/checkbox-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/text-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/text-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/textarea-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/textarea-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/html-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/html-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/color-picker.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/color-picker.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/dropdown-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/dropdown-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/radio-buttons-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/radio-buttons-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/select-multiple-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/select-multiple-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/toggle-button-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/toggle-button-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/toggle-buttons-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/toggle-buttons-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/vbox-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/vbox-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/hbox-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/hbox-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/box-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/box-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/gridbox-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/gridbox-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/accordion-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/accordion-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/tab-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/tab-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/label-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/label-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/link-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/link-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/image-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/image-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/int-text-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/int-text-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/float-text-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/float-text-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/bounded-int-text-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/bounded-int-text-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/bounded-float-text-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/bounded-float-text-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/password-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/password-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/valid-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/valid-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/select-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/select-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/html-math-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/html-math-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/date-picker-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/date-picker-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/time-picker-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/time-picker-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/float-log-slider.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/float-log-slider.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/play-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/play-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/combobox-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/combobox-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/selection-slider-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/selection-slider-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/selection-range-slider-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/selection-range-slider-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/file-upload-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/file-upload-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/tags-input-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/tags-input-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/colors-input-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/colors-input-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/controller-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/controller-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/controller-button-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/controller-button-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/controller-axis-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/controller-axis-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/output-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/output-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/button-style-utils.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/controls/button-style-utils.ts"
+        },
+        {
+          "path": "registry/widgets/controls/audio-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/audio-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/video-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/video-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/ints-input-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/ints-input-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/floats-input-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/floats-input-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/datetime-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/datetime-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/controls/stack-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/controls/stack-widget.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ipycanvas",
+      "type": "registry:component",
+      "title": "ipycanvas Widget",
+      "description": "Canvas widget for ipycanvas. Renders an HTML canvas and processes drawing commands sent from Python via the ipycanvas binary protocol. Supports shapes, paths, text, transforms, batch operations, and mouse/keyboard events.",
+      "registryDependencies": [
+        "@nteract/widget-view"
+      ],
+      "files": [
+        {
+          "path": "registry/widgets/ipycanvas/index.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/ipycanvas/index.ts"
+        },
+        {
+          "path": "registry/widgets/ipycanvas/canvas-widget.tsx",
+          "type": "registry:component",
+          "target": "components/widgets/ipycanvas/canvas-widget.tsx"
+        },
+        {
+          "path": "registry/widgets/ipycanvas/ipycanvas-commands.ts",
+          "type": "registry:lib",
+          "target": "components/widgets/ipycanvas/ipycanvas-commands.ts"
+        }
+      ]
+    },
+    {
+      "name": "isolated-frame",
+      "type": "registry:component",
+      "title": "Isolated Frame",
+      "description": "Secure iframe component for rendering untrusted output content. Uses blob URLs with sandbox restrictions to isolate JavaScript execution. Includes message bridge for parent-child communication and widget comm protocol support.",
+      "registryDependencies": [
+        "@nteract/widget-store"
+      ],
+      "files": [
+        {
+          "path": "registry/outputs/isolated/index.ts",
+          "type": "registry:lib",
+          "target": "components/isolated/index.ts"
+        },
+        {
+          "path": "registry/outputs/isolated/isolated-frame.tsx",
+          "type": "registry:component",
+          "target": "components/isolated/isolated-frame.tsx"
+        },
+        {
+          "path": "registry/outputs/isolated/frame-bridge.ts",
+          "type": "registry:lib",
+          "target": "components/isolated/frame-bridge.ts"
+        },
+        {
+          "path": "registry/outputs/isolated/frame-html.ts",
+          "type": "registry:lib",
+          "target": "components/isolated/frame-html.ts"
+        },
+        {
+          "path": "registry/outputs/isolated/comm-bridge-manager.ts",
+          "type": "registry:lib",
+          "target": "components/isolated/comm-bridge-manager.ts"
+        },
+        {
+          "path": "registry/outputs/isolated/IsolationTest.tsx",
+          "type": "registry:component",
+          "target": "components/isolated/IsolationTest.tsx"
+        },
+        {
+          "path": "registry/outputs/isolated/isolated-renderer-context.tsx",
+          "type": "registry:component",
+          "target": "components/isolated/isolated-renderer-context.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cell-type-selector",
+      "type": "registry:component",
+      "title": "CellTypeSelector",
+      "description": "A dropdown selector for changing cell types in notebook interfaces. Supports filtering available types and displays the current type with color-coded styling.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "@nteract/cell-type-button"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/CellTypeSelector.tsx",
+          "type": "registry:component",
+          "target": "components/cell/CellTypeSelector.tsx"
+        }
+      ]
+    },
+    {
+      "name": "error-boundary",
+      "type": "registry:lib",
+      "title": "Error Boundary",
+      "description": "React error boundary with resetKeys support for automatic recovery. Includes OutputErrorFallback and WidgetErrorFallback components for graceful error display in outputs and widgets.",
+      "files": [
+        {
+          "path": "registry/lib/error-boundary.tsx",
+          "type": "registry:lib",
+          "target": "lib/error-boundary.tsx"
+        },
+        {
+          "path": "registry/lib/output-error-fallback.tsx",
+          "type": "registry:lib",
+          "target": "lib/output-error-fallback.tsx"
+        },
+        {
+          "path": "registry/lib/widget-error-fallback.tsx",
+          "type": "registry:lib",
+          "target": "lib/widget-error-fallback.tsx"
+        }
+      ]
+    },
+    {
+      "name": "highlight-text",
+      "type": "registry:lib",
+      "title": "Highlight Text",
+      "description": "DOM utility for highlighting search matches in text content with customizable styling.",
+      "files": [
+        {
+          "path": "registry/lib/highlight-text.ts",
+          "type": "registry:lib",
+          "target": "lib/highlight-text.ts"
+        }
+      ]
+    },
+    {
+      "name": "isolated-renderer",
+      "type": "registry:component",
+      "title": "Isolated Renderer",
+      "description": "Complete isolated iframe renderer bundle for Jupyter outputs and widgets. Runs inside a sandboxed iframe with its own React app, receiving render commands via postMessage. Includes widget bridge client for two-way comm protocol support. This is a standalone entry point that can be built separately (includes vite.config.ts).",
+      "devDependencies": [
+        "@tailwindcss/vite",
+        "@vitejs/plugin-react",
+        "vite"
+      ],
+      "registryDependencies": [
+        "@nteract/error-boundary",
+        "@nteract/ansi-output",
+        "@nteract/html-output",
+        "@nteract/image-output",
+        "@nteract/isolated-frame",
+        "@nteract/json-output",
+        "@nteract/markdown-output",
+        "@nteract/svg-output",
+        "@nteract/widget-view",
+        "@nteract/widget-controls"
+      ],
+      "files": [
+        {
+          "path": "registry/isolated-renderer/index.tsx",
+          "type": "registry:component",
+          "target": "isolated-renderer/index.tsx"
+        },
+        {
+          "path": "registry/isolated-renderer/widget-provider.tsx",
+          "type": "registry:component",
+          "target": "isolated-renderer/widget-provider.tsx"
+        },
+        {
+          "path": "registry/isolated-renderer/widget-bridge-client.ts",
+          "type": "registry:lib",
+          "target": "isolated-renderer/widget-bridge-client.ts"
+        },
+        {
+          "path": "registry/isolated-renderer/styles.css",
+          "type": "registry:file",
+          "target": "isolated-renderer/styles.css"
+        },
+        {
+          "path": "registry/isolated-renderer/vite.config.ts",
+          "type": "registry:file",
+          "target": "isolated-renderer/vite.config.ts"
+        }
+      ]
+    },
+    {
+      "name": "all",
+      "type": "registry:component",
+      "title": "All nteract Components",
+      "description": "Install all Jupyter frontend components: outputs, cell primitives, widgets, editor, icons, and UI components.",
+      "registryDependencies": [
+        "@nteract/media-provider",
+        "@nteract/media-router",
+        "@nteract/output-area",
+        "@nteract/cell-container",
+        "@nteract/cell-betweener",
+        "@nteract/cell-header",
+        "@nteract/cell-controls",
+        "@nteract/cell-type-button",
+        "@nteract/cell-type-selector",
+        "@nteract/execution-count",
+        "@nteract/execution-status",
+        "@nteract/play-button",
+        "@nteract/runtime-health-indicator",
+        "@nteract/collaborator-avatars",
+        "@nteract/presence-bookmarks",
+        "@nteract/global-find-bar",
+        "@nteract/widget-controls",
+        "@nteract/ipycanvas",
+        "@nteract/codemirror-editor",
+        "@nteract/isolated-renderer",
+        "@nteract/runtime-icons",
+        "@nteract/selection-card"
+      ],
+      "files": []
+    },
+    {
+      "name": "global-find-bar",
+      "type": "registry:component",
+      "title": "Global Find Bar",
+      "description": "Floating search bar for notebook-wide find functionality. Supports keyboard navigation (Enter/Shift+Enter for next/prev, Escape to close). Works with search-highlight CodeMirror extension for in-cell highlighting.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/cell/GlobalFindBar.tsx",
+          "type": "registry:component",
+          "target": "components/cell/GlobalFindBar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "runtime-icons",
+      "type": "registry:component",
+      "title": "Runtime Icons",
+      "description": "SVG icons for runtime environments and package managers. Includes DenoIcon, PythonIcon, UvIcon, CondaIcon, and PixiIcon for notebook and onboarding UIs.",
+      "files": [
+        {
+          "path": "registry/icons/runtime-icons.tsx",
+          "type": "registry:component",
+          "target": "components/icons/runtime-icons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "selection-card",
+      "type": "registry:component",
+      "title": "Selection Card",
+      "description": "A stylized selection card component for wizard and onboarding UIs. Includes SelectionCard with icon, title, description, and color-coded selection state, plus PageDots for step navigation and BRAND_COLORS preset for common tools.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/selection-card.tsx",
+          "type": "registry:component",
+          "target": "components/ui/selection-card.tsx"
+        }
+      ]
+    }
+  ]
+}

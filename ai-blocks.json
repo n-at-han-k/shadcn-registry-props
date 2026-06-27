@@ -1,0 +1,768 @@
+{
+  "name": "ai-blocks",
+  "homepage": "https://webllm.org/blocks",
+  "components": [
+    {
+      "name": "ai-avatar",
+      "type": "registry:ui",
+      "title": "AI Avatar",
+      "description": "An avatar component with AI/user variants and thinking indicator."
+    },
+    {
+      "name": "ai-input",
+      "type": "registry:ui",
+      "title": "AI Input",
+      "description": "An enhanced textarea input with stop button, file attachments, and submit handling."
+    },
+    {
+      "name": "chat-bubble",
+      "type": "registry:ui",
+      "title": "Chat Bubble",
+      "description": "A chat message bubble with streaming text support, avatar, and timestamp."
+    },
+    {
+      "name": "message-list",
+      "type": "registry:ui",
+      "title": "Message List",
+      "description": "A scrollable list of chat messages with auto-scroll and empty state."
+    },
+    {
+      "name": "chat-interface",
+      "type": "registry:block",
+      "title": "Chat Interface",
+      "description": "A complete chat interface with message list, input, and streaming support."
+    },
+    {
+      "name": "streaming-text",
+      "type": "registry:block",
+      "title": "Streaming Text",
+      "description": "A text component with streaming cursor and optional typing animation."
+    },
+    {
+      "name": "prompt-form",
+      "type": "registry:block",
+      "title": "Prompt Form",
+      "description": "A prompt input form with optional model selector, temperature, and token controls."
+    },
+    {
+      "name": "use-streaming",
+      "type": "registry:hook",
+      "title": "useStreaming",
+      "description": "Hook for handling streaming text responses from AI APIs."
+    },
+    {
+      "name": "use-chat",
+      "type": "registry:hook",
+      "title": "useChat",
+      "description": "Hook for managing chat conversations with message history and generation."
+    },
+    {
+      "name": "use-webllm",
+      "type": "registry:hook",
+      "title": "useWebLLM",
+      "description": "Hook for integrating with WebLLM client for browser-native LLM access."
+    },
+    {
+      "name": "alt-text-generator",
+      "type": "registry:block",
+      "title": "Alt Text Generator",
+      "description": "Auto-generate image descriptions for accessibility"
+    },
+    {
+      "name": "simplify-text",
+      "type": "registry:block",
+      "title": "Simplify Text",
+      "description": "Convert complex text to plain, accessible language"
+    },
+    {
+      "name": "screen-reader-prep",
+      "type": "registry:block",
+      "title": "Screen Reader Prep",
+      "description": "Optimize content for screen readers - replace emojis, fix links"
+    },
+    {
+      "name": "dyslexia-mode",
+      "type": "registry:block",
+      "title": "Dyslexia-Friendly",
+      "description": "Adjustable text formatting for easier reading"
+    },
+    {
+      "name": "pirate-article-reader",
+      "type": "registry:block",
+      "title": "Pirate Article Reader",
+      "description": "Listen to any article narrated by a salty sea captain - Arr!"
+    },
+    {
+      "name": "character-voices",
+      "type": "registry:block",
+      "title": "Character Voices",
+      "description": "Hear content in different character voices - news anchor, storyteller, professor"
+    },
+    {
+      "name": "audio-summary",
+      "type": "registry:block",
+      "title": "Audio Summary",
+      "description": "Get a quick audio TLDR of any article - perfect for busy readers"
+    },
+    {
+      "name": "bedtime-story",
+      "type": "registry:block",
+      "title": "Bedtime Story Generator",
+      "description": "Generate and narrate soothing bedtime stories for children"
+    },
+    {
+      "name": "multi-voice-dialogue",
+      "type": "registry:block",
+      "title": "Multi-Voice Dialogue",
+      "description": "Dialogues with different AI voices for each character"
+    },
+    {
+      "name": "podcast-generator",
+      "type": "registry:block",
+      "title": "Podcast Generator",
+      "description": "Transform any topic into a podcast segment with AI host"
+    },
+    {
+      "name": "availability-badge",
+      "type": "registry:block",
+      "title": "Availability Badge",
+      "description": "Simple status pills and badges showing WebLLM availability state"
+    },
+    {
+      "name": "availability-banner",
+      "type": "registry:block",
+      "title": "Availability Banner",
+      "description": "Contextual banners with setup guidance and action CTAs based on WebLLM status"
+    },
+    {
+      "name": "capability-gate",
+      "type": "registry:block",
+      "title": "Capability Gate",
+      "description": "Feature cards showing available AI capabilities based on configured providers"
+    },
+    {
+      "name": "availability-behavior",
+      "type": "registry:block",
+      "title": "Availability Behavior",
+      "description": "Interactive demo showing show/hide/fallback patterns for unavailable AI features"
+    },
+    {
+      "name": "oauth-domain-auth",
+      "type": "registry:block",
+      "title": "OAuth Domain Authorization",
+      "description": "Complete OAuth flow for connecting user cloud accounts with domain-based authorization"
+    },
+    {
+      "name": "cloud-auth-button",
+      "type": "registry:block",
+      "title": "Cloud Auth Buttons",
+      "description": "Various button styles for cloud authentication - simple, icon-only, dropdown, and status badge"
+    },
+    {
+      "name": "cloud-login-button",
+      "type": "registry:block",
+      "title": "Cloud Login Button",
+      "description": "Simple login button with green glowing status dot and disconnect dropdown"
+    },
+    {
+      "name": "simple-chat",
+      "type": "registry:block",
+      "title": "Simple Chat",
+      "description": "Basic chat interface with user and assistant messages"
+    },
+    {
+      "name": "chat-personas",
+      "type": "registry:block",
+      "title": "Chat Personas",
+      "description": "Switch between AI personalities: pirate, Shakespeare, chef, detective"
+    },
+    {
+      "name": "voice-chat",
+      "type": "registry:block",
+      "title": "Voice Chat",
+      "description": "Speech-to-text input with text-to-speech responses"
+    },
+    {
+      "name": "chat-with-context",
+      "type": "registry:block",
+      "title": "Contextual Chat",
+      "description": "Chat that references page content - ask questions about any article"
+    },
+    {
+      "name": "chat-with-tools",
+      "type": "registry:block",
+      "title": "Chat with Tools",
+      "description": "AI assistant that can call functions - calculator, time, weather"
+    },
+    {
+      "name": "headline-generator",
+      "type": "registry:block",
+      "title": "Headline Generator",
+      "description": "Generate multiple headline options in different styles"
+    },
+    {
+      "name": "bio-writer",
+      "type": "registry:block",
+      "title": "Bio Writer",
+      "description": "Generate professional bios in multiple tones and lengths"
+    },
+    {
+      "name": "email-composer",
+      "type": "registry:block",
+      "title": "Email Composer",
+      "description": "Draft professional emails from bullet points"
+    },
+    {
+      "name": "story-helper",
+      "type": "registry:block",
+      "title": "Story Helper",
+      "description": "Writing assistant with plot twists, dialogue, and continuations"
+    },
+    {
+      "name": "receipt-parser",
+      "type": "registry:block",
+      "title": "Receipt Parser",
+      "description": "Extract structured data from receipt text or images"
+    },
+    {
+      "name": "product-comparison",
+      "type": "registry:block",
+      "title": "Product Comparison Table",
+      "description": "AI-generated comparison tables for any products"
+    },
+    {
+      "name": "pricing-explainer",
+      "type": "registry:block",
+      "title": "Pricing Explainer",
+      "description": "Explain if a price is fair with market context"
+    },
+    {
+      "name": "churn-detector",
+      "type": "registry:block",
+      "title": "Churn Signal Detector",
+      "description": "Identify customers at risk of churning"
+    },
+    {
+      "name": "size-recommender",
+      "type": "registry:block",
+      "title": "Size Recommender",
+      "description": "Personalized clothing size recommendations"
+    },
+    {
+      "name": "gift-recommender",
+      "type": "registry:block",
+      "title": "Gift Recommender",
+      "description": "Personalized gift ideas based on recipient description"
+    },
+    {
+      "name": "inventory-narrator",
+      "type": "registry:block",
+      "title": "Inventory Status Narrator",
+      "description": "Generate friendly inventory status messages"
+    },
+    {
+      "name": "regex-generator",
+      "type": "registry:block",
+      "title": "Regex Generator",
+      "description": "Generate regex patterns from natural language descriptions"
+    },
+    {
+      "name": "error-explainer",
+      "type": "registry:block",
+      "title": "Error Explainer",
+      "description": "Get friendly explanations for cryptic error messages"
+    },
+    {
+      "name": "json-type-converter",
+      "type": "registry:block",
+      "title": "JSON Type Converter",
+      "description": "Convert JSON to TypeScript, Zod, or other type definitions"
+    },
+    {
+      "name": "cron-builder",
+      "type": "registry:block",
+      "title": "Cron Builder",
+      "description": "Generate and explain cron expressions in plain English"
+    },
+    {
+      "name": "api-response-designer",
+      "type": "registry:block",
+      "title": "API Response Designer",
+      "description": "Generate realistic API responses for testing and docs"
+    },
+    {
+      "name": "git-helper",
+      "type": "registry:block",
+      "title": "Git Helper",
+      "description": "Get git commands from natural language descriptions"
+    },
+    {
+      "name": "commit-message-writer",
+      "type": "registry:block",
+      "title": "Commit Message Writer",
+      "description": "Generate meaningful commit messages from your changes"
+    },
+    {
+      "name": "code-converter",
+      "type": "registry:block",
+      "title": "Code Converter",
+      "description": "Convert code between programming languages"
+    },
+    {
+      "name": "review-summarizer",
+      "type": "registry:block",
+      "title": "Review Summarizer",
+      "description": "Synthesize product reviews into pros, cons, and rating summary"
+    },
+    {
+      "name": "product-compare",
+      "type": "registry:block",
+      "title": "Product Comparison",
+      "description": "Side-by-side comparison with criteria analysis and winner"
+    },
+    {
+      "name": "size-advisor",
+      "type": "registry:block",
+      "title": "Size Advisor",
+      "description": "Personalized size recommendations based on measurements"
+    },
+    {
+      "name": "product-search-nl",
+      "type": "registry:block",
+      "title": "Natural Language Search",
+      "description": "Search products by describing what you want in plain English"
+    },
+    {
+      "name": "flashcard-generator",
+      "type": "registry:block",
+      "title": "Flashcard Generator",
+      "description": "Generate study flashcards from any educational content"
+    },
+    {
+      "name": "practice-problems",
+      "type": "registry:block",
+      "title": "Practice Problems",
+      "description": "Infinite multiple choice questions from any content"
+    },
+    {
+      "name": "socratic-tutor",
+      "type": "registry:block",
+      "title": "Socratic Tutor",
+      "description": "Learn through guided questions - no direct answers given"
+    },
+    {
+      "name": "glossary-hover",
+      "type": "registry:block",
+      "title": "Glossary on Hover",
+      "description": "Hover over technical terms for instant definitions"
+    },
+    {
+      "name": "concept-checker",
+      "type": "registry:block",
+      "title": "Concept Checker",
+      "description": "Explain it back - AI evaluates your understanding"
+    },
+    {
+      "name": "smart-textarea",
+      "type": "registry:block",
+      "title": "Smart Textarea",
+      "description": "AI-powered text input with inline suggestions (Tab to accept)"
+    },
+    {
+      "name": "form-autofill",
+      "type": "registry:block",
+      "title": "Form Autofill",
+      "description": "Natural language to form fields - describe yourself, form fills itself"
+    },
+    {
+      "name": "input-validation",
+      "type": "registry:block",
+      "title": "Smart Validation",
+      "description": "AI-powered input validation with helpful suggestions"
+    },
+    {
+      "name": "contact-form",
+      "type": "registry:block",
+      "title": "Smart Contact Form",
+      "description": "AI auto-categorizes and prioritizes support inquiries"
+    },
+    {
+      "name": "roast-my-idea",
+      "type": "registry:block",
+      "title": "Roast My Idea",
+      "description": "Get a brutally honest critique of your startup or project idea"
+    },
+    {
+      "name": "name-generator",
+      "type": "registry:block",
+      "title": "Name Generator",
+      "description": "Generate creative names for products, companies, or characters"
+    },
+    {
+      "name": "excuse-generator",
+      "type": "registry:block",
+      "title": "Excuse Generator",
+      "description": "Generate creative excuses for various situations"
+    },
+    {
+      "name": "horoscope-generator",
+      "type": "registry:block",
+      "title": "Horoscope Generator",
+      "description": "Generate personalized daily horoscopes"
+    },
+    {
+      "name": "recipe-from-ingredients",
+      "type": "registry:block",
+      "title": "Recipe from Ingredients",
+      "description": "Generate recipes based on available ingredients"
+    },
+    {
+      "name": "rhyme-helper",
+      "type": "registry:block",
+      "title": "Rhyme Helper",
+      "description": "Find rhymes and help write poetry or lyrics"
+    },
+    {
+      "name": "shakespearean-insult",
+      "type": "registry:block",
+      "title": "Shakespearean Insult",
+      "description": "Generate creative insults in Shakespearean style"
+    },
+    {
+      "name": "fortune-cookie",
+      "type": "registry:block",
+      "title": "Fortune Cookie",
+      "description": "Generate wisdom and fortunes in fortune cookie style"
+    },
+    {
+      "name": "dating-profile-reviewer",
+      "type": "registry:block",
+      "title": "Dating Profile Reviewer",
+      "description": "Get AI feedback on your dating profile"
+    },
+    {
+      "name": "text-to-image",
+      "type": "registry:block",
+      "title": "Text to Image",
+      "description": "Generate images from text prompts using AI"
+    },
+    {
+      "name": "image-variations",
+      "type": "registry:block",
+      "title": "Image Variations",
+      "description": "Generate style variations of any image - oil painting, minimalist, vintage"
+    },
+    {
+      "name": "image-editor",
+      "type": "registry:block",
+      "title": "AI Image Editor",
+      "description": "Edit images with natural language instructions"
+    },
+    {
+      "name": "pet-portrait",
+      "type": "registry:block",
+      "title": "Pet Portrait Generator",
+      "description": "Transform pet photos into artistic portraits - Renaissance, Pop Art, Watercolor, Cyberpunk"
+    },
+    {
+      "name": "decision-helper",
+      "type": "registry:block",
+      "title": "Decision Helper",
+      "description": "Structured decision-making with pros, cons, and recommendations"
+    },
+    {
+      "name": "brainstorm-partner",
+      "type": "registry:block",
+      "title": "Brainstorm Partner",
+      "description": "Collaborative idea generation with AI building on your thoughts"
+    },
+    {
+      "name": "rubber-duck",
+      "type": "registry:block",
+      "title": "Rubber Duck Debugger",
+      "description": "Talk through your code problems with an AI duck"
+    },
+    {
+      "name": "story-collaborator",
+      "type": "registry:block",
+      "title": "Story Collaborator",
+      "description": "Co-write stories with AI that builds on your narrative"
+    },
+    {
+      "name": "language-partner",
+      "type": "registry:block",
+      "title": "Language Partner",
+      "description": "Practice conversations in any language with corrections"
+    },
+    {
+      "name": "trivia-game",
+      "type": "registry:block",
+      "title": "Trivia Game",
+      "description": "Play customizable trivia with AI-generated questions"
+    },
+    {
+      "name": "would-you-rather",
+      "type": "registry:block",
+      "title": "Would You Rather",
+      "description": "AI-generated dilemmas with philosophical analysis"
+    },
+    {
+      "name": "two-truths-lie",
+      "type": "registry:block",
+      "title": "Two Truths and a Lie",
+      "description": "Play the classic game with AI fact-checking"
+    },
+    {
+      "name": "explanation-level",
+      "type": "registry:block",
+      "title": "Explanation Level Slider",
+      "description": "Get explanations at any complexity level from ELI5 to PhD"
+    },
+    {
+      "name": "code-roaster",
+      "type": "registry:block",
+      "title": "Code Roaster",
+      "description": "Get your code humorously critiqued with constructive feedback"
+    },
+    {
+      "name": "writing-coach",
+      "type": "registry:block",
+      "title": "Writing Coach",
+      "description": "Personalized writing feedback and improvement suggestions"
+    },
+    {
+      "name": "product-feedback-panel",
+      "type": "registry:block",
+      "title": "Product Feedback Panel",
+      "description": "Simulate diverse user personas reviewing your product"
+    },
+    {
+      "name": "interview-simulator",
+      "type": "registry:block",
+      "title": "Interview Simulator",
+      "description": "Practice job interviews with AI interviewers"
+    },
+    {
+      "name": "sales-objection",
+      "type": "registry:block",
+      "title": "Sales Objection Handler",
+      "description": "Practice handling common sales objections"
+    },
+    {
+      "name": "negotiation-simulator",
+      "type": "registry:block",
+      "title": "Negotiation Simulator",
+      "description": "Practice negotiation skills with AI opponents"
+    },
+    {
+      "name": "reflection-journal",
+      "type": "registry:block",
+      "title": "Reflection Journal",
+      "description": "Guided journaling with thoughtful AI prompts"
+    },
+    {
+      "name": "debate-partner",
+      "type": "registry:block",
+      "title": "Debate Partner",
+      "description": "Engage in structured debates on any topic"
+    },
+    {
+      "name": "character-voice",
+      "type": "registry:block",
+      "title": "Character Voice Writer",
+      "description": "Write in the voice of famous characters or personas"
+    },
+    {
+      "name": "tldr-generator",
+      "type": "registry:block",
+      "title": "TLDR Generator",
+      "description": "Summarize articles in 3 sentences - free for any blog"
+    },
+    {
+      "name": "reading-level",
+      "type": "registry:block",
+      "title": "Reading Level Adjuster",
+      "description": "Toggle reading complexity: kid, teen, adult, expert"
+    },
+    {
+      "name": "translate-on-demand",
+      "type": "registry:block",
+      "title": "Translate on Demand",
+      "description": "Instant translation to 10+ languages - no translation budget needed"
+    },
+    {
+      "name": "explain-this",
+      "type": "registry:block",
+      "title": "Explain This",
+      "description": "Select any text to get an inline explanation"
+    },
+    {
+      "name": "audio-version",
+      "type": "registry:block",
+      "title": "Audio Version",
+      "description": "Listen to any article with browser text-to-speech - no API costs"
+    },
+    {
+      "name": "related-questions",
+      "type": "registry:block",
+      "title": "Related Questions",
+      "description": "AI generates questions readers might wonder about"
+    },
+    {
+      "name": "semantic-search",
+      "type": "registry:block",
+      "title": "Semantic Search",
+      "description": "Natural language product search - Algolia-level intelligence, zero API costs"
+    },
+    {
+      "name": "search-filters",
+      "type": "registry:block",
+      "title": "Smart Filters",
+      "description": "Natural language to search filters - "
+    },
+    {
+      "name": "similar-items",
+      "type": "registry:block",
+      "title": "Find Similar",
+      "description": "AI-powered "
+    },
+    {
+      "name": "search-summary",
+      "type": "registry:block",
+      "title": "Search Summary",
+      "description": "AI summary of search results - quick overview before clicking"
+    },
+    {
+      "name": "sentiment-analysis",
+      "type": "registry:block",
+      "title": "Sentiment Analysis",
+      "description": "Analyze text sentiment with structured JSON output"
+    },
+    {
+      "name": "entity-extraction",
+      "type": "registry:block",
+      "title": "Entity Extraction",
+      "description": "Extract names, dates, locations, organizations from text"
+    },
+    {
+      "name": "content-classifier",
+      "type": "registry:block",
+      "title": "Content Classifier",
+      "description": "Categorize content by type, tone, and extract metadata"
+    },
+    {
+      "name": "json-generator",
+      "type": "registry:block",
+      "title": "JSON Generator",
+      "description": "Generate structured JSON from natural language descriptions"
+    },
+    {
+      "name": "form-parser",
+      "type": "registry:block",
+      "title": "Form Parser",
+      "description": "Parse unstructured text into structured form fields"
+    },
+    {
+      "name": "simple-text-generation",
+      "type": "registry:block",
+      "title": "Simple Text Generation",
+      "description": "Basic prompt-response pattern with a single API call"
+    },
+    {
+      "name": "streaming-text",
+      "type": "registry:block",
+      "title": "Streaming Text",
+      "description": "Real-time streaming response with chunk-by-chunk rendering"
+    },
+    {
+      "name": "quick-actions",
+      "type": "registry:block",
+      "title": "Quick Actions",
+      "description": "Pre-defined prompt buttons for common AI tasks"
+    },
+    {
+      "name": "text-rewriter",
+      "type": "registry:block",
+      "title": "Text Rewriter",
+      "description": "Rewrite text in different tones: professional, casual, formal, friendly"
+    },
+    {
+      "name": "text-expander",
+      "type": "registry:block",
+      "title": "Text Expander",
+      "description": "Expand brief notes into full paragraphs with adjustable detail"
+    },
+    {
+      "name": "autocomplete",
+      "type": "registry:block",
+      "title": "Smart Autocomplete",
+      "description": "AI-powered search autocomplete with context-aware suggestions"
+    },
+    {
+      "name": "smart-search-input",
+      "type": "registry:block",
+      "title": "Smart Search Input",
+      "description": "Search input with AI-powered query understanding and suggestions"
+    },
+    {
+      "name": "intent-classifier",
+      "type": "registry:block",
+      "title": "Intent Classifier Input",
+      "description": "Detect user intent from natural language input"
+    },
+    {
+      "name": "sentiment-indicator",
+      "type": "registry:block",
+      "title": "Sentiment Indicator",
+      "description": "Real-time sentiment analysis as users type"
+    },
+    {
+      "name": "smart-tags-input",
+      "type": "registry:block",
+      "title": "Smart Tags Input",
+      "description": "AI-suggested tags based on content"
+    },
+    {
+      "name": "autocomplete-context",
+      "type": "registry:block",
+      "title": "Context-Aware Autocomplete",
+      "description": "Autocomplete that understands user context and history"
+    },
+    {
+      "name": "magic-fill-form",
+      "type": "registry:block",
+      "title": "Magic Fill Form",
+      "description": "Auto-fill forms from pasted text or documents"
+    },
+    {
+      "name": "reply-suggestions",
+      "type": "registry:block",
+      "title": "Reply Suggestions",
+      "description": "Quick reply suggestions for messages"
+    },
+    {
+      "name": "content-warning",
+      "type": "registry:block",
+      "title": "Content Warning Generator",
+      "description": "Automatically detect and suggest content warnings"
+    },
+    {
+      "name": "summarize-selection",
+      "type": "registry:block",
+      "title": "Summarize Selection Popup",
+      "description": "Select text to get instant AI summaries"
+    },
+    {
+      "name": "similar-items-finder",
+      "type": "registry:block",
+      "title": "Similar Items Finder",
+      "description": "Find similar items based on semantic understanding"
+    },
+    {
+      "name": "validation-explainer",
+      "type": "registry:block",
+      "title": "Validation Explainer",
+      "description": "Friendly explanations for form validation errors"
+    }
+  ]
+}

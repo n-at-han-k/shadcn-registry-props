@@ -1,0 +1,853 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "exabase",
+  "homepage": "https://exawizards.com/exabase/design",
+  "items": [
+    {
+      "name": "base",
+      "type": "registry:base",
+      "extends": "none",
+      "config": {
+        "style": "base-nova",
+        "iconLibrary": "lucide",
+        "tailwind": {
+          "baseColor": "neutral"
+        },
+        "registries": {
+          "@exabase": "https://exawizards.com/exabase/design/registry/{name}.json"
+        }
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "@exawizards/exabase-design-system-icons-react",
+        "class-variance-authority"
+      ],
+      "devDependencies": [
+        "tw-animate-css",
+        "shadcn"
+      ],
+      "registryDependencies": [
+        "@exabase/utils",
+        "@exabase/button"
+      ],
+      "cssVars": {
+        "theme": {
+          "font-sans": "var(--font-inter), var(--font-noto-sans-jp), sans-serif"
+        },
+        "light": {
+          "radius": "0.625rem",
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(8, 10, 12)",
+          "card": "rgb(255, 255, 255)",
+          "card-foreground": "rgb(8, 10, 12)",
+          "popover": "rgb(255, 255, 255)",
+          "popover-foreground": "rgb(8, 10, 12)",
+          "primary": "rgb(37, 99, 244)",
+          "primary-hovered": "rgb(58, 114, 245)",
+          "primary-pressed": "rgb(81, 130, 246)",
+          "primary-foreground": "rgb(255, 255, 255)",
+          "primary-text": "rgb(37, 99, 244)",
+          "secondary": "rgba(103, 120, 145, 0.1)",
+          "secondary-hovered": "rgba(103, 120, 145, 0.2)",
+          "secondary-pressed": "rgba(103, 120, 145, 0.3)",
+          "secondary-foreground": "rgb(8, 10, 12)",
+          "destructive": "rgb(245, 20, 10)",
+          "destructive-hovered": "rgb(246, 55, 47)",
+          "destructive-pressed": "rgb(247, 90, 83)",
+          "destructive-foreground": "rgb(255, 255, 255)",
+          "destructive-text": "rgb(245, 20, 10)",
+          "destructive-muted": "rgb(254, 227, 226)",
+          "info": "rgb(0, 177, 242)",
+          "info-foreground": "rgb(255, 255, 255)",
+          "info-text": "rgb(0, 152, 208)",
+          "info-muted": "rgb(224, 246, 253)",
+          "success": "rgb(17, 156, 17)",
+          "success-foreground": "rgb(255, 255, 255)",
+          "success-text": "rgb(11, 138, 11)",
+          "success-muted": "rgb(226, 243, 226)",
+          "warning": "rgb(249, 181, 0)",
+          "warning-foreground": "rgb(8, 10, 12)",
+          "warning-text": "rgb(179, 130, 0)",
+          "warning-muted": "rgb(254, 246, 224)",
+          "muted": "rgb(237, 239, 242)",
+          "muted-foreground": "rgb(103, 120, 145)",
+          "accent": "rgba(103, 120, 145, 0.1)",
+          "accent-pressed": "rgba(103, 120, 145, 0.2)",
+          "accent-foreground": "rgb(8, 10, 12)",
+          "border": "rgb(212, 217, 224)",
+          "input": "rgb(212, 217, 224)",
+          "ring": "rgb(37, 99, 244)",
+          "sidebar": "rgb(249, 250, 251)",
+          "sidebar-foreground": "rgb(8, 10, 12)",
+          "sidebar-primary": "rgb(37, 99, 244)",
+          "sidebar-primary-foreground": "rgb(255, 255, 255)",
+          "sidebar-accent": "rgba(103, 120, 145, 0.1)",
+          "sidebar-accent-foreground": "rgb(8, 10, 12)",
+          "sidebar-border": "rgb(212, 217, 224)",
+          "sidebar-ring": "rgb(37, 99, 244)"
+        },
+        "dark": {
+          "background": "rgb(16, 19, 23)",
+          "foreground": "rgb(249, 250, 251)",
+          "card": "rgb(16, 19, 23)",
+          "card-foreground": "rgb(249, 250, 251)",
+          "popover": "rgb(16, 19, 23)",
+          "popover-foreground": "rgb(249, 250, 251)",
+          "primary": "rgb(37, 99, 244)",
+          "primary-hovered": "rgb(58, 114, 245)",
+          "primary-pressed": "rgb(81, 130, 246)",
+          "primary-foreground": "rgb(255, 255, 255)",
+          "primary-text": "rgb(76, 127, 246)",
+          "secondary": "rgba(237, 239, 242, 0.08)",
+          "secondary-hovered": "rgba(237, 239, 242, 0.16)",
+          "secondary-pressed": "rgba(237, 239, 242, 0.24)",
+          "secondary-foreground": "rgb(249, 250, 251)",
+          "destructive": "rgb(247, 62, 54)",
+          "destructive-hovered": "rgb(248, 91, 84)",
+          "destructive-pressed": "rgb(249, 120, 114)",
+          "destructive-foreground": "rgb(255, 255, 255)",
+          "destructive-text": "rgb(247, 62, 54)",
+          "destructive-muted": "rgb(77, 3, 0)",
+          "info": "rgb(0, 177, 242)",
+          "info-foreground": "rgb(255, 255, 255)",
+          "info-text": "rgb(0, 177, 242)",
+          "info-muted": "rgb(0, 53, 73)",
+          "success": "rgb(17, 156, 17)",
+          "success-foreground": "rgb(255, 255, 255)",
+          "success-text": "rgb(17, 156, 17)",
+          "success-muted": "rgb(0, 52, 0)",
+          "warning": "rgb(249, 181, 0)",
+          "warning-foreground": "rgb(8, 10, 12)",
+          "warning-text": "rgb(249, 181, 0)",
+          "warning-muted": "rgb(75, 54, 0)",
+          "muted": "rgb(31, 36, 44)",
+          "muted-foreground": "rgb(130, 144, 165)",
+          "accent": "rgba(237, 239, 242, 0.08)",
+          "accent-pressed": "rgba(237, 239, 242, 0.16)",
+          "accent-foreground": "rgb(249, 250, 251)",
+          "border": "rgb(45, 53, 64)",
+          "input": "rgb(45, 53, 64)",
+          "ring": "rgb(37, 99, 244)",
+          "sidebar": "rgb(31, 36, 44)",
+          "sidebar-foreground": "rgb(249, 250, 251)",
+          "sidebar-primary": "rgb(37, 99, 244)",
+          "sidebar-primary-foreground": "rgb(255, 255, 255)",
+          "sidebar-accent": "rgba(237, 239, 242, 0.08)",
+          "sidebar-accent-foreground": "rgb(249, 250, 251)",
+          "sidebar-border": "rgb(45, 53, 64)",
+          "sidebar-ring": "rgb(37, 99, 244)"
+        }
+      },
+      "css": {
+        "@import \"tw-animate-css\"": {},
+        "@layer base": {
+          "*": {
+            "@apply border-border outline-ring/50": {}
+          },
+          "body": {
+            "@apply bg-background text-foreground": {}
+          },
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button",
+        "@exabase/scroll-area"
+      ],
+      "files": [
+        {
+          "path": "components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/input",
+        "@exabase/scroll-area"
+      ],
+      "files": [
+        {
+          "path": "components/ui/autocomplete.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/separator"
+      ],
+      "files": [
+        {
+          "path": "components/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@daypicker/react"
+      ],
+      "registryDependencies": [
+        "@exabase/button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "dependencies": [
+        "embla-carousel-react"
+      ],
+      "registryDependencies": [
+        "@exabase/button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "dependencies": [
+        "recharts"
+      ],
+      "files": [
+        {
+          "path": "components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button",
+        "@exabase/input-group"
+      ],
+      "files": [
+        {
+          "path": "components/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "dependencies": [
+        "cmdk"
+      ],
+      "registryDependencies": [
+        "@exabase/dialog",
+        "@exabase/input-group"
+      ],
+      "files": [
+        {
+          "path": "components/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button",
+        "@exabase/scroll-area"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/label",
+        "@exabase/separator"
+      ],
+      "files": [
+        {
+          "path": "components/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/icon.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button",
+        "@exabase/input",
+        "@exabase/textarea"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "dependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/separator"
+      ],
+      "files": [
+        {
+          "path": "components/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "components/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-resizable-panels"
+      ],
+      "files": [
+        {
+          "path": "components/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button",
+        "@exabase/separator",
+        "@exabase/sheet",
+        "@exabase/skeleton",
+        "@exabase/tooltip",
+        "@exabase/use-mobile"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/button"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/toggle"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "font-inter",
+      "title": "Inter",
+      "type": "registry:font",
+      "font": {
+        "family": "'Inter Variable', sans-serif",
+        "provider": "google",
+        "import": "Inter",
+        "variable": "--font-inter",
+        "subsets": [
+          "latin"
+        ],
+        "dependency": "@fontsource-variable/inter"
+      }
+    },
+    {
+      "name": "font-noto-sans-jp",
+      "title": "Noto Sans JP",
+      "type": "registry:font",
+      "font": {
+        "family": "'Noto Sans JP', sans-serif",
+        "provider": "google",
+        "import": "Noto_Sans_JP",
+        "variable": "--font-noto-sans-jp",
+        "subsets": [
+          "latin"
+        ]
+      }
+    },
+    {
+      "name": "fonts",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "@exabase/font-inter",
+        "@exabase/font-noto-sans-jp"
+      ]
+    }
+  ]
+}

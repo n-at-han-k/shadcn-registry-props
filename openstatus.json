@@ -1,0 +1,560 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "openstatus",
+  "homepage": "https://openstatus.dev",
+  "version": "0.2.0",
+  "style": "default",
+  "cssVars": {
+    "theme": {
+      "color-success": "var(--success)",
+      "color-warning": "var(--warning)",
+      "color-info": "var(--info)"
+    },
+    "light": {
+      "success": "oklch(0.72 0.19 150)",
+      "warning": "oklch(0.77 0.16 70)",
+      "info": "oklch(0.62 0.19 260)"
+    },
+    "dark": {
+      "success": "oklch(0.72 0.19 150)",
+      "warning": "oklch(0.77 0.16 70)",
+      "info": "oklch(0.62 0.19 260)"
+    }
+  },
+  "items": [
+    {
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "Use Media Query",
+      "description": "React hook for responsive media query detection",
+      "files": [
+        {
+          "path": "src/hooks/use-media-query.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-media-query.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-copy-to-clipboard",
+      "type": "registry:hook",
+      "title": "Use Copy to Clipboard",
+      "description": "React hook for copying text to clipboard with toast notifications",
+      "registryDependencies": [
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "src/hooks/use-copy-to-clipboard.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-copy-to-clipboard.ts"
+        }
+      ]
+    },
+    {
+      "name": "status-types",
+      "type": "registry:lib",
+      "title": "Status Types",
+      "description": "TypeScript type definitions for status components",
+      "files": [
+        {
+          "path": "src/components/blocks/status.types.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/status.types.ts"
+        }
+      ]
+    },
+    {
+      "name": "status-utils",
+      "type": "registry:lib",
+      "title": "Status Utilities",
+      "description": "Utility functions for status formatting and display",
+      "dependencies": [
+        "date-fns"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-success": "var(--success)",
+          "color-warning": "var(--warning)",
+          "color-info": "var(--info)"
+        },
+        "light": {
+          "success": "oklch(0.72 0.19 150)",
+          "warning": "oklch(0.77 0.16 70)",
+          "info": "oklch(0.62 0.19 260)"
+        },
+        "dark": {
+          "success": "oklch(0.72 0.19 150)",
+          "warning": "oklch(0.77 0.16 70)",
+          "info": "oklch(0.62 0.19 260)"
+        }
+      },
+      "files": [
+        {
+          "path": "src/components/blocks/status.utils.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/status.utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "status-icon",
+      "type": "registry:block",
+      "title": "Status Icon",
+      "description": "Unified status icon component with variants for different contexts",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-types.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-success": "var(--success)",
+          "color-warning": "var(--warning)",
+          "color-info": "var(--info)"
+        },
+        "light": {
+          "success": "oklch(0.72 0.19 150)",
+          "warning": "oklch(0.77 0.16 70)",
+          "info": "oklch(0.62 0.19 260)"
+        },
+        "dark": {
+          "success": "oklch(0.72 0.19 150)",
+          "warning": "oklch(0.77 0.16 70)",
+          "info": "oklch(0.62 0.19 260)"
+        }
+      },
+      "files": [
+        {
+          "path": "src/components/blocks/status-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-icon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-layout",
+      "type": "registry:block",
+      "title": "Status Layout",
+      "description": "Layout primitives for composing status displays (Status, StatusHeader, StatusTitle, etc.)",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-icon.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-layout.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-blank",
+      "type": "registry:block",
+      "title": "Status Blank States",
+      "description": "Empty and skeleton state components for loading and no-data scenarios",
+      "files": [
+        {
+          "path": "src/components/blocks/status-blank.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-blank.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-i18n",
+      "type": "registry:block",
+      "title": "Status Blocks i18n Provider",
+      "description": "React context for supplying translated labels and locale-aware date formatters to status blocks. Optional — blocks fall back to defaultStatusBlocksLabels (en-US) when no provider is mounted.",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-i18n.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-i18n.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-timestamp",
+      "type": "registry:block",
+      "title": "Status Timestamp",
+      "description": "Interactive timestamp display with tooltip (simple) or hover-card (rich) variants showing multiple timezone formats",
+      "registryDependencies": [
+        "hover-card",
+        "tooltip",
+        "https://openstatus.dev/r/use-copy-to-clipboard.json",
+        "https://openstatus.dev/r/use-media-query.json"
+      ],
+      "dependencies": [
+        "@radix-ui/react-hover-card",
+        "date-fns",
+        "@date-fns/utc@2.1.0",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-timestamp.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-timestamp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-banner",
+      "type": "registry:block",
+      "title": "Status Banner",
+      "description": "Alert-style status banner with tabs support and timestamp display",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-icon.json",
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-utils.json",
+        "https://openstatus.dev/r/status-timestamp.json",
+        "https://openstatus.dev/r/status-i18n.json",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-banner.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-component",
+      "type": "registry:block",
+      "title": "Status Component",
+      "description": "Monitor component primitives for building status displays",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-icon.json",
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-utils.json",
+        "https://openstatus.dev/r/status-i18n.json",
+        "skeleton",
+        "tooltip",
+        "https://openstatus.dev/r/use-media-query.json"
+      ],
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-component.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-component.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-component-group",
+      "type": "registry:block",
+      "title": "Status Component Group",
+      "description": "Collapsible group wrapper for status components",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-component.json",
+        "https://openstatus.dev/r/status-types.json",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-component-group.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-component-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-events",
+      "type": "registry:block",
+      "title": "Status Events",
+      "description": "Event timeline components for displaying status reports and maintenance updates",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-utils.json",
+        "https://openstatus.dev/r/status-timestamp.json",
+        "https://openstatus.dev/r/status-i18n.json",
+        "badge",
+        "hover-card",
+        "separator",
+        "tooltip"
+      ],
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "date-fns",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-events.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-events.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-bar",
+      "type": "registry:block",
+      "title": "Status Bar",
+      "description": "Interactive status timeline with hover, keyboard navigation, and event display",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-utils.json",
+        "https://openstatus.dev/r/status-i18n.json",
+        "hover-card",
+        "separator",
+        "skeleton",
+        "https://openstatus.dev/r/use-media-query.json"
+      ],
+      "dependencies": [
+        "date-fns"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-calendar",
+      "type": "registry:block",
+      "title": "Status Calendar",
+      "description": "Monthly calendar view of status history with per-day markers and event hover cards",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-i18n.json",
+        "https://openstatus.dev/r/status-bar.json",
+        "button",
+        "hover-card",
+        "separator",
+        "skeleton",
+        "https://openstatus.dev/r/use-media-query.json"
+      ],
+      "dependencies": [
+        "date-fns",
+        "lucide-react",
+        "react-day-picker@8"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-feed",
+      "type": "registry:block",
+      "title": "Status Feed",
+      "description": "Unified feed component combining status reports and maintenance events",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-blank.json",
+        "https://openstatus.dev/r/status-events.json",
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-i18n.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-feed.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-feed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-theme-switcher",
+      "type": "registry:block",
+      "title": "Status Theme Switcher",
+      "description": "Agnostic light/dark/system theme switcher. Caller owns the value and onValueChange wiring (next-themes, form state, etc.)",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-i18n.json",
+        "https://openstatus.dev/r/status-types.json",
+        "button",
+        "dropdown-menu",
+        "skeleton"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-theme-switcher.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-theme-switcher.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-locale-switcher",
+      "type": "registry:block",
+      "title": "Status Locale Switcher",
+      "description": "Agnostic locale picker. Caller owns value, onValueChange, and label resolution — no next-intl, router, or locale detection",
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-locale-switcher.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-locale-switcher.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-updates",
+      "type": "registry:block",
+      "title": "Status Updates",
+      "description": "Popover with copy-link primitives for RSS, Atom, JSON, Slack, and SSH subscription channels. Flat exports — caller composes layout (tabs, sections, etc.)",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-i18n.json",
+        "https://openstatus.dev/r/use-copy-to-clipboard.json",
+        "button",
+        "input",
+        "popover",
+        "separator"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-updates.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-updates.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-page-get-in-touch",
+      "type": "registry:block",
+      "title": "Status Page Get-in-Touch",
+      "description": "Two flat button primitives (icon + text) with tooltip chrome for the contact link in a status page header",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-i18n.json",
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-page-get-in-touch.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-page-get-in-touch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-page-header",
+      "type": "registry:block",
+      "title": "Status Page Header",
+      "description": "Presentation-only header chrome (brand, nav, actions). Routing-agnostic — apps inject their own Link component via asChild",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-page-header.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-page-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-page-footer",
+      "type": "registry:block",
+      "title": "Status Page Footer",
+      "description": "Presentation-only footer chrome (powered-by, action cluster). Embed/white-label gating, switchers, and tRPC fetch stay in the wrapping app",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-i18n.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/blocks/status-page-footer.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-page-footer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-page-shell",
+      "type": "registry:block",
+      "title": "Status Page Shell",
+      "description": "Outer chrome wrappers (StatusPageShell + StatusPageMain) around header / main / footer. Routing-agnostic with embed-aware Tailwind classes that activate only when an ancestor sets data-embed",
+      "files": [
+        {
+          "path": "src/components/blocks/status-page-shell.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/status-page-shell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-chrome",
+      "type": "registry:block",
+      "title": "Status Page Chrome",
+      "description": "Full status page chrome — shell, header, footer, get-in-touch, status-updates, theme + locale switchers. Combine with status-essentials or status-complete for the body",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-i18n.json",
+        "https://openstatus.dev/r/status-page-shell.json",
+        "https://openstatus.dev/r/status-page-header.json",
+        "https://openstatus.dev/r/status-page-footer.json",
+        "https://openstatus.dev/r/status-page-get-in-touch.json",
+        "https://openstatus.dev/r/status-updates.json",
+        "https://openstatus.dev/r/status-theme-switcher.json",
+        "https://openstatus.dev/r/status-locale-switcher.json"
+      ]
+    },
+    {
+      "name": "status-complete",
+      "type": "registry:block",
+      "title": "Status Page (Complete)",
+      "description": "Complete status page components including all primitives, displays, interactive elements, and chrome (header / footer / switchers)",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-utils.json",
+        "https://openstatus.dev/r/status-i18n.json",
+        "https://openstatus.dev/r/status-icon.json",
+        "https://openstatus.dev/r/status-layout.json",
+        "https://openstatus.dev/r/status-blank.json",
+        "https://openstatus.dev/r/status-banner.json",
+        "https://openstatus.dev/r/status-component.json",
+        "https://openstatus.dev/r/status-component-group.json",
+        "https://openstatus.dev/r/status-events.json",
+        "https://openstatus.dev/r/status-bar.json",
+        "https://openstatus.dev/r/status-calendar.json",
+        "https://openstatus.dev/r/status-feed.json",
+        "https://openstatus.dev/r/status-page-shell.json",
+        "https://openstatus.dev/r/status-page-header.json",
+        "https://openstatus.dev/r/status-page-footer.json",
+        "https://openstatus.dev/r/status-page-get-in-touch.json",
+        "https://openstatus.dev/r/status-updates.json",
+        "https://openstatus.dev/r/status-theme-switcher.json",
+        "https://openstatus.dev/r/status-locale-switcher.json"
+      ]
+    },
+    {
+      "name": "status-essentials",
+      "type": "registry:block",
+      "title": "Status Page (Essentials)",
+      "description": "Essential status page components for basic status displays",
+      "registryDependencies": [
+        "https://openstatus.dev/r/status-types.json",
+        "https://openstatus.dev/r/status-utils.json",
+        "https://openstatus.dev/r/status-i18n.json",
+        "https://openstatus.dev/r/status-icon.json",
+        "https://openstatus.dev/r/status-layout.json",
+        "https://openstatus.dev/r/status-banner.json",
+        "https://openstatus.dev/r/status-blank.json"
+      ]
+    }
+  ]
+}
