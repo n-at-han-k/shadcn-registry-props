@@ -5,9 +5,8 @@ and every registry's full index.
 
 ## What it does
 
-[`.github/workflows/update.yml`](.github/workflows/update.yml) (via
-[`update.py`](.github/workflows/update.py)) runs on a daily schedule (and on
-manual dispatch):
+[`.github/workflows/update.yml`](.github/workflows/update.yml) runs on a daily
+schedule (and on manual dispatch), using `curl` + `jq`:
 
 1. Fetches the directory at `https://ui.shadcn.com/r/registries.json` — an array
    of `{ name, homepage, url, description }`.
@@ -23,8 +22,3 @@ Each saved index follows the shadcn registry schema:
 component/block with its `files`, `dependencies`, `registryDependencies`, and
 `type`.
 
-## Running locally
-
-```bash
-python .github/workflows/update.py
-```

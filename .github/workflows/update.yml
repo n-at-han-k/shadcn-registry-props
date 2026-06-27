@@ -20,13 +20,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
       - name: Fetch registries and their indexes
-        run: python .github/workflows/update.py
+        run: |
+          curl -fsSL https://ui.shadcn.com/r/registries.json -o registries.json
+          jq -c '.[]' registries.json | while read -r entry; do
+            name=$(jq -r '.name' <<<"$entry")
+            url=$(jq -r '.url' <<<"$entry")
+            curl -fsSL "${url//\{name\}/registry}" -o "${name#@}.json" \
+              && echo "ok $name" || echo "FAIL $name"
+          done
 
       - name: Commit changes
         run: |
