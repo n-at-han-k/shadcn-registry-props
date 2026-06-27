@@ -26,7 +26,9 @@ jobs:
           jq -c '.[]' registries.json | while read -r entry; do
             name=$(jq -r '.name' <<<"$entry")
             url=$(jq -r '.url' <<<"$entry")
-            curl -fsSL "${url//\{name\}/registry}" -o "${name#@}.json" \
+            dir="${name#@}"
+            mkdir -p "$dir"
+            curl -fsSL "${url//\{name\}/registry}" -o "$dir/registry.json" \
               && echo "ok $name" || echo "FAIL $name"
           done
 
