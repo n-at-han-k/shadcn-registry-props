@@ -190,6 +190,34 @@
       ]
     },
     {
+      "name": "demo-highlight",
+      "type": "registry:ui",
+      "title": "Highlight Demo",
+      "description": "Shared sliding highlight pill moving between nav items on hover.",
+      "registryDependencies": ["@soralabs/highlight"],
+      "files": [
+        {
+          "path": "registry/demo/primitives/effects/highlight/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/effects/highlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-highlight-click",
+      "type": "registry:ui",
+      "title": "Highlight Click Demo",
+      "description": "Per-item fade background activated on click — menu list style.",
+      "registryDependencies": ["@soralabs/highlight"],
+      "files": [
+        {
+          "path": "registry/demo/primitives/effects/highlight-click/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/effects/highlight-click.tsx"
+        }
+      ]
+    },
+    {
       "name": "demo-logo-carousel-swapper",
       "type": "registry:ui",
       "title": "Logo Carousel Swapper Demo",
@@ -200,6 +228,20 @@
           "path": "registry/demo/primitives/effects/logo-carousel-swapper/index.tsx",
           "type": "registry:ui",
           "target": "components/sora-ui/demo/effects/logo-carousel-swapper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-scroll-gallery",
+      "type": "registry:ui",
+      "title": "Scroll Gallery Demo",
+      "description": "Sticky scroll slider with 4 slides, strip-mask transitions, and animated title swaps.",
+      "registryDependencies": ["@soralabs/scroll-gallery"],
+      "files": [
+        {
+          "path": "registry/demo/primitives/effects/scroll-gallery/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/effects/scroll-gallery.tsx"
         }
       ]
     },
@@ -564,6 +606,21 @@
       ]
     },
     {
+      "name": "highlight",
+      "type": "registry:ui",
+      "title": "Highlight",
+      "description": "A highlight effect that allows you to highlight elements on hover, click or with a controlled value.",
+      "dependencies": ["motion"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/primitives/effects/highlight/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/effects/highlight.tsx"
+        }
+      ]
+    },
+    {
       "name": "logo-carousel-swapper",
       "type": "registry:ui",
       "title": "Logo Carousel Swapper",
@@ -641,6 +698,60 @@
             },
             "className": {
               "value": "mx-auto w-72"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "scroll-gallery",
+      "type": "registry:ui",
+      "title": "Scroll Gallery",
+      "description": "A full-viewport sticky scroll slider with strip-mask image transitions and animated title swaps, driven by GSAP ScrollTrigger.",
+      "dependencies": ["gsap", "@gsap/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/primitives/effects/scroll-gallery/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/effects/scroll-gallery.tsx"
+        }
+      ],
+      "meta": {
+        "demoProps": {
+          "ScrollGallery": {
+            "prefixLabel": {
+              "value": "Featured"
+            },
+            "linkLabel": {
+              "value": "Explore"
+            },
+            "showPrefix": {
+              "value": true
+            },
+            "showLink": {
+              "value": true
+            },
+            "showInfoBand": {
+              "value": true
+            },
+            "scrollPerTransition": {
+              "value": 600,
+              "min": 200,
+              "max": 1500,
+              "step": 50
+            },
+            "stripsCount": {
+              "value": 20,
+              "min": 4,
+              "max": 40,
+              "step": 2
+            },
+            "scrub": {
+              "value": 1,
+              "min": 0,
+              "max": 3,
+              "step": 0.1
             }
           }
         }
