@@ -157,22 +157,6 @@
       ]
     },
     {
-      "name": "scroll-fade",
-      "type": "registry:lib",
-      "title": "Scroll Fade",
-      "description": "Scroll-edge primitives: useScrollEdges hook tracking overflowing edges, and ScrollEdgeCue — a surface-colour gradient fade with a chevron cue pinned to a scroll edge. Sticky (in-scroller) and absolute (overlay) mounting modes; reads the surface ladder so the gradient matches the actual background at any elevation.",
-      "registryDependencies": [
-        "https://www.fluidfunctionalism.com/r/surfaces.json",
-        "https://www.fluidfunctionalism.com/r/surface-context.json"
-      ],
-      "files": [
-        {
-          "path": "registry/default/lib/scroll-fade.tsx",
-          "type": "registry:lib"
-        }
-      ]
-    },
-    {
       "name": "shape-context",
       "type": "registry:lib",
       "title": "Shape Context",
@@ -252,6 +236,7 @@
       "title": "useMergeSplitBlocks",
       "description": "React hook + renderer for the selected-background merge/split animation. When one row bridges or splits two contiguous selected runs, their inner edges glide together (or apart) and swap to a single block, instead of one block spring-growing over the union.",
       "registryDependencies": [
+        "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/use-proximity-hover.json"
       ],
       "files": [
@@ -319,7 +304,8 @@
       "title": "Ask User Questions",
       "description": "Stepped question flow with numbered options, keyboard shortcuts (1–9), single or multi-select, inline 'other' text input, optional skip, proximity-based hover, and multi-question navigation. Auto-advances on selection in single-select.",
       "dependencies": [
-        "framer-motion"
+        "framer-motion",
+        "@base-ui/react"
       ],
       "registryDependencies": [
         "utils",
@@ -441,8 +427,9 @@
       "name": "dropdown",
       "type": "registry:ui",
       "title": "Dropdown",
-      "description": "Dropdown menu with proximity-based hover tracking, animated selection indicator, and animated focus ring. Includes MenuItem sub-component.",
+      "description": "Dropdown menu with proximity-based hover tracking, animated selection indicator, and animated focus ring. Renders as an always-visible inline panel or as a triggered popup (DropdownMenu/DropdownTrigger/DropdownContent) built on Base UI Menu with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem sub-component.",
       "dependencies": [
+        "@base-ui/react",
         "framer-motion"
       ],
       "registryDependencies": [
@@ -452,7 +439,9 @@
         "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json"
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/elevated.json"
       ],
       "files": [
         {
@@ -618,6 +607,27 @@
       ]
     },
     {
+      "name": "mobile-drawer",
+      "type": "registry:ui",
+      "title": "Mobile Drawer",
+      "description": "Left-anchored navigation drawer built on Base UI Dialog — modal scroll lock, focus trap and restore, Esc/outside-click dismissal, and a spring-animated slide-in panel with surface-aware elevation.",
+      "dependencies": [
+        "@base-ui/react",
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "https://www.fluidfunctionalism.com/r/springs.json",
+        "https://www.fluidfunctionalism.com/r/surface-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-classes.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/mobile-drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "input-copy",
       "type": "registry:ui",
       "title": "Input Copy",
@@ -646,13 +656,15 @@
       "title": "Input Group",
       "description": "Grouped input fields with proximity-based highlighting, animated label transitions, optional icons, and error states.",
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@base-ui/react"
       ],
       "registryDependencies": [
         "utils",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
-        "https://www.fluidfunctionalism.com/r/icon-context.json"
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json"
       ],
       "files": [
         {
@@ -719,6 +731,7 @@
         "utils",
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/use-touch-primary.json",
         "https://www.fluidfunctionalism.com/r/file-thumbnail.json"
       ],
       "files": [
@@ -734,6 +747,7 @@
       "title": "Tabs Subtle",
       "description": "Horizontal tab navigation with proximity hover, animated pill selection indicator, and fluid font-weight transitions. Supports icons and keyboard navigation.",
       "dependencies": [
+        "@base-ui/react",
         "framer-motion",
         "lucide-react"
       ],
@@ -955,14 +969,13 @@
       "name": "scroll-area",
       "type": "registry:ui",
       "title": "Scroll Area",
-      "description": "Scroll container with restyled overlay scrollbars and surface-gradient scroll-edge cues. Falls back to native overflow scrolling on touch-primary devices. Built on Radix UI Scroll Area; adapted from Lina (https://lina.sameer.sh).",
+      "description": "Scroll container with a restyled overlay scrollbar that stays discoverable on hover and follows the shape system. Falls back to native overflow scrolling on touch-primary devices. Built on Radix UI Scroll Area; adapted from Lina (https://lina.sameer.sh).",
       "dependencies": [
         "@radix-ui/react-scroll-area"
       ],
       "registryDependencies": [
         "utils",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
-        "https://www.fluidfunctionalism.com/r/scroll-fade.json",
         "https://www.fluidfunctionalism.com/r/use-touch-primary.json"
       ],
       "files": [
@@ -977,14 +990,13 @@
       "name": "scroll-area-base",
       "type": "registry:ui",
       "title": "Scroll Area (Base UI)",
-      "description": "Scroll container with restyled overlay scrollbars and surface-gradient scroll-edge cues. Falls back to native overflow scrolling on touch-primary devices. Base UI flavor; adapted from Lina (https://lina.sameer.sh).",
+      "description": "Scroll container with a restyled overlay scrollbar that stays discoverable on hover and follows the shape system. Falls back to native overflow scrolling on touch-primary devices. Base UI flavor; adapted from Lina (https://lina.sameer.sh).",
       "dependencies": [
         "@base-ui/react"
       ],
       "registryDependencies": [
         "utils",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
-        "https://www.fluidfunctionalism.com/r/scroll-fade.json",
         "https://www.fluidfunctionalism.com/r/use-touch-primary.json"
       ],
       "files": [
@@ -999,8 +1011,9 @@
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "Animated select menu with proximity hover, bordered/borderless variants, optional leading icons, spring-animated popover, and animated checkmark indicator.",
+      "description": "Animated select menu built on Base UI Select — collision-aware positioning, typeahead, and full combobox ARIA — with proximity hover, bordered/borderless variants, optional leading icons, spring-animated popover, and animated checkmark indicator.",
       "dependencies": [
+        "@base-ui/react",
         "framer-motion",
         "class-variance-authority",
         "lucide-react"
@@ -1013,7 +1026,6 @@
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
         "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
-        "https://www.fluidfunctionalism.com/r/scroll-fade.json",
         "https://www.fluidfunctionalism.com/r/elevated.json"
       ],
       "files": [
@@ -1075,6 +1087,7 @@
       "title": "Thinking Steps",
       "description": "Chain-of-thought reasoning display with collapsible steps, sequential animation, source badges, and image support.",
       "dependencies": [
+        "@base-ui/react",
         "framer-motion",
         "lucide-react"
       ],
@@ -1084,7 +1097,6 @@
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/accordion.json",
         "https://www.fluidfunctionalism.com/r/badge.json"
       ],
       "files": [
@@ -1098,8 +1110,9 @@
       "name": "color-picker",
       "type": "registry:ui",
       "title": "Color Picker",
-      "description": "Color picker with HEX, RGB, HSL, and OKLCH formats, alpha channel, optional swatches, and a popover trigger. Built on the Slider component with native EyeDropper support.",
+      "description": "Color picker with HEX, RGB, HSL, and OKLCH formats, alpha channel, optional swatches, and a popover trigger. Built on Base UI's Popover, Menu, and NumberField primitives with native EyeDropper support.",
       "dependencies": [
+        "@base-ui/react",
         "framer-motion"
       ],
       "registryDependencies": [
@@ -1109,8 +1122,10 @@
         "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
-        "https://www.fluidfunctionalism.com/r/slider.json",
-        "https://www.fluidfunctionalism.com/r/dropdown.json"
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/elevated.json",
+        "https://www.fluidfunctionalism.com/r/slider.json"
       ],
       "files": [
         {
