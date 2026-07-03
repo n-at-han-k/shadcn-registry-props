@@ -94,28 +94,6 @@
           "lp-primary-foreground": "oklch(0.985 0 0)"
         }
       },
-      "css": {
-        "@utility -focus-area-x-*": {
-          "--x": "--value(number) * -1"
-        },
-        "@utility -focus-area-y-*": {
-          "--y": "--value(number) * -1"
-        },
-        "@utility focus-area": {
-          "&:before": {
-            "content": "\"\"",
-            "inset": "calc(var(--y) * 1px) calc(var(--x) * 1px)",
-            "position": "absolute"
-          },
-          "position": "relative"
-        },
-        "@utility focus-area-x-*": {
-          "--x": "--value(number)"
-        },
-        "@utility focus-area-y-*": {
-          "--y": "--value(number)"
-        }
-      },
       "type": "registry:ui"
     },
     {
@@ -134,14 +112,6 @@
           "target": "components/limeplay/player-layout.tsx"
         }
       ],
-      "cssVars": {
-        "light": {
-          "background-image-lp-controls-fade": "linear-gradient(\n          to bottom,\n          hsla(0, 0%, 91%, 0) 0%,\n          hsla(0, 0%, 91%, 0.002) 10.6%,\n          hsla(0, 0%, 91%, 0.008) 19.7%,\n          hsla(0, 0%, 91%, 0.019) 27.6%,\n          hsla(0, 0%, 91%, 0.035) 34.4%,\n          hsla(0, 0%, 91%, 0.057) 40.4%,\n          hsla(0, 0%, 91%, 0.086) 45.7%,\n          hsla(0, 0%, 91%, 0.122) 50.6%,\n          hsla(0, 0%, 91%, 0.165) 55.3%,\n          hsla(0, 0%, 91%, 0.217) 60%,\n          hsla(0, 0%, 91%, 0.278) 65%,\n          hsla(0, 0%, 91%, 0.349) 70.3%,\n          hsla(0, 0%, 91%, 0.43) 76.3%,\n          hsla(0, 0%, 91%, 0.522) 83.1%,\n          hsla(0, 0%, 91%, 0.625) 90.9%,\n          hsla(0, 0%, 91%, 0.74) 100%\n        )"
-        },
-        "dark": {
-          "background-image-lp-controls-fade": " linear-gradient(\n          to bottom,\n          hsla(0, 0%, 0%, 0) 0%,\n          hsla(0, 0%, 0%, 0.009) 8.1%,\n          hsla(0, 0%, 0%, 0.035) 15.5%,\n          hsla(0, 0%, 0%, 0.074) 22.5%,\n          hsla(0, 0%, 0%, 0.125) 29%,\n          hsla(0, 0%, 0%, 0.184) 35.3%,\n          hsla(0, 0%, 0%, 0.25) 41.2%,\n          hsla(0, 0%, 0%, 0.32) 47.1%,\n          hsla(0, 0%, 0%, 0.39) 52.9%,\n          hsla(0, 0%, 0%, 0.46) 58.8%,\n          hsla(0, 0%, 0%, 0.526) 64.7%,\n          hsla(0, 0%, 0%, 0.585) 71%,\n          hsla(0, 0%, 0%, 0.636) 77.5%,\n          hsla(0, 0%, 0%, 0.675) 84.5%,\n          hsla(0, 0%, 0%, 0.701) 91.9%,\n          hsla(0, 0%, 0%, 0.71) 100%\n        )"
-        }
-      },
       "type": "registry:ui"
     },
     {
@@ -374,6 +344,7 @@
         "lodash.clamp"
       ],
       "registryDependencies": [
+        "https://bazza.dev/r/hit-area",
         "dropdown-menu",
         "https://limeplay.winoffrg.dev/r/player-layout.json",
         "https://limeplay.winoffrg.dev/r/media.json",
@@ -402,23 +373,34 @@
         "https://limeplay.winoffrg.dev/r/use-playlist.json",
         "https://limeplay.winoffrg.dev/r/use-asset.json",
         "https://limeplay.winoffrg.dev/r/use-media.json",
+        "https://limeplay.winoffrg.dev/r/use-controls-visibility.json",
         "https://limeplay.winoffrg.dev/r/use-playback-source.json"
       ],
       "files": [
         {
-          "path": "registry/default/blocks/video-player/page.tsx",
-          "type": "registry:page",
-          "target": "app/player/page.tsx"
+          "path": "registry/default/blocks/video-player/player.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/player.tsx"
         },
         {
-          "path": "registry/default/blocks/video-player/components/media-player.tsx",
-          "type": "registry:component",
-          "target": "components/video-player/components/media-player.tsx"
+          "path": "registry/default/blocks/video-player/styles.css",
+          "type": "registry:style",
+          "target": "components/video-player/styles.css"
         },
         {
-          "path": "registry/default/blocks/video-player/components/asset-metadata-overlay.tsx",
+          "path": "registry/default/blocks/video-player/components/player-root-container.tsx",
           "type": "registry:component",
-          "target": "components/video-player/components/asset-metadata-overlay.tsx"
+          "target": "components/video-player/components/player-root-container.tsx"
+        },
+        {
+          "path": "registry/default/blocks/video-player/components/player-error-screen.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/components/player-error-screen.tsx"
+        },
+        {
+          "path": "registry/default/blocks/video-player/components/top-overlay-container.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/components/top-overlay-container.tsx"
         },
         {
           "path": "registry/default/blocks/video-player/components/volume-state-control.tsx",
@@ -494,7 +476,7 @@
       "meta": {
         "iframeHeight": "750px",
         "props": {
-          "src": "https://ad391cc0d55b44c6a86d232548adc225.mediatailor.us-east-1.amazonaws.com/v1/master/d02fedbbc5a68596164208dd24e9b48aa60dadc7/singssai/master.m3u8"
+          "source": "https://ad391cc0d55b44c6a86d232548adc225.mediatailor.us-east-1.amazonaws.com/v1/master/d02fedbbc5a68596164208dd24e9b48aa60dadc7/singssai/master.m3u8"
         }
       },
       "type": "registry:block"
@@ -512,6 +494,7 @@
         "shaka-player@^4"
       ],
       "registryDependencies": [
+        "https://bazza.dev/r/hit-area",
         "https://limeplay.winoffrg.dev/r/media-provider.json",
         "https://limeplay.winoffrg.dev/r/media.json",
         "https://limeplay.winoffrg.dev/r/root-container.json",
@@ -536,14 +519,14 @@
       ],
       "files": [
         {
+          "path": "registry/default/blocks/audio-player/player.tsx",
+          "type": "registry:component",
+          "target": "components/audio-player/player.tsx"
+        },
+        {
           "path": "registry/default/blocks/audio-player/lib/media-kit.ts",
           "type": "registry:lib",
           "target": "components/audio-player/lib/media-kit.ts"
-        },
-        {
-          "path": "registry/default/blocks/audio-player/components/media-player.tsx",
-          "type": "registry:component",
-          "target": "components/audio-player/components/media-player.tsx"
         },
         {
           "path": "registry/default/blocks/audio-player/components/audio-source.tsx",
@@ -606,9 +589,9 @@
           "target": "components/audio-player/components/button.tsx"
         },
         {
-          "path": "registry/default/blocks/audio-player/audio-player.module.css",
+          "path": "registry/default/blocks/audio-player/styles.css",
           "type": "registry:style",
-          "target": "components/audio-player/audio-player.module.css"
+          "target": "components/audio-player/styles.css"
         }
       ],
       "meta": {
@@ -618,6 +601,9 @@
     },
     {
       "name": "utils",
+      "dependencies": [
+        "cnfast"
+      ],
       "files": [
         {
           "path": "registry/default/lib/utils.ts",
@@ -677,6 +663,22 @@
           "path": "registry/default/hooks/use-volume.ts",
           "type": "registry:hook",
           "target": "hooks/limeplay/use-volume.ts"
+        }
+      ],
+      "type": "registry:hook"
+    },
+    {
+      "name": "use-controls-visibility",
+      "registryDependencies": [
+        "https://limeplay.winoffrg.dev/r/use-media.json",
+        "https://limeplay.winoffrg.dev/r/use-playback.json",
+        "https://limeplay.winoffrg.dev/r/media-provider.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/hooks/use-controls-visibility.ts",
+          "type": "registry:hook",
+          "target": "hooks/limeplay/use-controls-visibility.ts"
         }
       ],
       "type": "registry:hook"
@@ -966,27 +968,6 @@
       "type": "registry:lib"
     },
     {
-      "name": "player-root-demo",
-      "registryDependencies": [
-        "https://limeplay.winoffrg.dev/r/player-layout.json",
-        "https://limeplay.winoffrg.dev/r/media-provider.json",
-        "https://limeplay.winoffrg.dev/r/media.json",
-        "https://limeplay.winoffrg.dev/r/error-screen.json",
-        "https://limeplay.winoffrg.dev/r/custom-demo-controls.json",
-        "https://limeplay.winoffrg.dev/r/limeplay-logo.json",
-        "https://limeplay.winoffrg.dev/r/fallback-poster.json",
-        "https://limeplay.winoffrg.dev/r/root-container.json",
-        "https://limeplay.winoffrg.dev/r/use-asset.json"
-      ],
-      "files": [
-        {
-          "path": "registry/default/examples/player-root-demo.tsx",
-          "type": "registry:example"
-        }
-      ],
-      "type": "registry:example"
-    },
-    {
       "name": "error-screen-demo",
       "dependencies": [
         "lucide-react"
@@ -1047,6 +1028,7 @@
     {
       "name": "volume-slider-control-horizontal-demo",
       "registryDependencies": [
+        "https://bazza.dev/r/hit-area",
         "https://limeplay.winoffrg.dev/r/volume-control.json",
         "https://limeplay.winoffrg.dev/r/volume-state-control-demo.json"
       ],
@@ -1061,6 +1043,7 @@
     {
       "name": "volume-slider-control-vertical-demo",
       "registryDependencies": [
+        "https://bazza.dev/r/hit-area",
         "https://limeplay.winoffrg.dev/r/volume-control.json",
         "https://limeplay.winoffrg.dev/r/volume-state-control-demo.json"
       ],
@@ -1089,6 +1072,7 @@
     {
       "name": "timeline-control-demo",
       "registryDependencies": [
+        "https://bazza.dev/r/hit-area",
         "https://limeplay.winoffrg.dev/r/media-provider.json",
         "https://limeplay.winoffrg.dev/r/timeline-control.json",
         "https://limeplay.winoffrg.dev/r/timeline-labels.json"
@@ -1104,6 +1088,7 @@
     {
       "name": "timeline-labels-demo",
       "registryDependencies": [
+        "https://bazza.dev/r/hit-area",
         "https://limeplay.winoffrg.dev/r/media-provider.json",
         "https://limeplay.winoffrg.dev/r/timeline-control.json",
         "https://limeplay.winoffrg.dev/r/timeline-labels.json",
