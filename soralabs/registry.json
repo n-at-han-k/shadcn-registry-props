@@ -246,6 +246,20 @@
       ]
     },
     {
+      "name": "demo-progressive-blur",
+      "type": "registry:ui",
+      "title": "Progressive Blur Demo",
+      "description": "A scrollable panel with progressive blur fading content under the top and bottom edges.",
+      "registryDependencies": ["@soralabs/progressive-blur"],
+      "files": [
+        {
+          "path": "registry/demo/primitives/effects/progressive-blur/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/effects/progressive-blur.tsx"
+        }
+      ]
+    },
+    {
       "name": "demo-scroll-gallery",
       "type": "registry:ui",
       "title": "Scroll Gallery Demo",
@@ -256,6 +270,20 @@
           "path": "registry/demo/primitives/effects/scroll-gallery/index.tsx",
           "type": "registry:ui",
           "target": "components/sora-ui/demo/effects/scroll-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "demo-skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton Demo",
+      "description": "A profile card loading, then crossfading into content once ready.",
+      "registryDependencies": ["@soralabs/skeleton"],
+      "files": [
+        {
+          "path": "registry/demo/primitives/effects/skeleton/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/demo/effects/skeleton.tsx"
         }
       ]
     },
@@ -793,6 +821,38 @@
       }
     },
     {
+      "name": "progressive-blur",
+      "type": "registry:ui",
+      "title": "Progressive Blur",
+      "description": "A stacked-layer blur that ramps smoothly from sharp to fully blurred toward an edge, for fading content under a fixed header or above a scroll boundary.",
+      "registryDependencies": [
+        "utils",
+        "@soralabs/hooks-use-prefers-reduced-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/effects/progressive-blur/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/effects/progressive-blur.tsx"
+        }
+      ],
+      "meta": {
+        "keywords": [
+          "progressive-blur",
+          "blur",
+          "scroll",
+          "fade",
+          "backdrop-filter",
+          "gradient-blur"
+        ],
+        "inspiration": {
+          "type": "adapted",
+          "label": "gxuri (Skiper UI)",
+          "url": "https://gxuri.me"
+        }
+      }
+    },
+    {
       "name": "scroll-gallery",
       "type": "registry:ui",
       "title": "Scroll Gallery",
@@ -851,6 +911,29 @@
       }
     },
     {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "A loading placeholder with shimmer or fade variants, plus a transition that crossfades into real content once loading finishes.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/primitives/effects/skeleton/index.tsx",
+          "type": "registry:ui",
+          "target": "components/sora-ui/effects/skeleton.tsx"
+        }
+      ],
+      "meta": {
+        "keywords": [
+          "skeleton",
+          "loading",
+          "placeholder",
+          "shimmer",
+          "shimmer-effect"
+        ]
+      }
+    },
+    {
       "name": "sticky-scroll-cards",
       "type": "registry:ui",
       "title": "Sticky Scroll Cards",
@@ -881,7 +964,6 @@
         "inspiration": {
           "type": "reimplemented",
           "label": "Codegrid",
-          "url": "https://github.com/Codegrid",
           "stack": "GSAP and vanilla JS"
         }
       }
