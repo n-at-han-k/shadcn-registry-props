@@ -1,0 +1,624 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ericts-ui",
+  "homepage": "https://ui.ericts.com",
+  "items": [
+    {
+      "name": "smooth-height",
+      "type": "registry:ui",
+      "title": "Smooth Height Layout",
+      "description": "A Motion-powered layout primitive that observes content size and animates height changes.",
+      "categories": ["layout"],
+      "meta": {
+        "tags": ["resize-observer", "content-transition", "height-animation"],
+        "effects": ["height", "resize"],
+        "cssOnly": true
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/smooth-height.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/smooth-height.tsx"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "A shadcn Button-based clipboard control with animated copy and success states.",
+      "categories": ["button"],
+      "meta": {
+        "tags": ["clipboard", "copy", "success", "icon-swap"],
+        "effects": ["state-transition", "icon-swap"],
+        "cssOnly": true
+      },
+      "registryDependencies": ["button"],
+      "dependencies": ["motion", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/base/ui/copy-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/copy-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-button",
+      "type": "registry:ui",
+      "title": "Status Button",
+      "description": "A shadcn Button-based action that transitions through idle, loading, and success states.",
+      "categories": ["button"],
+      "meta": {
+        "tags": ["async-action", "loading", "success", "submit"],
+        "effects": ["state-transition", "spinner"]
+      },
+      "registryDependencies": ["button"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/status-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/status-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:ui",
+      "title": "Status Badge",
+      "description": "A compact animated badge for status labels with icon and text slot transitions.",
+      "categories": ["badge", "data-display"],
+      "meta": {
+        "tags": ["badge", "status", "loading", "state-transition", "icon-swap"],
+        "effects": ["state-transition", "icon-swap", "pulse"]
+      },
+      "dependencies": ["motion", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/base/ui/status-badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/status-badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "floating-select",
+      "type": "registry:ui",
+      "title": "Floating Select",
+      "description": "A single-button floating select that expands into an animated option list.",
+      "categories": ["select", "button"],
+      "meta": {
+        "tags": ["floating", "select", "single-trigger", "listbox"],
+        "effects": ["shared-layout", "stagger", "fade"]
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/floating-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/floating-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-toolbar",
+      "type": "registry:ui",
+      "title": "Expandable Toolbar",
+      "description": "A controlled or uncontrolled toolbar primitive that measures its action slot and expands from either side.",
+      "categories": ["toolbar", "button"],
+      "meta": {
+        "tags": [
+          "toolbar",
+          "expandable",
+          "quick-actions",
+          "measurement",
+          "controlled"
+        ],
+        "effects": ["width-animation", "fade", "reduced-motion"]
+      },
+      "registryDependencies": ["button"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/expandable-toolbar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expandable-toolbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "check-animation",
+      "type": "registry:ui",
+      "title": "Check Animation",
+      "description": "A pure SVG checkmark animation that draws a square or circle before the check.",
+      "categories": ["animation", "svg", "feedback"],
+      "meta": {
+        "tags": [
+          "svg",
+          "svg-animation",
+          "checkbox",
+          "circle",
+          "success",
+          "checkmark",
+          "completion"
+        ],
+        "effects": ["svg-draw", "path-draw", "completion"]
+      },
+      "files": [
+        {
+          "path": "registry/base/ui/check-animation.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/check-animation.tsx"
+        },
+        {
+          "path": "registry/base/ui/check-animation.css",
+          "type": "registry:file",
+          "target": "components/ui/check-animation.css"
+        }
+      ]
+    },
+    {
+      "name": "jitter-animation",
+      "type": "registry:ui",
+      "title": "Jitter Animation",
+      "description": "A jitter animation primitive plus a ready-made vibration icon.",
+      "categories": ["animation", "svg"],
+      "meta": {
+        "tags": ["svg", "svg-animation", "jitter", "axis", "primitive"],
+        "effects": ["jitter", "horizontal-jitter", "vertical-jitter"]
+      },
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/base/ui/jitter-animation.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/jitter-animation.tsx"
+        },
+        {
+          "path": "registry/base/ui/jitter-animation.css",
+          "type": "registry:file",
+          "target": "components/ui/jitter-animation.css"
+        }
+      ]
+    },
+    {
+      "name": "squeeze-animation",
+      "type": "registry:ui",
+      "title": "Squeeze Animation",
+      "description": "A squeeze animation primitive plus a ready-made SVG card icon.",
+      "categories": ["animation", "svg"],
+      "meta": {
+        "tags": [
+          "svg",
+          "svg-animation",
+          "squeeze",
+          "squash-stretch",
+          "rebound",
+          "shake",
+          "primitive"
+        ],
+        "effects": [
+          "squeeze",
+          "squash-stretch",
+          "rebound",
+          "shake-x",
+          "shake-y",
+          "settle"
+        ]
+      },
+      "files": [
+        {
+          "path": "registry/base/ui/squeeze-animation.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/squeeze-animation.tsx"
+        },
+        {
+          "path": "registry/base/ui/squeeze-animation.css",
+          "type": "registry:file",
+          "target": "components/ui/squeeze-animation.css"
+        }
+      ]
+    },
+    {
+      "name": "heartbeat-animation",
+      "type": "registry:ui",
+      "title": "Heartbeat Animation",
+      "description": "A Motion-powered heartbeat primitive with a projected shadow layer and reduced-motion support.",
+      "categories": ["animation"],
+      "meta": {
+        "tags": ["heartbeat", "pulse", "double-thump", "primitive"],
+        "effects": ["scale", "pulse", "projected-shadow", "reduced-motion"]
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/heartbeat-animation.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/heartbeat-animation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "projected-shadow-animation",
+      "type": "registry:ui",
+      "title": "Projected Shadow Animation",
+      "description": "A CSS-powered primitive that layers an element with projected and contact shadows, then gathers them on hover or active state.",
+      "categories": ["animation", "interaction"],
+      "meta": {
+        "tags": [
+          "hover",
+          "shadow",
+          "projection",
+          "contact-shadow",
+          "layered-shadow",
+          "primitive"
+        ],
+        "effects": [
+          "projected-shadow",
+          "hover-gather",
+          "scale",
+          "rotate",
+          "reduced-motion"
+        ]
+      },
+      "files": [
+        {
+          "path": "registry/base/ui/projected-shadow-animation.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/projected-shadow-animation.tsx"
+        },
+        {
+          "path": "registry/base/ui/projected-shadow-animation.css",
+          "type": "registry:file",
+          "target": "components/ui/projected-shadow-animation.css"
+        }
+      ]
+    },
+    {
+      "name": "otp-input",
+      "type": "registry:ui",
+      "title": "OTP Input",
+      "description": "A fixed-slot one-time passcode input with paste, autofill, error shake, and animated success feedback.",
+      "categories": ["form", "input", "feedback"],
+      "meta": {
+        "tags": ["otp", "one-time-code", "passcode", "paste", "autofill"],
+        "effects": ["digit-roll", "error-shake", "svg-draw", "success-state"]
+      },
+      "registryDependencies": [
+        "https://ui.ericts.com/r/check-animation.json"
+      ],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/otp-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/otp-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "highlight-tabs",
+      "type": "registry:ui",
+      "title": "Highlight Tabs",
+      "description": "A Motion-powered tab list with a shared highlight indicator and keyboard navigation.",
+      "categories": ["navigation"],
+      "meta": {
+        "tags": ["tab-list", "roving-focus", "arrow-keys", "indicator"],
+        "effects": ["shared-layout", "highlight"]
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/highlight-tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/highlight-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-tabs",
+      "type": "registry:ui",
+      "title": "Expandable Tabs",
+      "description": "A DynamicIsland-style toolbar whose icon tabs expand into actionable menu or content panels, with full keyboard and ARIA support.",
+      "categories": ["navigation", "menu"],
+      "meta": {
+        "tags": [
+          "toolbar",
+          "expandable",
+          "menu",
+          "command-bar",
+          "roving-focus",
+          "arrow-keys"
+        ],
+        "effects": ["shared-layout", "morph", "blur", "spring"]
+      },
+      "registryDependencies": [
+        "https://ui.ericts.com/r/use-element-size-map.json"
+      ],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/expandable-tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expandable-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expanding-button",
+      "type": "registry:ui",
+      "title": "Expanding Button",
+      "description": "A compact icon button that morphs — growing in width and height from its corner — into a floating panel holding arbitrary content. The transformation is the point; it stays content-agnostic.",
+      "categories": ["overlay"],
+      "meta": {
+        "tags": [
+          "expanding-button",
+          "floating-panel",
+          "disclosure",
+          "content-agnostic"
+        ],
+        "effects": ["morph", "expand", "blur"]
+      },
+      "dependencies": ["lucide-react", "motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/expanding-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expanding-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A Base UI navigation menu with centered popups, animated viewport sizing, and shadcn-style composition.",
+      "categories": ["navigation"],
+      "meta": {
+        "tags": ["navigation", "menu", "viewport", "links"],
+        "effects": ["viewport-resize", "menu-transition"]
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/base/ui/navigation-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/navigation-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-morph",
+      "type": "registry:ui",
+      "title": "Morphing Text",
+      "description": "A Motion-powered text primitive that morphs matching characters between string updates.",
+      "categories": ["text"],
+      "meta": {
+        "tags": ["typography", "character-transition", "word-rotation"],
+        "effects": ["text-morph", "shared-layout"]
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/text-morph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/text-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-modal",
+      "type": "registry:ui",
+      "title": "Expandable Dialog",
+      "description": "A shared-layout dialog that expands list items into an accessible detail view.",
+      "categories": ["dialog"],
+      "meta": {
+        "tags": ["modal", "details", "list-item", "escape-key", "focus-trap"],
+        "effects": ["shared-layout", "expand", "fade"]
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/expandable-modal.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expandable-modal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-cursor",
+      "type": "registry:ui",
+      "title": "Context Cursor",
+      "description": "A scoped custom cursor for pointer-rich surfaces where each target can register its own label, icon, and interaction intent.",
+      "categories": ["cursor"],
+      "meta": {
+        "tags": ["pointer", "mouse", "context-label", "drag", "preview"],
+        "effects": ["spring-follow", "cursor-fade"]
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/context-cursor.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/context-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feedback-popover",
+      "type": "registry:ui",
+      "title": "Feedback Popover",
+      "description": "A Motion-powered feedback popover that expands from a trigger, supports keyboard submission, and confirms receipt inline.",
+      "categories": ["popover"],
+      "meta": {
+        "tags": ["textarea", "submit", "confirmation", "keyboard-submit"],
+        "effects": ["expand", "success-state", "shared-layout"]
+      },
+      "registryDependencies": ["button"],
+      "dependencies": ["motion", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/base/ui/feedback-popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feedback-popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "multi-step",
+      "type": "registry:ui",
+      "title": "Multi-Step Flow",
+      "description": "A Motion-powered multi-step container that slides between steps and animates height changes.",
+      "categories": ["flow"],
+      "meta": {
+        "tags": ["wizard", "stepper", "onboarding", "form-flow"],
+        "effects": ["slide", "height-animation"]
+      },
+      "registryDependencies": [
+        "button",
+        "https://ui.ericts.com/r/use-element-height.json"
+      ],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/multi-step.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/multi-step.tsx"
+        }
+      ]
+    },
+    {
+      "name": "adaptive-drawer",
+      "type": "registry:ui",
+      "title": "Adaptive Drawer",
+      "description": "A shadcn Drawer that measures panel content and animates height changes.",
+      "categories": ["drawer", "layout"],
+      "meta": {
+        "tags": ["drawer", "adaptive-height", "bottom-sheet", "content-transition"],
+        "effects": ["height-animation", "fade", "scale"]
+      },
+      "registryDependencies": ["button", "drawer"],
+      "dependencies": ["motion", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/base/ui/adaptive-drawer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/adaptive-drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "staggered-entrance",
+      "type": "registry:ui",
+      "title": "Staggered List",
+      "description": "A CSS-powered staggered entrance primitive for lists, cards, steps, rows, and search results.",
+      "categories": ["list"],
+      "meta": {
+        "tags": ["stagger", "entrance", "css-only", "list-animation"],
+        "effects": ["stagger", "fade", "slide"]
+      },
+      "files": [
+        {
+          "path": "registry/base/ui/staggered-entrance.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/staggered-entrance.tsx"
+        },
+        {
+          "path": "registry/base/ui/staggered-entrance.css",
+          "type": "registry:file",
+          "target": "components/ui/staggered-entrance.css"
+        }
+      ]
+    },
+    {
+      "name": "use-reduced-motion",
+      "type": "registry:hook",
+      "title": "useReducedMotion",
+      "description": "A client-safe React hook for reading prefers-reduced-motion and reacting to preference changes.",
+      "categories": ["accessibility"],
+      "meta": {
+        "tags": ["prefers-reduced-motion", "media-query", "user-preference"],
+        "effects": ["reduced-motion"]
+      },
+      "files": [
+        {
+          "path": "registry/base/hooks/use-reduced-motion.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-element-height",
+      "type": "registry:hook",
+      "title": "useElementHeight",
+      "description": "A client-safe React hook that measures an element's height with ResizeObserver so a container can animate between content heights.",
+      "categories": ["animation"],
+      "meta": {
+        "tags": ["resize-observer", "auto-height", "measure", "height-animation"],
+        "effects": ["height-animation"]
+      },
+      "files": [
+        {
+          "path": "registry/base/hooks/use-element-height.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-element-height.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-element-size-map",
+      "type": "registry:hook",
+      "title": "useElementSizeMap",
+      "description": "A client-safe React hook that measures multiple keyed element sizes with ResizeObserver so animated shells can morph to active content.",
+      "categories": ["animation", "layout"],
+      "meta": {
+        "tags": [
+          "resize-observer",
+          "auto-size",
+          "measure",
+          "width-animation",
+          "height-animation"
+        ],
+        "effects": ["morph", "size-animation", "layout-animation"]
+      },
+      "files": [
+        {
+          "path": "registry/base/hooks/use-element-size-map.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-element-size-map.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-scroll-anchor",
+      "type": "registry:hook",
+      "title": "useScrollAnchor",
+      "description": "A client-safe React hook that parks a selected item at a fixed anchor point in a scroll container, with a configurable easing and duration — the click-to-scroll behavior for navigation panels, command palettes, and step lists.",
+      "categories": ["motion"],
+      "meta": {
+        "tags": [
+          "scroll-anchor",
+          "scroll-into-view",
+          "active-item",
+          "eased-scroll",
+          "easing"
+        ],
+        "effects": ["scroll-anchor", "eased-scroll"]
+      },
+      "files": [
+        {
+          "path": "registry/base/hooks/use-scroll-anchor.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-scroll-anchor.ts"
+        }
+      ]
+    }
+  ]
+}

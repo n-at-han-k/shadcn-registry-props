@@ -1,0 +1,186 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "pulld",
+  "homepage": "https://pulld.dev",
+  "items": [
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Accessible icon button that copies a string to the clipboard and shows a transient copied state. Has aria-label, an aria-live announcement, keyboard focus ring, and a configurable reset timeout. Use it next to code blocks, API keys, share links, or any inline value a user might want to copy.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/copy-button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Inline keyboard key hint that renders a styled <kbd> element for showing shortcuts, hotkeys, and keybindings like Cmd+K, Ctrl+S, or ⇧⌘P. Use it in command palettes, tooltips, menu items, docs, onboarding, and keyboard-shortcut help dialogs. Unlike a plain styled <span> it uses the semantic <kbd> tag so the key is announced as keyboard input. Theme-aware via shadcn tokens; no dependencies.",
+      "dependencies": [],
+      "files": [{ "path": "registry/ui/kbd.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty State",
+      "description": "Centered empty/zero-data placeholder with an optional icon, title, description, and call-to-action slot. Use it when a list, table, search result, inbox, or dashboard has no items yet. Dashed border, muted text, fully accessible.",
+      "dependencies": [],
+      "files": [{ "path": "registry/ui/empty-state.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:ui",
+      "title": "Stat Card",
+      "description": "Compact metric card showing a label, a big value, and an optional percentage delta with an up/down arrow (green for positive, red for negative). Use it in dashboards, analytics, and KPI rows. Composes well into dashboard blocks.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/stat-card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:ui",
+      "title": "Theme Toggle",
+      "description": "Self-contained light/dark mode toggle button. Persists the choice to localStorage, respects the OS prefers-color-scheme on first load, and toggles the 'dark' class on the html element. No next-themes or provider required. Sun/Moon icons, aria-pressed.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/theme-toggle.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "avatar-stack",
+      "type": "registry:ui",
+      "title": "Avatar Stack",
+      "description": "Row of overlapping circular avatars (a facepile) that collapses the overflow into a '+N' badge past a max count, with a letter-initial fallback when an avatar has no image. Use it to show team members, project collaborators, assignees or reviewers, meeting attendees, who's online or currently viewing, or a 'shared with' list. Unlike rendering separate avatars it handles the overlap spacing and the overflow count for you. Theme-aware via shadcn tokens; no dependencies.",
+      "dependencies": [],
+      "files": [{ "path": "registry/ui/avatar-stack.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "password-input",
+      "type": "registry:ui",
+      "title": "Password Input",
+      "description": "Password text input with a built-in show/hide toggle button. Toggles between password and text, has an accessible aria-label and aria-pressed, and the toggle stays out of the tab order. Use it in sign-up, login, and reset-password forms.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/password-input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Accessible loading spinner (animated lucide Loader2) with role=status, aria-live, and a configurable screen-reader-only label so assistive tech announces the busy state. Use it while fetching data, submitting a form, loading a page or section, as a Suspense or lazy-route fallback, or inside a button's busy/pending state — anywhere you show a 'Loading…' indicator for a pending async operation. It follows the surrounding text color, so it inherits a button's or link's foreground. Depends only on lucide-react.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/spinner.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "Code snippet container with an optional language label and a hover/focus-revealed copy button (composes pulld's copy-button). Use it in docs, changelogs, and developer marketing pages to show installable commands or code. Demonstrates how pulld premium blocks compose free atoms.",
+      "dependencies": [],
+      "registryDependencies": ["copy-button"],
+      "files": [{ "path": "registry/ui/code-block.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "loading-button",
+      "type": "registry:ui",
+      "title": "Loading Button",
+      "description": "Button that shows a spinner and disables itself while an async action is pending. Set loading=true during submit, save, or checkout to prevent double-clicks; an optional loadingText swaps the label. Composes pulld's spinner atom.",
+      "dependencies": [],
+      "registryDependencies": ["spinner"],
+      "files": [{ "path": "registry/ui/loading-button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "confirm-button",
+      "type": "registry:ui",
+      "title": "Confirm Button",
+      "description": "Two-step confirm button for destructive actions: the first click arms it and swaps the label to a confirmation prompt, the second click runs onConfirm. Auto-reverts after a timeout and on blur so a stray click can't fire. Use it for delete, remove, reset, revoke, unsubscribe, or disconnect actions where a full alert dialog is overkill. Theme-aware via shadcn destructive tokens; no dependencies.",
+      "dependencies": [],
+      "files": [{ "path": "registry/ui/confirm-button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:ui",
+      "title": "Command Palette",
+      "description": "A production-ready ⌘K command palette: accessible (combobox/listbox roles, aria-activedescendant, focus trapped and restored), full keyboard navigation with wrap-around, fuzzy filtering with match highlighting, grouped results, recents, and an async `source` hook so you can plug in server-side or semantic search. Use it for global search, quick actions, and navigation in any app. Pairs with pulld Search via the exported `pulldSearchSource` helper for hosted semantic search — index your content and get meaning-based results with no search infra to run.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/command-palette.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "A production-ready toast/notification system: call toast(), toast.success/error/info/warning/loading or toast.promise() from anywhere — no provider or context needed — and render one <Toaster />. Auto-dismiss with pause-on-hover and focus, swipe-to-dismiss, six positions, action buttons, and accessible live regions (assertive for errors, polite otherwise). Enter/exit animation respects prefers-reduced-motion. Use it for success/error feedback, async operation status, and undo prompts.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/toast.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "search-input",
+      "type": "registry:ui",
+      "title": "Search Input",
+      "description": "Search field with a leading search icon and a trailing clear (✕) button that appears once there's text and empties the field, refocusing it. Works controlled or uncontrolled, forwards a ref so you can focus it from a keyboard shortcut (e.g. \"/\"), hides the browser's native search-cancel button, and clearing fires onChange so list/table/typeahead filtering updates. Use it to filter lists, tables, command menus, dropdowns, or any search box. Unlike a bare input it ships the icon, the clear control, and accessible focus rings out of the box. Theme-aware via shadcn tokens; depends only on lucide-react.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/search-input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "number-input",
+      "type": "registry:ui",
+      "title": "Number Input",
+      "description": "Number field with − and + stepper buttons that respect min, max, and step (including decimal steps), so users adjust a value without selecting and retyping. Works controlled or uncontrolled, forwards a ref, clamps at the bounds and disables the button once a limit is reached, and steps via a native input event so onChange fires and your form or state stays in sync. Use it for quantity pickers in carts and order forms, price or amount fields, numeric settings like font size, padding, or count, and any spinbutton-style input. Unlike a bare <input type=\"number\"> it ships accessible, theme-aware +/− controls and hides the browser's inconsistent native spinners. Theme-aware via shadcn tokens; depends only on lucide-react.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/number-input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "otp-input",
+      "type": "registry:ui",
+      "title": "OTP Input",
+      "description": "One-time passcode / verification code input split into individual single-character slots (default 6). Use it for two-factor authentication (2FA), email confirmation codes, phone/SMS verification, and authenticator app codes on verify, login-challenge, and confirm-email screens. Paste a full code into any slot and it distributes across them, supports OS one-time-code autofill, auto-advances as you type, Backspace clears and steps back, and arrow/Home/End keys move between slots. Works controlled or uncontrolled, forwards a ref to focus from a shortcut, fires onComplete when the last slot fills, and can mirror its value into a hidden input for native form submit. Unlike a single text field it ships the familiar boxed code UI with accessible per-digit labels and a group label. Theme-aware via shadcn tokens; no dependencies.",
+      "dependencies": [],
+      "files": [{ "path": "registry/ui/otp-input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "tag-input",
+      "type": "registry:ui",
+      "title": "Tag Input",
+      "description": "Multi-value text input that turns typed entries into removable chips — press Enter or comma to add a tag, click the × or press Backspace on an empty field to remove the last one, and paste a comma- or newline-separated list to add many at once. Use it for tags, labels, keywords, categories, email recipients, skills, or allowed domains — any free-form list of short values on a form or filter bar. Works controlled or uncontrolled via a string[] value, forwards a ref to focus the field, and supports a max count, case-insensitive de-duplication, and a validate hook to reject bad entries. shadcn/ui ships no tag or chips input; chips use secondary tokens so they follow your theme, each remove button is aria-labelled, and add/remove is announced via an aria-live region. Depends only on lucide-react.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/tag-input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "copy-field",
+      "type": "registry:ui",
+      "title": "Copy Field",
+      "description": "Read-only input that shows a value with a copy button docked at its right edge — one click copies, and focusing or clicking the field selects the whole value for manual copy. Use it to surface an API key, secret, access token, client ID/secret, invite or share link, webhook or endpoint URL, account/order/transaction ID, or any generated string a user reads once and copies. shadcn/ui ships no copy field; this composes pulld's copy-button (so it inherits the accessible copied-state announcement and focus ring), forwards a ref so you can focus it from a shortcut, renders the value in monospace, and is theme-aware via shadcn tokens with no extra dependencies.",
+      "dependencies": [],
+      "registryDependencies": ["copy-button"],
+      "files": [{ "path": "registry/ui/copy-field.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "Segmented Control",
+      "description": "Horizontal group of 2–4 mutually exclusive options rendered as one pill/track — a lighter switch than Tabs for toggling a view, time range, unit, sort order, or mode (e.g. List/Grid, Day/Week/Month, °C/°F, Light/Dark). Built as an accessible radiogroup: arrow keys (and Home/End) roving-focus and select, each segment is a role=radio with aria-checked, there's a focus-visible ring, per-segment disabling, and it works controlled or uncontrolled via a string value with onValueChange. Unlike Tabs it doesn't manage panels — it's only the selector — and unlike a Switch it supports more than two choices. Theme-aware via shadcn tokens; no dependencies.",
+      "dependencies": [],
+      "files": [{ "path": "registry/ui/segmented-control.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "step-indicator",
+      "type": "registry:ui",
+      "title": "Step Indicator",
+      "description": "Horizontal stepper that shows progress through a fixed sequence — numbered circle markers joined by a line, with each step rendered as complete (filled with a check), current (ringed and highlighted), or upcoming (muted). Use it at the top of a multi-step form, wizard, onboarding or setup flow, checkout, KYC/verification, or account-creation flow to tell users where they are and how much is left; pass a `current` index and it derives every step's state. shadcn/ui ships no stepper. Accessible as an ordered list where the active step carries aria-current=\"step\" and each marker has an sr-only status (Completed / Current step / Not completed); the check icon is aria-hidden. Optionally pass onStepClick to make already-reached steps navigable buttons (with a focus-visible ring), while upcoming steps stay non-interactive. Theme-aware via shadcn tokens with dark mode; only depends on lucide-react for the check icon.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/step-indicator.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "rating",
+      "type": "registry:ui",
+      "title": "Rating",
+      "description": "Star rating for both input and display, with half-star support. Use it to collect a score — rate this product, leave a review, a satisfaction or feedback rating, thumbs/stars on an order or support ticket — or, in read-only mode, to show an average score next to reviews, listings, or search results (an average like 3.7 fills 70% of a star). shadcn/ui ships no rating component. Works controlled or uncontrolled via a number value with onValueChange, forwards a ref, and posts through a hidden input in native forms via `name`. Set allowHalf to pick half stars — click the left half of a star, or step by 0.5 with the keyboard. Accessible as a slider: it's focusable with a focus-visible ring, arrow keys raise and lower the score, Home clears to 0 and End maxes out, and it exposes aria-valuenow plus a spoken aria-valuetext (\"3.5 out of 5 stars\"); read-only mode renders as a labelled image instead. The empty and filled stars are decorative and aria-hidden. Configure the number of stars with max and pixel size with size. Theme-aware via shadcn tokens (filled stars use the primary color, so it follows your theme in light and dark mode); only depends on lucide-react for the star icon.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/rating.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Vertical timeline that renders a list of events as dots on a connecting line, each with an optional time, title, and description. Use it for an activity feed, audit or history log, a changelog or release notes, order/shipment tracking, a deploy or CI/CD run log, notifications, a comment or event stream, a roadmap, or an 'about' resume/experience list — anywhere you show what happened in chronological order. shadcn/ui ships no timeline. Pass an items array (title, optional time, description, icon, and a color accent); the timestamp renders as a semantic <time> element with a machine-readable dateTime, the connecting line and decorative dots are aria-hidden, and each marker takes a per-item color (muted, primary, success, warning, destructive) so you can flag status like succeeded/failed/pending. Pass an icon to render an icon badge instead of a plain dot. It's a pure display component with no state, so it works in server components with no 'use client'. Theme-aware via shadcn tokens with dark mode; no dependencies (bring your own icons).",
+      "dependencies": [],
+      "files": [{ "path": "registry/ui/timeline.tsx", "type": "registry:ui" }]
+    }
+  ]
+}
