@@ -181,6 +181,14 @@
       "description": "Vertical timeline that renders a list of events as dots on a connecting line, each with an optional time, title, and description. Use it for an activity feed, audit or history log, a changelog or release notes, order/shipment tracking, a deploy or CI/CD run log, notifications, a comment or event stream, a roadmap, or an 'about' resume/experience list — anywhere you show what happened in chronological order. shadcn/ui ships no timeline. Pass an items array (title, optional time, description, icon, and a color accent); the timestamp renders as a semantic <time> element with a machine-readable dateTime, the connecting line and decorative dots are aria-hidden, and each marker takes a per-item color (muted, primary, success, warning, destructive) so you can flag status like succeeded/failed/pending. Pass an icon to render an icon badge instead of a plain dot. It's a pure display component with no state, so it works in server components with no 'use client'. Theme-aware via shadcn tokens with dark mode; no dependencies (bring your own icons).",
       "dependencies": [],
       "files": [{ "path": "registry/ui/timeline.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "announcement-bar",
+      "type": "registry:ui",
+      "title": "Announcement Bar",
+      "description": "Dismissible top-of-page announcement / notice bar for a site-wide message: a new feature or launch, a promo/sale/campaign, a scheduled-maintenance or downtime notice, a beta or cookie notice, or any banner you show above the header. shadcn/ui ships no announcement bar. It persists its dismissed state to localStorage per `id` so it never reappears once closed — bump the `id` or a `version` prop to re-show it after the message changes — and it's hydration-safe (renders nothing until mounted, so it never flashes for users who already closed it). Accessible as an aria-labelled region with a focus-ringed close button; supports an optional leading icon and a trailing call-to-action link, a solid `primary` or subtle `default` variant, and a non-dismissible mode for permanent banners. Theme-aware via shadcn tokens with dark mode; only depends on lucide-react for the close icon.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/announcement-bar.tsx", "type": "registry:ui" }]
     }
   ]
 }
