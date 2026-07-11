@@ -189,6 +189,14 @@
       "description": "Dismissible top-of-page announcement / notice bar for a site-wide message: a new feature or launch, a promo/sale/campaign, a scheduled-maintenance or downtime notice, a beta or cookie notice, or any banner you show above the header. shadcn/ui ships no announcement bar. It persists its dismissed state to localStorage per `id` so it never reappears once closed — bump the `id` or a `version` prop to re-show it after the message changes — and it's hydration-safe (renders nothing until mounted, so it never flashes for users who already closed it). Accessible as an aria-labelled region with a focus-ringed close button; supports an optional leading icon and a trailing call-to-action link, a solid `primary` or subtle `default` variant, and a non-dismissible mode for permanent banners. Theme-aware via shadcn tokens with dark mode; only depends on lucide-react for the close icon.",
       "dependencies": ["lucide-react"],
       "files": [{ "path": "registry/ui/announcement-bar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "file-dropzone",
+      "type": "registry:ui",
+      "title": "File Dropzone",
+      "description": "Drag-and-drop file upload area that also opens the native file picker on click, Enter, or Space. Use it wherever a user uploads a file: an avatar or image upload, a CSV or spreadsheet import, a document/PDF/resume upload, attachments, a bulk media drop, or an import step in a form or wizard. shadcn/ui ships no dropzone or file input. Wraps a hidden <input type=\"file\"> so it stays a real form control, and filters both dropped and picked files by `accept` (mime, mime wildcard like image/*, or .ext), `maxSize` in bytes, and `maxFiles`, calling `onReject` with the reason (type, size, too-many) for anything skipped. Works controlled or uncontrolled via a File[] value, forwards a ref to the input, and toggles a highlighted drag-over state. Accessible as a role=button region with keyboard activation, a focus-visible ring, an aria-live announcement on every add/reject, and a disabled state; supports single or multiple files and custom children for the drop label. Depends only on lucide-react for the upload icon.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/ui/file-dropzone.tsx", "type": "registry:ui" }]
     }
   ]
 }
