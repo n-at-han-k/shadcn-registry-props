@@ -62,6 +62,37 @@
       ]
     },
     {
+      "name": "ai-sdk-backend-resumable",
+      "type": "registry:page",
+      "files": [
+        {
+          "type": "registry:page",
+          "path": "app/api/chat/route.ts",
+          "sourcePath": "templates/ai-sdk-backend-resumable/app/api/chat/route.ts",
+          "target": "app/api/chat/route.ts"
+        },
+        {
+          "type": "registry:page",
+          "path": "app/api/chat/resume/[streamId]/route.ts",
+          "sourcePath": "templates/ai-sdk-backend-resumable/app/api/chat/resume/[streamId]/route.ts",
+          "target": "app/api/chat/resume/[streamId]/route.ts"
+        },
+        {
+          "type": "registry:lib",
+          "path": "lib/resumable-context.ts",
+          "sourcePath": "templates/ai-sdk-backend-resumable/lib/resumable-context.ts",
+          "target": "lib/resumable-context.ts"
+        }
+      ],
+      "dependencies": [
+        "ai",
+        "@ai-sdk/openai",
+        "@assistant-ui/react-ai-sdk",
+        "assistant-stream",
+        "next"
+      ]
+    },
+    {
       "name": "thread",
       "type": "registry:component",
       "files": [
@@ -145,7 +176,25 @@
         "tw-shimmer"
       ],
       "css": {
-        "@import \"tw-shimmer\"": {}
+        "@import \"tw-shimmer\"": {},
+        "@custom-variant data-open (&:where([data-state=\"open\"], [data-open]:not([data-open=\"false\"])))": {},
+        "@custom-variant data-closed (&:where([data-state=\"closed\"], [data-closed]:not([data-closed=\"false\"])))": {},
+        "@keyframes collapsible-down": {
+          "from": {
+            "height": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height, var(--collapsible-panel-height, auto))"
+          }
+        },
+        "@keyframes collapsible-up": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height, var(--collapsible-panel-height, auto))"
+          },
+          "to": {
+            "height": "0"
+          }
+        }
       }
     },
     {
@@ -357,7 +406,25 @@
         "collapsible"
       ],
       "css": {
-        "@import \"tw-shimmer\"": {}
+        "@import \"tw-shimmer\"": {},
+        "@custom-variant data-open (&:where([data-state=\"open\"], [data-open]:not([data-open=\"false\"])))": {},
+        "@custom-variant data-closed (&:where([data-state=\"closed\"], [data-closed]:not([data-closed=\"false\"])))": {},
+        "@keyframes collapsible-down": {
+          "from": {
+            "height": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height, var(--collapsible-panel-height, auto))"
+          }
+        },
+        "@keyframes collapsible-up": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height, var(--collapsible-panel-height, auto))"
+          },
+          "to": {
+            "height": "0"
+          }
+        }
       }
     },
     {
@@ -380,7 +447,25 @@
         "collapsible"
       ],
       "css": {
-        "@import \"tw-shimmer\"": {}
+        "@import \"tw-shimmer\"": {},
+        "@custom-variant data-open (&:where([data-state=\"open\"], [data-open]:not([data-open=\"false\"])))": {},
+        "@custom-variant data-closed (&:where([data-state=\"closed\"], [data-closed]:not([data-closed=\"false\"])))": {},
+        "@keyframes collapsible-down": {
+          "from": {
+            "height": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height, var(--collapsible-panel-height, auto))"
+          }
+        },
+        "@keyframes collapsible-up": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height, var(--collapsible-panel-height, auto))"
+          },
+          "to": {
+            "height": "0"
+          }
+        }
       }
     },
     {
@@ -568,9 +653,9 @@
         }
       ],
       "dependencies": [
-        "radix-ui",
         "lucide-react",
-        "class-variance-authority"
+        "class-variance-authority",
+        "radix-ui"
       ],
       "registryDependencies": []
     },
@@ -581,13 +666,13 @@
         {
           "type": "registry:ui",
           "path": "components/ui/direction.tsx",
-          "sourcePath": "../../packages/ui/src/components/ui/direction.tsx"
+          "sourcePath": "../../packages/ui/src/components/ui/radix/direction.tsx"
         }
       ],
+      "registryDependencies": [],
       "dependencies": [
         "radix-ui"
-      ],
-      "registryDependencies": []
+      ]
     },
     {
       "name": "badge",
@@ -600,8 +685,8 @@
         }
       ],
       "dependencies": [
-        "radix-ui",
-        "class-variance-authority"
+        "class-variance-authority",
+        "radix-ui"
       ],
       "registryDependencies": []
     },
@@ -616,8 +701,8 @@
         }
       ],
       "dependencies": [
-        "radix-ui",
-        "class-variance-authority"
+        "class-variance-authority",
+        "radix-ui"
       ],
       "registryDependencies": []
     },
@@ -632,11 +717,29 @@
         }
       ],
       "dependencies": [
-        "radix-ui",
         "lucide-react",
-        "class-variance-authority"
+        "class-variance-authority",
+        "radix-ui"
       ],
-      "registryDependencies": []
+      "registryDependencies": [],
+      "css": {
+        "@keyframes accordion-down": {
+          "from": {
+            "height": "0"
+          },
+          "to": {
+            "height": "var(--radix-accordion-content-height, var(--accordion-panel-height, auto))"
+          }
+        },
+        "@keyframes accordion-up": {
+          "from": {
+            "height": "var(--radix-accordion-content-height, var(--accordion-panel-height, auto))"
+          },
+          "to": {
+            "height": "0"
+          }
+        }
+      }
     },
     {
       "name": "dot-matrix",

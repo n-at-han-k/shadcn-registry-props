@@ -1258,7 +1258,7 @@
       "name": "andromeda",
       "type": "registry:style",
       "title": "Andromeda design system",
-      "description": "Every Andromeda component (35 files). Installs the foundation tokens automatically.",
+      "description": "Every Andromeda component (37 files). Installs the foundation tokens automatically.",
       "dependencies": [
         "@phosphor-icons/react",
         "@radix-ui/react-slot",
@@ -1322,6 +1322,11 @@
           "target": "components/aicanvas/andromeda/components/EmptyState.tsx"
         },
         {
+          "path": "components/aicanvas/andromeda/components/Gauge.tsx",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/Gauge.tsx"
+        },
+        {
           "path": "components/aicanvas/andromeda/components/HeatGrid.tsx",
           "type": "registry:lib",
           "target": "components/aicanvas/andromeda/components/HeatGrid.tsx"
@@ -1335,6 +1340,11 @@
           "path": "components/aicanvas/andromeda/components/Input.tsx",
           "type": "registry:lib",
           "target": "components/aicanvas/andromeda/components/Input.tsx"
+        },
+        {
+          "path": "components/aicanvas/andromeda/components/MetricChart.tsx",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/MetricChart.tsx"
         },
         {
           "path": "components/aicanvas/andromeda/components/NavItem.tsx",
@@ -2195,18 +2205,91 @@
       ]
     },
     {
+      "name": "andromeda-metric-chart",
+      "type": "registry:ui",
+      "title": "MetricChart (Andromeda)",
+      "description": "Andromeda MetricChart component. Install just this piece. Tokens and any sibling components are pulled in automatically.",
+      "dependencies": [
+        "framer-motion",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "https://aicanvas.me/r/andromeda-badge.json",
+        "https://aicanvas.me/r/andromeda-corner-markers.json",
+        "https://aicanvas.me/r/andromeda-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "components/aicanvas/andromeda/components/MetricChart.tsx",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/MetricChart.tsx"
+        },
+        {
+          "path": "components/aicanvas/andromeda/components/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "andromeda-gauge",
+      "type": "registry:ui",
+      "title": "Gauge (Andromeda)",
+      "description": "Andromeda Gauge component. Install just this piece. Tokens and any sibling components are pulled in automatically.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "https://aicanvas.me/r/andromeda-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "components/aicanvas/andromeda/components/Gauge.tsx",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/Gauge.tsx"
+        },
+        {
+          "path": "components/aicanvas/andromeda/components/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/motion.ts"
+        }
+      ]
+    },
+    {
       "name": "andromeda-mission-control",
       "type": "registry:block",
       "title": "Mission Control (Andromeda)",
-      "description": "Mission Control composition from Andromeda — sci-fi dashboard. Pulls in the full Andromeda system on first install; subsequent template installs reuse it.",
+      "description": "Mission Control composition from Andromeda — sci-fi dashboard. Pulls in the 12 Andromeda components it uses, plus tokens.",
       "dependencies": [
         "@phosphor-icons/react",
         "framer-motion"
       ],
       "registryDependencies": [
-        "https://aicanvas.me/r/andromeda.json"
+        "https://aicanvas.me/r/andromeda-tokens.json",
+        "https://aicanvas.me/r/andromeda-badge.json",
+        "https://aicanvas.me/r/andromeda-button-system.json",
+        "https://aicanvas.me/r/andromeda-card.json",
+        "https://aicanvas.me/r/andromeda-corner-markers.json",
+        "https://aicanvas.me/r/andromeda-drawer.json",
+        "https://aicanvas.me/r/andromeda-icon-button.json",
+        "https://aicanvas.me/r/andromeda-nav-item.json",
+        "https://aicanvas.me/r/andromeda-planet.json",
+        "https://aicanvas.me/r/andromeda-progress-bar.json",
+        "https://aicanvas.me/r/andromeda-radar-chart.json",
+        "https://aicanvas.me/r/andromeda-stat-tile.json",
+        "https://aicanvas.me/r/andromeda-user-card.json"
       ],
       "files": [
+        {
+          "path": "components/aicanvas/andromeda/components/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/motion.ts"
+        },
+        {
+          "path": "components/aicanvas/andromeda/components/lib/responsive.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/responsive.ts"
+        },
         {
           "path": "components/aicanvas/andromeda/examples/_shared/TemplateMobileChrome.tsx",
           "type": "registry:lib",
@@ -2268,15 +2351,40 @@
       "name": "andromeda-service-order",
       "type": "registry:block",
       "title": "Service Order (Andromeda)",
-      "description": "Service Order composition from Andromeda — telecom dashboard. Pulls in the full Andromeda system on first install; subsequent template installs reuse it.",
+      "description": "Service Order composition from Andromeda — telecom dashboard. Pulls in the 15 Andromeda components it uses, plus tokens.",
       "dependencies": [
         "@phosphor-icons/react",
         "framer-motion"
       ],
       "registryDependencies": [
-        "https://aicanvas.me/r/andromeda.json"
+        "https://aicanvas.me/r/andromeda-tokens.json",
+        "https://aicanvas.me/r/andromeda-badge.json",
+        "https://aicanvas.me/r/andromeda-button-system.json",
+        "https://aicanvas.me/r/andromeda-card.json",
+        "https://aicanvas.me/r/andromeda-checkbox.json",
+        "https://aicanvas.me/r/andromeda-corner-markers.json",
+        "https://aicanvas.me/r/andromeda-drawer.json",
+        "https://aicanvas.me/r/andromeda-heat-grid.json",
+        "https://aicanvas.me/r/andromeda-icon-button.json",
+        "https://aicanvas.me/r/andromeda-nav-item.json",
+        "https://aicanvas.me/r/andromeda-panel-menu.json",
+        "https://aicanvas.me/r/andromeda-progress-bar.json",
+        "https://aicanvas.me/r/andromeda-tag.json",
+        "https://aicanvas.me/r/andromeda-tooltip.json",
+        "https://aicanvas.me/r/andromeda-user-card.json",
+        "https://aicanvas.me/r/andromeda-user-menu.json"
       ],
       "files": [
+        {
+          "path": "components/aicanvas/andromeda/components/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/motion.ts"
+        },
+        {
+          "path": "components/aicanvas/andromeda/components/lib/responsive.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/responsive.ts"
+        },
         {
           "path": "components/aicanvas/andromeda/examples/_shared/TemplateMobileChrome.tsx",
           "type": "registry:lib",
@@ -2313,16 +2421,39 @@
       "name": "andromeda-resource-planning",
       "type": "registry:block",
       "title": "Resource Planning (Andromeda)",
-      "description": "Resource Planning composition from Andromeda — operations dashboard. Pulls in the full Andromeda system on first install; subsequent template installs reuse it.",
+      "description": "Resource Planning composition from Andromeda — operations dashboard. Pulls in the 13 Andromeda components it uses, plus tokens.",
       "dependencies": [
         "@phosphor-icons/react",
         "framer-motion",
         "recharts"
       ],
       "registryDependencies": [
-        "https://aicanvas.me/r/andromeda.json"
+        "https://aicanvas.me/r/andromeda-tokens.json",
+        "https://aicanvas.me/r/andromeda-button-system.json",
+        "https://aicanvas.me/r/andromeda-checkbox.json",
+        "https://aicanvas.me/r/andromeda-corner-markers.json",
+        "https://aicanvas.me/r/andromeda-date-range-picker.json",
+        "https://aicanvas.me/r/andromeda-drawer.json",
+        "https://aicanvas.me/r/andromeda-icon-button.json",
+        "https://aicanvas.me/r/andromeda-nav-item.json",
+        "https://aicanvas.me/r/andromeda-panel-header.json",
+        "https://aicanvas.me/r/andromeda-panel-menu.json",
+        "https://aicanvas.me/r/andromeda-toggle.json",
+        "https://aicanvas.me/r/andromeda-trend-chart.json",
+        "https://aicanvas.me/r/andromeda-user-card.json",
+        "https://aicanvas.me/r/andromeda-user-menu.json"
       ],
       "files": [
+        {
+          "path": "components/aicanvas/andromeda/components/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/motion.ts"
+        },
+        {
+          "path": "components/aicanvas/andromeda/components/lib/responsive.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/responsive.ts"
+        },
         {
           "path": "components/aicanvas/andromeda/examples/_shared/TemplateMobileChrome.tsx",
           "type": "registry:lib",
@@ -2364,15 +2495,38 @@
       "name": "andromeda-signal-room",
       "type": "registry:block",
       "title": "Signal Room (Andromeda)",
-      "description": "Signal Room composition from Andromeda — audio dashboard. Pulls in the full Andromeda system on first install; subsequent template installs reuse it.",
+      "description": "Signal Room composition from Andromeda — audio dashboard. Pulls in the 13 Andromeda components it uses, plus tokens.",
       "dependencies": [
         "@phosphor-icons/react",
         "framer-motion"
       ],
       "registryDependencies": [
-        "https://aicanvas.me/r/andromeda.json"
+        "https://aicanvas.me/r/andromeda-tokens.json",
+        "https://aicanvas.me/r/andromeda-badge.json",
+        "https://aicanvas.me/r/andromeda-button-system.json",
+        "https://aicanvas.me/r/andromeda-card.json",
+        "https://aicanvas.me/r/andromeda-corner-markers.json",
+        "https://aicanvas.me/r/andromeda-drawer.json",
+        "https://aicanvas.me/r/andromeda-icon-button.json",
+        "https://aicanvas.me/r/andromeda-nav-item.json",
+        "https://aicanvas.me/r/andromeda-panel-header.json",
+        "https://aicanvas.me/r/andromeda-progress-bar.json",
+        "https://aicanvas.me/r/andromeda-search-field.json",
+        "https://aicanvas.me/r/andromeda-slider.json",
+        "https://aicanvas.me/r/andromeda-stat-tile.json",
+        "https://aicanvas.me/r/andromeda-user-card.json"
       ],
       "files": [
+        {
+          "path": "components/aicanvas/andromeda/components/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/motion.ts"
+        },
+        {
+          "path": "components/aicanvas/andromeda/components/lib/responsive.ts",
+          "type": "registry:lib",
+          "target": "components/aicanvas/andromeda/components/lib/responsive.ts"
+        },
         {
           "path": "components/aicanvas/andromeda/examples/_shared/TemplateMobileChrome.tsx",
           "type": "registry:lib",
@@ -2434,13 +2588,14 @@
       "name": "andromeda-all",
       "type": "registry:style",
       "title": "Andromeda — full system",
-      "description": "Every Andromeda component, token, and template in one install.",
+      "description": "Every Andromeda component, token, and template, plus the Andromeda brain, in one install.",
       "registryDependencies": [
         "https://aicanvas.me/r/andromeda.json",
         "https://aicanvas.me/r/andromeda-mission-control.json",
         "https://aicanvas.me/r/andromeda-service-order.json",
         "https://aicanvas.me/r/andromeda-resource-planning.json",
-        "https://aicanvas.me/r/andromeda-signal-room.json"
+        "https://aicanvas.me/r/andromeda-signal-room.json",
+        "https://aicanvas.me/r/andromeda-brain.json"
       ],
       "files": []
     }
