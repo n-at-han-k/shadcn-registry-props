@@ -390,6 +390,18 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "time-ago",
+      "type": "registry:ui",
+      "title": "Time Ago",
+      "description": "Auto-updating relative timestamp — \"3 minutes ago\", \"just now\", \"in 2 days\" — that re-renders on a timer so the label stays fresh without a reload. Use it wherever a raw date would be noise and recency is what matters: comment/post/message timestamps, a notification or activity feed, \"last seen\"/\"last updated\"/\"last synced\" labels, commit or deploy history, table rows (created/modified), or a chat's message time. shadcn/ui ships no time-ago/relative-time component. Pass date as a Date, an ISO string, or epoch milliseconds. Wording comes from the platform's own Intl.RelativeTimeFormat, so it localizes for free via the locale prop and reads correctly for both past and future times; set numeric=\"auto\" to get \"yesterday\"/\"tomorrow\" instead of \"1 day ago\", and format to \"short\" or \"narrow\" for compact \"3 min. ago\"/\"3m ago\". Anything newer than justNowThreshold seconds (default 45) shows justNowLabel (\"just now\"). The tick rate adapts — every 15s while under a minute old, per-minute under an hour, then hourly — or pin it with updateInterval. Renders a semantic <time> element with a machine-readable dateTime and a title tooltip carrying the full localized date, and is SSR/hydration-safe. Theme-aware via shadcn's text-muted-foreground token; depends only on your cn util — no date library, no extra packages.",
+      "files": [
+        {
+          "path": "registry/ui/time-ago.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
