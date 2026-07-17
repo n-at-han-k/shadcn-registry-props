@@ -100,7 +100,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "@unlumen-ui/primitives-buttons-button",
+        "@unlumen-ui/button",
         "@unlumen-ui/hooks-use-controlled-state"
       ],
       "files": [
@@ -121,7 +121,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "button"
+        "@unlumen-ui/button"
       ],
       "files": [
         {
@@ -147,7 +147,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/refresh.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "cards-view-icon",
@@ -257,24 +258,11 @@
       "type": "registry:ui",
       "title": "Blob Card",
       "description": "Animated card with fluid blob header, animated glow border, and configurable colors.",
-      "dependencies": [
-        "motion"
-      ],
       "files": [
         {
           "path": "registry/components/ui/blob-card/index.tsx",
           "type": "registry:ui",
           "target": "components/unlumen-ui/blob-card.tsx"
-        },
-        {
-          "path": "registry/components/ui/blob-card/FluidBlobs.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/FluidBlobs.tsx"
-        },
-        {
-          "path": "registry/components/ui/blob-card/glow-effect.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/glow-effect.tsx"
         }
       ]
     },
@@ -405,7 +393,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/clipped-circle.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "command-menu",
@@ -423,7 +412,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/command-menu.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "count-up",
@@ -440,7 +430,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/count-up.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "cursor",
@@ -451,7 +442,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "@unlumen-ui/primitives-animate-cursor"
+        "@unlumen-ui/cursor-primitive"
       ],
       "files": [
         {
@@ -536,8 +527,8 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@unlumen-ui/primitives-effects-velocity-highlight",
-        "@unlumen-ui/primitives-animate-tabs"
+        "@unlumen-ui/velocity-highlight",
+        "@unlumen-ui/tabs"
       ],
       "files": [],
       "meta": {
@@ -606,6 +597,7 @@
       "title": "Floating Tooltip",
       "description": "A floating tooltip component.",
       "dependencies": [
+        "class-variance-authority",
         "motion"
       ],
       "files": [
@@ -614,7 +606,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/floating-tooltip.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "glowing-badge",
@@ -630,7 +623,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/glowing-badge.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "gooey-navbar-menu",
@@ -760,14 +754,15 @@
       "name": "kbd",
       "type": "registry:ui",
       "title": "Kbd",
-      "description": "Keyboard key and shortcut display component with a realistic keycap style.",
+      "description": "Keyboard key and shortcut display component with a soft, minimal key style.",
       "files": [
         {
           "path": "registry/components/unlumen/kbd/index.tsx",
           "type": "registry:ui",
           "target": "components/unlumen-ui/kbd.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "magnetic-button",
@@ -801,8 +796,14 @@
           "path": "registry/components/unlumen/math-graph/index.tsx",
           "type": "registry:ui",
           "target": "components/unlumen-ui/math-graph.tsx"
+        },
+        {
+          "path": "registry/components/unlumen/math-graph/math-expression.ts",
+          "type": "registry:lib",
+          "target": "components/unlumen-ui/math-expression.ts"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "matrix",
@@ -951,7 +952,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/orbiting-skills.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "page-transition",
@@ -1006,6 +1008,23 @@
       ]
     },
     {
+      "name": "pixel-scroll-transition",
+      "type": "registry:ui",
+      "title": "Pixel Scroll Transition",
+      "description": "Canvas-based scroll transition that wipes between two colors with a configurable pixel grid, directional patterns, easing, and accent-color bands.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@unlumen-ui/pixel-patterns"
+      ],
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
+    },
+    {
       "name": "progressive-blur",
       "type": "registry:ui",
       "title": "Progressive Blur",
@@ -1017,7 +1036,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/progressive-blur.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "scramble-text",
@@ -1030,7 +1050,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/scramble-text.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "scroll-reveal-image",
@@ -1060,7 +1081,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/shimmer-skeleton.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "shimmering-text",
@@ -1076,7 +1098,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/shimmering-text.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "side-by-side-slide",
@@ -1140,7 +1163,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/slider.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "smart-animate-text",
@@ -1186,7 +1210,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/switch.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "tag",
@@ -1252,7 +1277,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/theme-switch.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "tilt",
@@ -1268,7 +1294,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/tilt.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "tilt-card",
@@ -1279,8 +1306,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://ui.unlumen.com/r/tilt.json",
-        "https://ui.unlumen.com/r/clipped-circle.json"
+        "@unlumen-ui/tilt",
+        "@unlumen-ui/clipped-circle"
       ],
       "files": [
         {
@@ -1304,7 +1331,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/tooltip-preview.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "velocity-highlight",
@@ -1320,7 +1348,8 @@
           "type": "registry:ui",
           "target": "components/unlumen-ui/primitives/effects/velocity-highlight.tsx"
         }
-      ]
+      ],
+      "registryDependencies": []
     },
     {
       "name": "vercel-snap-text",
@@ -1781,6 +1810,9 @@
       "description": "Three glow buttons with different colour palettes and animation modes.",
       "registryDependencies": [
         "@unlumen-ui/glow"
+      ],
+      "dependencies": [
+        "lucide-react"
       ],
       "files": [
         {
@@ -2386,7 +2418,10 @@
       "title": "Floating Tooltip Demo",
       "description": "",
       "registryDependencies": [
-        "floating-tooltip"
+        "@unlumen-ui/floating-tooltip"
+      ],
+      "dependencies": [
+        "lucide-react"
       ],
       "files": [
         {
@@ -2831,6 +2866,9 @@
       "registryDependencies": [
         "@unlumen-ui/orbiting-skills"
       ],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "registry/demo/components/unlumen/orbiting-skills/index.tsx",
@@ -2910,6 +2948,23 @@
           "type": "registry:example"
         }
       ]
+    },
+    {
+      "name": "demo-pixel-scroll-transition",
+      "type": "registry:example",
+      "title": "Pixel Scroll Transition Demo",
+      "description": "Scrollable inline demo showing a directional pixel wipe between dark and warm paper sections.",
+      "registryDependencies": [
+        "@unlumen-ui/pixel-scroll-transition"
+      ],
+      "files": [],
+      "meta": {
+        "demoProps": {
+          "PixelScrollTransitionDemo": {}
+        },
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
     },
     {
       "name": "demo-progressive-blur",
@@ -3491,7 +3546,7 @@
       }
     },
     {
-      "name": "demo-primitives-effects-highlight",
+      "name": "demo-highlight",
       "type": "registry:example",
       "title": "Highlight Demo",
       "description": "Interactive highlight effect with smooth spring animations.",
@@ -3500,7 +3555,7 @@
       ],
       "files": [
         {
-          "path": "registry/demo/primitives/effects/highlight/index.tsx",
+          "path": "registry/demo/primitives/highlight/index.tsx",
           "type": "registry:example"
         }
       ],
@@ -3516,16 +3571,16 @@
       }
     },
     {
-      "name": "demo-primitives-effects-velocity-highlight",
+      "name": "demo-velocity-highlight",
       "type": "registry:example",
       "title": "Velocity Highlight Demo",
       "description": "Interactive highlight with velocity-based scaling effects.",
       "registryDependencies": [
-        "@unlumen-ui/primitives-effects-velocity-highlight"
+        "@unlumen-ui/velocity-highlight"
       ],
       "files": [
         {
-          "path": "registry/demo/primitives/effects/velocity-highlight/index.tsx",
+          "path": "registry/demo/primitives/velocity-highlight/index.tsx",
           "type": "registry:example"
         }
       ],
@@ -3556,8 +3611,8 @@
     {
       "name": "hooks-use-controlled-state",
       "type": "registry:hook",
-      "title": "useControlledState",
-      "description": "A hook that allows you to control a state.",
+      "title": "Use Controlled State",
+      "description": "React hook for controlled and uncontrolled component state.",
       "files": [
         {
           "path": "registry/hooks/use-controlled-state/index.tsx",
@@ -3614,13 +3669,26 @@
     {
       "name": "lib-get-strict-context",
       "type": "registry:lib",
-      "title": "getStrictContext",
-      "description": "A hook that allows you to create a strict context.",
+      "title": "Get Strict Context",
+      "description": "React context helper that throws when used outside its provider.",
       "files": [
         {
           "path": "registry/lib/get-strict-context/index.tsx",
           "type": "registry:lib",
           "target": "lib/get-strict-context.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pixel-patterns",
+      "type": "registry:lib",
+      "title": "Pixel Patterns",
+      "description": "Deterministic threshold, accent, and easing helpers for pixel-grid transition components.",
+      "files": [
+        {
+          "path": "registry/lib/pixel-patterns/index.ts",
+          "type": "registry:lib",
+          "target": "lib/pixel-patterns.ts"
         }
       ]
     },
@@ -3864,6 +3932,25 @@
       ]
     },
     {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A simple button that animates on hover and tap.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@unlumen-ui/slot"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/button/index.tsx",
+          "type": "registry:ui",
+          "target": "components/unlumen-ui/primitives/button.tsx"
+        }
+      ]
+    },
+    {
       "name": "primitives-buttons-button",
       "type": "registry:ui",
       "title": "Button",
@@ -3939,6 +4026,26 @@
           "path": "registry/primitives/buttons/ripple/index.tsx",
           "type": "registry:ui",
           "target": "components/unlumen-ui/primitives/buttons/ripple.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-primitive",
+      "type": "registry:ui",
+      "title": "Cursor",
+      "description": "An animated cursor component that allows you to customize both the cursor and cursor follow elements with smooth animations.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@unlumen-ui/slot",
+        "@unlumen-ui/lib-get-strict-context"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/cursor-primitive/index.tsx",
+          "type": "registry:ui",
+          "target": "components/unlumen-ui/primitives/cursor.tsx"
         }
       ]
     },
@@ -4217,6 +4324,44 @@
           "path": "registry/primitives/effects/zoom/index.tsx",
           "type": "registry:ui",
           "target": "components/unlumen-ui/primitives/effects/zoom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slot",
+      "type": "registry:ui",
+      "title": "Animate Slot",
+      "description": "A slot component that allows you to use motion components with any element.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/slot/index.tsx",
+          "type": "registry:ui",
+          "target": "components/unlumen-ui/primitives/slot.tsx"
+        }
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@unlumen-ui/highlight",
+        "@unlumen-ui/slot",
+        "@unlumen-ui/lib-get-strict-context"
+      ],
+      "files": [
+        {
+          "path": "registry/primitives/tabs/index.tsx",
+          "type": "registry:ui",
+          "target": "components/unlumen-ui/primitives/tabs.tsx"
         }
       ]
     },
