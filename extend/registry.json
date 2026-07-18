@@ -605,6 +605,7 @@
         "@extend/file-thumbnail",
         "input",
         "@extend/pdf-viewer",
+        "@extend/pptx-viewer",
         "popover",
         "scroll-area",
         "select",
@@ -626,7 +627,7 @@
       "name": "file-system-block",
       "type": "registry:block",
       "title": "File System (Finder)",
-      "description": "A Finder-style file browser block that opens PDF, DOCX, XLSX, and image files in large viewer dialogs.",
+      "description": "A Finder-style file browser block that opens PDF, DOCX, PowerPoint, XLSX, and image files in large viewer dialogs.",
       "registryDependencies": ["@extend/file-system"],
       "categories": ["documents", "blocks"],
       "files": [
@@ -796,6 +797,39 @@
           "path": "components/ui/xlsx-viewer.tsx",
           "type": "registry:ui",
           "target": "@ui/xlsx-viewer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pptx-viewer",
+      "type": "registry:ui",
+      "title": "PowerPoint Viewer",
+      "description": "A PowerPoint viewer with slide navigation, zoom, upload, download, custom scroll areas, and virtualized thumbnails.",
+      "dependencies": [
+        "@extend-ai/react-pptx@0.1.2",
+        "@hugeicons/core-free-icons@^4.2.0",
+        "@hugeicons/react@^1.1.6",
+        "@tanstack/react-virtual@^3.13.12"
+      ],
+      "registryDependencies": [
+        "button",
+        "@extend/document-viewer-sidebar",
+        "dropdown-menu",
+        "@extend/file-thumbnail",
+        "input",
+        "scroll-area",
+        "select",
+        "separator",
+        "spinner",
+        "tooltip",
+        "utils"
+      ],
+      "categories": ["documents"],
+      "files": [
+        {
+          "path": "components/ui/pptx-viewer.tsx",
+          "type": "registry:ui",
+          "target": "@ui/pptx-viewer.tsx"
         }
       ]
     },

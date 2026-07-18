@@ -429,6 +429,18 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "countdown",
+      "type": "registry:ui",
+      "title": "Countdown",
+      "description": "A live countdown timer to a future moment — it re-renders every second, ticks down, never goes negative, and fires an onComplete callback once when it reaches zero. Use it wherever you're waiting on a deadline: a product/waitlist launch or \"coming soon\" page, a sale/offer/flash-deal or cart-reservation expiry, an OTP/verification resend or rate-limit cooldown, an auction or bid close, a webinar/event/stream start time, a maintenance window, a booking or checkout hold, or a quiz/game round timer. Pass `to` as a Date, an ISO string, or epoch milliseconds. By default it renders labeled days/hours/minutes/seconds segments (the days block appears only once at least a day remains, or force it with showDays) using shadcn card/border/foreground tokens with tabular-nums so digits don't jitter. For a fully custom face — a compact \"02:14:33\", a circular ring, marketing hero digits — pass a render-prop child that receives { days, hours, minutes, seconds, total, isComplete } and return your own markup. shadcn/ui ships no countdown or timer component; this is the future-facing counterpart to a relative \"time ago\" label. It's SSR/hydration-safe (server and first client render agree, then a real clock takes over) and accessible: role=timer with an aria-atomic sr-only sentence (\"2 days, 14 hours, 33 minutes remaining\") while the visual segments are aria-hidden, so screen readers can read the state without being spammed each second. Tune the tick with interval (100 for smooth, 60000 for minute-only) and swap the finished view with completedLabel. Depends only on your cn util — no date library, no extra packages.",
+      "files": [
+        {
+          "path": "registry/ui/countdown.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
