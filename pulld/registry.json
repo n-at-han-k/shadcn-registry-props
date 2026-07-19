@@ -441,6 +441,21 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "inline-edit",
+      "type": "registry:ui",
+      "title": "Inline Edit",
+      "description": "Click-to-edit text that stays in place: it shows a value as plain text with a subtle pencil affordance, then swaps to an input right where the text was when you click it (or focus it and press Enter/Space). Enter or blur commits the change, Escape reverts to the original — no separate dialog, drawer, or edit form. Use it to rename a title, project, board, list, file, or column, edit a table/grid cell or a kanban card name, or tweak a single profile or settings field (display name, bio, label) directly on the page. Common asks it answers: \"edit in place\", \"click to edit\", \"editable label/text\", \"rename inline\", \"inline text edit\", \"double-click to rename\". shadcn/ui ships no inline-edit or editable-text component — you'd otherwise wire an Input plus toggle state and keyboard handling by hand; this packages that: controlled via value + onSave (called with the trimmed new value only when it actually changed), auto-focuses and selects the text on entry so typing replaces it, and offers placeholder for empty values and saveOnBlur to require an explicit Enter instead of committing on blur. Fully keyboard-accessible (real button trigger, aria-labels on both the trigger and the input, focus-visible rings), theme-aware through shadcn tokens (input/accent/muted-foreground) with no hardcoded colors, and dependency-free apart from lucide-react and your cn util.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/inline-edit.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
