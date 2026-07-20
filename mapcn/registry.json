@@ -27,6 +27,18 @@
           },
           ".maplibregl-popup-tip": {
             "@apply hidden!": {}
+          },
+          ".maplibregl-ctrl-attrib": {
+            "@apply bg-background! text-muted-foreground! border-border! rounded-md! border! shadow-sm!": {}
+          },
+          ".maplibregl-ctrl-attrib a": {
+            "@apply text-muted-foreground!": {}
+          },
+          ".maplibregl-ctrl-attrib a:hover": {
+            "@apply text-foreground!": {}
+          },
+          ".maplibregl-ctrl-attrib-button": {
+            "@apply bg-transparent! dark:invert": {}
           }
         }
       },
@@ -160,6 +172,72 @@
       }
     },
     {
+      "name": "analytics-card",
+      "type": "registry:block",
+      "title": "Analytics Card",
+      "description": "Compact analytics card with a headline metric over a world map.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@mapcn/map",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/analytics-card/page.tsx",
+          "type": "registry:page",
+          "target": "app/analytics-card/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/analytics-card/data.ts",
+          "type": "registry:component",
+          "target": "app/analytics-card/data.ts"
+        }
+      ],
+      "categories": [
+        "analytics",
+        "card"
+      ],
+      "meta": {
+        "iframeHeight": "600px"
+      }
+    },
+    {
+      "name": "delivery-tracker",
+      "type": "registry:block",
+      "title": "Delivery Tracker",
+      "description": "Live order tracking with route progress, courier position, and order details.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@mapcn/map",
+        "card",
+        "badge",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/delivery-tracker/page.tsx",
+          "type": "registry:page",
+          "target": "app/delivery/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/delivery-tracker/data.ts",
+          "type": "registry:component",
+          "target": "app/delivery/data.ts"
+        }
+      ],
+      "categories": [
+        "tracking",
+        "delivery"
+      ],
+      "meta": {
+        "iframeHeight": "720px"
+      }
+    },
+    {
       "name": "uptime-monitor",
       "type": "registry:block",
       "title": "Uptime Monitor",
@@ -198,6 +276,30 @@
       ],
       "meta": {
         "iframeHeight": "720px"
+      }
+    },
+    {
+      "name": "heatmap",
+      "type": "registry:block",
+      "title": "Heatmap",
+      "description": "Globe-projected heatmap visualizing earthquake density with zoom-dependent styling.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@mapcn/map"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/heatmap/page.tsx",
+          "type": "registry:page",
+          "target": "app/heatmap/page.tsx"
+        }
+      ],
+      "categories": [
+        "visualization",
+        "heatmap"
+      ],
+      "meta": {
+        "iframeHeight": "800px"
       }
     },
     {
@@ -284,64 +386,6 @@
       ],
       "meta": {
         "iframeHeight": "800px"
-      }
-    },
-    {
-      "name": "heatmap",
-      "type": "registry:block",
-      "title": "Heatmap",
-      "description": "Globe-projected heatmap visualizing earthquake density with zoom-dependent styling.",
-      "dependencies": [],
-      "registryDependencies": [
-        "@mapcn/map"
-      ],
-      "files": [
-        {
-          "path": "src/registry/blocks/heatmap/page.tsx",
-          "type": "registry:page",
-          "target": "app/heatmap/page.tsx"
-        }
-      ],
-      "categories": [
-        "visualization",
-        "heatmap"
-      ],
-      "meta": {
-        "iframeHeight": "800px"
-      }
-    },
-    {
-      "name": "delivery-tracker",
-      "type": "registry:block",
-      "title": "Delivery Tracker",
-      "description": "Live order tracking with route progress, courier position, and order details.",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "@mapcn/map",
-        "card",
-        "badge",
-        "button"
-      ],
-      "files": [
-        {
-          "path": "src/registry/blocks/delivery-tracker/page.tsx",
-          "type": "registry:page",
-          "target": "app/delivery/page.tsx"
-        },
-        {
-          "path": "src/registry/blocks/delivery-tracker/data.ts",
-          "type": "registry:component",
-          "target": "app/delivery/data.ts"
-        }
-      ],
-      "categories": [
-        "tracking",
-        "delivery"
-      ],
-      "meta": {
-        "iframeHeight": "720px"
       }
     }
   ]
