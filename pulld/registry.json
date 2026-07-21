@@ -468,6 +468,18 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "currency-input",
+      "type": "registry:ui",
+      "title": "Currency Input",
+      "description": "A money input that shows a grouped, currency-formatted amount ($1,234.50) when idle and the raw number while you're editing, so the cursor never fights the thousands separators or symbol. Use it in any form that takes an amount: a price or product cost field, an invoice/quote line item, a budget/limit/goal, a donation, tip, or payment amount, a salary or rate field, an expense entry, or a checkout total. Common asks it answers: \"currency input\", \"money input\", \"price field\", \"formatted amount input\", \"thousands separator input\", \"dollar/euro input\", \"react-currency-input alternative\". shadcn/ui ships no currency or money field — you'd otherwise bolt masking onto its Input by hand; this packages it: value/onValueChange work in plain numbers (major units, e.g. 1234.5), not strings, so there's no parsing on your side, and it commits the rounded number on blur to the currency's own precision. The symbol, grouping, symbol placement, and decimal places come from Intl.NumberFormat via the `currency` (ISO 4217, default USD) and `locale` (default en-US) props, so $/€/¥ and 2-decimal vs 0-decimal (JPY) currencies all render correctly with no hardcoding; set allowNegative for refunds or adjustments. It stays controlled or uncontrolled like a native input, forwards a ref to the real <input> (so <Label htmlFor>, name, placeholder, and form libraries like react-hook-form all work), uses inputMode=\"decimal\" for a numeric mobile keypad, and is styled with shadcn tokens (border-input, ring, muted-foreground, tabular-nums) for automatic light/dark theming with no extra dependencies beyond your cn util. Distinct from number-input, which is a stepper for counts/quantities with +/− buttons; this one is for formatted money.",
+      "files": [
+        {
+          "path": "registry/ui/currency-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
