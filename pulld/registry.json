@@ -492,6 +492,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "bulk-action-bar",
+      "type": "registry:ui",
+      "title": "Bulk Action Bar",
+      "description": "The bar that appears once rows are selected in a table or list — it shows \"3 items selected\", holds your bulk actions (delete, archive, export, assign, move, approve, mark as read) as children, and gives the user a way out of selection mode. Use it with any multi-select surface: a data table with row checkboxes, an admin users/orders/invoices list, a file manager or media library, an inbox, a moderation queue, or a mobile-style edit mode. Common asks it answers: \"bulk action bar\", \"bulk actions toolbar\", \"selection toolbar\", \"batch actions\", \"n selected bar\", \"contextual action bar\", \"what to show when table rows are checked\". shadcn/ui ships no such component — its data-table recipe leaves selected-row UI entirely to you; this packages the part everyone rewrites. It hides itself at count 0, so you render it unconditionally and just pass the selected count. The count is announced to screen readers from a live region that stays mounted even at zero (a live region inserted together with its text is not reliably announced, so a bar that unmounts completely would swallow the first update), and the visible count is aria-hidden to avoid a double read. Escape clears the selection, ignoring already-handled key presses so a dialog opened from one of your actions still closes normally. It is a labelled region, not an ARIA toolbar, because a toolbar is expected to implement roving-tabindex arrow navigation and claiming the role without it reads worse than plain tab order. Pass variant=\"floating\" (default) for a pinned bar above the page bottom or \"inline\" to sit in the flow above the table; itemName/itemNamePlural handle the noun and irregular plurals. Styled with shadcn tokens (background, border, muted-foreground, accent, ring) for automatic light/dark theming, with zero dependencies beyond your cn util. Distinct from toast, which reports a result after the fact; this one hosts the actions themselves.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/bulk-action-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
