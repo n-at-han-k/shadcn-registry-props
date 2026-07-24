@@ -505,6 +505,24 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "save-status",
+      "type": "registry:ui",
+      "title": "Save Status",
+      "description": "The small inline \"Saving… / Saved 2 minutes ago / Couldn't save · Retry\" indicator that sits beside an autosaving surface. Use it wherever edits persist in the background instead of behind a Save button: a document, note, or rich-text editor, a settings or profile page that saves on blur, a draft post or email composer, a form with debounced autosave, a spreadsheet-style inline-edit table, or a builder/canvas. Common asks it answers: \"autosave indicator\", \"saving spinner next to the title\", \"all changes saved\", \"draft saved status\", \"last saved timestamp\", \"Google-Docs-style save state\", \"how to show saving/saved/error\". shadcn/ui ships nothing for this — you'd hand-roll the state wording, the spinner, and the announcement each time. You pass one `status` prop (idle | saving | saved | error): idle renders nothing visible, so you can render it unconditionally and just mirror your mutation state (react-query isPending/isError, a useActionState, or your own flag). Pass `savedAt` and the \"Saved\" text is followed by a live relative timestamp that keeps itself fresh — it composes the time-ago component rather than freezing a string that goes stale while the tab sits open. Pass `onRetry` and the error state grows a Retry button. Accessibility is the fiddly part it gets right: the wording lives in an always-mounted role=status region so the very first transition is actually announced, while the ticking timestamp and the Retry label sit outside it — inside, the timer would make the page announce \"Saved 3 minutes ago\" every minute unprompted. It stays polite rather than assertive, because aria-live is honoured at registration time and a failed autosave should not cut across someone mid-sentence. All labels are overridable for i18n. Styled with shadcn tokens (muted-foreground, destructive, ring) so it follows light/dark themes. Distinct from toast, which pops a transient message after an action, and from spinner or loading-button, which cover a single in-flight request: this one is the persistent status of a background save.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "time-ago"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/save-status.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
