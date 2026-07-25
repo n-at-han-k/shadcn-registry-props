@@ -523,6 +523,34 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "form-error-summary",
+      "type": "registry:ui",
+      "title": "Form Error Summary",
+      "description": "The block that appears above a form after a failed submit — \"There are 3 problems with your submission\" followed by one link per error that jumps focus straight to the field it came from. Use it on any form long enough that the broken field can be off screen: signup and checkout, account or billing settings, a multi-step wizard, an onboarding or application form, an admin create/edit page, or anywhere a server action returns field errors. Common asks it answers: \"error summary\", \"validation summary\", \"show all form errors at the top\", \"list validation errors with links to fields\", \"focus the first invalid field on submit\", \"accessible form errors\", \"GOV.UK-style error summary\", \"react-hook-form errors object to a summary\". shadcn/ui's form ships per-field messages only — the summary, the focus move, and the field links are left to you, and they are the parts that decide whether a keyboard or screen-reader user can actually find what broke. Pass an `errors` array of `{ fieldId, message }` mapped straight from react-hook-form's formState.errors, a zod flatten(), or a server action's fieldErrors; an empty array renders nothing, so it can sit in the JSX unconditionally. Give it `focusKey={formState.submitCount}` and a second submit that fails identically still announces. Accessibility is the whole point: it announces by moving focus to a container labelled by its heading, rather than through a live region — a live region reads the messages but leaves focus behind, so the links the user needs are somewhere they must go hunting for, and doing both reads everything twice. Each message links to its field and focuses it on click, falling back to the first focusable control inside when the id names a wrapper (radio group, checkbox group, custom combobox); errors with no fieldId render as plain text for form-level failures like a declined card. The container uses a plain focus ring, not focus-visible, because focus arrives programmatically and browsers do not reliably paint it otherwise. headingLevel keeps the heading in your page outline. Styled with shadcn destructive/ring tokens for light and dark themes; lucide-react is the only dependency. Distinct from toast, which pops a transient message, and from an inline field message, which only helps once you have already found the field.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/form-error-summary.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "type-to-confirm",
+      "type": "registry:ui",
+      "title": "Type-to-Confirm",
+      "description": "The confirmation step in front of an irreversible action: the user has to type the resource's own name (\"acme-prod\") before the destructive button turns on. Use it wherever a misclick would be unrecoverable — deleting a project, repository, workspace, organisation, cluster, database, or environment, removing a team member, revoking an API key, wiping data, cancelling a subscription, or any \"danger zone\" section of a settings page. Common asks it answers: \"type to confirm\", \"type the project name to delete\", \"type DELETE to confirm\", \"confirm delete by typing name\", \"GitHub-style delete confirmation\", \"danger zone dialog\", \"destructive action modal\", \"disable the delete button until the name matches\". shadcn/ui ships alert-dialog as an empty shell — the typed match, the disabled-until-it-matches wiring, and the announcement are left to you every time; this packages them into one drop-in that sits inside your existing dialog or card, so nothing here assumes which official components you have installed. Pass `phrase` (the name) and `onConfirm`; both sides are trimmed before comparing, so a pasted name that picked up a trailing space still matches, and an empty phrase never matches, which stops an untouched field from arming a delete. Set `caseSensitive={false}` to let \"delete\" pass for \"DELETE\", and mirror your mutation with `pending` to lock the field and swap the button label. The field opts out of autocomplete, autocorrect, autocapitalisation, and spellcheck — on a phone the first letter would otherwise be capitalised and an exact match made impossible to type. The button is genuinely disabled rather than aria-disabled, which screen readers skip: nothing is lost by that, because the label states what to type, the description explains that the button is waiting for it, and an always-mounted live region announces the moment it turns on (a live region inserted together with its text is not reliably announced, so one that appeared only on match would swallow that update). It renders as a real <form>, so Enter submits and, inside a dialog, focus lands on the field on open with no extra wiring. Styled with shadcn tokens (border-input, destructive, muted-foreground, ring) for automatic light/dark theming, with zero dependencies beyond your cn util. Distinct from confirm-button, which is a two-step click for cheap, reversible actions; this is the high-friction guard for the ones you cannot take back.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/type-to-confirm.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
