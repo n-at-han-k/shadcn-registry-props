@@ -551,6 +551,39 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "keyboard-shortcuts",
+      "type": "registry:ui",
+      "title": "Keyboard Shortcuts",
+      "description": "The help sheet that opens when the user presses ? — a modal listing every keyboard shortcut in the app, grouped by area, with the key caps drawn per platform. Use it as soon as an app has shortcuts worth discovering: an editor, inbox or mail client, issue tracker, admin dashboard, IDE-like tool, dev tool, chat or any keyboard-first product where power users expect ? to explain itself. Common asks it answers: \"keyboard shortcuts dialog\", \"keyboard shortcuts modal\", \"shortcuts help sheet\", \"press ? to see shortcuts\", \"shortcut cheat sheet\", \"hotkey list\", \"keymap overlay\", \"GitHub/Gmail/Linear-style shortcuts help\", \"show all hotkeys\", \"⌘K help screen\". shadcn/ui ships nothing for this and its kbd is a bare key cap, so the sheet, the grouping, the ?-to-open wiring and the cross-platform key rendering are hand-rolled every time. Pass a `shortcuts` array of `{ keys, description, group? }`; groups render in the order they first occur, so the array is the outline. Write `\"Mod\"` in keys and it renders ⌘ on Apple platforms and Ctrl everywhere else — one source of truth instead of a Mac branch through your docs — and the literal token `\"then\"` renders as text rather than a cap so chords read as G then P. It documents shortcuts rather than binding them: your app already owns the handlers, and a component that registered them too would fight whatever hotkey library you use. The only key it owns is the one that opens it, and that listener ignores presses while focus is in an input, textarea, select or contenteditable, so typing \"?\" in a message box does not throw a modal over the composer. Platform detection runs in an effect, not during render — `navigator` does not exist on the server, so an inline branch would crash SSR or hydrate to different markup than it sent. Accessibility is the part that is easy to get wrong: the key caps are aria-hidden and each row carries an sr-only spoken form, because a screen reader meeting ⌘ announces \"place of interest sign\" or nothing at all, so the row reads \"Open search, Command K\"; opening moves focus into the dialog, which is what announces it, instead of a live region that would read the whole sheet twice; Tab is trapped, Escape closes, focus returns to whatever was focused before, and the scrolling list is itself focusable so a long list can be scrolled from the keyboard. Composes the kbd component for the caps. Styled with shadcn tokens (popover, muted-foreground, ring, border) for light and dark themes; lucide-react is the only dependency. Distinct from command-palette, which is a ⌘K launcher for running commands: this one is the reference card that tells users the shortcuts exist.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/keyboard-shortcuts.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "upload-list",
+      "type": "registry:ui",
+      "title": "Upload List",
+      "description": "The list of files under a dropzone or file picker — one row each with the file name, its size, a progress bar while it uploads, an error with a retry button when it fails, and an X to drop it from the queue. Use it on any screen that accepts files: an attachment picker, an image or avatar upload, a CSV/spreadsheet import step, a document or PDF upload, a bulk media drop, or an import wizard. Common asks it answers: \"file upload list\", \"upload queue\", \"show selected files with progress\", \"file list with remove button\", \"upload progress bar per file\", \"attachment list\", \"retry failed upload\", \"Dropbox/Gmail-style upload rows\". shadcn/ui ships no file upload of any kind, and its progress primitive is a single bar with no notion of a file, so the row layout, the byte formatting, the per-file progress and the failure affordance are hand-rolled every time. It pairs with the file-dropzone component, which hands you a File[] and deliberately stops there: this is the half that shows what happened to those files. Pass an `items` array of `{ id, name, size?, status, progress?, error? }` where status is pending | uploading | done | error; omit `progress` and the bar goes indeterminate for uploads with no known length, and an empty array renders nothing so you can mount it unconditionally next to your queue state. It is presentational on purpose and never uploads anything — you keep the requests, the concurrency, the cancellation and the retry policy, and pass `onRemove`/`onRetry` to get the buttons. Accessibility is where a queue usually goes wrong and this one is built around it: progress sits in a role=progressbar, which is not a live region, so a file crawling from 1% to 100% does not narrate every tick; instead an always-mounted role=status region announces only the rows that just finished or just failed, batched into one message per change; the first render is treated as the starting state, so a list that mounts with finished rows stays silent; and every remove/retry button carries the file name in its accessible name, because a column of buttons all called \"Remove\" is unusable without sight of the row. Sizes are formatted to KB/MB/GB with tabular numerals, long names truncate with a title tooltip, and it is styled with shadcn tokens (muted-foreground, destructive, primary, accent, ring) so it follows light and dark themes; lucide-react is the only dependency. Distinct from save-status, which is a one-line indicator for a single background save, and from progress-ring, which is one circular meter: this is the multi-file queue.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/upload-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
