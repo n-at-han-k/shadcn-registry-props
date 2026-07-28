@@ -48,7 +48,7 @@
       "name": "stat-card",
       "type": "registry:ui",
       "title": "Stat Card",
-      "description": "Compact metric card showing a label, a big value, and an optional percentage delta with an up/down arrow (green for positive, red for negative). Use it in dashboards, analytics, and KPI rows. Composes well into dashboard blocks.",
+      "description": "The single-number tile at the top of a dashboard: a label, one big value, and an optional percentage change with an up or down arrow — green when the number moved the right way, red when it did not. Use it wherever a screen opens with a row of headline figures: an analytics or metrics dashboard, an admin overview, a KPI or scorecard row, a billing and usage summary, a SaaS home screen, a revenue or traffic report. Common asks it answers: \"stat card\", \"metric card\", \"KPI card\", \"dashboard stat tile\", \"number card with percentage change\", \"revenue card with trend arrow\", \"analytics summary cards\", \"stats row\", \"show total users with growth\", \"Stripe/Vercel-style dashboard tiles\". shadcn/ui ships card as an empty container with no notion of a metric, so the value typography, the delta colouring and the arrow are hand-rolled on every dashboard. Pass `label`, `value` and optionally `delta` (a number: positive renders the up arrow, negative the down arrow, and omitting it renders no delta at all) plus a `hint` line for the comparison period, e.g. \"vs. last month\". `value` is a ReactNode, not a string, so a pre-formatted currency or an Intl.NumberFormat result drops straight in and the component never guesses at your locale or currency. The direction is not left to colour alone: the arrow is aria-hidden and an sr-only \"Up\"/\"Down\" is spoken before the number, so the tile still means something to a screen reader and to a red-green colour-blind reader, which a bare green percentage does not. Composes into a responsive grid to form the stats row, and pairs with gauge and progress-ring when the figure is a ratio rather than a total. Styled with shadcn tokens (card, muted-foreground) with an explicit dark-mode pair for the delta colours; lucide-react is the only dependency. Distinct from feature-card, which sells a capability with an icon and copy: this one carries a live number.",
       "dependencies": [
         "lucide-react"
       ],
@@ -581,6 +581,18 @@
       "files": [
         {
           "path": "registry/ui/upload-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:ui",
+      "title": "Bento Grid",
+      "description": "The asymmetric panel grid behind most modern feature sections: a set of cards on one grid where a few cells are deliberately two columns wide or two rows tall, so the section reads as a composition instead of a row of identical boxes. Use it for a landing page features section, a product tour, a \"why us\" grid, a homepage hero collage, a portfolio or an app-store style showcase. Common asks it answers: \"bento grid\", \"bento box layout\", \"bento cards\", \"bento section\", \"bento blocks\", \"features bento\", \"grid layout with different sized cards\", \"Apple/Linear-style feature grid\", \"masonry-ish marketing grid\", \"asymmetric card grid\". shadcn/ui ships no layout components at all, so this grid is hand-rolled every time — and hand-rolling it fails in one specific way that is hard to spot: Tailwind only emits classes it can find written out in your source, so the natural `className={`col-span-${n}`}` compiles to nothing and every cell silently renders one column wide in the production build while looking correct in dev. This component keeps every span it can emit as a literal class in a lookup table, so `colSpan={2}` and `rowSpan={2}` survive the compiler. Two parts: `BentoGrid` takes `columns` (2, 3 or 4) and steps up from a single column on phones rather than fixing a track count, and `BentoGridItem` is the panel surface plus its span controls. Rows are sized minmax(11rem, auto) so equal cells line up and a tall cell is visibly twice the height; a span wider than the current breakpoint's grid is clamped by CSS Grid rather than overflowing. It is layout only and renders no card content of its own, so a cell can hold copy, an image, a chart or a feature-card. The grid deliberately does not use grid-auto-flow: dense — dense packing lets a later cell backfill an earlier gap, which leaves the Tab order and a screen reader reading the section in a different order than the eye sees it — and the cell is a plain div rather than a list item, so your own headings keep the document outline. No state, no effects and no \"use client\", so it renders as a server component, and it has zero npm dependencies; the surface uses shadcn tokens (card, card-foreground, border) so it follows light and dark themes. Distinct from feature-card, which is the icon/title/description content of one cell: this is the grid the cells sit on.",
+      "files": [
+        {
+          "path": "registry/ui/bento-grid.tsx",
           "type": "registry:ui"
         }
       ]
