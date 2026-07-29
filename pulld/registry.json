@@ -63,7 +63,7 @@
       "name": "theme-toggle",
       "type": "registry:ui",
       "title": "Theme Toggle",
-      "description": "Self-contained light/dark mode toggle button. Persists the choice to localStorage, respects the OS prefers-color-scheme on first load, and toggles the 'dark' class on the html element. No next-themes or provider required. Sun/Moon icons, aria-pressed.",
+      "description": "The one-button light/dark switch you drop in a navbar, header or settings row — click it and the whole app flips theme, and the choice survives a reload. Common asks it answers: \"dark mode toggle\", \"theme toggle button\", \"light dark switcher\", \"toggle dark mode in Tailwind\", \"sun moon toggle\", \"dark mode without next-themes\", \"theme switcher for shadcn\", \"remember the user's theme\", \"respect the system theme\". shadcn/ui has no installable toggle: its dark-mode guide hands you a next-themes provider to wire up and a dropdown to assemble yourself, so a plain button is written by hand every time. This is that button — one file, no provider, no context, no next-themes and no extra package. It toggles the `dark` class on the html element, which is exactly what Tailwind's class dark mode and the shadcn tokens already read, so it works with the theme you have rather than introducing another one. On first load it reads the saved choice from localStorage and falls back to the OS `prefers-color-scheme`, so a first-time visitor gets their system theme and a returning one gets their own; every later click writes the choice back. That first read happens in an effect rather than during render, because `window` does not exist on the server and an inline branch would either crash SSR or hydrate to different markup than it sent — which also means the theme is applied just after first paint, so add the usual one-line script in your document head if you need to kill the flash on a static page. The Sun/Moon swap is done with the `dark:` variant rather than JS state, so the icon matches the document even if something else on the page changes the theme. It is a real button that forwards every button prop (className, id, onClick, disabled), carries an aria-label and an aria-pressed that reflects the current mode, hides both icons from screen readers, and has a focus-visible ring; styling uses shadcn tokens (accent, muted-foreground, ring, border) so it matches your other icon buttons. lucide-react is the only dependency.",
       "dependencies": [
         "lucide-react"
       ],
@@ -593,6 +593,21 @@
       "files": [
         {
           "path": "registry/ui/bento-grid.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tree-view",
+      "type": "registry:ui",
+      "title": "Tree View",
+      "description": "The nested list you can open, close and walk with the arrow keys: a file explorer or file tree, a folder or directory tree, a category or taxonomy picker, an org chart, a JSON or API-schema browser, a docs sidebar with nested sections. Common asks it answers: \"tree view\", \"tree component\", \"file tree\", \"folder tree\", \"directory tree\", \"file explorer sidebar\", \"nested list with expand/collapse\", \"collapsible tree\", \"recursive tree from JSON\", \"expandable folder list\", \"VS Code-style explorer\", \"category tree\", \"org chart tree\". shadcn/ui ships no tree of any kind — its collapsible is one open/closed section and its sidebar nests menus without the tree semantics — so this gets hand-rolled every time, and the part that gets dropped is always the keyboard. Pass a `data` array of `{ id, label, children?, icon? }`: a node with a `children` array is a parent (an empty array is an empty folder, which still opens), a node without one is a leaf. Open state and selection are each controlled (`expandedIds` / `selectedId` plus `onExpandedChange` / `onSelect`, which hands you the whole node) or uncontrolled (`defaultExpandedIds` / `defaultSelectedId`), so it drops into a router-driven sidebar or runs on its own. It is the real ARIA tree pattern, not a pile of nested collapsibles: role=tree / treeitem / group with aria-expanded, aria-selected and aria-level/posinset/setsize, and a roving tabindex so the whole tree is one Tab stop instead of one stop per row. Up/Down walk only the rows actually on screen, Right opens a parent and then steps into it, Left closes it or jumps out to the parent, Home/End hit the ends, Enter/Space select, and type-ahead jumps to the next row starting with what you typed (repeat a letter to cycle). Three details that are easy to get wrong are handled: closing a subtree that contains the focused row hands focus back to the row being closed instead of dropping it on <body>; the row is named by its own label via aria-labelledby, because a treeitem owns its child group and a name computed from contents would read the entire subtree as one row's name; and the disclosure arrow is a click target rather than a nested <button>, since a treeitem must not contain its own focusable elements. Renders folder/file icons by default (`showIcons={false}` for category or org trees), `indent` sets the per-level offset, and per-node `icon` overrides a single row. Styled with shadcn tokens (accent, muted-foreground, ring) so it follows light and dark themes; lucide-react is the only dependency, with no Radix and no state library. Distinct from command-palette, which is a flat searchable launcher: this is for structure you navigate rather than a name you already know.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tree-view.tsx",
           "type": "registry:ui"
         }
       ]
