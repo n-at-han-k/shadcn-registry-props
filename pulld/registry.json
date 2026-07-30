@@ -121,7 +121,7 @@
       "name": "code-block",
       "type": "registry:ui",
       "title": "Code Block",
-      "description": "Code snippet container with an optional language label and a hover/focus-revealed copy button (composes pulld's copy-button). Use it in docs, changelogs, and developer marketing pages to show installable commands or code. Demonstrates how pulld premium blocks compose free atoms.",
+      "description": "Read-only code snippet in a bordered, scrollable panel with a copy button that fades in on hover or keyboard focus and an optional uppercase language label in the corner. Reach for it whenever a page has to show code the reader will copy rather than edit: install and CLI commands in a README or docs site, curl and SDK examples in API reference pages, config file snippets, error output or stack traces, migration and changelog before/after blocks, an onboarding \"paste this into your terminal\" step, or the code sample on a developer landing page. Common asks it answers: \"code block\", \"code snippet component\", \"copy code button\", \"pre code with copy\", \"terminal command block\", \"docs code sample\", \"shadcn code block\", \"snippet with language label\", \"copyable command\". shadcn/ui has no code block at all, so this normally gets rebuilt from a bare <pre> plus a hand-wired clipboard button that forgets the copied state and never reveals itself to a keyboard user — here the button is inside focus-within, so tabbing to it makes it appear, and the copied confirmation is announced (it composes pulld's copy-button). Deliberately a container, not a highlighter: pass a `code` string and it renders semantic <pre><code> with `data-language` set, so it costs no bundle and stays out of the way if you later pipe in shiki, Prism, or highlight.js — unlike react-syntax-highlighter, which drags a whole grammar bundle in for a snippet you only wanted to display. Long lines scroll horizontally instead of wrapping. Extra props land on the wrapper div. No dependencies beyond your cn util.",
       "dependencies": [],
       "registryDependencies": [
         "copy-button"
@@ -608,6 +608,21 @@
       "files": [
         {
           "path": "registry/ui/tree-view.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sortable-list",
+      "type": "registry:ui",
+      "title": "Sortable List",
+      "description": "Drag-to-reorder list: grab a row's grip handle and drop it in a new place. Reach for it whenever the order itself is the data — reordering tasks or a to-do list, ranking priorities or search results, arranging table columns, form fields, dashboard widgets, nav or sidebar links, playlist tracks, image or gallery order, question order in a quiz, steps in a workflow or recipe, or the cards inside one kanban column. Common asks it answers: \"sortable list\", \"drag and drop list\", \"reorderable list\", \"drag to reorder\", \"drag handle list\", \"reorder items react\", \"sortable without dnd-kit\", \"react-beautiful-dnd replacement\", \"draggable list order\", \"move item up and down\". shadcn/ui ships nothing that reorders — there is no sortable, no draggable, no dnd primitive anywhere in the catalog — so this is hand-rolled every time, and the half that gets dropped is always the keyboard. Here the whole interaction works without a mouse: Tab reaches the list once (roving tabindex), arrow keys walk it, Space or Enter picks a row up, arrows move the picked-up row, Space or Enter drops it, Escape puts it back where it started, and each step is spoken through an assertive live region (\"Picked up Design review. Position 2 of 5.\"). Every announcement is overridable through `labels` for other languages. Dragging is plain pointer events — no dnd-kit, no react-dnd, no HTML5 drag-and-drop — so touch works, rows are measured once per drag and displaced with transforms, and rows of different heights land exactly where they look like they will. Controlled: pass `items` (`{ id, label }` plus whatever else you carry) and persist the array `onReorder` hands back; `renderItem` draws the row body beside the handle. Depends only on lucide-react and your cn util.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sortable-list.tsx",
           "type": "registry:ui"
         }
       ]

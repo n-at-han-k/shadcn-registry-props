@@ -1,0 +1,1437 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "neon-ui",
+  "homepage": "https://ui.neon.com",
+  "items": [
+    {
+      "name": "neon-tokens",
+      "type": "registry:style",
+      "title": "Neon Theme Tokens",
+      "description": "Neon palette and design tokens for Tailwind v4.",
+      "files": [
+        {
+          "path": "src/styles/tokens.css",
+          "type": "registry:style"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn utility",
+      "description": "Tailwind class-name merge helper used across neon-ui components.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Neon-themed button primitive with variants (Base UI).",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Neon-themed card container primitive and its sub-parts.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Status badge primitive (Base UI render pattern).",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "shadcn chart primitives (Recharts container, tooltip, legend) themed to the Neon tokens.",
+      "dependencies": ["recharts"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Loading placeholder primitive.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Accessible tab navigation primitive (Base UI).",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Base UI tooltip in the house chrome.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["@base-ui/react"]
+    },
+    {
+      "name": "neon-loader",
+      "type": "registry:component",
+      "title": "NeonLoader",
+      "description": "Noise-resolve loading indicator animated from the official Neon mark.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/neon-loader/neon-loader.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Form label primitive.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Accessible text input primitive (Base UI).",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Accessible select primitive (Base UI).",
+      "dependencies": [
+        "@base-ui/react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Accessible switch primitive (Base UI).",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "elastic-slider",
+      "type": "registry:ui",
+      "title": "ElasticSlider",
+      "description": "Slider with elastic rubber-band drag and magnetic snap (by @iamncdai, MIT).",
+      "dependencies": ["motion"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/elastic-slider.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/hooks/use-controllable-state.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "model-select",
+      "type": "registry:component",
+      "title": "ModelSelect",
+      "description": "Model picker for agent chat input bars, grouped by provider.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/select.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/model-select/model-select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [
+        "motion",
+        "@base-ui/react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
+      ]
+    },
+    {
+      "name": "thinking-select",
+      "type": "registry:component",
+      "title": "ThinkingSelect",
+      "description": "Reasoning-effort selector: Off, Low, Medium, High.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/elastic-slider.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/thinking-select/thinking-select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["motion"]
+    },
+    {
+      "name": "thinking-model-select",
+      "type": "registry:component",
+      "title": "ThinkingModelSelect",
+      "description": "Model picker with an embedded reasoning-effort slider in the popup footer.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/model-select.json",
+        "https://ui.neon.com/r/thinking-select.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/thinking-model-select/thinking-model-select.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "Conversation message layout primitive with avatar, content, and footer.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "title": "Bubble",
+      "description": "Chat bubble primitive with grouping and reactions.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/bubble.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["@base-ui/react", "class-variance-authority"]
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui",
+      "title": "Marker",
+      "description": "Inline conversation status marker.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/marker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["@base-ui/react", "class-variance-authority"]
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:ui",
+      "title": "MessageScroller",
+      "description": "Chat scroll container with turn anchoring, auto-follow, and jump-to-latest.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/message-scroller.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@shadcn/react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
+      ]
+    },
+    {
+      "name": "tool-call-chip",
+      "type": "registry:component",
+      "title": "ToolCallChip",
+      "description": "Compact running/complete/error indicator for one agent tool invocation.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/tool-call-chip/tool-call-chip.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "agent-chat",
+      "type": "registry:component",
+      "title": "AgentChat",
+      "description": "Full agent chat pane: streamed markdown turns, tool chips, reasoning, and a composer with a model-controls slot.",
+      "dependencies": [
+        "ai",
+        "@ai-sdk/react",
+        "streamdown",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/message.json",
+        "https://ui.neon.com/r/message-scroller.json",
+        "https://ui.neon.com/r/bubble.json",
+        "https://ui.neon.com/r/marker.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/tool-call-chip.json",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/empty-state.json",
+        "https://ui.neon.com/r/neon-loader.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/agent-chat/agent-chat.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "reasoning",
+      "type": "registry:component",
+      "title": "Reasoning",
+      "description": "Collapsible extended-thinking fold that opens itself while the model streams and settles to a timed receipt.",
+      "dependencies": [
+        "@base-ui/react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "streamdown"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/reasoning/reasoning.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chain-of-thought",
+      "type": "registry:component",
+      "title": "ChainOfThought",
+      "description": "Collapsible step-by-step reasoning rail with statuses, search-result chips, and images.",
+      "dependencies": [
+        "@base-ui/react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/chain-of-thought/chain-of-thought.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inline-citation",
+      "type": "registry:component",
+      "title": "InlineCitation",
+      "description": "Inline source pill that previews stacked citations on hover and links to the source on click.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/inline-citation/inline-citation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "metric-card",
+      "type": "registry:component",
+      "title": "MetricCard",
+      "description": "Analytics card with a formatted value, signed delta, and interactive Visx sparkline.",
+      "dependencies": [
+        "recharts",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/card.json",
+        "https://ui.neon.com/r/badge.json",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/neon-loader.json",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/metric-card/metric-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "health-card",
+      "type": "registry:component",
+      "title": "HealthCard",
+      "description": "Project health rollup on the MetricCard shell: an overall status pill and tint over a mono grid of supporting signals (latency, errors, uptime).",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/neon-loader.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/health-card/health-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "neon-client",
+      "type": "registry:lib",
+      "title": "Neon Client",
+      "description": "Shared Neon API client factory used by neon-ui data hooks.",
+      "dependencies": ["@neon/sdk"],
+      "files": [
+        {
+          "path": "src/lib/neon-client.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:component",
+      "title": "StatusBadge",
+      "description": "Dot-and-label status vocabulary for apps and branches, with a billing PlanBadge companion.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/status-badge/status-badge.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "EmptyState",
+      "description": "Intentional dashed-border placeholder with title, description, icon, and action slots.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/empty-state/empty-state.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "app-card",
+      "type": "registry:component",
+      "title": "AppCard",
+      "description": "Tenant dashboard grid card composing the status vocabulary: name, badges, timestamp, one-link hover.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/status-badge.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/app-card/app-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-wash",
+      "type": "registry:component",
+      "title": "AnimatedWash",
+      "description": "WebGL grain-gradient shader wash rising from the bottom edge, colored by currentColor with a hover lift. Adapted from paper-design/shaders (Apache-2.0).",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/animated-wash/animated-wash.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/animated-wash/animated-wash-shader.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:component",
+      "title": "ColorPicker",
+      "description": "Swatch-and-hex trigger opening an HSV field, hue rail, hex input, and preset swatches.",
+      "dependencies": [
+        "@base-ui/react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/color-picker/color-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "app-creator",
+      "type": "registry:component",
+      "title": "AppCreator",
+      "description": "The describe-an-app bar: auto-growing prompt, free/paid plan segment, and a create action with an in-flight state.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/status-badge.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/app-creator/app-creator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "auth-form",
+      "type": "registry:component",
+      "title": "AuthForm",
+      "description": "The email/password card: mode switching, providers, structured errors, and a working state \u2014 Better Auth-shaped.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/auth-form/auth-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "neon-aurora",
+      "type": "registry:component",
+      "title": "NeonAurora",
+      "description": "The neon.com hero as a live WebGL surface: clusters of thin vertical bars twinkling in green, teal, and blue.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/neon-aurora/neon-aurora.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/neon-aurora/neon-aurora-shader.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mesh-gradient",
+      "type": "registry:component",
+      "title": "MeshGradient",
+      "description": "The Neon brand-deck gradient as a live WebGL surface: a defocused warm color field drifting over near-black.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/mesh-gradient/mesh-gradient.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/mesh-gradient/mesh-gradient-shader.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "banner-pattern",
+      "type": "registry:component",
+      "title": "BannerPattern",
+      "description": "The neon.com banner dot pattern as a live WebGL surface: a square-dot grid sampling a drifting green-to-amber field.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/banner-pattern/banner-pattern.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/banner-pattern/banner-pattern-shader.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dot-matrix-wave",
+      "type": "registry:component",
+      "title": "DotMatrixWave",
+      "description": "Field of dots breathing in a drifting noise wave, colored by currentColor. The RegionSelect dot-map aesthetic as a background surface.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/dot-matrix-wave/dot-matrix-wave.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/dot-matrix-wave/dot-matrix-wave-shader.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "halftone-bloom",
+      "type": "registry:component",
+      "title": "HalftoneBloom",
+      "description": "Halftone ring field revealed by soft drifting color blooms: teal and amber light behind a punched-metal screen.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/halftone-bloom/halftone-bloom.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/halftone-bloom/halftone-bloom-shader.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "preview-frame",
+      "type": "registry:component",
+      "title": "PreviewFrame",
+      "description": "Sandbox iframe with wake, restart, and refresh lifecycle, reload-on-signal, and chrome header.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/neon-loader.json",
+        "https://ui.neon.com/r/animated-wash.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/preview-frame/preview-frame.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "workspace-tabs",
+      "type": "registry:component",
+      "title": "WorkspaceTabs",
+      "description": "Workspace tab bar with gliding underline, per-tab action slot, and pane crossfade.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/tabs.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/workspace-tabs/workspace-tabs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "provisioning-status",
+      "type": "registry:component",
+      "title": "ProvisioningStatus",
+      "description": "Provisioning, waking, and error panel states composing NeonLoader with a live status detail line.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/neon-loader.json",
+        "https://ui.neon.com/r/animated-wash.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/provisioning-status/provisioning-status.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "region-card",
+      "type": "registry:component",
+      "title": "RegionCard",
+      "description": "Floating server-info chip: region name, mono id, and a color-coded ping line.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/region-card/region-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "region-select",
+      "type": "registry:component",
+      "title": "RegionSelect",
+      "description": "Server location picker: an interactive dot-matrix world map synced with an accessible select.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/select.json",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/region-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/region-select/region-select.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/region-select/map-dots.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "region-globe",
+      "type": "registry:component",
+      "title": "RegionGlobe",
+      "description": "Tilted 3D globe (globe.gl) with a monochrome relief surface, clickable region markers, and arc travel effects between regions.",
+      "dependencies": ["globe.gl"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/region-select.json",
+        "https://ui.neon.com/r/region-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/region-globe/region-globe.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "use-gateway-models",
+      "type": "registry:hook",
+      "title": "useGatewayModels",
+      "description": "Fetches a gateway model catalog and keeps the selection valid against it: explicit pick, then preferred default, then first available.",
+      "files": [
+        {
+          "path": "src/hooks/use-gateway-models.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-region-ping",
+      "type": "registry:hook",
+      "title": "useRegionPing",
+      "description": "Measures browser round-trip latency to per-region endpoints via opaque no-cors requests.",
+      "files": [
+        {
+          "path": "src/hooks/use-region-ping.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "branch-picker",
+      "type": "registry:component",
+      "title": "BranchPicker",
+      "description": "A searchable branch selector with default/protected status and an inline create-branch affordance.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/input.json",
+        "https://ui.neon.com/r/popover.json",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/branch-picker/branch-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "branch-tree",
+      "type": "registry:component",
+      "title": "BranchTree",
+      "description": "A drawn branch graph: nodes colored by compute state, curved edges to each parent, default and selected marked.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/branch-tree/branch-tree.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "autoscale-chart",
+      "type": "registry:component",
+      "title": "AutoscaleChart",
+      "description": "Autoscaling compute units over time against the min/max bounds, with a scrubable readout.",
+      "dependencies": ["recharts"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/autoscale-chart/autoscale-chart.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "logs-viewer",
+      "type": "registry:component",
+      "title": "LogsViewer",
+      "description": "Virtualized, follow-tailing log pane with ANSI colors, level filters, search, and a retention cap.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "anser"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/logs-viewer/logs-viewer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/logs-viewer/use-logs-stream.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "branch-diff",
+      "type": "registry:component",
+      "title": "BranchDiff",
+      "description": "Schema and row-level comparison between two branches with change counts, search, kind filters, and expandable DDL and word-level value diffs.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "diff"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/tabs.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/branch-diff/branch-diff.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/branch-diff/use-branch-diff.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "schema-explorer",
+      "type": "registry:component",
+      "title": "SchemaExplorer",
+      "description": "A collapsible Postgres schema tree: tables to columns, indexes, and relations, with types and a search.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/input.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/schema-explorer/schema-explorer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sql-runner",
+      "type": "registry:component",
+      "title": "SQLRunner",
+      "description": "A guarded SQL editor with run and cancel controls, inline Postgres errors, and a typed results grid.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "codemirror",
+        "@codemirror/lang-sql",
+        "@codemirror/language",
+        "@codemirror/state",
+        "@codemirror/view",
+        "@lezer/highlight",
+        "@codemirror/lint",
+        "@codemirror/search"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/sql-runner/sql-runner.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/sql-runner/use-sql-runner.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "query-history",
+      "type": "registry:component",
+      "title": "QueryHistory",
+      "description": "Searchable recent SQL with status, timing, saved queries, expandable statements, copy, and rerun actions.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "@codemirror/lang-sql",
+        "@lezer/highlight"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/empty-state.json",
+        "https://ui.neon.com/r/tooltip.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/query-history/query-history.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/query-history/use-query-history.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "checkpoint-timeline",
+      "type": "registry:component",
+      "title": "CheckpointTimeline",
+      "description": "Checkpoint history rail with git sha, snapshot indicator, project id, restore with busy state, and empty state.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/empty-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/checkpoint-timeline/checkpoint-timeline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "db-connection-card",
+      "type": "registry:component",
+      "title": "DBConnectionCard",
+      "description": "Neon database connection card: pooled/direct toggle, role and database selectors, URI / psql / parameters views, one shared secret reveal, and copy that always carries the real string.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/select.json",
+        "https://ui.neon.com/r/tabs.json",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/db-connection-card/db-connection-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "api-key-list",
+      "type": "registry:component",
+      "title": "ApiKeyList",
+      "description": "Create, reveal-once, and revoke Neon API keys (personal and organization), with an inline create flow, a one-time secret reveal, and per-row revoke confirmation.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/input.json",
+        "https://ui.neon.com/r/tooltip.json",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/api-key-list/api-key-list.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "activity-feed",
+      "type": "registry:component",
+      "title": "ActivityFeed",
+      "description": "A chronological feed of system events (provision, transfer, agent) on a status-vocabulary timeline, with expandable detail and optional per-entry actions.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/empty-state.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/activity-feed/activity-feed.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "compute-status",
+      "type": "registry:component",
+      "title": "ComputeStatus",
+      "description": "Compact compute readout: lifecycle state (active/idle/scaling/suspended), autoscaling CU size, and scale-to-zero, in the house status vocabulary.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/compute-status/compute-status.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Base UI dialog in the house chrome: card panel, hairline border, quiet rise.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["@base-ui/react"]
+    },
+    {
+      "name": "confirm-dialog",
+      "type": "registry:component",
+      "title": "ConfirmDialog",
+      "description": "Destructive confirmation modal armed by press-and-hold, with keyboard hold support.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/confirm-dialog/confirm-dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "usage-card",
+      "type": "registry:component",
+      "title": "UsageCard",
+      "description": "Single Neon consumption metric on the MetricCard shell: derives label, format, unit, total, sparkline, and delta from raw per-project samples.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/metric-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/usage-card/usage-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "usage-panel",
+      "type": "registry:component",
+      "title": "UsagePanel",
+      "description": "Per-project consumption grid composing MetricCard, with plan-gated metrics and metering-lag notice.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/metric-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/usage-panel/usage-panel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Base UI popover in the house chrome.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["@base-ui/react"]
+    },
+    {
+      "name": "date-range-picker",
+      "type": "registry:component",
+      "title": "DateRangePicker",
+      "description": "Custom date range picker: mono pill trigger, preset rail, hand-built month grid with range wash.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/date-range-picker/date-range-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "upgrade-dialog",
+      "type": "registry:component",
+      "title": "UpgradeDialog",
+      "description": "Pricing dialog with drawn-check feature list and a processing upgrade action.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/upgrade-dialog/upgrade-dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "create-project",
+      "type": "registry:block",
+      "title": "CreateProject",
+      "description": "Create-project onboarding panel: project form on the left, the interactive region map on the right.",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/button.json",
+        "https://ui.neon.com/r/input.json",
+        "https://ui.neon.com/r/select.json",
+        "https://ui.neon.com/r/switch.json",
+        "https://ui.neon.com/r/region-select.json",
+        "https://ui.neon.com/r/region-globe.json",
+        "https://ui.neon.com/r/region-card.json",
+        "https://ui.neon.com/r/label.json"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/create-project/create-project.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "consumption",
+      "type": "registry:lib",
+      "title": "Consumption metrics",
+      "description": "Types, unit conversion, allowances, and cost math for the Neon v2 consumption API.",
+      "files": [
+        {
+          "path": "src/lib/consumption.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-consumption-history",
+      "type": "registry:hook",
+      "title": "useConsumptionHistory",
+      "description": "Fetches consumption history through your own proxy route and shapes it into buckets and totals.",
+      "registryDependencies": ["https://ui.neon.com/r/consumption.json"],
+      "files": [
+        {
+          "path": "src/hooks/use-consumption-history.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "consumption-chart",
+      "type": "registry:component",
+      "title": "ConsumptionChart",
+      "description": "Interactive consumption time series with labelled axes, unit-aware totals, a scrubbable readout, and a legend that filters.",
+      "dependencies": ["recharts"],
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/skeleton.json",
+        "https://ui.neon.com/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/consumption-chart/consumption-chart.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/hooks/use-controllable-state.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "storage-breakdown",
+      "type": "registry:component",
+      "title": "StorageBreakdown",
+      "description": "Storage composition by volume or by cost \u2014 root, child, instant restore, and snapshots as one bar with per-segment shares.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/skeleton.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/storage-breakdown/storage-breakdown.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/hooks/use-controllable-state.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "cost-estimate-card",
+      "type": "registry:component",
+      "title": "CostEstimateCard",
+      "description": "Invoice-shaped cost estimate: quantity by rate per metric, allowances shown, with an optional spending-limit meter.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/skeleton.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/cost-estimate-card/cost-estimate-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "branch-usage-table",
+      "type": "registry:component",
+      "title": "BranchUsageTable",
+      "description": "Per-branch consumption attribution: sortable metric columns, magnitude rules, an expandable tail, and a list layout for a single metric.",
+      "registryDependencies": [
+        "utils",
+        "https://ui.neon.com/r/neon-tokens.json",
+        "https://ui.neon.com/r/skeleton.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/branch-usage-table/branch-usage-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
