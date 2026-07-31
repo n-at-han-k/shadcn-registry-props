@@ -78,7 +78,7 @@
       "name": "avatar-stack",
       "type": "registry:ui",
       "title": "Avatar Stack",
-      "description": "Row of overlapping circular avatars (a facepile) that collapses the overflow into a '+N' badge past a max count, with a letter-initial fallback when an avatar has no image. Use it to show team members, project collaborators, assignees or reviewers, meeting attendees, who's online or currently viewing, or a 'shared with' list. Unlike rendering separate avatars it handles the overlap spacing and the overflow count for you. Theme-aware via shadcn tokens; no dependencies.",
+      "description": "Row of overlapping circular avatars — a facepile — that collapses everything past max into a \"+N\" badge. Reach for it wherever a set of people is shown on one line: team members on a project card, assignees or reviewers on an issue or pull request, meeting attendees, who is online or currently viewing a document, a 'shared with' list, participants in a thread, or contributors on a repo. Common asks it answers: \"avatar group\", \"avatar stack\", \"facepile\", \"overlapping avatars\", \"stacked profile pictures\", \"user avatars in a row\", \"+N more avatars\", \"avatar overflow count\", \"assignee avatars\", \"who is online avatars\", \"team member avatars\", \"participant avatars\". shadcn/ui ships a single avatar and no way to group them, so the two fiddly parts get rebuilt every time: the negative margin that overlaps the circles, and the ring in the *background* colour on each one that keeps the overlap legible on a card, a table row or a dark surface. Pass avatars as an array of { src?, alt } plus max (default 4); an entry with no src falls back to the first letter of its alt, and every avatar keeps its alt as its accessible name, so a screen reader reads the people rather than a row of unlabelled images. Plain img and Tailwind tokens: unlike the official avatar it pulls in no Radix package, and it has no dependencies at all.",
       "dependencies": [],
       "files": [
         {
@@ -623,6 +623,21 @@
       "files": [
         {
           "path": "registry/ui/sortable-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "infinite-scroll",
+      "type": "registry:ui",
+      "title": "Infinite Scroll",
+      "description": "The footer of a list that keeps going: an invisible sentinel that loads the next page as it scrolls into view, plus a Load more button that always does the same job by hand. Reach for it on a feed or timeline, search results, a notification or activity list, a product or photo grid, a comment thread, chat history, an audit log, or any 'show more' at the end of a long table. Common asks it answers: \"infinite scroll\", \"infinite scrolling react\", \"load more on scroll\", \"load more button\", \"endless scroll\", \"auto load next page\", \"IntersectionObserver load more\", \"react-infinite-scroll-component alternative\", \"scroll pagination\", \"fetch next page when the sentinel is visible\", \"lazy load a long list\". shadcn/ui's pagination is numbered page links and nothing else — it renders no rows and loads nothing — so progressive loading gets hand-rolled every time, and the same three things break. Here the page footer stays reachable, because automatic loading yields to the button after autoLoadLimit pages (default 3, and a press grants another run) instead of running the page away from whatever is below the list. Each page is announced through a polite live region (\"20 more items loaded. 60 in total.\") rather than rows appearing in silence, and the button uses aria-disabled instead of disabled so pressing it never drops focus out of the list. And a failed page stops the sentinel and offers Retry instead of hammering a broken endpoint in a loop. Return a promise from onLoadMore and the duplicate-fire guard is exact; a loader that only bumps a page number is held until the list actually changes, so it asks once instead of firing a burst. A first page shorter than the viewport keeps loading until the viewport is full — the usual bug there is a sentinel that never leaves the screen, so no second intersection event ever comes and the list stops loading forever. Controlled: pass hasMore, itemCount and onLoadMore, and render it directly after your rows — it draws no list of its own, so it works the same under a ul, a table or a grid. Optional loading for react-query or SWR, error for your own failure state, root for a list that scrolls inside a box rather than the page, rootMargin (default 200px) to prefetch early, auto={false} for button-only, and labels to reword or translate every string. Styled with shadcn tokens so it follows light and dark themes; lucide-react is the only dependency, with no Radix and no scroll library.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/infinite-scroll.tsx",
           "type": "registry:ui"
         }
       ]
