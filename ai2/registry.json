@@ -179,6 +179,25 @@
       ]
     },
     {
+      "name": "primitives-base",
+      "type": "registry:lib",
+      "title": "Primitives (Base UI)",
+      "description": "The second provider behind the ai2 primitive adapter: the same surface as @ai2/primitives, bound to Base UI instead of Radix. A pro block imports the adapter, not the library, so the same block source runs on either one. Anatomy differences are absorbed here (Base UI wraps the slider track in a Control part and calls the filled part Indicator, and it renders a native range input inside the thumb, so focus styling is mirrored from focus-visible to focus-within). Primitives with no Base UI counterpart are deliberately left out rather than silently falling back to Radix.",
+      "categories": [
+        "utility"
+      ],
+      "files": [
+        {
+          "path": "registry/ai2/ui/primitives-base.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Install this instead of @ai2/primitives when you want the block to run on Base UI. Nothing else in the block changes.",
+      "dependencies": [
+        "@base-ui/react@^1.6.0"
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
