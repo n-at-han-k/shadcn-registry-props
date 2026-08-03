@@ -22,7 +22,7 @@
       "name": "kbd",
       "type": "registry:ui",
       "title": "Kbd",
-      "description": "Inline keyboard key hint that renders a styled <kbd> element for showing shortcuts, hotkeys, and keybindings like Cmd+K, Ctrl+S, or ⇧⌘P. Use it in command palettes, tooltips, menu items, docs, onboarding, and keyboard-shortcut help dialogs. Unlike a plain styled <span> it uses the semantic <kbd> tag so the key is announced as keyboard input. Theme-aware via shadcn tokens; no dependencies.",
+      "description": "Inline keyboard key rendered as a real <kbd> element and styled as a bordered monospace keycap. Use it wherever an interface names a key the reader is meant to press: command palettes and ⌘K hints, tooltips, menu item accelerators, empty states that suggest a shortcut, onboarding tours, documentation and changelogs, and keyboard-shortcut help sheets. Common asks it answers: \"kbd component\", \"keyboard shortcut badge\", \"render Cmd+K\", \"hotkey chip\", \"keycap style\", \"show a keybinding in a tooltip\", \"⇧⌘P badge\", \"shortcut hint next to a menu item\", \"Ctrl+S indicator\". shadcn/ui now ships a kbd of its own, so choose deliberately rather than by search rank. Theirs is a flat sans-serif chip with no border at text-xs, and it comes with a KbdGroup wrapper for multi-key sequences, a rule that shrinks icons placed inside it, and one that inverts its colours inside a tooltip — if you want any of those, take theirs. This one is a single element with a border, monospace text at 10px and slightly wider padding, so it reads as a physical key rather than as inline text and stays legible against surrounding prose at small sizes. Both are dependency-free, use the semantic <kbd> tag so assistive technology announces the content as keyboard input, and theme through shadcn tokens. For several keys in a row, wrap them in a flex container with a gap yourself, or install keyboard-shortcuts, which composes this into a grouped help sheet opened with ?.",
       "dependencies": [],
       "files": [
         {
@@ -662,6 +662,18 @@
       "files": [
         {
           "path": "registry/ui/read-more.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "middle-truncate",
+      "type": "registry:ui",
+      "title": "Middle Truncate",
+      "description": "One line of text with the middle removed so that both ends stay readable, fitted to whatever width the container actually gives it. Use it for file names — where ordinary CSS truncation eats the extension and every row ends up reading \"quarterly-report-2026-fin…\" — and for file paths, URLs, S3 and storage keys, git SHAs and commit hashes, wallet and contract addresses, API keys and tokens, request, trace and session IDs, branch names, and any other identifier whose tail is the part that tells two of them apart. Common asks it answers: \"truncate the middle of a string\", \"middle ellipsis\", \"truncate a filename but keep the extension\", \"ellipsis in the middle of text\", \"shorten a wallet address to 0x1234…abcd\", \"truncate a long path from the middle\", \"text-overflow ellipsis but centered\", \"abbreviate a long ID\", \"react-middle-truncate alternative\". CSS cannot do this — text-overflow: ellipsis only ever cuts the end — and shadcn/ui ships nothing for it, so it is normally hand-rolled as a fixed character count that is wrong at every container width except the one it was tuned for. This measures the rendered text against the box it has to fit and binary-searches the cut point, so it fills the space exactly; it re-measures when the column resizes and again once web fonts have loaded, because a font swap changes every glyph width without changing the box. It cuts on grapheme boundaries using Intl.Segmenter, so an emoji, flag or accented letter landing on the cut does not become a replacement glyph the way a raw slice() would — which matters more here than elsewhere, since the cut point moves every time the container resizes. The full string stays in the DOM and only the visible copy is shortened: screen readers get the whole value instead of \"0x4f2a ellipsis 91bc\", find-in-page still matches it, and selecting the line copies the full text exactly once rather than the shortened form. Hovering shows the full value as a tooltip. It takes its width from its container — a flex row, a grid track, or a fixed width — and needs no min-w-0 to shrink; inside a shrink-to-fit parent there is nothing to fit to, so it simply renders in full.",
+      "files": [
+        {
+          "path": "registry/ui/middle-truncate.tsx",
           "type": "registry:ui"
         }
       ]
