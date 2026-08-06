@@ -4,6 +4,594 @@
   "homepage": "https://assistant-ui.com",
   "items": [
     {
+      "name": "elements-surfaces",
+      "type": "registry:component",
+      "title": "Elements Surfaces",
+      "description": "Shared design language for the elements family: surface, ink, and motion class recipes plus the shimmer utility.",
+      "files": [
+        {
+          "type": "registry:lib",
+          "path": "components/elements/surfaces.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/surfaces.tsx"
+        }
+      ],
+      "dependencies": [
+        "tw-shimmer"
+      ],
+      "css": {
+        "@import \"tw-shimmer\"": {}
+      }
+    },
+    {
+      "name": "elements-loading-state",
+      "type": "registry:component",
+      "title": "Loading state",
+      "description": "A pixel matrix that keeps time while the model has nothing to show yet.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/loading-state.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/loading-state.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-thinking-indicator",
+      "type": "registry:component",
+      "title": "Thinking indicator",
+      "description": "A live status line that names what the agent is doing right now, with elapsed time.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/thinking-indicator.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/thinking-indicator.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-reasoning-panel",
+      "type": "registry:component",
+      "title": "Reasoning panel",
+      "description": "A collapsible trace that streams reasoning steps along a timeline, then settles into a summary.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/reasoning-panel.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/reasoning-panel.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "collapsible"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-streaming-text",
+      "type": "registry:component",
+      "title": "Streaming text",
+      "description": "Tokens arrive softly: the newest words land in blue and settle into ink.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/streaming-text.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/streaming-text.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-typing-indicator",
+      "type": "registry:component",
+      "title": "Typing indicator",
+      "description": "The classic three dots, tuned to read as presence rather than noise.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/typing-indicator.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/typing-indicator.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-message-pair",
+      "type": "registry:component",
+      "title": "Message pair",
+      "description": "A user bubble and a streaming assistant reply, with actions that appear on hover.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/message-pair.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/message-pair.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-message-branches",
+      "type": "registry:component",
+      "title": "Message branches",
+      "description": "Navigate between regenerated versions of the same answer without losing your place.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/message-branches.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/message-branches.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-message-actions",
+      "type": "registry:component",
+      "title": "Message actions",
+      "description": "Copy, rate, and regenerate. Each action confirms itself with a small state change.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/message-actions.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/message-actions.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-suggestions",
+      "type": "registry:component",
+      "title": "Follow-up suggestions",
+      "description": "Prompt pills that stagger in after a reply and invite the next turn.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/suggestions.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/suggestions.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-error-state",
+      "type": "registry:component",
+      "title": "Error state",
+      "description": "A quiet failure banner with a retry path, not a modal in your face.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/error-state.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/error-state.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-tool-call",
+      "type": "registry:component",
+      "title": "Tool call",
+      "description": "One tool invocation with its request and result tucked behind a disclosure.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/tool-call.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/tool-call.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "collapsible"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-tool-timeline",
+      "type": "registry:component",
+      "title": "Tool timeline",
+      "description": "A whole working session summarized as verbs, targets, and file stats.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/tool-timeline.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/tool-timeline.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "collapsible"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-terminal-block",
+      "type": "registry:component",
+      "title": "Terminal block",
+      "description": "Command output that streams line by line and ends with an exit status.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/terminal-block.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/terminal-block.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-code-diff",
+      "type": "registry:component",
+      "title": "Code diff",
+      "description": "A unified diff with tinted additions and removals, sized for chat.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/code-diff.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/code-diff.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-web-search",
+      "type": "registry:component",
+      "title": "Web search",
+      "description": "A search query and its results landing one by one as the agent reads.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/web-search.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/web-search.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-sources",
+      "type": "registry:component",
+      "title": "Sources",
+      "description": "Citations collapsed into a pill, expanding into scannable source cards.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/sources.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/sources.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "collapsible"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-inline-citation",
+      "type": "registry:component",
+      "title": "Inline citation",
+      "description": "Numbered references inside a sentence, each with a hover preview of its source.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/inline-citation.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/inline-citation.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ]
+    },
+    {
+      "name": "elements-image-generation",
+      "type": "registry:component",
+      "title": "Image generation",
+      "description": "A dot grid holds the frame while the image resolves out of a blur.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/image-generation.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/image-generation.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-data-table",
+      "type": "registry:component",
+      "title": "Data table",
+      "description": "A small comparison table the model can answer with directly.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/data-table.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/data-table.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-number-ticker",
+      "type": "registry:component",
+      "title": "Number ticker",
+      "description": "Digits that roll into place as a count updates in real time.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/number-ticker.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/number-ticker.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-agent-plan",
+      "type": "registry:component",
+      "title": "Agent plan",
+      "description": "A checklist the agent works through, with progress you can glance.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/agent-plan.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/agent-plan.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-subagent-list",
+      "type": "registry:component",
+      "title": "Subagent list",
+      "description": "Parallel workers with their own progress, models, and completions.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/subagent-list.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/subagent-list.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-agent-status",
+      "type": "registry:component",
+      "title": "Agent status",
+      "description": "One pill that always answers: what is it doing, and for how long.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/agent-status.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/agent-status.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-approval-card",
+      "type": "registry:component",
+      "title": "Approval card",
+      "description": "Human in the loop: the agent asks before it runs anything with side effects.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/approval-card.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/approval-card.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-recommendation-card",
+      "type": "registry:component",
+      "title": "Recommendation card",
+      "description": "The agent proposes a change with its confidence, and waits for a yes.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/recommendation-card.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/recommendation-card.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-artifact-card",
+      "type": "registry:component",
+      "title": "Artifact card",
+      "description": "A generated document as a tangible object, written live and versioned.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/artifact-card.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/artifact-card.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-composer",
+      "type": "registry:component",
+      "title": "Composer",
+      "description": "The unified input: attachments, commands, mentions, models, voice, and context in one surface.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/composer.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/composer.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-chat-panel",
+      "type": "registry:component",
+      "title": "Chat panel",
+      "description": "The whole family working together: a message, a pause, a streamed reply.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/chat-panel.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/chat-panel.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-empty-state",
+      "type": "registry:component",
+      "title": "Empty state",
+      "description": "The first screen: a greeting, three ways in, and the composer front and center.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/empty-state.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/empty-state.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-thread-list",
+      "type": "registry:component",
+      "title": "Thread list",
+      "description": "Conversation history with unread marks and actions that wait for hover.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/thread-list.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/thread-list.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-scroll-anchor",
+      "type": "registry:component",
+      "title": "Scroll anchor",
+      "description": "Streaming never steals your scroll position; a pill offers the way back down.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/elements/scroll-anchor.tsx",
+          "sourcePath": "../../packages/ui/src/components/elements/scroll-anchor.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
       "name": "shimmer-style",
       "type": "registry:style",
       "title": "Shimmer Style",
@@ -1642,6 +2230,12 @@
         },
         "[data-aui=\"markdown\"] ul, [data-aui=\"markdown\"] ol": {
           "padding-left": "1.25rem"
+        },
+        "[data-aui=\"markdown\"] ol": {
+          "list-style-type": "decimal"
+        },
+        "[data-aui=\"markdown\"] ul": {
+          "list-style-type": "disc"
         },
         "[data-aui=\"markdown\"] li": {
           "margin": "0.25rem 0"
