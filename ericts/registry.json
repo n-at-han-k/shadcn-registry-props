@@ -65,6 +65,26 @@
       ]
     },
     {
+      "name": "expanding-toggle-button",
+      "type": "registry:ui",
+      "title": "Expanding Toggle Button",
+      "description": "A shadcn toggle button that expands from an icon into an icon-and-label action while keeping the icon anchored.",
+      "categories": ["button"],
+      "meta": {
+        "tags": ["button", "toggle", "icon", "controlled", "disclosure"],
+        "effects": ["width-animation", "icon-swap", "fade", "reduced-motion"]
+      },
+      "registryDependencies": ["button"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/expanding-toggle-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expanding-toggle-button.tsx"
+        }
+      ]
+    },
+    {
       "name": "status-badge",
       "type": "registry:ui",
       "title": "Status Badge",
@@ -366,14 +386,14 @@
       ]
     },
     {
-      "name": "expanding-button",
+      "name": "expanding-panel",
       "type": "registry:ui",
-      "title": "Expanding Button",
-      "description": "A compact icon button that morphs — growing in width and height from its corner — into a floating panel holding arbitrary content. The transformation is the point; it stays content-agnostic.",
+      "title": "Expanding Panel",
+      "description": "A floating panel that grows from a compact icon trigger and holds arbitrary content.",
       "categories": ["overlay"],
       "meta": {
         "tags": [
-          "expanding-button",
+          "expanding-panel",
           "floating-panel",
           "disclosure",
           "content-agnostic"
@@ -383,9 +403,9 @@
       "dependencies": ["lucide-react", "motion"],
       "files": [
         {
-          "path": "registry/base/ui/expanding-button.tsx",
+          "path": "registry/base/ui/expanding-panel.tsx",
           "type": "registry:ui",
-          "target": "components/ui/expanding-button.tsx"
+          "target": "components/ui/expanding-panel.tsx"
         }
       ]
     },
@@ -552,6 +572,51 @@
           "path": "registry/base/ui/staggered-entrance.css",
           "type": "registry:file",
           "target": "components/ui/staggered-entrance.css"
+        }
+      ]
+    },
+    {
+      "name": "scroll-expand",
+      "type": "registry:block",
+      "title": "Scroll Expand & Focus Hero",
+      "description": "An art-directed scroll hero that expands a detail into context or focuses a full-bleed scene into a discovery.",
+      "categories": ["marketing", "hero"],
+      "meta": {
+        "tags": ["scroll", "hero", "image", "video", "storytelling", "art-direction", "focus"],
+        "effects": ["clip-path", "media-zoom", "focus-origin", "scroll-progress", "content-choreography", "frame-offset", "reverse-focus", "circular-focus", "stage-content", "reduced-motion"]
+      },
+      "registryDependencies": [
+        "https://ui.ericts.com/r/use-reduced-motion.json",
+        "https://ui.ericts.com/r/use-scroll-progress.json"
+      ],
+      "files": [
+        {
+          "path": "registry/base/blocks/scroll-expand.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/scroll-expand.tsx"
+        },
+        {
+          "path": "registry/base/blocks/scroll-expand.css",
+          "type": "registry:file",
+          "target": "components/blocks/scroll-expand.css"
+        }
+      ]
+    },
+    {
+      "name": "use-scroll-progress",
+      "type": "registry:hook",
+      "title": "useScrollProgress",
+      "description": "A render-free vertical scroll progress hook for window or element scrollers with optional time-based smoothing.",
+      "categories": ["motion", "scroll"],
+      "meta": {
+        "tags": ["scroll-progress", "request-animation-frame", "resize-observer", "window-scroll"],
+        "effects": ["scroll-progress", "smoothing"]
+      },
+      "files": [
+        {
+          "path": "registry/base/hooks/use-scroll-progress.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-scroll-progress.ts"
         }
       ]
     },

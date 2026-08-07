@@ -254,7 +254,7 @@
       "name": "copy-field",
       "type": "registry:ui",
       "title": "Copy Field",
-      "description": "Read-only input that shows a value with a copy button docked at its right edge — one click copies, and focusing or clicking the field selects the whole value for manual copy. Use it to surface an API key, secret, access token, client ID/secret, invite or share link, webhook or endpoint URL, account/order/transaction ID, or any generated string a user reads once and copies. shadcn/ui ships no copy field; this composes pulld's copy-button (so it inherits the accessible copied-state announcement and focus ring), forwards a ref so you can focus it from a shortcut, renders the value in monospace, and is theme-aware via shadcn tokens with no extra dependencies.",
+      "description": "Read-only field that shows a value with a copy button docked at its right edge: one click copies, and focusing or clicking anywhere in the field selects the whole value. Use it wherever a generated string is read once and copied — an API key or secret, an access token, a client ID and client secret, a database connection string, an invite or share link, a webhook or callback URL, a license key, recovery or backup codes, a referral code, a wallet address, an account, order or transaction ID, an ngrok or preview URL, the CLI command your onboarding tells the user to run. Select-on-focus is the part that matters and the part hand-rolled versions leave out: navigator.clipboard.writeText rejects on an insecure origin, inside a sandboxed iframe, or when the document is not focused, and a copy button that swallows that error leaves the user with a value they cannot get out of the box. Here the whole value is already selected, so Ctrl/Cmd+C works, and it is reachable from the keyboard because focus alone selects it. The button announces itself properly too — it composes pulld's copy-button, so its accessible name flips between \"Copy to clipboard\" and \"Copied\", a polite live region says \"Copied\" for a screen reader, the icon is aria-hidden, and the copied state reverts after a timeout you can set. The field renders in monospace so an O and a 0 are distinguishable, forwards a ref so you can focus it from a shortcut, and takes an aria-label (default \"Copyable value\"). Official shadcn/ui has no copy field: its input-group is an assembly kit of six parts (InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGroupInput, InputGroupTextarea) that pulls in button, input and textarea and contains no clipboard call, no read-only handling and no selection behaviour — you would be writing all of the above yourself. Two files, no npm dependencies, shadcn tokens, dark mode included.",
       "dependencies": [],
       "registryDependencies": [
         "copy-button"
@@ -711,6 +711,18 @@
       "files": [
         {
           "path": "registry/ui/sparkline.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slug-input",
+      "type": "registry:ui",
+      "title": "Slug Input",
+      "description": "A URL slug field that fills itself in from a title and then gets out of the way. Use it wherever a record needs a URL: the permalink or slug field in a blog post editor or CMS admin form, a page or docs route segment, a product handle, a workspace or team URL, a category or tag slug, a public profile handle. Type a title, watch the slug appear as kebab-case, and edit it whenever you want — this is the part hand-rolled fields get wrong. It keeps deriving only while the field still holds exactly what it generated, so editing the slug by hand, or loading an existing slug from your database, stops the derivation for good: renaming a published post cannot silently change its URL. Leave the field empty and blur, and it goes back to following the title. Every keystroke is sanitised in place — lowercased, spaces and punctuation collapsed to a single hyphen (or underscore), accents folded away — while the caret stays exactly where you were typing, which is what breaks when you naively assign a transformed value back to a controlled input. Unicode is handled rather than mangled: NFKD folding turns \"Café au lait\" into cafe-au-lait, \"Łódź\" into lodz, and the letters decomposition leaves whole are spelled out (\"Straße\" becomes strasse, not strae). Pass allowUnicode to keep the title's own script instead — without it a Japanese, Chinese, Korean, Greek, Cyrillic, Hebrew or Arabic title slugifies to an empty string, and with it combining marks stay attached to their letter, so がっこう does not quietly become かっこう. maxLength cuts a generated slug back to a whole word rather than mid-syllable, apostrophes disappear instead of splitting words (\"don't panic\" becomes dont-panic), and pasting a full URL takes just its last path segment. Zero dependencies, one import, shadcn tokens, optional prefix like example.com/blog/ wired to the input with aria-describedby. Official shadcn/ui has no slug or permalink field — its input is a bare element and input-group is an assembly kit with no logic in it — and a slugify npm package solves the string, not the field: the caret, the do-not-stomp rule and the typing-in-progress state are what this component is.",
+      "files": [
+        {
+          "path": "registry/ui/slug-input.tsx",
           "type": "registry:ui"
         }
       ]
