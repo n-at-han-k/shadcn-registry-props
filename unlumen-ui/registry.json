@@ -316,19 +316,17 @@
     {
       "name": "animate-text-input-typing",
       "type": "registry:ui",
-      "title": "Animate Text Input Typing",
-      "description": "An animated input field with per-character motion effects and a smooth custom cursor overlay — supports multiple animation presets, cursor variants, and input styles.",
+      "title": "Animated Input",
+      "description": "An animated text input with per-character motion and a cursor that springs between typing and selection states.",
       "dependencies": [
         "motion"
       ],
       "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/components/unlumen/animate-text-input-typing/index.tsx",
-          "type": "registry:ui",
-          "target": "components/unlumen-ui/animate-text-input-typing.tsx"
-        }
-      ]
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
     },
     {
       "name": "animated-list",
@@ -696,13 +694,11 @@
       "dependencies": [
         "gsap"
       ],
-      "files": [
-        {
-          "path": "registry/components/unlumen/horizontal-depth-fade/index.tsx",
-          "type": "registry:ui",
-          "target": "components/unlumen-ui/horizontal-depth-fade.tsx"
-        }
-      ]
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
     },
     {
       "name": "hover-expand",
@@ -936,6 +932,50 @@
       ]
     },
     {
+      "name": "notion-floating-action-menu",
+      "type": "registry:component",
+      "title": "Notion Floating Action Menu",
+      "description": "A faithful Notion-inspired quick-create menu with a compact action panel and an animated compose-to-close interaction.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
+    },
+    {
+      "name": "notion-mention-link",
+      "type": "registry:ui",
+      "title": "Notion Mention Link",
+      "description": "A Notion-inspired rich link mention with a securely fetched preview card on hover.",
+      "dependencies": [
+        "next"
+      ],
+      "files": [
+        {
+          "path": "registry/components/unlumen/notion-mention-link/index.tsx",
+          "type": "registry:ui",
+          "target": "components/unlumen-ui/notion-mention-link.tsx"
+        },
+        {
+          "path": "registry/components/unlumen/notion-mention-link/link-preview.server.ts",
+          "type": "registry:lib",
+          "target": "lib/notion-link-preview.server.ts"
+        },
+        {
+          "path": "registry/components/unlumen/notion-mention-link/route.ts",
+          "type": "registry:page",
+          "target": "app/api/notion-mention-link/route.ts"
+        }
+      ],
+      "registryDependencies": [
+        "hover-card",
+        "skeleton"
+      ]
+    },
+    {
       "name": "orbital-image-wheel",
       "type": "registry:ui",
       "title": "Orbital Image Wheel",
@@ -1054,6 +1094,25 @@
         }
       ],
       "registryDependencies": []
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:component",
+      "title": "Questionnaire",
+      "description": "A motion-enhanced multi-step questionnaire with animated checkpoints, direction-aware blur transitions, validation, and keyboard shortcuts.",
+      "dependencies": [
+        "@shadcn/react",
+        "hugeicons-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
     },
     {
       "name": "scramble-text",
@@ -1187,6 +1246,20 @@
       "type": "registry:ui",
       "title": "Smart Animate Text",
       "description": "Per-character blur-slide animation with direct value changes and no animation queue.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
+    },
+    {
+      "name": "social-hover-cards",
+      "type": "registry:component",
+      "title": "Social Hover Cards",
+      "description": "A row of social links with a shared morphing preview card and direction-aware content transitions.",
       "dependencies": [
         "motion"
       ],
@@ -2085,17 +2158,17 @@
     {
       "name": "demo-animate-text-input-typing",
       "type": "registry:example",
-      "title": "Animate Text Input Typing Demo",
-      "description": "Animated text input with per-character motion and custom cursor overlay.",
+      "title": "Animated Input Demo",
+      "description": "Minimal animated input demo with per-character motion and a custom cursor.",
+      "dependencies": [],
       "registryDependencies": [
         "@unlumen-ui/animate-text-input-typing"
       ],
-      "files": [
-        {
-          "path": "registry/demo/components/unlumen/animate-text-input-typing/index.tsx",
-          "type": "registry:example"
-        }
-      ]
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
     },
     {
       "name": "demo-animated-list",
@@ -2530,13 +2603,11 @@
       "registryDependencies": [
         "@unlumen-ui/horizontal-depth-fade"
       ],
-      "files": [
-        {
-          "path": "registry/demo/components/unlumen/horizontal-depth-fade/index.tsx",
-          "type": "registry:ui",
-          "target": "components/unlumen-ui/demo/components/unlumen/horizontal-depth-fade.tsx"
-        }
-      ]
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
     },
     {
       "name": "demo-hover-expand",
@@ -2874,6 +2945,42 @@
       ]
     },
     {
+      "name": "demo-notion-floating-action-menu",
+      "type": "registry:example",
+      "title": "Notion Floating Action Menu Demo",
+      "description": "A Notion-inspired quick-create menu with four actions and a spring-animated circular trigger.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@unlumen-ui/notion-floating-action-menu"
+      ],
+      "files": [],
+      "meta": {
+        "demoProps": {
+          "NotionFloatingActionMenuDemo": {}
+        },
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
+    },
+    {
+      "name": "demo-notion-mention-link",
+      "type": "registry:example",
+      "title": "Notion Mention Link Demo",
+      "description": "A rich Notion-style link mention that reveals a live URL preview on hover.",
+      "registryDependencies": [
+        "@unlumen-ui/notion-mention-link",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/unlumen/notion-mention-link/index.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "demo-orbital-image-wheel",
       "type": "registry:ui",
       "title": "Orbital Image Wheel Demo",
@@ -3035,6 +3142,23 @@
             }
           }
         }
+      }
+    },
+    {
+      "name": "demo-questionnaire",
+      "type": "registry:example",
+      "title": "Questionnaire Demo",
+      "description": "A four-step onboarding questionnaire demonstrating animated checkpoints, multiple answer types, and explicit skip.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@unlumen-ui/questionnaire"
+      ],
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
       }
     },
     {
@@ -3320,6 +3444,24 @@
       "description": "Stepped add and subtract demo showcasing direct per-character blur-slide animation.",
       "registryDependencies": [
         "@unlumen-ui/smart-animate-text"
+      ],
+      "files": [],
+      "meta": {
+        "premium": true,
+        "requiresAuth": "Bearer token required. Set UNLUMEN_LICENSE_KEY in .env.local and configure components.json. See https://ui.unlumen.com/docs/mcp"
+      }
+    },
+    {
+      "name": "demo-social-hover-cards",
+      "type": "registry:example",
+      "title": "Social Hover Cards Demo",
+      "description": "Configurable GitHub, message, email, and X cards in a shared morphing viewport.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@unlumen-ui/social-hover-cards",
+        "@unlumen-ui/github-graph"
       ],
       "files": [],
       "meta": {
