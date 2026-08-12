@@ -1,0 +1,249 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "knock-codes-react",
+  "homepage": "https://github.com/trivedi-vatsal/knock-codes",
+  "items": [
+    {
+      "name": "knock-codes-core",
+      "type": "registry:block",
+      "title": "Knock Codes Core",
+      "description": "Framework-agnostic hash/session/storage/verify logic. Installed automatically as a dependency of every React block — install directly only if you're building a custom framework binding.",
+      "docs": "These files use explicit `.ts` extensions in their relative imports. If your TypeScript config reports \"An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled,\" add `\"allowImportingTsExtensions\": true` to your tsconfig.json's compilerOptions.",
+      "files": [
+        { "path": "packages/core/hash.ts", "type": "registry:file", "target": "components/knock-codes/core/hash.ts" },
+        { "path": "packages/core/verify.ts", "type": "registry:file", "target": "components/knock-codes/core/verify.ts" },
+        { "path": "packages/core/session.ts", "type": "registry:file", "target": "components/knock-codes/core/session.ts" },
+        { "path": "packages/core/storage.ts", "type": "registry:file", "target": "components/knock-codes/core/storage.ts" }
+      ]
+    },
+    {
+      "name": "knock-codes-types",
+      "type": "registry:block",
+      "title": "Knock Codes Types",
+      "description": "Shared config/defaults/label types used by every React block. Installed automatically — not meant to be added on its own.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-core.json"],
+      "files": [
+        { "path": "packages/react/types.ts", "type": "registry:file", "target": "components/knock-codes/react/types.ts" }
+      ]
+    },
+    {
+      "name": "knock-codes-hook",
+      "type": "registry:block",
+      "title": "useKnockCodes",
+      "description": "The headless session/verification hook every stateful block is built on. Installed automatically — use it directly only if you're building a fully custom PIN UI.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-types.json"],
+      "files": [
+        { "path": "packages/react/useKnockCodes.ts", "type": "registry:file", "target": "components/knock-codes/react/useKnockCodes.ts" }
+      ]
+    },
+    {
+      "name": "cx-util",
+      "type": "registry:block",
+      "title": "cx (classname helper)",
+      "description": "Tiny local classname joiner used across blocks. Installed automatically.",
+      "files": [
+        { "path": "packages/react/cx.ts", "type": "registry:file", "target": "components/knock-codes/react/cx.ts" }
+      ]
+    },
+    {
+      "name": "gate-wrapper",
+      "type": "registry:block",
+      "title": "Gate Wrapper",
+      "description": "The shared outer-positioning primitive (full-page centered vs. inline) every visible block composes on. Use it directly to build a fully custom gate layout.",
+      "registryDependencies": ["https://knock.codes/r/react/cx-util.json"],
+      "files": [
+        { "path": "packages/react/GateWrapper.tsx", "type": "registry:file", "target": "components/knock-codes/react/GateWrapper.tsx" }
+      ]
+    },
+    {
+      "name": "pin-input",
+      "type": "registry:block",
+      "title": "PIN Input",
+      "description": "Masked PIN/passphrase input with paste support, show/hide toggle, and accessible loading/error states. No verification logic of its own.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-types.json"],
+      "files": [
+        { "path": "packages/react/PinInput.tsx", "type": "registry:file", "target": "components/knock-codes/react/PinInput.tsx" }
+      ]
+    },
+    {
+      "name": "knock-codes",
+      "type": "registry:block",
+      "title": "Knock Codes",
+      "description": "The main gate: renders children when unlocked, otherwise a PIN prompt. Local SHA-256 verification by default; pass a `verify` function for server-mode protection.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json", "https://knock.codes/r/react/gate-wrapper.json", "https://knock.codes/r/react/pin-input.json"],
+      "files": [
+        { "path": "packages/react/KnockCodes.tsx", "type": "registry:file", "target": "components/knock-codes/react/KnockCodes.tsx" }
+      ]
+    },
+    {
+      "name": "protected-route",
+      "type": "registry:block",
+      "title": "Protected Route",
+      "description": "`<KnockCodes>` shaped for route-level guarding (a React Router `element`, a layout redirect guard), with an optional `unauthorizedFallback` for routes that shouldn't show an inline PIN prompt.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json", "https://knock.codes/r/react/knock-codes.json"],
+      "files": [
+        { "path": "packages/react/ProtectedRoute.tsx", "type": "registry:file", "target": "components/knock-codes/react/ProtectedRoute.tsx" }
+      ]
+    },
+    {
+      "name": "protected-layout",
+      "type": "registry:block",
+      "title": "Protected Layout",
+      "description": "`<KnockCodes>` shaped for a full-page shell (a Next.js layout.tsx): header/footer render even while locked, so persistent site chrome survives the gate.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes.json"],
+      "files": [
+        { "path": "packages/react/ProtectedLayout.tsx", "type": "registry:file", "target": "components/knock-codes/react/ProtectedLayout.tsx" }
+      ]
+    },
+    {
+      "name": "unlock-dialog",
+      "type": "registry:block",
+      "title": "Unlock Dialog",
+      "description": "A non-dismissable modal PIN prompt — no backdrop click, no Escape-to-close. Composable standalone, or used by Protected Modal.",
+      "registryDependencies": ["https://knock.codes/r/react/pin-input.json", "https://knock.codes/r/react/knock-codes-types.json"],
+      "files": [
+        { "path": "packages/react/UnlockDialog.tsx", "type": "registry:file", "target": "components/knock-codes/react/UnlockDialog.tsx" }
+      ]
+    },
+    {
+      "name": "protected-modal",
+      "type": "registry:block",
+      "title": "Protected Modal",
+      "description": "Content stays mounted (blurred and inert) behind a modal Unlock Dialog instead of being replaced outright — useful when the protected content's layout should stay stable underneath the prompt.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json", "https://knock.codes/r/react/unlock-dialog.json"],
+      "files": [
+        { "path": "packages/react/ProtectedModal.tsx", "type": "registry:file", "target": "components/knock-codes/react/ProtectedModal.tsx" }
+      ]
+    },
+    {
+      "name": "session-provider",
+      "type": "registry:block",
+      "title": "Session Provider",
+      "description": "Shares one useKnockCodes session across a tree, so a gate, a Logout Button, and a Session Timeout Banner all read and act on the same unlock state.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json"],
+      "files": [
+        { "path": "packages/react/KnockCodesProvider.tsx", "type": "registry:file", "target": "components/knock-codes/react/KnockCodesProvider.tsx" }
+      ]
+    },
+    {
+      "name": "session-timeout-banner",
+      "type": "registry:block",
+      "title": "Session Timeout Banner",
+      "description": "Warns before the shared session expires, with a one-click way to log out immediately instead of waiting for automatic expiry. Requires a Session Provider.",
+      "registryDependencies": ["https://knock.codes/r/react/session-provider.json"],
+      "files": [
+        { "path": "packages/react/SessionTimeoutBanner.tsx", "type": "registry:file", "target": "components/knock-codes/react/SessionTimeoutBanner.tsx" }
+      ]
+    },
+    {
+      "name": "access-receipt",
+      "type": "registry:block",
+      "title": "Access Receipt",
+      "description": "A small session audit strip shown after unlock — timestamp, storage mode, timeout, and verification strategy. Requires a Session Provider.",
+      "registryDependencies": ["https://knock.codes/r/react/session-provider.json"],
+      "files": [
+        { "path": "packages/react/AccessReceipt.tsx", "type": "registry:file", "target": "components/knock-codes/react/AccessReceipt.tsx" }
+      ]
+    },
+    {
+      "name": "access-denied-screen",
+      "type": "registry:block",
+      "title": "Access Denied Screen",
+      "description": "A static \"you don't have access\" view with no PIN form in it at all — distinct from the PIN entry UI. Use it as a custom unauthorizedFallback or any hard denial state.",
+      "registryDependencies": ["https://knock.codes/r/react/gate-wrapper.json"],
+      "files": [
+        { "path": "packages/react/AccessDeniedScreen.tsx", "type": "registry:file", "target": "components/knock-codes/react/AccessDeniedScreen.tsx" }
+      ]
+    },
+    {
+      "name": "verification-loader",
+      "type": "registry:block",
+      "title": "Verification Loader",
+      "description": "A small presentational spinner + label for the in-flight verification moment, for a fully custom PIN form built directly on useKnockCodes.",
+      "registryDependencies": ["https://knock.codes/r/react/cx-util.json"],
+      "files": [
+        { "path": "packages/react/VerificationLoader.tsx", "type": "registry:file", "target": "components/knock-codes/react/VerificationLoader.tsx" }
+      ]
+    },
+    {
+      "name": "logout-button",
+      "type": "registry:block",
+      "title": "Logout Button",
+      "description": "Reads the shared session from a Session Provider and clears it on click.",
+      "registryDependencies": ["https://knock.codes/r/react/session-provider.json", "https://knock.codes/r/react/cx-util.json"],
+      "files": [
+        { "path": "packages/react/LogoutButton.tsx", "type": "registry:file", "target": "components/knock-codes/react/LogoutButton.tsx" }
+      ]
+    },
+    {
+      "name": "protected-card",
+      "type": "registry:block",
+      "title": "Protected Card",
+      "description": "A card-shaped gate for protecting one section of a page rather than the whole viewport — locked content stays mounted and blurred behind an Unlock button so the card's size never jumps.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json", "https://knock.codes/r/react/pin-input.json", "https://knock.codes/r/react/gate-wrapper.json"],
+      "files": [
+        { "path": "packages/react/ProtectedCard.tsx", "type": "registry:file", "target": "components/knock-codes/react/ProtectedCard.tsx" }
+      ]
+    },
+    {
+      "name": "standalone-gate",
+      "type": "registry:block",
+      "title": "Standalone Gate",
+      "description": "The fastest path to a working gate: wrap your app, pass a hash, done. A deliberately smaller prop surface than Knock Codes.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes.json"],
+      "files": [
+        { "path": "packages/react/StandaloneGate.tsx", "type": "registry:file", "target": "components/knock-codes/react/StandaloneGate.tsx" }
+      ]
+    },
+    {
+      "name": "embedded-gate",
+      "type": "registry:block",
+      "title": "Embedded Gate",
+      "description": "Knock Codes fixed to the inline shell — sits naturally inside an existing layout (a sidebar widget, a section of a longer page) instead of taking over the full viewport.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes.json"],
+      "files": [
+        { "path": "packages/react/EmbeddedGate.tsx", "type": "registry:file", "target": "components/knock-codes/react/EmbeddedGate.tsx" }
+      ]
+    },
+    {
+      "name": "knock-codes-template",
+      "type": "registry:block",
+      "title": "Knock Codes Template",
+      "description": "A complete, single-file \"restricted access\" screen — full-page dark backdrop, centered card, segmented code entry, support link, footer help text. Everything in one component.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json", "https://knock.codes/r/react/cx-util.json"],
+      "files": [
+        { "path": "packages/react/KnockCodesTemplate.tsx", "type": "registry:file", "target": "components/knock-codes/react/KnockCodesTemplate.tsx" }
+      ]
+    },
+    {
+      "name": "minimal-access-template",
+      "type": "registry:block",
+      "title": "Minimal Access Template",
+      "description": "The leanest access screen — a single masked field, a small plain card, no segmented boxes and no default footer copy. Everything in one component.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json", "https://knock.codes/r/react/cx-util.json"],
+      "files": [
+        { "path": "packages/react/MinimalAccessTemplate.tsx", "type": "registry:file", "target": "components/knock-codes/react/MinimalAccessTemplate.tsx" }
+      ]
+    },
+    {
+      "name": "branded-access-template",
+      "type": "registry:block",
+      "title": "Branded Access Template",
+      "description": "A split-screen, logo-forward access screen — brand panel on one side, code entry on the other. The brand panel collapses on small screens.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json", "https://knock.codes/r/react/cx-util.json"],
+      "files": [
+        { "path": "packages/react/BrandedAccessTemplate.tsx", "type": "registry:file", "target": "components/knock-codes/react/BrandedAccessTemplate.tsx" }
+      ]
+    },
+    {
+      "name": "modal-access-template",
+      "type": "registry:block",
+      "title": "Modal Access Template",
+      "description": "Gates one section of an already-visible page — the content stays mounted and blurred behind a centered dialog instead of disappearing entirely.",
+      "registryDependencies": ["https://knock.codes/r/react/knock-codes-hook.json", "https://knock.codes/r/react/cx-util.json"],
+      "files": [
+        { "path": "packages/react/ModalAccessTemplate.tsx", "type": "registry:file", "target": "components/knock-codes/react/ModalAccessTemplate.tsx" }
+      ]
+    }
+  ]
+}
