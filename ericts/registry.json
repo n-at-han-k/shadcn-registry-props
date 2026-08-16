@@ -224,7 +224,7 @@
       "name": "expandable-slider",
       "type": "registry:ui",
       "title": "Expandable Slider",
-      "description": "A composable icon button that grows into a wider button on hover, focus, or drag, revealing a draggable track inside the same surface.",
+      "description": "A composable slider that stays expanded on mobile and grows from an icon button on desktop hover, focus, or drag.",
       "categories": ["form"],
       "meta": {
         "tags": [
@@ -390,7 +390,7 @@
       "name": "projected-shadow",
       "type": "registry:ui",
       "title": "Projected Shadow",
-      "description": "A CSS-powered primitive that layers an element with projected and contact shadows, then gathers them on hover or active state.",
+      "description": "A CSS-powered primitive that layers an element with projected and contact shadows, supports an animation opt-out, and gathers on hover or active state.",
       "categories": ["effect"],
       "meta": {
         "tags": [
@@ -565,20 +565,20 @@
     },
     {
       "name": "rail-stage",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "Rail Stage",
-      "description": "A Base UI tab shell that pairs a scalable vertical rail of choices with a single large stage, collapsing to a scrollable strip on small screens.",
+      "description": "A composed content browser that pairs a scalable vertical rail with one focused stage, collapsing to a scrollable strip on small screens.",
       "categories": ["navigation"],
       "meta": {
         "tags": ["tabs", "rail", "gallery", "roving-focus", "arrow-keys"],
-        "effects": ["panel-swap"]
+        "effects": ["panel-swap", "indicator-slide", "reduced-motion"]
       },
       "dependencies": ["@base-ui/react"],
       "files": [
         {
-          "path": "registry/base/ui/rail-stage.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/rail-stage.tsx"
+          "path": "registry/base/blocks/rail-stage.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/rail-stage.tsx"
         }
       ]
     },
@@ -990,6 +990,33 @@
           "path": "registry/base/hooks/use-scroll-progress.ts",
           "type": "registry:hook",
           "target": "@hooks/use-scroll-progress.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-swipe-navigation",
+      "type": "registry:hook",
+      "title": "useSwipeNavigation",
+      "description": "A touch-first React hook for previous and next navigation with configurable feedback, live gesture progress, direction locking, ownership, and reduced-motion support.",
+      "categories": ["motion"],
+      "meta": {
+        "tags": [
+          "swipe",
+          "touch-gesture",
+          "previous-next",
+          "direction-lock",
+          "velocity",
+          "gesture-ownership",
+          "gesture-progress",
+          "custom-feedback"
+        ],
+        "effects": ["drag-feedback", "edge-resistance", "reduced-motion"]
+      },
+      "files": [
+        {
+          "path": "registry/base/hooks/use-swipe-navigation.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-swipe-navigation.ts"
         }
       ]
     },
