@@ -134,6 +134,54 @@
       ]
     },
     {
+      "name": "sliding-play-button",
+      "type": "registry:ui",
+      "title": "Sliding Play Button",
+      "description": "A circular media toggle built from three overlapping SVG elements that compress, slide, expand, and settle together with an optional duration override.",
+      "categories": ["action"],
+      "meta": {
+        "tags": [
+          "button",
+          "toggle",
+          "play",
+          "pause",
+          "media",
+          "video",
+          "controlled"
+        ],
+        "effects": [
+          "svg-overlap",
+          "svg-animation",
+          "coordinated-translation",
+          "transform-scale",
+          "offset-transform-origin",
+          "elastic-settle",
+          "ease-out-rebound",
+          "frosted-glass",
+          "press-scale",
+          "reduced-motion"
+        ]
+      },
+      "cssVars": {
+        "light": {
+          "ericts-media-control": "oklch(0 0 0)",
+          "ericts-media-control-foreground": "oklch(1 0 0)"
+        },
+        "dark": {
+          "ericts-media-control": "oklch(0 0 0)",
+          "ericts-media-control-foreground": "oklch(1 0 0)"
+        }
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/sliding-play-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sliding-play-button.tsx"
+        }
+      ]
+    },
+    {
       "name": "floating-shortcut-button",
       "type": "registry:ui",
       "title": "Floating Shortcut Button",
@@ -998,6 +1046,28 @@
           "path": "registry/base/blocks/vertical-scene.css",
           "type": "registry:file",
           "target": "components/blocks/vertical-scene.css"
+        }
+      ]
+    },
+    {
+      "name": "deck-lift",
+      "type": "registry:block",
+      "title": "Deck Lift",
+      "description": "A screen whose resting card deck lifts to the top, drops the sheet away, and pulls a full page of detail up behind it, then swipes card by card.",
+      "categories": ["screen"],
+      "meta": {
+        "tags": ["deck", "pile", "cards", "detail", "swipe", "drag", "container-query", "controlled"],
+        "effects": ["deck-lift", "cover-rise", "sheet-drop", "card-swipe", "detail-swap", "reduced-motion"]
+      },
+      "registryDependencies": [
+        "https://ui.ericts.com/r/use-element-size-map.json"
+      ],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/blocks/deck-lift.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/deck-lift.tsx"
         }
       ]
     },

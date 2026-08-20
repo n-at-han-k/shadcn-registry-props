@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "@velobits",
   "homepage": "https://ui.velobits.dev",
-  "description": "An open source collection of accessible, contrast-gated React components on a warm neutral palette and a two-tier glass material — the VeloBits design system, authored once and shipped both as an npm package and as this registry.",
+  "description": "An open source collection of accessible, contrast-gated React components on a warm neutral palette and a two-tier glass material , the VeloBits design system, authored once and shipped both as an npm package and as this registry.",
   "items": [
     {
       "name": "velobits",
@@ -43,6 +43,7 @@
         "https://ui.velobits.dev/r/kbd.json",
         "https://ui.velobits.dev/r/label.json",
         "https://ui.velobits.dev/r/native-select.json",
+        "https://ui.velobits.dev/r/scroll-area.json",
         "https://ui.velobits.dev/r/separator.json",
         "https://ui.velobits.dev/r/skeleton.json",
         "https://ui.velobits.dev/r/spinner.json",
@@ -185,7 +186,7 @@
       "name": "cn",
       "type": "registry:lib",
       "title": "cn",
-      "description": "Tailwind-aware class merger. Signature must stay twMerge(clsx(...)) — the dashboard app points components.json `utils` at it.",
+      "description": "Tailwind-aware class merger. Signature must stay twMerge(clsx(...)) , the dashboard app points components.json `utils` at it.",
       "dependencies": [
         "clsx",
         "tailwind-merge"
@@ -244,7 +245,7 @@
       "name": "use-row-selection",
       "type": "registry:hook",
       "title": "useRowSelection",
-      "description": "Row selection for DataTable. The selection is DERIVED — the stored set intersected with the rows on screen — so a bulk action can never point at a row the filter has hidden. Returns a stable object identity, which is what keeps DataTable’s memoised rows from re-rendering per keystroke.",
+      "description": "Row selection for DataTable. The selection is DERIVED , the stored set intersected with the rows on screen , so a bulk action can never point at a row the filter has hidden. Returns a stable object identity, which is what keeps DataTable’s memoised rows from re-rendering per keystroke.",
       "files": [
         {
           "path": "registry/velobits/hooks/use-row-selection.ts",
@@ -277,7 +278,7 @@
       "name": "alert",
       "type": "registry:ui",
       "title": "Alert",
-      "description": "Status panel. Defaults to polite role=\"status\"; escalate to \"alert\" deliberately. Tier-S glass on the neutral variant only — the four soft washes would replace the tint.",
+      "description": "Status panel. Defaults to polite role=\"status\"; escalate to \"alert\" deliberately. Tier-S glass on the neutral variant only , the four soft washes would replace the tint.",
       "dependencies": [
         "class-variance-authority"
       ],
@@ -489,6 +490,25 @@
       ]
     },
     {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "ScrollArea",
+      "description": "A scrollable region with a styled scrollbar. The thumb is --field-border, not --border: it is an interactive control, so 1.4.11 applies to it.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://ui.velobits.dev/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "registry/velobits/ui/scroll-area.tsx",
+          "type": "registry:ui",
+          "target": "@ui/velobits/scroll-area.tsx"
+        }
+      ]
+    },
+    {
       "name": "separator",
       "type": "registry:ui",
       "title": "Separator",
@@ -576,7 +596,7 @@
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",
-      "description": "TooltipProvider is required — Radix throws without it, and under Module Federation it must be a singleton.",
+      "description": "TooltipProvider is required , Radix throws without it, and under Module Federation it must be a singleton.",
       "dependencies": [
         "radix-ui"
       ],
@@ -595,7 +615,7 @@
       "name": "command-palette",
       "type": "registry:ui",
       "title": "CommandPalette",
-      "description": "cmdk inside a Radix Dialog. The ⌘K listener is opt-in via `shortcut` — a design system must not bind a global key by merely being imported.",
+      "description": "cmdk inside a Radix Dialog. The ⌘K listener is opt-in via `shortcut` , a design system must not bind a global key by merely being imported.",
       "dependencies": [
         "cmdk",
         "radix-ui",
@@ -639,7 +659,7 @@
       "name": "dropdown-menu",
       "type": "registry:ui",
       "title": "DropdownMenu",
-      "description": "Highlight is data-[highlighted], never :hover — Radix drives keyboard focus through it. Cannot host a text input; use Dialog or Popover.",
+      "description": "Highlight is data-[highlighted], never :hover , Radix drives keyboard focus through it. Cannot host a text input; use Dialog or Popover.",
       "dependencies": [
         "radix-ui",
         "@velobitsio/icons"
@@ -660,7 +680,7 @@
       "name": "popover",
       "type": "registry:ui",
       "title": "Popover",
-      "description": "The elevated tier, for glass stacked on glass. PopoverTitle wires aria-labelledby — Radix content is role=\"dialog\" with no Title part, so it is otherwise unnamed.",
+      "description": "The elevated tier, for glass stacked on glass. PopoverTitle wires aria-labelledby , Radix content is role=\"dialog\" with no Title part, so it is otherwise unnamed.",
       "dependencies": [
         "radix-ui"
       ],
@@ -680,7 +700,7 @@
       "name": "side-panel",
       "type": "registry:ui",
       "title": "SidePanel",
-      "description": "The anchored reading sheet. Deliberately NOT Dialog and deliberately does NOT redirect focus — the two focus policies are opposites, so do not merge them behind a `side` variant. The bottom variant needs a definite 75dvh.",
+      "description": "The anchored reading sheet. Deliberately NOT Dialog and deliberately does NOT redirect focus , the two focus policies are opposites, so do not merge them behind a `side` variant. The bottom variant needs a definite 75dvh.",
       "dependencies": [
         "class-variance-authority",
         "radix-ui",
@@ -744,7 +764,7 @@
       "name": "app-shell",
       "type": "registry:ui",
       "title": "AppShell",
-      "description": "The authenticated chrome. `sidebar` is a prop rather than a child because it is rendered TWICE — as a rail at md and up, and inside a drawer below it — so a nav item cannot exist in one and not the other. Ships the skip link, which is the most-skipped WCAG requirement in an admin UI.",
+      "description": "The authenticated chrome. `sidebar` is a prop rather than a child because it is rendered TWICE , as a rail at md and up, and inside a drawer below it , so a nav item cannot exist in one and not the other. Ships the skip link, which is the most-skipped WCAG requirement in an admin UI.",
       "dependencies": [
         "radix-ui",
         "@velobitsio/icons",
@@ -769,7 +789,7 @@
       "name": "breadcrumb",
       "type": "registry:ui",
       "title": "Breadcrumb",
-      "description": "A named nav landmark around an ordered list. The leaf is a plain span with aria-current=\"page\" — NOT shadcn’s role=\"link\" aria-disabled, which announces static text as a broken link.",
+      "description": "A named nav landmark around an ordered list. The leaf is a plain span with aria-current=\"page\" , NOT shadcn’s role=\"link\" aria-disabled, which announces static text as a broken link.",
       "dependencies": [
         "radix-ui",
         "@velobitsio/icons"
@@ -811,7 +831,7 @@
       "name": "data-table",
       "type": "registry:ui",
       "title": "DataTable",
-      "description": "Sorting, selection and row activation over a column registry — deliberately not TanStack, whose grouping and pivoting nothing here uses. aria-sort goes on the th, not the sort button, and an activatable row needs tabIndex + Enter/Space + a target check or it is mouse-only.",
+      "description": "Sorting, selection and row activation over a column registry , deliberately not TanStack, whose grouping and pivoting nothing here uses. aria-sort goes on the th, not the sort button, and an activatable row needs tabIndex + Enter/Space + a target check or it is mouse-only.",
       "dependencies": [
         "@velobitsio/icons"
       ],
@@ -832,7 +852,7 @@
       "name": "diff-viewer",
       "type": "registry:ui",
       "title": "DiffViewer",
-      "description": "A unified line diff. The +/− gutter is the primary channel and the green/red wash the secondary — colour alone fails 1.4.1, and the gutter is also the only channel that survives greyscale. Ships `diffLines`, with a guard: LCS is O(n·m) in MEMORY.",
+      "description": "A unified line diff. The +/− gutter is the primary channel and the green/red wash the secondary , colour alone fails 1.4.1, and the gutter is also the only channel that survives greyscale. Ships `diffLines`, with a guard: LCS is O(n·m) in MEMORY.",
       "registryDependencies": [
         "https://ui.velobits.dev/r/cn.json"
       ],
@@ -867,7 +887,7 @@
       "name": "form",
       "type": "registry:ui",
       "title": "Form",
-      "description": "react-hook-form bound to Field’s ARIA wiring. label and description are PROPS, not children, because aria-describedby is assembled before children render — a description left out while its id is still listed is a dangling reference. NOT exported from the npm barrel: react-hook-form is an optional peer.",
+      "description": "react-hook-form bound to Field’s ARIA wiring. label and description are PROPS, not children, because aria-describedby is assembled before children render , a description left out while its id is still listed is a dangling reference. NOT exported from the npm barrel: react-hook-form is an optional peer.",
       "dependencies": [
         "react-hook-form"
       ],
@@ -887,7 +907,7 @@
       "name": "motion",
       "type": "registry:ui",
       "title": "Motion",
-      "description": "Page transitions and capped list staggers on framer-motion, which was already a required peer for VelobitsProvider’s MotionConfig and until now bought nothing else. Subpath-only in the npm package (@velobitsio/ui/motion), like form, because the barrel’s own-code budget has ~4 kB left and nobody should pay for Framer to import a Button. Reduced motion is handled by MotionConfig and the token layer — do NOT add a third path. Stagger caps at STAGGER_LIMIT items so a 200-row list does not take eight seconds to arrive.",
+      "description": "Page transitions and capped list staggers on framer-motion, which was already a required peer for VelobitsProvider’s MotionConfig and until now bought nothing else. Subpath-only in the npm package (@velobitsio/ui/motion), like form, because the barrel’s own-code budget has ~4 kB left and nobody should pay for Framer to import a Button. Reduced motion is handled by MotionConfig and the token layer , do NOT add a third path. Stagger caps at STAGGER_LIMIT items so a 200-row list does not take eight seconds to arrive.",
       "dependencies": [
         "framer-motion"
       ],
@@ -927,7 +947,7 @@
       "name": "segmented-control",
       "type": "registry:ui",
       "title": "SegmentedControl",
-      "description": "Radix ToggleGroup with a REAL disabled and a working accessible name — a div root makes an external htmlFor dangle, and pointer-events-none leaves the control focusable and unannounced.",
+      "description": "Radix ToggleGroup with a REAL disabled and a working accessible name , a div root makes an external htmlFor dangle, and pointer-events-none leaves the control focusable and unannounced.",
       "dependencies": [
         "radix-ui"
       ],
@@ -968,7 +988,7 @@
       "name": "table",
       "type": "registry:ui",
       "title": "Table",
-      "description": "Rows are never glass — one backdrop-filter per row repaints its own backdrop region on every scroll. Surface treatment belongs on the container.",
+      "description": "Rows are never glass , one backdrop-filter per row repaints its own backdrop region on every scroll. Surface treatment belongs on the container.",
       "registryDependencies": [
         "https://ui.velobits.dev/r/cn.json"
       ],
