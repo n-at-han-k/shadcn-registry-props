@@ -669,6 +669,44 @@
       ]
     },
     {
+      "name": "dash",
+      "type": "registry:component",
+      "title": "Dash Activity",
+      "description": "Personal activity and role-aware organization audit logs backed by Better Auth Infrastructure Dash.",
+      "dependencies": [
+        "@better-auth-ui/react@latest",
+        "@better-auth-ui/core@latest",
+        "@better-auth/infra@latest",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "button",
+        "card",
+        "empty",
+        "separator",
+        "skeleton",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "src/lib/auth/auth-plugin.ts",
+          "type": "registry:lib",
+          "target": "@lib/auth/auth-plugin.ts"
+        },
+        {
+          "path": "src/lib/auth/dash-plugin.ts",
+          "type": "registry:lib",
+          "target": "@lib/auth/dash-plugin.ts"
+        },
+        {
+          "path": "src/components/auth/dash/activity.tsx",
+          "type": "registry:component",
+          "target": "@components/auth/dash/activity.tsx"
+        }
+      ]
+    },
+    {
       "name": "oauth-provider",
       "type": "registry:component",
       "title": "OAuth Provider",
@@ -1171,7 +1209,7 @@
       "name": "admin",
       "type": "registry:component",
       "title": "Admin",
-      "description": "Admin plugin integration that adds a stop-impersonating action to the user button while an administrator is impersonating another user.",
+      "description": "Static administration shell with user management, a user inspector, session controls, and the stop-impersonating action.",
       "dependencies": [
         "@better-auth-ui/react@latest",
         "@better-auth-ui/core@latest",
@@ -1179,8 +1217,19 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "alert-dialog",
+        "badge",
+        "button",
+        "dialog",
         "dropdown-menu",
+        "field",
+        "input-group",
+        "select",
+        "sheet",
+        "skeleton",
         "spinner",
+        "table",
+        "tabs",
         "https://better-auth-ui.com/r/radix-nova/user-button.json"
       ],
       "files": [
@@ -1198,6 +1247,16 @@
           "path": "src/components/auth/admin/stop-impersonating.tsx",
           "type": "registry:component",
           "target": "@components/auth/admin/stop-impersonating.tsx"
+        },
+        {
+          "path": "src/components/auth/admin/admin.tsx",
+          "type": "registry:component",
+          "target": "@components/auth/admin/admin.tsx"
+        },
+        {
+          "path": "src/components/auth/admin/admin-users.tsx",
+          "type": "registry:component",
+          "target": "@components/auth/admin/admin-users.tsx"
         }
       ]
     },
@@ -2337,6 +2396,7 @@
         "https://better-auth-ui.com/r/radix-nova/sign-in.json",
         "https://better-auth-ui.com/r/radix-nova/anonymous.json",
         "https://better-auth-ui.com/r/radix-nova/billing.json",
+        "https://better-auth-ui.com/r/radix-nova/dash.json",
         "https://better-auth-ui.com/r/radix-nova/last-login-method.json",
         "https://better-auth-ui.com/r/radix-nova/one-tap.json",
         "https://better-auth-ui.com/r/radix-nova/siwe.json",
