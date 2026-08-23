@@ -39,13 +39,108 @@
         "effects": ["state-transition", "icon-swap"],
         "cssOnly": true
       },
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "button",
+        "https://ui.ericts.com/r/icon-swap.json"
+      ],
       "dependencies": ["motion", "lucide-react"],
       "files": [
         {
           "path": "registry/base/ui/copy-button.tsx",
           "type": "registry:ui",
           "target": "components/ui/copy-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icon-swap",
+      "type": "registry:ui",
+      "title": "Icon Swap",
+      "description": "A controlled binary icon transition with stable layout, interruptible state changes, and reduced-motion support.",
+      "categories": ["effect"],
+      "meta": {
+        "tags": [
+          "icon",
+          "swap",
+          "toggle",
+          "controlled",
+          "button",
+          "css-transition",
+          "motion"
+        ],
+        "effects": ["crossfade", "scale", "state-transition"],
+        "cssOnly": true
+      },
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/icon-swap.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/icon-swap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "like",
+      "type": "registry:ui",
+      "title": "Like",
+      "description": "A composable heart toggle with controlled and uncontrolled state, a center-out fill transition, and a miniature-heart scatter.",
+      "categories": ["action"],
+      "meta": {
+        "tags": [
+          "like",
+          "heart",
+          "favorite",
+          "toggle",
+          "controlled",
+          "render-prop",
+          "button"
+        ],
+        "effects": [
+          "radial-fill",
+          "press-scale",
+          "mini-heart-scatter",
+          "reduced-motion"
+        ]
+      },
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/base/ui/like.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/like.tsx"
+        },
+        {
+          "path": "registry/base/ui/like.css",
+          "type": "registry:file",
+          "target": "components/ui/like.css"
+        }
+      ]
+    },
+    {
+      "name": "like-button",
+      "type": "registry:ui",
+      "title": "Like Button",
+      "description": "A ready-made labeled action built from the composable Like primitive.",
+      "categories": ["action"],
+      "meta": {
+        "tags": ["like", "heart", "favorite", "toggle", "button"],
+        "effects": [
+          "radial-fill",
+          "press-scale",
+          "mini-heart-scatter",
+          "reduced-motion"
+        ]
+      },
+      "registryDependencies": [
+        "button",
+        "https://ui.ericts.com/r/like.json"
+      ],
+      "files": [
+        {
+          "path": "registry/base/ui/like-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/like-button.tsx"
         }
       ]
     },
@@ -194,7 +289,12 @@
           "quick-actions",
           "customizable",
           "size-presets",
+          "optional-caption",
           "controlled",
+          "keyboard-navigation",
+          "typeahead",
+          "custom-close-icon",
+          "per-action-close",
           "button",
           "menu"
         ],
@@ -213,6 +313,45 @@
           "path": "registry/base/ui/floating-shortcut-button.tsx",
           "type": "registry:ui",
           "target": "components/ui/floating-shortcut-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "arc-menu",
+      "type": "registry:ui",
+      "title": "Arc Menu",
+      "description": "A bottom-anchored shortcut menu that fans actions along a configurable arc while its trigger shrinks and swaps from a shortcut grid to a close icon.",
+      "categories": ["overlay"],
+      "meta": {
+        "tags": [
+          "floating-action-button",
+          "shortcut-menu",
+          "quick-actions",
+          "radial-menu",
+          "optional-caption",
+          "controlled",
+          "keyboard-navigation",
+          "typeahead",
+          "custom-icons",
+          "per-action-close",
+          "menu"
+        ],
+        "effects": [
+          "arc-motion",
+          "trigger-scale",
+          "icon-swap",
+          "simultaneous-actions",
+          "fade",
+          "reduced-motion"
+        ]
+      },
+      "registryDependencies": ["button"],
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "registry/base/ui/arc-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/arc-menu.tsx"
         }
       ]
     },
