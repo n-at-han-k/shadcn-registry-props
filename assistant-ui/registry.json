@@ -1908,6 +1908,12 @@
         },
         {
           "type": "registry:file",
+          "path": "hooks/use-attachment-src.ts",
+          "sourcePath": "../../packages/ui/src/hooks/use-attachment-src.ts",
+          "target": "hooks/use-attachment-src.ts"
+        },
+        {
+          "type": "registry:file",
           "path": "components/assistant-ui/file.tsx",
           "sourcePath": "../../packages/ui/src/components/assistant-ui/file.tsx",
           "target": "components/assistant-ui/file.tsx"
@@ -1929,6 +1935,12 @@
           "path": "components/assistant-ui/markdown-text.tsx",
           "sourcePath": "../../packages/ui/src/components/assistant-ui/markdown-text.tsx",
           "target": "components/assistant-ui/markdown-text.tsx"
+        },
+        {
+          "type": "registry:file",
+          "path": "hooks/use-copy-to-clipboard.ts",
+          "sourcePath": "../../packages/ui/src/hooks/use-copy-to-clipboard.ts",
+          "target": "hooks/use-copy-to-clipboard.ts"
         },
         {
           "type": "registry:file",
@@ -2076,6 +2088,19 @@
       ]
     },
     {
+      "name": "use-copy-to-clipboard",
+      "type": "registry:hook",
+      "title": "Use Copy To Clipboard",
+      "description": "Copy text to the clipboard with a temporary copied state.",
+      "files": [
+        {
+          "type": "registry:hook",
+          "path": "hooks/use-copy-to-clipboard.ts",
+          "sourcePath": "../../packages/ui/src/hooks/use-copy-to-clipboard.ts"
+        }
+      ]
+    },
+    {
       "name": "markdown-text",
       "type": "registry:component",
       "title": "Markdown Text",
@@ -2088,9 +2113,11 @@
         }
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/tooltip-icon-button.json"
+        "https://r.assistant-ui.com/tooltip-icon-button.json",
+        "https://r.assistant-ui.com/use-copy-to-clipboard.json"
       ],
       "dependencies": [
+        "@assistant-ui/react",
         "@assistant-ui/react-markdown",
         "lucide-react",
         "remark-gfm"
@@ -2194,8 +2221,7 @@
       "registryDependencies": [
         "button",
         "input",
-        "skeleton",
-        "https://r.assistant-ui.com/tooltip-icon-button.json"
+        "skeleton"
       ],
       "dependencies": [
         "@assistant-ui/react",
@@ -2229,6 +2255,23 @@
       ]
     },
     {
+      "name": "use-attachment-src",
+      "type": "registry:hook",
+      "title": "Use Attachment Src",
+      "description": "Resolve an image attachment to a preview source URL.",
+      "files": [
+        {
+          "type": "registry:hook",
+          "path": "hooks/use-attachment-src.ts",
+          "sourcePath": "../../packages/ui/src/hooks/use-attachment-src.ts"
+        }
+      ],
+      "dependencies": [
+        "@assistant-ui/react",
+        "zustand"
+      ]
+    },
+    {
       "name": "attachment",
       "type": "registry:component",
       "title": "Attachment",
@@ -2244,12 +2287,12 @@
         "dialog",
         "tooltip",
         "avatar",
-        "https://r.assistant-ui.com/tooltip-icon-button.json"
+        "https://r.assistant-ui.com/tooltip-icon-button.json",
+        "https://r.assistant-ui.com/use-attachment-src.json"
       ],
       "dependencies": [
         "@assistant-ui/react",
-        "lucide-react",
-        "zustand"
+        "lucide-react"
       ]
     },
     {
