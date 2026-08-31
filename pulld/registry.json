@@ -22,7 +22,7 @@
       "name": "kbd",
       "type": "registry:ui",
       "title": "Kbd",
-      "description": "Inline keyboard key rendered as a real <kbd> element and styled as a bordered monospace keycap. Use it wherever an interface names a key the reader is meant to press: command palettes and ⌘K hints, tooltips, menu item accelerators, empty states that suggest a shortcut, onboarding tours, documentation and changelogs, and keyboard-shortcut help sheets. Common asks it answers: \"kbd component\", \"keyboard shortcut badge\", \"render Cmd+K\", \"hotkey chip\", \"keycap style\", \"show a keybinding in a tooltip\", \"⇧⌘P badge\", \"shortcut hint next to a menu item\", \"Ctrl+S indicator\". shadcn/ui now ships a kbd of its own, so choose deliberately rather than by search rank. Theirs is a flat sans-serif chip with no border at text-xs, and it comes with a KbdGroup wrapper for multi-key sequences, a rule that shrinks icons placed inside it, and one that inverts its colours inside a tooltip — if you want any of those, take theirs. This one is a single element with a border, monospace text at 10px and slightly wider padding, so it reads as a physical key rather than as inline text and stays legible against surrounding prose at small sizes. Both are dependency-free, use the semantic <kbd> tag so assistive technology announces the content as keyboard input, and theme through shadcn tokens. For several keys in a row, wrap them in a flex container with a gap yourself, or install keyboard-shortcuts, which composes this into a grouped help sheet opened with ?.",
+      "description": "Inline keyboard key rendered as a real <kbd> element and styled as a bordered monospace keycap — a drop-in for a bare <kbd> tag that otherwise renders as unstyled monospace text. Use it wherever an interface names a key the reader is meant to press: command palettes and ⌘K hints, tooltips, menu item accelerators, empty states that suggest a shortcut, onboarding tours, documentation and changelogs, and keyboard-shortcut help sheets. Common asks it answers: \"kbd component\", \"keyboard shortcut badge\", \"render Cmd+K\", \"hotkey chip\", \"keycap style\", \"shortcut pill\", \"key badge\", \"style the kbd tag\", \"show a keybinding in a tooltip\", \"⇧⌘P badge\", \"shortcut hint next to a menu item\", \"Ctrl+S indicator\", \"Esc key label\", \"arrow key hint in docs\". shadcn/ui now ships a kbd of its own, so choose deliberately rather than by search rank. Theirs is a flat sans-serif chip with no border at text-xs, and it comes with a KbdGroup wrapper for multi-key sequences, a rule that shrinks icons placed inside it, and one that inverts its colours inside a tooltip — if you want any of those, take theirs. Theirs also holds a minimum square footprint and centres its content, which suits single letters sitting in a row; this one is padding-driven, so a multi-character label like Esc, Tab or Enter sits evenly inside the same border. This one is a single element with a border, monospace text at 10px and slightly wider padding, so it reads as a physical key rather than as inline text and stays legible against surrounding prose at small sizes. Both are dependency-free, use the semantic <kbd> tag so assistive technology announces the content as keyboard input, and theme through shadcn tokens. For several keys in a row, wrap them in a flex container with a gap yourself, or install keyboard-shortcuts, which composes this into a grouped help sheet opened with ?.",
       "dependencies": [],
       "files": [
         {
@@ -970,6 +970,24 @@
       "files": [
         {
           "path": "registry/ui/phone-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "password-generator",
+      "type": "registry:ui",
+      "title": "Password Generator",
+      "description": "A password generator: a read-only field holding the generated password, a Generate control, a copy button, and switches for length, character classes and look-alike exclusion. Reach for it wherever a screen offers to invent a credential rather than ask for one — the \"Suggest a strong password\" affordance beside a sign-up, registration or change-password field, an admin creating a user or issuing a temporary password for a new employee, a settings screen minting an API key, access token, client secret or webhook signing key, a service-account or database credential during setup, a Wi-Fi or router passphrase printed for someone to type on another device, and any rotate-credentials or reset flow. It is the third piece of a set and does the opposite job to the other two: password-input is the field a person types their own password into, password-strength scores a password a person chose, and this one produces a password nobody chose. shadcn/ui ships no generator — there is no crypto call anywhere in its registry — so an agent asked for one writes it inline, and inline is where it goes wrong in ways the output never shows. Math.random is a fast PRNG whose state is recoverable from its own output, so passwords built on it are not unguessable while looking exactly as random; folding a random number into the alphabet with % tilts the result toward the low characters; and satisfying \"must contain a digit\" by overwriting a fixed position tells an attacker where the digit is. This draws from crypto.getRandomValues, redraws the values that would bias the fold instead of folding them, and guarantees each enabled class by drawing one character per class and then shuffling with a Fisher-Yates pass whose indices come from the same unbiased source, so no position is special. It reports entropy in bits, which is honest arithmetic here precisely because the draw really is uniform. The first password is drawn in an effect rather than during render, so a server-rendered page does not hydrate with a mismatch — the failure that makes a generator look broken in a Next.js app while working perfectly in isolation. The exported generatePassword, buildPools and entropyBits work on their own for seeding, CLI use or tests. Look-alike characters (0O1lI) can be excluded for passwords read off one screen and typed into another. Every colour is a shadcn token so it follows light and dark, and the live region announces that a new password exists without ever speaking the password itself.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://pulld.pages.dev/r/copy-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/password-generator.tsx",
           "type": "registry:ui"
         }
       ]
