@@ -613,6 +613,26 @@
       ]
     },
     {
+      "name": "elements-conversation-map",
+      "type": "registry:component",
+      "title": "Conversation map",
+      "description": "A rail of the whole thread: one tick per turn, the turn being read marked and the ones on screen deepened, and a hover preview of what it says.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/conversation-map.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/conversation-map.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-range.json"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ]
+    },
+    {
       "name": "elements-todo-list",
       "type": "registry:component",
       "title": "Todo list",
@@ -1997,6 +2017,12 @@
         },
         {
           "type": "registry:file",
+          "path": "components/ui/textarea.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/ui/radix/textarea.tsx",
+          "target": "components/ui/textarea.tsx"
+        },
+        {
+          "type": "registry:file",
           "path": "components/ui/tooltip.tsx",
           "sourcePath": "../../packages/ui/src/components/react/ui/radix/tooltip.tsx",
           "target": "components/ui/tooltip.tsx"
@@ -2174,6 +2200,25 @@
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-reasoning.json",
         "https://r.assistant-ui.com/markdown-text.json"
+      ],
+      "dependencies": [
+        "@assistant-ui/react"
+      ]
+    },
+    {
+      "name": "conversation-map",
+      "type": "registry:component",
+      "title": "Conversation Map",
+      "description": "Runtime-backed thread rail: a tick per turn, the turn being read marked and the ones on screen deepened, a hover preview, and a click that scrolls there.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/conversation-map.aui.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/conversation-map.aui.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-conversation-map.json"
       ],
       "dependencies": [
         "@assistant-ui/react"
@@ -2465,7 +2510,8 @@
       ],
       "registryDependencies": [
         "button",
-        "collapsible"
+        "collapsible",
+        "textarea"
       ],
       "css": {
         "@import \"tw-shimmer\"": {},
