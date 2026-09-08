@@ -234,6 +234,22 @@
       ]
     },
     {
+      "name": "popup",
+      "type": "registry:lib",
+      "title": "Popup chrome",
+      "description": "Shared popup chrome for the dropdown, select, and combobox popups: side-aware enter/exit motion classes driven by the positioner's resolved data-side, the ScrollArea sizing the list scrolls inside, and the navigation-key list.",
+      "files": [
+        {
+          "path": "registry/default/lib/popup.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/motion.",
+      "categories": [
+        "lib"
+      ]
+    },
+    {
       "name": "shape-context",
       "type": "registry:lib",
       "title": "Shape Context",
@@ -314,6 +330,25 @@
       "files": [
         {
           "path": "registry/default/hooks/use-touch-primary.tsx",
+          "type": "registry:hook"
+        }
+      ],
+      "docs": "Part of Fluid Functionalism — https://www.fluidfunctionalism.com",
+      "categories": [
+        "hook"
+      ]
+    },
+    {
+      "name": "use-keyboard-nav-gate",
+      "type": "registry:hook",
+      "title": "useKeyboardNavGate",
+      "description": "Gates a popup's keyboard focus ring on keyboard use: seeded at open from the focused element's :focus-visible state, then earned by navigation keys inside the popup.",
+      "registryDependencies": [
+        "https://www.fluidfunctionalism.com/r/popup.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/hooks/use-keyboard-nav-gate.ts",
           "type": "registry:hook"
         }
       ],
@@ -559,7 +594,7 @@
       "name": "dropdown",
       "type": "registry:ui",
       "title": "Dropdown",
-      "description": "Dropdown menu with proximity hover, animated selection indicator, inline panel or triggered popup with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem. Radix flavor.",
+      "description": "Dropdown menu with proximity hover, animated selection indicator, inline panel or triggered popup with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem, DropdownSearch (a search field inside the popup), and multiple selection with merged backgrounds. Radix flavor.",
       "dependencies": [
         "@radix-ui/react-dropdown-menu",
         "framer-motion"
@@ -573,7 +608,10 @@
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
         "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-merge-split.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
+        "https://www.fluidfunctionalism.com/r/scroll-area.json",
+        "https://www.fluidfunctionalism.com/r/popup.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -587,6 +625,11 @@
           "path": "registry/default/menu-item.tsx",
           "type": "registry:ui",
           "target": "components/ui/menu-item.tsx"
+        },
+        {
+          "path": "registry/default/dropdown-search.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dropdown-search.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/dropdown.",
@@ -598,7 +641,7 @@
       "name": "dropdown-base",
       "type": "registry:ui",
       "title": "Dropdown",
-      "description": "Dropdown menu with proximity hover, animated selection indicator, inline panel or triggered popup with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem. Base UI flavor.",
+      "description": "Dropdown menu with proximity hover, animated selection indicator, inline panel or triggered popup with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem, DropdownSearch (a search field inside the popup), and multiple selection with merged backgrounds. Base UI flavor.",
       "dependencies": [
         "@base-ui/react",
         "framer-motion"
@@ -612,7 +655,10 @@
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
         "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-merge-split.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
+        "https://www.fluidfunctionalism.com/r/base/scroll-area.json",
+        "https://www.fluidfunctionalism.com/r/popup.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -626,6 +672,11 @@
           "path": "registry/default/menu-item.tsx",
           "type": "registry:ui",
           "target": "components/ui/menu-item.tsx"
+        },
+        {
+          "path": "registry/default/dropdown-search.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dropdown-search.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/dropdown.",
@@ -759,7 +810,7 @@
       "name": "dialog",
       "type": "registry:ui",
       "title": "Dialog",
-      "description": "Animated modal dialog with spring-based scale and opacity transitions. Built on Radix UI Dialog with overlay, header, footer, title, and description sub-components.",
+      "description": "Animated modal dialog with spring-based scale and opacity transitions in three widths (sm, lg, and an xl canvas for composed layouts such as a sidebar), plus a container prop to scope it to a region. Built on Radix UI Dialog with overlay, header, footer, title, and description sub-components.",
       "dependencies": [
         "framer-motion",
         "@radix-ui/react-dialog",
@@ -791,7 +842,7 @@
       "name": "dialog-base",
       "type": "registry:ui",
       "title": "Dialog (Base UI)",
-      "description": "Animated modal dialog with spring-based scale and opacity transitions. Base UI flavor.",
+      "description": "Animated modal dialog with spring-based scale and opacity transitions in three widths (sm, lg, and an xl canvas for composed layouts such as a sidebar), plus a container prop to scope it to a region. Base UI flavor.",
       "dependencies": [
         "framer-motion",
         "@base-ui/react",
@@ -1475,6 +1526,35 @@
       ]
     },
     {
+      "name": "dialog-sidebar",
+      "type": "registry:block",
+      "title": "Settings Dialog (Sidebar in a Dialog)",
+      "description": "A settings dialog: the xl Dialog as a canvas, a non-collapsing Sidebar of sections down its left edge, and a scrolling panel of controls — switches, selects, and an input group. Below the sm breakpoint a Select takes over navigation.",
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/font-weight.json",
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/dialog.json",
+        "https://www.fluidfunctionalism.com/r/sidebar.json",
+        "https://www.fluidfunctionalism.com/r/scroll-area.json",
+        "https://www.fluidfunctionalism.com/r/button.json",
+        "https://www.fluidfunctionalism.com/r/switch.json",
+        "https://www.fluidfunctionalism.com/r/select.json",
+        "https://www.fluidfunctionalism.com/r/input-group.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/dialog-sidebar/settings-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/dialog-sidebar/settings-dialog.tsx"
+        }
+      ],
+      "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/dialog.",
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
       "name": "slider",
       "type": "registry:ui",
       "title": "Slider",
@@ -1994,6 +2074,9 @@
         "https://www.fluidfunctionalism.com/r/icon-context.json",
         "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
+        "https://www.fluidfunctionalism.com/r/scroll-area.json",
+        "https://www.fluidfunctionalism.com/r/use-keyboard-nav-gate.json",
+        "https://www.fluidfunctionalism.com/r/popup.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -2029,6 +2112,9 @@
         "https://www.fluidfunctionalism.com/r/icon-context.json",
         "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
+        "https://www.fluidfunctionalism.com/r/base/scroll-area.json",
+        "https://www.fluidfunctionalism.com/r/use-keyboard-nav-gate.json",
+        "https://www.fluidfunctionalism.com/r/popup.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -2040,6 +2126,84 @@
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/select.",
+      "categories": [
+        "components"
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Type-to-filter combobox with single or multiple (chips, merged selection backgrounds) selection: a text field that filters a list as you type, with keyboard highlight, proximity hover, spring-animated popover, animated checkmark, and clear/chevron controls. Radix flavor (Popover + hand-rolled listbox).",
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "framer-motion",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/springs.json",
+        "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-classes.json",
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-merge-split.json",
+        "https://www.fluidfunctionalism.com/r/elevated.json",
+        "https://www.fluidfunctionalism.com/r/scroll-area.json",
+        "https://www.fluidfunctionalism.com/r/use-keyboard-nav-gate.json",
+        "https://www.fluidfunctionalism.com/r/popup.json",
+        "https://www.fluidfunctionalism.com/r/size-context.json",
+        "https://www.fluidfunctionalism.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/radix/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/combobox.tsx"
+        }
+      ],
+      "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/combobox.",
+      "categories": [
+        "components"
+      ]
+    },
+    {
+      "name": "combobox-base",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Type-to-filter combobox with single or multiple (chips, merged selection backgrounds) selection: a text field that filters a list as you type, with keyboard highlight, proximity hover, spring-animated popover, animated checkmark, and clear/chevron controls. Base UI flavor.",
+      "dependencies": [
+        "@base-ui/react",
+        "framer-motion",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/springs.json",
+        "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-classes.json",
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-merge-split.json",
+        "https://www.fluidfunctionalism.com/r/elevated.json",
+        "https://www.fluidfunctionalism.com/r/base/scroll-area.json",
+        "https://www.fluidfunctionalism.com/r/use-keyboard-nav-gate.json",
+        "https://www.fluidfunctionalism.com/r/popup.json",
+        "https://www.fluidfunctionalism.com/r/size-context.json",
+        "https://www.fluidfunctionalism.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/base/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/combobox.tsx"
+        }
+      ],
+      "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/combobox.",
       "categories": [
         "components"
       ]

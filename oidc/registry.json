@@ -1,0 +1,2371 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "oidc-ui",
+  "homepage": "https://ui.shadcn.com/oidc",
+  "items": [
+    {
+      "name": "core",
+      "type": "registry:block",
+      "title": "OIDC Core",
+      "description": "A starter policy form: GitHub Actions and Vercel behind a toggle picker, each form with its own submit. The file is yours — add providers, swap the picker, and wire onSubmit to your storage. The builder at the homepage generates this file for any provider combination.",
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/provider-github.json",
+        "https://ui.shadcn.com/oidc/r/provider-vercel.json",
+        "https://ui.shadcn.com/oidc/r/picker.json",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/policy-form.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/policy-form.tsx"
+        }
+      ],
+      "categories": [
+        "auth",
+        "forms"
+      ]
+    },
+    {
+      "name": "policy",
+      "type": "registry:lib",
+      "title": "OIDC Policy Contract",
+      "description": "The OidcPolicy rule type, its matching semantics, validation, and the match/explain functions. No dependencies — the foundation every other oidc-ui item builds on.",
+      "files": [
+        {
+          "path": "registry/oidc/lib/policy.ts",
+          "type": "registry:lib",
+          "target": "@lib/oidc/policy.ts"
+        }
+      ],
+      "registryDependencies": [],
+      "categories": [
+        "auth"
+      ]
+    },
+    {
+      "name": "verify",
+      "type": "registry:lib",
+      "title": "OIDC Verifier",
+      "description": "Server-side token verification against OidcPolicy rules: OIDC discovery with issuer assertion, JWKS caching with stale fallback, signature and expiry checks via jose, and named error codes. Claim matching comes from @oidc/policy.",
+      "dependencies": [
+        "jose"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/lib/verify.ts",
+          "type": "registry:lib",
+          "target": "@lib/oidc/verify.ts"
+        }
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json"
+      ],
+      "categories": [
+        "auth"
+      ]
+    },
+    {
+      "name": "claims",
+      "type": "registry:component",
+      "title": "OIDC Claims Pieces",
+      "description": "The shared pieces every provider form composes: the ClaimsList row editor for additional claims, the ClaimChip label marker, and the pure helpers that merge rows into a policy and read them back out.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/claims.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/claims.tsx"
+        }
+      ]
+    },
+    {
+      "name": "picker",
+      "type": "registry:component",
+      "title": "OIDC Picker",
+      "description": "Single-select provider picker that adapts to the count: a toggle row for up to three providers, a select beyond that, nothing for one.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "registryDependencies": [
+        "field",
+        "select",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/picker.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-actions",
+      "type": "registry:block",
+      "title": "OIDC Settings Page",
+      "description": "A working settings page: app/settings/oidc renders the policy form, and a server action validates with validateOidcPolicy before saving. Wire the form's onSubmit to savePolicy and replace the console.log with your storage.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/page-actions/page.tsx",
+          "type": "registry:page",
+          "target": "app/settings/oidc/page.tsx"
+        },
+        {
+          "path": "registry/oidc/page-actions/actions.ts",
+          "type": "registry:file",
+          "target": "app/settings/oidc/actions.ts"
+        }
+      ]
+    },
+    {
+      "name": "provider-github",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-github-zod",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider (Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience. Validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-zod/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-github-valibot",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider (Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience. Validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "dependencies": [
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-valibot/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-github-rhf",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider (React Hook Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience. Built with React Hook Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "dependencies": [
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-none/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-github-rhf-zod",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider (React Hook Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience. Built with React Hook Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-zod/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-github-rhf-valibot",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider (React Hook Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience. Built with React Hook Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-valibot/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-github-tanstack",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider (TanStack Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience. Built with TanStack Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-none/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-github-tanstack-zod",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider (TanStack Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience. Built with TanStack Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-zod/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-github-tanstack-valibot",
+      "type": "registry:component",
+      "title": "GitHub Actions Provider (TanStack Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitHub Actions caller: a repository (owner/repo or a pasted URL) and branch/tag/environment scoping with derived audience. Built with TanStack Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust workflows from a repository"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-valibot/provider-github.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel",
+      "type": "registry:component",
+      "title": "Vercel Provider",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel-zod",
+      "type": "registry:component",
+      "title": "Vercel Provider (Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange. Validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-zod/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel-valibot",
+      "type": "registry:component",
+      "title": "Vercel Provider (Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange. Validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "dependencies": [
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-valibot/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel-rhf",
+      "type": "registry:component",
+      "title": "Vercel Provider (React Hook Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange. Built with React Hook Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "dependencies": [
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-none/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel-rhf-zod",
+      "type": "registry:component",
+      "title": "Vercel Provider (React Hook Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange. Built with React Hook Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-zod/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel-rhf-valibot",
+      "type": "registry:component",
+      "title": "Vercel Provider (React Hook Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange. Built with React Hook Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-valibot/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel-tanstack",
+      "type": "registry:component",
+      "title": "Vercel Provider (TanStack Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange. Built with TanStack Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-none/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel-tanstack-zod",
+      "type": "registry:component",
+      "title": "Vercel Provider (TanStack Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange. Built with TanStack Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-zod/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-vercel-tanstack-valibot",
+      "type": "registry:component",
+      "title": "Vercel Provider (TanStack Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Vercel caller: team, project, and environment scoping with derived issuer, plus custom audiences via Vercel's OIDC token exchange. Built with TanStack Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust deployments from a team or project"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-valibot/provider-vercel.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-vercel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab",
+      "type": "registry:component",
+      "title": "GitLab CI Provider",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab-zod",
+      "type": "registry:component",
+      "title": "GitLab CI Provider (Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping. Validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-zod/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab-valibot",
+      "type": "registry:component",
+      "title": "GitLab CI Provider (Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping. Validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "dependencies": [
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-valibot/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab-rhf",
+      "type": "registry:component",
+      "title": "GitLab CI Provider (React Hook Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping. Built with React Hook Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "dependencies": [
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-none/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab-rhf-zod",
+      "type": "registry:component",
+      "title": "GitLab CI Provider (React Hook Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping. Built with React Hook Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-zod/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab-rhf-valibot",
+      "type": "registry:component",
+      "title": "GitLab CI Provider (React Hook Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping. Built with React Hook Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-valibot/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab-tanstack",
+      "type": "registry:component",
+      "title": "GitLab CI Provider (TanStack Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping. Built with TanStack Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-none/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab-tanstack-zod",
+      "type": "registry:component",
+      "title": "GitLab CI Provider (TanStack Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping. Built with TanStack Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-zod/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-gitlab-tanstack-valibot",
+      "type": "registry:component",
+      "title": "GitLab CI Provider (TanStack Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a GitLab CI caller: instance (gitlab.com or self-hosted), group and project, job-requested audience, and branch/tag/environment scoping. Built with TanStack Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust jobs from a project's pipelines"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-valibot/provider-gitlab.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-gitlab.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google",
+      "type": "registry:component",
+      "title": "Google Provider",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google-zod",
+      "type": "registry:component",
+      "title": "Google Provider (Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience. Validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-zod/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google-valibot",
+      "type": "registry:component",
+      "title": "Google Provider (Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience. Validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "dependencies": [
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-valibot/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google-rhf",
+      "type": "registry:component",
+      "title": "Google Provider (React Hook Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience. Built with React Hook Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "dependencies": [
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-none/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google-rhf-zod",
+      "type": "registry:component",
+      "title": "Google Provider (React Hook Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience. Built with React Hook Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-zod/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google-rhf-valibot",
+      "type": "registry:component",
+      "title": "Google Provider (React Hook Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience. Built with React Hook Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-valibot/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google-tanstack",
+      "type": "registry:component",
+      "title": "Google Provider (TanStack Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience. Built with TanStack Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-none/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google-tanstack-zod",
+      "type": "registry:component",
+      "title": "Google Provider (TanStack Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience. Built with TanStack Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-zod/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-google-tanstack-valibot",
+      "type": "registry:component",
+      "title": "Google Provider (TanStack Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Google service account caller: account email, optional rename-proof unique ID, and audience. Built with TanStack Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a service account"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-valibot/provider-google.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-google.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket",
+      "type": "registry:component",
+      "title": "Bitbucket Provider",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket-zod",
+      "type": "registry:component",
+      "title": "Bitbucket Provider (Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run. Validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-zod/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket-valibot",
+      "type": "registry:component",
+      "title": "Bitbucket Provider (Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run. Validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "dependencies": [
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-valibot/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket-rhf",
+      "type": "registry:component",
+      "title": "Bitbucket Provider (React Hook Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run. Built with React Hook Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "dependencies": [
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-none/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket-rhf-zod",
+      "type": "registry:component",
+      "title": "Bitbucket Provider (React Hook Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run. Built with React Hook Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-zod/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket-rhf-valibot",
+      "type": "registry:component",
+      "title": "Bitbucket Provider (React Hook Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run. Built with React Hook Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-valibot/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket-tanstack",
+      "type": "registry:component",
+      "title": "Bitbucket Provider (TanStack Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run. Built with TanStack Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-none/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket-tanstack-zod",
+      "type": "registry:component",
+      "title": "Bitbucket Provider (TanStack Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run. Built with TanStack Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-zod/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-bitbucket-tanstack-valibot",
+      "type": "registry:component",
+      "title": "Bitbucket Provider (TanStack Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Bitbucket Pipelines caller: paste-in identity provider URL and audience from repository settings, plus repository UUID scoping. Note: the discovery document only exists after Pipelines OIDC is enabled and one pipeline has run. Built with TanStack Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a workspace's pipelines"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-valibot/provider-bitbucket.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-bitbucket.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws",
+      "type": "registry:component",
+      "title": "AWS EKS Provider",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws-zod",
+      "type": "registry:component",
+      "title": "AWS EKS Provider (Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens. Validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-zod/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws-valibot",
+      "type": "registry:component",
+      "title": "AWS EKS Provider (Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens. Validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "dependencies": [
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-valibot/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws-rhf",
+      "type": "registry:component",
+      "title": "AWS EKS Provider (React Hook Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens. Built with React Hook Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "dependencies": [
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-none/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws-rhf-zod",
+      "type": "registry:component",
+      "title": "AWS EKS Provider (React Hook Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens. Built with React Hook Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-zod/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws-rhf-valibot",
+      "type": "registry:component",
+      "title": "AWS EKS Provider (React Hook Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens. Built with React Hook Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-valibot/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws-tanstack",
+      "type": "registry:component",
+      "title": "AWS EKS Provider (TanStack Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens. Built with TanStack Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-none/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws-tanstack-zod",
+      "type": "registry:component",
+      "title": "AWS EKS Provider (TanStack Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens. Built with TanStack Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-zod/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-aws-tanstack-valibot",
+      "type": "registry:component",
+      "title": "AWS EKS Provider (TanStack Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for an AWS EKS workload: cluster OIDC issuer URL, Kubernetes namespace and service account, and audience. EKS is AWS's OIDC workload identity — plain EC2 and Lambda do not mint identity tokens. Built with TanStack Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust a cluster's service account"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-valibot/provider-aws.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-aws.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure",
+      "type": "registry:component",
+      "title": "Azure Provider",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure-zod",
+      "type": "registry:component",
+      "title": "Azure Provider (Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience. Validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-zod/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure-valibot",
+      "type": "registry:component",
+      "title": "Azure Provider (Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience. Validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "dependencies": [
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-valibot/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure-rhf",
+      "type": "registry:component",
+      "title": "Azure Provider (React Hook Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience. Built with React Hook Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "dependencies": [
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-none/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure-rhf-zod",
+      "type": "registry:component",
+      "title": "Azure Provider (React Hook Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience. Built with React Hook Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-zod/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure-rhf-valibot",
+      "type": "registry:component",
+      "title": "Azure Provider (React Hook Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience. Built with React Hook Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-valibot/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure-tanstack",
+      "type": "registry:component",
+      "title": "Azure Provider (TanStack Form)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience. Built with TanStack Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-none/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure-tanstack-zod",
+      "type": "registry:component",
+      "title": "Azure Provider (TanStack Form + Zod)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience. Built with TanStack Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-zod/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-azure-tanstack-valibot",
+      "type": "registry:component",
+      "title": "Azure Provider (TanStack Form + Valibot)",
+      "description": "A self-contained form component that emits an OidcPolicy for a Microsoft Entra ID workload: tenant, the caller's object ID, optional client ID, and audience. Built with TanStack Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Trust an Entra ID workload"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-valibot/provider-azure.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-azure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/components/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom-zod",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider (Zod)",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly. Validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-zod/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom-valibot",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider (Valibot)",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly. Validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "dependencies": [
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/none-valibot/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom-rhf",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider (React Hook Form)",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly. Built with React Hook Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "dependencies": [
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-none/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom-rhf-zod",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider (React Hook Form + Zod)",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly. Built with React Hook Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-zod/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom-rhf-valibot",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider (React Hook Form + Valibot)",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly. Built with React Hook Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "dependencies": [
+        "@hookform/resolvers",
+        "react-hook-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/rhf-valibot/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom-tanstack",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider (TanStack Form)",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly. Built with TanStack Form.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "dependencies": [
+        "@tanstack/react-form"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-none/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom-tanstack-zod",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider (TanStack Form + Zod)",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly. Built with TanStack Form and validated with Zod.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "zod"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-zod/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    },
+    {
+      "name": "provider-custom-tanstack-valibot",
+      "type": "registry:component",
+      "title": "Custom OIDC Provider (TanStack Form + Valibot)",
+      "description": "The escape hatch for any OIDC issuer without a dedicated provider: issuer, audience, optional subject, and free-form optional claims, with a warning when a rule would trust an entire issuer. List it last in the providers array — it matches broadly. Built with TanStack Form and validated with Valibot.",
+      "categories": [
+        "auth",
+        "forms"
+      ],
+      "meta": {
+        "tagline": "Any OIDC issuer"
+      },
+      "dependencies": [
+        "@tanstack/react-form",
+        "valibot"
+      ],
+      "registryDependencies": [
+        "https://ui.shadcn.com/oidc/r/policy.json",
+        "https://ui.shadcn.com/oidc/r/claims.json",
+        "button",
+        "field",
+        "input",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "registry/oidc/flavors/tanstack-valibot/provider-custom.tsx",
+          "type": "registry:component",
+          "target": "@components/oidc/provider-custom.tsx"
+        }
+      ]
+    }
+  ]
+}
