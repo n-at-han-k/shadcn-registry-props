@@ -307,14 +307,26 @@
       ]
     },
     {
-      "name": "use-proximity-hover",
+      "name": "use-fluid-hover",
       "type": "registry:hook",
-      "title": "useProximityHover",
-      "description": "React hook for proximity-based hover detection. Tracks the closest item to the mouse cursor within a container, enabling smooth animated background indicators.",
+      "title": "useFluidHover + FluidHoverHighlight",
+      "description": "Fluid hover: the hook that tracks the item nearest the cursor within a container, and the one highlight component that springs between the rects it measures.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/springs.json"
+      ],
       "files": [
         {
-          "path": "registry/default/hooks/use-proximity-hover.ts",
+          "path": "registry/default/hooks/use-fluid-hover.ts",
           "type": "registry:hook"
+        },
+        {
+          "path": "registry/default/fluid-hover-highlight.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/fluid-hover-highlight.tsx"
         }
       ],
       "docs": "Part of Fluid Functionalism — https://www.fluidfunctionalism.com",
@@ -364,7 +376,7 @@
       "description": "React hook + renderer for the selected-background merge/split animation. When one row bridges or splits two contiguous selected runs, their inner edges glide together (or apart) and swap to a single block, instead of one block spring-growing over the union.",
       "registryDependencies": [
         "https://www.fluidfunctionalism.com/r/springs.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
       "files": [
@@ -382,7 +394,7 @@
       "name": "accordion",
       "type": "registry:ui",
       "title": "Accordion",
-      "description": "Collapsible accordion with animated height transitions, spring-animated chevron, and proximity hover in grouped mode. Built on Radix UI Accordion.",
+      "description": "Collapsible accordion with animated height transitions, spring-animated chevron, and fluid hover in grouped mode. Built on Radix UI Accordion.",
       "dependencies": [
         "framer-motion",
         "@radix-ui/react-accordion",
@@ -394,7 +406,7 @@
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -414,7 +426,7 @@
       "name": "accordion-base",
       "type": "registry:ui",
       "title": "Accordion (Base UI)",
-      "description": "Collapsible accordion with animated height transitions, spring-animated chevron, and proximity hover in grouped mode. Base UI flavor.",
+      "description": "Collapsible accordion with animated height transitions, spring-animated chevron, and fluid hover in grouped mode. Base UI flavor.",
       "dependencies": [
         "framer-motion",
         "@base-ui/react",
@@ -426,7 +438,7 @@
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -446,7 +458,41 @@
       "name": "ask-user-questions",
       "type": "registry:ui",
       "title": "Ask User Questions",
-      "description": "Stepped question flow with numbered options, keyboard shortcuts (1–9), single or multi-select, inline 'other' text input, optional skip, proximity-based hover, and multi-question navigation. Auto-advances on selection in single-select.",
+      "description": "Stepped question flow with numbered options, keyboard shortcuts (1–9), single or multi-select, inline 'other' text input, optional skip, fluid hover, and multi-question navigation. Auto-advances on selection in single-select. Radix flavor.",
+      "dependencies": [
+        "framer-motion",
+        "@radix-ui/react-radio-group",
+        "@radix-ui/react-checkbox"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/springs.json",
+        "https://www.fluidfunctionalism.com/r/font-weight.json",
+        "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-merge-split.json",
+        "https://www.fluidfunctionalism.com/r/button.json",
+        "https://www.fluidfunctionalism.com/r/size-context.json",
+        "https://www.fluidfunctionalism.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/radix/ask-user-questions.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ask-user-questions.tsx"
+        }
+      ],
+      "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/ask-user-questions.",
+      "categories": [
+        "components"
+      ]
+    },
+    {
+      "name": "ask-user-questions-base",
+      "type": "registry:ui",
+      "title": "Ask User Questions (Base UI)",
+      "description": "Stepped question flow with numbered options, keyboard shortcuts (1–9), single or multi-select, inline 'other' text input, optional skip, fluid hover, and multi-question navigation. Auto-advances on selection in single-select. Base UI flavor.",
       "dependencies": [
         "framer-motion",
         "@base-ui/react"
@@ -457,16 +503,17 @@
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/use-merge-split.json",
-        "https://www.fluidfunctionalism.com/r/button.json",
+        "https://www.fluidfunctionalism.com/r/base/button.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
       "files": [
         {
-          "path": "registry/default/ask-user-questions.tsx",
-          "type": "registry:ui"
+          "path": "registry/base/ask-user-questions.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ask-user-questions.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/ask-user-questions.",
@@ -490,7 +537,8 @@
       "files": [
         {
           "path": "registry/default/badge.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/badge.",
@@ -594,7 +642,7 @@
       "name": "dropdown",
       "type": "registry:ui",
       "title": "Dropdown",
-      "description": "Dropdown menu with proximity hover, animated selection indicator, inline panel or triggered popup with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem, DropdownSearch (a search field inside the popup), and multiple selection with merged backgrounds. Radix flavor.",
+      "description": "Dropdown menu with fluid hover, animated selection indicator, inline panel or triggered popup with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem, DropdownSearch (a search field inside the popup), and multiple selection with merged backgrounds. Radix flavor.",
       "dependencies": [
         "@radix-ui/react-dropdown-menu",
         "framer-motion"
@@ -607,7 +655,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/use-merge-split.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
         "https://www.fluidfunctionalism.com/r/scroll-area.json",
@@ -641,7 +689,7 @@
       "name": "dropdown-base",
       "type": "registry:ui",
       "title": "Dropdown",
-      "description": "Dropdown menu with proximity hover, animated selection indicator, inline panel or triggered popup with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem, DropdownSearch (a search field inside the popup), and multiple selection with merged backgrounds. Base UI flavor.",
+      "description": "Dropdown menu with fluid hover, animated selection indicator, inline panel or triggered popup with collision-aware positioning, typeahead, and close-on-select. Includes MenuItem, DropdownSearch (a search field inside the popup), and multiple selection with merged backgrounds. Base UI flavor.",
       "dependencies": [
         "@base-ui/react",
         "framer-motion"
@@ -654,7 +702,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/use-merge-split.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
         "https://www.fluidfunctionalism.com/r/base/scroll-area.json",
@@ -688,7 +736,7 @@
       "name": "checkbox-group",
       "type": "registry:ui",
       "title": "Checkbox Group",
-      "description": "Animated checkbox group with proximity hover, contiguous selection merging, and spring-animated check marks. Built on Radix UI Checkbox.",
+      "description": "Animated checkbox group with fluid hover, contiguous selection merging, and spring-animated check marks. Built on Radix UI Checkbox.",
       "dependencies": [
         "framer-motion",
         "@radix-ui/react-checkbox"
@@ -698,7 +746,7 @@
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/use-merge-split.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
@@ -719,7 +767,7 @@
       "name": "checkbox-group-base",
       "type": "registry:ui",
       "title": "Checkbox Group (Base UI)",
-      "description": "Animated checkbox group with proximity hover, contiguous selection merging, and spring-animated check marks. Base UI flavor.",
+      "description": "Animated checkbox group with fluid hover, contiguous selection merging, and spring-animated check marks. Base UI flavor.",
       "dependencies": [
         "framer-motion",
         "@base-ui/react"
@@ -729,7 +777,7 @@
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/use-merge-split.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
@@ -750,7 +798,7 @@
       "name": "radio-group",
       "type": "registry:ui",
       "title": "Radio Group",
-      "description": "Animated radio group with proximity hover, spring-animated selection dot, and optional Radix UI integration. Supports both controlled index and value-based APIs.",
+      "description": "Animated radio group with fluid hover, spring-animated selection dot, and optional Radix UI integration. Supports both controlled index and value-based APIs.",
       "dependencies": [
         "framer-motion",
         "@radix-ui/react-radio-group"
@@ -760,7 +808,7 @@
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -780,7 +828,7 @@
       "name": "radio-group-base",
       "type": "registry:ui",
       "title": "Radio Group (Base UI)",
-      "description": "Animated radio group with proximity hover, spring-animated selection dot. Base UI flavor.",
+      "description": "Animated radio group with fluid hover, spring-animated selection dot. Base UI flavor.",
       "dependencies": [
         "framer-motion",
         "@base-ui/react"
@@ -790,7 +838,7 @@
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -944,7 +992,8 @@
       "files": [
         {
           "path": "registry/default/input-copy.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/input-copy.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/input-copy.",
@@ -956,7 +1005,36 @@
       "name": "input-group",
       "type": "registry:ui",
       "title": "Input Group",
-      "description": "Grouped input fields with proximity-based highlighting, animated label transitions, optional icons, and error states.",
+      "description": "Grouped input fields with fluid hover highlighting, animated label transitions, optional icons, and error states. Radix flavor.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/font-weight.json",
+        "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
+        "https://www.fluidfunctionalism.com/r/size-context.json",
+        "https://www.fluidfunctionalism.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/radix/input-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-group.tsx"
+        }
+      ],
+      "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/input-group.",
+      "categories": [
+        "components"
+      ]
+    },
+    {
+      "name": "input-group-base",
+      "type": "registry:ui",
+      "title": "Input Group (Base UI)",
+      "description": "Grouped input fields with fluid hover highlighting, animated label transitions, optional icons, and error states. Base UI flavor.",
       "dependencies": [
         "lucide-react",
         "@base-ui/react"
@@ -966,14 +1044,15 @@
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
       "files": [
         {
-          "path": "registry/default/input-group.tsx",
-          "type": "registry:ui"
+          "path": "registry/base/input-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-group.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/input-group.",
@@ -999,7 +1078,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/file-thumbnail.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/button.json",
         "https://www.fluidfunctionalism.com/r/tooltip.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
@@ -1007,7 +1086,8 @@
       "files": [
         {
           "path": "registry/default/input-message.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/input-message.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/input-message. Related block: queued-stack.",
@@ -1030,7 +1110,8 @@
       "files": [
         {
           "path": "registry/default/file-thumbnail.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/file-thumbnail.tsx"
         }
       ],
       "docs": "Part of Fluid Functionalism — https://www.fluidfunctionalism.com",
@@ -1087,7 +1168,8 @@
       "files": [
         {
           "path": "registry/default/chat-message.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/chat-message.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/chat-message.",
@@ -1099,7 +1181,7 @@
       "name": "tabs-subtle",
       "type": "registry:ui",
       "title": "Tabs Subtle",
-      "description": "Horizontal tab navigation with proximity hover, animated pill selection indicator, and fluid font-weight transitions. Radix flavor.",
+      "description": "Horizontal tab navigation with fluid hover, animated pill selection indicator, and fluid font-weight transitions. Radix flavor.",
       "dependencies": [
         "@radix-ui/react-tabs",
         "framer-motion",
@@ -1109,8 +1191,9 @@
         "utils",
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
+        "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -1139,7 +1222,7 @@
       "name": "tabs-subtle-base",
       "type": "registry:ui",
       "title": "Tabs Subtle",
-      "description": "Horizontal tab navigation with proximity hover, animated pill selection indicator, and fluid font-weight transitions. Base UI flavor.",
+      "description": "Horizontal tab navigation with fluid hover, animated pill selection indicator, and fluid font-weight transitions. Base UI flavor.",
       "dependencies": [
         "@base-ui/react",
         "framer-motion",
@@ -1149,8 +1232,9 @@
         "utils",
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
+        "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -1235,7 +1319,7 @@
       "name": "table",
       "type": "registry:ui",
       "title": "Table",
-      "description": "Animated table with proximity-based row hover highlighting and fluid border transitions. Includes TableHeader, TableBody, TableRow, TableHead, and TableCell sub-components.",
+      "description": "Animated table with fluid hover row highlighting and fluid border transitions. Includes TableHeader, TableBody, TableRow, TableHead, and TableCell sub-components.",
       "dependencies": [
         "framer-motion"
       ],
@@ -1243,14 +1327,15 @@
         "utils",
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
       "files": [
         {
           "path": "registry/default/table.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/table.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/table.",
@@ -1262,7 +1347,7 @@
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
-      "description": "shadcn's compositional card (Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter) with the Fluid Functionalism layer: transparent substrate, weight-animated title, media/logo/feature/image slots, and a CardGroup that owns stacked, inline, and grid layouts plus 2-D proximity-hover highlighting.",
+      "description": "shadcn's compositional card (Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter) with the Fluid Functionalism layer: transparent substrate, weight-animated title, media/logo/feature/image slots, and a CardGroup that owns stacked, inline, and grid layouts plus 2-D fluid-hover highlighting.",
       "dependencies": [
         "framer-motion"
       ],
@@ -1272,14 +1357,15 @@
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
       "files": [
         {
           "path": "registry/default/card.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/card.",
@@ -1291,7 +1377,7 @@
       "name": "sidebar",
       "type": "registry:ui",
       "title": "Sidebar",
-      "description": "Refined, composable app sidebar with offcanvas collapse, floating and inset variants, a mobile drawer, cookie-persisted state, keyboard shortcut, and proximity-hover menus with traveling selection, hover, and focus indicators. Radix flavor.",
+      "description": "Refined, composable app sidebar with offcanvas collapse, floating and inset variants, a mobile drawer, cookie-persisted state, keyboard shortcut, and fluid-hover menus with traveling selection, hover, and focus indicators. Radix flavor.",
       "dependencies": [
         "@radix-ui/react-dialog",
         "framer-motion",
@@ -1307,7 +1393,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/tooltip.json",
         "https://www.fluidfunctionalism.com/r/scroll-area.json",
         "https://www.fluidfunctionalism.com/r/button.json",
@@ -1339,7 +1425,7 @@
       "name": "sidebar-base",
       "type": "registry:ui",
       "title": "Sidebar",
-      "description": "Refined, composable app sidebar with offcanvas collapse, floating and inset variants, a mobile drawer, cookie-persisted state, keyboard shortcut, and proximity-hover menus with traveling selection, hover, and focus indicators. Base UI flavor.",
+      "description": "Refined, composable app sidebar with offcanvas collapse, floating and inset variants, a mobile drawer, cookie-persisted state, keyboard shortcut, and fluid-hover menus with traveling selection, hover, and focus indicators. Base UI flavor.",
       "dependencies": [
         "@base-ui/react",
         "framer-motion",
@@ -1355,7 +1441,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/base/tooltip.json",
         "https://www.fluidfunctionalism.com/r/base/scroll-area.json",
         "https://www.fluidfunctionalism.com/r/base/button.json",
@@ -1616,7 +1702,7 @@
       "name": "tabs",
       "type": "registry:ui",
       "title": "Tabs",
-      "description": "Segmented control tabs with sliding active indicator, proximity hover, and spring animations. Built on Radix UI Tabs.",
+      "description": "Segmented control tabs with sliding active indicator, fluid hover, and spring animations. Built on Radix UI Tabs.",
       "dependencies": [
         "framer-motion",
         "@radix-ui/react-tabs",
@@ -1627,8 +1713,10 @@
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-classes.json",
+        "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -1648,7 +1736,7 @@
       "name": "tabs-base",
       "type": "registry:ui",
       "title": "Tabs (Base UI)",
-      "description": "Segmented control tabs with sliding active indicator, proximity hover, and spring animations. Base UI flavor.",
+      "description": "Segmented control tabs with sliding active indicator, fluid hover, and spring animations. Base UI flavor.",
       "dependencies": [
         "framer-motion",
         "@base-ui/react",
@@ -1659,8 +1747,10 @@
         "https://www.fluidfunctionalism.com/r/springs.json",
         "https://www.fluidfunctionalism.com/r/font-weight.json",
         "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-classes.json",
+        "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
@@ -1692,7 +1782,8 @@
       "files": [
         {
           "path": "registry/default/thinking-indicator.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/ui/thinking-indicator.tsx"
         }
       ],
       "css": {
@@ -2058,7 +2149,7 @@
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "Animated select menu with collision-aware positioning, typeahead, proximity hover, spring-animated popover, and animated checkmark. Radix flavor.",
+      "description": "Animated select menu with collision-aware positioning, typeahead, fluid hover, spring-animated popover, and animated checkmark. Radix flavor.",
       "dependencies": [
         "@radix-ui/react-select",
         "framer-motion",
@@ -2072,7 +2163,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
         "https://www.fluidfunctionalism.com/r/scroll-area.json",
         "https://www.fluidfunctionalism.com/r/use-keyboard-nav-gate.json",
@@ -2096,7 +2187,7 @@
       "name": "select-base",
       "type": "registry:ui",
       "title": "Select",
-      "description": "Animated select menu with collision-aware positioning, typeahead, proximity hover, spring-animated popover, and animated checkmark. Base UI flavor.",
+      "description": "Animated select menu with collision-aware positioning, typeahead, fluid hover, spring-animated popover, and animated checkmark. Base UI flavor.",
       "dependencies": [
         "@base-ui/react",
         "framer-motion",
@@ -2110,7 +2201,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
         "https://www.fluidfunctionalism.com/r/base/scroll-area.json",
         "https://www.fluidfunctionalism.com/r/use-keyboard-nav-gate.json",
@@ -2134,7 +2225,7 @@
       "name": "combobox",
       "type": "registry:ui",
       "title": "Combobox",
-      "description": "Type-to-filter combobox with single or multiple (chips, merged selection backgrounds) selection: a text field that filters a list as you type, with keyboard highlight, proximity hover, spring-animated popover, animated checkmark, and clear/chevron controls. Radix flavor (Popover + hand-rolled listbox).",
+      "description": "Type-to-filter combobox with single or multiple (chips, merged selection backgrounds) selection: a text field that filters a list as you type, with keyboard highlight, fluid hover, spring-animated popover, animated checkmark, and clear/chevron controls. Optional create-from-query row (onCreate) and hideSelected for chips fields. Radix flavor (Popover + hand-rolled listbox).",
       "dependencies": [
         "@radix-ui/react-popover",
         "framer-motion",
@@ -2148,7 +2239,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/use-merge-split.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
         "https://www.fluidfunctionalism.com/r/scroll-area.json",
@@ -2173,7 +2264,7 @@
       "name": "combobox-base",
       "type": "registry:ui",
       "title": "Combobox",
-      "description": "Type-to-filter combobox with single or multiple (chips, merged selection backgrounds) selection: a text field that filters a list as you type, with keyboard highlight, proximity hover, spring-animated popover, animated checkmark, and clear/chevron controls. Base UI flavor.",
+      "description": "Type-to-filter combobox with single or multiple (chips, merged selection backgrounds) selection: a text field that filters a list as you type, with keyboard highlight, fluid hover, spring-animated popover, animated checkmark, and clear/chevron controls. Optional create-from-query row (onCreate) and hideSelected for chips fields. Base UI flavor.",
       "dependencies": [
         "@base-ui/react",
         "framer-motion",
@@ -2187,7 +2278,7 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/use-merge-split.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
         "https://www.fluidfunctionalism.com/r/base/scroll-area.json",
@@ -2366,7 +2457,54 @@
       "name": "color-picker",
       "type": "registry:ui",
       "title": "Color Picker",
-      "description": "Color picker with HEX, RGB, HSL, and OKLCH formats, alpha channel, optional swatches, and a popover trigger. Built on Base UI's Popover, Menu, and NumberField primitives with native EyeDropper support.",
+      "description": "Color picker with HEX, RGB, HSL, and OKLCH formats, alpha channel, optional swatches, and a popover trigger, with native EyeDropper support. Radix flavor.",
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "@radix-ui/react-dropdown-menu",
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/springs.json",
+        "https://www.fluidfunctionalism.com/r/font-weight.json",
+        "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-context.json",
+        "https://www.fluidfunctionalism.com/r/surface-classes.json",
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
+        "https://www.fluidfunctionalism.com/r/elevated.json",
+        "https://www.fluidfunctionalism.com/r/slider.json",
+        "https://www.fluidfunctionalism.com/r/size-context.json",
+        "https://www.fluidfunctionalism.com/r/tooltip.json",
+        "https://www.fluidfunctionalism.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/radix/color-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/color-picker.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "checker-a": "#bbbbbb",
+          "checker-b": "#ffffff"
+        },
+        "dark": {
+          "checker-a": "#1f1f1f",
+          "checker-b": "#2a2a2a"
+        }
+      },
+      "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/color-picker.",
+      "categories": [
+        "components"
+      ]
+    },
+    {
+      "name": "color-picker-base",
+      "type": "registry:ui",
+      "title": "Color Picker (Base UI)",
+      "description": "Color picker with HEX, RGB, HSL, and OKLCH formats, alpha channel, optional swatches, and a popover trigger, with native EyeDropper support. Base UI flavor.",
       "dependencies": [
         "@base-ui/react",
         "framer-motion"
@@ -2379,17 +2517,18 @@
         "https://www.fluidfunctionalism.com/r/surface-context.json",
         "https://www.fluidfunctionalism.com/r/surface-classes.json",
         "https://www.fluidfunctionalism.com/r/icon-context.json",
-        "https://www.fluidfunctionalism.com/r/use-proximity-hover.json",
+        "https://www.fluidfunctionalism.com/r/use-fluid-hover.json",
         "https://www.fluidfunctionalism.com/r/elevated.json",
-        "https://www.fluidfunctionalism.com/r/slider.json",
+        "https://www.fluidfunctionalism.com/r/base/slider.json",
         "https://www.fluidfunctionalism.com/r/size-context.json",
-        "https://www.fluidfunctionalism.com/r/tooltip.json",
+        "https://www.fluidfunctionalism.com/r/base/tooltip.json",
         "https://www.fluidfunctionalism.com/r/tokens.json"
       ],
       "files": [
         {
-          "path": "registry/default/color-picker.tsx",
-          "type": "registry:ui"
+          "path": "registry/base/color-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/color-picker.tsx"
         }
       ],
       "cssVars": {
