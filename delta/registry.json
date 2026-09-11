@@ -1,1523 +1,506 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "delta-components",
-  "homepage": "https://deltacomponents.dev",
+  "name": "delta",
+  "homepage": "https://deltacomponentsdev.vercel.app",
   "items": [
     {
-      "name": "index",
-      "type": "registry:style",
+      "name": "surfaces",
+      "type": "registry:theme",
+      "title": "Surfaces",
+      "description": "Eight-level surface and shadow ladder for elevation. Light: two color steps then flat white, differentiated by shadow. Dark: additive white-opacity ladder with layered inset highlights and drops.",
+      "cssVars": {
+        "theme": {
+          "color-surface-1": "var(--surface-1)",
+          "color-surface-2": "var(--surface-2)",
+          "color-surface-3": "var(--surface-3)",
+          "color-surface-4": "var(--surface-4)",
+          "color-surface-5": "var(--surface-5)",
+          "color-surface-6": "var(--surface-6)",
+          "color-surface-7": "var(--surface-7)",
+          "color-surface-8": "var(--surface-8)",
+          "shadow-surface-1": "var(--shadow-1)",
+          "shadow-surface-2": "var(--shadow-2)",
+          "shadow-surface-3": "var(--shadow-3)",
+          "shadow-surface-4": "var(--shadow-4)",
+          "shadow-surface-5": "var(--shadow-5)",
+          "shadow-surface-6": "var(--shadow-6)",
+          "shadow-surface-7": "var(--shadow-7)",
+          "shadow-surface-8": "var(--shadow-8)"
+        },
+        "light": {
+          "surface-1": "#FAFAFA",
+          "surface-2": "#FCFCFC",
+          "surface-3": "#FFFFFF",
+          "surface-4": "#FFFFFF",
+          "surface-5": "#FFFFFF",
+          "surface-6": "#FFFFFF",
+          "surface-7": "#FFFFFF",
+          "surface-8": "#FFFFFF",
+          "shadow-color": "rgb(0 0 0 / 0.06)",
+          "shadow-1": "0 0 0 1px var(--shadow-color)",
+          "shadow-2": "0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color)",
+          "shadow-3": "0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(--shadow-color)",
+          "shadow-4": "0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(--shadow-color), 0 6px 6px -3px var(--shadow-color)",
+          "shadow-5": "0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(--shadow-color), 0 6px 6px -3px var(--shadow-color), 0 12px 12px -6px var(--shadow-color)",
+          "shadow-6": "0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(--shadow-color), 0 6px 6px -3px var(--shadow-color), 0 12px 12px -6px var(--shadow-color), 0 24px 24px -12px var(--shadow-color)",
+          "shadow-7": "0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(--shadow-color), 0 6px 6px -3px var(--shadow-color), 0 12px 12px -6px var(--shadow-color), 0 24px 24px -12px var(--shadow-color), 0 48px 48px -24px var(--shadow-color)",
+          "shadow-8": "0 0 0 1px var(--shadow-color), 0 1px 1px -0.5px var(--shadow-color), 0 3px 3px -1.5px var(--shadow-color), 0 6px 6px -3px var(--shadow-color), 0 12px 12px -6px var(--shadow-color), 0 24px 24px -12px var(--shadow-color), 0 48px 48px -24px var(--shadow-color), 0 96px 96px -48px var(--shadow-color)"
+        },
+        "dark": {
+          "surface-1": "#171717",
+          "surface-2": "#1E1E1E",
+          "surface-3": "#252525",
+          "surface-4": "#2C2C2C",
+          "surface-5": "#333333",
+          "surface-6": "#3A3A3A",
+          "surface-7": "#414141",
+          "surface-8": "#484848",
+          "dm-hi-base": "rgba(255,255,255,0.01)",
+          "dm-hi-mid": "rgba(255,255,255,0.02)",
+          "dm-hi-high": "rgba(255,255,255,0.04)",
+          "dm-hi-peak": "rgba(255,255,255,0.06)",
+          "dm-ring-base": "rgba(255,255,255,0.02)",
+          "dm-ring-mid": "rgba(255,255,255,0.04)",
+          "dm-ring-high": "rgba(255,255,255,0.06)",
+          "dm-drop": "rgba(0,0,0,0.18)",
+          "shadow-1": "inset 0 0 0 1px var(--dm-ring-base)",
+          "shadow-2": "inset 0 1px 0 0 var(--dm-hi-base), inset 0 0 0 1px var(--dm-ring-base), 0 1px 1px -0.5px var(--dm-drop)",
+          "shadow-3": "inset 0 1px 0 0 var(--dm-hi-mid), inset 0 0 0 1px var(--dm-ring-base), 0 0 0 1px rgba(0,0,0,0.12), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop)",
+          "shadow-4": "inset 0 1px 0 0 var(--dm-hi-mid), inset 0 0 0 1px var(--dm-ring-mid), 0 0 0 1px rgba(0,0,0,0.14), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(--dm-drop)",
+          "shadow-5": "inset 0 1px 0 0 var(--dm-hi-high), inset 0 0 0 1px var(--dm-ring-mid), 0 0 0 1px rgba(0,0,0,0.16), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(--dm-drop), 0 12px 12px -6px var(--dm-drop)",
+          "shadow-6": "inset 0 1px 0 0 var(--dm-hi-high), inset 0 0 0 1px var(--dm-ring-high), 0 0 0 1px rgba(0,0,0,0.18), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(--dm-drop), 0 12px 12px -6px var(--dm-drop), 0 24px 24px -12px var(--dm-drop)",
+          "shadow-7": "inset 0 1px 0 0 var(--dm-hi-peak), inset 0 0 0 1px var(--dm-ring-high), 0 0 0 1px rgba(0,0,0,0.20), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(--dm-drop), 0 12px 12px -6px var(--dm-drop), 0 24px 24px -12px var(--dm-drop), 0 48px 48px -24px var(--dm-drop)",
+          "shadow-8": "inset 0 1px 0 0 var(--dm-hi-peak), inset 0 0 0 1px var(--dm-ring-high), 0 0 0 1px rgba(0,0,0,0.22), 0 1px 1px -0.5px var(--dm-drop), 0 3px 3px -1.5px var(--dm-drop), 0 6px 6px -3px var(--dm-drop), 0 12px 12px -6px var(--dm-drop), 0 24px 24px -12px var(--dm-drop), 0 48px 48px -24px var(--dm-drop), 0 96px 96px -48px var(--dm-drop)"
+        }
+      },
+      "categories": [
+        "theme"
+      ]
+    },
+    {
+      "name": "tokens",
+      "type": "registry:theme",
+      "title": "Interaction Tokens",
+      "description": "Shared interaction-state tokens: surface-relative hover/active overlays (bg-hover, bg-active), the selected fill, the destructive-light ground, the --overlay RGB triplet, the --focus-ring color, and the base-layer :focus-visible fallback ring.",
+      "cssVars": {
+        "theme": {
+          "color-hover": "var(--hover)",
+          "color-active": "var(--active)",
+          "color-selected": "var(--selected)",
+          "color-destructive-light": "var(--destructive-light)"
+        },
+        "light": {
+          "hover": "rgb(0 0 0 / 0.04)",
+          "active": "rgb(0 0 0 / 0.07)",
+          "selected": "#D4D4D4",
+          "destructive-light": "#FEF2F2",
+          "overlay": "0 0 0",
+          "focus-ring": "#6B97FF"
+        },
+        "dark": {
+          "hover": "rgb(255 255 255 / 0.06)",
+          "active": "rgb(255 255 255 / 0.1)",
+          "selected": "#525252",
+          "destructive-light": "#450A0A",
+          "overlay": "255 255 255"
+        }
+      },
+      "css": {
+        "@layer base": {
+          ":focus-visible": {
+            "outline": "1px solid var(--focus-ring, #6B97FF)",
+            "outline-offset": "2px",
+            "border-radius": "var(--radius-input, 8px)"
+          },
+          "a:focus-visible": {
+            "border-radius": "2px"
+          }
+        }
+      },
+      "files": [],
+      "categories": [
+        "theme"
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utilities",
+      "description": "Utility function for merging Tailwind CSS classes with clsx and tailwind-merge.",
       "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "lib"
+      ]
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Motion Tiers",
+      "description": "Three duration tiers and one easing, as CSS custom properties: --motion-fast/moderate/slow with a matching -exit for each, and --motion-ease, the settle curve of a critically damped spring. Reduced motion zeroes every tier in one place, so no component carries its own guard.",
+      "cssVars": {
+        "theme": {
+          "motion-ease": "cubic-bezier(0.32, 0.72, 0, 1)",
+          "motion-fast": "80ms",
+          "motion-fast-exit": "60ms",
+          "motion-moderate": "160ms",
+          "motion-moderate-exit": "120ms",
+          "motion-slow": "240ms",
+          "motion-slow-exit": "160ms",
+          "ease-spring": "var(--motion-ease)"
+        }
+      },
+      "css": {
+        "@media (prefers-reduced-motion: reduce)": {
+          ":root": {
+            "--motion-fast": "0ms",
+            "--motion-fast-exit": "0ms",
+            "--motion-moderate": "0ms",
+            "--motion-moderate-exit": "0ms",
+            "--motion-slow": "0ms",
+            "--motion-slow-exit": "0ms"
+          },
+          "*, *::before, *::after": {
+            "animation-duration": "0.01ms !important",
+            "animation-iteration-count": "1 !important",
+            "scroll-behavior": "auto !important"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/lib/motion.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "lib"
+      ]
+    },
+    {
+      "name": "font-weight",
+      "type": "registry:lib",
+      "title": "Font Weight Tokens",
+      "description": "Variable font weight tokens for Inter (normal, medium, semibold, bold) using font-variation-settings.",
+      "files": [
+        {
+          "path": "registry/lib/font-weight.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "lib"
+      ]
+    },
+    {
+      "name": "surface-context",
+      "type": "registry:lib",
+      "title": "Surface Context",
+      "description": "React context that tracks the current substrate elevation level. Elevated components (Dropdown, Select, etc.) read it via useSurface() and render at substrate + offset, then re-provide a new substrate so further nesting elevates further.",
+      "files": [
+        {
+          "path": "registry/lib/surface-context.tsx",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "lib"
+      ]
+    },
+    {
+      "name": "surface-classes",
+      "type": "registry:lib",
+      "title": "Surface Class Lookup",
+      "description": "Static lookup tables for bg-surface-N and shadow-surface-N utilities. Required because Tailwind v4 cannot detect template-literal class names.",
+      "files": [
+        {
+          "path": "registry/lib/surface-classes.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "registryDependencies": [
+        "surfaces"
+      ],
+      "categories": [
+        "lib"
+      ]
+    },
+    {
+      "name": "icon-context",
+      "type": "registry:lib",
+      "title": "Icon Context",
+      "description": "Named icon slots with a Lucide default set; swap any icon via IconProvider.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/lib/icon-context.tsx",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "lib"
+      ]
+    },
+    {
+      "name": "clipboard",
+      "type": "registry:lib",
+      "title": "Clipboard",
+      "description": "Copy text to the clipboard, falling back to a selection and execCommand where the async Clipboard API is unavailable \u2014 which includes any page served over plain HTTP, such as opening a dev server from a phone on the LAN. Returns whether the copy landed.",
+      "files": [
+        {
+          "path": "registry/lib/clipboard.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "lib"
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Versatile button with variants, sizes, loading state, and icon support.",
+      "dependencies": [
+        "@base-ui/react",
         "class-variance-authority",
         "lucide-react"
       ],
-      "devDependencies": [
-        "tw-animate-css"
+      "registryDependencies": [
+        "utils",
+        "font-weight",
+        "icon-context",
+        "tokens"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes spinner-move": {
+          "to": {
+            "stroke-dashoffset": "-100"
+          }
+        },
+        "@keyframes spinner-dash": {
+          "0%, 100%": {
+            "stroke-dasharray": "15 85"
+          },
+          "50%": {
+            "stroke-dasharray": "40 60"
+          }
+        }
+      },
+      "docs": "Docs & live playground: https://deltacomponents.dev/docs/button.",
+      "categories": [
+        "components"
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Floating tooltip with configurable placement, a follow-cursor mode, and rich content support.",
+      "dependencies": [
+        "@base-ui/react"
       ],
       "registryDependencies": [
-        "utils"
-      ],
-      "files": [],
-      "cssVars": {}
-    },
-    {
-      "name": "style",
-      "type": "registry:style",
-      "dependencies": [
-        "class-variance-authority",
-        "lucide-react"
-      ],
-      "devDependencies": [
-        "tw-animate-css"
-      ],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [],
-      "cssVars": {}
-    },
-    {
-      "name": "input-otp",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-react"
+        "utils",
+        "motion",
+        "font-weight"
       ],
       "files": [
         {
-          "path": "registry/delta-ui/delta/input-otp.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "navigation-menu",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/navigation-menu.tsx",
+          "path": "registry/ui/tooltip.tsx",
+          "target": "components/ui/tooltip.tsx",
           "type": "registry:ui"
         }
       ],
-      "meta": {
-        "badge": "coming soon",
-        "hide": true
-      }
-    },
-    {
-      "name": "code-block-icons",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/code-block-icons.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "meta": {
-        "hide": true
-      }
-    },
-    {
-      "name": "code-block",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-react",
-        "prism-react-renderer",
-        "prismjs"
-      ],
-      "registryDependencies": [
-        "tabs",
-        "@delta/code-block-icons",
-        "@delta/copy-button"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/code-block.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "copy-button",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "tooltip"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/copy-button.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "meta": {
-        "hide": true
-      }
-    },
-    {
-      "name": "cambio-image",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-react",
-        "cambio"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/cambio-image.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "card-deck",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-react",
-        "framer-motion",
-        "swiper"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/card-deck.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "admonition",
-      "type": "registry:ui",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/admonition.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "x-scrollable",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/x-scrollable.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "scroll-fade-effect",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/scroll-fade-effect.tsx",
-          "type": "registry:ui"
-        }
+      "docs": "Docs & live playground: https://deltacomponents.dev/docs/tooltip.",
+      "categories": [
+        "components"
       ]
     },
     {
       "name": "tabs",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-tabs"
+      "title": "Tabs",
+      "description": "Tab navigation with underline, background, and ghost variants, and an indicator that follows the shape system.",
+      "registryDependencies": [
+        "utils",
+        "motion",
+        "tokens",
+        "surface-context",
+        "surface-classes"
       ],
       "files": [
         {
-          "path": "registry/delta-ui/delta/tabs.tsx",
-          "type": "registry:ui"
+          "path": "registry/ui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs.tsx"
         }
-      ]
-    },
-    {
-      "name": "qrcode",
-      "type": "registry:ui",
-      "dependencies": [
-        "qr-code-styling"
       ],
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/qrcode.tsx",
-          "type": "registry:ui"
-        }
+      "docs": "Docs & live playground: https://deltacomponents.dev/docs/tabs.",
+      "categories": [
+        "components"
       ]
     },
     {
-      "name": "chat",
+      "name": "code",
       "type": "registry:ui",
+      "title": "Code",
+      "description": "Syntax-highlighted code with a copy button, a filename bar, and a package-manager tab strip.",
       "dependencies": [
-        "lucide-react",
-        "streamdown",
-        "motion"
+        "prism-react-renderer",
+        "prismjs"
       ],
       "registryDependencies": [
+        "utils",
         "button",
-        "avatar",
-        "textarea",
-        "select",
-        "@delta/ai-elements"
+        "tokens",
+        "clipboard"
       ],
+      "cssVars": {
+        "light": {
+          "code-token-comment": "#8b949e",
+          "code-token-keyword": "#d73a49",
+          "code-token-property": "#005cc5",
+          "code-token-tag": "#22863a",
+          "code-token-punctuation": "#24292e",
+          "code-token-definition": "#24292e",
+          "code-token-function": "#6f42c1",
+          "code-token-string": "#032f62",
+          "code-token-static": "#005cc5",
+          "code-token-variable": "#e36209",
+          "code-token-builtin": "#d73a49",
+          "code-token-class-name": "#6f42c1",
+          "copy-button-hover-bg": "color-mix(in oklab, var(--code-fg) 7%, var(--code-bg))",
+          "copy-button-rest-bg": "color-mix(in oklab, var(--code-fg) 10%, var(--code-bg))"
+        },
+        "dark": {
+          "code-token-comment": "#757575",
+          "code-token-keyword": "#77b7d7",
+          "code-token-property": "#77b7d7",
+          "code-token-tag": "#dfab5c",
+          "code-token-punctuation": "#ffffff",
+          "code-token-definition": "#86d9ca",
+          "code-token-function": "#86d9ca",
+          "code-token-string": "#977cdc",
+          "code-token-static": "#ff6658",
+          "code-token-variable": "#ffffff",
+          "code-token-builtin": "#ffffff",
+          "code-token-class-name": "#ffffff"
+        }
+      },
+      "css": {
+        ".code-adaptive-theme": {
+          "--code-fg": "var(--code-fg-l)",
+          "--code-bg": "var(--code-bg-l)",
+          "--code-token-comment": "var(--code-token-comment-l)",
+          "--code-token-keyword": "var(--code-token-keyword-l)",
+          "--code-token-property": "var(--code-token-property-l)",
+          "--code-token-tag": "var(--code-token-tag-l)",
+          "--code-token-punctuation": "var(--code-token-punctuation-l)",
+          "--code-token-definition": "var(--code-token-definition-l)",
+          "--code-token-function": "var(--code-token-function-l)",
+          "--code-token-string": "var(--code-token-string-l)",
+          "--code-token-static": "var(--code-token-static-l)",
+          "--code-token-variable": "var(--code-token-variable-l)",
+          "--code-token-builtin": "var(--code-token-builtin-l)",
+          "--code-token-class-name": "var(--code-token-class-name-l)"
+        },
+        ".dark .code-adaptive-theme": {
+          "--code-fg": "var(--code-fg-d)",
+          "--code-bg": "var(--code-bg-d)",
+          "--code-token-comment": "var(--code-token-comment-d)",
+          "--code-token-keyword": "var(--code-token-keyword-d)",
+          "--code-token-property": "var(--code-token-property-d)",
+          "--code-token-tag": "var(--code-token-tag-d)",
+          "--code-token-punctuation": "var(--code-token-punctuation-d)",
+          "--code-token-definition": "var(--code-token-definition-d)",
+          "--code-token-function": "var(--code-token-function-d)",
+          "--code-token-string": "var(--code-token-string-d)",
+          "--code-token-static": "var(--code-token-static-d)",
+          "--code-token-variable": "var(--code-token-variable-d)",
+          "--code-token-builtin": "var(--code-token-builtin-d)",
+          "--code-token-class-name": "var(--code-token-class-name-d)"
+        }
+      },
       "files": [
         {
-          "path": "registry/delta-ui/examples/chat-demo.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "mapbox-pointer",
-      "type": "registry:ui",
-      "files": [
+          "path": "registry/ui/code.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/code.tsx"
+        },
         {
-          "path": "registry/delta-ui/delta/mapbox-pointer.tsx",
-          "type": "registry:ui"
+          "path": "registry/ui/code-icons.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/code-icons.tsx"
+        },
+        {
+          "path": "registry/lib/prism-languages.ts",
+          "type": "registry:lib",
+          "target": "lib/prism-languages.ts"
         }
-      ]
-    },
-    {
-      "name": "x-card",
-      "type": "registry:ui",
-      "dependencies": [
-        "react-tweet"
       ],
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/x-card.tsx",
-          "type": "registry:ui"
-        }
+      "docs": "Docs & live playground: https://deltacomponents.dev/docs/code.",
+      "categories": [
+        "components"
       ]
-    },
-    {
-      "name": "marquee",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/marquee.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "meta": {
-        "hide": true
-      }
     },
     {
       "name": "product-card",
       "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/delta-ui/delta/product-card.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "ai-chat-sidebar",
-      "type": "registry:block",
-      "description": "A collapsible sidebar component for AI chat applications",
-      "dependencies": [
-        "lucide-react"
-      ],
+      "title": "Product Card",
+      "description": "Compound card for commerce rows \u2014 image well, overlaid badge, and a title/subtitle/metric footer.",
       "registryDependencies": [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "@delta/scroll-fade-effect"
+        "utils",
+        "tokens"
       ],
       "files": [
         {
-          "path": "registry/delta-ui/blocks/ai-chat-sidebar/components/app-sidebar.tsx",
-          "type": "registry:component",
-          "target": "components/app-sidebar.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/ai-chat-sidebar/page.tsx",
-          "type": "registry:page",
-          "target": "app/page.tsx"
+          "path": "registry/ui/product-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/product-card.tsx"
         }
       ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "w-full h-screen",
-        "mobile": "component"
-      },
+      "docs": "Docs & live playground: https://deltacomponents.dev/docs/product-card.",
       "categories": [
-        "ai-elements"
+        "components"
       ]
     },
     {
-      "name": "testimonials",
-      "type": "registry:block",
-      "description": "Customer testimonials grid",
+      "name": "glyph",
+      "type": "registry:ui",
+      "title": "Glyph",
+      "description": "The Twitter/X-style verified checkmark, with the check cut out of the rosette as a real hole via an SVG mask so whatever sits behind it shows through.",
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
         {
-          "path": "registry/delta-ui/blocks/testimonials/page.tsx",
-          "type": "registry:page",
-          "target": "app/testimonials/page.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/testimonials/components/testimonials.tsx",
-          "type": "registry:component",
-          "target": "components/testimonials.tsx"
+          "path": "registry/ui/glyph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glyph.tsx"
         }
       ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "w-full bg-background min-h-svh flex items-center justify-center",
-        "mobile": "component"
-      },
+      "docs": "Docs & live playground: https://deltacomponents.dev/docs/glyph.",
       "categories": [
-        "landing-page"
-      ]
-    },
-    {
-      "name": "interactive-feature-showcase",
-      "type": "registry:block",
-      "description": "InteractiveFeatureShowcase block",
-      "files": [
-        {
-          "path": "registry/delta-ui/blocks/interactive-feature-showcase/page.tsx",
-          "type": "registry:page",
-          "target": "app/interactive-feature-showcase/page.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/interactive-feature-showcase/components/interactive-feature-showcase.tsx",
-          "type": "registry:component",
-          "target": "components/interactive-feature-showcase.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "w-full",
-        "mobile": "component"
-      },
-      "categories": [
-        "landing-page"
-      ]
-    },
-    {
-      "name": "chatbot-window",
-      "type": "registry:block",
-      "description": "Resizable AI chatbot interface with collapsible sidebar",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "avatar",
-        "select",
-        "textarea",
-        "resizable",
-        "@delta/ai-elements"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/blocks/chatbot-window/page.tsx",
-          "type": "registry:page",
-          "target": "app/chatbot-window/page.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/chatbot-window/components/chatbot-window.tsx",
-          "type": "registry:component",
-          "target": "components/chatbot-window.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "w-full h-screen",
-        "mobile": "component"
-      },
-      "categories": [
-        "ai-elements",
-        "featured"
-      ]
-    },
-    {
-      "name": "bottom-mobile-nav",
-      "type": "registry:block",
-      "description": "BottomMobileNav block",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/blocks/bottom-mobile-nav/page.tsx",
-          "type": "registry:page",
-          "target": "app/bottom-mobile-nav/page.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/bottom-mobile-nav/components/bottom-mobile-nav.tsx",
-          "type": "registry:component",
-          "target": "components/bottom-mobile-nav.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/bottom-mobile-nav/components/sidebar.tsx",
-          "type": "registry:component",
-          "target": "components/sidebar.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "",
-        "mobile": "component"
-      },
-      "categories": [
-        "layout"
-      ]
-    },
-    {
-      "name": "mapbox-grid-block",
-      "type": "registry:block",
-      "description": "Three-column grid showcasing global locations with Mapbox maps",
-      "registryDependencies": [
-        "mapbox-pointer",
-        "@delta/mapbox-pointer"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/blocks/mapbox-grid-block/page.tsx",
-          "type": "registry:page",
-          "target": "app/mapbox-grid-block/page.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "w-full bg-background min-h-svh flex items-center justify-center",
-        "mobile": "component"
-      },
-      "categories": [
-        "landing-page"
-      ]
-    },
-    {
-      "name": "admin-inset-layout",
-      "type": "registry:block",
-      "description": "Admin dashboard layout with inset sidebar",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-        "button",
-        "dialog",
-        "command",
-        "@delta/scroll-fade-effect"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/page.tsx",
-          "type": "registry:page",
-          "target": "app/admin-inset-layout/page.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/components/app-sidebar.tsx",
-          "type": "registry:component",
-          "target": "components/app-sidebar.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/components/app-header.tsx",
-          "type": "registry:component",
-          "target": "components/app-header.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/components/nav-main.tsx",
-          "type": "registry:component",
-          "target": "components/nav-main.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/components/nav-projects.tsx",
-          "type": "registry:component",
-          "target": "components/nav-projects.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/components/nav-resources.tsx",
-          "type": "registry:component",
-          "target": "components/nav-resources.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/components/nav-secondary.tsx",
-          "type": "registry:component",
-          "target": "components/nav-secondary.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/components/nav-user.tsx",
-          "type": "registry:component",
-          "target": "components/nav-user.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/admin-inset-layout/components/search-command.tsx",
-          "type": "registry:component",
-          "target": "components/search-command.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "",
-        "mobile": "component"
-      },
-      "categories": [
-        "layout",
-        "dashboard"
-      ]
-    },
-    {
-      "name": "saas-header-layout",
-      "type": "registry:block",
-      "description": "SaaS header layout with navigation menu",
-      "registryDependencies": [
-        "button",
-        "navigation-menu",
-        "@delta/navigation-menu"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/blocks/saas-header-layout/page.tsx",
-          "type": "registry:page",
-          "target": "app/saas-header-layout/page.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-header-layout/components/site-header.tsx",
-          "type": "registry:component",
-          "target": "components/site-header.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-header-layout/components/site-layout.tsx",
-          "type": "registry:component",
-          "target": "components/site-layout.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "600px",
-        "container": "",
-        "mobile": "component",
-        "hide": true
-      },
-      "categories": [
-        "featured",
-        "layout"
-      ]
-    },
-    {
-      "name": "saas-dashboard",
-      "type": "registry:block",
-      "description": "SaaS dashboard with inset sidebar and navigation",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "sidebar",
-        "breadcrumb",
-        "separator",
-        "collapsible",
-        "dropdown-menu",
-        "avatar",
-        "button",
-        "dialog",
-        "command",
-        "@delta/scroll-fade-effect"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/blocks/saas-dashboard/page.tsx",
-          "type": "registry:page",
-          "target": "app/saas-dashboard/page.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-dashboard/components/app-sidebar.tsx",
-          "type": "registry:component",
-          "target": "components/app-sidebar.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-dashboard/components/nav-main.tsx",
-          "type": "registry:component",
-          "target": "components/nav-main.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-dashboard/components/nav-projects.tsx",
-          "type": "registry:component",
-          "target": "components/nav-projects.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-dashboard/components/nav-resources.tsx",
-          "type": "registry:component",
-          "target": "components/nav-resources.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-dashboard/components/nav-secondary.tsx",
-          "type": "registry:component",
-          "target": "components/nav-secondary.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-dashboard/components/nav-user.tsx",
-          "type": "registry:component",
-          "target": "components/nav-user.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/saas-dashboard/components/search-command.tsx",
-          "type": "registry:component",
-          "target": "components/search-command.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "",
-        "mobile": "component"
-      },
-      "categories": [
-        "dashboard"
-      ]
-    },
-    {
-      "name": "auth-form",
-      "type": "registry:block",
-      "description": "Authentication form with SSO, email, passkey, and SAML options",
-      "dependencies": [
-        "lucide-react",
-        "zod"
-      ],
-      "registryDependencies": [
-        "button",
-        "input",
-        "sonner"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/blocks/auth-form/page.tsx",
-          "type": "registry:page",
-          "target": "app/auth-form/page.tsx"
-        },
-        {
-          "path": "registry/delta-ui/blocks/auth-form/components/auth-form.tsx",
-          "type": "registry:component",
-          "target": "components/auth-form.tsx"
-        }
-      ],
-      "meta": {
-        "iframeHeight": "800px",
-        "container": "w-full bg-background min-h-svh flex items-center justify-center",
-        "mobile": "component"
-      },
-      "categories": [
-        "authentication"
-      ]
-    },
-    {
-      "name": "use-mobile",
-      "type": "registry:hook",
-      "files": [
-        {
-          "path": "registry/delta-ui/hooks/use-mobile.ts",
-          "type": "registry:hook"
-        }
-      ]
-    },
-    {
-      "name": "input-otp-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/input-otp"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/input-otp-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "input-otp-pill-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/input-otp"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/input-otp-pill-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "input-otp-separator-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/input-otp"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/input-otp-separator-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "input-otp-form-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "form",
-        "card",
-        "@delta/input-otp"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/input-otp-form-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "product-card-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/product-card"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/product-card-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "product-card-inner-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/product-card"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/product-card-inner-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "product-card-custom-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/product-card"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/product-card-custom-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "product-card-size-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/product-card"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/product-card-size-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "product-card-grid-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/product-card"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/product-card-grid-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "navigation-menu-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/navigation-menu"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/navigation-menu-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "x-card-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/x-card"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/x-card-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "x-card-basic-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/x-card"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/x-card-basic-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "x-card-interactive-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/x-card"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/x-card-interactive-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "marquee-stacked-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "marquee",
-        "@delta/marquee"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/marquee-stacked-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "marquee-cards-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "marquee",
-        "@delta/marquee"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/marquee-cards-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "marquee-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "marquee",
-        "@delta/marquee"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/marquee-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "mapbox-pointer-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/mapbox-pointer"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/mapbox-pointer-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "mapbox-pointer-style-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/mapbox-pointer"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/mapbox-pointer-style-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "mapbox-pointer-theme-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/mapbox-pointer"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/mapbox-pointer-theme-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "chat-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/ai-elements"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/chat-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "chat-previous-messages-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/ai-elements"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/chat-previous-messages-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "chat-simple-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/ai-elements"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/chat-simple-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-package-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-package-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-theme-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "toggle-group",
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-theme-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-interactive-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-interactive-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-markdown-string-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-markdown-string-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-npx-markdown-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-npx-markdown-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-package-manager-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-package-manager-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-python-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-python-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-json-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-json-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "code-block-expand-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/code-block"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/code-block-expand-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "cambio-image-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/cambio-image"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/cambio-image-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "cambio-image-grid-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/cambio-image"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/cambio-image-grid-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "cambio-image-dismiss-on-scroll-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/cambio-image"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/cambio-image-dismiss-on-scroll-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "cambio-image-motion-preset-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "toggle",
-        "@delta/cambio-image"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/cambio-image-motion-preset-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "cambio-image-icons-expand-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/cambio-image"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/cambio-image-icons-expand-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "cambio-image-close-button-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/cambio-image"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/cambio-image-close-button-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "qrcode-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/qrcode"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/qrcode-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "qrcode-purple-dots-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/qrcode"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/qrcode-purple-dots-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "qrcode-demo-interactive",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/qrcode"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/qrcode-demo-interactive.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "qrcode-logo-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/qrcode"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/qrcode-logo-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "card-deck-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/card-deck"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/card-deck-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "card-deck-demo-interactive",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/card-deck"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/card-deck-demo-interactive.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "admonition-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/admonition"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/admonition-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "admonition-demo-interactive",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/admonition"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/admonition-demo-interactive.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "admonition-custom-icon-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/admonition"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/admonition-custom-icon-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "admonition-dismissible-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/admonition"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/admonition-dismissible-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "admonition-actions-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/admonition"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/admonition-actions-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "admonition-collapsible-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/admonition"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/admonition-collapsible-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "tabs-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "tabs",
-        "@delta/tabs"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/tabs-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "tabs-background-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "tabs",
-        "@delta/tabs"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/tabs-background-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "tabs-no-background-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "tabs",
-        "@delta/tabs"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/tabs-no-background-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "tabs-sizes-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "tabs",
-        "@delta/tabs"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/tabs-sizes-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "tabs-with-icons-demo",
-      "type": "registry:example",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "tabs",
-        "@delta/tabs"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/tabs-with-icons-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "tabs-entrance-animation-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "tabs",
-        "@delta/tabs"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/tabs-entrance-animation-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "tabs-in-scroll-area-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "tabs",
-        "scroll-area",
-        "@delta/tabs"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/tabs-in-scroll-area-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "card-deck-yugioh-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/card-deck"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/card-deck-yugioh-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "card-deck-balatro-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/card-deck"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/card-deck-balatro-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "chat-shimmer-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/ai-elements"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/chat-shimmer-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "chat-reasoning-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "@delta/ai-elements"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/chat-reasoning-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "scroll-fade-effect-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "separator",
-        "@delta/scroll-fade-effect"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/scroll-fade-effect-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "scroll-fade-effect-slider-demo",
-      "type": "registry:example",
-      "registryDependencies": [
-        "separator",
-        "slider",
-        "label",
-        "@delta/scroll-fade-effect"
-      ],
-      "files": [
-        {
-          "path": "registry/delta-ui/examples/scroll-fade-effect-slider-demo.tsx",
-          "type": "registry:example"
-        }
+        "components"
       ]
     }
   ]
