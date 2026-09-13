@@ -1,0 +1,817 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "sf-fleet-hud",
+  "homepage": "https://sf-fleet-hud.vercel.app",
+  "items": [
+    {
+      "name": "theme-hud",
+      "type": "registry:theme",
+      "title": "HUD Theme",
+      "description": "Dark sci-fi ops theme: monochrome + orange accent, radius 0, condensed sans + terminal mono.",
+      "cssVars": {
+        "theme": {
+          "font-sans": "'Saira Condensed', sans-serif",
+          "font-mono": "'Share Tech Mono', monospace",
+          "radius": "0rem"
+        },
+        "dark": {
+          "background": "#0A0B0C",
+          "foreground": "#E8ECEE",
+          "card": "#0F1113",
+          "card-foreground": "#D4D8DA",
+          "popover": "#0C0E10",
+          "popover-foreground": "#E8ECEE",
+          "primary": "#FF7A29",
+          "primary-foreground": "#0A0B0C",
+          "secondary": "#26292C",
+          "secondary-foreground": "#C8CCCE",
+          "muted": "#14171A",
+          "muted-foreground": "#7A8085",
+          "accent": "#14171A",
+          "accent-foreground": "#E8ECEE",
+          "destructive": "#E5484D",
+          "destructive-foreground": "#E8ECEE",
+          "border": "#26292C",
+          "input": "#3A3E42",
+          "ring": "#FF7A29",
+          "primary-bright": "#FFA05C",
+          "warning": "#FF7A29",
+          "globe-dot": "#8A9094"
+        }
+      }
+    },
+    {
+      "name": "theme-hud-cyan",
+      "type": "registry:theme",
+      "title": "HUD Theme — Cyan Accent",
+      "description": "Cyan accent override for the HUD theme. Install after theme-hud; warnings and destructive tones stay warm.",
+      "cssVars": {
+        "dark": {
+          "primary": "#33D1FF",
+          "primary-bright": "#7AE0FF",
+          "ring": "#33D1FF",
+          "chart-1": "#33D1FF",
+          "sidebar-primary": "#33D1FF",
+          "sidebar-ring": "#33D1FF",
+          "globe-dot": "#55C6E8"
+        }
+      }
+    },
+    {
+      "name": "hud-button",
+      "type": "registry:ui",
+      "title": "HUD Button",
+      "description": "Corner-clipped primary, outline, ghost, destructive variants. Condensed uppercase.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-panel",
+      "type": "registry:ui",
+      "title": "HUD Panel",
+      "description": "Card panel with optional orange corner brackets, header/content/footer.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-panel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:ui",
+      "title": "Status Badge",
+      "description": "Square mono badges: engaged / priority / patrol / standby / critical (+ blinking dot).",
+      "registryDependencies": [
+        "utils"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/status-badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "telemetry-bar",
+      "type": "registry:ui",
+      "title": "Telemetry Bar",
+      "description": "3px labelled progress bar with mono label/value row.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/telemetry-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "segment-bar",
+      "type": "registry:ui",
+      "title": "Segment Bar",
+      "description": "Segmented capacity indicator.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/segment-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Keyboard shortcut chip.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-skeleton",
+      "type": "registry:ui",
+      "title": "HUD Skeleton",
+      "description": "Skeleton block with fixed-width shimmer clipped inside each block.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radar",
+      "type": "registry:ui",
+      "title": "Radar",
+      "description": "Sector-scan radar with rotating sweep. Decorative by default; accepts polar `blips` ({angle, distance, hot}) to plot real data.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/radar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-label",
+      "type": "registry:ui",
+      "title": "HUD Label",
+      "description": "Mono uppercase micro-label for form fields.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-label.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-label"
+      ]
+    },
+    {
+      "name": "hud-input",
+      "type": "registry:ui",
+      "title": "HUD Input",
+      "description": "Terminal-style text input: mono, square, focus ring in accent.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-textarea",
+      "type": "registry:ui",
+      "title": "HUD Textarea",
+      "description": "Terminal-style textarea with optional live character counter (showCount + maxLength).",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-switch",
+      "type": "registry:ui",
+      "title": "HUD Switch",
+      "description": "Square 36x18 switch with accent thumb when checked.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ]
+    },
+    {
+      "name": "hud-checkbox",
+      "type": "registry:ui",
+      "title": "HUD Checkbox",
+      "description": "Square checkbox with solid accent fill marker.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-checkbox"
+      ]
+    },
+    {
+      "name": "hud-radio-group",
+      "type": "registry:ui",
+      "title": "HUD Radio Group",
+      "description": "Circular radio with solid accent dot.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-radio-group"
+      ]
+    },
+    {
+      "name": "hud-select",
+      "type": "registry:ui",
+      "title": "HUD Select",
+      "description": "Dark popover select: accent top edge, 2px accent active rail, diamond marker.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-select"
+      ]
+    },
+    {
+      "name": "hud-tabs",
+      "type": "registry:ui",
+      "title": "HUD Tabs",
+      "description": "Underline tabs: condensed uppercase, 2px accent indicator.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tabs"
+      ]
+    },
+    {
+      "name": "hud-alert",
+      "type": "registry:ui",
+      "title": "HUD Alert",
+      "description": "Directive/critical alert strip with icon glyph and tinted border.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-alert.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ]
+    },
+    {
+      "name": "hud-dialog",
+      "type": "registry:ui",
+      "title": "HUD Dialog",
+      "description": "Corner-bracketed modal with header/body/footer and mono close glyph.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog"
+      ]
+    },
+    {
+      "name": "hud-sheet",
+      "type": "registry:ui",
+      "title": "HUD Sheet",
+      "description": "Side drawer panel: 280px, hairline dividers, mono accent title.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "class-variance-authority"
+      ]
+    },
+    {
+      "name": "hud-tooltip",
+      "type": "registry:ui",
+      "title": "HUD Tooltip",
+      "description": "Dark mono tooltip with arrow.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-tooltip"
+      ]
+    },
+    {
+      "name": "hud-context-menu",
+      "type": "registry:ui",
+      "title": "HUD Context Menu",
+      "description": "Right-click menu: mono rows, shortcut hints, destructive variant.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-context-menu"
+      ]
+    },
+    {
+      "name": "hud-sonner",
+      "type": "registry:ui",
+      "title": "HUD Toaster",
+      "description": "Sonner toast stack in HUD style: accent left rail, glyph icons.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-sonner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "sonner"
+      ]
+    },
+    {
+      "name": "hud-command",
+      "type": "registry:ui",
+      "title": "HUD Command",
+      "description": "Command palette (cmdk): > prompt, accent active rail, hint footer.",
+      "registryDependencies": [
+        "utils",
+        "https://sf-fleet-hud.vercel.app/r/hud-dialog.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "cmdk"
+      ]
+    },
+    {
+      "name": "hud-table",
+      "type": "registry:ui",
+      "title": "HUD Table",
+      "description": "Data table shell: mono micro-headers, deep row borders, selected tint.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-pagination",
+      "type": "registry:ui",
+      "title": "HUD Pagination",
+      "description": "26px square page buttons with accent active state.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-chip",
+      "type": "registry:ui",
+      "title": "HUD Chip",
+      "description": "Removable filter/tag chip in mono uppercase.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-chip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ]
+    },
+    {
+      "name": "hud-accordion",
+      "type": "registry:ui",
+      "title": "HUD Accordion",
+      "description": "Bordered accordion with rotating caret and hairline dividers.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-accordion"
+      ]
+    },
+    {
+      "name": "hud-breadcrumb",
+      "type": "registry:ui",
+      "title": "HUD Breadcrumb",
+      "description": "Mono breadcrumb trail with caret separators, accent current page.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-avatar",
+      "type": "registry:ui",
+      "title": "HUD Avatar",
+      "description": "Square initials avatar with status dot and rank bars.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-avatar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-avatar",
+        "class-variance-authority"
+      ]
+    },
+    {
+      "name": "hud-slider",
+      "type": "registry:ui",
+      "title": "HUD Slider",
+      "description": "2px track slider with diamond thumbs; supports ranges.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-slider"
+      ]
+    },
+    {
+      "name": "hud-popover",
+      "type": "registry:ui",
+      "title": "HUD Popover",
+      "description": "Dark bordered popover surface.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ]
+    },
+    {
+      "name": "hud-input-otp",
+      "type": "registry:ui",
+      "title": "HUD Input OTP",
+      "description": "38x44 code cells with accent active border and blinking caret.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "input-otp"
+      ]
+    },
+    {
+      "name": "hud-calendar",
+      "type": "registry:ui",
+      "title": "HUD Calendar",
+      "description": "Mono grid calendar with accent selection and range tint.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "react-day-picker"
+      ]
+    },
+    {
+      "name": "hud-gauge",
+      "type": "registry:ui",
+      "title": "HUD Gauge",
+      "description": "Masked conic-gradient ring gauge with numeric readout.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-gauge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-sparkline",
+      "type": "registry:ui",
+      "title": "HUD Sparkline",
+      "description": "Inline SVG sparkline driven by a values array.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-sparkline.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-line-chart",
+      "type": "registry:ui",
+      "title": "HUD Line Chart",
+      "description": "Dependency-free SVG time-series plot: multi-series with dash-pattern separation, axis grid, caution band, direct end-labels and a hover crosshair readout.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-line-chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-bar-chart",
+      "type": "registry:ui",
+      "title": "HUD Bar Chart",
+      "description": "Dependency-free categorical bar chart: vertical or horizontal, grouped series with 2px surface gaps and per-bar hover readout.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-bar-chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-heatmap",
+      "type": "registry:ui",
+      "title": "HUD Heatmap",
+      "description": "Accent-tinted intensity matrix (values 0–1).",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-heatmap.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-timeline",
+      "type": "registry:ui",
+      "title": "HUD Timeline",
+      "description": "Audit-log timeline with diamond markers and connector rail.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-timeline.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-tree",
+      "type": "registry:ui",
+      "title": "HUD Tree",
+      "description": "Hierarchical nav tree with accent selection rail.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-tree.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-dropzone",
+      "type": "registry:ui",
+      "title": "HUD Dropzone",
+      "description": "Dashed drop target with accent hover and file input.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-dropzone.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-stepper",
+      "type": "registry:ui",
+      "title": "HUD Stepper",
+      "description": "Multi-step indicator: done/active/todo squares with connectors.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-stepper.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hud-typography",
+      "type": "registry:ui",
+      "title": "HUD Typography",
+      "description": "Heading scale H1-H6 + body: condensed sans headings, mono overline/micro labels, accent index and tick.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/hud-typography.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dot-globe",
+      "type": "registry:ui",
+      "title": "Dot Globe",
+      "description": "Interactive dotted earth globe (canvas): drag to rotate, wheel to zoom, markers with incident state. Land dots derived from Natural Earth (public domain).",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/dot-globe.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/hud/dot-globe-data.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "crew-card",
+      "type": "registry:ui",
+      "title": "Crew Card",
+      "description": "Personnel card: portrait, name/callsign, rank ticks, assignment, status and vitals/duty telemetry. Portrait is supplied via the photo prop — no images ship with this item.",
+      "registryDependencies": [
+        "utils",
+        "https://sf-fleet-hud.vercel.app/r/hud-avatar.json",
+        "https://sf-fleet-hud.vercel.app/r/status-badge.json",
+        "https://sf-fleet-hud.vercel.app/r/telemetry-bar.json",
+        "https://sf-fleet-hud.vercel.app/r/hud-sparkline.json"
+      ],
+      "files": [
+        {
+          "path": "registry/hud/crew-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": [
+        "@radix-ui/react-avatar",
+        "class-variance-authority"
+      ]
+    }
+  ]
+}

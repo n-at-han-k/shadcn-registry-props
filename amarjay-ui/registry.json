@@ -1,0 +1,207 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "amarjay-ui",
+  "homepage": "https://ui.amarjay.com",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "description": "Class name utility used by Amarjay UI components.",
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "description": "Customizable button component.",
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "description": "Callout component for important information or status.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/alert.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "description": "Compact label for status, metadata, and counts.",
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/badge.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "description": "Container for grouping related content and actions.",
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "description": "Text field for short-form input.",
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/input.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "description": "Avatar component with image and fallback support.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "description": "Floating popover component.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "description": "Accessible modal dialog component.",
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["button", "utils"],
+      "files": [{ "path": "src/components/ui/dialog.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "description": "Menu of actions triggered by a button.",
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/dropdown-menu.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "description": "Contextual action menu for a right click or long press.",
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "src/components/ui/context-menu.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "description": "Range slider component.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "description": "Accessible tooltip component.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "description": "Composable chart primitives built on Recharts.",
+      "dependencies": ["recharts"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "audio-player",
+      "type": "registry:block",
+      "title": "Audio Player",
+      "description": "Inline and floating audio-player controls.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils"],
+      "registryDependencies": ["button", "avatar", "popover", "slider", "tooltip"],
+      "files": [
+        {
+          "path": "src/components/examples/audio-player.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "image-comparison-slider",
+      "type": "registry:block",
+      "title": "Image Comparison Slider",
+      "description": "Draggable before-and-after image comparison control.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/components/examples/image-comparison-slider.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "chart-examples",
+      "type": "registry:block",
+      "title": "Chart Examples",
+      "description": "Bar, line, scatter, candlestick, donut, and pie chart examples.",
+      "dependencies": ["recharts"],
+      "registryDependencies": ["chart"],
+      "files": [
+        {
+          "path": "src/components/examples/charts.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "settings-dialog",
+      "type": "registry:block",
+      "title": "Settings Dialog",
+      "description": "A settings dialog with sidebar navigation and focused controls.",
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["breadcrumb", "button", "dialog", "sidebar", "switch"],
+      "files": [
+        {
+          "path": "src/components/examples/settings-dialog.tsx",
+          "type": "registry:block"
+        }
+      ]
+    }
+  ]
+}

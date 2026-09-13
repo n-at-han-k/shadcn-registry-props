@@ -1,0 +1,761 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "fluent2-react-kit",
+  "homepage": "https://github.com/graundtech/fluent2-react-kit#readme",
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Fluent 2-styled accordion (expand/collapse groups) with a shadcn API. Built on @base-ui/react's Accordion for open/close state and a height-animated collapsible panel; the trigger rotates a ChevronDownRegular chevron and the panel animates height via Base UI's --accordion-panel-height CSS variable.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/accordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/accordion.tsx"
+        }
+      ],
+      "docs": "Base UI's Accordion has no `type=\"single\" | \"multiple\"` prop like Radix — it exposes a single `multiple?: boolean` prop (default `false`) and always represents the open set as an array (`value`/`defaultValue` are `Value[]`, even in single mode). `<Accordion>` passes `Accordion.Root`'s props straight through rather than papering over that difference; see `accordion.tsx`'s doc comment for the full divergence list, the exact `--accordion-panel-height` height-animation mechanism, and why arrow keys no longer move focus between triggers (Base UI dropped the roving-tabindex pattern per the updated ARIA APG guidance)."
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Fluent 2 MessageBar-styled alert with shadcn APIs. Three composable parts (Alert, AlertTitle, AlertDescription), five variants (default, destructive, success, warning, info) with subtle intent backgrounds, intent borders, and an optional icon slot.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Fluent 2-styled avatar with shadcn APIs. Built on @base-ui/react's Avatar primitive for genuine image-loading state; renders brand-tinted initials as a fallback while the image loads or if it fails.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Fluent 2-styled badge with shadcn APIs. Six variants (default, secondary, destructive, outline, success, warning) as a compact pill, with icon support and asChild support.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "class-variance-authority",
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Fluent 2-styled breadcrumb with shadcn APIs. Seven composable parts (Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis), inline SVG chevron/ellipsis glyphs to stay a Server Component.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/breadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Fluent 2-styled button with shadcn APIs. Six variants (default, secondary, outline, ghost, destructive, link) and six sizes, brand state ramp, asChild support, and a Fluent double-stroke focus ring.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "class-variance-authority",
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Fluent 2-styled card with shadcn APIs. Seven composable parts (Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter), Fluent resting elevation (shadow-4) and rounded-lg border.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Fluent 2-styled checkbox with shadcn APIs. Built on @base-ui/react's Checkbox primitive for real form participation and keyboard behavior; supports checked, unchecked, and indeterminate states with Fluent's checkmark/dash glyphs from @fluentui/react-icons.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Fluent 2-styled filterable select with shadcn-style composable APIs. Built on @base-ui/react's Combobox for portalled positioning, focus management, keyboard navigation and built-in filtering; the field matches the kit's Input (bottom brand-accent focus, Clear + chevron), the flyout uses Fluent shadow-16 elevation, and selected/highlighted items use CheckmarkRegular + brand-neutral accent states. Passes Base UI's `multiple` prop through for a future Multi Select.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/combobox.tsx"
+        }
+      ],
+      "docs": "Base UI does the filtering, so pass `items` to `<Combobox>` and render the list with a render-function child:\n\n```tsx\n<Combobox items={fruits}>\n  <ComboboxInput placeholder=\"Search a fruit\" />\n  <ComboboxContent>\n    <ComboboxEmpty>No fruits found.</ComboboxEmpty>\n    <ComboboxList>\n      {(item) => (\n        <ComboboxItem key={item.value} value={item}>\n          {item.label}\n        </ComboboxItem>\n      )}\n    </ComboboxList>\n  </ComboboxContent>\n</Combobox>\n```\n\nBase UI's control-level `Combobox.Label` is intentionally not exposed — pair `ComboboxInput` with the kit's own `Label` item (not pulled in automatically; `combobox`'s only registryDependency is `utils`). Install it separately:\n\n```bash\nnpx shadcn@latest add <registry-url>/r/label.json\n```\n\nThe `<input>` is a labelable form field, so a plain `htmlFor`/`id` pairing works (unlike Select's button trigger). See `combobox.tsx`'s doc comment for the combobox-vs-autocomplete boundary and the Multi Select extension points."
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Fluent 2-styled command palette (cmdk surface) with shadcn-style composable APIs, built on @base-ui/react's Autocomplete with NO cmdk dependency. An always-visible, filtered list whose items fire actions (onClick, firing on click and Enter-when-highlighted) rather than persist a selection — Autocomplete's inline-open + selectionMode:'none' model. Includes a Command palette panel, a search input with a leading SearchRegular icon, filtered List/Empty, grouped items with headings, separators, shortcut hints, and a CommandDialog that wraps the kit Dialog.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json",
+        "https://fluent2-react-kit.graund.io/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/command.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/command.tsx"
+        }
+      ],
+      "docs": "A command palette is an always-open, filtered list. Base UI does the filtering, so pass `items` to `<Command>` and render the list with a render-function child. `CommandEmpty` is a SIBLING of `CommandList` (not a child), and items fire a native `onClick` (which also fires on Enter when the item is highlighted):\n\n```tsx\n<Command items={commands}>\n  <CommandInput placeholder=\"Type a command…\" />\n  <CommandEmpty>No results found.</CommandEmpty>\n  <CommandList>\n    {(cmd) => (\n      <CommandItem key={cmd.value} onClick={cmd.run}>\n        {cmd.label}\n        <CommandShortcut>{cmd.shortcut}</CommandShortcut>\n      </CommandItem>\n    )}\n  </CommandList>\n</Command>\n```\n\nUse `CommandGroup heading=\"…\"` for labelled sections and `CommandSeparator` between them. `CommandDialog` composes the kit `Dialog` (hence the `dialog` registry dependency) — pass a `trigger` element for an uncontrolled palette, or `open`/`onOpenChange` to control it. See `command.tsx`'s doc comment for the autocomplete-vs-combobox architecture decision and the full cmdk divergences."
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Fluent 2-styled modal dialog with shadcn APIs. Built on @base-ui/react's Dialog for focus trapping, portalling, scroll locking and Escape/outside-press dismissal; the popup is a centered bg-background surface with Fluent shadow-64 elevation and rounded-xl radius over a theme-invariant black/40 smoke backdrop, with a built-in DismissRegular close button.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dialog.tsx"
+        }
+      ],
+      "docs": "`DialogContent` composes Base UI's `Portal` + `Backdrop` + `Popup` and appends a top-right close button (pass `showCloseButton={false}` to omit it). There is no `asChild` — Base UI composes via the `render` prop instead, e.g. `<DialogTrigger render={<Button variant=\"secondary\" />}>Open</DialogTrigger>`. `DialogTitle`/`DialogDescription` are wired to the popup's `aria-labelledby`/`aria-describedby` automatically; always render a `DialogTitle` so the dialog has an accessible name. See `dialog.tsx`'s doc comment for the full Base UI mapping and divergence notes."
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Fluent 2-styled dropdown menu with shadcn APIs. Built on @base-ui/react's Menu for portalled positioning, focus management, keyboard navigation, type-ahead and submenus; the flyout matches the kit's Select surface (Fluent shadow-16 elevation, 32px rows) and check/radio indicators use CheckmarkRegular plus a filled-circle marker on brand-neutral accent states.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dropdown-menu.tsx"
+        }
+      ],
+      "docs": "Composition uses Base UI's `render` prop, not shadcn's `asChild`. To use the kit `Button` as the trigger, pass it via `render`:\n\n```tsx\n<DropdownMenuTrigger render={<Button variant=\"outline\">Open</Button>} />\n```\n\n`DropdownMenuLabel` is a group heading (Base UI `Menu.GroupLabel`) — place it inside a `DropdownMenuGroup`. `DropdownMenuSub` wraps a `DropdownMenuSubTrigger` and a `DropdownMenuSubContent` (which re-composes its own portal/positioner/popup). See `dropdown-menu.tsx`'s doc comment for the full Base UI mapping table and the numbered divergences from the shadcn/Radix API."
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Fluent 2-styled text input with shadcn APIs. 32px medium field, file-input styling, and the signature Fluent bottom brand accent on focus (inset box-shadow, no layout shift).",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Fluent 2-styled form label with shadcn APIs. Native <label> (no JS primitive needed), 14px/600 Fluent type ramp, peer/group disabled ergonomics, and an optional required-field asterisk indicator.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/label.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "type": "registry:ui",
+      "title": "Link",
+      "description": "Fluent 2-styled link with shadcn APIs. Brand-colored text with a hover-only underline for standalone use or a persistent underline for links inline in prose, aria-disabled support, and asChild for wrapping framework router links.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "class-variance-authority",
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/link.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/link.tsx"
+        }
+      ]
+    },
+    {
+      "name": "multi-select",
+      "type": "registry:ui",
+      "title": "Multi Select",
+      "description": "Fluent 2-styled multiple-selection combobox with a chips field, built on the kit's Combobox. Selected values render as removable secondary chips in a wrapping token field (min-h-8, flex-wrap, bottom brand-accent focus); Base UI supplies multiple selection, built-in filtering, Backspace-removes-last-chip, arrow-key chip navigation, and a popup that stays open while picking. Popup-side parts (Content, List, Item, Group, Label, Empty, Separator) are re-exported from Combobox unchanged; only the chips field (MultiSelectInput, MultiSelectChip) is new.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json",
+        "https://fluent2-react-kit.graund.io/r/combobox.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/multi-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/multi-select.tsx"
+        }
+      ],
+      "docs": "Pass `items` to `<MultiSelect>` (multiple selection is on by default) and render the list with a render-function child, exactly like Combobox. Selected values appear as chips inside `MultiSelectInput`:\n\n```tsx\n<MultiSelect items={fruits}>\n  <MultiSelectInput placeholder=\"Pick fruits\" />\n  <MultiSelectContent>\n    <MultiSelectEmpty>No fruits found.</MultiSelectEmpty>\n    <MultiSelectList>\n      {(item) => (\n        <MultiSelectItem key={item} value={item}>\n          {item}\n        </MultiSelectItem>\n      )}\n    </MultiSelectList>\n  </MultiSelectContent>\n</MultiSelect>\n```\n\nWith no children, each selected value renders as a `MultiSelectChip` showing `String(value)`. For `{ value, label }` items or custom chip styling, pass a render function to `MultiSelectInput` — it receives each selected value: `<MultiSelectInput>{(v) => <MultiSelectChip key={v.value}>{v.label}</MultiSelectChip>}</MultiSelectInput>`. The chips field bakes in NO clear-all or chevron (Backspace clears the last chip; each chip is removable); compose `@base-ui/react/combobox`'s `Clear`/`Trigger` directly if you want them. The popup-side parts are re-exports of the `combobox` item's parts (installed automatically via `registryDependencies`), so they keep their `data-slot=\"combobox-…\"` values. See `multi-select.tsx`'s doc comment for the full reuse model and the Base UI chips keyboard contract."
+    },
+    {
+      "name": "overflow",
+      "type": "registry:ui",
+      "title": "Overflow",
+      "description": "Headless priority-overflow system — the core mechanism behind a single-line Fluent 2 Ribbon. A row of controls that cannot fit hides its lowest-priority items into a '…' overflow menu and restores them (highest-priority first) as it grows. Ships a framework-agnostic manager (createOverflowManager) plus React bindings: Overflow provider, OverflowItem, OverflowDivider, and the useOverflowMenu / useIsOverflowItemVisible / useIsOverflowGroupVisible / useOverflowCount hooks. ResizeObserver-driven, priority + pinned ranking with DOM-position tie-break, size caching, group tracking, and a referentially-stable subscribe/getSnapshot store built for useSyncExternalStore. SSR-safe (everything visible until measured) and headless (no styling of its own).",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/overflow.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/overflow.tsx"
+        }
+      ],
+      "docs": "Headless — renders no visuals and imports no `cn`, so it has no `utils` registry dependency. Reimplements the publicly documented priority-overflow *pattern* (no Fluent UI source consulted). Wrap the measured row in `<Overflow>` (it clones its single child and merges in the container ref), wrap each item in `<OverflowItem id priority? pinned? groupId?>` (never unmounted — hidden via CSS so it stays measurable and its metadata stays readable for the overflow menu), put `<OverflowDivider groupId>` between groups (hides when its group is fully overflowed), and build the '…' trigger with `useOverflowMenu()` (attach its `ref`; the trigger's width is reserved from the budget so it never causes overflow — keep it measurable when hidden via `visibility:hidden` + out-of-flow positioning, not `display:none`). Build the overflow menu's contents from `useIsOverflowItemVisible(id)` / `useIsOverflowGroupVisible(groupId)` / `useOverflowCount()` (render only hidden items, grouped under section headers per `groupId`). Compose with the kit `Toolbar` (the row) and `DropdownMenu` (the menu). Ranking: pinned never hides, higher `priority` survives longer, DOM position breaks ties; `minimumVisible` floors the visible non-pinned count. Options on `<Overflow>`: `overflowDirection` (\"end\" default / \"start\"), `overflowAxis` (\"horizontal\" first-class / \"vertical\"), `padding`, `minimumVisible`, and an injectable `getSize`. See `overflow.tsx`'s doc comment for the full contract."
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Fluent 2-styled pagination with shadcn APIs. Seven composable parts (Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext, PaginationEllipsis), page links styled via buttonVariants (outline when active, ghost otherwise).",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json",
+        "https://fluent2-react-kit.graund.io/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Fluent 2-styled non-modal popover with shadcn APIs. Built on @base-ui/react's Popover for portalled positioning, focus management, and outside-press/Escape dismissal; the flyout uses Fluent shadow-16 elevation with a scale+fade open/close animation.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/popover.tsx"
+        }
+      ],
+      "docs": "There is no `PopoverAnchor` export — Base UI has no dedicated anchor part; pass a ref via `PopoverContent`'s `anchor` prop instead of wrapping a target element. `PopoverContent` renders `role=\"dialog\"` (a Base UI default, unlike Radix's plain-div content), so axe-core's `aria-dialog-name` rule requires it to have an accessible name: give it an explicit `aria-label` or point `aria-labelledby` at a heading you render inside. See `popover.tsx`'s doc comment for the full divergence list."
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Fluent 2-styled progress bar with a shadcn API. Wraps Base UI's Progress primitive (Root/Track/Indicator) into a single `Progress` component: a thin 2px determinate bar (`value` 0-100) plus a pulsing indeterminate stand-in when `value` is omitted or `null`.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Fluent 2-styled radio group with shadcn APIs. Built on @base-ui/react's RadioGroup and Radio primitives for roving-tabindex keyboard navigation and native form participation; checked items show a brand ring with a centered brand dot.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radio-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ribbon-collapse",
+      "type": "registry:ui",
+      "title": "Ribbon collapse",
+      "description": "Headless group-collapse system — the mechanism behind a classic (expanded) Fluent 2 Ribbon. When a two-row band cannot fit its container it collapses whole groups (highest collapsePriority first — Word: Parágrafo before Fonte) from their expanded form to a single collapsed dropdown button; when every group is collapsed and it still overflows it reports a scrollMode flag (the terminal horizontal-scroll fallback). Ships a framework-agnostic manager (createGroupCollapseManager) plus React bindings: GroupCollapse provider, CollapseGroup (renders both the expanded and collapsed forms and toggles them), and the useGroupMode / useIsScrollMode hooks. ResizeObserver-driven, accurate space accounting (per-group sizes + flex gap + container padding), size caching with an optimistic collapsed estimate, a hide-only settle() safety net, and a referentially-stable subscribe/getSnapshot store built for useSyncExternalStore. SSR-safe (all groups expanded until measured) and headless (no styling of its own). Sibling of the single-line 'overflow' manager.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/ribbon-collapse.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ribbon-collapse.tsx"
+        }
+      ],
+      "docs": "Headless — renders no visuals and imports no `cn`, so it has no `utils` registry dependency. Reimplements the publicly documented ribbon-resizing *pattern* (per-group staged collapse by explicit priority, then scroll fallback; no Fluent UI source consulted). `priority`/`pinned` are single-line concepts and do NOT apply here — classic collapse is governed solely by group `collapsePriority` (higher collapses first). Wrap the classic band in `<GroupCollapse>` (it clones its single child, merges in the container ref, and — crucially — subscribes to the store and schedules `settle()` in a layout effect; it also stamps `data-scroll-mode` on the container). Wrap each group in `<CollapseGroup groupId collapsePriority expanded={<...>} collapsed={<...>}>`: both forms are mounted, the inactive one hidden via CSS (`display:none`) so the collapsed flyout's children stay live and each form stays measurable when re-shown; it stamps `data-slot=\"collapse-group\"` + `data-mode`. Read state with `useGroupMode(groupId)` (\"expanded\"|\"collapsed\") and `useIsScrollMode()` (boolean) to render the classic anatomy, the collapsed dropdown button, and the scroll fallback. Snapshot: `{ groupModes: Record<groupId, \"expanded\"|\"collapsed\">, scrollMode: boolean }`, referentially stable. Options on `<GroupCollapse>`: `axis` (\"horizontal\" first-class / \"vertical\"), `padding` (consumer slack), `collapsedEstimate` (optimistic pre-measure size, default 0), and injectable `getSize`/`getGap`/`getOverflowSize`. Mirrors the shipped single-line `overflow` manager's architecture. See `ribbon-collapse.tsx`'s doc comment for the full contract."
+    },
+    {
+      "name": "ribbon",
+      "type": "registry:ui",
+      "title": "Ribbon",
+      "description": "Fluent 2-styled, Office-like Ribbon — the kit's flagship composite, with two layouts from one tree. **single-line** (Word's 'Faixa de Opções de Linha Única') composes the kit Tabs, Toolbar (APG roving-tabindex), and the headless Overflow priority system so the lowest-priority commands drop into a '…' menu as the row shrinks; each RibbonItem renders two ways at once (an icon in the bar and an icon + full-label row in the menu, grouped by source group). **classic** (Word's two-row band) swaps Overflow for the headless GroupCollapse manager: as the ~96px band shrinks, whole groups collapse — highest collapsePriority first — to a dropdown button whose Popover flyout holds the group's same children, then the band falls back to horizontal scroll. New classic form parts RibbonLargeButton / RibbonRow / RibbonColumn compose group content; a `layouts` escape hatch on RibbonItem/RibbonGroup shows a command in only one layout. Controlled/uncontrolled tab selection plus a `collapsed` (tabs-only) axis; unknown `layout` values degrade to single-line. Custom overflowRender lets split buttons/combos supply their own menu form; focus follows a command into the '…' trigger (single-line) or its group's dropdown button (classic) when it overflows/collapses. The `layout` axis is controllable (`layout`/`defaultLayout`/`onLayoutChange`), as is `autoAdjust` (`autoAdjust`/`defaultAutoAdjust`/`onAutoAdjustChange`); the optional RibbonLayoutSwitcher reproduces Word's far-right display-options chevron (Clássica / Linha Única + Sempre mostrar / Apenas as guias / Ajustar automaticamente), pinned via RibbonTabList's `actions` slot.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json",
+        "https://fluent2-react-kit.graund.io/r/tabs.json",
+        "https://fluent2-react-kit.graund.io/r/toolbar.json",
+        "https://fluent2-react-kit.graund.io/r/overflow.json",
+        "https://fluent2-react-kit.graund.io/r/dropdown-menu.json",
+        "https://fluent2-react-kit.graund.io/r/popover.json",
+        "https://fluent2-react-kit.graund.io/r/ribbon-collapse.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/ribbon.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ribbon.tsx"
+        }
+      ],
+      "docs": "Compose `Ribbon` > `RibbonTabList`/`RibbonTab` + one `RibbonContent` per tab > `RibbonGroup` > `RibbonItem`. `RibbonContent` wires the Overflow provider, the measured Toolbar, the item registry, AND the '…' overflow menu for you — you only supply groups and items.\n\n```tsx\n<Ribbon defaultValue=\"home\">\n  <RibbonTabList aria-label=\"Ribbon\">\n    <RibbonTab value=\"home\">Home</RibbonTab>\n    <RibbonTab value=\"insert\">Insert</RibbonTab>\n  </RibbonTabList>\n  <RibbonContent value=\"home\">\n    <RibbonGroup groupId=\"font\" label=\"Font\">\n      <RibbonItem id=\"bold\" label=\"Bold\" icon={<BoldIcon />} priority={80} pinned onSelect={bold}>\n        <ToolbarButton size=\"icon\" aria-label=\"Bold\"><BoldIcon /></ToolbarButton>\n      </RibbonItem>\n      {/* …more items */}\n    </RibbonGroup>\n    {/* …more groups */}\n  </RibbonContent>\n</Ribbon>\n```\n\nEvery `RibbonItem` needs `id` + `label` (+ optional `icon`) so it can render as a bar icon AND a labeled menu row. `priority` (higher survives longer, beats DOM order) and `pinned` (never overflows) drive the overflow order. Supply `overflowRender` for a complex menu form (a split button → submenu, a combo → labeled field); otherwise the default menu form is a `DropdownMenuItem` firing `onSelect`. Axes mirror Word's switcher and are each controllable (controlled prop + `default*` + `on*Change`): `layout` ('single-line' or 'classic' — the same tree renders both; unknown values degrade to single-line), `collapsed` ('Mostrar apenas as guias' — tabs-only; activating any tab un-collapses), and `autoAdjust` (classic adaptive resize). Drop `<RibbonLayoutSwitcher />` into `<RibbonTabList actions={…}>` for Word's far-right display-options chevron; it reads/writes all three axes through context and is placed outside the tablist + the tab-overflow budget so it never folds and stays axe-clean. In classic, give each RibbonGroup an `icon` + `collapsePriority` (higher collapses first) and optionally a launcher (`onLauncherClick` or `launcher`); compose group content with RibbonLargeButton / RibbonRow / RibbonColumn. Use `layouts` on a RibbonItem/RibbonGroup to scope it to one layout. There is no ARIA 'ribbon' pattern: the composite is APG Tabs over APG Toolbar, and each command row is labelled by its owning tab. See ribbon.tsx's doc comment for the full model, the desktop-Office divergence (no overlay flyout when collapsed), and the focus-preservation behavior."
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Fluent 2-styled select (dropdown listbox) with shadcn APIs. Built on @base-ui/react's Select for portalled positioning, focus management, keyboard navigation and type-ahead; the trigger matches the kit's Input field, the flyout uses Fluent shadow-16 elevation, and selected/highlighted items use CheckmarkRegular + brand-neutral accent states.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ],
+      "docs": "Base UI's `Select.Label` (a control-level field label) is intentionally not exposed by this component — pair `SelectTrigger` with the kit's own `Label` item instead, which is *not* pulled in automatically (`select`'s only registryDependency is `utils`). Install it separately:\n\n```bash\nnpx shadcn@latest add <registry-url>/r/label.json\n```\n\nThen give the `Label` an `id` and the `SelectTrigger` its own `id`, and set `aria-labelledby=\"<label-id> <trigger-id>\"` on the trigger (referencing both) — pointing only at the external label drops the selected value from the accessible name. See `select.tsx`'s doc comment for the full recipe."
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Fluent 2-styled 1px divider with shadcn APIs. Horizontal or vertical orientation, decorative by default with native WAI-ARIA separator semantics when set to non-decorative.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Fluent 2-styled loading placeholder: a pulsing bg-accent block with rounded-md corners, resized/reshaped via className (line, avatar circle, card block).",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Fluent 2-styled loading indicator: a rotating brand-colored arc (not a full ring) over an optional faint track, four sizes, and an optional visible label that becomes the accessible name.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/spinner.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/spinner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "split-button",
+      "type": "registry:ui",
+      "title": "Split Button",
+      "description": "Fluent 2-styled split button with shadcn-style APIs. Three composable parts (SplitButton, SplitButtonAction, SplitButtonTrigger) join a primary command to an icon-only chevron trigger, sharing variant/size via context and styled through buttonVariants. The chevron composes with the kit DropdownMenu via Base UI's render prop.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json",
+        "https://fluent2-react-kit.graund.io/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/split-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/split-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Fluent 2-styled on/off toggle with shadcn APIs. Built on @base-ui/react's Switch primitive for real form participation, keyboard behavior, and label association; renders Fluent's outlined/transparent unchecked track and brand-filled checked track with a sliding thumb.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Fluent 2-styled tabs with shadcn APIs. Built on @base-ui/react's Tabs for roving-tabindex keyboard navigation and a layout-measured sliding active-tab indicator; the list is a transparent hairline row with an animated brand underline (not shadcn's muted pill).",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs.tsx"
+        }
+      ],
+      "docs": "Fluent 2's TabList is a transparent underline control, not shadcn's muted-pill segmented control — `TabsList` renders no background/pill, only a hairline `border-b` plus a 2px brand bar (`Tabs.Indicator`) that slides under the active `TabsTrigger`. The indicator's sliding motion relies on real layout (`getBoundingClientRect`), so it only animates in a browser, not in a zero-layout test environment. Base UI's `Tabs.List` also defaults to *manual* tab activation (arrow keys move focus; `Enter`/`Space` or click selects) rather than Radix's automatic-on-arrow-focus — pass `activateOnFocus` on `TabsList` to opt back into automatic activation. See `tabs.tsx`'s doc comment for the full divergence list."
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Fluent 2-styled multi-line text field with shadcn APIs. Grows with content (field-sizing-content) and shares the signature Fluent bottom brand accent on focus (inset box-shadow, no layout shift) with Input.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Fluent 2 Theme",
+      "description": "The Fluent 2-inspired design token layer for @graundtech/fluent2-react-kit: light, dark, and high-contrast CSS custom properties plus a Tailwind v4 @theme bridge that exposes them as utilities (bg-background, text-primary, bg-brand-80, rounded-md, shadow-8, duration-fast, and more). Install this alongside any kit component.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "categories": [
+        "theme",
+        "tokens",
+        "colors"
+      ],
+      "files": [
+        {
+          "path": "styles/fluent2-tokens.css",
+          "type": "registry:file",
+          "target": "styles/fluent2-tokens.css"
+        }
+      ],
+      "docs": "Add the token import immediately after `@import \"tailwindcss\";` in your global CSS, before any other rules. The file installs to `styles/fluent2-tokens.css` at your project root (or `src/styles/fluent2-tokens.css` in a `src` layout), so from `app/globals.css` the import must climb one directory:\n\n```css\n@import \"tailwindcss\";\n@import \"../styles/fluent2-tokens.css\";\n```\n\nThe `../` is required because the file lands one level **above** `app/` (at the project root, beside it) — a bare `./styles/...` would look inside `app/styles/` and 404. If your global CSS lives directly in `src/` next to `src/styles/` (a common Vite setup with no `app/` folder), drop the `../` and use `@import \"./styles/fluent2-tokens.css\";` instead.\n\n**If you ran `shadcn init` first:** it seeds your global CSS with its own competing theme (`:root {...}`, `.dark {...}`, `@theme inline {...}`, `@custom-variant dark (...)`, `@layer base`) plus `@import \"shadcn/tailwind.css\";` and `@import \"tw-animate-css\";`. Delete all of it — those blocks redefine the same variable names and sit after this import in the cascade, so they silently override Fluent's tokens with shadcn's default gray theme. Your global CSS should end up as just the two imports above, nothing more; this file already ships its own `:root`/`.light`/`.dark`/`.high-contrast`, `@theme inline` bridge, `@custom-variant dark`, and `@layer base`.\n\nThis file defines `:root` (light, default), `.dark`, `.high-contrast`, and a `@media (forced-colors: active)` layer, plus the Tailwind v4 `@theme inline` bridge that turns every token into a utility class. Toggle dark mode by adding/removing the `dark` class on `<html>` (or another ancestor); toggle high contrast the same way with the `high-contrast` class. No other registry item in this kit depends on `theme`, but every component assumes these tokens are present, so install it first."
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Fluent 2-styled, shadcn-API toast notifications on Base UI's toast manager. A Provider + portalled Viewport with a stacked, swipeable, auto-dismissing toast surface. Five variants (default, destructive, success, warning, info) reuse the status-extension tokens, with a useToast() hook (Base UI's manager) to fire toasts.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "@fluentui/react-icons",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toast.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toast.tsx"
+        }
+      ],
+      "docs": "Toast follows Base UI's manager model, not shadcn's global `toast()`. Wrap your app (or a subtree) in `<ToastProvider>`, render `<ToastViewport>` once with a map over `useToast().toasts` inside it, and fire toasts imperatively with `useToast().add({ title, description, data: { variant } })`. The `variant` (default | destructive | success | warning | info) is your own payload on `data`, read back in the map as `<Toast variant={toast.data?.variant}>`. `useToast` is Base UI's `useToastManager` re-exported ({ toasts, add, close, update, promise }); `createToastManager` builds a manager for firing outside React (pass it as `<ToastProvider toastManager={…}>`). Empty `<ToastTitle />`/`<ToastDescription />` fall back to the toast's title/description strings. See `toast.tsx`'s doc comment for the full firing recipe and Base UI mapping."
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Fluent 2-styled toggle button with shadcn APIs. Two variants (default, outline) and three sizes matching Button's height scale, aria-pressed/data-pressed state via Base UI, and a Fluent double-stroke focus ring.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "class-variance-authority",
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:ui",
+      "title": "Toolbar",
+      "description": "Fluent 2-styled toolbar part family built on @base-ui/react's Toolbar for a single tab stop, roving-tabindex arrow-key navigation, and composite focus. Six parts (Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarLink, ToolbarInput); ToolbarButton reuses Button's buttonVariants and defaults to Fluent's subtle (ghost) look. The foundation primitive for an Office-style Ribbon.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json",
+        "https://fluent2-react-kit.graund.io/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toolbar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/toolbar.tsx"
+        }
+      ],
+      "docs": "shadcn/ui has no Toolbar, so the API is modeled on Base UI's part family (renamed with the kit's Toolbar* convention). The root renders `role=\"toolbar\"`; consumers MUST provide an accessible name via `aria-label` or `aria-labelledby` (same requirement as PopoverContent). Base UI owns the keyboard model — one tab stop, ArrowRight/Left (ArrowUp/Down when vertical) with wrap-around at the ends, and focusable-when-disabled items reachable by arrows but not activatable (Base UI's Toolbar does not enable Home/End). Composition uses Base UI's `render` prop (e.g. `render={<Button variant=\"outline\">…</Button>}`), not Radix `asChild`. ToolbarButton reuses `buttonVariants` (default `variant=\"ghost\"`); set `size=\"icon\"` for 32px square icon buttons. See `toolbar.tsx`'s doc comment for the full mapping and a11y contract."
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Fluent 2-styled tooltip with shadcn APIs. Built on @base-ui/react's Tooltip for hover/focus delay, portalled positioning and dismiss-on-Escape; the flyout is a neutral bg-popover surface with Fluent shadow-16 elevation rather than shadcn's inverted brand bubble, and ships with no arrow by default.",
+      "author": "graundtech <https://github.com/graundtech/fluent2-react-kit>",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://fluent2-react-kit.graund.io/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip.tsx"
+        }
+      ],
+      "docs": "Base UI's Tooltip is intentionally \"visual-only\": it does not set `role=\"tooltip\"` on the popup or wire `aria-describedby` from the trigger to it (confirmed against base-ui.com's own docs, which recommend an `aria-label` on the trigger instead). This component sets `role=\"tooltip\"` on `TooltipContent` for you, but does not synthesize `aria-describedby` — that would need id-sharing plumbing Base UI doesn't expose and would force a client boundary onto an otherwise server-safe wrapper. If you need that explicit association, give `TooltipContent` an `id` and pass the same value as `aria-describedby` on `TooltipTrigger` (mirrors the `aria-labelledby` recipe documented in the `select` item). For icon-only triggers, prefer an `aria-label` on the trigger — Base UI's own recommendation.\n\nCompose the trigger with another element (e.g. this kit's `Button`) via Base UI's `render` prop rather than an `asChild` boolean: `<TooltipTrigger render={<Button>Hover me</Button>} />`.\n\nWrap tooltips in a `TooltipProvider` (defaults `delay` to 600ms) so adjacent tooltips in the same tree open instantly once one is shown."
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "Class name helper that composes clsx and tailwind-merge for conflict-free Tailwind class composition. The canonical shadcn-style cn() utility.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ]
+    }
+  ]
+}

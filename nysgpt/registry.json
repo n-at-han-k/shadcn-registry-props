@@ -1,0 +1,172 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "44gov",
+  "homepage": "https://44gov.nysgpt.com",
+  "items": [
+    {
+      "name": "state-fips",
+      "type": "registry:lib",
+      "title": "State FIPS",
+      "description": "The Census's two-digit state codes both ways, and a district number without its padding.",
+      "files": [
+        {
+          "path": "apps/web/lib/map/fips.ts",
+          "type": "registry:lib",
+          "target": "lib/map/fips.ts"
+        }
+      ]
+    },
+    {
+      "name": "map-palette",
+      "type": "registry:lib",
+      "title": "Map palette",
+      "description": "A deterministic hue per key on the golden angle, the opacities that let washes stack, and the ramps for counts, money, heat and party split.",
+      "files": [
+        {
+          "path": "apps/web/lib/map/palette.ts",
+          "type": "registry:lib",
+          "target": "lib/map/palette.ts"
+        }
+      ]
+    },
+    {
+      "name": "map-bounds",
+      "type": "registry:lib",
+      "title": "Map bounds",
+      "description": "A bounding box grown over GeoJSON geometry, for flying a map to a feature.",
+      "files": [
+        {
+          "path": "apps/web/lib/map/bounds.ts",
+          "type": "registry:lib",
+          "target": "lib/map/bounds.ts"
+        }
+      ],
+      "dependencies": [
+        "@types/geojson"
+      ]
+    },
+    {
+      "name": "map-basemap",
+      "type": "registry:lib",
+      "title": "Basemap",
+      "description": "OpenFreeMap's positron style, which needs no key.",
+      "files": [
+        {
+          "path": "apps/web/lib/map/basemap.ts",
+          "type": "registry:lib",
+          "target": "lib/map/basemap.ts"
+        }
+      ]
+    },
+    {
+      "name": "state-districts",
+      "type": "registry:lib",
+      "title": "State districts",
+      "description": "Every state legislative chamber with its rank, its boundary file and how many districts it holds: 102 chambers, 6,843 districts.",
+      "files": [
+        {
+          "path": "apps/web/lib/map/state-districts.ts",
+          "type": "registry:lib",
+          "target": "lib/map/state-districts.ts"
+        }
+      ]
+    },
+    {
+      "name": "district-join",
+      "type": "registry:lib",
+      "title": "District join",
+      "description": "Who represents a point. Ray-cast point in polygon over the district files, answering Congress, both state chambers and the county at once.",
+      "registryDependencies": [
+        "@44gov/state-fips",
+        "@44gov/state-districts"
+      ],
+      "files": [
+        {
+          "path": "apps/web/lib/map/join.ts",
+          "type": "registry:lib",
+          "target": "lib/map/join.ts"
+        }
+      ],
+      "dependencies": [
+        "@types/geojson"
+      ]
+    },
+    {
+      "name": "policy-filters",
+      "type": "registry:lib",
+      "title": "Policy filters",
+      "description": "The vocabulary the record is read through: state names, party labels, chamber names, and the filter keys in a stable order.",
+      "files": [
+        {
+          "path": "apps/web/lib/filters.ts",
+          "type": "registry:lib",
+          "target": "lib/filters.ts"
+        }
+      ]
+    },
+    {
+      "name": "policy-imagery",
+      "type": "registry:lib",
+      "title": "Policy imagery",
+      "description": "Which picture a jurisdiction, chamber or member gets, and which colour a party gets.",
+      "registryDependencies": [
+        "@44gov/policy-filters"
+      ],
+      "files": [
+        {
+          "path": "apps/web/lib/imagery.ts",
+          "type": "registry:lib",
+          "target": "lib/imagery.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-local",
+      "type": "registry:hook",
+      "title": "useLocal",
+      "description": "State that survives a reload in localStorage, and reads correctly on the first server-rendered paint.",
+      "files": [
+        {
+          "path": "apps/web/lib/policy/use-local.ts",
+          "type": "registry:hook",
+          "target": "lib/policy/use-local.ts"
+        }
+      ]
+    },
+    {
+      "name": "seals",
+      "type": "registry:component",
+      "title": "Seals",
+      "description": "A jurisdiction's flag chip, a chamber's seal, a member's portrait with its fallback, and a party dot.",
+      "registryDependencies": [
+        "utils",
+        "@44gov/policy-filters",
+        "@44gov/policy-imagery"
+      ],
+      "files": [
+        {
+          "path": "apps/web/components/policy/imagery.tsx",
+          "type": "registry:component",
+          "target": "components/policy/seals.tsx"
+        }
+      ]
+    },
+    {
+      "name": "directory-search",
+      "type": "registry:component",
+      "title": "Directory search",
+      "description": "The search field a directory is filtered with, clearable, on an input group.",
+      "registryDependencies": [
+        "field",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "apps/web/components/directory-search.tsx",
+          "type": "registry:component",
+          "target": "components/directory-search.tsx"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "_comment": "Source of truth for cligentic blocks. site/registry.json mirrors this file for the docs site; keep both in sync when adding or removing a block.",
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cligentic",
+  "homepage": "https://cligentic.railly.dev",
+  "items": [
+    {
+      "name": "detect",
+      "type": "registry:file",
+      "title": "detect",
+      "description": "Environment detection helpers: `isWsl`, `isCi`, `isHeadlessLinux`, `hasCommand`, `detectMode`, `shouldColor`. Shared across platform and agent blocks. Auto-installed as dependency.",
+      "files": [
+        {
+          "path": "registry/platform/detect.ts",
+          "type": "registry:file",
+          "target": "src/cli/platform/detect.ts"
+        }
+      ]
+    },
+    {
+      "name": "open-url",
+      "type": "registry:file",
+      "title": "open-url",
+      "description": "Open a URL in the user's default browser across macOS, Linux, Windows, WSL, SSH, and headless CI. Respects `BROWSER` env var. Fallback chain with manual print. Never throws.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/detect.json"
+      ],
+      "files": [
+        {
+          "path": "registry/platform/open-url.ts",
+          "type": "registry:file",
+          "target": "src/cli/platform/open-url.ts"
+        }
+      ]
+    },
+    {
+      "name": "json-mode",
+      "type": "registry:file",
+      "title": "json-mode",
+      "description": "Dual-rendering output for CLIs serving humans and agents. Auto-detects TTY vs piped, enforces `stdout`/`stderr` discipline, respects `NO_COLOR`. Never calls `process.exit()`.",
+      "dependencies": [
+        "picocolors"
+      ],
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/detect.json"
+      ],
+      "files": [
+        {
+          "path": "registry/agent/json-mode.ts",
+          "type": "registry:file",
+          "target": "src/cli/agent/json-mode.ts"
+        }
+      ],
+      "docs": "## Next steps\n\nImport and use in your command handlers:\n\n```ts\nimport { emit, note, reportError, detectMode } from './agent/json-mode';\n\nprogram\n  .option('--json', 'emit JSON for agents')\n  .command('list')\n  .action(async (opts) => {\n    note('Fetching items...', opts);\n    const items = await fetchItems();\n    emit(items, opts, (data) => {\n      for (const item of data) console.log(`- ${item.name}`);\n    });\n  });\n```\n\nIn JSON mode (`--json` or piped stdout): NDJSON to stdout, nothing to stderr.\nIn human mode (TTY): formatted output to stdout, notes to stderr.\n\nPairs with `next-steps` block for agent-first CLIs."
+    },
+    {
+      "name": "next-steps",
+      "type": "registry:file",
+      "title": "next-steps",
+      "description": "Post-command guidance for agents and humans. Emit structured `next-step` hints to `stderr` as NDJSON for agents, formatted block for humans. Chains with `json-mode`.",
+      "dependencies": [
+        "picocolors"
+      ],
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/json-mode.json"
+      ],
+      "files": [
+        {
+          "path": "registry/agent/next-steps.ts",
+          "type": "registry:file",
+          "target": "src/cli/agent/next-steps.ts"
+        }
+      ],
+      "docs": "## Next steps\n\n```ts\nimport { emit } from './agent/json-mode';\nimport { emitNextSteps } from './agent/next-steps';\n\nprogram.command('list').action(async (opts) => {\n  const items = await fetchItems();\n  emit(items, opts);\n  emitNextSteps([\n    { command: 'myapp show <id>', description: 'see details for one item' },\n    { command: 'myapp export', description: 'export all', optional: true },\n  ], opts);\n});\n```\n\nAgents parse `stderr` line-by-line and filter `{type: 'next-step', ...}`\nobjects to know what to try next. Humans see a formatted block with\narrow bullets.\n\n**Note**: this block auto-pulls `json-mode` via `registryDependencies`,\nso you only need to install `next-steps` and shadcn fetches both."
+    },
+    {
+      "name": "trust-ladder",
+      "type": "registry:file",
+      "title": "trust-ladder",
+      "description": "Approval gate and structured preview renderer for T2/T3 CLI actions. Handles `--yes`, T3 `--confirm`, JSON/non-TTY refusal, and machine-readable AppError failures.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/json-mode.json",
+        "https://cligentic.railly.dev/r/error-map.json"
+      ],
+      "files": [
+        {
+          "path": "registry/agent/trust-ladder.ts",
+          "type": "registry:file",
+          "target": "src/cli/agent/trust-ladder.ts"
+        }
+      ]
+    },
+    {
+      "name": "copy-clipboard",
+      "type": "registry:file",
+      "title": "copy-clipboard",
+      "description": "Copy text to the system clipboard across macOS, Linux (X11 + Wayland), Windows, and WSL. Detects `pbcopy`, `xclip`, `xsel`, `wl-copy`, `clip.exe` automatically. Typed verdict, never throws.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/detect.json"
+      ],
+      "files": [
+        {
+          "path": "registry/platform/copy-clipboard.ts",
+          "type": "registry:file",
+          "target": "src/cli/platform/copy-clipboard.ts"
+        }
+      ]
+    },
+    {
+      "name": "notify-os",
+      "type": "registry:file",
+      "title": "notify-os",
+      "description": "Fire a system notification across macOS (`osascript`), Linux (`notify-send`), Windows and WSL (PowerShell). Silently skips in CI. Typed verdict, never throws.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/detect.json"
+      ],
+      "files": [
+        {
+          "path": "registry/platform/notify-os.ts",
+          "type": "registry:file",
+          "target": "src/cli/platform/notify-os.ts"
+        }
+      ]
+    },
+    {
+      "name": "xdg-paths",
+      "type": "registry:file",
+      "title": "xdg-paths",
+      "description": "XDG Base Directory Spec resolver with macOS (`~/Library`) and Windows (`%APPDATA%`) fallbacks. Gives your CLI canonical `config`/`state`/`cache`/`audit`/`sessions` paths. `APP_HOME` env override for testing.",
+      "files": [
+        {
+          "path": "registry/foundation/xdg-paths.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/xdg-paths.ts"
+        }
+      ]
+    },
+    {
+      "name": "atomic-write",
+      "type": "registry:file",
+      "title": "atomic-write",
+      "description": "Write files atomically: temp file, `fsync`, rename. Prevents corruption from crashes or concurrent CLI processes. Windows-aware (unlink before rename). Includes `atomicWriteJson` convenience.",
+      "files": [
+        {
+          "path": "registry/foundation/atomic-write.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/atomic-write.ts"
+        }
+      ]
+    },
+    {
+      "name": "audit-log",
+      "type": "registry:file",
+      "title": "audit-log",
+      "description": "Append-only JSONL audit trail with per-day rotation. Every action gets a timestamped record. Mode `0o600`. Includes `tailAudit` for reading recent records. Battle-tested in hapi-cli and sunat-cli.",
+      "files": [
+        {
+          "path": "registry/foundation/audit-log.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/audit-log.ts"
+        }
+      ]
+    },
+    {
+      "name": "audit-lifecycle",
+      "type": "registry:file",
+      "title": "audit-lifecycle",
+      "description": "Two-phase append-only audit lifecycle for dangerous or retryable operations: `beginAudit()` writes pending, then `complete()` or `fail()` appends the final record with the same audit id.",
+      "files": [
+        {
+          "path": "registry/foundation/audit-lifecycle.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/audit-lifecycle.ts"
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:file",
+      "title": "banner",
+      "description": "Gradient ASCII wordmark for your CLI. Shown on bare invoke or `--help`. Vertical gradient between two hex colors. Respects `NO_COLOR`. Includes minimal block-letter renderer.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/detect.json"
+      ],
+      "files": [
+        {
+          "path": "registry/foundation/banner.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/banner.ts"
+        }
+      ]
+    },
+    {
+      "name": "config",
+      "type": "registry:file",
+      "title": "config",
+      "description": "Profile-aware JSON config loader. Reads from the app's config directory with multi-profile support (`--profile production`). Merge precedence: defaults < profile overrides.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/atomic-write.json"
+      ],
+      "files": [
+        {
+          "path": "registry/foundation/config.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/config.ts"
+        }
+      ]
+    },
+    {
+      "name": "session",
+      "type": "registry:file",
+      "title": "session",
+      "description": "Auth token persistence. Load on boot, save after login, clear on logout, check expiry. Atomic writes, `0o600` permissions. The companion of every `login` command.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/atomic-write.json"
+      ],
+      "files": [
+        {
+          "path": "registry/foundation/session.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/session.ts"
+        }
+      ]
+    },
+    {
+      "name": "error-map",
+      "type": "registry:file",
+      "title": "error-map",
+      "description": "Typed `AppError` class with `code`, `name`, `human` message, and `hint`. Maps upstream API errors to actionable messages. `fromHttp()` maps status codes directly. Agents read the `hint` field to self-correct.",
+      "files": [
+        {
+          "path": "registry/foundation/error-map.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/error-map.ts"
+        }
+      ]
+    },
+    {
+      "name": "argv",
+      "type": "registry:file",
+      "title": "argv",
+      "description": "Minimal POSIX argv parser for zero-framework CLIs. Zero dependencies. Handles `--flag`, `--flag value`, `--flag=value`, `-f`, combined short flags, positional args, `--` stop, and kebab-to-camelCase normalization.",
+      "files": [
+        {
+          "path": "registry/foundation/argv.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/argv.ts"
+        }
+      ]
+    },
+    {
+      "name": "global-flags",
+      "type": "registry:file",
+      "title": "global-flags",
+      "description": "Standard global flags for agent-first CLIs: `--json`, `--dry-run`, `--profile`, `--no-input`, `--quiet`, `--verbose`. Normalizes raw argv into typed `GlobalFlags`. Includes flag definitions for any parser.",
+      "files": [
+        {
+          "path": "registry/foundation/global-flags.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/global-flags.ts"
+        }
+      ]
+    },
+    {
+      "name": "telemetry",
+      "type": "registry:file",
+      "title": "telemetry",
+      "description": "Anonymous usage tracking. Opt-out via `CLI_NO_TELEMETRY=1` or `DO_NOT_TRACK=1`. Local JSONL logging + optional remote POST. Never throws, never blocks. Disabled in CI automatically.",
+      "files": [
+        {
+          "path": "registry/foundation/telemetry.ts",
+          "type": "registry:file",
+          "target": "src/cli/foundation/telemetry.ts"
+        }
+      ]
+    },
+    {
+      "name": "doctor",
+      "type": "registry:file",
+      "title": "doctor",
+      "description": "Health-check pattern for CLI `doctor` commands. Run named checks sequentially with per-check error isolation. Dual output via `json-mode`: structured JSON for agents, `[OK]`/`[FAIL]` table for humans.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/json-mode.json"
+      ],
+      "files": [
+        {
+          "path": "registry/agent/doctor.ts",
+          "type": "registry:file",
+          "target": "src/cli/agent/doctor.ts"
+        }
+      ]
+    },
+    {
+      "name": "killswitch",
+      "type": "registry:file",
+      "title": "killswitch",
+      "description": "Binary safety gate. If `~/.app/KILLSWITCH` exists, all write operations refuse. File exists = stopped. File gone = resumed. One `existsSync` call. Battle-tested in hapi-cli for real brokerage orders.",
+      "files": [
+        {
+          "path": "registry/safety/killswitch.ts",
+          "type": "registry:file",
+          "target": "src/cli/safety/killswitch.ts"
+        }
+      ]
+    },
+    {
+      "name": "api-key-wizard",
+      "type": "registry:file",
+      "title": "api-key-wizard",
+      "description": "Interactive first-run wizard for API-key-authenticated CLIs. Masked prompt, live validation against your API, then save via your callback. Generic over validator + save — no assumption about TOML/JSON/keychain storage. Throws typed errors, never calls `process.exit`. Extracted from v0-cli.",
+      "dependencies": [
+        "@clack/prompts"
+      ],
+      "files": [
+        {
+          "path": "registry/agent/api-key-wizard.ts",
+          "type": "registry:file",
+          "target": "src/cli/agent/api-key-wizard.ts"
+        }
+      ]
+    },
+    {
+      "name": "skill-installer-prompt",
+      "type": "registry:file",
+      "title": "skill-installer-prompt",
+      "description": "Post-init hook that offers to install a companion agent skill (Claude Code / Cursor / MCP-aware). Clack confirm plus a subprocess spawn with inherited stdio. Returns a discriminated outcome (`installed`, `cancelled`, `skipped`, `error`). Never throws.",
+      "dependencies": [
+        "@clack/prompts"
+      ],
+      "files": [
+        {
+          "path": "registry/agent/skill-installer-prompt.ts",
+          "type": "registry:file",
+          "target": "src/cli/agent/skill-installer-prompt.ts"
+        }
+      ]
+    },
+    {
+      "name": "prompt-secret",
+      "type": "registry:file",
+      "title": "prompt-secret",
+      "description": "Read a secret from the TTY without echoing it. Raw mode, one dot per keystroke, handles backspace and Ctrl-C. Returns null when there is no TTY so the caller can fail with a structured error instead of hanging. No runtime dependency.",
+      "files": [
+        {
+          "path": "registry/agent/prompt-secret.ts",
+          "type": "registry:file",
+          "target": "src/cli/agent/prompt-secret.ts"
+        }
+      ]
+    },
+    {
+      "name": "style",
+      "type": "registry:file",
+      "title": "style",
+      "description": "Terminal styling that respects NO_COLOR and non-TTY in one place, plus the width helpers a table needs once cells contain escape codes: visibleWidth, padVisible, truncateVisible. 256-color semantic palette.",
+      "registryDependencies": [
+        "https://cligentic.railly.dev/r/detect.json"
+      ],
+      "files": [
+        {
+          "path": "registry/platform/style.ts",
+          "type": "registry:file",
+          "target": "src/cli/platform/style.ts"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "pane",
+  "homepage": "https://pane.theui.company",
+  "items": [
+    {
+      "name": "pane-style",
+      "type": "registry:style",
+      "title": "Style",
+      "description": "Base style for Pane. Installs the shared dependencies and the --pane-* design tokens — blur, saturation, tint, border, highlight and shadow — for light and dark.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "dependencies": [
+        "class-variance-authority",
+        "clsx",
+        "tailwind-merge",
+        "motion",
+        "lucide-react"
+      ],
+      "devDependencies": ["tw-animate-css"],
+      "cssVars": {
+        "light": {
+          "pane-fg": "var(--foreground)",
+          "pane-blur-regular": "12px",
+          "pane-blur-clear": "5px",
+          "pane-saturation": "1.7",
+          "pane-tint-regular": "rgba(255, 255, 255, 0.26)",
+          "pane-tint-clear": "rgba(255, 255, 255, 0.08)",
+          "pane-nested-regular": "rgba(255, 255, 255, 0.4)",
+          "pane-nested-clear": "rgba(255, 255, 255, 0.2)",
+          "pane-border-width": "0.5px",
+          "pane-border-regular": "rgba(255, 255, 255, 0.85)",
+          "pane-border-clear": "rgba(255, 255, 255, 0.6)",
+          "pane-tint-accent": "rgba(52, 199, 89, 0.82)",
+          "pane-border-accent": "rgba(255, 255, 255, 0.7)",
+          "pane-knob": "rgba(255, 255, 255, 0.92)",
+          "pane-highlight": "rgba(255, 255, 255, 0.85)",
+          "pane-shadow": "rgba(0, 0, 0, 0.1)"
+        },
+        "dark": {
+          "pane-tint-regular": "rgba(28, 28, 32, 0.3)",
+          "pane-tint-clear": "rgba(18, 18, 22, 0.12)",
+          "pane-nested-regular": "rgba(255, 255, 255, 0.12)",
+          "pane-nested-clear": "rgba(255, 255, 255, 0.07)",
+          "pane-border-regular": "rgba(255, 255, 255, 0.14)",
+          "pane-border-clear": "rgba(255, 255, 255, 0.1)",
+          "pane-tint-accent": "rgba(48, 209, 88, 0.75)",
+          "pane-border-accent": "rgba(255, 255, 255, 0.24)",
+          "pane-knob": "rgba(255, 255, 255, 0.95)",
+          "pane-highlight": "rgba(255, 255, 255, 0.22)",
+          "pane-shadow": "rgba(0, 0, 0, 0.5)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "The cn helper — clsx merged through tailwind-merge. Every Pane component imports it.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "registry/pane/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "glass-core",
+      "type": "registry:lib",
+      "title": "Glass Core",
+      "description": "The glass engine behind every surface: the displacement-map generator that bends the backdrop at the rim, the SVG refraction filter, the tuning config for both variants, and the shared CVA variants.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/pane/lib/glass/types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/pane/lib/glass/config.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/pane/lib/glass/displacement.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/pane/lib/glass/glass-filter.tsx",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/pane/lib/glass/variants.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-glass-pointer",
+      "type": "registry:hook",
+      "title": "Glass Pointer",
+      "description": "Tracks the pointer and the surface's position in the viewport, then writes the specular lighting inputs straight to the node as CSS custom properties — spring-smoothed, and without costing a React render.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "dependencies": ["motion"],
+      "registryDependencies": ["@pane/glass-core"],
+      "files": [
+        {
+          "path": "registry/pane/hooks/use-glass-pointer.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-glass-support",
+      "type": "registry:hook",
+      "title": "Glass Support",
+      "description": "Detects how much of the glass material the browser can actually render and honors prefers-reduced-transparency, so surfaces degrade to blur or to a flat tint instead of breaking.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "registryDependencies": ["@pane/glass-core"],
+      "files": [
+        {
+          "path": "registry/pane/hooks/use-glass-support.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "pane",
+      "type": "registry:ui",
+      "title": "Pane",
+      "description": "The glass primitive every other component is built on — a refracted rim, a tinted backdrop, and a specular highlight that follows the pointer. Ships regular and clear variants, and flattens automatically when nested.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "glass"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/pane",
+      "dependencies": ["motion"],
+      "registryDependencies": [
+        "@pane/pane-style",
+        "@pane/utils",
+        "@pane/glass-core",
+        "@pane/use-glass-pointer",
+        "@pane/use-glass-support"
+      ],
+      "files": [
+        {
+          "path": "registry/pane/ui/pane.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A glass button in default and destructive variants across four sizes, with asChild support via Radix Slot.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "form"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/button",
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A glass card with header, title, description, action, content and footer parts.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "display"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/card",
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A compact glass badge in default and tinted variants, with asChild support for linking.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "display"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/badge",
+      "dependencies": ["class-variance-authority", "radix-ui"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A text input on a clear glass surface that raises a highlight ring on focus and dims when disabled.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "form"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/input",
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A Radix switch whose thumb is a glass pane, moved by a spring rather than a CSS transition.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "form"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/switch",
+      "dependencies": ["radix-ui", "motion"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Radix tabs on a glass list, with a pane indicator that animates between triggers.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "navigation"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/tabs",
+      "dependencies": ["radix-ui", "motion"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A Radix tooltip rendered as a small glass pane, with provider, trigger and content parts.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "overlay"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/tooltip",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A Radix dialog whose panel is a glass pane over a blurred overlay, with header, footer, title and description parts.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "overlay"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/dialog",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A Radix sheet that slides in from any of the four sides as a floating, inset glass panel.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "overlay"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/sheet",
+      "dependencies": ["radix-ui", "lucide-react", "class-variance-authority"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

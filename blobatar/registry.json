@@ -1,0 +1,152 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "blobatar",
+  "homepage": "https://blobatar.dev",
+  "items": [
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Blobatar",
+      "description": "An Avatar that falls back to a deterministic geometric blobatar generated from the user's name.",
+      "author": "Alain <https://blobatar.dev>",
+      "categories": [
+        "avatar"
+      ],
+      "//dependencies": "Unpinned on purpose. Every package in this set publishes the same version, so `latest` of both resolves to a matched pair \u2014 which is what `@blobatar/react`'s exact-major peer range on `blobatar` requires. A `^2` written here would instead freeze this item at gen2 the moment gen3 ships, and a registry item nobody rebuilds is exactly how that goes unnoticed.",
+      "dependencies": [
+        "blobatar",
+        "@blobatar/react"
+      ],
+      "registryDependencies": [
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "registry/blobatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/blobatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "presence-avatar",
+      "type": "registry:ui",
+      "title": "Presence avatar",
+      "description": "A blobatar with a presence dot and an unread badge. Online, away, offline, and a thinking state, on a face that blinks and breathes.",
+      "author": "Alain <https://blobatar.dev>",
+      "categories": [
+        "avatar"
+      ],
+      "dependencies": [
+        "blobatar",
+        "@blobatar/react"
+      ],
+      "//docs": "The thinking state is the only part of any item here that needs a stylesheet, and it fails silently without one: the face is correct and simply holds still. Said in `docs` rather than only in the file's header comment because the CLI prints this after installing, which is the moment it is actionable.",
+      "docs": "Every face animates. Import the library's stylesheet once, anywhere in your app: `import \"blobatar/motion.css\"`.",
+      "files": [
+        {
+          "path": "registry/presence-avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/presence-avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-list",
+      "type": "registry:ui",
+      "title": "Agent list",
+      "description": "A sidebar group of running agents, each with a face derived from its name, a presence dot and a line of what it is doing. Drops into shadcn's Sidebar.",
+      "author": "Alain <https://blobatar.dev>",
+      "categories": [
+        "sidebar"
+      ],
+      "dependencies": [
+        "blobatar",
+        "@blobatar/react"
+      ],
+      "//registryDependencies": "`sidebar` is shadcn's own, by bare name, so it resolves against whatever registry the installing project has configured as its default. The other is a full URL rather than `@blobatar/presence-avatar`: the namespace form only resolves in a project that has run `shadcn registry add @blobatar=...`, and the README also hands out `Alain00/blobatar/agent-list`, which registers nothing. A URL resolves under both.",
+      "registryDependencies": [
+        "sidebar",
+        "https://blobatar.dev/r/presence-avatar.json"
+      ],
+      "docs": "Render it inside your `SidebarProvider`, in the sidebar you already have. Every row's face animates, so import the library's stylesheet once, anywhere in your app: `import \"blobatar/motion.css\"`.",
+      "files": [
+        {
+          "path": "registry/agent-list.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/agent-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "user-table",
+      "type": "registry:ui",
+      "title": "User table",
+      "description": "A table of people with a blobatar per row, rendered as static images so that a long list stays one node per face.",
+      "author": "Alain <https://blobatar.dev>",
+      "categories": [
+        "table"
+      ],
+      "dependencies": [
+        "blobatar",
+        "@blobatar/react"
+      ],
+      "files": [
+        {
+          "path": "registry/user-table.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/user-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "group-chat",
+      "type": "registry:ui",
+      "title": "Group chat",
+      "description": "A thread with several people in it: consecutive messages grouped under one face, an overlapping facepile, and a typing indicator.",
+      "author": "Alain <https://blobatar.dev>",
+      "categories": [
+        "chat"
+      ],
+      "dependencies": [
+        "blobatar",
+        "@blobatar/react"
+      ],
+      "docs": "The avatars react on hover. Import the library's stylesheet once, anywhere in your app: `import \"blobatar/motion.css\"`.",
+      "files": [
+        {
+          "path": "registry/group-chat.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/group-chat.tsx"
+        }
+      ]
+    },
+    {
+      "name": "password-field",
+      "type": "registry:ui",
+      "title": "Password field",
+      "description": "A password input with a face above it. It watches the caret while you type, and goes sleepy when you reveal what you typed.",
+      "author": "Alain <https://blobatar.dev>",
+      "categories": [
+        "form",
+        "avatar"
+      ],
+      "dependencies": [
+        "blobatar",
+        "@blobatar/react"
+      ],
+      "registryDependencies": [
+        "input"
+      ],
+      "//docs": "The only item that needs two stylesheets, and the second one fails silently in the way that matters most here: without `gaze.css` the face is correct, blinks and breathes, and simply never looks at anything, which reads as the component being broken rather than as a missing import.",
+      "docs": "The face animates and follows the caret. Import both stylesheets once, anywhere in your app: `import \"blobatar/motion.css\"` and `import \"blobatar/gaze.css\"`.",
+      "files": [
+        {
+          "path": "registry/password-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/password-field.tsx"
+        }
+      ]
+    }
+  ]
+}

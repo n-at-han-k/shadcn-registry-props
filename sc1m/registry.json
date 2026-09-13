@@ -1,0 +1,1035 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "sc1m",
+  "homepage": "https://sc1m.vercel.app",
+  "items": [
+    {
+      "name": "tokens",
+      "type": "registry:theme",
+      "title": "sc1m Design Tokens",
+      "description": "sc1m brand tokens and the Tailwind v4 theme contract: semantic colors, radii, shadows, motion, dark mode via the .dark class, and the popup-motion, ai-wash and ai-pulse utilities.",
+      "cssVars": {
+        "theme": {
+          "--color-bg": "var(--bg)",
+          "--color-surface": "var(--surface)",
+          "--color-surface-raised": "var(--surface-raised)",
+          "--color-fg": "var(--fg)",
+          "--color-fg-muted": "var(--fg-muted)",
+          "--color-fg-subtle": "var(--fg-subtle)",
+          "--color-line": "var(--line)",
+          "--color-line-strong": "var(--line-strong)",
+          "--color-accent": "var(--accent)",
+          "--color-accent-hover": "var(--accent-hover)",
+          "--color-accent-fg": "var(--accent-fg)",
+          "--color-highlight": "var(--highlight)",
+          "--color-highlight-fg": "var(--highlight-fg)",
+          "--color-success": "var(--success)",
+          "--color-danger": "var(--danger)",
+          "--color-danger-fg": "var(--danger-fg)",
+          "--color-info": "var(--info)",
+          "--color-warning": "var(--warning)",
+          "--color-ring": "var(--ring)",
+          "--font-sans": "var(--brand-font-sans, var(--font-geist-sans, ui-sans-serif))",
+          "--font-mono": "var(--brand-font-mono, var(--font-geist-mono, ui-monospace))",
+          "--radius-sm": "var(--brand-radius-sm, 0.25rem)",
+          "--radius-md": "var(--brand-radius-md, 0.375rem)",
+          "--radius-lg": "var(--brand-radius-lg, 0.5rem)",
+          "--radius-xl": "var(--brand-radius-xl, 0.75rem)",
+          "--shadow-raised": "var(--brand-shadow-raised, 0 1px 2px 0 rgb(0 0 0 / 0.05))",
+          "--shadow-overlay": "var(--brand-shadow-overlay, 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1))",
+          "--ease-out-quad": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          "--duration-fast": "150ms"
+        }
+      },
+      "css": {
+        "@custom-variant dark (&:where(.dark, .dark *))": {},
+        ":root": {
+          "--n-0": "#ececec",
+          "--n-50": "#f5f5f5",
+          "--n-100": "#ebebeb",
+          "--n-200": "#e5e5e5",
+          "--n-300": "#d4d4d4",
+          "--n-400": "#a3a3a3",
+          "--n-500": "#8f8f8f",
+          "--n-700": "#525252",
+          "--n-900": "#0a0a0a",
+          "--sc1m-orange": "#ff5a00",
+          "--sc1m-paper": "#ffffff",
+          "--bg": "var(--sc1m-paper)",
+          "--surface": "var(--n-50)",
+          "--surface-raised": "var(--sc1m-paper)",
+          "--fg": "var(--n-900)",
+          "--fg-muted": "var(--n-700)",
+          "--fg-subtle": "var(--n-500)",
+          "--line": "var(--n-200)",
+          "--line-strong": "var(--n-300)",
+          "--accent": "var(--sc1m-orange)",
+          "--accent-hover": "#d94c00",
+          "--accent-fg": "#ffffff",
+          "--highlight": "var(--n-900)",
+          "--highlight-fg": "#ffffff",
+          "--ring": "var(--sc1m-orange)",
+          "--brand-icon": "#ff5a00",
+          "--brand-icon-fg": "#ffffff",
+          "--success": "#16a34a",
+          "--danger": "#dc2626",
+          "--danger-fg": "#ffffff",
+          "--info": "#2563eb",
+          "--warning": "#d4a017",
+          "--brand-radius-sm": "2px",
+          "--brand-radius-md": "4px",
+          "--brand-radius-lg": "8px",
+          "--brand-radius-xl": "12px",
+          "--brand-font-sans": "var(--font-geist-sans, ui-sans-serif)",
+          "--brand-font-mono": "var(--font-geist-mono, ui-monospace)",
+          "--acc-expand": "250ms",
+          "--acc-collapse": "250ms",
+          "--acc-chevron": "250ms",
+          "--acc-ease": "cubic-bezier(0.22, 1, 0.36, 1)",
+          "--acc-spring": "cubic-bezier(0.34, 1.36, 0.64, 1)",
+          "--popup-open-dur": "250ms",
+          "--popup-close-dur": "150ms",
+          "--popup-pre-scale": "0.97",
+          "--popup-closing-scale": "0.99",
+          "--popup-ease": "cubic-bezier(0.22, 1, 0.36, 1)",
+          "--ai-hue": "var(--color-info)",
+          "--ai-hue-ink": "color-mix(in oklab, var(--ai-hue) 50%, var(--color-fg))"
+        },
+        ".dark": {
+          "--n-0": "#0a0a0a",
+          "--n-50": "#171717",
+          "--n-100": "#1f1f1f",
+          "--n-200": "#262626",
+          "--n-300": "#333333",
+          "--n-400": "#6b6b6b",
+          "--n-500": "#8a8a8a",
+          "--n-700": "#a3a3a3",
+          "--n-900": "#f5f5f5",
+          "--sc1m-orange": "#ff6a1a",
+          "--sc1m-paper": "#0a0a0a",
+          "--surface-raised": "var(--n-100)",
+          "--accent-hover": "#ff8547",
+          "--accent-fg": "#0a0a0a",
+          "--highlight-fg": "#0a0a0a",
+          "--danger-fg": "#0a0a0a",
+          "--success": "#4ade80",
+          "--danger": "#f87171",
+          "--info": "#60a5fa",
+          "--warning": "#facc15"
+        },
+        "@utility popup-motion": {
+          "transform-origin": "var(--transform-origin)",
+          "transition-property": "opacity, scale",
+          "transition-duration": "var(--popup-close-dur)",
+          "transition-timing-function": "var(--popup-ease)",
+          "will-change": "opacity, scale",
+          "&[data-open]": {
+            "transition-duration": "var(--popup-open-dur)"
+          },
+          "&[data-starting-style]": {
+            "scale": "var(--popup-pre-scale)",
+            "opacity": "0"
+          },
+          "&[data-ending-style]": {
+            "scale": "var(--popup-closing-scale)",
+            "opacity": "0"
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            "transition": "none"
+          }
+        },
+        "@keyframes toast-nudge": {
+          "50%": {
+            "scale": "1.05"
+          }
+        },
+        ".toast-nudge": {
+          "animation": "toast-nudge 300ms var(--popup-ease)"
+        },
+        ".ai-wash": {
+          "background-image": "linear-gradient(180deg, color-mix(in oklab, var(--ai-hue) 9%, var(--color-bg)) 0%, color-mix(in oklab, var(--ai-hue) 4%, var(--color-bg)) 66%, color-mix(in oklab, var(--ai-hue) 2%, var(--color-bg)) 100%)",
+          "border-color": "color-mix(in oklab, var(--ai-hue) 16%, var(--color-line))"
+        },
+        "@keyframes ai-pulse-a": {
+          "from": {
+            "background-size": "44% 46%, 32% 38%, 24% 62%",
+            "background-position": "34% -26%, 6% -18%, -7% 68%",
+            "opacity": "0.55"
+          },
+          "to": {
+            "background-size": "62% 58%, 22% 26%, 18% 44%",
+            "background-position": "46% -10%, 20% 4%, 3% 84%",
+            "opacity": "1"
+          }
+        },
+        "@keyframes ai-pulse-b": {
+          "from": {
+            "background-size": "58% 34%, 20% 52%, 30% 30%",
+            "background-position": "76% 122%, 106% 40%, 14% 118%",
+            "opacity": "0.5"
+          },
+          "to": {
+            "background-size": "40% 24%, 30% 34%, 46% 44%",
+            "background-position": "62% 106%, 94% 22%, 26% 104%",
+            "opacity": "1"
+          }
+        },
+        ".ai-pulse": {
+          "position": "relative",
+          "isolation": "isolate"
+        },
+        ".ai-pulse::before, .ai-pulse::after": {
+          "content": "\"\"",
+          "position": "absolute",
+          "inset": "-1px",
+          "z-index": "-1",
+          "border-radius": "inherit",
+          "pointer-events": "none",
+          "background-repeat": "no-repeat",
+          "mask-image": "radial-gradient(115% 115% at 50% 50%, transparent 16%, #000 70%)"
+        },
+        ".ai-pulse::before": {
+          "background-image": "radial-gradient(closest-side, color-mix(in oklab, var(--ai-hue) 54%, transparent), transparent), radial-gradient(closest-side, color-mix(in oklab, var(--ai-hue) 50%, transparent), transparent), radial-gradient(closest-side, color-mix(in oklab, var(--ai-hue) 58%, transparent), transparent)",
+          "background-size": "52% 52%, 27% 32%, 21% 53%",
+          "background-position": "40% -18%, 13% -7%, -2% 76%",
+          "opacity": "0.78",
+          "animation": "ai-pulse-a 5200ms ease-in-out infinite alternate"
+        },
+        ".ai-pulse::after": {
+          "background-image": "radial-gradient(closest-side, color-mix(in oklab, var(--ai-hue) 60%, transparent), transparent), radial-gradient(closest-side, color-mix(in oklab, var(--ai-hue) 46%, transparent), transparent), radial-gradient(closest-side, color-mix(in oklab, var(--ai-hue) 64%, transparent), transparent)",
+          "background-size": "49% 29%, 25% 43%, 38% 37%",
+          "background-position": "69% 114%, 100% 31%, 20% 111%",
+          "box-shadow": "inset 0 0 0 1px color-mix(in oklab, var(--ai-hue) 34%, transparent)",
+          "opacity": "0.75",
+          "animation": "ai-pulse-b 7100ms ease-in-out infinite alternate"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".toast-nudge": {
+            "animation": "none"
+          },
+          ".ai-pulse::before, .ai-pulse::after": {
+            "animation": "none"
+          },
+          ".vf-drift, .vf-shimmer": {
+            "animation": "none"
+          }
+        },
+        "@keyframes vf-drift": {
+          "from": {
+            "transform": "translate3d(-14px, 6px, 0) scale(1.04)"
+          },
+          "to": {
+            "transform": "translate3d(16px, -8px, 0) scale(1.09)"
+          }
+        },
+        "@keyframes vf-shimmer": {
+          "0%, 100%": {
+            "opacity": "0.45"
+          },
+          "50%": {
+            "opacity": "0.7"
+          }
+        },
+        ".vf-drift": {
+          "animation": "vf-drift 38s ease-in-out infinite alternate",
+          "transform-origin": "50% 50%",
+          "transform-box": "view-box"
+        },
+        ".vf-shimmer": {
+          "animation": "vf-shimmer 11s ease-in-out infinite"
+        },
+        ".ai-mark": {
+          "background-image": "linear-gradient(90deg, color-mix(in oklab, var(--accent) 82%, transparent), color-mix(in oklab, var(--accent) 62%, transparent))",
+          "background-repeat": "no-repeat",
+          "background-size": "100% 100%",
+          "box-decoration-break": "clone",
+          "-webkit-box-decoration-break": "clone"
+        }
+      },
+      "docs": "sc1m tokens installed. App-level setup: (1) dark mode toggles via the .dark class on <html> (next-themes compatible); (2) wrap app content in a container with `isolation: isolate` so Base UI portalled popups stack above it; (3) keep `position: relative` on <body> for correct Base UI backdrop behavior in iOS Safari 26+; (4) additional brands scope tokens under [data-brand=\"\u2026\"] on <html>."
+    },
+    {
+      "name": "cn",
+      "type": "registry:lib",
+      "title": "cn Utility",
+      "description": "Class-name combiner: clsx + tailwind-merge.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "src/lib/cn.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Accordion component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/accordion/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "ai-summary",
+      "type": "registry:ui",
+      "title": "AI Summary",
+      "description": "AI Summary: the banner that marks AI-authored copy \u2014 one sentence of plain language on an animated vector field, in one of four palettes. The painting is a gradient plus colour masses under a fractal-noise warp, so a palette is a few hex values and three durations. No runtime dependencies.",
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/ai-summary/ai-summary.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Alert Dialog component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/alert-dialog/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "Autocomplete component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/autocomplete/autocomplete.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Avatar component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/avatar/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Badge: a status chip carried by fill alone \u2014 a tint of the tone at 12\u201315%, label inked toward the hue, and a sharp radius from --brand-radius-sm. Five tones (neutral, info, success, warning, danger) plus an optional icon slot. No runtime dependencies.",
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/badge/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Banner: a borderless status note \u2014 a flat wash of the tone at 7\u20138%, a tone-coloured icon, and body copy inked toward the hue instead of muted grey. Four tones (info, warning, success, danger), each driven by three custom properties. No runtime dependencies.",
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/banner/banner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Button component built on Base UI, styled with sc1m tokens.",
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/button/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkbox component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/checkbox/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-group",
+      "type": "registry:ui",
+      "title": "Checkbox Group",
+      "description": "Checkbox Group component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/checkbox-group/checkbox-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Collapsible component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/collapsible/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Combobox component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/combobox/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Context Menu component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/context-menu/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Dialog component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/dialog/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Drawer component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/drawer/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Field component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/field/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fieldset",
+      "type": "registry:ui",
+      "title": "Fieldset",
+      "description": "Fieldset component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/fieldset/fieldset.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form",
+      "description": "Form component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/form/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Input component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/input/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "Menu component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/menu/menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "Menubar component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/menubar/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "meter",
+      "type": "registry:ui",
+      "title": "Meter",
+      "description": "Meter component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/meter/meter.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "Navigation Menu component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/navigation-menu/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "title": "Number Field",
+      "description": "Number Field component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/number-field/number-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "otp-field",
+      "type": "registry:ui",
+      "title": "Otp Field",
+      "description": "Otp Field component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/otp-field/otp-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Popover component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/popover/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "preview-card",
+      "type": "registry:ui",
+      "title": "Preview Card",
+      "description": "Preview Card component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/preview-card/preview-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Progress component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/progress/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "Radio component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/radio/radio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Radio Group component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/radio-group/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Scroll Area component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/scroll-area/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Select component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/select/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Separator component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/separator/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Slider component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/slider/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Switch component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/switch/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tabs component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tabs/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Toast component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/toast/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Toggle component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/toggle/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "Toggle Group component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/toggle-group/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:ui",
+      "title": "Toolbar",
+      "description": "Toolbar component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/toolbar/toolbar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Tooltip component built on Base UI, styled with sc1m tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://sc1m.vercel.app/r/tokens.json",
+        "https://sc1m.vercel.app/r/cn.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tooltip/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

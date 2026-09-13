@@ -1,0 +1,1222 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "plotcn",
+  "homepage": "https://plotcn.vercel.app",
+  "items": [
+    {
+      "name": "chart-container",
+      "type": "registry:ui",
+      "title": "Chart Container Primitive",
+      "description": "Shared responsive container, ResizeObserver, and CSS token bridge.",
+      "dependencies": [],
+      "registryDependencies": [
+        "chart-tokens"
+      ],
+      "files": [
+        {
+          "path": "registry/shared/chart-container.tsx",
+          "type": "registry:ui",
+          "target": "components/charts/shared/chart-container.tsx"
+        }
+      ],
+      "categories": [
+        "primitives"
+      ]
+    },
+    {
+      "name": "chart-state",
+      "type": "registry:ui",
+      "title": "Chart State Fallbacks",
+      "description": "Truthful loading, empty, and error fallback states with glassmorphic styling.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "chart-tokens"
+      ],
+      "files": [
+        {
+          "path": "registry/shared/chart-state.tsx",
+          "type": "registry:ui",
+          "target": "components/charts/shared/chart-state.tsx"
+        }
+      ],
+      "categories": [
+        "primitives"
+      ]
+    },
+    {
+      "name": "chart-tooltip",
+      "type": "registry:ui",
+      "title": "Chart Tooltip Primitive",
+      "description": "High-contrast developer tooltip with tabular numbers and semantic token mapping.",
+      "dependencies": [],
+      "registryDependencies": [
+        "chart-tokens"
+      ],
+      "files": [
+        {
+          "path": "registry/shared/chart-tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/charts/shared/chart-tooltip.tsx"
+        }
+      ],
+      "categories": [
+        "primitives"
+      ]
+    },
+    {
+      "name": "chart-tokens",
+      "type": "registry:style",
+      "title": "Plotcn Chart Tokens",
+      "description": "Canonical chart surface, interaction, state, tooltip, and palette tokens.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/shared/chart-tokens.css",
+          "type": "registry:style",
+          "target": "components/charts/shared/chart-tokens.css"
+        }
+      ],
+      "categories": [
+        "primitives",
+        "theming"
+      ]
+    },
+    {
+      "name": "chart-legend",
+      "type": "registry:ui",
+      "title": "Chart Legend Primitive",
+      "description": "Series-aware line, area, bar, and point legend treatment.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/shared/chart-legend.tsx",
+          "type": "registry:ui",
+          "target": "components/charts/shared/chart-legend.tsx"
+        }
+      ],
+      "categories": [
+        "primitives"
+      ]
+    },
+    {
+      "name": "chart-accessibility",
+      "type": "registry:ui",
+      "title": "Accessible Chart Shell",
+      "description": "Screen-reader descriptions, live regions, and accessible data disclosure tables.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/shared/chart-accessibility.tsx",
+          "type": "registry:ui",
+          "target": "components/charts/shared/chart-accessibility.tsx"
+        }
+      ],
+      "categories": [
+        "primitives",
+        "accessibility"
+      ]
+    },
+    {
+      "name": "chart-theme",
+      "type": "registry:ui",
+      "title": "Chart Theme Adapter",
+      "description": "Semantic CSS variable token extraction and palette resolution.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/shared/chart-theme.ts",
+          "type": "registry:ui",
+          "target": "components/charts/shared/chart-theme.ts"
+        }
+      ],
+      "categories": [
+        "primitives",
+        "theming"
+      ]
+    },
+    {
+      "name": "line-signal",
+      "type": "registry:component",
+      "title": "Signal Line",
+      "description": "Focused single-series time-series or ordered categorical line visualization with restrained active-point emphasis.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion",
+        "chart-legend"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-signal.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-signal.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-pulse",
+      "type": "registry:component",
+      "title": "Pulse Line",
+      "description": "High-frequency operational trend visualization for rapidly changing metrics, rolling windows, and live telemetry surfaces.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion",
+        "chart-legend"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-pulse.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-pulse.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-twin-compare",
+      "type": "registry:component",
+      "title": "Twinline Compare",
+      "description": "Comparative time-series line visualization contrasting a primary series against a reference series with synchronized inspection and truthful delta context.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion",
+        "chart-legend"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-twin-compare.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-twin-compare.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-range",
+      "type": "registry:component",
+      "title": "Range Line",
+      "description": "Visualizes a central trend alongside a lower-to-upper interval envelope for forecasts, confidence intervals, and operational tolerance bands.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-range.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-range.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-step-signal",
+      "type": "registry:component",
+      "title": "Step Signal",
+      "description": "Stepped visualization for discrete changes that remain in effect until the next observation, communicating quotas, pricing plans, and configuration states.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-step-signal.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-step-signal.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-milestones",
+      "type": "registry:component",
+      "title": "Milestone Line",
+      "description": "Time-series trend with sparse event annotations and milestone pins for releases, incidents, launches, and policy changes.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-milestones.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-milestones.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-threshold",
+      "type": "registry:component",
+      "title": "Threshold Line",
+      "description": "Quantitative time-series trend evaluated against horizontal reference boundaries and bounded operating regions.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-threshold.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-threshold.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-focus",
+      "type": "registry:component",
+      "title": "Focus Line",
+      "description": "An interaction-first time-series line optimized for precise keyboard focus, pointer/touch scrubbing, crosshair inspection, and persistent locked tooltips.",
+      "dependencies": [
+        "recharts",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-focus.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-focus.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-multi-signal",
+      "type": "registry:component",
+      "title": "Multi-Signal Line",
+      "description": "Multi-series time-series visualization with deterministic series identity, shared nearest-X inspection, and responsive interactive legend controls.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-multi-signal.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-multi-signal.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "line-forecast",
+      "type": "registry:component",
+      "title": "Forecast Line",
+      "description": "Observed-versus-forecast time-series visualization with explicit prediction semantics, non-color line encoding, and optional uncertainty treatment.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-forecast.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-forecast.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "line"
+      ]
+    },
+    {
+      "name": "area-prism",
+      "type": "registry:component",
+      "title": "Prism Area",
+      "description": "Single-series magnitude area chart with restrained semantic fill, explicit baseline semantics, and Plotcn shared inspection.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-prism.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-prism.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "area"
+      ]
+    },
+    {
+      "name": "area-stack-flow",
+      "type": "registry:component",
+      "title": "Stack Flow Area",
+      "description": "Additive multi-series stacked area chart with deterministic stack identity, truthful missing-value semantics, and contribution inspection.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-stack-flow.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-stack-flow.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "area"
+      ]
+    },
+    {
+      "name": "area-percent-stream",
+      "type": "registry:component",
+      "title": "Percent Stream Area",
+      "description": "100% normalized stacked area chart for tracking how each contributor's share of the visible whole evolves over an ordered domain.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-percent-stream.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-percent-stream.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "area"
+      ]
+    },
+    {
+      "name": "area-range",
+      "type": "registry:component",
+      "title": "Range Area",
+      "description": "Bounded area visualization for showing a lower/upper envelope across an ordered domain, with optional central trend, truthful interval semantics, and explicit missing-bound behavior.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-range.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-range.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "area"
+      ]
+    },
+    {
+      "name": "area-comparison",
+      "type": "registry:component",
+      "title": "Comparison Area",
+      "description": "Two-series area visualization for comparing a primary magnitude against a reference magnitude across an ordered domain, using restrained overlap, deterministic semantic identity, and shared Y-scale.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-comparison.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-comparison.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "area"
+      ]
+    },
+    {
+      "name": "area-gradient-depth",
+      "type": "registry:component",
+      "title": "Gradient Depth Area",
+      "description": "Single-series area visualization with a semantic fade-to-surface fill that adds restrained depth without encoding an additional variable.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-gradient-depth.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-gradient-depth.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "area"
+      ]
+    },
+    {
+      "name": "area-baseline",
+      "type": "registry:component",
+      "title": "Baseline Area",
+      "description": "Single-series area visualization showing values above and below an explicit quantitative reference baseline with truthful deviation semantics.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-baseline.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-baseline.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "area"
+      ]
+    },
+    {
+      "name": "area-interactive",
+      "type": "registry:component",
+      "title": "Interactive Area",
+      "description": "Inspection-first area visualization with nearest-X selection, observation-aligned crosshair, keyboard navigation, and a persistent lockable tooltip.",
+      "dependencies": [
+        "recharts",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-interactive.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-interactive.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "area"
+      ]
+    },
+    {
+      "name": "bar-signal",
+      "type": "registry:component",
+      "title": "Signal Bars",
+      "description": "Canonical zero-anchored bars for discrete categorical comparison with stable ordering, grouped series, and category-centric inspection.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-signal.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-signal.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "bar-group-compare",
+      "type": "registry:component",
+      "title": "Group Compare Bars",
+      "description": "Side-by-side peer measures within stable categorical groups, with shared quantitative scaling, deterministic series identity, and category-centric inspection.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-group-compare.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-group-compare.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "bar-stack-ledger",
+      "type": "registry:component",
+      "title": "Stack Ledger Bars",
+      "description": "Additive stacked bars for multi-series categorical composition with stable contributor identity, truthful totals, and category-centric inspection.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-stack-ledger.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-stack-ledger.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "bar-percent-stack",
+      "type": "registry:component",
+      "title": "Percent Stack Bars",
+      "description": "100% normalized stacked bars for comparing categorical composition while preserving raw contributor values, truthful zero/missing semantics, and stable stack identity.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-percent-stack.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-percent-stack.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "bar-diverging",
+      "type": "registry:component",
+      "title": "Diverging Bars",
+      "description": "Signed categorical comparison around an explicit neutral reference, with truthful deviation geometry, symmetric scaling, touch-safe inspection, and neutral above/below semantics.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-diverging.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-diverging.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "bar-bullet",
+      "type": "registry:component",
+      "title": "Bullet Bars",
+      "description": "Compact actual-versus-target bars for operational scorecards, with per-category target markers, truthful delta semantics, and responsive row-based inspection.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-bullet.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-bullet.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "bar-variance",
+      "type": "registry:component",
+      "title": "Variance Bars",
+      "description": "Actual-versus-plan delta bars centered on a truthful zero-variance baseline, with neutral signed semantics and auditable source values.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-variance.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-variance.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "bar-interval",
+      "type": "registry:component",
+      "title": "Interval Bars",
+      "description": "Floating range bars with explicit start and end bounds along a shared quantitative or temporal domain, truthful zero-width markers, and container-clamped tooltips.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-interval.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-interval.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "bar-interactive",
+      "type": "registry:component",
+      "title": "Interactive Bars",
+      "description": "Category-first bar inspection with a responsive band cursor, persistent touch locking, single-tab keyboard navigation, and controlled multi-series tooltip readout.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-interactive.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-interactive.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts",
+        "bar"
+      ]
+    },
+    {
+      "name": "line-basic",
+      "type": "registry:component",
+      "title": "Basic Line Chart",
+      "description": "Approachable Cartesian line chart built with Recharts and theme tokens.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-state",
+        "@plotcn/chart-motion",
+        "@plotcn/chart-tooltip",
+        "chart-legend"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-basic.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-basic.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts"
+      ]
+    },
+    {
+      "name": "line-multiple",
+      "type": "registry:component",
+      "title": "Multi-Series Line Chart",
+      "description": "Multi-series line chart comparing current vs previous periods.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-state",
+        "@plotcn/chart-motion",
+        "chart-legend"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/line-multiple.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/line-multiple.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts"
+      ]
+    },
+    {
+      "name": "area-basic",
+      "type": "registry:component",
+      "title": "Basic Area Chart",
+      "description": "Gradient area chart with smooth monotone interpolation.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-state",
+        "@plotcn/chart-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/area-basic.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/area-basic.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts"
+      ]
+    },
+    {
+      "name": "bar-basic",
+      "type": "registry:component",
+      "title": "Basic Bar Chart",
+      "description": "Categorical vertical bar chart with rounded caps and responsive tooltips.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-motion",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-state",
+        "chart-legend"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/bar-basic.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/bar-basic.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts"
+      ]
+    },
+    {
+      "name": "d3-animated-line",
+      "type": "registry:component",
+      "title": "D3 Animated Line",
+      "description": "Continuous scales, monotone curves, and data points computed with D3 and rendered via React SVG.",
+      "dependencies": [
+        "d3-scale",
+        "d3-shape",
+        "d3-array"
+      ],
+      "files": [
+        {
+          "path": "registry/d3/d3-animated-line.tsx",
+          "type": "registry:component",
+          "target": "components/charts/d3/d3-animated-line.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "d3"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-motion",
+        "@plotcn/chart-state"
+      ]
+    },
+    {
+      "name": "d3-force-network",
+      "type": "registry:component",
+      "title": "D3 Force-Directed Network",
+      "description": "Physics-based node simulation with link springs and repulsion forces.",
+      "dependencies": [
+        "d3-force"
+      ],
+      "files": [
+        {
+          "path": "registry/d3/d3-force-network.tsx",
+          "type": "registry:component",
+          "target": "components/charts/d3/d3-force-network.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "d3"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-motion",
+        "@plotcn/chart-state"
+      ]
+    },
+    {
+      "name": "google-chart-loader",
+      "type": "registry:ui",
+      "title": "Google Charts Singleton Loader",
+      "description": "Resilient loader with promise deduplication and on-demand package loading.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/google/google-chart-loader.ts",
+          "type": "registry:ui",
+          "target": "components/charts/google/google-chart-loader.ts"
+        }
+      ],
+      "categories": [
+        "google",
+        "primitives"
+      ]
+    },
+    {
+      "name": "google-chart-container",
+      "type": "registry:ui",
+      "title": "Google Chart Container",
+      "description": "Lifecycle wrapper managing ResizeObserver and fallback states for Google Charts.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@plotcn/google-chart-loader",
+        "@plotcn/chart-state"
+      ],
+      "files": [
+        {
+          "path": "registry/google/google-chart-container.tsx",
+          "type": "registry:ui",
+          "target": "components/charts/google/google-chart-container.tsx"
+        }
+      ],
+      "categories": [
+        "google",
+        "primitives"
+      ]
+    },
+    {
+      "name": "google-geochart",
+      "type": "registry:component",
+      "title": "Google GeoChart Choropleth",
+      "description": "World, country, and regional statistical choropleths via Google Charts hosted geochart package.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@plotcn/google-chart-container",
+        "@plotcn/google-chart-loader"
+      ],
+      "files": [
+        {
+          "path": "registry/google/google-geochart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/google/google-geochart.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "google"
+      ]
+    },
+    {
+      "name": "google-line",
+      "type": "registry:component",
+      "title": "Google Line Chart",
+      "description": "Smooth 2D Cartesian line chart rendered with Google Charts corechart package.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@plotcn/google-chart-container",
+        "@plotcn/google-chart-loader"
+      ],
+      "files": [
+        {
+          "path": "registry/google/google-line.tsx",
+          "type": "registry:component",
+          "target": "components/charts/google/google-line.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "google"
+      ]
+    },
+    {
+      "name": "google-bar",
+      "type": "registry:component",
+      "title": "Google Bar Chart",
+      "description": "Categorical column chart rendered with Google Charts corechart package.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@plotcn/google-chart-container",
+        "@plotcn/google-chart-loader"
+      ],
+      "files": [
+        {
+          "path": "registry/google/google-bar.tsx",
+          "type": "registry:component",
+          "target": "components/charts/google/google-bar.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "google"
+      ]
+    },
+    {
+      "name": "chart-motion",
+      "type": "registry:hook",
+      "title": "Reduced motion preference",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/shared/use-chart-reduced-motion.ts",
+          "type": "registry:hook",
+          "target": "components/charts/shared/use-chart-reduced-motion.ts"
+        }
+      ],
+      "categories": [
+        "primitives"
+      ]
+    },
+    {
+      "name": "donut-basic",
+      "type": "registry:component",
+      "title": "Basic Donut Chart",
+      "description": "Proportional breakdown with optional legend and pointer tooltips.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@plotcn/chart-container",
+        "@plotcn/chart-motion",
+        "@plotcn/chart-tooltip",
+        "@plotcn/chart-state",
+        "chart-legend"
+      ],
+      "files": [
+        {
+          "path": "registry/recharts/donut-basic.tsx",
+          "type": "registry:component",
+          "target": "components/charts/recharts/donut-basic.tsx"
+        }
+      ],
+      "categories": [
+        "charts",
+        "recharts"
+      ]
+    },
+    {
+      "name": "block-frame",
+      "type": "registry:component",
+      "title": "Dashboard frame",
+      "description": "Local panel isolation, metrics and honest dashboard states.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/block-frame.tsx",
+          "type": "registry:component",
+          "target": "components/charts/blocks/block-frame.tsx"
+        }
+      ]
+    },
+    {
+      "name": "revenue-dashboard",
+      "type": "registry:block",
+      "title": "Revenue Dashboard",
+      "description": "Revenue trend, channel comparison and contribution with real period and channel filters.",
+      "registryDependencies": [
+        "@plotcn/line-basic",
+        "@plotcn/bar-basic",
+        "@plotcn/donut-basic",
+        "@plotcn/block-frame",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/revenue-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/charts/blocks/revenue-dashboard.tsx"
+        },
+        {
+          "path": "registry/blocks/revenue-dashboard-data.ts",
+          "type": "registry:component",
+          "target": "components/charts/blocks/revenue-dashboard-data.ts"
+        }
+      ]
+    }
+  ]
+}
