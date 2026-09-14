@@ -180,68 +180,12 @@
       "type": "registry:ui",
       "title": "Cursor Trail Reveal Demo",
       "description": "Full-page contact layout with cursor trail image reveals on desktop.",
-      "registryDependencies": [
-        "@soralabs/cursor-trail-reveal",
-        "@soralabs/text-reveal-block",
-        "@soralabs/text-scramble"
-      ],
+      "registryDependencies": ["@soralabs/cursor-trail-reveal"],
       "files": [
         {
           "path": "registry/demo/primitives/effects/cursor-trail-reveal/index.tsx",
           "type": "registry:ui",
           "target": "components/sora-ui/demo/effects/cursor-trail-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "demo-custom-cursor",
-      "type": "registry:ui",
-      "title": "Custom Cursor Demo",
-      "description": "Custom cursor demo with Sora icons and shape variants.",
-      "registryDependencies": ["@soralabs/custom-cursor"],
-      "files": [
-        {
-          "path": "registry/demo/primitives/effects/custom-cursor/index.tsx",
-          "type": "registry:ui",
-          "target": "components/sora-ui/demo/effects/custom-cursor.tsx"
-        }
-      ],
-      "meta": {
-        "demoProps": {
-          "CustomCursorExample": {
-            "color": {
-              "value": "#ff4c24"
-            },
-            "followStiffness": {
-              "value": 150,
-              "min": 50,
-              "max": 300,
-              "step": 10
-            },
-            "followDamping": {
-              "value": 22,
-              "min": 10,
-              "max": 40,
-              "step": 1
-            },
-            "className": {
-              "value": "w-full"
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "demo-dock-nav",
-      "type": "registry:ui",
-      "title": "Dock Nav Demo",
-      "description": "Apple-style dock navigation demo with app icons.",
-      "registryDependencies": ["@soralabs/dock-nav"],
-      "files": [
-        {
-          "path": "registry/demo/primitives/effects/dock-nav/index.tsx",
-          "type": "registry:ui",
-          "target": "components/sora-ui/demo/effects/dock-nav.tsx"
         }
       ]
     },
@@ -326,20 +270,6 @@
           "path": "registry/demo/primitives/effects/magnetic-cards/index.tsx",
           "type": "registry:ui",
           "target": "components/sora-ui/demo/effects/magnetic-cards.tsx"
-        }
-      ]
-    },
-    {
-      "name": "demo-pixel-background",
-      "type": "registry:ui",
-      "title": "Pixel Background Demo",
-      "description": "A hoverable panel revealing a grid of pixels staggered by the selected pattern.",
-      "registryDependencies": ["@soralabs/pixel-background"],
-      "files": [
-        {
-          "path": "registry/demo/primitives/effects/pixel-background/index.tsx",
-          "type": "registry:ui",
-          "target": "components/sora-ui/demo/effects/pixel-background.tsx"
         }
       ]
     },
@@ -1896,45 +1826,12 @@
       "title": "Cursor Trail Reveal",
       "description": "Desktop cursor trail that reveals staggered image strips with clip-path wipes as the pointer moves.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": [
-        "utils",
-        "@soralabs/hooks-use-prefers-reduced-motion"
-      ],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/primitives/effects/cursor-trail-reveal/index.tsx",
           "type": "registry:ui",
           "target": "components/sora-ui/effects/cursor-trail-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "custom-cursor",
-      "type": "registry:ui",
-      "title": "Custom Cursor",
-      "description": "A smooth custom cursor that morphs when hovering interactive targets, powered by Motion.",
-      "dependencies": ["motion", "class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [
-        {
-          "path": "registry/primitives/effects/custom-cursor/index.tsx",
-          "type": "registry:ui",
-          "target": "components/sora-ui/effects/custom-cursor.tsx"
-        }
-      ]
-    },
-    {
-      "name": "dock-nav",
-      "type": "registry:ui",
-      "title": "Dock Nav",
-      "description": "An Apple-style dock navigation bar with Motion-powered expanding icons and tooltips on hover.",
-      "dependencies": ["motion", "class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [
-        {
-          "path": "registry/primitives/effects/dock-nav/index.tsx",
-          "type": "registry:ui",
-          "target": "components/sora-ui/effects/dock-nav.tsx"
         }
       ]
     },
@@ -1986,7 +1883,7 @@
       "title": "Infinite Scrolling Images",
       "description": "An infinite card stack that advances with wheel, touch, or keyboard input using spring-based Motion transitions.",
       "dependencies": ["motion"],
-      "registryDependencies": ["@soralabs/hooks-use-prefers-reduced-motion"],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/primitives/effects/infinite-scrolling-images/index.tsx",
@@ -2064,70 +1961,6 @@
       }
     },
     {
-      "name": "pixel-background",
-      "type": "registry:ui",
-      "title": "Pixel Background",
-      "description": "A canvas-based pixel grid that animates in on hover, with configurable reveal patterns.",
-      "registryDependencies": [
-        "utils",
-        "@soralabs/hooks-use-prefers-reduced-motion"
-      ],
-      "files": [
-        {
-          "path": "registry/primitives/effects/pixel-background/index.tsx",
-          "type": "registry:ui",
-          "target": "components/sora-ui/effects/pixel-background.tsx"
-        }
-      ],
-      "meta": {
-        "demoProps": {
-          "PixelBackground": {
-            "colors": {
-              "value": "#f8fafc,#f1f5f9,#cbd5e1",
-              "options": {
-                "White": "#f8fafc,#f1f5f9,#cbd5e1",
-                "Blue": "#e0f2fe,#7dd3fc,#0ea5e9",
-                "Pink": "#fecdd3,#fda4af,#e11d48"
-              }
-            },
-            "pattern": {
-              "value": "center",
-              "options": {
-                "Center": "center",
-                "Cursor": "cursor",
-                "Spiral": "spiral",
-                "Edges": "edges",
-                "Random": "random"
-              }
-            },
-            "gap": {
-              "value": 5,
-              "min": 2,
-              "max": 20,
-              "step": 1
-            },
-            "speed": {
-              "value": 35,
-              "min": 0,
-              "max": 100,
-              "step": 1
-            },
-            "pixelOpacity": {
-              "value": 1,
-              "min": 0.1,
-              "max": 1,
-              "step": 0.05
-            }
-          }
-        },
-        "inspiration": {
-          "type": "inspired",
-          "label": "React Bits",
-          "url": "https://www.reactbits.dev/components/pixel-card"
-        }
-      }
-    },
-    {
       "name": "pixel-image-loader",
       "type": "registry:ui",
       "title": "Pixel Image Loader",
@@ -2184,56 +2017,6 @@
       }
     },
     {
-      "name": "pixelated-image-reveal",
-      "type": "registry:ui",
-      "title": "Pixelated Image Reveal",
-      "description": "An image card that reveals a second image through a randomized pixel grid on hover, powered by Motion.",
-      "dependencies": ["motion", "class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [
-        {
-          "path": "registry/primitives/effects/pixelated-image-reveal/index.tsx",
-          "type": "registry:ui",
-          "target": "components/sora-ui/effects/pixelated-image-reveal.tsx"
-        }
-      ],
-      "meta": {
-        "demoProps": {
-          "PixelatedImageReveal": {
-            "alt": {
-              "value": "Pixelated image reveal demo"
-            },
-            "pixelColor": {
-              "value": "#ff4c24"
-            },
-            "gridSize": {
-              "value": 7,
-              "min": 3,
-              "max": 12,
-              "step": 1
-            },
-            "stepDuration": {
-              "value": 0.3,
-              "min": 0.1,
-              "max": 1,
-              "step": 0.05
-            },
-            "aspect": {
-              "value": "square",
-              "options": {
-                "Square": "square",
-                "Video": "video",
-                "Auto": "auto"
-              }
-            },
-            "className": {
-              "value": "mx-auto w-72"
-            }
-          }
-        }
-      }
-    },
-    {
       "name": "progressive-blur",
       "type": "registry:ui",
       "title": "Progressive Blur",
@@ -2271,10 +2054,7 @@
       "title": "Scroll Chapters",
       "description": "A draggable, chaptered progress-bar nav — two-way cursor/scroll sync, ghost-cursor hover preview, snap-to-step seeking, and a per-chapter panel that can opt in or out of showing.",
       "dependencies": ["gsap", "@gsap/react"],
-      "registryDependencies": [
-        "@soralabs/hooks-use-prefers-reduced-motion",
-        "@soralabs/lib-scroll-trigger-utils"
-      ],
+      "registryDependencies": ["@soralabs/lib-scroll-trigger-utils"],
       "files": [
         {
           "path": "registry/primitives/effects/scroll-chapters/index.tsx",
@@ -2306,11 +2086,7 @@
       "title": "Scroll Gallery",
       "description": "A full-viewport sticky scroll slider with strip-mask image transitions and animated title swaps, driven by GSAP ScrollTrigger.",
       "dependencies": ["gsap", "@gsap/react"],
-      "registryDependencies": [
-        "utils",
-        "@soralabs/hooks-use-prefers-reduced-motion",
-        "@soralabs/lib-scroll-trigger-utils"
-      ],
+      "registryDependencies": ["utils", "@soralabs/lib-scroll-trigger-utils"],
       "files": [
         {
           "path": "registry/primitives/effects/scroll-gallery/index.tsx",
@@ -2417,10 +2193,7 @@
       "title": "Sticky Scroll Cards",
       "description": "Scroll-pinned hero where a front card flips to reveal a stack of back cards, dismissed one at a time as you keep scrolling.",
       "dependencies": ["gsap", "@gsap/react"],
-      "registryDependencies": [
-        "@soralabs/hooks-use-prefers-reduced-motion",
-        "@soralabs/lib-scroll-trigger-utils"
-      ],
+      "registryDependencies": ["@soralabs/lib-scroll-trigger-utils"],
       "files": [
         {
           "path": "registry/primitives/effects/sticky-scroll-cards/index.tsx",
@@ -2901,10 +2674,7 @@
       "title": "Text Reveal Box",
       "description": "Scroll-pinned word-by-word text reveal with a highlight flash, powered by GSAP ScrollTrigger.",
       "dependencies": ["gsap", "@gsap/react"],
-      "registryDependencies": [
-        "@soralabs/hooks-use-prefers-reduced-motion",
-        "@soralabs/lib-scroll-trigger-utils"
-      ],
+      "registryDependencies": ["@soralabs/lib-scroll-trigger-utils"],
       "files": [
         {
           "path": "registry/primitives/texts/text-reveal-box/index.tsx",
@@ -3083,71 +2853,6 @@
             },
             "triggerOnHover": {
               "value": false
-            }
-          }
-        }
-      }
-    },
-    {
-      "name": "text-underline",
-      "type": "registry:ui",
-      "title": "Text Underline",
-      "description": "A CSS-only link underline that slides through on hover.",
-      "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [
-        {
-          "path": "registry/primitives/texts/text-underline/index.tsx",
-          "type": "registry:ui",
-          "target": "components/sora-ui/texts/text-underline.tsx"
-        }
-      ],
-      "meta": {
-        "demoProps": {
-          "TextUnderline": {
-            "label": {
-              "value": "Performance Collection"
-            },
-            "underlineColor": {
-              "value": "brand",
-              "options": {
-                "Current": "currentColor",
-                "Brand": "brand",
-                "Brand Muted": "brand-muted",
-                "Gray": "gray"
-              }
-            },
-            "underlineHeight": {
-              "value": "thin",
-              "options": {
-                "Thin": "thin",
-                "Medium": "medium",
-                "Thick": "thick"
-              }
-            },
-            "duration": {
-              "value": "normal",
-              "options": {
-                "Fast": "fast",
-                "Normal": "normal",
-                "Slow": "slow"
-              }
-            },
-            "initialScale": {
-              "value": "0",
-              "options": {
-                "0%": "0",
-                "25%": "25",
-                "50%": "50",
-                "75%": "75"
-              }
-            },
-            "anchor": {
-              "value": "left",
-              "options": {
-                "Left (slide through)": "left",
-                "Center (expand)": "center"
-              }
             }
           }
         }
