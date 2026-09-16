@@ -2732,10 +2732,13 @@
         "lenis",
         "@hugeicons/react",
         "@hugeicons/core-free-icons",
-        "next"
+        "next",
+        "clsx",
+        "tailwind-merge"
       ],
       "registryDependencies": [
-        "craftui-base"
+        "craftui-base",
+        "utils"
       ],
       "files": [
         {
@@ -3021,6 +3024,81 @@
       ]
     },
     {
+      "name": "akta-benchmarks-01-default",
+      "type": "registry:block",
+      "title": "Akta Benchmarks 01 - Akta Benchmarks 01",
+      "description": "Four benchmark readouts on the 1440 grid, separated by hairline rules and corner notches rather than cards. F1 is an isometric bar city, accuracy a hundred-unit comb, coverage a polar ring plot, and cost a stack of slabs whose thickness is price. Each cell leads with the brand figure in mono display type, and blue is spent only on the one row the section is about.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "craftui-base",
+        "utils"
+      ],
+      "css": {
+        "@property --akta-notch-arm": {
+          "syntax": "\"<length>\"",
+          "inherits": "true",
+          "initial-value": "12px"
+        },
+        "@property --akta-notch-inset": {
+          "syntax": "\"<length>\"",
+          "inherits": "true",
+          "initial-value": "6px"
+        },
+        "@layer components": {
+          ".akta-notch": {
+            "position": "relative",
+            "--akta-notch-color": "oklch(0.488 0.243 264.376)",
+            "--akta-notch-weight": "1.5px",
+            "--akta-notch-rest": "6px"
+          },
+          ".akta-notch::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "calc(var(--akta-notch-inset) * -1)",
+            "border": "var(--akta-notch-weight, 1.5px) solid var(--akta-notch-color, currentColor)",
+            "pointer-events": "none",
+            "--akta-notch-window": "linear-gradient(#000 0 0) no-repeat",
+            "-webkit-mask": "var(--akta-notch-window) top left / var(--akta-notch-arm) var(--akta-notch-arm), var(--akta-notch-window) top right / var(--akta-notch-arm) var(--akta-notch-arm), var(--akta-notch-window) bottom left / var(--akta-notch-arm) var(--akta-notch-arm), var(--akta-notch-window) bottom right / var(--akta-notch-arm) var(--akta-notch-arm)",
+            "mask": "var(--akta-notch-window) top left / var(--akta-notch-arm) var(--akta-notch-arm), var(--akta-notch-window) top right / var(--akta-notch-arm) var(--akta-notch-arm), var(--akta-notch-window) bottom left / var(--akta-notch-arm) var(--akta-notch-arm), var(--akta-notch-window) bottom right / var(--akta-notch-arm) var(--akta-notch-arm)"
+          },
+          ".dark .akta-notch": {
+            "--akta-notch-color": "oklch(0.546 0.245 262.881)"
+          },
+          "@supports (animation-timeline: view())": {
+            "@media (prefers-reduced-motion: no-preference)": {
+              "[data-akta-reveal]": {
+                "animation": "akta-enter 1s linear both",
+                "animation-timeline": "view()",
+                "animation-range": "entry 15% entry 85%"
+              }
+            }
+          }
+        },
+        "@keyframes akta-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(12px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "translateY(0)"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "components/craftui/sections/akta-benchmarks-01/default.tsx",
+          "type": "registry:component",
+          "target": "~/components/craftui/sections/akta-benchmarks-01/default.tsx"
+        }
+      ]
+    },
+    {
       "name": "tool-connector-default",
       "type": "registry:block",
       "title": "Tool Connector - Tool Connector",
@@ -3094,6 +3172,23 @@
       ]
     },
     {
+      "name": "upgrade-modal-default",
+      "type": "registry:block",
+      "title": "Upgrade Modal - Upgrade Modal",
+      "description": "An upsell dialog in its open state on the shadcn Nova preset (Stone, Blue, radius 0). Gradient hero with a square close mark, a title-and-badge row held apart by space-between, three check-tiled feature rows in a fixed lane, and a full-width primary action with a ghost dismiss. Every value on the card reads from one token object. Static — no hooks, no motion, zero JavaScript.",
+      "dependencies": [],
+      "registryDependencies": [
+        "craftui-base"
+      ],
+      "files": [
+        {
+          "path": "components/craftui/designs/upgrade-modal/default.tsx",
+          "type": "registry:component",
+          "target": "~/components/craftui/designs/upgrade-modal/default.tsx"
+        }
+      ]
+    },
+    {
       "name": "stacked-tower-default",
       "type": "registry:block",
       "title": "Stacked Tower - Stacked Tower",
@@ -3107,6 +3202,23 @@
           "path": "components/craftui/designs/stacked-tower/default.tsx",
           "type": "registry:component",
           "target": "~/components/craftui/designs/stacked-tower/default.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rewards-card-default",
+      "type": "registry:block",
+      "title": "Rewards Card - Rewards Card",
+      "description": "An onboarding card on the shadcn Nova preset with a layer-blurred blue haze across the top, three inset-bordered tiles carrying hand-drawn ink illustrations — watering can and coin sprouts, gift box, tapped checklist — centred copy and a soft primary action. Every value reads from one token object shared with the Upgrade Modal. Static — no hooks, no motion, zero JavaScript.",
+      "dependencies": [],
+      "registryDependencies": [
+        "craftui-base"
+      ],
+      "files": [
+        {
+          "path": "components/craftui/designs/rewards-card/default.tsx",
+          "type": "registry:component",
+          "target": "~/components/craftui/designs/rewards-card/default.tsx"
         }
       ]
     },
