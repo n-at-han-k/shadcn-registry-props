@@ -71,11 +71,18 @@
       ],
       "registryDependencies": [
         "https://www.spaceui.one/r/lib-utils.json",
-        "https://www.spaceui.one/r/dialog.json",
-        "https://www.spaceui.one/r/button.json",
-        "https://www.spaceui.one/r/input.json",
-        "https://www.spaceui.one/r/textarea.json",
-        "https://www.spaceui.one/r/slider.json"
+        "https://www.spaceui.one/r/primitives-dialog.json",
+        "https://www.spaceui.one/r/primitives-input.json",
+        "https://www.spaceui.one/r/primitives-textarea.json",
+        "https://www.spaceui.one/r/primitives-slider.json",
+        "https://www.spaceui.one/r/primitives-radio-group.json",
+        "https://www.spaceui.one/r/primitives-scroll-area.json",
+        "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/components-spaceui-button-squircle.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json",
+        "https://www.spaceui.one/r/components-spaceui-status-badge.json",
+        "https://www.spaceui.one/r/hooks-lifecycle-use-confirm-exit.json",
+        "https://www.spaceui.one/r/block-interactive-grid-hero-1.json"
       ],
       "categories": [
         "community-wall",
@@ -113,6 +120,11 @@
           "path": "src/registry/blocks/community-wall/patterns.tsx",
           "type": "registry:block",
           "target": "components/blocks/community-wall/patterns.tsx"
+        },
+        {
+          "path": "src/registry/blocks/community-wall/social-icons.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/community-wall/social-icons.tsx"
         }
       ],
       "createdAt": "2026-09-15",
@@ -124,7 +136,8 @@
       "title": "Dither Carousel Block",
       "description": "3D cylindrical spiral carousel in WebGL2 with curved cards, axial directional blur, and matrix dither pattern.",
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json"
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json"
       ],
       "categories": [
         "block",
@@ -356,6 +369,57 @@
       "updatedAt": "2026-09-14"
     },
     {
+      "name": "block-lens-carousel",
+      "type": "registry:block",
+      "title": "Lens Carousel Block",
+      "description": "Vertical WebGL lens gallery. Scroll-linked image planes from Immersive Lens.",
+      "dependencies": [
+        "motion",
+        "gsap",
+        "three"
+      ],
+      "devDependencies": [
+        "@types/three"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json"
+      ],
+      "categories": [
+        "block",
+        "lens-carousel"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/lens-carousel/index.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/lens-carousel/index.tsx"
+        },
+        {
+          "path": "src/registry/blocks/lens-carousel/lens-carousel.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/lens-carousel/lens-carousel.tsx"
+        },
+        {
+          "path": "src/registry/blocks/lens-carousel/types.ts",
+          "type": "registry:block",
+          "target": "components/blocks/lens-carousel/types.ts"
+        },
+        {
+          "path": "src/registry/blocks/lens-carousel/lens-webgl-layer.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/lens-carousel/lens-webgl-layer.tsx"
+        },
+        {
+          "path": "src/registry/blocks/lens-carousel/vertical-gallery.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/lens-carousel/vertical-gallery.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
       "name": "block-liquid-gooey-carousel",
       "type": "registry:block",
       "title": "Liquid Gooey Carousel Block",
@@ -399,7 +463,8 @@
       "title": "Prism Carousel Block",
       "description": "Continuous image strip rendered to an offscreen texture and sampled through a thick optical glass lens shader with radial refraction and chromatic aberration.",
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json"
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json"
       ],
       "categories": [
         "block",
@@ -536,7 +601,10 @@
       "title": "Blog & Content Stats Block",
       "description": "Content publication metrics including total articles, words written, reader messages, and reading time.",
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json"
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/primitives-frame.json",
+        "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json"
       ],
       "dependencies": [
         "motion",
@@ -560,6 +628,16 @@
           "path": "src/registry/blocks/stats/shared/stat-card.tsx",
           "type": "registry:component",
           "target": "components/blocks/stats/stat-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/mock-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/mock-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/types.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/types.ts"
         }
       ],
       "createdAt": "2026-09-12",
@@ -571,7 +649,11 @@
       "title": "Engagement & Community Activity Block",
       "description": "Comprehensive reader engagement showcase with top articles, interactive emoji reaction counters, category tags, and changelog updates.",
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json"
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/primitives-frame.json",
+        "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json",
+        "https://www.spaceui.one/r/components-spaceui-button-squircle.json"
       ],
       "dependencies": [
         "motion",
@@ -615,6 +697,16 @@
           "path": "src/registry/blocks/stats/shared/changelog-updates-card.tsx",
           "type": "registry:component",
           "target": "components/blocks/stats/changelog-updates-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/mock-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/mock-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/types.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/types.ts"
         }
       ],
       "createdAt": "2026-09-12",
@@ -626,7 +718,10 @@
       "title": "General Stats Metrics Block",
       "description": "Interactive metric overview cards with floating spring emoji decorations and semantic color accents.",
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json"
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/primitives-frame.json",
+        "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json"
       ],
       "dependencies": [
         "motion",
@@ -650,6 +745,16 @@
           "path": "src/registry/blocks/stats/shared/stat-card.tsx",
           "type": "registry:component",
           "target": "components/blocks/stats/stat-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/mock-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/mock-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/types.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/types.ts"
         }
       ],
       "createdAt": "2026-09-12",
@@ -661,7 +766,13 @@
       "title": "GitHub & Open-Source Activity Block",
       "description": "Interactive GitHub contribution activity heatmap graph with metrics for stars, forks, and commits.",
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json"
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/primitives-frame.json",
+        "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/primitives-tooltip.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json",
+        "https://www.spaceui.one/r/components-spaceui-button-squircle.json",
+        "https://www.spaceui.one/r/components-spaceui-github-activity.json"
       ],
       "dependencies": [
         "motion",
@@ -690,6 +801,16 @@
           "path": "src/registry/blocks/stats/shared/contribution-graph-card.tsx",
           "type": "registry:component",
           "target": "components/blocks/stats/contribution-graph-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/mock-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/mock-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/types.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/types.ts"
         }
       ],
       "createdAt": "2026-09-12",
@@ -701,7 +822,10 @@
       "title": "Performance & Lighthouse Block",
       "description": "Lighthouse audit results dashboard featuring mobile & desktop scores with radar chart visuals.",
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json"
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/primitives-frame.json",
+        "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json"
       ],
       "dependencies": [
         "@tabler/icons-react"
@@ -724,6 +848,16 @@
           "path": "src/registry/blocks/stats/shared/lighthouse-score-card.tsx",
           "type": "registry:component",
           "target": "components/blocks/stats/lighthouse-score-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/mock-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/mock-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/types.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/types.ts"
         }
       ],
       "createdAt": "2026-09-12",
@@ -897,7 +1031,9 @@
       ],
       "createdAt": "2026-09-12",
       "updatedAt": "2026-09-12",
-      "registryDependencies": []
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ]
     },
     {
       "name": "components-orb-smooth",
@@ -949,6 +1085,7 @@
       "registryDependencies": [
         "https://www.spaceui.one/r/lib-gpu-runtime.json",
         "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json",
         "https://www.spaceui.one/r/primitives-toast.json"
       ]
     },
@@ -1083,6 +1220,43 @@
       "updatedAt": "2026-09-03"
     },
     {
+      "name": "components-shader-heat-shade",
+      "type": "registry:component",
+      "title": "Heat Shade",
+      "description": "WebGPU fbm heat field with ember and hot tints along a moving boundary.",
+      "dependencies": [
+        "vgpu"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-gpu-runtime.json",
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "shader",
+        "background",
+        "heat"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/shader/heat-shade/index.tsx",
+          "type": "registry:component",
+          "target": "components/shader/heat-shade.tsx"
+        },
+        {
+          "path": "src/registry/components/shader/heat-shade/heat-shade.wgsl.ts",
+          "type": "registry:lib",
+          "target": "components/shader/heat-shade.wgsl.ts"
+        },
+        {
+          "path": "src/registry/components/shader/heat-shade/heat-licks.wgsl.ts",
+          "type": "registry:lib",
+          "target": "components/shader/heat-licks.wgsl.ts"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
       "name": "components-shader-paper-shader",
       "type": "registry:component",
       "title": "Paper Shader",
@@ -1110,7 +1284,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json"
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/primitives-tabs.json"
       ],
       "categories": [
         "component",
@@ -1262,7 +1437,8 @@
       ],
       "registryDependencies": [
         "https://www.spaceui.one/r/lib-utils.json",
-        "https://www.spaceui.one/r/primitives-button.json"
+        "https://www.spaceui.one/r/primitives-button.json",
+        "https://www.spaceui.one/r/hooks-animation-use-auto-height.json"
       ],
       "categories": [
         "component",
@@ -2157,6 +2333,30 @@
       "updatedAt": "2026-09-12"
     },
     {
+      "name": "components-spaceui-frost-blurred",
+      "type": "registry:component",
+      "title": "Frost Blurred",
+      "description": "Stacked, masked backdrop-filter layers that frost content along an edge.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "overlay",
+        "blur"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/frost-blurred/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/frost-blurred.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
       "name": "components-spaceui-github-activity",
       "type": "registry:component",
       "title": "GitHub Activity",
@@ -2170,7 +2370,9 @@
         "https://www.spaceui.one/r/primitives-card.json",
         "https://www.spaceui.one/r/primitives-button.json",
         "https://www.spaceui.one/r/primitives-tooltip.json",
+        "https://www.spaceui.one/r/primitives-scroll-area.json",
         "https://www.spaceui.one/r/components-spaceui-status-badge.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json",
         "https://www.spaceui.one/r/lib-utils.json"
       ],
       "categories": [
@@ -2259,6 +2461,32 @@
       "updatedAt": "2026-08-29"
     },
     {
+      "name": "components-spaceui-item",
+      "type": "registry:component",
+      "title": "Item",
+      "description": "Composable Item primitive with media, content, title, and description slots for lists and rows.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "item",
+        "list"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/item/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/item.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
       "name": "components-spaceui-kanban",
       "type": "registry:component",
       "title": "Kanban",
@@ -2287,81 +2515,30 @@
       "updatedAt": "2026-08-21"
     },
     {
-      "name": "components-spaceui-liquid-metal-avatar",
+      "name": "components-spaceui-liquid-metal-border",
       "type": "registry:component",
-      "title": "Liquid Metal Avatar",
-      "description": "Liquid Metal Avatar component for Space UI.",
-      "dependencies": [
-        "@paper-design/shaders-react",
-        "class-variance-authority"
-      ],
-      "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json",
-        "https://www.spaceui.one/r/primitives-avatar.json"
-      ],
-      "categories": [
-        "liquid-metal-avatar"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/spaceui/liquid-metal-avatar/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-avatar.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "components-spaceui-liquid-metal-button",
-      "type": "registry:component",
-      "title": "Liquid Metal Button",
-      "description": "Liquid Metal Button component for Space UI.",
-      "dependencies": [
-        "@paper-design/shaders-react",
-        "class-variance-authority"
-      ],
-      "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json",
-        "https://www.spaceui.one/r/primitives-button.json"
-      ],
-      "categories": [
-        "liquid-metal-button"
-      ],
-      "files": [
-        {
-          "path": "src/registry/components/spaceui/liquid-metal-button/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-button.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "components-spaceui-liquid-metal-card",
-      "type": "registry:component",
-      "title": "Liquid Metal Card",
-      "description": "Liquid Metal Card component for Space UI.",
+      "title": "Liquid Metal Border",
+      "description": "Liquid metal shader as a border wrap around any registry component.",
       "dependencies": [
         "@paper-design/shaders-react"
       ],
       "registryDependencies": [
-        "https://www.spaceui.one/r/lib-utils.json",
-        "https://www.spaceui.one/r/primitives-card.json"
+        "https://www.spaceui.one/r/lib-utils.json"
       ],
       "categories": [
-        "liquid-metal-card"
+        "component",
+        "shader",
+        "liquid"
       ],
       "files": [
         {
-          "path": "src/registry/components/spaceui/liquid-metal-card/index.tsx",
+          "path": "src/registry/components/spaceui/liquid-metal-border/index.tsx",
           "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-card.tsx"
+          "target": "components/spaceui/liquid-metal-border.tsx"
         }
       ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
     },
     {
       "name": "components-spaceui-morph-icon",
@@ -3896,6 +4073,96 @@
       "updatedAt": "2026-09-03"
     },
     {
+      "name": "demo-c-heat-shade-01",
+      "type": "registry:component",
+      "title": "Heat Shade Licks",
+      "description": "Climbing heat tongues with origin and color controls.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-shader-heat-shade.json"
+      ],
+      "categories": [
+        "shader",
+        "heat"
+      ],
+      "meta": {
+        "demoProps": {
+          "base": {
+            "value": "#2a7bba"
+          },
+          "hot": {
+            "value": "#43c8ff"
+          },
+          "speed": {
+            "value": 1,
+            "min": 0,
+            "max": 3,
+            "step": 0.1
+          },
+          "from": {
+            "value": "bottom",
+            "options": {
+              "Top": "top",
+              "Bottom": "bottom"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/shader/heat-shade/c-heat-shade-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/shader/heat-shade.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
+      "name": "demo-c-heat-shade-02",
+      "type": "registry:component",
+      "title": "Heat Shade Field",
+      "description": "Drifting heat field with origin and color controls.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-shader-heat-shade.json"
+      ],
+      "categories": [
+        "shader",
+        "heat"
+      ],
+      "meta": {
+        "demoProps": {
+          "base": {
+            "value": "#2a7bba"
+          },
+          "hot": {
+            "value": "#43c8ff"
+          },
+          "speed": {
+            "value": 1,
+            "min": 0,
+            "max": 3,
+            "step": 0.1
+          },
+          "from": {
+            "value": "bottom",
+            "options": {
+              "Top": "top",
+              "Bottom": "bottom"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/shader/heat-shade/c-heat-shade-02/index.tsx",
+          "type": "registry:component",
+          "target": "components/shader/heat-shade-licks.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
       "name": "demo-c-paper-shader-01",
       "type": "registry:component",
       "title": "Paper Shader Demo",
@@ -3914,9 +4181,9 @@
           "target": "components/shader/paper-shader.tsx"
         },
         {
-          "path": "src/registry/demo/components/shader/paper-shader/c-paper-shader-01/index.tsx",
+          "path": "src/registry/demo/components/shader/paper-shader/c-paper-shader-01/shader-source.tsx",
           "type": "registry:component",
-          "target": "components/shader/paper-shader.tsx"
+          "target": "components/shader/paper-shader-source.tsx"
         }
       ],
       "createdAt": "2026-09-03",
@@ -4237,249 +4504,6 @@
       ],
       "createdAt": "2026-09-12",
       "updatedAt": "2026-09-12"
-    },
-    {
-      "name": "demo-c-liquid-metal-avatar-custom-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Avatar Custom",
-      "description": "Interactive demo showcasing the Liquid Metal Avatar Custom component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-avatar.json"
-      ],
-      "categories": [
-        "liquid-metal-avatar-custom"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-avatar-custom-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-avatar-custom.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-avatar-default-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Avatar Default",
-      "description": "Interactive demo showcasing the Liquid Metal Avatar Default component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-avatar.json"
-      ],
-      "categories": [
-        "liquid-metal-avatar-default"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-avatar-default-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-avatar-default.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-avatar-fallback-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Avatar Fallback",
-      "description": "Interactive demo showcasing the Liquid Metal Avatar Fallback component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-avatar.json"
-      ],
-      "categories": [
-        "liquid-metal-avatar-fallback"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-avatar-fallback-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-avatar-fallback.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-avatar-sizes-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Avatar Sizes",
-      "description": "Interactive demo showcasing the Liquid Metal Avatar Sizes component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-avatar.json"
-      ],
-      "categories": [
-        "liquid-metal-avatar-sizes"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-avatar-sizes-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-avatar-sizes.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-button-custom-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Button Custom",
-      "description": "Interactive demo showcasing the Liquid Metal Button Custom component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-button.json"
-      ],
-      "categories": [
-        "liquid-metal-button-custom"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-button-custom-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-button-custom.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-button-default-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Button Default",
-      "description": "Interactive demo showcasing the Liquid Metal Button Default component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-button.json"
-      ],
-      "categories": [
-        "liquid-metal-button-default"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-button-default-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-button-default.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-button-sizes-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Button Sizes",
-      "description": "Interactive demo showcasing the Liquid Metal Button Sizes component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-button.json"
-      ],
-      "categories": [
-        "liquid-metal-button-sizes"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-button-sizes-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-button-sizes.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-card-custom-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Card Custom",
-      "description": "Interactive demo showcasing the Liquid Metal Card Custom component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-card.json",
-        "https://www.spaceui.one/r/primitives-badge.json",
-        "https://www.spaceui.one/r/primitives-button.json"
-      ],
-      "categories": [
-        "liquid-metal-card-custom"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-card-custom-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-card-custom.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-card-default-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Card Default",
-      "description": "Interactive demo showcasing the Liquid Metal Card Default component.",
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-card.json",
-        "https://www.spaceui.one/r/primitives-button.json"
-      ],
-      "categories": [
-        "liquid-metal-card-default"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-card-default-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-card-default.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-card-login-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Card Login",
-      "description": "Interactive demo showcasing the Liquid Metal Card Login component.",
-      "dependencies": [
-        "@tabler/icons-react"
-      ],
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-card.json",
-        "https://www.spaceui.one/r/primitives-button.json",
-        "https://www.spaceui.one/r/primitives-input.json"
-      ],
-      "categories": [
-        "liquid-metal-card-login"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-card-login-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-card-login.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
-    },
-    {
-      "name": "demo-c-liquid-metal-card-player-01",
-      "type": "registry:component",
-      "title": "Liquid Metal Card Player",
-      "description": "Interactive demo showcasing the Liquid Metal Card Player component.",
-      "dependencies": [
-        "@tabler/icons-react"
-      ],
-      "registryDependencies": [
-        "https://www.spaceui.one/r/components-spaceui-liquid-metal-card.json",
-        "https://www.spaceui.one/r/primitives-button.json"
-      ],
-      "categories": [
-        "liquid-metal-card-player"
-      ],
-      "files": [
-        {
-          "path": "src/registry/demo/components/spaceui/c-liquid-metal-card-player-01/index.tsx",
-          "type": "registry:component",
-          "target": "components/spaceui/liquid-metal-card-player.tsx"
-        }
-      ],
-      "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
     },
     {
       "name": "demo-c-data-grid-01",
@@ -6443,6 +6467,69 @@
       "updatedAt": "2026-09-12"
     },
     {
+      "name": "demo-c-frost-blurred-01",
+      "type": "registry:component",
+      "title": "Frost Blurred Demo",
+      "description": "Large type fading into a stacked frost blur along the bottom edge.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-frost-blurred.json"
+      ],
+      "categories": [
+        "component",
+        "overlay",
+        "demo"
+      ],
+      "meta": {
+        "demoProps": {
+          "text": {
+            "value": "Space UI"
+          },
+          "layers": {
+            "value": 4,
+            "min": 3,
+            "max": 10,
+            "step": 1
+          },
+          "strength": {
+            "value": 1,
+            "min": 0.25,
+            "max": 2,
+            "step": 0.25
+          },
+          "height": {
+            "value": "62%",
+            "options": {
+              "Half": "50%",
+              "Default": "62%",
+              "Deep": "80%"
+            }
+          },
+          "side": {
+            "value": "bottom",
+            "options": {
+              "Bottom": "bottom",
+              "Top": "top"
+            }
+          },
+          "tint": {
+            "value": 0.22,
+            "min": 0,
+            "max": 0.6,
+            "step": 0.02
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/frost-blurred/c-frost-blurred-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/frost-blurred-demo-01.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
       "name": "demo-c-github-activity-01",
       "type": "registry:component",
       "title": "GitHub Activity Pure",
@@ -6497,6 +6584,7 @@
         "https://www.spaceui.one/r/components-spaceui-github-activity.json",
         "https://www.spaceui.one/r/primitives-frame.json",
         "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json",
         "https://www.spaceui.one/r/components-spaceui-button-squircle.json"
       ],
       "categories": [
@@ -6509,6 +6597,21 @@
           "path": "src/registry/demo/components/spaceui/github-activity/c-github-activity-02/index.tsx",
           "type": "registry:component",
           "target": "components/spaceui/github-activity-demo-02.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/github-stats-card.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/stats/github-stats-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/mock-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/mock-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/types.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/types.ts"
         }
       ],
       "createdAt": "2026-09-12",
@@ -6523,6 +6626,7 @@
         "https://www.spaceui.one/r/components-spaceui-github-activity.json",
         "https://www.spaceui.one/r/primitives-frame.json",
         "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json",
         "https://www.spaceui.one/r/components-spaceui-button-squircle.json"
       ],
       "categories": [
@@ -6535,6 +6639,21 @@
           "path": "src/registry/demo/components/spaceui/github-activity/c-github-activity-03/index.tsx",
           "type": "registry:component",
           "target": "components/spaceui/github-activity-demo-03.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/github-stats-card.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/stats/github-stats-card.tsx"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/mock-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/mock-data.ts"
+        },
+        {
+          "path": "src/registry/blocks/stats/shared/types.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/stats/types.ts"
         }
       ],
       "createdAt": "2026-09-12",
@@ -6959,6 +7078,74 @@
       ],
       "createdAt": "2026-08-21",
       "updatedAt": "2026-08-21"
+    },
+    {
+      "name": "demo-c-liquid-metal-border-01",
+      "type": "registry:component",
+      "title": "Liquid Metal Border Avatar",
+      "description": "Avatar Extended wrapped in a liquid metal border.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-liquid-metal-border.json",
+        "https://www.spaceui.one/r/components-spaceui-avatar-extended.json",
+        "https://www.spaceui.one/r/primitives-avatar.json"
+      ],
+      "categories": [
+        "liquid"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/liquid-metal-border/c-liquid-metal-border-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/liquid-metal-border-avatar.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
+      "name": "demo-c-liquid-metal-border-02",
+      "type": "registry:component",
+      "title": "Liquid Metal Border Button",
+      "description": "Button squircle wrapped in a liquid metal border.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-liquid-metal-border.json",
+        "https://www.spaceui.one/r/components-spaceui-button-squircle.json"
+      ],
+      "categories": [
+        "liquid"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/liquid-metal-border/c-liquid-metal-border-02/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/liquid-metal-border-button.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
+    },
+    {
+      "name": "demo-c-liquid-metal-border-03",
+      "type": "registry:component",
+      "title": "Liquid Metal Border Card",
+      "description": "Card primitive wrapped in a liquid metal border.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-liquid-metal-border.json",
+        "https://www.spaceui.one/r/components-spaceui-button-squircle.json",
+        "https://www.spaceui.one/r/primitives-card.json"
+      ],
+      "categories": [
+        "liquid"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/liquid-metal-border/c-liquid-metal-border-03/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/liquid-metal-border-card.tsx"
+        }
+      ],
+      "createdAt": "2026-09-16",
+      "updatedAt": "2026-09-16"
     },
     {
       "name": "demo-c-morph-icon-01",
@@ -26962,6 +27149,10 @@
       "devDependencies": [
         "@types/three"
       ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-next-image-url.json",
+        "https://www.spaceui.one/r/block-lens-carousel.json"
+      ],
       "categories": [
         "templates",
         "portfolios"
@@ -26993,11 +27184,6 @@
           "target": "components/immersive-lens/client-page.tsx"
         },
         {
-          "path": "src/registry/templates/immersive-lens/components/vertical-gallery.tsx",
-          "type": "registry:component",
-          "target": "components/immersive-lens/vertical-gallery.tsx"
-        },
-        {
           "path": "src/registry/templates/immersive-lens/components/horizontal-gallery.tsx",
           "type": "registry:component",
           "target": "components/immersive-lens/horizontal-gallery.tsx"
@@ -27016,11 +27202,6 @@
           "path": "src/registry/templates/immersive-lens/components/custom-cursor.tsx",
           "type": "registry:component",
           "target": "components/immersive-lens/custom-cursor.tsx"
-        },
-        {
-          "path": "src/registry/templates/immersive-lens/components/lens-webgl-layer.tsx",
-          "type": "registry:component",
-          "target": "components/immersive-lens/lens-webgl-layer.tsx"
         },
         {
           "path": "src/registry/templates/immersive-lens/hooks/use-custom-cursor.ts",

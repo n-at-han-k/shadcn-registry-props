@@ -53,6 +53,22 @@
       ]
     },
     {
+      "name": "elements-task",
+      "type": "registry:component",
+      "title": "Elements Task",
+      "description": "Shared task state, labels, timing, and elapsed time for task elements.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/task.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/task.ts"
+        }
+      ],
+      "dependencies": [
+        "@assistant-ui/react"
+      ]
+    },
+    {
       "name": "elements-loading-state",
       "type": "registry:component",
       "title": "Loading state",
@@ -467,6 +483,25 @@
           "type": "registry:component",
           "path": "components/assistant-ui/elements/agent-status.tsx",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/agent-status.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-task-card",
+      "type": "registry:component",
+      "title": "Task card",
+      "description": "A delegated task with its state, timing, result, and transcript in one card.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/task-card.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/task-card.tsx"
         }
       ],
       "registryDependencies": [
@@ -2183,6 +2218,50 @@
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-voice-conversation.json"
+      ]
+    },
+    {
+      "name": "task-card",
+      "type": "registry:component",
+      "title": "Task card",
+      "description": "A runtime task card with nested transcripts, timing, results, and grouped task lanes.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/task-card.aui.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/task-card.aui.tsx"
+        }
+      ],
+      "dependencies": [
+        "@assistant-ui/react"
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-task-card.json",
+        "https://r.assistant-ui.com/elements-task.json",
+        "https://r.assistant-ui.com/markdown-text.json",
+        "https://r.assistant-ui.com/tool-fallback.json"
+      ]
+    },
+    {
+      "name": "agent-status",
+      "type": "registry:component",
+      "title": "Agent status",
+      "description": "A runtime task summary chip with an optional tray for every task in the thread.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/agent-status.aui.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/agent-status.aui.tsx"
+        }
+      ],
+      "dependencies": [
+        "@assistant-ui/react"
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-agent-status.json",
+        "https://r.assistant-ui.com/elements-task-card.json",
+        "https://r.assistant-ui.com/elements-task.json",
+        "popover"
       ]
     },
     {

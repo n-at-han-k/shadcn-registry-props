@@ -540,7 +540,7 @@
       "type": "registry:block",
       "title": "Metrics",
       "description": "Metrics dashboard block with a Performance/Usage tab navigator: per-processor latency tiles and charts, plus running token/character/audio usage totals, on the stock shadcn chart (recharts).",
-      "dependencies": ["recharts@^3.10.1"],
+      "dependencies": ["recharts@^3.8.0"],
       "registryDependencies": [
         "chart",
         "tabs",
@@ -570,6 +570,100 @@
         }
       ],
       "docs": "Metrics reads the shared use-pipecat-metrics store inside a PipecatClientProvider; MetricsView takes fixtures. MetricsPerformance and MetricsUsage also export standalone. Chrome-free \u2014 wrap in your own card or panel.",
+      "categories": ["voice", "blocks"]
+    },
+    {
+      "name": "console",
+      "type": "registry:block",
+      "title": "Console",
+      "description": "Workbench for debugging and testing Pipecat agents: connect flow, bot media, conversation and metrics, device and session info, and a live RTVI event stream, with a tabbed mobile layout.",
+      "dependencies": [
+        "@pipecat-ai/client-js@^1.13.1",
+        "@pipecat-ai/client-react@^1.8.2",
+        "lucide-react@^1.41.0",
+        "react-resizable-panels@^4.12.3"
+      ],
+      "registryDependencies": [
+        "alert",
+        "button",
+        "card",
+        "drawer",
+        "input",
+        "popover",
+        "resizable",
+        "select",
+        "spinner",
+        "tabs",
+        "tooltip",
+        "@pipecat/audio-visualizer-bar",
+        "@pipecat/bot-audio",
+        "@pipecat/client-status",
+        "@pipecat/connect-button",
+        "@pipecat/conversation",
+        "@pipecat/dtmf-keypad",
+        "@pipecat/metrics",
+        "@pipecat/session-info",
+        "@pipecat/text-input",
+        "@pipecat/use-pipecat-app",
+        "@pipecat/use-pipecat-event-stream",
+        "@pipecat/use-pipecat-metrics",
+        "@pipecat/user-audio-control",
+        "@pipecat/user-screen-control",
+        "@pipecat/user-video-control"
+      ],
+      "files": [
+        {
+          "path": "src/blocks/console/console.tsx",
+          "type": "registry:block",
+          "target": "components/pipecat/console/console.tsx"
+        },
+        {
+          "path": "src/blocks/console/bot-audio-panel.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/bot-audio-panel.tsx"
+        },
+        {
+          "path": "src/blocks/console/bot-video-panel.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/bot-video-panel.tsx"
+        },
+        {
+          "path": "src/blocks/console/codec-setter.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/codec-setter.tsx"
+        },
+        {
+          "path": "src/blocks/console/conversation-panel.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/conversation-panel.tsx"
+        },
+        {
+          "path": "src/blocks/console/events-panel.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/events-panel.tsx"
+        },
+        {
+          "path": "src/blocks/console/info-panel.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/info-panel.tsx"
+        },
+        {
+          "path": "src/blocks/console/keypad-toggle.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/keypad-toggle.tsx"
+        },
+        {
+          "path": "src/blocks/console/logo.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/logo.tsx"
+        },
+        {
+          "path": "src/blocks/console/panel.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/console/panel.tsx"
+        }
+      ],
+      "docs": "Console builds its own client and PipecatClientProvider; do not nest it in another provider. Pass transportFactory for your installed transport, or registerTransport a loader per type, and render it in a sized container.",
       "categories": ["voice", "blocks"]
     }
   ]
