@@ -1,0 +1,110 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "mewo",
+  "homepage": "https://mewo-ui.vercel.app",
+  "items": [
+    {
+      "name": "text-shimmer",
+      "type": "registry:ui",
+      "title": "Text Shimmer",
+      "description": "A light sweep that moves across text. CSS only — no dependencies.",
+      "categories": ["text"],
+      "files": [{ "path": "registry/mewo/ui/text-shimmer.tsx", "type": "registry:ui" }],
+      "css": {
+        "@keyframes mewo-shimmer": {
+          "from": { "background-position": "200% center" },
+          "to": { "background-position": "0% center" }
+        }
+      }
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "An infinite horizontal scroller with a seamless loop. CSS only — no dependencies.",
+      "categories": ["layout"],
+      "files": [{ "path": "registry/mewo/ui/marquee.tsx", "type": "registry:ui" }],
+      "css": {
+        "@keyframes mewo-marquee": {
+          "from": { "transform": "translateX(0)" },
+          "to": { "transform": "translateX(-100%)" }
+        }
+      }
+    },
+    {
+      "name": "split-text",
+      "type": "registry:ui",
+      "title": "Split Text",
+      "description": "Characters or words stagger into view when scrolled to. Powered by GSAP and ScrollTrigger.",
+      "categories": ["text"],
+      "dependencies": ["gsap", "@gsap/react"],
+      "files": [{ "path": "registry/mewo/ui/split-text.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "A card with a radial glow that follows the pointer. Powered by Motion.",
+      "categories": ["card"],
+      "dependencies": ["motion"],
+      "files": [{ "path": "registry/mewo/ui/spotlight-card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "scroll-reveal",
+      "type": "registry:ui",
+      "title": "Scroll Reveal",
+      "description": "Fades and slides its children in when they enter the viewport. Powered by Motion.",
+      "categories": ["scroll"],
+      "dependencies": ["motion"],
+      "files": [{ "path": "registry/mewo/ui/scroll-reveal.tsx", "type": "registry:ui" }],
+      "css": {
+        "@media (scripting: none)": {
+          "[data-slot=\"scroll-reveal\"]": {
+            "opacity": "1 !important",
+            "transform": "none !important"
+          }
+        }
+      }
+    },
+    {
+      "name": "aurora-background",
+      "type": "registry:ui",
+      "title": "Aurora Background",
+      "description": "A slowly drifting gradient backdrop with a fade-in for its content. CSS keyframes plus Motion.",
+      "categories": ["background"],
+      "dependencies": ["motion"],
+      "files": [{ "path": "registry/mewo/ui/aurora-background.tsx", "type": "registry:ui" }],
+      "css": {
+        "@keyframes mewo-aurora": {
+          "from": { "background-position": "0% 50%" },
+          "to": { "background-position": "300% 50%" }
+        },
+        "@media (scripting: none)": {
+          "[data-slot=\"aurora-content\"]": {
+            "opacity": "1 !important",
+            "transform": "none !important"
+          }
+        }
+      }
+    },
+    {
+      "name": "hero-aurora",
+      "type": "registry:block",
+      "title": "Hero — Aurora",
+      "description": "A hero section: aurora backdrop, word-by-word headline, description and two call-to-action buttons.",
+      "categories": ["sections", "hero"],
+      "registryDependencies": ["button", "@mewo/aurora-background", "@mewo/split-text"],
+      "files": [{ "path": "registry/mewo/blocks/hero-aurora.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "features-spotlight",
+      "type": "registry:block",
+      "title": "Features — Spotlight",
+      "description": "A features section: shimmering eyebrow, heading, a scroll-revealed grid of spotlight cards and a logo marquee.",
+      "categories": ["sections", "features"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["@mewo/text-shimmer", "@mewo/scroll-reveal", "@mewo/spotlight-card", "@mewo/marquee"],
+      "files": [{ "path": "registry/mewo/blocks/features-spotlight.tsx", "type": "registry:component" }]
+    }
+  ]
+}
