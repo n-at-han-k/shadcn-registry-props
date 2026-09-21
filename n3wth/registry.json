@@ -1,513 +1,189 @@
-{
-  "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "n3wth",
-  "homepage": "https://kit.n3wth.com",
-  "items": [
+<!doctype html>
+<!--
+
+  If you're reading this, you're my kind of person.
+
+  Independent AI projects and large-scale light art.
+  The last Thinking piece explains how the whole thing got built.
+
+  The source is at github.com/n3wth/n3wth
+  Let's talk: hey@n3wth.com
+
+-->
+<html lang="en" data-theme="dark" data-astryx-theme="n3wth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@n3wth/ui — Oliver Newth</title>
+    <meta name="description" content="A shared React component library with theme tokens, typography, native controls, and site compositions." />
+    <meta name="author" content="Oliver Newth" />
+
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://n3wth.com/projects/ui" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Oliver Newth" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@n3wth/ui — Oliver Newth" />
+    <meta property="og:description" content="A shared React component library with theme tokens, typography, native controls, and site compositions." />
+    <meta property="og:url" content="https://n3wth.com/projects/ui" />
+    <meta property="og:image" content="https://n3wth.com/og/library.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="@n3wth/ui — Oliver Newth" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@n3wth/ui — Oliver Newth" />
+    <meta name="twitter:description" content="A shared React component library with theme tokens, typography, native controls, and site compositions." />
+    <meta name="twitter:image" content="https://n3wth.com/og/library.png" />
+    <meta name="twitter:image:alt" content="@n3wth/ui — Oliver Newth" />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#08090b" />
+
+    <!-- Preload Home's night backdrop (also the loader/no-WebGL still) -->
+    <link rel="preload" href="/images/hero-playa.webp" as="image" type="image/webp" fetchpriority="high" />
+
+    <!-- No static font preloads. Suisse Intl arrives through
+         @n3wth/ui/site.css, so Vite content-hashes the files and their names
+         are not knowable here. Preloading the old /fonts/ copies would fetch
+         faces this page never renders. -->
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
     {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://n3wth.com/#website",
+      "url": "https://n3wth.com/",
+      "name": "Oliver Newth",
+      "alternateName": "n3wth.com",
+      "description": "AI product lead at Google. Previously at Covariant, Meta, and Microsoft. Independent AI projects and large-scale light art.",
+      "publisher": { "@id": "https://n3wth.com/#organization" },
+      "inLanguage": "en-US"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://n3wth.com/#organization",
       "name": "n3wth",
-      "type": "registry:style",
-      "description": "Flat, minimal, iOS-inspired design system for n3wth projects.",
-      "cssVars": {
-        "theme": {
-          "font-sans": "Inter, system-ui, -apple-system, sans-serif",
-          "radius": "0.625rem"
-        },
-        "light": {
-          "background": "0 0% 100%",
-          "foreground": "0 0% 3.9%",
-          "primary": "0 0% 9%",
-          "primary-foreground": "0 0% 98%",
-          "muted": "0 0% 96.1%",
-          "muted-foreground": "0 0% 45.1%",
-          "accent": "0 0% 96.1%",
-          "accent-foreground": "0 0% 9%",
-          "border": "0 0% 89.8%",
-          "ring": "0 0% 3.9%"
-        },
-        "dark": {
-          "background": "0 0% 0%",
-          "foreground": "0 0% 98%",
-          "primary": "0 0% 98%",
-          "primary-foreground": "0 0% 9%",
-          "muted": "0 0% 14.9%",
-          "muted-foreground": "0 0% 63.9%",
-          "accent": "0 0% 14.9%",
-          "accent-foreground": "0 0% 98%",
-          "border": "0 0% 14.9%",
-          "ring": "0 0% 83.1%"
-        }
+      "alternateName": "Oliver Newth",
+      "url": "https://n3wth.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://n3wth.com/icon-192.png"
       },
-      "files": []
-    },
-    {
-      "name": "cn",
-      "type": "registry:lib",
-      "description": "Tailwind CSS class merge utility",
-      "dependencies": ["clsx", "tailwind-merge"],
-      "files": [
-        { "path": "registry/lib/cn/cn.ts", "type": "registry:lib" }
-      ]
-    },
-    {
-      "name": "button",
-      "type": "registry:ui",
-      "title": "Button",
-      "description": "Multi-variant button with responsive sizes, loading state, and asChild support.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/button/button.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "badge",
-      "type": "registry:ui",
-      "title": "Badge",
-      "description": "Inline badge with semantic color variants (sage, coral, mint, gold).",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/badge/badge.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "input",
-      "type": "registry:ui",
-      "title": "Input",
-      "description": "Text input with glass variant, icon slots, and error state.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/input/input.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "icon",
-      "type": "registry:ui",
-      "title": "Icon",
-      "description": "Icon wrapper around iconoir-react with named icon map and size presets.",
-      "dependencies": ["iconoir-react"],
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/icon/icon.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "switch",
-      "type": "registry:ui",
-      "title": "Switch",
-      "description": "Toggle switch with controlled/uncontrolled modes and size variants.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/switch/switch.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "avatar",
-      "type": "registry:ui",
-      "title": "Avatar",
-      "description": "Circular avatar with image, fallback initials, and size presets.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/avatar/avatar.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "separator",
-      "type": "registry:ui",
-      "title": "Separator",
-      "description": "Horizontal or vertical visual separator.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/separator/separator.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "progress",
-      "type": "registry:ui",
-      "title": "Progress",
-      "description": "Animated progress bar with value label and semantic color states.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/progress/progress.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "label",
-      "type": "registry:ui",
-      "title": "Label",
-      "description": "Form label with required indicator and disabled state.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/label/label.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "textarea",
-      "type": "registry:ui",
-      "title": "Textarea",
-      "description": "Textarea with resize control and error state.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/textarea/textarea.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "skeleton",
-      "type": "registry:ui",
-      "title": "Skeleton",
-      "description": "Skeleton loading placeholder with text, circular, and rectangular variants.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/skeleton/skeleton.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "code-block",
-      "type": "registry:ui",
-      "title": "Code Block",
-      "description": "Lightweight syntax-highlighting code block with line numbers.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/code-block/code-block.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "noise-overlay",
-      "type": "registry:ui",
-      "title": "Noise Overlay",
-      "description": "SVG noise texture overlay for visual grain effect.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/noise-overlay/noise-overlay.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "scroll-indicator",
-      "type": "registry:ui",
-      "title": "Scroll Indicator",
-      "description": "Animated scroll-down indicator with label and position presets.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/scroll-indicator/scroll-indicator.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "hamburger-icon",
-      "type": "registry:ui",
-      "title": "Hamburger Icon",
-      "description": "Animated hamburger-to-X SVG icon for mobile menu toggles.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/hamburger-icon/hamburger-icon.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "animated-text",
-      "type": "registry:ui",
-      "title": "Animated Text",
-      "description": "CSS-animated text with fade-up, fade-in, slide-up, and blur-in effects.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/animated-text/animated-text.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "shape",
-      "type": "registry:ui",
-      "title": "Shape",
-      "description": "Decorative SVG shape with pattern fills and responsive sizing.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/shape/shape.tsx", "type": "registry:ui" },
-        { "path": "registry/new-york/shape/patterns.ts", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "character",
-      "type": "registry:ui",
-      "title": "Character",
-      "description": "Expressive SVG character face with expressions and accessories.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/character/character.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "speech-bubble",
-      "type": "registry:ui",
-      "title": "Speech Bubble",
-      "description": "Speech or thought bubble with directional tail.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/speech-bubble/speech-bubble.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "tooltip",
-      "type": "registry:ui",
-      "title": "Tooltip",
-      "description": "Portal-based tooltip with auto-positioning and arrow.",
-      "dependencies": ["react-dom"],
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/tooltip/tooltip.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "card",
-      "type": "registry:ui",
-      "title": "Card",
-      "description": "Card container with default, glass, and interactive variants.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/card/card.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "nav-link",
-      "type": "registry:ui",
-      "title": "Nav Link",
-      "description": "Navigation link with default, underline, and pill variants.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/nav-link/nav-link.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "command-box",
-      "type": "registry:ui",
-      "title": "Command Box",
-      "description": "Copyable command display box with clipboard support.",
-      "registryDependencies": ["cn", "icon"],
-      "files": [
-        { "path": "registry/new-york/command-box/command-box.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "theme-toggle",
-      "type": "registry:ui",
-      "title": "Theme Toggle",
-      "description": "Dark/light theme toggle button with sun/moon icons.",
-      "registryDependencies": ["cn", "icon"],
-      "files": [
-        { "path": "registry/new-york/theme-toggle/theme-toggle.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "mobile-drawer",
-      "type": "registry:ui",
-      "title": "Mobile Drawer",
-      "description": "Slide-in drawer for mobile navigation with focus trap.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/mobile-drawer/mobile-drawer.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "error-boundary",
-      "type": "registry:ui",
-      "title": "Error Boundary",
-      "description": "React error boundary with fallback UI and retry.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/error-boundary/error-boundary.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "composite-shape",
-      "type": "registry:ui",
-      "title": "Composite Shape",
-      "description": "Multi-layer shape compositions with preset configurations.",
-      "registryDependencies": ["cn", "shape"],
-      "files": [
-        { "path": "registry/new-york/composite-shape/composite-shape.tsx", "type": "registry:ui" },
-        { "path": "registry/new-york/composite-shape/presets.ts", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "modal",
-      "type": "registry:ui",
-      "title": "Modal",
-      "description": "Accessible modal dialog with portal, focus trap, and compound sub-components.",
-      "dependencies": ["react-dom"],
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/modal/modal.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "tabs",
-      "type": "registry:ui",
-      "title": "Tabs",
-      "description": "Accessible tabs with underline and pill variants and animated indicator.",
-      "registryDependencies": ["cn", "use-reduced-motion"],
-      "files": [
-        { "path": "registry/new-york/tabs/tabs.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "toast",
-      "type": "registry:ui",
-      "title": "Toast",
-      "description": "Toast notification with variant styling and auto-dismiss.",
-      "registryDependencies": ["cn", "icon"],
-      "files": [
-        { "path": "registry/new-york/toast/toast.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "dropdown",
-      "type": "registry:ui",
-      "title": "Dropdown",
-      "description": "Accessible dropdown select with single/multi-select and search.",
-      "dependencies": ["react-dom"],
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/dropdown/dropdown.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "accordion",
-      "type": "registry:ui",
-      "title": "Accordion",
-      "description": "Accessible accordion with single/multiple modes and animated content.",
-      "registryDependencies": ["cn", "use-reduced-motion"],
-      "files": [
-        { "path": "registry/new-york/accordion/accordion.tsx", "type": "registry:ui" }
-      ]
-    },
-    {
-      "name": "nav",
-      "type": "registry:block",
-      "title": "Nav",
-      "description": "Responsive navigation bar with desktop links, mobile drawer, and theme toggle.",
-      "registryDependencies": ["cn", "nav-link", "theme-toggle", "mobile-drawer"],
-      "files": [
-        { "path": "registry/new-york/nav/nav.tsx", "type": "registry:block" }
-      ]
-    },
-    {
-      "name": "footer",
-      "type": "registry:block",
-      "title": "Footer",
-      "description": "Site footer with link columns, social icons, and copyright.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/footer/footer.tsx", "type": "registry:block" }
-      ]
-    },
-    {
-      "name": "hero",
-      "type": "registry:block",
-      "title": "Hero",
-      "description": "Hero section with badge, title, description, and CTA buttons.",
-      "registryDependencies": ["cn", "badge", "button"],
-      "files": [
-        { "path": "registry/new-york/hero/hero.tsx", "type": "registry:block" }
-      ]
-    },
-    {
-      "name": "section",
-      "type": "registry:block",
-      "title": "Section",
-      "description": "Layout section wrapper with size, spacing, and container options.",
-      "registryDependencies": ["cn"],
-      "files": [
-        { "path": "registry/new-york/section/section.tsx", "type": "registry:block" }
-      ]
-    },
-    {
-      "name": "use-theme",
-      "type": "registry:hook",
-      "description": "Theme toggle with localStorage persistence and system preference detection.",
-      "files": [
-        { "path": "registry/hooks/use-theme/use-theme.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-media-query",
-      "type": "registry:hook",
-      "description": "SSR-safe media query matching with breakpoint helpers.",
-      "files": [
-        { "path": "registry/hooks/use-media-query/use-media-query.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-reduced-motion",
-      "type": "registry:hook",
-      "description": "Detects prefers-reduced-motion and provides animation config defaults.",
-      "files": [
-        { "path": "registry/hooks/use-reduced-motion/use-reduced-motion.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-keyboard-shortcuts",
-      "type": "registry:hook",
-      "description": "Declarative keyboard shortcut handler with modifier key support.",
-      "files": [
-        { "path": "registry/hooks/use-keyboard-shortcuts/use-keyboard-shortcuts.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-toast",
-      "type": "registry:hook",
-      "description": "Toast notification system with context provider and variant helpers.",
-      "registryDependencies": ["toast"],
-      "files": [
-        { "path": "registry/hooks/use-toast/use-toast.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-count-up",
-      "type": "registry:hook",
-      "description": "Animated number counter with scroll-trigger support.",
-      "dependencies": ["gsap"],
-      "files": [
-        { "path": "registry/hooks/use-count-up/use-count-up.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-scroll-reveal",
-      "type": "registry:hook",
-      "description": "Scroll-triggered entrance animations with directional options.",
-      "dependencies": ["gsap"],
-      "files": [
-        { "path": "registry/hooks/use-scroll-reveal/use-scroll-reveal.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-stagger-list",
-      "type": "registry:hook",
-      "description": "Staggered list item cascade animations.",
-      "dependencies": ["gsap"],
-      "files": [
-        { "path": "registry/hooks/use-stagger-list/use-stagger-list.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-page-transition",
-      "type": "registry:hook",
-      "description": "Page entrance/exit fade-and-slide animations.",
-      "dependencies": ["gsap"],
-      "files": [
-        { "path": "registry/hooks/use-page-transition/use-page-transition.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-text-reveal",
-      "type": "registry:hook",
-      "description": "Character-by-character text reveal with scroll trigger.",
-      "dependencies": ["gsap"],
-      "files": [
-        { "path": "registry/hooks/use-text-reveal/use-text-reveal.ts", "type": "registry:hook" }
-      ]
-    },
-    {
-      "name": "use-button-pulse",
-      "type": "registry:hook",
-      "description": "Subtle hover/press scale animations for buttons.",
-      "dependencies": ["gsap"],
-      "files": [
-        { "path": "registry/hooks/use-button-pulse/use-button-pulse.ts", "type": "registry:hook" }
+      "email": "hey@n3wth.com",
+      "founder": { "@id": "https://n3wth.com/#person" },
+      "sameAs": [
+        "https://garden.n3wth.com",
+        "https://ui.n3wth.com",
+        "https://skills.n3wth.com",
+        "https://r3.n3wth.com",
+        "https://hop.flights",
+        "https://lunchmoney.sh"
       ]
     }
-  ]
-}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://n3wth.com/#person",
+      "name": "Oliver Newth",
+      "url": "https://n3wth.com",
+      "jobTitle": "AI Product Lead",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Google",
+        "url": "https://www.google.com/"
+      },
+      "description": "AI product lead at Google. Previously at Covariant, Meta, and Microsoft. Independent AI projects and large-scale light art.",
+      "sameAs": [
+        "https://github.com/n3wth",
+        "https://www.linkedin.com/in/n3wth",
+        "https://contra.com/olivernewth",
+        "https://peerlist.io/newth",
+        "https://www.instagram.com/lightsbyoliver/",
+        "https://glama.ai/mcp/servers/n3wth/r3",
+        "https://skills.sh/n3wth/skills",
+        "https://garden.n3wth.com",
+        "https://ui.n3wth.com",
+        "https://skills.n3wth.com"
+      ],
+      "knowsAbout": ["Artificial Intelligence", "AI Agents", "Product Management", "Design Systems", "Trust and Safety", "Machine Learning", "Light Art"],
+      "email": "hey@n3wth.com",
+      "image": "https://n3wth.com/og-image.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Massachusetts Institute of Technology"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Warwick"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Web App Manifest -->
+    <link rel="alternate" type="application/atom+xml" title="Thinking — Oliver Newth" href="/feed.xml" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Critical CSS - inline styles for immediate FCP/LCP -->
+    <style>
+      /* Base styles for instant render */
+      html, body {
+        margin: 0;
+        background: #08090b;
+        color: #9aa0a8;
+        font-family: 'Suisse Intl', system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      #root { min-height: 100vh; }
+      /* SEO fallback visible by default for fast first paint (LCP text).
+         Hidden only after React mounts via .hydrated class. */
+      .seo-fallback { padding: 2rem; max-width: 42rem; }
+      .seo-fallback h1 { font-family: 'Suisse Intl', system-ui, sans-serif; font-size: 2rem; font-weight: 700; color: #fff; margin: 0 0 1.5rem; }
+      .seo-fallback h2 { font-size: 1.125rem; font-weight: 600; color: #fff; margin: 1.5rem 0 0.5rem; }
+      .seo-fallback h3 { font-size: 1rem; font-weight: 600; color: #9aa0a8; margin: 1rem 0 0.25rem; }
+      .seo-fallback p, .seo-fallback li { line-height: 1.6; }
+      .seo-fallback a { color: #9aa0a8; }
+      .seo-fallback nav { margin-top: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+      .seo-fallback footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #222; }
+      #root.hydrated > .seo-fallback { display: none; }
+      /* SEO lead paragraph: visible to crawlers, hidden visually */
+      #seo-lead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    </style>
+
+    <script type="module" crossorigin src="/assets/index-BuPD_YRf.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-Dth5UbCD.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DdepAUKN.css">
+  </head>
+  <body>
+    <!-- Skip link injected by React so crawlers don't see it as first text -->
+    <div id="root">
+      <!-- Visible first paragraph for crawlers (matches meta description) -->
+      <p id="seo-lead">AI product lead at Google. Previously at Covariant, Meta, and Microsoft. Independent AI projects and large-scale light art.</p>
+      <!-- Static content for fast first paint and SEO crawlers.
+           Visible immediately; hidden after React mounts via .hydrated class. -->
+      <main id="main" class="seo-fallback"><h1>@n3wth/ui</h1><p>A React component library with theme tokens, typography, native controls, and page compositions shared across the n3wth sites.</p><p>Install it with <code>npm install @n3wth/ui</code>. <a href="https://github.com/n3wth/ui" rel="noopener">Read the source</a>.</p>
+      </main>
+    </div>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3e6f0656b0e5d07',t:'MTc4OTk3MTM2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

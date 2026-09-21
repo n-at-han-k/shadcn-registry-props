@@ -277,8 +277,8 @@
       ],
       "registryDependencies": [
         "https://www.spaceui.one/r/lib-utils.json",
-        "https://www.spaceui.one/r/primitives-badge.json",
-        "https://www.spaceui.one/r/primitives-button.json",
+        "https://www.spaceui.one/r/components-spaceui-badge-squircle.json",
+        "https://www.spaceui.one/r/components-spaceui-button-squircle.json",
         "https://www.spaceui.one/r/primitives-card.json",
         "https://www.spaceui.one/r/primitives-dialog.json",
         "https://www.spaceui.one/r/primitives-toast.json"
@@ -309,7 +309,7 @@
         }
       ],
       "createdAt": "2026-08-31",
-      "updatedAt": "2026-08-31"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "block-interactive-grid-hero-1",
@@ -929,6 +929,64 @@
       "updatedAt": "2026-08-21"
     },
     {
+      "name": "interactions-deploy-pipeline",
+      "type": "registry:component",
+      "title": "Deploy Pipeline",
+      "description": "A self-playing deploy pipeline that advances on its own, pauses on hover, and reveals per-step detail — drop it in to turn a static log into a living status feed.",
+      "isPro": true,
+      "dependencies": [
+        "motion",
+        "@tabler/icons-react"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/components-spaceui-timeline.json",
+        "https://www.spaceui.one/r/components-spaceui-morph-icon.json",
+        "https://www.spaceui.one/r/primitives-frame.json",
+        "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/primitives-badge.json",
+        "https://www.spaceui.one/r/primitives-spinner.json",
+        "https://www.spaceui.one/r/primitives-avatar.json",
+        "https://www.spaceui.one/r/primitives-collapsible.json"
+      ],
+      "categories": [
+        "interaction",
+        "developer",
+        "pipeline"
+      ],
+      "meta": {
+        "demoProps": {
+          "autoPlay": {
+            "value": true
+          },
+          "pauseOnHover": {
+            "value": true,
+            "dependsOn": {
+              "autoPlay": true
+            }
+          },
+          "speed": {
+            "value": 1,
+            "min": 0.25,
+            "max": 4,
+            "step": 0.25,
+            "dependsOn": {
+              "autoPlay": true
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/components/interactions/deploy-pipeline/index.tsx",
+          "type": "registry:component",
+          "target": "components/interactions/deploy-pipeline.tsx"
+        }
+      ],
+      "createdAt": "2026-09-21",
+      "updatedAt": "2026-09-21"
+    },
+    {
       "name": "components-orb-bloop",
       "type": "registry:component",
       "title": "Bloop Orb",
@@ -1377,10 +1435,38 @@
       "updatedAt": "2026-09-14"
     },
     {
+      "name": "components-spaceui-animoji",
+      "type": "registry:component",
+      "title": "Textmoji Animated",
+      "description": "Renders every Unicode emoji in a string as an animated image sized to the surrounding text.",
+      "dependencies": [
+        "emoji-regex",
+        "@usespaceui/emoji"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/animoji/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/animoji.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19"
+    },
+    {
       "name": "components-spaceui-autoscale-input",
       "type": "registry:component",
       "title": "Autoscale Input",
       "description": "Input that grows and shrinks its type to fit the available width, with locale number formatting.",
+      "isPro": true,
       "registryDependencies": [
         "https://www.spaceui.one/r/lib-utils.json"
       ],
@@ -1471,7 +1557,7 @@
         }
       ],
       "createdAt": "2026-09-12",
-      "updatedAt": "2026-09-12"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "components-spaceui-blur-reveal-text",
@@ -1976,6 +2062,32 @@
       ]
     },
     {
+      "name": "components-spaceui-doodle-callout",
+      "type": "registry:component",
+      "title": "Doodle Callout",
+      "description": "A hand-drawn arrow that draws itself in next to a handwritten label that pops in letter by letter, replaying on a loop.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "motion",
+        "annotation"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/doodle-callout/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/doodle-callout.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "components-spaceui-event-calendar",
       "type": "registry:component",
       "title": "Event Calendar",
@@ -2437,6 +2549,93 @@
       "updatedAt": "2026-09-12"
     },
     {
+      "name": "components-spaceui-fluid-crossfade",
+      "type": "registry:component",
+      "title": "Fluid Crossfade",
+      "description": "Interactive fluid wave simulation with chromatic refraction and Bayer dither blending between two textures.",
+      "isPro": true,
+      "dependencies": [
+        "three"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json"
+      ],
+      "categories": [
+        "component",
+        "shader",
+        "fluid"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/fluid-crossfade/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/fluid-crossfade.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-fluid-distortion-image",
+      "type": "registry:component",
+      "title": "Fluid Distortion Image",
+      "description": "An interactive WebGL image component with cover UV mapping and dynamic cursor fluid-distortion ripples using data textures.",
+      "isPro": true,
+      "dependencies": [
+        "three",
+        "gsap"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json"
+      ],
+      "categories": [
+        "component",
+        "media",
+        "canvas",
+        "shaders"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/fluid-distortion-image/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/fluid-distortion-image.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-fluid-dither-crossfade",
+      "type": "registry:component",
+      "title": "Fluid Dither Crossfade",
+      "description": "A dual-pass WebGL shader component featuring real-time Navier-Stokes fluid pressure simulation and Bayer 4x4 matrix ordered dithering crossfade.",
+      "isPro": true,
+      "dependencies": [
+        "three"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json"
+      ],
+      "categories": [
+        "component",
+        "media",
+        "canvas",
+        "shaders"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/fluid-dither-crossfade/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/fluid-dither-crossfade.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "components-spaceui-frost-blurred",
       "type": "registry:component",
       "title": "Frost Blurred",
@@ -2494,6 +2693,141 @@
       ],
       "createdAt": "2026-09-12",
       "updatedAt": "2026-09-12"
+    },
+    {
+      "name": "components-spaceui-glass-button",
+      "type": "registry:component",
+      "title": "Glass Button",
+      "description": "A glassmorphic button built on top of Button Squircle — backdrop blur, layered inset highlights and a hover shine sweep.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/components-spaceui-button-squircle.json"
+      ],
+      "categories": [
+        "component",
+        "button",
+        "glass",
+        "squircle"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/glass-button/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/glass-button.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-gooey-blobs",
+      "type": "registry:component",
+      "title": "Gooey Blobs",
+      "description": "Two draggable blobs that merge into one liquid shape via an SVG gooey filter.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "gooey",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/gooey-blobs/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/gooey-blobs.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-gooey-info-popover",
+      "type": "registry:component",
+      "title": "Gooey Info Popover",
+      "description": "A round trigger that gooey-morphs into an info panel on hover.",
+      "isPro": true,
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "gooey",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/gooey-info-popover/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/gooey-info-popover.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-gooey-slots-tooltip",
+      "type": "registry:component",
+      "title": "Gooey Slots Tooltip",
+      "description": "A round trigger that gooey-expands upward into a rich content card on hover.",
+      "isPro": true,
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "gooey",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/gooey-slots-tooltip/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/gooey-slots-tooltip.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-gooey-tooltip",
+      "type": "registry:component",
+      "title": "Gooey Tooltip",
+      "description": "A tooltip bubble that mouse-follows and gooey-connects to its trigger button on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "gooey",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/gooey-tooltip/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/gooey-tooltip.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "components-spaceui-handle-reel",
@@ -2938,6 +3272,97 @@
       "updatedAt": "2026-09-04"
     },
     {
+      "name": "components-spaceui-pixel-fill-button",
+      "type": "registry:component",
+      "title": "Pixel Fill Button",
+      "description": "An interactive button whose background fills with square matrix pixels radiating from the cursor entry point on hover.",
+      "isPro": true,
+      "dependencies": [
+        "gsap",
+        "motion",
+        "class-variance-authority",
+        "@paper-design/shaders-react"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/components-spaceui-silk-border.json",
+        "https://www.spaceui.one/r/components-spaceui-liquid-metal-border.json"
+      ],
+      "categories": [
+        "component",
+        "button",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/pixel-fill-button/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/pixel-fill-button.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-pixel-reveal-image",
+      "type": "registry:component",
+      "title": "Pixel Reveal Image",
+      "description": "A WebGL image reveal component with dynamic pixel matrix wave and customizable neon accent border on scroll.",
+      "isPro": true,
+      "dependencies": [
+        "three",
+        "gsap"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json"
+      ],
+      "categories": [
+        "component",
+        "media",
+        "canvas",
+        "shaders"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/pixel-reveal-image/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/pixel-reveal-image.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-pixel-reveal-text",
+      "type": "registry:component",
+      "title": "Pixel Reveal Text",
+      "description": "A typography shader component that materializes text out of pixel matrix noise with neon contour highlights on scroll.",
+      "isPro": true,
+      "dependencies": [
+        "three",
+        "gsap"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "text",
+        "canvas",
+        "shaders"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/pixel-reveal-text/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/pixel-reveal-text.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "components-spaceui-rating",
       "type": "registry:component",
       "title": "Rating",
@@ -2990,6 +3415,30 @@
       "updatedAt": "2026-08-21"
     },
     {
+      "name": "components-spaceui-scatter-text",
+      "type": "registry:component",
+      "title": "Scatter Text",
+      "description": "A text input whose content scatters into drifting canvas grains on submit.",
+      "isPro": true,
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "text",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/scatter-text/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/scatter-text.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "components-spaceui-scrollspy",
       "type": "registry:component",
       "title": "Scrollspy",
@@ -3031,7 +3480,7 @@
         }
       ],
       "createdAt": "2026-09-04",
-      "updatedAt": "2026-09-04"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "components-spaceui-silk-border",
@@ -3110,7 +3559,31 @@
         }
       ],
       "createdAt": "2026-09-17",
-      "updatedAt": "2026-09-17"
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "components-spaceui-smooth-slider",
+      "type": "registry:component",
+      "title": "Smooth Slider",
+      "description": "A continuous slider with a filled track, tick dots, and a draggable thumb.",
+      "isPro": true,
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/smooth-slider/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/smooth-slider.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "components-spaceui-sortable",
@@ -3199,6 +3672,33 @@
       "updatedAt": "2026-09-17"
     },
     {
+      "name": "components-spaceui-textmoji",
+      "type": "registry:component",
+      "title": "Textmoji",
+      "description": "Renders every Unicode emoji in a string as an image sized to the surrounding text. Includes Animoji, the same for animated emoji styles.",
+      "dependencies": [
+        "emoji-regex",
+        "@usespaceui/emoji"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/textmoji/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/textmoji.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19"
+    },
+    {
       "name": "components-spaceui-theme-toggle",
       "type": "registry:component",
       "title": "Theme Toggle",
@@ -3226,6 +3726,29 @@
       ],
       "createdAt": "2026-09-03",
       "updatedAt": "2026-09-03"
+    },
+    {
+      "name": "components-spaceui-tick-slider",
+      "type": "registry:component",
+      "title": "Tick Slider",
+      "description": "A scrubber drawn as a row of tick marks, with a real range input underneath for keyboard and screen reader support.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "component",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/tick-slider/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/tick-slider.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "components-spaceui-timeline",
@@ -3305,6 +3828,36 @@
       ],
       "createdAt": "2026-08-21",
       "updatedAt": "2026-08-21"
+    },
+    {
+      "name": "components-spaceui-velocity-hover-preview",
+      "type": "registry:component",
+      "title": "Velocity Hover Preview",
+      "description": "An interactive list component projecting a floating WebGL preview with inertial momentum mesh-warping and pixel block dissolve crossfading.",
+      "isPro": true,
+      "dependencies": [
+        "three",
+        "gsap"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-next-image-url.json"
+      ],
+      "categories": [
+        "component",
+        "media",
+        "canvas",
+        "shaders"
+      ],
+      "files": [
+        {
+          "path": "src/registry/components/spaceui/velocity-hover-preview/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/velocity-hover-preview.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "components-spaceui-words-preloader",
@@ -4761,6 +5314,117 @@
       "updatedAt": "2026-09-14"
     },
     {
+      "name": "demo-c-animoji-01",
+      "type": "registry:component",
+      "title": "Textmoji Animated Demo",
+      "description": "Inline text with emoji rendered as animated images sized to the surrounding font.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-animoji.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "meta": {
+        "demoProps": {
+          "text": {
+            "value": "Ship your ideas faster 🚀 with Space UI 🫧🦄"
+          },
+          "source": {
+            "value": "fluent",
+            "options": {
+              "Fluent": "fluent",
+              "Telegram": "telegram",
+              "Noto": "noto"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/animoji/c-animoji-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/animoji-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19"
+    },
+    {
+      "name": "demo-c-animoji-02",
+      "type": "registry:component",
+      "title": "Textmoji Animated Sources",
+      "description": "The same emoji rendered through all three animated catalogs.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-animoji.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/animoji/c-animoji-02/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/animoji-sources.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19",
+      "dependencies": []
+    },
+    {
+      "name": "demo-c-animoji-03",
+      "type": "registry:component",
+      "title": "Textmoji Animated Unicode Escapes",
+      "description": "Emoji written as JS unicode escape sequences, including a two-code-point flag, resolved the same as pasted characters.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-animoji.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/animoji/c-animoji-03/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/animoji-unicode.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19",
+      "dependencies": []
+    },
+    {
+      "name": "demo-c-animoji-04",
+      "type": "registry:component",
+      "title": "Textmoji Animated with Blur Reveal Text",
+      "description": "BlurRevealText's renderSegment hook piped through Animoji, cycling both the phrase and the emoji provider on every reveal.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-animoji.json",
+        "https://www.spaceui.one/r/components-spaceui-blur-reveal-text.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/animoji/c-animoji-04/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/animoji-blur-reveal.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-20",
+      "dependencies": []
+    },
+    {
       "name": "demo-c-autoscale-input-01",
       "type": "registry:component",
       "title": "Autoscale Input Demo",
@@ -6183,6 +6847,54 @@
       "updatedAt": "2026-09-03"
     },
     {
+      "name": "demo-c-doodle-callout-01",
+      "type": "registry:component",
+      "title": "Doodle Callout Demo",
+      "description": "A hand-drawn arrow and handwritten label pointing at a pricing plan, replaying on a loop.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-doodle-callout.json"
+      ],
+      "categories": [
+        "component",
+        "motion",
+        "annotation"
+      ],
+      "meta": {
+        "demoProps": {
+          "label": {
+            "value": "Most popular"
+          },
+          "width": {
+            "value": 280,
+            "min": 150,
+            "max": 500,
+            "step": 10
+          },
+          "revealGap": {
+            "value": 400,
+            "min": 100,
+            "max": 2000,
+            "step": 100
+          },
+          "loopInterval": {
+            "value": 8000,
+            "min": 0,
+            "max": 15000,
+            "step": 500
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/doodle-callout/c-doodle-callout-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/doodle-callout-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "demo-c-event-calendar-01",
       "type": "registry:component",
       "title": "Event calendar with all views and live settings",
@@ -7021,6 +7733,284 @@
       "updatedAt": "2026-09-12"
     },
     {
+      "name": "demo-c-fluid-crossfade-01",
+      "type": "registry:component",
+      "title": "Fluid Crossfade Demo",
+      "description": "Interactive demo of Fluid Crossfade with fluid simulation, chromatic refraction, and Bayer dithering.",
+      "isPro": true,
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-fluid-crossfade.json"
+      ],
+      "categories": [
+        "demo",
+        "shader",
+        "fluid"
+      ],
+      "meta": {
+        "demoProps": {
+          "imageSource": {
+            "value": "url",
+            "options": {
+              "Remote URL": "url",
+              "Upload File": "upload"
+            }
+          },
+          "imageA": {
+            "value": "https://cdn.spaceui.one/atom/samples/image-1.png",
+            "options": {
+              "Landscape": "https://cdn.spaceui.one/atom/samples/image-1.png",
+              "Architecture": "https://cdn.spaceui.one/atom/samples/image-2.png"
+            },
+            "dependsOn": {
+              "imageSource": "url"
+            }
+          },
+          "imageFront": {
+            "type": "file",
+            "accept": "image/*",
+            "value": "",
+            "dependsOn": {
+              "imageSource": "upload"
+            }
+          },
+          "imageB": {
+            "value": "https://cdn.spaceui.one/atom/samples/image-2.png",
+            "options": {
+              "Architecture": "https://cdn.spaceui.one/atom/samples/image-2.png",
+              "Portrait": "https://cdn.spaceui.one/atom/samples/image-3.png"
+            },
+            "dependsOn": {
+              "imageSource": "url"
+            }
+          },
+          "imageBack": {
+            "type": "file",
+            "accept": "image/*",
+            "value": "",
+            "dependsOn": {
+              "imageSource": "upload"
+            }
+          },
+          "refractionStrength": {
+            "value": 0.85,
+            "options": {
+              "Subtle (0.4)": 0.4,
+              "Balanced (0.85)": 0.85,
+              "Intense (1.6)": 1.6
+            }
+          },
+          "ditherGrid": {
+            "value": 3,
+            "options": {
+              "Fine (2.0)": 2,
+              "Standard (3.0)": 3,
+              "Chunky (6.0)": 6
+            }
+          },
+          "pixelGridSize": {
+            "value": 240,
+            "options": {
+              "High-Res (320)": 320,
+              "Standard (240)": 240,
+              "Pixelated (120)": 120
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/fluid-crossfade/c-fluid-crossfade-01/index.tsx",
+          "type": "registry:component",
+          "target": "demo/c-fluid-crossfade-01.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-fluid-distortion-image-01",
+      "type": "registry:component",
+      "title": "Fluid Distortion Image Demo",
+      "description": "Interactive demo of Fluid Distortion Image with real-time cursor impulse ripples.",
+      "isPro": true,
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-fluid-distortion-image.json",
+        "https://www.spaceui.one/r/primitives-button.json",
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "demo",
+        "media"
+      ],
+      "meta": {
+        "demoProps": {
+          "textureFile": {
+            "type": "file",
+            "accept": "image/*",
+            "value": ""
+          },
+          "revealStyle": {
+            "value": "pixelate",
+            "options": {
+              "Pixelate sweep": "pixelate",
+              "Blur morph": "blur"
+            }
+          },
+          "distortionIntensity": {
+            "value": 0.02,
+            "options": {
+              "Subtle (0.01)": 0.01,
+              "Original (0.02)": 0.02,
+              "Intense (0.05)": 0.05,
+              "Extreme (0.09)": 0.09
+            }
+          },
+          "relaxationSpeed": {
+            "value": 0.95,
+            "options": {
+              "Fast (0.88)": 0.88,
+              "Standard (0.95)": 0.95,
+              "Trailing (0.98)": 0.98
+            }
+          },
+          "radius": {
+            "value": 8.96,
+            "options": {
+              "Small (5.0)": 5,
+              "Original (8.96)": 8.96,
+              "Large (14.0)": 14
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/fluid-distortion-image/c-fluid-distortion-image-01/index.tsx",
+          "type": "registry:component",
+          "target": "demo/c-fluid-distortion-image-01.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-fluid-dither-crossfade-01",
+      "type": "registry:component",
+      "title": "Fluid Dither Crossfade Demo",
+      "description": "Interactive demo of Fluid Dither Crossfade with real-time fluid simulation and Bayer dithering.",
+      "isPro": true,
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-fluid-dither-crossfade.json",
+        "https://www.spaceui.one/r/primitives-button.json",
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "demo",
+        "media"
+      ],
+      "meta": {
+        "demoProps": {
+          "imageFront": {
+            "type": "file",
+            "accept": "image/*",
+            "value": ""
+          },
+          "imageBack": {
+            "type": "file",
+            "accept": "image/*",
+            "value": ""
+          },
+          "revealStyle": {
+            "value": "pixelate",
+            "options": {
+              "Pixelate sweep": "pixelate",
+              "Blur morph": "blur",
+              "Stagger wipe": "stagger"
+            }
+          },
+          "brushSize": {
+            "value": 0.3,
+            "options": {
+              "Subtle (0.3)": 0.3,
+              "Balanced (0.64)": 0.64,
+              "Broad (1.0)": 1,
+              "Huge (1.5)": 1.5
+            }
+          },
+          "pixelRes": {
+            "value": 150,
+            "options": {
+              "High Def (300)": 300,
+              "Standard (150)": 150,
+              "Retro (80)": 80,
+              "Low Bit (40)": 40
+            }
+          },
+          "pixelEdgeRes": {
+            "value": 80,
+            "options": {
+              "Fine Mask (120)": 120,
+              "Chunky Blocks (80)": 80,
+              "Giant Pixels (40)": 40
+            }
+          },
+          "distortionStrength": {
+            "value": 9.18,
+            "options": {
+              "Gentle (4.0)": 4,
+              "Original (9.18)": 9.18,
+              "Heavy (18.0)": 18
+            }
+          },
+          "ditherGrid": {
+            "value": 20,
+            "options": {
+              "Micro (8)": 8,
+              "Classic (20)": 20,
+              "Macro (40)": 40
+            }
+          },
+          "inkDissipation": {
+            "value": 0.926,
+            "options": {
+              "Fast Fade (0.88)": 0.88,
+              "Balanced (0.926)": 0.926,
+              "Persistent (0.97)": 0.97
+            }
+          },
+          "accentColor": {
+            "value": "#ffe9a8",
+            "options": {
+              "Aurum": "#ffe9a8",
+              "Mercury": "#f0f4f8",
+              "Iris": "#c9a6ff",
+              "Cobalt": "#93c5fd",
+              "Forge": "#fdba74",
+              "Jade": "#6ee7b7",
+              "Pearl": "#fafafa",
+              "White": "#ffffff",
+              "Black": "#000000"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/fluid-dither-crossfade/c-fluid-dither-crossfade-01/index.tsx",
+          "type": "registry:component",
+          "target": "demo/c-fluid-dither-crossfade-01.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "demo-c-frost-blurred-01",
       "type": "registry:component",
       "title": "Frost Blurred Demo",
@@ -7212,6 +8202,171 @@
       ],
       "createdAt": "2026-09-12",
       "updatedAt": "2026-09-12"
+    },
+    {
+      "name": "demo-c-glass-button-icon-01",
+      "type": "registry:component",
+      "title": "Glass Button — Icon",
+      "description": "Icon-only glass buttons over a gradient backdrop.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-glass-button.json",
+        "https://www.spaceui.one/r/components-shader-silk-gradient.json"
+      ],
+      "categories": [
+        "component",
+        "button",
+        "glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/glass-button/c-glass-button-icon-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/glass-button-icon-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-glass-button-reveal-01",
+      "type": "registry:component",
+      "title": "Glass Button — Blur Reveal",
+      "description": "An icon glass button that widens and blur-reveals a text label on hover.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-glass-button.json",
+        "https://www.spaceui.one/r/components-shader-silk-gradient.json"
+      ],
+      "categories": [
+        "component",
+        "button",
+        "glass",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/glass-button/c-glass-button-reveal-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/glass-button-reveal-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-glass-button-text-01",
+      "type": "registry:component",
+      "title": "Glass Button — Text",
+      "description": "A text + icon glass CTA button over a gradient backdrop.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-glass-button.json",
+        "https://www.spaceui.one/r/components-shader-silk-gradient.json"
+      ],
+      "categories": [
+        "component",
+        "button",
+        "glass"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/glass-button/c-glass-button-text-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/glass-button-text-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-gooey-blobs-01",
+      "type": "registry:component",
+      "title": "Gooey Blobs Demo",
+      "description": "Drag the two blobs close together to see them merge.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-gooey-blobs.json"
+      ],
+      "categories": [
+        "component",
+        "gooey",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/gooey-blobs/c-gooey-blobs-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/gooey-blobs-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-gooey-info-popover-01",
+      "type": "registry:component",
+      "title": "Gooey Info Popover Demo",
+      "description": "Hover the info button to see it gooey-morph into a status card.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-gooey-info-popover.json"
+      ],
+      "categories": [
+        "component",
+        "gooey",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/gooey-info-popover/c-gooey-info-popover-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/gooey-info-popover-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-gooey-slots-tooltip-01",
+      "type": "registry:component",
+      "title": "Gooey Slots Tooltip Demo",
+      "description": "Hover the info button to see it gooey-expand into a rich content card.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-gooey-slots-tooltip.json"
+      ],
+      "categories": [
+        "component",
+        "gooey",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/gooey-slots-tooltip/c-gooey-slots-tooltip-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/gooey-slots-tooltip-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-gooey-tooltip-01",
+      "type": "registry:component",
+      "title": "Gooey Tooltip Demo",
+      "description": "Hover the button to see the tooltip follow your cursor and gooey-connect.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-gooey-tooltip.json"
+      ],
+      "categories": [
+        "component",
+        "gooey",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/gooey-tooltip/c-gooey-tooltip-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/gooey-tooltip-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "demo-c-handle-reel-01",
@@ -8473,6 +9628,215 @@
       "updatedAt": "2026-09-02"
     },
     {
+      "name": "demo-c-pixel-fill-button-01",
+      "type": "registry:component",
+      "title": "Pixel Fill Button Demo",
+      "description": "Interactive demo of Pixel Fill Button with different pixel accent colors.",
+      "isPro": true,
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-pixel-fill-button.json",
+        "https://www.spaceui.one/r/primitives-button.json",
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "demo",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/pixel-fill-button/c-pixel-fill-button-01/index.tsx",
+          "type": "registry:component",
+          "target": "demo/c-pixel-fill-button-01.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-pixel-reveal-image-01",
+      "type": "registry:component",
+      "title": "Pixel Reveal Image Demo",
+      "description": "Interactive demo of Pixel Reveal Image with real-time scroll matrix wavefront.",
+      "isPro": true,
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-pixel-reveal-image.json",
+        "https://www.spaceui.one/r/primitives-button.json",
+        "https://www.spaceui.one/r/lib-utils.json"
+      ],
+      "categories": [
+        "demo",
+        "media"
+      ],
+      "meta": {
+        "demoProps": {
+          "textureFile": {
+            "type": "file",
+            "accept": "image/*",
+            "value": ""
+          },
+          "accentColor": {
+            "value": "#ffe9a8",
+            "options": {
+              "Aurum": "#ffe9a8",
+              "Mercury": "#f0f4f8",
+              "Iris": "#c9a6ff",
+              "Cobalt": "#93c5fd",
+              "Forge": "#fdba74",
+              "Jade": "#6ee7b7",
+              "Pearl": "#fafafa",
+              "White": "#ffffff",
+              "Black": "#000000"
+            }
+          },
+          "gridDensity": {
+            "value": 38,
+            "options": {
+              "Fine (60)": 60,
+              "Standard (38)": 38,
+              "Chunky (20)": 20
+            }
+          },
+          "bandWidth": {
+            "value": 3.5,
+            "options": {
+              "Tight (2.0)": 2,
+              "Standard (3.5)": 3.5,
+              "Broad (6.0)": 6
+            }
+          },
+          "noiseIntensity": {
+            "value": 0.16,
+            "options": {
+              "Subtle (0.08)": 0.08,
+              "Balanced (0.16)": 0.16,
+              "Heavy (0.35)": 0.35
+            }
+          },
+          "trigger": {
+            "value": "loop",
+            "options": {
+              "Loop (Auto)": "loop",
+              "Hover": "hover",
+              "Scroll": "scroll"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/pixel-reveal-image/c-pixel-reveal-image-01/index.tsx",
+          "type": "registry:component",
+          "target": "demo/c-pixel-reveal-image-01.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-pixel-reveal-text-01",
+      "type": "registry:component",
+      "title": "Pixel Reveal Text Demo",
+      "description": "Interactive demo of Pixel Reveal Text emerging from matrix noise.",
+      "isPro": true,
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-pixel-reveal-text.json"
+      ],
+      "categories": [
+        "demo",
+        "text"
+      ],
+      "meta": {
+        "demoProps": {
+          "text": {
+            "value": "Space UI 🤯❣️"
+          },
+          "edgeColor": {
+            "value": "#ffe9a8",
+            "options": {
+              "Aurum": "#ffe9a8",
+              "Mercury": "#f0f4f8",
+              "Iris": "#c9a6ff",
+              "Cobalt": "#93c5fd",
+              "Forge": "#fdba74",
+              "Jade": "#6ee7b7",
+              "Pearl": "#fafafa",
+              "White": "#ffffff",
+              "Black": "#000000"
+            }
+          },
+          "pixelSize": {
+            "value": 4,
+            "options": {
+              "Fine (2px)": 2,
+              "Crisp (4px)": 4,
+              "Pixelated (8px)": 8,
+              "Blocky (14px)": 14
+            }
+          },
+          "fontSize": {
+            "value": 54,
+            "options": {
+              "Medium (36px)": 36,
+              "Large (54px)": 54,
+              "Display (72px)": 72
+            }
+          },
+          "speed": {
+            "value": 1,
+            "options": {
+              "Slow (0.6x)": 0.6,
+              "Normal (1x)": 1,
+              "Fast (1.5x)": 1.5,
+              "Turbo (2x)": 2
+            }
+          },
+          "trigger": {
+            "value": "loop",
+            "options": {
+              "Loop (Auto)": "loop",
+              "Hover": "hover",
+              "Scroll": "scroll"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/pixel-reveal-text/c-pixel-reveal-text-01/index.tsx",
+          "type": "registry:component",
+          "target": "demo/c-pixel-reveal-text-01.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
+      "name": "demo-c-pixel-reveal-text-02",
+      "type": "registry:component",
+      "title": "Pixel Reveal Text — Cycling Phrases",
+      "description": "The pixel reveal loop cycling through a rotating set of phrases, in the style of the Animoji landing page card.",
+      "isPro": true,
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-pixel-reveal-text.json"
+      ],
+      "categories": [
+        "demo",
+        "text"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/pixel-reveal-text/c-pixel-reveal-text-02/index.tsx",
+          "type": "registry:component",
+          "target": "demo/c-pixel-reveal-text-02.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "demo-c-rating-01",
       "type": "registry:component",
       "title": "Basic rating.",
@@ -8900,6 +10264,29 @@
       "updatedAt": "2026-08-21"
     },
     {
+      "name": "demo-c-scatter-text-01",
+      "type": "registry:component",
+      "title": "Scatter Text — Email",
+      "description": "An email subscribe field that scatters into grains on submit.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-scatter-text.json"
+      ],
+      "categories": [
+        "component",
+        "text",
+        "canvas"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/scatter-text/c-scatter-text-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/scatter-text-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "demo-c-scrollspy-01",
       "type": "registry:component",
       "title": "Basic scrollspy",
@@ -9177,6 +10564,69 @@
       ],
       "createdAt": "2026-09-17",
       "updatedAt": "2026-09-17"
+    },
+    {
+      "name": "demo-c-smooth-slider-01",
+      "type": "registry:component",
+      "title": "Smooth Slider Demo",
+      "description": "Continuous slider with tick dots and a draggable thumb.",
+      "isPro": true,
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-smooth-slider.json"
+      ],
+      "categories": [
+        "component",
+        "slider"
+      ],
+      "meta": {
+        "demoProps": {
+          "min": {
+            "value": 0,
+            "min": 0,
+            "max": 20,
+            "step": 1
+          },
+          "max": {
+            "value": 100,
+            "min": 60,
+            "max": 150,
+            "step": 1
+          },
+          "step": {
+            "value": 5,
+            "min": 1,
+            "max": 20,
+            "step": 1
+          },
+          "height": {
+            "value": 32,
+            "min": 16,
+            "max": 64,
+            "step": 2
+          },
+          "showTicks": {
+            "value": true
+          },
+          "fillFrom": {
+            "value": "#bae6fd"
+          },
+          "fillVia": {
+            "value": "#e0e7ff"
+          },
+          "fillTo": {
+            "value": "#60a5fa"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/smooth-slider/c-smooth-slider-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/smooth-slider-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "demo-c-sortable-01",
@@ -9662,6 +11112,143 @@
       "updatedAt": "2026-09-17"
     },
     {
+      "name": "demo-c-textmoji-01",
+      "type": "registry:component",
+      "title": "Textmoji Demo",
+      "description": "Inline text with emoji rendered as images sized to the surrounding font, switchable across emoji styles.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-textmoji.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "meta": {
+        "demoProps": {
+          "text": {
+            "value": "Ship your ideas faster 🚀 with Space UI 🫧🦄"
+          },
+          "source": {
+            "value": "fluent",
+            "options": {
+              "Fluent": "fluent",
+              "Apple": "apple",
+              "Twemoji": "twemoji",
+              "Blobmoji": "blobmoji",
+              "Noto": "noto"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/textmoji/c-textmoji-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/textmoji-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19"
+    },
+    {
+      "name": "demo-c-textmoji-02",
+      "type": "registry:component",
+      "title": "Textmoji Sizes",
+      "description": "The same Textmoji call under different text size classes — no size prop, the image just tracks the inherited font size.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-textmoji.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/textmoji/c-textmoji-02/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/textmoji-sizes.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19",
+      "dependencies": []
+    },
+    {
+      "name": "demo-c-textmoji-03",
+      "type": "registry:component",
+      "title": "Textmoji Sources",
+      "description": "The same emoji rendered through all six supported catalogs, each at its own default style.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-textmoji.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/textmoji/c-textmoji-03/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/textmoji-sources.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19",
+      "dependencies": []
+    },
+    {
+      "name": "demo-c-textmoji-04",
+      "type": "registry:component",
+      "title": "Textmoji Unicode Escapes",
+      "description": "Emoji written as JS unicode escape sequences, including a two-code-point flag, resolved the same as pasted characters.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-textmoji.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/textmoji/c-textmoji-04/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/textmoji-unicode.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-19",
+      "dependencies": []
+    },
+    {
+      "name": "demo-c-textmoji-05",
+      "type": "registry:component",
+      "title": "Textmoji with Blur Reveal Text",
+      "description": "BlurRevealText's renderSegment hook piped through Textmoji, cycling both the phrase and the emoji provider on every reveal.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-textmoji.json",
+        "https://www.spaceui.one/r/components-spaceui-blur-reveal-text.json"
+      ],
+      "categories": [
+        "component",
+        "utility",
+        "emoji"
+      ],
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/textmoji/c-textmoji-05/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/textmoji-blur-reveal.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-20",
+      "dependencies": []
+    },
+    {
       "name": "demo-c-theme-toggle-01",
       "type": "registry:component",
       "title": "Theme Toggle Demo",
@@ -9773,6 +11360,62 @@
       ],
       "createdAt": "2026-09-03",
       "updatedAt": "2026-09-03"
+    },
+    {
+      "name": "demo-c-tick-slider-01",
+      "type": "registry:component",
+      "title": "Tick Slider Demo",
+      "description": "Tick-mark scrubber with configurable range and major-mark spacing.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-tick-slider.json"
+      ],
+      "categories": [
+        "component",
+        "slider"
+      ],
+      "meta": {
+        "demoProps": {
+          "min": {
+            "value": 16,
+            "min": 0,
+            "max": 32,
+            "step": 1
+          },
+          "max": {
+            "value": 48,
+            "min": 33,
+            "max": 100,
+            "step": 1
+          },
+          "step": {
+            "value": 1,
+            "min": 1,
+            "max": 5,
+            "step": 1
+          },
+          "majorEvery": {
+            "value": 8,
+            "min": 1,
+            "max": 16,
+            "step": 1
+          },
+          "showValue": {
+            "value": true
+          },
+          "fixedPitch": {
+            "value": true
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/tick-slider/c-tick-slider-01/index.tsx",
+          "type": "registry:component",
+          "target": "components/spaceui/tick-slider-demo.tsx"
+        }
+      ],
+      "createdAt": "2026-09-19",
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "demo-c-timeline-01",
@@ -10109,6 +11752,47 @@
       ],
       "createdAt": "2026-09-02",
       "updatedAt": "2026-09-02"
+    },
+    {
+      "name": "demo-c-velocity-hover-preview-01",
+      "type": "registry:component",
+      "title": "Velocity Hover Preview Demo",
+      "description": "Interactive services list with floating WebGL preview and velocity momentum warp.",
+      "isPro": true,
+      "registryDependencies": [
+        "https://www.spaceui.one/r/components-spaceui-velocity-hover-preview.json"
+      ],
+      "categories": [
+        "demo",
+        "media"
+      ],
+      "meta": {
+        "demoProps": {
+          "accentColor": {
+            "value": "#ffe9a8",
+            "options": {
+              "Aurum": "#ffe9a8",
+              "Mercury": "#f0f4f8",
+              "Iris": "#c9a6ff",
+              "Cobalt": "#93c5fd",
+              "Forge": "#fdba74",
+              "Jade": "#6ee7b7",
+              "Pearl": "#fafafa",
+              "White": "#ffffff",
+              "Black": "#000000"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/demo/components/spaceui/velocity-hover-preview/c-velocity-hover-preview-01/index.tsx",
+          "type": "registry:component",
+          "target": "demo/c-velocity-hover-preview-01.tsx"
+        }
+      ],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "demo-c-words-preloader-01",
@@ -26361,6 +28045,84 @@
       "updatedAt": "2026-08-21"
     },
     {
+      "name": "essentials",
+      "type": "registry:lib",
+      "title": "Essentials",
+      "description": "Installs every Space UI primitive, Base UI utilities, and the full theme in a single command.",
+      "registryDependencies": [
+        "https://www.spaceui.one/r/lib-utils.json",
+        "https://www.spaceui.one/r/lib-style.json",
+        "https://www.spaceui.one/r/lib-base-ui.json",
+        "https://www.spaceui.one/r/primitives-accordion.json",
+        "https://www.spaceui.one/r/primitives-alert-dialog.json",
+        "https://www.spaceui.one/r/primitives-alert.json",
+        "https://www.spaceui.one/r/primitives-aspect-ratio.json",
+        "https://www.spaceui.one/r/primitives-autocomplete.json",
+        "https://www.spaceui.one/r/primitives-avatar.json",
+        "https://www.spaceui.one/r/primitives-badge.json",
+        "https://www.spaceui.one/r/primitives-breadcrumb.json",
+        "https://www.spaceui.one/r/primitives-button.json",
+        "https://www.spaceui.one/r/primitives-calendar.json",
+        "https://www.spaceui.one/r/primitives-card.json",
+        "https://www.spaceui.one/r/primitives-checkbox-group.json",
+        "https://www.spaceui.one/r/primitives-checkbox.json",
+        "https://www.spaceui.one/r/primitives-collapsible.json",
+        "https://www.spaceui.one/r/primitives-combobox.json",
+        "https://www.spaceui.one/r/primitives-command.json",
+        "https://www.spaceui.one/r/primitives-context-menu.json",
+        "https://www.spaceui.one/r/primitives-dialog.json",
+        "https://www.spaceui.one/r/primitives-direction.json",
+        "https://www.spaceui.one/r/primitives-drawer.json",
+        "https://www.spaceui.one/r/primitives-empty.json",
+        "https://www.spaceui.one/r/primitives-field.json",
+        "https://www.spaceui.one/r/primitives-fieldset.json",
+        "https://www.spaceui.one/r/primitives-form.json",
+        "https://www.spaceui.one/r/primitives-frame.json",
+        "https://www.spaceui.one/r/primitives-group.json",
+        "https://www.spaceui.one/r/primitives-input-group.json",
+        "https://www.spaceui.one/r/primitives-input.json",
+        "https://www.spaceui.one/r/primitives-kbd.json",
+        "https://www.spaceui.one/r/primitives-label.json",
+        "https://www.spaceui.one/r/primitives-link.json",
+        "https://www.spaceui.one/r/primitives-menu.json",
+        "https://www.spaceui.one/r/primitives-menubar.json",
+        "https://www.spaceui.one/r/primitives-meter.json",
+        "https://www.spaceui.one/r/primitives-navigation-menu.json",
+        "https://www.spaceui.one/r/primitives-number-field.json",
+        "https://www.spaceui.one/r/primitives-otp-field.json",
+        "https://www.spaceui.one/r/primitives-pagination.json",
+        "https://www.spaceui.one/r/primitives-popover.json",
+        "https://www.spaceui.one/r/primitives-preview-card.json",
+        "https://www.spaceui.one/r/primitives-preview-link-card.json",
+        "https://www.spaceui.one/r/primitives-progress.json",
+        "https://www.spaceui.one/r/primitives-radio-group.json",
+        "https://www.spaceui.one/r/primitives-scroll-area.json",
+        "https://www.spaceui.one/r/primitives-select.json",
+        "https://www.spaceui.one/r/primitives-separator.json",
+        "https://www.spaceui.one/r/primitives-sheet.json",
+        "https://www.spaceui.one/r/primitives-sidebar.json",
+        "https://www.spaceui.one/r/primitives-skeleton.json",
+        "https://www.spaceui.one/r/primitives-slider.json",
+        "https://www.spaceui.one/r/primitives-spinner.json",
+        "https://www.spaceui.one/r/primitives-switch.json",
+        "https://www.spaceui.one/r/primitives-table.json",
+        "https://www.spaceui.one/r/primitives-tabs.json",
+        "https://www.spaceui.one/r/primitives-textarea.json",
+        "https://www.spaceui.one/r/primitives-toast.json",
+        "https://www.spaceui.one/r/primitives-toggle-group.json",
+        "https://www.spaceui.one/r/primitives-toggle.json",
+        "https://www.spaceui.one/r/primitives-toolbar.json",
+        "https://www.spaceui.one/r/primitives-tooltip.json"
+      ],
+      "categories": [
+        "lib",
+        "primitives"
+      ],
+      "files": [],
+      "createdAt": "2026-09-20",
+      "updatedAt": "2026-09-20"
+    },
+    {
       "name": "lib-font-heading",
       "type": "registry:file",
       "title": "Font Heading",
@@ -26711,7 +28473,7 @@
         }
       ],
       "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "primitives-aspect-ratio",
@@ -26828,7 +28590,7 @@
         }
       ],
       "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "primitives-breadcrumb",
@@ -26887,7 +28649,7 @@
         }
       ],
       "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "primitives-calendar",
@@ -27064,7 +28826,7 @@
         }
       ],
       "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "primitives-context-menu",
@@ -27124,7 +28886,7 @@
         }
       ],
       "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "primitives-direction",
@@ -27172,7 +28934,7 @@
         }
       ],
       "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "primitives-empty",
@@ -28105,7 +29867,7 @@
         }
       ],
       "createdAt": "2026-08-21",
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-09-20"
     },
     {
       "name": "primitives-toggle-group",
