@@ -1,0 +1,774 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "gridcn",
+  "homepage": "https://github.com/DammersCode/gridcn",
+  "items": [
+    {
+      "name": "data-grid",
+      "type": "registry:block",
+      "title": "Data Grid",
+      "description": "An editable data grid: range selection, spreadsheet clipboard, editing engine, validation, sorting, filtering, pinning, streaming updates. Real DOM cells, shadcn styling.",
+      "author": "gridcn",
+      "docs": "Docs & quick start: https://gridcn.vercel.app/docs/quick-start",
+      "dependencies": ["zustand"],
+      "registryDependencies": [
+        "button",
+        "input",
+        "select",
+        "checkbox",
+        "popover",
+        "calendar",
+        "dropdown-menu",
+        "context-menu",
+        "separator",
+        "tooltip"
+      ],
+      "files": [
+        { "path": "registry/default/blocks/data-grid/body.tsx", "type": "registry:component", "target": "components/data-grid/body.tsx" },
+        { "path": "registry/default/blocks/data-grid/cell-types/cell-span.tsx", "type": "registry:component", "target": "components/data-grid/cell-types/cell-span.tsx" },
+        { "path": "registry/default/blocks/data-grid/cell-types/cell-types.ts", "type": "registry:component", "target": "components/data-grid/cell-types/cell-types.ts" },
+        { "path": "registry/default/blocks/data-grid/cell-types/checkbox.tsx", "type": "registry:component", "target": "components/data-grid/cell-types/checkbox.tsx" },
+        { "path": "registry/default/blocks/data-grid/cell-types/date.tsx", "type": "registry:component", "target": "components/data-grid/cell-types/date.tsx" },
+        { "path": "registry/default/blocks/data-grid/cell-types/display-text.ts", "type": "registry:component", "target": "components/data-grid/cell-types/display-text.ts" },
+        { "path": "registry/default/blocks/data-grid/cell-types/index.ts", "type": "registry:component", "target": "components/data-grid/cell-types/index.ts" },
+        { "path": "registry/default/blocks/data-grid/cell-types/number.tsx", "type": "registry:component", "target": "components/data-grid/cell-types/number.tsx" },
+        { "path": "registry/default/blocks/data-grid/cell-types/select.tsx", "type": "registry:component", "target": "components/data-grid/cell-types/select.tsx" },
+        { "path": "registry/default/blocks/data-grid/cell-types/text.tsx", "type": "registry:component", "target": "components/data-grid/cell-types/text.tsx" },
+        { "path": "registry/default/blocks/data-grid/cell.tsx", "type": "registry:component", "target": "components/data-grid/cell.tsx" },
+        { "path": "registry/default/blocks/data-grid/clipboard/index.ts", "type": "registry:component", "target": "components/data-grid/clipboard/index.ts" },
+        { "path": "registry/default/blocks/data-grid/clipboard/parse-clipboard.ts", "type": "registry:component", "target": "components/data-grid/clipboard/parse-clipboard.ts" },
+        { "path": "registry/default/blocks/data-grid/clipboard/serialize-cells.ts", "type": "registry:component", "target": "components/data-grid/clipboard/serialize-cells.ts" },
+        { "path": "registry/default/blocks/data-grid/clipboard/use-data-grid-clipboard.ts", "type": "registry:component", "target": "components/data-grid/clipboard/use-data-grid-clipboard.ts" },
+        { "path": "registry/default/blocks/data-grid/clipboard/use-grid-clipboard.ts", "type": "registry:component", "target": "components/data-grid/clipboard/use-grid-clipboard.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/column-format-helpers.ts", "type": "registry:component", "target": "components/data-grid/columns/column-format-helpers.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/column-helpers.ts", "type": "registry:component", "target": "components/data-grid/columns/column-helpers.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/index.ts", "type": "registry:component", "target": "components/data-grid/columns/index.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/measure-column-text.ts", "type": "registry:component", "target": "components/data-grid/columns/measure-column-text.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/pin-offsets.ts", "type": "registry:component", "target": "components/data-grid/columns/pin-offsets.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/pinned-inset-style.ts", "type": "registry:component", "target": "components/data-grid/columns/pinned-inset-style.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/resolve-column-width.ts", "type": "registry:component", "target": "components/data-grid/columns/resolve-column-width.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/sort-indicator.tsx", "type": "registry:component", "target": "components/data-grid/columns/sort-indicator.tsx" },
+        { "path": "registry/default/blocks/data-grid/columns/use-column-reorder.ts", "type": "registry:component", "target": "components/data-grid/columns/use-column-reorder.ts" },
+        { "path": "registry/default/blocks/data-grid/columns/use-column-resize.ts", "type": "registry:component", "target": "components/data-grid/columns/use-column-resize.ts" },
+        { "path": "registry/default/blocks/data-grid/data-attributes.ts", "type": "registry:component", "target": "components/data-grid/data-attributes.ts" },
+        { "path": "registry/default/blocks/data-grid/data-grid.tsx", "type": "registry:component", "target": "components/data-grid/data-grid.tsx" },
+        { "path": "registry/default/blocks/data-grid/header-cell.tsx", "type": "registry:component", "target": "components/data-grid/header-cell.tsx" },
+        { "path": "registry/default/blocks/data-grid/header.tsx", "type": "registry:component", "target": "components/data-grid/header.tsx" },
+        { "path": "registry/default/blocks/data-grid/interaction/history.ts", "type": "registry:component", "target": "components/data-grid/interaction/history.ts" },
+        { "path": "registry/default/blocks/data-grid/interaction/index.ts", "type": "registry:component", "target": "components/data-grid/interaction/index.ts" },
+        { "path": "registry/default/blocks/data-grid/interaction/use-async-validate.ts", "type": "registry:component", "target": "components/data-grid/interaction/use-async-validate.ts" },
+        { "path": "registry/default/blocks/data-grid/interaction/use-commit-guard.ts", "type": "registry:component", "target": "components/data-grid/interaction/use-commit-guard.ts" },
+        { "path": "registry/default/blocks/data-grid/interaction/use-data-grid-container.ts", "type": "registry:component", "target": "components/data-grid/interaction/use-data-grid-container.ts" },
+        { "path": "registry/default/blocks/data-grid/interaction/use-grid-interaction.ts", "type": "registry:component", "target": "components/data-grid/interaction/use-grid-interaction.ts" },
+        { "path": "registry/default/blocks/data-grid/interaction/use-seed-focus.ts", "type": "registry:component", "target": "components/data-grid/interaction/use-seed-focus.ts" },
+        { "path": "registry/default/blocks/data-grid/is-dev.ts", "type": "registry:component", "target": "components/data-grid/is-dev.ts" },
+        { "path": "registry/default/blocks/data-grid/keyboard/default-keymap.ts", "type": "registry:component", "target": "components/data-grid/keyboard/default-keymap.ts" },
+        { "path": "registry/default/blocks/data-grid/keyboard/index.ts", "type": "registry:component", "target": "components/data-grid/keyboard/index.ts" },
+        { "path": "registry/default/blocks/data-grid/keyboard/is-printable-key.ts", "type": "registry:component", "target": "components/data-grid/keyboard/is-printable-key.ts" },
+        { "path": "registry/default/blocks/data-grid/keyboard/match-keymap.ts", "type": "registry:component", "target": "components/data-grid/keyboard/match-keymap.ts" },
+        { "path": "registry/default/blocks/data-grid/labels.ts", "type": "registry:component", "target": "components/data-grid/labels.ts" },
+        { "path": "registry/default/blocks/data-grid/layout-context.ts", "type": "registry:component", "target": "components/data-grid/layout-context.ts" },
+        { "path": "registry/default/blocks/data-grid/overlays.tsx", "type": "registry:component", "target": "components/data-grid/overlays.tsx" },
+        { "path": "registry/default/blocks/data-grid/root.tsx", "type": "registry:component", "target": "components/data-grid/root.tsx" },
+        { "path": "registry/default/blocks/data-grid/row.tsx", "type": "registry:component", "target": "components/data-grid/row.tsx" },
+        { "path": "registry/default/blocks/data-grid/rows/density.ts", "type": "registry:component", "target": "components/data-grid/rows/density.ts" },
+        { "path": "registry/default/blocks/data-grid/rows/index.ts", "type": "registry:component", "target": "components/data-grid/rows/index.ts" },
+        { "path": "registry/default/blocks/data-grid/rows/loading-skeleton.tsx", "type": "registry:component", "target": "components/data-grid/rows/loading-skeleton.tsx" },
+        { "path": "registry/default/blocks/data-grid/rows/marker-cell.tsx", "type": "registry:component", "target": "components/data-grid/rows/marker-cell.tsx" },
+        { "path": "registry/default/blocks/data-grid/rows/marker-header.tsx", "type": "registry:component", "target": "components/data-grid/rows/marker-header.tsx" },
+        { "path": "registry/default/blocks/data-grid/rows/marker-width.ts", "type": "registry:component", "target": "components/data-grid/rows/marker-width.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/compact-selection.ts", "type": "registry:component", "target": "components/data-grid/selection/compact-selection.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/extend-selection.ts", "type": "registry:component", "target": "components/data-grid/selection/extend-selection.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/index.ts", "type": "registry:component", "target": "components/data-grid/selection/index.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/line-ops.ts", "type": "registry:component", "target": "components/data-grid/selection/line-ops.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/offset-selection-for-rows.ts", "type": "registry:component", "target": "components/data-grid/selection/offset-selection-for-rows.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/rects.ts", "type": "registry:component", "target": "components/data-grid/selection/rects.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/select-all-progression.ts", "type": "registry:component", "target": "components/data-grid/selection/select-all-progression.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/select-line-options.ts", "type": "registry:component", "target": "components/data-grid/selection/select-line-options.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/selected-col-ranges-for-row.ts", "type": "registry:component", "target": "components/data-grid/selection/selected-col-ranges-for-row.ts" },
+        { "path": "registry/default/blocks/data-grid/selection/selection-ops.ts", "type": "registry:component", "target": "components/data-grid/selection/selection-ops.ts" },
+        { "path": "registry/default/blocks/data-grid/sort-filter/build-view-index.ts", "type": "registry:component", "target": "components/data-grid/sort-filter/build-view-index.ts" },
+        { "path": "registry/default/blocks/data-grid/sort-filter/incremental-view-index.ts", "type": "registry:component", "target": "components/data-grid/sort-filter/incremental-view-index.ts" },
+        { "path": "registry/default/blocks/data-grid/sort-filter/default-compare-text.ts", "type": "registry:component", "target": "components/data-grid/sort-filter/default-compare-text.ts" },
+        { "path": "registry/default/blocks/data-grid/sort-filter/find-search-matches.ts", "type": "registry:component", "target": "components/data-grid/sort-filter/find-search-matches.ts" },
+        { "path": "registry/default/blocks/data-grid/sort-filter/index.ts", "type": "registry:component", "target": "components/data-grid/sort-filter/index.ts" },
+        { "path": "registry/default/blocks/data-grid/sort-filter/matches-filter.ts", "type": "registry:component", "target": "components/data-grid/sort-filter/matches-filter.ts" },
+        { "path": "registry/default/blocks/data-grid/store/commit.ts", "type": "registry:component", "target": "components/data-grid/store/commit.ts" },
+        { "path": "registry/default/blocks/data-grid/store/compute.ts", "type": "registry:component", "target": "components/data-grid/store/compute.ts" },
+        { "path": "registry/default/blocks/data-grid/store/create-store.ts", "type": "registry:component", "target": "components/data-grid/store/create-store.ts" },
+        { "path": "registry/default/blocks/data-grid/store/hooks.ts", "type": "registry:component", "target": "components/data-grid/store/hooks.ts" },
+        { "path": "registry/default/blocks/data-grid/store/index.ts", "type": "registry:component", "target": "components/data-grid/store/index.ts" },
+        { "path": "registry/default/blocks/data-grid/store/row-index.ts", "type": "registry:component", "target": "components/data-grid/store/row-index.ts" },
+        { "path": "registry/default/blocks/data-grid/store/provider.tsx", "type": "registry:component", "target": "components/data-grid/store/provider.tsx" },
+        { "path": "registry/default/blocks/data-grid/store/types.ts", "type": "registry:component", "target": "components/data-grid/store/types.ts" },
+        { "path": "registry/default/blocks/data-grid/types.ts", "type": "registry:component", "target": "components/data-grid/types.ts" },
+        { "path": "registry/default/blocks/data-grid/layers.ts", "type": "registry:component", "target": "components/data-grid/layers.ts" },
+        { "path": "registry/default/blocks/data-grid/validation/validate-cell.ts", "type": "registry:component", "target": "components/data-grid/validation/validate-cell.ts" },
+        { "path": "registry/default/blocks/data-grid/validation/validate-batch.ts", "type": "registry:component", "target": "components/data-grid/validation/validate-batch.ts" },
+        { "path": "registry/default/blocks/data-grid/validation/bulk-generation.ts", "type": "registry:component", "target": "components/data-grid/validation/bulk-generation.ts" },
+        { "path": "registry/default/blocks/data-grid/validation/index.ts", "type": "registry:component", "target": "components/data-grid/validation/index.ts" },
+        { "path": "registry/default/blocks/data-grid/windowing/direction.ts", "type": "registry:component", "target": "components/data-grid/windowing/direction.ts" },
+        { "path": "registry/default/blocks/data-grid/windowing/index.ts", "type": "registry:component", "target": "components/data-grid/windowing/index.ts" },
+        { "path": "registry/default/blocks/data-grid/windowing/use-column-window.ts", "type": "registry:component", "target": "components/data-grid/windowing/use-column-window.ts" },
+        { "path": "registry/default/blocks/data-grid/windowing/use-pin-shadow-edges.ts", "type": "registry:component", "target": "components/data-grid/windowing/use-pin-shadow-edges.ts" },
+        { "path": "registry/default/blocks/data-grid/windowing/use-row-window.ts", "type": "registry:component", "target": "components/data-grid/windowing/use-row-window.ts" },
+        { "path": "registry/default/blocks/data-grid/windowing/use-scroll-snapshot.ts", "type": "registry:component", "target": "components/data-grid/windowing/use-scroll-snapshot.ts" },
+        { "path": "registry/default/blocks/data-grid/windowing/use-scrolled-edges.ts", "type": "registry:component", "target": "components/data-grid/windowing/use-scrolled-edges.ts" },
+        { "path": "registry/default/blocks/data-grid/windowing/velocity-estimator.ts", "type": "registry:component", "target": "components/data-grid/windowing/velocity-estimator.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-presence",
+      "type": "registry:block",
+      "title": "Data Grid Presence",
+      "description": "Multiplayer presence add-on for the gridcn data grid: useDataGridPresence registers an overlay plugin that paints remote users' live selections as named, colored highlights, with zero core re-renders.",
+      "author": "gridcn",
+      "dependencies": ["zustand"],
+      "registryDependencies": ["DammersCode/gridcn/data-grid"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-presence/data-grid-presence.ts", "type": "registry:component", "target": "components/data-grid-presence/data-grid-presence.ts" },
+        { "path": "registry/default/blocks/data-grid-presence/use-data-grid-presence.ts", "type": "registry:component", "target": "components/data-grid-presence/use-data-grid-presence.ts" },
+        { "path": "registry/default/blocks/data-grid-presence/presence-store.ts", "type": "registry:component", "target": "components/data-grid-presence/presence-store.ts" },
+        { "path": "registry/default/blocks/data-grid-presence/presence-overlay.tsx", "type": "registry:component", "target": "components/data-grid-presence/presence-overlay.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-fill",
+      "type": "registry:block",
+      "title": "Data Grid Fill",
+      "description": "Fill-handle add-on for the gridcn data grid: drag-to-tile with series inference (arithmetic runs, zero-padded numbers, prefix+number sequences), mod+D/mod+R keyboard fill, via the overlay-plugin seam, with zero core re-renders.",
+      "author": "gridcn",
+      "dependencies": ["zustand"],
+      "registryDependencies": ["DammersCode/gridcn/data-grid"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-fill/compute-fill-target.ts", "type": "registry:component", "target": "components/data-grid-fill/compute-fill-target.ts" },
+        { "path": "registry/default/blocks/data-grid-fill/data-grid-fill.ts", "type": "registry:component", "target": "components/data-grid-fill/data-grid-fill.ts" },
+        { "path": "registry/default/blocks/data-grid-fill/detect-series.ts", "type": "registry:component", "target": "components/data-grid-fill/detect-series.ts" },
+        { "path": "registry/default/blocks/data-grid-fill/fill-direction.ts", "type": "registry:component", "target": "components/data-grid-fill/fill-direction.ts" },
+        { "path": "registry/default/blocks/data-grid-fill/fill-overlay.tsx", "type": "registry:component", "target": "components/data-grid-fill/fill-overlay.tsx" },
+        { "path": "registry/default/blocks/data-grid-fill/fill-store.ts", "type": "registry:component", "target": "components/data-grid-fill/fill-store.ts" },
+        { "path": "registry/default/blocks/data-grid-fill/fill-tracker.tsx", "type": "registry:component", "target": "components/data-grid-fill/fill-tracker.tsx" },
+        { "path": "registry/default/blocks/data-grid-fill/fill.ts", "type": "registry:component", "target": "components/data-grid-fill/fill.ts" },
+        { "path": "registry/default/blocks/data-grid-fill/generate-fill.ts", "type": "registry:component", "target": "components/data-grid-fill/generate-fill.ts" },
+        { "path": "registry/default/blocks/data-grid-fill/use-data-grid-fill.tsx", "type": "registry:component", "target": "components/data-grid-fill/use-data-grid-fill.tsx" },
+        { "path": "registry/default/blocks/data-grid-fill/use-fill-handle.ts", "type": "registry:component", "target": "components/data-grid-fill/use-fill-handle.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-pinned-rows",
+      "type": "registry:block",
+      "title": "Data Grid Pinned Rows",
+      "description": "Pinned top/bottom row bands add-on for the gridcn data grid: useDataGridPinnedRows registers a rowBands spec (e.g. a totals row) that stays sticky under the header or at the viewport's bottom edge, pixel-aligned with data rows and pinned columns. useDataGridAggregate computes filter-aware sum/avg/min/max/count for those bands.",
+      "author": "gridcn",
+      "dependencies": ["zustand"],
+      "registryDependencies": ["DammersCode/gridcn/data-grid"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-pinned-rows/data-grid-pinned-rows.ts", "type": "registry:component", "target": "components/data-grid-pinned-rows/data-grid-pinned-rows.ts" },
+        { "path": "registry/default/blocks/data-grid-pinned-rows/use-data-grid-pinned-rows.tsx", "type": "registry:component", "target": "components/data-grid-pinned-rows/use-data-grid-pinned-rows.tsx" },
+        { "path": "registry/default/blocks/data-grid-pinned-rows/pinned-row.tsx", "type": "registry:component", "target": "components/data-grid-pinned-rows/pinned-row.tsx" },
+        { "path": "registry/default/blocks/data-grid-pinned-rows/pinned-row-band.tsx", "type": "registry:component", "target": "components/data-grid-pinned-rows/pinned-row-band.tsx" },
+        { "path": "registry/default/blocks/data-grid-pinned-rows/use-data-grid-aggregate.ts", "type": "registry:component", "target": "components/data-grid-pinned-rows/use-data-grid-aggregate.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-history",
+      "type": "registry:block",
+      "title": "Data Grid History",
+      "description": "Undo/redo add-on for the gridcn data grid: op-based, id-keyed history plus a useDataGridState quick-start wrapper.",
+      "author": "gridcn",
+      "dependencies": [],
+      "registryDependencies": ["DammersCode/gridcn/data-grid"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-history/data-grid-history.ts", "type": "registry:component", "target": "components/data-grid-history/data-grid-history.ts" },
+        { "path": "registry/default/blocks/data-grid-history/use-data-grid-history.ts", "type": "registry:component", "target": "components/data-grid-history/use-data-grid-history.ts" },
+        { "path": "registry/default/blocks/data-grid-history/use-data-grid-state.ts", "type": "registry:component", "target": "components/data-grid-history/use-data-grid-state.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-toolbar",
+      "type": "registry:block",
+      "title": "Data Grid Toolbar",
+      "description": "Toolbar add-on for the gridcn data grid: quick-search with match navigation, a per-column filter menu (aligned rows, join column, drag-to-reorder via @dnd-kit/react), and a column visibility/pin menu.",
+      "author": "gridcn",
+      "dependencies": ["@dnd-kit/dom", "@dnd-kit/react"],
+      "registryDependencies": [
+        "DammersCode/gridcn/data-grid",
+        "dropdown-menu",
+        "popover",
+        "input",
+        "button",
+        "badge",
+        "select"
+      ],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-toolbar/data-grid-toolbar.ts", "type": "registry:component", "target": "components/data-grid-toolbar/data-grid-toolbar.ts" },
+        { "path": "registry/default/blocks/data-grid-toolbar/toolbar.tsx", "type": "registry:component", "target": "components/data-grid-toolbar/toolbar.tsx" },
+        { "path": "registry/default/blocks/data-grid-toolbar/search.tsx", "type": "registry:component", "target": "components/data-grid-toolbar/search.tsx" },
+        { "path": "registry/default/blocks/data-grid-toolbar/filter-menu.tsx", "type": "registry:component", "target": "components/data-grid-toolbar/filter-menu.tsx" },
+        { "path": "registry/default/blocks/data-grid-toolbar/filter-value-input.tsx", "type": "registry:component", "target": "components/data-grid-toolbar/filter-value-input.tsx" },
+        { "path": "registry/default/blocks/data-grid-toolbar/columns-menu.tsx", "type": "registry:component", "target": "components/data-grid-toolbar/columns-menu.tsx" },
+        { "path": "registry/default/blocks/data-grid-toolbar/operators-for-column-type.ts", "type": "registry:component", "target": "components/data-grid-toolbar/operators-for-column-type.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-context-menu",
+      "type": "registry:block",
+      "title": "Data Grid Context Menu",
+      "description": "Right-click context menus for the gridcn data grid: cut/copy/paste/clear/row operations on cells, sort/pin/hide/autosize on headers.",
+      "author": "gridcn",
+      "dependencies": [],
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "context-menu", "dropdown-menu", "tooltip"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-context-menu/data-grid-context-menu.ts", "type": "registry:component", "target": "components/data-grid-context-menu/data-grid-context-menu.ts" },
+        { "path": "registry/default/blocks/data-grid-context-menu/context-menu.tsx", "type": "registry:component", "target": "components/data-grid-context-menu/context-menu.tsx" },
+        { "path": "registry/default/blocks/data-grid-context-menu/cell-menu-content.tsx", "type": "registry:component", "target": "components/data-grid-context-menu/cell-menu-content.tsx" },
+        { "path": "registry/default/blocks/data-grid-context-menu/header-menu-content.tsx", "type": "registry:component", "target": "components/data-grid-context-menu/header-menu-content.tsx" },
+        { "path": "registry/default/blocks/data-grid-context-menu/header-dropdown.tsx", "type": "registry:component", "target": "components/data-grid-context-menu/header-dropdown.tsx" },
+        { "path": "registry/default/blocks/data-grid-context-menu/autosize-column.ts", "type": "registry:component", "target": "components/data-grid-context-menu/autosize-column.ts" },
+        { "path": "registry/default/blocks/data-grid-context-menu/format-keymap-shortcut.ts", "type": "registry:component", "target": "components/data-grid-context-menu/format-keymap-shortcut.ts" },
+        { "path": "registry/default/blocks/data-grid-context-menu/has-row-op.ts", "type": "registry:component", "target": "components/data-grid-context-menu/has-row-op.ts" },
+        { "path": "registry/default/blocks/data-grid-context-menu/resolve-context-menu-target.ts", "type": "registry:component", "target": "components/data-grid-context-menu/resolve-context-menu-target.ts" },
+        { "path": "registry/default/blocks/data-grid-context-menu/selection-queries.ts", "type": "registry:component", "target": "components/data-grid-context-menu/selection-queries.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-keybindings",
+      "type": "registry:block",
+      "title": "Data Grid Keybindings",
+      "description": "Keyboard shortcuts dialog for the gridcn data grid, generated at runtime from the grid's effective keymap, grouped by category with platform-aware key chips; opens via '?' or a trigger.",
+      "author": "gridcn",
+      "dependencies": [],
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "dialog"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-keybindings/data-grid-keybindings.ts", "type": "registry:component", "target": "components/data-grid-keybindings/data-grid-keybindings.ts" },
+        { "path": "registry/default/blocks/data-grid-keybindings/keybindings-dialog.tsx", "type": "registry:component", "target": "components/data-grid-keybindings/keybindings-dialog.tsx" },
+        { "path": "registry/default/blocks/data-grid-keybindings/keybindings-shortcut.tsx", "type": "registry:component", "target": "components/data-grid-keybindings/keybindings-shortcut.tsx" },
+        { "path": "registry/default/blocks/data-grid-keybindings/binding-label.tsx", "type": "registry:component", "target": "components/data-grid-keybindings/binding-label.tsx" },
+        { "path": "registry/default/blocks/data-grid-keybindings/action-groups.ts", "type": "registry:component", "target": "components/data-grid-keybindings/action-groups.ts" },
+        { "path": "registry/default/blocks/data-grid-keybindings/action-labels.ts", "type": "registry:component", "target": "components/data-grid-keybindings/action-labels.ts" },
+        { "path": "components/ui/kbd.tsx", "type": "registry:component", "target": "components/ui/kbd.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-url-state",
+      "type": "registry:block",
+      "title": "Data Grid URL State",
+      "description": "Syncs the gridcn data grid's sort/filter/search state with the URL via nuqs (router-agnostic — requires a NuqsAdapter above it). Mount <DataGridUrlState prefix?> inside the provider; the prefix option namespaces the URL keys for multiple grids on one page.",
+      "author": "gridcn",
+      "dependencies": ["nuqs"],
+      "registryDependencies": ["DammersCode/gridcn/data-grid"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-url-state/data-grid-url-state.tsx", "type": "registry:component", "target": "components/data-grid-url-state/data-grid-url-state.tsx" },
+        { "path": "registry/default/blocks/data-grid-url-state/filter-operators.ts", "type": "registry:component", "target": "components/data-grid-url-state/filter-operators.ts" },
+        { "path": "registry/default/blocks/data-grid-url-state/filter-param.ts", "type": "registry:component", "target": "components/data-grid-url-state/filter-param.ts" },
+        { "path": "registry/default/blocks/data-grid-url-state/join-param.ts", "type": "registry:component", "target": "components/data-grid-url-state/join-param.ts" },
+        { "path": "registry/default/blocks/data-grid-url-state/page-param.ts", "type": "registry:component", "target": "components/data-grid-url-state/page-param.ts" },
+        { "path": "registry/default/blocks/data-grid-url-state/prefixed-key.ts", "type": "registry:component", "target": "components/data-grid-url-state/prefixed-key.ts" },
+        { "path": "registry/default/blocks/data-grid-url-state/sort-param.ts", "type": "registry:component", "target": "components/data-grid-url-state/sort-param.ts" },
+        { "path": "registry/default/blocks/data-grid-url-state/use-data-grid-url-pagination.ts", "type": "registry:component", "target": "components/data-grid-url-state/use-data-grid-url-pagination.ts" },
+        { "path": "registry/default/blocks/data-grid-url-state/use-data-grid-url-state.ts", "type": "registry:component", "target": "components/data-grid-url-state/use-data-grid-url-state.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-io",
+      "type": "registry:block",
+      "title": "Data Grid IO",
+      "description": "Import/export add-on for the gridcn data grid: xlsx and csv, with delimiter detection and preview. New user-facing strings live under `labels.io` (see lib/labels.ts DataGridIOLabels) — export button/menu, import dialog (file picker, header-row toggle, delimiter select, column mapping, preview, errors).",
+      "author": "gridcn",
+      "dependencies": ["xlsx", "papaparse"],
+      "devDependencies": ["@types/papaparse"],
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "dialog", "select", "dropdown-menu", "button"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-io/data-grid-io.ts", "type": "registry:component", "target": "components/data-grid-io/data-grid-io.ts" },
+        { "path": "registry/default/blocks/data-grid-io/export-grid.ts", "type": "registry:component", "target": "components/data-grid-io/export-grid.ts" },
+        { "path": "registry/default/blocks/data-grid-io/use-data-grid-export.ts", "type": "registry:component", "target": "components/data-grid-io/use-data-grid-export.ts" },
+        { "path": "registry/default/blocks/data-grid-io/export-button.tsx", "type": "registry:component", "target": "components/data-grid-io/export-button.tsx" },
+        { "path": "registry/default/blocks/data-grid-io/parse-import-file.ts", "type": "registry:component", "target": "components/data-grid-io/parse-import-file.ts" },
+        { "path": "registry/default/blocks/data-grid-io/match-import-column.ts", "type": "registry:component", "target": "components/data-grid-io/match-import-column.ts" },
+        { "path": "registry/default/blocks/data-grid-io/build-imported-rows.ts", "type": "registry:component", "target": "components/data-grid-io/build-imported-rows.ts" },
+        { "path": "registry/default/blocks/data-grid-io/use-data-grid-import.ts", "type": "registry:component", "target": "components/data-grid-io/use-data-grid-import.ts" },
+        { "path": "registry/default/blocks/data-grid-io/import-dialog.tsx", "type": "registry:component", "target": "components/data-grid-io/import-dialog.tsx" },
+        { "path": "registry/default/blocks/data-grid-io/import-button.tsx", "type": "registry:component", "target": "components/data-grid-io/import-button.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-lazy",
+      "type": "registry:block",
+      "title": "Data Grid Lazy",
+      "description": "Virtual data fetching add-on for the gridcn data grid: useDataGridLazyRows maintains a sparse data array and fetches row windows on demand from onRowWindowChange, with range coalescing, in-flight dedup, abort-on-unmount, and error revert/refetch. A dev-only DataGridLazyGuard warns when uncontrolled sort/filter/search fires while rows are still unloaded.",
+      "author": "gridcn",
+      "dependencies": [],
+      "registryDependencies": ["DammersCode/gridcn/data-grid"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-lazy/data-grid-lazy.ts", "type": "registry:component", "target": "components/data-grid-lazy/data-grid-lazy.ts" },
+        { "path": "registry/default/blocks/data-grid-lazy/use-data-grid-lazy-rows.ts", "type": "registry:component", "target": "components/data-grid-lazy/use-data-grid-lazy-rows.ts" },
+        { "path": "registry/default/blocks/data-grid-lazy/lazy-guard.tsx", "type": "registry:component", "target": "components/data-grid-lazy/lazy-guard.tsx" },
+        { "path": "registry/default/blocks/data-grid-lazy/range-math.ts", "type": "registry:component", "target": "components/data-grid-lazy/range-math.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-pagination",
+      "type": "registry:block",
+      "title": "Data Grid Pagination",
+      "description": "Pagination add-on for the gridcn data grid: useDataGridPagination (client mode slices data; server mode is fully controlled) plus a composable <DataGridPaginationBar /> footer (range, page-size select, first/prev/pages/next/last parts) — shadcn-Pagination style, renders a default layout with no children or a custom composition of parts. New user-facing strings live under labels.pagination (see data-grid/labels.ts DataGridPaginationLabels). Zero core changes — purely additive.",
+      "author": "gridcn",
+      "dependencies": [],
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "button", "select"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-pagination/data-grid-pagination.ts", "type": "registry:component", "target": "components/data-grid-pagination/data-grid-pagination.ts" },
+        { "path": "registry/default/blocks/data-grid-pagination/use-data-grid-pagination.ts", "type": "registry:component", "target": "components/data-grid-pagination/use-data-grid-pagination.ts" },
+        { "path": "registry/default/blocks/data-grid-pagination/pagination-footer.tsx", "type": "registry:component", "target": "components/data-grid-pagination/pagination-footer.tsx" },
+        { "path": "registry/default/blocks/data-grid-pagination/pagination-math.ts", "type": "registry:component", "target": "components/data-grid-pagination/pagination-math.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-sort-list",
+      "type": "registry:block",
+      "title": "Data Grid Sort List",
+      "description": "Toolbar sort add-on for the gridcn data grid: a sort button + popover listing applied sorts as editable, aligned rows (column / direction / remove / drag handle), with add/clear-all and precedence reordering via @dnd-kit/react drag or ArrowUp/ArrowDown on the grip (array order in SortSpec[]). New user-facing strings live under labels.sort (see data-grid/labels.ts DataGridSortLabels). Zero core changes — purely additive.",
+      "author": "gridcn",
+      "dependencies": ["@dnd-kit/dom", "@dnd-kit/react"],
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "popover", "button", "badge", "select"],
+      "files": [
+        { "path": "registry/default/blocks/data-grid-sort-list/data-grid-sort-list.ts", "type": "registry:component", "target": "components/data-grid-sort-list/data-grid-sort-list.ts" },
+        { "path": "registry/default/blocks/data-grid-sort-list/sort-list.tsx", "type": "registry:component", "target": "components/data-grid-sort-list/sort-list.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-minimal-demo",
+      "type": "registry:example",
+      "title": "Data Grid Minimal Demo",
+      "description": "The quick-start minimum: the core item alone, `defaultData`, zero app-side state.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-minimal-demo.tsx", "type": "registry:example", "target": "components/data-grid-minimal-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-streaming-demo",
+      "type": "registry:example",
+      "title": "Data Grid Streaming Demo",
+      "description": "A live ticker: `updateCells` streams values in place. An auto-sort switch toggles between defer (rows hold position, re-sort on demand) and immediate (correct order every tick).",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "button", "switch"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-streaming-demo.tsx", "type": "registry:example", "target": "components/data-grid-streaming-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-demo",
+      "type": "registry:example",
+      "title": "Data Grid Demo",
+      "description": "The hero demo: an editable grid with every built-in cell type, range selection, the free data-grid-fill add-on, and native clipboard, via defaultData with zero state wiring.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-fill"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-demo.tsx", "type": "registry:example", "target": "components/data-grid-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-cell-types-demo",
+      "type": "registry:example",
+      "title": "Data Grid Cell Types Demo",
+      "description": "Every built-in cell type in one grid, plus a read-only column, a validate rule, and a custom renderCell override.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-cell-types-demo.tsx", "type": "registry:example", "target": "components/data-grid-cell-types-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-custom-cell-demo",
+      "type": "registry:example",
+      "title": "Data Grid Custom Cell Demo",
+      "description": "A worked custom cell type: currency storage as a plain number, cached locale-formatted display, and a symbol-stripping fromText, registered via the cellTypes prop.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-custom-cell-demo.tsx", "type": "registry:example", "target": "components/data-grid-custom-cell-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-sorting-filtering-demo",
+      "type": "registry:example",
+      "title": "Data Grid Sorting & Filtering Demo",
+      "description": "Toolbar quick-search with match navigation, a per-column filter menu, and click-to-sort headers with multi-column sort.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "DammersCode/gridcn/data-grid-toolbar"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-sorting-filtering-demo.tsx", "type": "registry:example", "target": "components/data-grid-sorting-filtering-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-history-demo",
+      "type": "registry:example",
+      "title": "Data Grid History Demo",
+      "description": "Undo/redo via the useDataGridState quick start, with toolbar buttons wired to the returned history object.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-history-demo.tsx", "type": "registry:example", "target": "components/data-grid-history-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-context-menu-demo",
+      "type": "registry:example",
+      "title": "Data Grid Context Menu Demo",
+      "description": "Right-click cell menu (cut/copy/paste/clear, row operations) and header menu (sort/pin/hide/autosize) via the header dropdown.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "DammersCode/gridcn/data-grid-context-menu"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-context-menu-demo.tsx", "type": "registry:example", "target": "components/data-grid-context-menu-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-keybindings-demo",
+      "type": "registry:example",
+      "title": "Data Grid Keybindings Demo",
+      "description": "A shortcuts dialog generated at runtime from the grid's effective keymap, opened via a toolbar button or the '?' shortcut.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "DammersCode/gridcn/data-grid-keybindings"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-keybindings-demo.tsx", "type": "registry:example", "target": "components/data-grid-keybindings-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-io-demo",
+      "type": "registry:example",
+      "title": "Data Grid IO Demo",
+      "description": "Import/export toolbar buttons: export downloads the current view as xlsx or csv; import parses a file and replaces the grid's data through onDataChange.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "DammersCode/gridcn/data-grid-io"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-io-demo.tsx", "type": "registry:example", "target": "components/data-grid-io-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-url-state-demo",
+      "type": "registry:example",
+      "title": "Data Grid URL State Demo",
+      "description": "Sort/filter/search/pagination state synced to the URL via nuqs; wrapped in the Next.js app-router NuqsAdapter (swap for your framework's adapter).",
+      "author": "gridcn",
+      "dependencies": ["nuqs"],
+      "registryDependencies": [
+        "DammersCode/gridcn/data-grid",
+        "DammersCode/gridcn/data-grid-history",
+        "DammersCode/gridcn/data-grid-toolbar",
+        "DammersCode/gridcn/data-grid-url-state",
+        "DammersCode/gridcn/data-grid-pagination"
+      ],
+      "files": [
+        { "path": "registry/default/examples/data-grid-url-state-demo.tsx", "type": "registry:example", "target": "components/data-grid-url-state-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-row-markers-demo",
+      "type": "registry:example",
+      "title": "Data Grid Row Markers Demo",
+      "description": "rowMarkers modes (none/number/checkbox/both): a pinned-left marker column outside the data index space, switchable at runtime.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "select"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-row-markers-demo.tsx", "type": "registry:example", "target": "components/data-grid-row-markers-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-custom-headers-demo",
+      "type": "registry:example",
+      "title": "Data Grid Custom Headers Demo",
+      "description": "Column header as a React component: a three-state sort icon (minus / up / down) driven by useDataGridSortState(); header click sorts in sort mode, and a custom header owns its display.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-custom-headers-demo.tsx", "type": "registry:example", "target": "components/data-grid-custom-headers-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-custom-markers-demo",
+      "type": "registry:example",
+      "title": "Data Grid Custom Markers Demo",
+      "description": "Custom row marker renderers (renderMarker/renderMarkerHeader): a lucide icon marker reflecting the row selection state, and a select-all header button, while the marker cell's own press/drag gestures still select rows.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "button"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-custom-markers-demo.tsx", "type": "registry:example", "target": "components/data-grid-custom-markers-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-pinning-demo",
+      "type": "registry:example",
+      "title": "Data Grid Pinning Demo",
+      "description": "Column pinning (left/right), resize (incl. a resizable:false column and a flex:1 long-content column for double-click autosize), and drag-to-reorder, with the header dropdown menu for pin/unpin/autosize and a toolbar columns menu for show/hide.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "DammersCode/gridcn/data-grid-context-menu", "DammersCode/gridcn/data-grid-toolbar"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-pinning-demo.tsx", "type": "registry:example", "target": "components/data-grid-pinning-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-large-data-demo",
+      "type": "registry:example",
+      "title": "Data Grid Large Data Demo",
+      "description": "100k generated rows proving row virtualization: only the windowed rows around the viewport ever mount.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-large-data-demo.tsx", "type": "registry:example", "target": "components/data-grid-large-data-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-performance-demo",
+      "type": "registry:example",
+      "title": "Data Grid Performance Demo",
+      "description": "100k generated rows with a top-left FPS meter overlay so the scroll-performance claim is checkable live.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-performance-demo.tsx", "type": "registry:example", "target": "components/data-grid-performance-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-pinned-rows-demo",
+      "type": "registry:example",
+      "title": "Data Grid Pinned Rows Demo",
+      "description": "Totals and averages rows pinned under the header, recomputed live from the grid's data on every edit, and filter-aware via a toolbar filter menu on the Role column.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "DammersCode/gridcn/data-grid-pinned-rows", "DammersCode/gridcn/data-grid-toolbar"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-pinned-rows-demo.tsx", "type": "registry:example", "target": "components/data-grid-pinned-rows-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-conditional-styling-demo",
+      "type": "registry:example",
+      "title": "Data Grid Conditional Styling Demo",
+      "description": "An HR dataset showing all four value-driven styling surfaces: grid-level getRowClassName/getCellClassName plus per-column cellClassName/headerClassName, all using shadcn theme tokens.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-conditional-styling-demo.tsx", "type": "registry:example", "target": "components/data-grid-conditional-styling-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-styling-patterns-demo",
+      "type": "registry:example",
+      "title": "Data Grid Styling Patterns Demo",
+      "description": "A fully-styled brand column (per-column cellClassName/headerClassName), a fully-styled at-risk row (getRowClassName beyond a bg tint), and a live density/rowHeight toggle.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-styling-patterns-demo.tsx", "type": "registry:example", "target": "components/data-grid-styling-patterns-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-lazy-demo",
+      "type": "registry:example",
+      "title": "Data Grid Lazy Demo",
+      "description": "100k rows, only a handful loaded up front; a simulated-latency in-memory API fetches each scrolled-into window on demand, with skeleton rows filling in as data lands.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-lazy"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-lazy-demo.tsx", "type": "registry:example", "target": "components/data-grid-lazy-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-pagination-demo",
+      "type": "registry:example",
+      "title": "Data Grid Pagination Demo",
+      "description": "Client-mode pagination: useDataGridPagination slices a generated dataset and <DataGridPaginationBar /> renders the default footer (first/prev/pages/next/last, page-size select, range label).",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "DammersCode/gridcn/data-grid-pagination"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-pagination-demo.tsx", "type": "registry:example", "target": "components/data-grid-pagination-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-sort-list-demo",
+      "type": "registry:example",
+      "title": "Data Grid Sort List Demo",
+      "description": "Toolbar sort button + popover: add/remove sorts, toggle ascending/descending, and reorder precedence via drag handle or ArrowUp/ArrowDown keyboard.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "DammersCode/gridcn/data-grid-toolbar", "DammersCode/gridcn/data-grid-sort-list"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-sort-list-demo.tsx", "type": "registry:example", "target": "components/data-grid-sort-list-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-presence-demo",
+      "type": "registry:example",
+      "title": "Data Grid Presence Demo",
+      "description": "3 simulated users move cell/range selections on a timer via useDataGridPresence's setPresenceHighlights (2 in view-space range form, 1 rowId-native), with toolbar avatar chips, one user periodically overlapping another, and headerClickBehavior=\"sort\" proving the rowId-native highlight follows its row through a sort.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-presence"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-presence-demo.tsx", "type": "registry:example", "target": "components/data-grid-presence-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-events-demo",
+      "type": "registry:example",
+      "title": "Data Grid Events Demo",
+      "description": "Grid with a live inspector panel pretty-printing the latest payload per event: onDataChange, onSelectionChange, onSortChange, onFilterChange/join, onFill, onRowWindowChange, onColumnLayoutChange, and a presence read-back button.",
+      "author": "gridcn",
+      "registryDependencies": [
+        "DammersCode/gridcn/data-grid",
+        "DammersCode/gridcn/data-grid-toolbar",
+        "DammersCode/gridcn/data-grid-context-menu",
+        "DammersCode/gridcn/data-grid-presence",
+        "DammersCode/gridcn/data-grid-fill"
+      ],
+      "files": [
+        { "path": "registry/default/examples/data-grid-events-demo.tsx", "type": "registry:example", "target": "components/data-grid-events-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-validation-demo",
+      "type": "registry:example",
+      "title": "Data Grid Validation Demo",
+      "description": "Five rejection paths in one grid: a sync function (Age), a sync Standard Schema (Email), an async Standard Schema with a visible pending state (SKU), and a coercing schema (Price). A button pastes a mixed valid/invalid block onto Age to show the bulk-rejection path.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history", "sonner"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-validation-demo.tsx", "type": "registry:example", "target": "components/data-grid-validation-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-cell-errors-demo",
+      "type": "registry:example",
+      "title": "Data Grid Cell Errors Demo",
+      "description": "A fake saveOrders rejects any committed Quantity over 100 after ~600ms; the onDataChange handler calls actions.setCellErrors to paint the exact cell with the same ring/tint/aria-invalid treatment as a live validate rejection, after commit. A badge reads the count via useDataGridCellErrors(), and a Clear all button calls clearCellErrors().",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-history"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-cell-errors-demo.tsx", "type": "registry:example", "target": "components/data-grid-cell-errors-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-i18n-demo",
+      "type": "registry:example",
+      "title": "Data Grid I18n Demo",
+      "description": "A locale Select (English/Deutsch/Arabic) where each locale carries its strings and its text direction: labels, column headers, and hint text translate via deep-merged overrides, and the Arabic locale flips the grid to RTL through the direction prop.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-toolbar", "select"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-i18n-demo.tsx", "type": "registry:example", "target": "components/data-grid-i18n-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-fill-patterns-demo",
+      "type": "registry:example",
+      "title": "Data Grid Fill Patterns Demo",
+      "description": "A staged dataset with a numeric series (1,2,3), a zero-padded series (001,002), a text-plus-number series (Item 1,2,3), and a plain-text column — dragging the fill handle down each shows series extrapolation vs. plain tiling; Alt/Option forces a copy and Ctrl/Cmd+D/R do the same from the keyboard.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "DammersCode/gridcn/data-grid-fill"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-fill-patterns-demo.tsx", "type": "registry:example", "target": "components/data-grid-fill-patterns-demo.tsx" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-loading-demo",
+      "type": "registry:example",
+      "title": "Data Grid Loading Demo",
+      "description": "Two Switches (loading, rows present) reach all three states of the loading prop: zero rows + loading = viewport-filling skeleton, rows present + loading = a slim indeterminate bar under the header, zero rows + not loading = the ordinary empty state.",
+      "author": "gridcn",
+      "registryDependencies": ["DammersCode/gridcn/data-grid", "switch"],
+      "files": [
+        { "path": "registry/default/examples/data-grid-loading-demo.tsx", "type": "registry:example", "target": "components/data-grid-loading-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    },
+    {
+      "name": "data-grid-playground-demo",
+      "type": "registry:example",
+      "title": "Data Grid Playground Demo",
+      "description": "Every add-on composed in one grid: toolbar, context menu, fill, undo/redo, keybindings, sort list, import/export, plus independent toggles (row markers, pinned totals, validation, read-only, loading, RTL, presence, streaming, density, header click) and an exclusive virtualized/paginated/lazy mode select.",
+      "author": "gridcn",
+      "registryDependencies": [
+        "DammersCode/gridcn/data-grid",
+        "DammersCode/gridcn/data-grid-history",
+        "DammersCode/gridcn/data-grid-fill",
+        "DammersCode/gridcn/data-grid-pinned-rows",
+        "DammersCode/gridcn/data-grid-presence",
+        "DammersCode/gridcn/data-grid-lazy",
+        "DammersCode/gridcn/data-grid-pagination",
+        "DammersCode/gridcn/data-grid-toolbar",
+        "DammersCode/gridcn/data-grid-context-menu",
+        "DammersCode/gridcn/data-grid-sort-list",
+        "DammersCode/gridcn/data-grid-keybindings",
+        "DammersCode/gridcn/data-grid-io",
+        "switch",
+        "select",
+        "button"
+      ],
+      "files": [
+        { "path": "registry/default/examples/data-grid-playground-demo.tsx", "type": "registry:example", "target": "components/data-grid-playground-demo.tsx" },
+        { "path": "registry/default/examples/demo-data.ts", "type": "registry:example", "target": "components/demo-data.ts" }
+      ],
+      "categories": ["data"]
+    }
+  ]
+}

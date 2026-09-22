@@ -5,33 +5,741 @@
   "items": [
     {
       "name": "design-system-styles",
-      "type": "registry:style",
       "title": "Design System Styles",
-      "description": "Token CSS, Tailwind v4 adapter, and shared component styles.",
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "registry/styles/tokens.css",
-          "type": "registry:file",
-          "target": "src/components/design-system/tokens.css"
-        },
-        {
-          "path": "registry/styles/tailwind.css",
-          "type": "registry:file",
-          "target": "src/components/design-system/tailwind.css"
-        },
-        {
-          "path": "registry/styles/styles.css",
-          "type": "registry:file",
-          "target": "src/components/design-system/styles.css"
+      "description": "Design tokens, Tailwind v4 theme mappings, and shared component rules.",
+      "cssVars": {
+        "theme": {
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-surface": "var(--surface)",
+          "color-surface-soft": "var(--surface-soft)",
+          "color-card": "var(--card)",
+          "color-card-foreground": "var(--card-foreground)",
+          "color-popover": "var(--popover)",
+          "color-popover-foreground": "var(--popover-foreground)",
+          "color-primary": "var(--primary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-primary-hover": "var(--primary-hover)",
+          "color-primary-active": "var(--primary-active)",
+          "color-secondary": "var(--secondary)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-secondary-hover": "var(--secondary-hover)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-accent": "var(--accent)",
+          "color-accent-foreground": "var(--accent-foreground)",
+          "color-border": "var(--border)",
+          "color-border-control": "var(--border-control)",
+          "color-input": "var(--input)",
+          "color-ring": "var(--ring)",
+          "color-sidebar": "var(--sidebar)",
+          "color-sidebar-foreground": "var(--sidebar-foreground)",
+          "color-sidebar-primary": "var(--sidebar-primary)",
+          "color-sidebar-primary-foreground": "var(--sidebar-primary-foreground)",
+          "color-sidebar-accent": "var(--sidebar-accent)",
+          "color-sidebar-accent-foreground": "var(--sidebar-accent-foreground)",
+          "color-sidebar-border": "var(--sidebar-border)",
+          "color-sidebar-ring": "var(--sidebar-ring)",
+          "color-success": "var(--success)",
+          "color-success-foreground": "var(--success-foreground)",
+          "color-success-soft": "var(--success-soft)",
+          "color-success-soft-foreground": "var(--success-soft-foreground)",
+          "color-warning": "var(--warning)",
+          "color-warning-foreground": "var(--warning-foreground)",
+          "color-warning-soft": "var(--warning-soft)",
+          "color-warning-soft-foreground": "var(--warning-soft-foreground)",
+          "color-destructive": "var(--destructive)",
+          "color-destructive-foreground": "var(--destructive-foreground)",
+          "color-danger-soft": "var(--danger-soft)",
+          "color-danger-soft-foreground": "var(--danger-soft-foreground)",
+          "radius-sm": "var(--ds-radius-sm)",
+          "radius-md": "var(--ds-radius-md)",
+          "radius-lg": "var(--ds-radius-lg)",
+          "radius-xl": "var(--ds-radius-xl)",
+          "radius-pill": "var(--ds-radius-pill)",
+          "font-sans": "var(--ds-font-family-sans)",
+          "font-mono": "var(--ds-font-family-mono)"
         }
-      ],
-      "docs": "Import \"@/components/design-system/styles.css\" once from the application CSS after Tailwind. Wrap only the design-system surface in DesignThemeProvider or add data-ds-base to that surface."
+      },
+      "css": {
+        ":root, [data-ds-base]": {
+          "--ds-control-height-sm": "36px",
+          "--ds-control-height-md": "44px",
+          "--ds-control-height-lg": "48px",
+          "--ds-space-micro": "2px",
+          "--ds-space-1": "4px",
+          "--ds-space-2": "8px",
+          "--ds-space-3": "12px",
+          "--ds-space-4": "16px",
+          "--ds-space-6": "24px",
+          "--ds-space-8": "32px",
+          "--ds-space-12": "48px",
+          "--ds-space-16": "64px",
+          "--ds-radius-sm": "8px",
+          "--ds-radius-md": "12px",
+          "--ds-radius-lg": "20px",
+          "--ds-radius-xl": "28px",
+          "--ds-radius-pill": "9999px",
+          "--ds-border-width-soft": "4px",
+          "--ds-border-width-control": "2px",
+          "--ds-font-size-body": "1rem",
+          "--ds-font-size-small": "0.875rem",
+          "--ds-line-height-body": "1.75",
+          "--ds-line-height-ui": "1.5",
+          "--ds-font-family-sans": "system-ui, -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', Meiryo, sans-serif",
+          "--ds-font-family-mono": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+          "--ds-font-size-display": "2.25rem",
+          "--ds-font-size-heading": "1.75rem",
+          "--ds-font-size-title": "1.25rem",
+          "--ds-font-size-caption": "0.75rem",
+          "--ds-font-size-label": "0.875rem",
+          "--ds-font-size-code": "0.875rem",
+          "--ds-font-weight-regular": "400",
+          "--ds-font-weight-medium": "500",
+          "--ds-font-weight-semibold": "600",
+          "--ds-letter-spacing-body": "0em",
+          "--ds-letter-spacing-heading": "0em",
+          "--ds-focus-width": "2px",
+          "--ds-focus-offset": "2px",
+          "--ds-duration-fast": "120ms",
+          "--ds-duration-normal": "180ms",
+          "--ds-duration-feedback": "240ms",
+          "--ds-ease-standard": "cubic-bezier(0.2, 0, 0, 1)",
+          "--ds-motion-distance-enter": "4px",
+          "--ds-shadow-none": "none",
+          "--ds-shadow-popover": "0 4px 16px rgb(56 52 47 / 10%)",
+          "--ds-shadow-dialog": "0 12px 40px rgb(56 52 47 / 12%)",
+          "--ds-z-index-base": "0",
+          "--ds-z-index-sticky": "10",
+          "--ds-z-index-dropdown": "20",
+          "--ds-z-index-modal": "40",
+          "--ds-z-index-toast": "50",
+          "--ds-breakpoint-sm": "640px",
+          "--ds-breakpoint-md": "768px",
+          "--ds-breakpoint-lg": "1024px",
+          "--ds-breakpoint-xl": "1280px",
+          "--ds-functional-icon-size-sm": "16px",
+          "--ds-functional-icon-size-md": "20px",
+          "--ds-functional-icon-size-lg": "24px",
+          "--ds-functional-icon-stroke": "2px",
+          "--ds-radius-control": "var(--ds-radius-md)",
+          "--ds-radius-card": "var(--ds-radius-lg)",
+          "--ds-radius-dialog": "var(--ds-radius-xl)",
+          "--ds-space-icon-gap": "var(--ds-space-2)",
+          "--ds-space-field-gap": "var(--ds-space-2)",
+          "--ds-space-control-gap": "var(--ds-space-3)",
+          "--ds-space-group-gap": "var(--ds-space-4)",
+          "--ds-space-card-padding": "var(--ds-space-6)",
+          "--ds-space-section-gap": "var(--ds-space-8)",
+          "--background": "var(--m-bg)",
+          "--foreground": "var(--m-fg)",
+          "--surface": "var(--m-surface)",
+          "--surface-soft": "var(--m-soft)",
+          "--card": "var(--m-surface)",
+          "--card-foreground": "var(--m-fg)",
+          "--popover": "var(--m-surface)",
+          "--popover-foreground": "var(--m-fg)",
+          "--primary": "var(--m-primary)",
+          "--primary-foreground": "var(--m-ink)",
+          "--primary-hover": "var(--m-primary-hover)",
+          "--primary-active": "var(--m-primary-active)",
+          "--secondary": "var(--m-soft)",
+          "--secondary-foreground": "var(--m-fg)",
+          "--secondary-hover": "var(--m-control-hover)",
+          "--muted": "var(--m-soft)",
+          "--muted-foreground": "var(--m-muted)",
+          "--accent": "var(--m-control-hover)",
+          "--accent-foreground": "var(--m-fg)",
+          "--border": "var(--m-border)",
+          "--border-control": "var(--m-control)",
+          "--input": "var(--m-control)",
+          "--ring": "var(--m-ring)",
+          "--sidebar": "var(--m-soft)",
+          "--sidebar-foreground": "var(--m-fg)",
+          "--sidebar-primary": "var(--m-primary)",
+          "--sidebar-primary-foreground": "var(--m-ink)",
+          "--sidebar-accent": "var(--m-control-hover)",
+          "--sidebar-accent-foreground": "var(--m-fg)",
+          "--sidebar-border": "var(--m-border)",
+          "--sidebar-ring": "var(--m-ring)",
+          "--success": "#365e43",
+          "--success-foreground": "#fffdf8",
+          "--success-soft": "#d6e5d2",
+          "--success-soft-foreground": "#365e43",
+          "--warning": "#74501c",
+          "--warning-foreground": "#fffdf8",
+          "--warning-soft": "#f2e2b0",
+          "--warning-soft-foreground": "#74501c",
+          "--destructive": "#9b3e36",
+          "--destructive-foreground": "#fffdf8",
+          "--danger-soft": "#f1d4cc",
+          "--danger-soft-foreground": "#9b3e36",
+          "--overlay": "rgb(56 52 47 / 24%)",
+          "--radius": "var(--ds-radius-control)"
+        },
+        ":root, [data-ds-base=\"milk\"]": {
+          "--m-bg": "#f8f7f3",
+          "--m-surface": "#fffdf8",
+          "--m-soft": "#e9e2d8",
+          "--m-fg": "#38342f",
+          "--m-muted": "#6b635b",
+          "--m-border": "#ead7c4",
+          "--m-control": "#a58b75",
+          "--m-control-hover": "#ecd9c8",
+          "--m-ring": "#98603a",
+          "--m-primary": "#efb889",
+          "--m-ink": "#5e3617",
+          "--m-primary-hover": "#e8aa76",
+          "--m-primary-active": "#df9c65"
+        },
+        "[data-ds-base=\"cream\"]": {
+          "--m-bg": "#f8f3e8",
+          "--m-surface": "#fffbf2",
+          "--m-soft": "#eae0cb",
+          "--m-fg": "#3d3529",
+          "--m-muted": "#70624e",
+          "--m-border": "#ebdcbf",
+          "--m-control": "#a28a69",
+          "--m-control-hover": "#e4d6bc",
+          "--m-ring": "#926137",
+          "--m-primary": "#e6c574",
+          "--m-ink": "#533f0e",
+          "--m-primary-hover": "#daba61",
+          "--m-primary-active": "#cdac50"
+        },
+        "[data-ds-base=\"neutral\"]": {
+          "--m-bg": "#f2fbff",
+          "--m-surface": "#fbfeff",
+          "--m-soft": "#d9f2ff",
+          "--m-fg": "#173b50",
+          "--m-muted": "#38627a",
+          "--m-border": "#d4effc",
+          "--m-control": "#4f8aab",
+          "--m-control-hover": "#bce8fc",
+          "--m-ring": "#17648f",
+          "--m-primary": "#79cef5",
+          "--m-ink": "#103f59",
+          "--m-primary-hover": "#5dbfea",
+          "--m-primary-active": "#44b0df"
+        },
+        "[data-ds-base=\"sage\"]": {
+          "--m-bg": "#f4fced",
+          "--m-surface": "#fcfff8",
+          "--m-soft": "#e0f4ca",
+          "--m-fg": "#24431b",
+          "--m-muted": "#476a36",
+          "--m-border": "#ddf0c9",
+          "--m-control": "#759b54",
+          "--m-control-hover": "#c9ecaa",
+          "--m-ring": "#467b25",
+          "--m-primary": "#a4df76",
+          "--m-ink": "#25440f",
+          "--m-primary-hover": "#8fd25d",
+          "--m-primary-active": "#7ac448"
+        },
+        "[data-ds-base=\"lavender\"]": {
+          "--m-bg": "#f7f2ff",
+          "--m-surface": "#fdfaff",
+          "--m-soft": "#e8d8ff",
+          "--m-fg": "#32184e",
+          "--m-muted": "#674782",
+          "--m-border": "#e9dcfb",
+          "--m-control": "#9771bc",
+          "--m-control-hover": "#d9bff7",
+          "--m-ring": "#743ab0",
+          "--m-primary": "#bc8df2",
+          "--m-ink": "#27083e",
+          "--m-primary-hover": "#ae79e9",
+          "--m-primary-active": "#a774e1"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ":root, [data-ds-base]": {
+            "--ds-duration-fast": "0ms",
+            "--ds-duration-normal": "0ms",
+            "--ds-duration-feedback": "0ms",
+            "--ds-motion-distance-enter": "0px"
+          },
+          "[data-slot],\n  [data-slot] *": {
+            "animation": "none",
+            "transition": "none"
+          },
+          "[data-slot=\"progress\"][data-state=\"indeterminate\"] [data-slot=\"progress-indicator\"]": {
+            "animation": "none",
+            "margin-left": "37.5%"
+          }
+        },
+        "@custom-variant dark (&:is(.dark *))": {},
+        "@layer base": {
+          "[data-ds-base]": {
+            "font-family": "var(--ds-font-family-sans)",
+            "font-size": "var(--ds-font-size-body)",
+            "line-height": "var(--ds-line-height-body)",
+            "color": "var(--foreground)"
+          },
+          ":where([data-slot], .ds-art-icon, .ds-status-bubble)": {
+            "box-sizing": "border-box",
+            "font-family": "var(--ds-font-family-sans)"
+          }
+        },
+        "@layer components": {
+          ".ds-input,\n  .ds-textarea": {
+            "width": "100%",
+            "min-width": "0",
+            "border": "var(--ds-border-width-control) solid var(--border-control)",
+            "border-radius": "var(--ds-radius-control)",
+            "background": "var(--surface)",
+            "color": "var(--foreground)",
+            "padding": "var(--ds-space-2) var(--ds-space-3)",
+            "line-height": "var(--ds-line-height-ui)",
+            "transition": "border-color var(--ds-duration-fast)"
+          },
+          ".ds-input": {
+            "min-height": "var(--ds-control-height-md)"
+          },
+          ".ds-input[data-size=\"sm\"]": {
+            "min-height": "var(--ds-control-height-sm)",
+            "padding-block": "var(--ds-space-1)"
+          },
+          ".ds-input[data-size=\"lg\"]": {
+            "min-height": "var(--ds-control-height-lg)"
+          },
+          ".ds-textarea": {
+            "resize": "vertical"
+          },
+          ".ds-input::placeholder,\n  .ds-textarea::placeholder": {
+            "color": "var(--muted-foreground)"
+          },
+          ".ds-input[readonly]": {
+            "background": "var(--surface-soft)"
+          },
+          ".ds-input:disabled,\n  .ds-textarea:disabled,\n  .ds-button:disabled": {
+            "opacity": "0.55",
+            "cursor": "not-allowed"
+          },
+          ".ds-input[aria-invalid=\"true\"],\n  .ds-textarea[aria-invalid=\"true\"]": {
+            "border-color": "var(--destructive)"
+          },
+          ".ds-input:focus-visible,\n  .ds-textarea:focus-visible,\n  .ds-button:focus-visible": {
+            "outline": "var(--ds-focus-width) solid var(--ring)",
+            "outline-offset": "var(--ds-focus-offset)"
+          },
+          ".ds-button": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "justify-content": "center",
+            "gap": "var(--ds-space-2)",
+            "border-radius": "var(--ds-radius-control)",
+            "border": "var(--ds-border-width-control) solid var(--border-control)",
+            "padding": "var(--ds-space-1) var(--ds-space-4)",
+            "font-weight": "var(--ds-font-weight-medium)",
+            "line-height": "var(--ds-line-height-ui)",
+            "cursor": "pointer",
+            "transition": "background-color var(--ds-duration-fast)",
+            "overflow-wrap": "anywhere"
+          },
+          ".ds-button[data-variant=\"ghost\"],\n  .ds-button[data-variant=\"link\"]": {
+            "border-color": "transparent"
+          },
+          ".ds-button[data-variant=\"destructive\"]": {
+            "border-color": "var(--destructive)"
+          },
+          ".ds-size-sm": {
+            "min-height": "var(--ds-control-height-sm)"
+          },
+          ".ds-size-md": {
+            "min-height": "var(--ds-control-height-md)"
+          },
+          ".ds-size-lg": {
+            "min-height": "var(--ds-control-height-lg)"
+          },
+          ".ds-icon-button": {
+            "aspect-ratio": "1",
+            "padding": "var(--ds-space-2)"
+          },
+          ".ds-icon-button.ds-size-sm": {
+            "min-width": "var(--ds-control-height-sm)"
+          },
+          ".ds-icon-button.ds-size-md": {
+            "min-width": "var(--ds-control-height-md)"
+          },
+          ".ds-icon-button.ds-size-lg": {
+            "min-width": "var(--ds-control-height-lg)"
+          },
+          ".ds-card": {
+            "border": "var(--ds-border-width-soft) solid var(--border)",
+            "border-radius": "var(--ds-radius-card)"
+          },
+          ".ds-badge": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "width": "fit-content",
+            "border": "var(--ds-border-width-control) solid var(--border-control)",
+            "border-radius": "var(--ds-radius-pill)",
+            "padding": "var(--ds-space-micro) var(--ds-space-2)",
+            "font-size": "var(--ds-font-size-small)",
+            "line-height": "var(--ds-line-height-ui)"
+          }
+        },
+        ".note": {
+          "color": "var(--muted-foreground)",
+          "font-size": "var(--ds-font-size-small)",
+          "margin-top": "var(--ds-space-3)"
+        },
+        ".stack": {
+          "display": "grid",
+          "gap": "var(--ds-space-6)"
+        },
+        ".field": {
+          "display": "grid",
+          "gap": "var(--ds-space-2)"
+        },
+        ".actions": {
+          "display": "flex",
+          "flex-wrap": "wrap",
+          "align-items": "center",
+          "gap": "var(--ds-space-3)"
+        },
+        ".error": {
+          "color": "var(--destructive)",
+          "font-size": "var(--ds-font-size-small)"
+        },
+        ".ds-art-icon": {
+          "display": "inline-flex",
+          "flex": "none",
+          "vertical-align": "middle",
+          "line-height": "0"
+        },
+        ".ds-art-icon > svg": {
+          "display": "block",
+          "flex": "none",
+          "max-width": "none"
+        },
+        ".ds-status-bubble": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "gap": "var(--ds-space-2)",
+          "border": "var(--ds-border-width-control) solid",
+          "border-radius": "var(--ds-radius-pill)",
+          "padding": "var(--ds-space-1) var(--ds-space-3)",
+          "font-size": "var(--ds-font-size-small)",
+          "line-height": "var(--ds-line-height-ui)"
+        },
+        ":is(\n  [data-slot=\"select-trigger\"],\n  [data-slot=\"tabs-trigger\"],\n  [data-slot=\"navigation-menu-trigger\"],\n  [data-slot=\"navigation-menu-link\"]\n)": {
+          "min-height": "var(--ds-control-height-md)",
+          "height": "auto",
+          "border-radius": "var(--ds-radius-control)"
+        },
+        "[data-slot=\"select-trigger\"]": {
+          "border": "var(--ds-border-width-control) solid var(--border-control)",
+          "background": "var(--surface)",
+          "box-shadow": "none"
+        },
+        "[data-slot=\"select-trigger\"][data-size=\"sm\"]": {
+          "min-height": "var(--ds-control-height-sm)"
+        },
+        ":is([data-slot=\"checkbox\"], [data-slot=\"radio-group-item\"], [data-slot=\"slider-thumb\"])": {
+          "border": "var(--ds-border-width-control) solid var(--border-control)",
+          "box-shadow": "none"
+        },
+        "[data-slot=\"slider-thumb\"]": {
+          "background": "var(--surface)"
+        },
+        "[data-slot=\"checkbox\"]": {
+          "width": "var(--ds-functional-icon-size-md)",
+          "height": "var(--ds-functional-icon-size-md)",
+          "border-radius": "var(--ds-space-1)"
+        },
+        "[data-slot=\"radio-group-item\"]": {
+          "width": "var(--ds-functional-icon-size-md)",
+          "height": "var(--ds-functional-icon-size-md)"
+        },
+        "[data-slot=\"switch\"]": {
+          "border": "var(--ds-border-width-control) solid var(--border-control)"
+        },
+        "[data-slot=\"switch-thumb\"]": {
+          "background": "var(--surface)"
+        },
+        ":is(\n  [data-slot=\"checkbox\"],\n  [data-slot=\"radio-group-item\"],\n  [data-slot=\"switch\"]\n)[data-state=\"checked\"]": {
+          "background": "var(--primary)",
+          "color": "var(--primary-foreground)",
+          "border-color": "var(--border-control)"
+        },
+        ":is(\n  [data-slot=\"dialog-content\"],\n  [data-slot=\"alert-dialog-content\"],\n  [data-slot=\"sheet-content\"],\n  [data-slot=\"popover-content\"],\n  [data-slot=\"dropdown-menu-content\"],\n  [data-slot=\"dropdown-menu-sub-content\"],\n  [data-slot=\"select-content\"],\n  [data-slot=\"combobox-content\"]\n)": {
+          "border": "var(--ds-border-width-soft) solid var(--border)",
+          "background": "var(--popover)",
+          "color": "var(--popover-foreground)",
+          "border-radius": "var(--ds-radius-control)",
+          "box-shadow": "var(--ds-shadow-popover)"
+        },
+        ":is([data-slot=\"dialog-content\"], [data-slot=\"alert-dialog-content\"])": {
+          "border-radius": "var(--ds-radius-dialog)",
+          "box-shadow": "var(--ds-shadow-dialog)",
+          "max-height": "calc(100dvh - var(--ds-space-8))",
+          "overflow-y": "auto"
+        },
+        "[data-slot=\"sheet-content\"]": {
+          "border-radius": "0",
+          "box-shadow": "var(--ds-shadow-dialog)",
+          "overflow-y": "auto"
+        },
+        ":is([data-slot=\"dialog-overlay\"], [data-slot=\"alert-dialog-overlay\"], [data-slot=\"sheet-overlay\"])": {
+          "background": "var(--overlay)"
+        },
+        "[data-slot=\"tooltip-content\"]": {
+          "background": "var(--foreground)",
+          "color": "var(--background)",
+          "border-radius": "var(--ds-radius-sm)",
+          "font-size": "var(--ds-font-size-small)"
+        },
+        "[data-slot=\"tooltip-content\"] svg": {
+          "fill": "var(--foreground)",
+          "background": "var(--foreground)"
+        },
+        "[data-slot=\"alert\"]": {
+          "border": "var(--ds-border-width-soft) solid var(--border)",
+          "border-radius": "var(--ds-radius-card)"
+        },
+        "[data-slot=\"input-group\"]": {
+          "height": "auto",
+          "min-height": "var(--ds-control-height-md)",
+          "border": "var(--ds-border-width-control) solid var(--border-control)",
+          "background": "var(--surface)",
+          "border-radius": "var(--ds-radius-control)",
+          "box-shadow": "none"
+        },
+        "[data-slot=\"input-group-control\"]": {
+          "min-height": "0",
+          "border": "0",
+          "outline": "none",
+          "background": "transparent"
+        },
+        "[data-slot=\"input-group\"] .ds-button": {
+          "min-height": "var(--ds-control-height-sm)",
+          "min-width": "var(--ds-control-height-sm)",
+          "padding": "var(--ds-space-1)"
+        },
+        "[data-slot=\"input-group\"]:focus-within": {
+          "outline": "var(--ds-focus-width) solid var(--ring)",
+          "outline-offset": "var(--ds-focus-offset)"
+        },
+        ":is([data-slot=\"toggle\"], [data-slot=\"toggle-group-item\"])": {
+          "border": "var(--ds-border-width-control) solid var(--border-control)"
+        },
+        "[data-slot=\"tabs-list\"]": {
+          "height": "auto",
+          "flex-wrap": "wrap",
+          "background": "var(--surface-soft)",
+          "border-radius": "var(--ds-radius-control)"
+        },
+        "[data-slot=\"tabs-trigger\"][data-state=\"active\"]": {
+          "background": "var(--primary)",
+          "color": "var(--primary-foreground)",
+          "box-shadow": "none"
+        },
+        "[data-slot=\"accordion-item\"]": {
+          "border-color": "var(--border)",
+          "border-bottom-width": "var(--ds-border-width-soft)"
+        },
+        "[data-slot=\"table-head\"],\n[data-slot=\"table-cell\"]": {
+          "padding": "var(--ds-space-3)"
+        },
+        "[data-slot=\"table-row\"]": {
+          "border-color": "var(--border)"
+        },
+        "[data-slot=\"sidebar-inner\"]": {
+          "border": "var(--ds-border-width-soft) solid var(--sidebar-border)"
+        },
+        "[data-sonner-toast]": {
+          "border-width": "var(--ds-border-width-soft)",
+          "border-radius": "var(--ds-radius-control)"
+        },
+        "[data-slot]:focus-visible": {
+          "outline": "var(--ds-focus-width) solid var(--ring)",
+          "outline-offset": "var(--ds-focus-offset)",
+          "--tw-ring-shadow": "0 0 transparent"
+        },
+        "[data-slot][aria-invalid=\"true\"]": {
+          "border-color": "var(--destructive)"
+        },
+        "[data-slot]": {
+          "transition-duration": "var(--ds-duration-fast)",
+          "animation-duration": "var(--ds-duration-normal)"
+        },
+        "[data-slot=\"spinner\"]": {
+          "animation-duration": "1s"
+        },
+        ":is([data-slot=\"navigation-menu-viewport\"], [data-slot=\"navigation-menu-content\"])": {
+          "border-color": "var(--border)",
+          "border-width": "var(--ds-border-width-soft)",
+          "border-radius": "var(--ds-radius-control)"
+        },
+        "[data-slot=\"navigation-menu-viewport\"]": {
+          "box-shadow": "var(--ds-shadow-popover)"
+        },
+        "[data-slot=\"progress\"][data-state=\"indeterminate\"] [data-slot=\"progress-indicator\"]": {
+          "width": "25%",
+          "transform": "none",
+          "animation": "ds-progress-indeterminate 1.5s ease-in-out infinite alternate"
+        },
+        "@keyframes ds-progress-indeterminate": {
+          "to": {
+            "margin-left": "75%"
+          }
+        },
+        ".pattern-page-header": {
+          "display": "flex",
+          "flex-wrap": "wrap",
+          "align-items": "start",
+          "justify-content": "space-between",
+          "gap": "var(--ds-space-4)"
+        },
+        ".pattern-page-header h2": {
+          "font-size": "var(--ds-font-size-heading)",
+          "font-weight": "600"
+        },
+        ".app-shell": {
+          "display": "grid",
+          "grid-template-columns": "minmax(140px, 1fr) minmax(0, 3fr)",
+          "gap": "var(--ds-space-6)",
+          "position": "relative"
+        },
+        ".app-shell-content,\n.app-shell aside": {
+          "min-width": "0"
+        },
+        ".app-shell aside": {
+          "grid-column": "2"
+        },
+        ".app-shell-mobile": {
+          "display": "none"
+        },
+        ".skip-link": {
+          "position": "absolute",
+          "left": "0",
+          "top": "0",
+          "transform": "translateY(-200%)",
+          "background": "var(--surface)",
+          "padding": "var(--ds-space-2)",
+          "z-index": "60"
+        },
+        ".skip-link:focus": {
+          "transform": "none"
+        },
+        ".empty-state": {
+          "padding": "var(--ds-space-6)",
+          "border": "var(--ds-border-width-soft) solid var(--border)",
+          "border-radius": "var(--ds-radius-card)"
+        },
+        ".message-bubble": {
+          "background": "var(--surface-soft)",
+          "border": "var(--ds-border-width-soft) solid var(--border)",
+          "border-radius": "var(--ds-radius-card)",
+          "padding": "var(--ds-space-4)"
+        },
+        ".ds-tone-success": {
+          "background": "var(--success-soft)",
+          "color": "var(--success-soft-foreground)"
+        },
+        ".ds-tone-warning": {
+          "background": "var(--warning-soft)",
+          "color": "var(--warning-soft-foreground)"
+        },
+        ".ds-tone-danger": {
+          "background": "var(--danger-soft)",
+          "color": "var(--danger-soft-foreground)"
+        },
+        ".ds-button[aria-busy=\"true\"]": {
+          "cursor": "wait",
+          "opacity": "0.65"
+        },
+        ".rdp-root": {
+          "--cell-size": "var(--ds-control-height-sm)",
+          "max-width": "100%"
+        },
+        ".rdp-root .ds-button": {
+          "min-width": "var(--ds-control-height-sm)",
+          "min-height": "var(--ds-control-height-sm)",
+          "padding": "var(--ds-space-1)",
+          "border-color": "transparent"
+        },
+        ".rdp-root .ds-button:disabled": {
+          "color": "var(--muted-foreground)"
+        },
+        ".rdp-root table": {
+          "width": "100%"
+        },
+        "@media (max-width: 760px)": {
+          ".app-shell": {
+            "grid-template-columns": "minmax(0, 1fr)"
+          },
+          ".app-shell-nav": {
+            "display": "none"
+          },
+          ".app-shell-mobile": {
+            "display": "block"
+          },
+          ".app-shell aside": {
+            "grid-column": "auto"
+          }
+        },
+        "[data-slot=\"card-content\"]": {
+          "min-width": "0"
+        },
+        "[data-slot=\"select-value\"]": {
+          "white-space": "normal"
+        },
+        "@media (max-width: 420px)": {
+          "[data-slot=\"card-header\"],\n  [data-slot=\"card-content\"],\n  [data-slot=\"card-footer\"]": {
+            "padding-inline": "var(--ds-space-3)"
+          },
+          ".rdp-root": {
+            "padding": "var(--ds-space-1)"
+          }
+        },
+        "[data-slot=\"tabs-trigger\"][data-state=\"inactive\"]": {
+          "color": "var(--muted-foreground)"
+        },
+        "[data-slot=\"card\"][data-variant=\"soft\"]": {
+          "background": "var(--surface-soft)"
+        },
+        ".skip-link:not(:focus)": {
+          "clip-path": "inset(50%)",
+          "width": "1px",
+          "height": "1px",
+          "overflow": "hidden"
+        },
+        "[data-slot=\"sidebar-group-label\"]": {
+          "color": "var(--muted-foreground)",
+          "font-size": "var(--ds-font-size-small)"
+        },
+        ".actions.flex-nowrap": {
+          "flex-wrap": "nowrap"
+        },
+        ".actions.flex-nowrap > svg": {
+          "flex-shrink": "0"
+        },
+        ".ds-icon-button": {
+          "flex": "none",
+          "justify-self": "start"
+        },
+        ".ds-icon-button.ds-size-sm": {
+          "width": "var(--ds-control-height-sm)"
+        },
+        ".ds-icon-button.ds-size-md": {
+          "width": "var(--ds-control-height-md)"
+        },
+        ".ds-icon-button.ds-size-lg": {
+          "width": "var(--ds-control-height-lg)"
+        },
+        ".rdp-root .ds-icon-button.ds-size-md": {
+          "width": "var(--cell-size)",
+          "min-width": "var(--cell-size)",
+          "min-height": "var(--cell-size)"
+        }
+      },
+      "type": "registry:style"
     },
     {
       "name": "utils",
-      "type": "registry:lib",
       "title": "Utilities",
       "description": "Class-name utility.",
       "dependencies": [
@@ -41,928 +749,30 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "src/lib/utils.ts",
+          "path": "registry/new-york/lib/utils/utils.ts",
           "type": "registry:lib",
-          "target": "src/lib/utils.ts"
+          "target": "@lib/utils.ts"
         }
-      ]
-    },
-    {
-      "name": "theme-provider",
-      "type": "registry:component",
-      "title": "Design Theme Provider",
-      "description": "Scoped theme and portal color inheritance.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
       ],
-      "files": [
-        {
-          "path": "src/components/theme-provider.tsx",
-          "type": "registry:component",
-          "target": "src/components/theme-provider.tsx"
-        }
-      ]
+      "type": "registry:lib"
     },
     {
       "name": "use-mobile",
-      "type": "registry:hook",
       "title": "Mobile Hook",
       "description": "Responsive mobile-state hook.",
       "dependencies": [],
       "registryDependencies": [],
       "files": [
         {
-          "path": "src/hooks/use-mobile.ts",
+          "path": "registry/new-york/hooks/use-mobile/use-mobile.ts",
           "type": "registry:hook",
-          "target": "src/hooks/use-mobile.ts"
+          "target": "@hooks/use-mobile.ts"
         }
-      ]
-    },
-    {
-      "name": "icon-frame",
-      "type": "registry:component",
-      "title": "Icon Frame",
-      "description": "Shared frame for approved SVG artwork.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
       ],
-      "files": [
-        {
-          "path": "src/components/icons/IconFrame.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/IconFrame.tsx"
-        }
-      ]
-    },
-    {
-      "name": "assembly-document-feature-icon",
-      "type": "registry:component",
-      "title": "AssemblyDocumentFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/AssemblyDocumentFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/AssemblyDocumentFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "assembly-history-feature-icon",
-      "type": "registry:component",
-      "title": "AssemblyHistoryFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/AssemblyHistoryFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/AssemblyHistoryFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "assembly-idea-feature-icon",
-      "type": "registry:component",
-      "title": "AssemblyIdeaFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/AssemblyIdeaFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/AssemblyIdeaFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "assembly-saved-status-icon",
-      "type": "registry:component",
-      "title": "AssemblySavedStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/AssemblySavedStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/AssemblySavedStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "assembly-success-character-icon",
-      "type": "registry:component",
-      "title": "AssemblySuccessCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/AssemblySuccessCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/AssemblySuccessCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "assembly-thinking-character-icon",
-      "type": "registry:component",
-      "title": "AssemblyThinkingCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/AssemblyThinkingCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/AssemblyThinkingCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "assembly-thinking-status-icon",
-      "type": "registry:component",
-      "title": "AssemblyThinkingStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/AssemblyThinkingStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/AssemblyThinkingStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "assembly-welcome-character-icon",
-      "type": "registry:component",
-      "title": "AssemblyWelcomeCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/AssemblyWelcomeCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/AssemblyWelcomeCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fold-document-feature-icon",
-      "type": "registry:component",
-      "title": "FoldDocumentFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/FoldDocumentFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/FoldDocumentFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fold-history-feature-icon",
-      "type": "registry:component",
-      "title": "FoldHistoryFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/FoldHistoryFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/FoldHistoryFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fold-idea-feature-icon",
-      "type": "registry:component",
-      "title": "FoldIdeaFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/FoldIdeaFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/FoldIdeaFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fold-saved-status-icon",
-      "type": "registry:component",
-      "title": "FoldSavedStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/FoldSavedStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/FoldSavedStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fold-success-character-icon",
-      "type": "registry:component",
-      "title": "FoldSuccessCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/FoldSuccessCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/FoldSuccessCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fold-thinking-character-icon",
-      "type": "registry:component",
-      "title": "FoldThinkingCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/FoldThinkingCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/FoldThinkingCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fold-thinking-status-icon",
-      "type": "registry:component",
-      "title": "FoldThinkingStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/FoldThinkingStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/FoldThinkingStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "fold-welcome-character-icon",
-      "type": "registry:component",
-      "title": "FoldWelcomeCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/FoldWelcomeCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/FoldWelcomeCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "impress-document-feature-icon",
-      "type": "registry:component",
-      "title": "ImpressDocumentFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/ImpressDocumentFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/ImpressDocumentFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "impress-history-feature-icon",
-      "type": "registry:component",
-      "title": "ImpressHistoryFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/ImpressHistoryFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/ImpressHistoryFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "impress-idea-feature-icon",
-      "type": "registry:component",
-      "title": "ImpressIdeaFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/ImpressIdeaFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/ImpressIdeaFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "impress-saved-status-icon",
-      "type": "registry:component",
-      "title": "ImpressSavedStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/ImpressSavedStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/ImpressSavedStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "impress-success-character-icon",
-      "type": "registry:component",
-      "title": "ImpressSuccessCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/ImpressSuccessCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/ImpressSuccessCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "impress-thinking-character-icon",
-      "type": "registry:component",
-      "title": "ImpressThinkingCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/ImpressThinkingCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/ImpressThinkingCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "impress-thinking-status-icon",
-      "type": "registry:component",
-      "title": "ImpressThinkingStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/ImpressThinkingStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/ImpressThinkingStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "impress-welcome-character-icon",
-      "type": "registry:component",
-      "title": "ImpressWelcomeCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/ImpressWelcomeCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/ImpressWelcomeCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ink-document-feature-icon",
-      "type": "registry:component",
-      "title": "InkDocumentFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/InkDocumentFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/InkDocumentFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ink-history-feature-icon",
-      "type": "registry:component",
-      "title": "InkHistoryFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/InkHistoryFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/InkHistoryFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ink-idea-feature-icon",
-      "type": "registry:component",
-      "title": "InkIdeaFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/InkIdeaFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/InkIdeaFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ink-saved-status-icon",
-      "type": "registry:component",
-      "title": "InkSavedStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/InkSavedStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/InkSavedStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ink-success-character-icon",
-      "type": "registry:component",
-      "title": "InkSuccessCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/InkSuccessCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/InkSuccessCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ink-thinking-character-icon",
-      "type": "registry:component",
-      "title": "InkThinkingCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/InkThinkingCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/InkThinkingCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ink-thinking-status-icon",
-      "type": "registry:component",
-      "title": "InkThinkingStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/InkThinkingStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/InkThinkingStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "ink-welcome-character-icon",
-      "type": "registry:component",
-      "title": "InkWelcomeCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/InkWelcomeCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/InkWelcomeCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "monolith-document-feature-icon",
-      "type": "registry:component",
-      "title": "MonolithDocumentFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/MonolithDocumentFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/MonolithDocumentFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "monolith-history-feature-icon",
-      "type": "registry:component",
-      "title": "MonolithHistoryFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/MonolithHistoryFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/MonolithHistoryFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "monolith-idea-feature-icon",
-      "type": "registry:component",
-      "title": "MonolithIdeaFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/MonolithIdeaFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/MonolithIdeaFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "monolith-saved-status-icon",
-      "type": "registry:component",
-      "title": "MonolithSavedStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/MonolithSavedStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/MonolithSavedStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "monolith-success-character-icon",
-      "type": "registry:component",
-      "title": "MonolithSuccessCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/MonolithSuccessCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/MonolithSuccessCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "monolith-thinking-character-icon",
-      "type": "registry:component",
-      "title": "MonolithThinkingCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/MonolithThinkingCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/MonolithThinkingCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "monolith-thinking-status-icon",
-      "type": "registry:component",
-      "title": "MonolithThinkingStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/MonolithThinkingStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/MonolithThinkingStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "monolith-welcome-character-icon",
-      "type": "registry:component",
-      "title": "MonolithWelcomeCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/MonolithWelcomeCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/MonolithWelcomeCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbit-document-feature-icon",
-      "type": "registry:component",
-      "title": "OrbitDocumentFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/OrbitDocumentFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/OrbitDocumentFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbit-history-feature-icon",
-      "type": "registry:component",
-      "title": "OrbitHistoryFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/OrbitHistoryFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/OrbitHistoryFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbit-idea-feature-icon",
-      "type": "registry:component",
-      "title": "OrbitIdeaFeatureIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/OrbitIdeaFeatureIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/OrbitIdeaFeatureIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbit-saved-status-icon",
-      "type": "registry:component",
-      "title": "OrbitSavedStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/OrbitSavedStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/OrbitSavedStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbit-success-character-icon",
-      "type": "registry:component",
-      "title": "OrbitSuccessCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/OrbitSuccessCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/OrbitSuccessCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbit-thinking-character-icon",
-      "type": "registry:component",
-      "title": "OrbitThinkingCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/OrbitThinkingCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/OrbitThinkingCharacterIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbit-thinking-status-icon",
-      "type": "registry:component",
-      "title": "OrbitThinkingStatusIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/OrbitThinkingStatusIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/OrbitThinkingStatusIcon.tsx"
-        }
-      ]
-    },
-    {
-      "name": "orbit-welcome-character-icon",
-      "type": "registry:component",
-      "title": "OrbitWelcomeCharacterIcon",
-      "description": "Approved standalone SVG icon.",
-      "dependencies": [],
-      "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json"
-      ],
-      "files": [
-        {
-          "path": "src/components/icons/OrbitWelcomeCharacterIcon.tsx",
-          "type": "registry:component",
-          "target": "src/components/icons/OrbitWelcomeCharacterIcon.tsx"
-        }
-      ]
+      "type": "registry:hook"
     },
     {
       "name": "accordion",
-      "type": "registry:ui",
       "title": "accordion",
       "description": "Design system ui component.",
       "dependencies": [
@@ -970,82 +780,82 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/accordion.tsx",
+          "path": "registry/new-york/ui/accordion/accordion.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/accordion.tsx"
+          "target": "@ui/accordion.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "alert-dialog",
-      "type": "registry:ui",
       "title": "alert-dialog",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/theme-provider",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/alert-dialog.tsx",
+          "path": "registry/new-york/ui/alert-dialog/alert-dialog.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/alert-dialog.tsx"
+          "target": "@ui/alert-dialog.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "alert",
-      "type": "registry:ui",
       "title": "alert",
       "description": "Design system ui component.",
       "dependencies": [
         "class-variance-authority@^0.7.1"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/alert.tsx",
+          "path": "registry/new-york/ui/alert/alert.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/alert.tsx"
+          "target": "@ui/alert.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "avatar",
-      "type": "registry:ui",
       "title": "avatar",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/avatar.tsx",
+          "path": "registry/new-york/ui/avatar/avatar.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/avatar.tsx"
+          "target": "@ui/avatar.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "badge",
-      "type": "registry:ui",
       "title": "badge",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1053,20 +863,20 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/badge.tsx",
+          "path": "registry/new-york/ui/badge/badge.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/badge.tsx"
+          "target": "@ui/badge.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "breadcrumb",
-      "type": "registry:ui",
       "title": "breadcrumb",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1074,20 +884,20 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/breadcrumb.tsx",
+          "path": "registry/new-york/ui/breadcrumb/breadcrumb.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/breadcrumb.tsx"
+          "target": "@ui/breadcrumb.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "button",
-      "type": "registry:ui",
       "title": "button",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1095,20 +905,20 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/button.tsx",
+          "path": "registry/new-york/ui/button/button.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/button.tsx"
+          "target": "@ui/button.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "calendar",
-      "type": "registry:ui",
       "title": "calendar",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1116,39 +926,39 @@
         "react-day-picker@^10.0.1"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/calendar.tsx",
+          "path": "registry/new-york/ui/calendar/calendar.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/calendar.tsx"
+          "target": "@ui/calendar.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "card",
-      "type": "registry:ui",
       "title": "card",
       "description": "Design system ui component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/card.tsx",
+          "path": "registry/new-york/ui/card/card.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/card.tsx"
+          "target": "@ui/card.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "checkbox",
-      "type": "registry:ui",
       "title": "checkbox",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1156,39 +966,39 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/checkbox.tsx",
+          "path": "registry/new-york/ui/checkbox/checkbox.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/checkbox.tsx"
+          "target": "@ui/checkbox.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "collapsible",
-      "type": "registry:ui",
       "title": "collapsible",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/ui/collapsible.tsx",
+          "path": "registry/new-york/ui/collapsible/collapsible.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/collapsible.tsx"
+          "target": "@ui/collapsible.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "combobox",
-      "type": "registry:ui",
       "title": "combobox",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1196,46 +1006,46 @@
         "lucide-react@^1.45.0"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/input-group.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/input-group",
+        "@yukihi/theme-provider",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/combobox.tsx",
+          "path": "registry/new-york/ui/combobox/combobox.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/combobox.tsx"
+          "target": "@ui/combobox.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "date-picker",
-      "type": "registry:ui",
       "title": "date-picker",
       "description": "Design system ui component.",
       "dependencies": [
         "lucide-react@^1.45.0"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/calendar.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-button.json",
-        "https://design.yukihi.tokyo/v1/r/input.json",
-        "https://design.yukihi.tokyo/v1/r/popover.json"
+        "@yukihi/calendar",
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-button",
+        "@yukihi/input",
+        "@yukihi/popover"
       ],
       "files": [
         {
-          "path": "src/components/ui/date-picker.tsx",
+          "path": "registry/new-york/ui/date-picker/date-picker.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/date-picker.tsx"
+          "target": "@ui/date-picker.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "dialog",
-      "type": "registry:ui",
       "title": "dialog",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1243,22 +1053,22 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/theme-provider",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/dialog.tsx",
+          "path": "registry/new-york/ui/dialog/dialog.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/dialog.tsx"
+          "target": "@ui/dialog.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "dropdown-menu",
-      "type": "registry:ui",
       "title": "dropdown-menu",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1266,120 +1076,120 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/theme-provider",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/dropdown-menu.tsx",
+          "path": "registry/new-york/ui/dropdown-menu/dropdown-menu.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/dropdown-menu.tsx"
+          "target": "@ui/dropdown-menu.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "file-upload",
-      "type": "registry:ui",
       "title": "file-upload",
       "description": "Design system ui component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/input.json",
-        "https://design.yukihi.tokyo/v1/r/label.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/input",
+        "@yukihi/label"
       ],
       "files": [
         {
-          "path": "src/components/ui/file-upload.tsx",
+          "path": "registry/new-york/ui/file-upload/file-upload.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/file-upload.tsx"
+          "target": "@ui/file-upload.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "icon-button",
-      "type": "registry:ui",
       "title": "icon-button",
       "description": "Design system ui component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/ui/icon-button.tsx",
+          "path": "registry/new-york/ui/icon-button/icon-button.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/icon-button.tsx"
+          "target": "@ui/icon-button.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "input-group",
-      "type": "registry:ui",
       "title": "input-group",
       "description": "Design system ui component.",
       "dependencies": [
         "class-variance-authority@^0.7.1"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/input.json",
-        "https://design.yukihi.tokyo/v1/r/textarea.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/input",
+        "@yukihi/textarea",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/input-group.tsx",
+          "path": "registry/new-york/ui/input-group/input-group.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/input-group.tsx"
+          "target": "@ui/input-group.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "input",
-      "type": "registry:ui",
       "title": "input",
       "description": "Design system ui component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/input.tsx",
+          "path": "registry/new-york/ui/input/input.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/input.tsx"
+          "target": "@ui/input.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "label",
-      "type": "registry:ui",
       "title": "label",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/label.tsx",
+          "path": "registry/new-york/ui/label/label.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/label.tsx"
+          "target": "@ui/label.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "navigation-menu",
-      "type": "registry:ui",
       "title": "navigation-menu",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1388,82 +1198,82 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/navigation-menu.tsx",
+          "path": "registry/new-york/ui/navigation-menu/navigation-menu.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/navigation-menu.tsx"
+          "target": "@ui/navigation-menu.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "pagination",
-      "type": "registry:ui",
       "title": "pagination",
       "description": "Design system ui component.",
       "dependencies": [
         "lucide-react@^1.45.0"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/pagination.tsx",
+          "path": "registry/new-york/ui/pagination/pagination.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/pagination.tsx"
+          "target": "@ui/pagination.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "popover",
-      "type": "registry:ui",
       "title": "popover",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/theme-provider",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/popover.tsx",
+          "path": "registry/new-york/ui/popover/popover.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/popover.tsx"
+          "target": "@ui/popover.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "progress",
-      "type": "registry:ui",
       "title": "progress",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/progress.tsx",
+          "path": "registry/new-york/ui/progress/progress.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/progress.tsx"
+          "target": "@ui/progress.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "radio-group",
-      "type": "registry:ui",
       "title": "radio-group",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1471,20 +1281,20 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/radio-group.tsx",
+          "path": "registry/new-york/ui/radio-group/radio-group.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/radio-group.tsx"
+          "target": "@ui/radio-group.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "select",
-      "type": "registry:ui",
       "title": "select",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1492,41 +1302,41 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/theme-provider",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/select.tsx",
+          "path": "registry/new-york/ui/select/select.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/select.tsx"
+          "target": "@ui/select.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "separator",
-      "type": "registry:ui",
       "title": "separator",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/separator.tsx",
+          "path": "registry/new-york/ui/separator/separator.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/separator.tsx"
+          "target": "@ui/separator.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "sheet",
-      "type": "registry:ui",
       "title": "sheet",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1534,21 +1344,21 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/theme-provider",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/sheet.tsx",
+          "path": "registry/new-york/ui/sheet/sheet.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/sheet.tsx"
+          "target": "@ui/sheet.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "sidebar",
-      "type": "registry:ui",
       "title": "sidebar",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1557,65 +1367,65 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/input.json",
-        "https://design.yukihi.tokyo/v1/r/separator.json",
-        "https://design.yukihi.tokyo/v1/r/sheet.json",
-        "https://design.yukihi.tokyo/v1/r/skeleton.json",
-        "https://design.yukihi.tokyo/v1/r/tooltip.json",
-        "https://design.yukihi.tokyo/v1/r/use-mobile.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/input",
+        "@yukihi/separator",
+        "@yukihi/sheet",
+        "@yukihi/skeleton",
+        "@yukihi/tooltip",
+        "@yukihi/use-mobile",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/sidebar.tsx",
+          "path": "registry/new-york/ui/sidebar/sidebar.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/sidebar.tsx"
+          "target": "@ui/sidebar.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "skeleton",
-      "type": "registry:ui",
       "title": "skeleton",
       "description": "Design system ui component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/skeleton.tsx",
+          "path": "registry/new-york/ui/skeleton/skeleton.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/skeleton.tsx"
+          "target": "@ui/skeleton.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "slider",
-      "type": "registry:ui",
       "title": "slider",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/slider.tsx",
+          "path": "registry/new-york/ui/slider/slider.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/slider.tsx"
+          "target": "@ui/slider.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "sonner",
-      "type": "registry:ui",
       "title": "sonner",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1623,78 +1433,78 @@
         "sonner@^2.0.8"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/theme-provider"
       ],
       "files": [
         {
-          "path": "src/components/ui/sonner.tsx",
+          "path": "registry/new-york/ui/sonner/sonner.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/sonner.tsx"
+          "target": "@ui/sonner.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "spinner",
-      "type": "registry:ui",
       "title": "spinner",
       "description": "Design system ui component.",
       "dependencies": [
         "lucide-react@^1.45.0"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/spinner.tsx",
+          "path": "registry/new-york/ui/spinner/spinner.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/spinner.tsx"
+          "target": "@ui/spinner.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "switch",
-      "type": "registry:ui",
       "title": "switch",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/switch.tsx",
+          "path": "registry/new-york/ui/switch/switch.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/switch.tsx"
+          "target": "@ui/switch.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "table",
-      "type": "registry:ui",
       "title": "table",
       "description": "Design system ui component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/table.tsx",
+          "path": "registry/new-york/ui/table/table.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/table.tsx"
+          "target": "@ui/table.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "tabs",
-      "type": "registry:ui",
       "title": "tabs",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1702,58 +1512,58 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/tabs.tsx",
+          "path": "registry/new-york/ui/tabs/tabs.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/tabs.tsx"
+          "target": "@ui/tabs.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "textarea",
-      "type": "registry:ui",
       "title": "textarea",
       "description": "Design system ui component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/textarea.tsx",
+          "path": "registry/new-york/ui/textarea/textarea.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/textarea.tsx"
+          "target": "@ui/textarea.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "toast",
-      "type": "registry:ui",
       "title": "toast",
       "description": "Design system ui component.",
       "dependencies": [
         "sonner@^2.0.8"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/sonner.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/sonner"
       ],
       "files": [
         {
-          "path": "src/components/ui/toast.tsx",
+          "path": "registry/new-york/ui/toast/toast.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/toast.tsx"
+          "target": "@ui/toast.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "toggle-group",
-      "type": "registry:ui",
       "title": "toggle-group",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1761,21 +1571,21 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/toggle.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/toggle",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/toggle-group.tsx",
+          "path": "registry/new-york/ui/toggle-group/toggle-group.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/toggle-group.tsx"
+          "target": "@ui/toggle-group.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "toggle",
-      "type": "registry:ui",
       "title": "toggle",
       "description": "Design system ui component.",
       "dependencies": [
@@ -1783,529 +1593,1507 @@
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/toggle.tsx",
+          "path": "registry/new-york/ui/toggle/toggle.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/toggle.tsx"
+          "target": "@ui/toggle.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "tooltip",
-      "type": "registry:ui",
       "title": "tooltip",
       "description": "Design system ui component.",
       "dependencies": [
         "radix-ui@^1.6.7"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/theme-provider",
+        "@yukihi/utils"
       ],
       "files": [
         {
-          "path": "src/components/ui/tooltip.tsx",
+          "path": "registry/new-york/ui/tooltip/tooltip.tsx",
           "type": "registry:ui",
-          "target": "src/components/ui/tooltip.tsx"
+          "target": "@ui/tooltip.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "theme-provider",
+      "title": "Design Theme Provider",
+      "description": "Scoped theme and portal color inheritance.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/components/theme-provider/theme-provider.tsx",
+          "type": "registry:component",
+          "target": "@components/theme-provider.tsx"
+        }
+      ],
+      "type": "registry:component"
     },
     {
       "name": "assistant-card",
-      "type": "registry:component",
       "title": "assistant-card",
       "description": "Design system character component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/card.json",
-        "https://design.yukihi.tokyo/v1/r/character-icons.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/suggestion-chip.json"
+        "@yukihi/card",
+        "@yukihi/character-icons",
+        "@yukihi/design-system-styles",
+        "@yukihi/suggestion-chip"
       ],
       "files": [
         {
-          "path": "src/components/character/assistant-card.tsx",
+          "path": "registry/new-york/character/assistant-card/assistant-card.tsx",
           "type": "registry:component",
-          "target": "src/components/character/assistant-card.tsx"
+          "target": "@components/character/assistant-card.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "empty-state",
-      "type": "registry:component",
       "title": "empty-state",
       "description": "Design system character component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/character-icons.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/character-icons",
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/character/empty-state.tsx",
+          "path": "registry/new-york/character/empty-state/empty-state.tsx",
           "type": "registry:component",
-          "target": "src/components/character/empty-state.tsx"
+          "target": "@components/character/empty-state.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "friendly-tooltip",
-      "type": "registry:component",
       "title": "friendly-tooltip",
       "description": "Design system character component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/tooltip.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/tooltip"
       ],
       "files": [
         {
-          "path": "src/components/character/friendly-tooltip.tsx",
+          "path": "registry/new-york/character/friendly-tooltip/friendly-tooltip.tsx",
           "type": "registry:component",
-          "target": "src/components/character/friendly-tooltip.tsx"
+          "target": "@components/character/friendly-tooltip.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "message-bubble",
-      "type": "registry:component",
       "title": "message-bubble",
       "description": "Design system character component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/character/message-bubble.tsx",
+          "path": "registry/new-york/character/message-bubble/message-bubble.tsx",
           "type": "registry:component",
-          "target": "src/components/character/message-bubble.tsx"
+          "target": "@components/character/message-bubble.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "soft-notice",
-      "type": "registry:component",
       "title": "soft-notice",
       "description": "Design system character component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/alert.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/alert",
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/character/soft-notice.tsx",
+          "path": "registry/new-york/character/soft-notice/soft-notice.tsx",
           "type": "registry:component",
-          "target": "src/components/character/soft-notice.tsx"
+          "target": "@components/character/soft-notice.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "suggestion-chip",
-      "type": "registry:component",
       "title": "suggestion-chip",
       "description": "Design system character component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/character/suggestion-chip.tsx",
+          "path": "registry/new-york/character/suggestion-chip/suggestion-chip.tsx",
           "type": "registry:component",
-          "target": "src/components/character/suggestion-chip.tsx"
+          "target": "@components/character/suggestion-chip.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "character-icons",
+      "title": "Dynamic Character Icons",
+      "description": "Dynamic six-direction character/status API and all approved artwork variants.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/assembly-document-feature-icon",
+        "@yukihi/assembly-history-feature-icon",
+        "@yukihi/assembly-idea-feature-icon",
+        "@yukihi/assembly-saved-status-icon",
+        "@yukihi/assembly-success-character-icon",
+        "@yukihi/assembly-thinking-character-icon",
+        "@yukihi/assembly-thinking-status-icon",
+        "@yukihi/assembly-welcome-character-icon",
+        "@yukihi/design-system-styles",
+        "@yukihi/fold-document-feature-icon",
+        "@yukihi/fold-history-feature-icon",
+        "@yukihi/fold-idea-feature-icon",
+        "@yukihi/fold-saved-status-icon",
+        "@yukihi/fold-success-character-icon",
+        "@yukihi/fold-thinking-character-icon",
+        "@yukihi/fold-thinking-status-icon",
+        "@yukihi/fold-welcome-character-icon",
+        "@yukihi/impress-document-feature-icon",
+        "@yukihi/impress-history-feature-icon",
+        "@yukihi/impress-idea-feature-icon",
+        "@yukihi/impress-saved-status-icon",
+        "@yukihi/impress-success-character-icon",
+        "@yukihi/impress-thinking-character-icon",
+        "@yukihi/impress-thinking-status-icon",
+        "@yukihi/impress-welcome-character-icon",
+        "@yukihi/ink-document-feature-icon",
+        "@yukihi/ink-history-feature-icon",
+        "@yukihi/ink-idea-feature-icon",
+        "@yukihi/ink-saved-status-icon",
+        "@yukihi/ink-success-character-icon",
+        "@yukihi/ink-thinking-character-icon",
+        "@yukihi/ink-thinking-status-icon",
+        "@yukihi/ink-welcome-character-icon",
+        "@yukihi/monolith-document-feature-icon",
+        "@yukihi/monolith-history-feature-icon",
+        "@yukihi/monolith-idea-feature-icon",
+        "@yukihi/monolith-saved-status-icon",
+        "@yukihi/monolith-success-character-icon",
+        "@yukihi/monolith-thinking-character-icon",
+        "@yukihi/monolith-thinking-status-icon",
+        "@yukihi/monolith-welcome-character-icon",
+        "@yukihi/orbit-document-feature-icon",
+        "@yukihi/orbit-history-feature-icon",
+        "@yukihi/orbit-idea-feature-icon",
+        "@yukihi/orbit-saved-status-icon",
+        "@yukihi/orbit-success-character-icon",
+        "@yukihi/orbit-thinking-character-icon",
+        "@yukihi/orbit-thinking-status-icon",
+        "@yukihi/orbit-welcome-character-icon",
+        "@yukihi/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/character/character-icons/icon-map.ts",
+          "type": "registry:component",
+          "target": "@components/icons/icon-map.ts"
+        },
+        {
+          "path": "registry/new-york/character/character-icons/index.tsx",
+          "type": "registry:component",
+          "target": "@components/character/index.tsx"
+        }
+      ],
+      "type": "registry:component"
     },
     {
       "name": "app-shell",
-      "type": "registry:component",
       "title": "app-shell",
       "description": "Design system patterns component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/sheet.json"
+        "@yukihi/button",
+        "@yukihi/design-system-styles",
+        "@yukihi/sheet"
       ],
       "files": [
         {
-          "path": "src/components/patterns/app-shell.tsx",
+          "path": "registry/new-york/patterns/app-shell/app-shell.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/app-shell.tsx"
+          "target": "@components/patterns/app-shell.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "assistant-panel",
-      "type": "registry:component",
       "title": "assistant-panel",
       "description": "Design system patterns component.",
       "dependencies": [
         "lucide-react@^1.45.0"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/assistant-card.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-button.json"
+        "@yukihi/assistant-card",
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-button"
       ],
       "files": [
         {
-          "path": "src/components/patterns/assistant-panel.tsx",
+          "path": "registry/new-york/patterns/assistant-panel/assistant-panel.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/assistant-panel.tsx"
+          "target": "@components/patterns/assistant-panel.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "data-table",
-      "type": "registry:component",
       "title": "data-table",
       "description": "Design system patterns component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/checkbox.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/table-toolbar.json",
-        "https://design.yukihi.tokyo/v1/r/table.json"
+        "@yukihi/button",
+        "@yukihi/checkbox",
+        "@yukihi/design-system-styles",
+        "@yukihi/table-toolbar",
+        "@yukihi/table"
       ],
       "files": [
         {
-          "path": "src/components/patterns/data-table.tsx",
+          "path": "registry/new-york/patterns/data-table/data-table.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/data-table.tsx"
+          "target": "@components/patterns/data-table.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "error-state",
-      "type": "registry:component",
       "title": "error-state",
       "description": "Design system patterns component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/alert.json",
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/alert",
+        "@yukihi/button",
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/patterns/error-state.tsx",
+          "path": "registry/new-york/patterns/error-state/error-state.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/error-state.tsx"
+          "target": "@components/patterns/error-state.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "form-field",
-      "type": "registry:component",
       "title": "form-field",
       "description": "Design system patterns component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/label.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/label"
       ],
       "files": [
         {
-          "path": "src/components/patterns/form-field.tsx",
+          "path": "registry/new-york/patterns/form-field/form-field.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/form-field.tsx"
+          "target": "@components/patterns/form-field.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "loading-state",
-      "type": "registry:component",
       "title": "loading-state",
       "description": "Design system patterns component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/skeleton.json",
-        "https://design.yukihi.tokyo/v1/r/spinner.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/skeleton",
+        "@yukihi/spinner"
       ],
       "files": [
         {
-          "path": "src/components/patterns/loading-state.tsx",
+          "path": "registry/new-york/patterns/loading-state/loading-state.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/loading-state.tsx"
+          "target": "@components/patterns/loading-state.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "page-header",
-      "type": "registry:component",
       "title": "page-header",
       "description": "Design system patterns component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/patterns/page-header.tsx",
+          "path": "registry/new-york/patterns/page-header/page-header.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/page-header.tsx"
+          "target": "@components/patterns/page-header.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "search-field",
-      "type": "registry:component",
       "title": "search-field",
       "description": "Design system patterns component.",
       "dependencies": [
         "lucide-react@^1.45.0"
       ],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/icon-button.json",
-        "https://design.yukihi.tokyo/v1/r/input.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-button",
+        "@yukihi/input"
       ],
       "files": [
         {
-          "path": "src/components/patterns/search-field.tsx",
+          "path": "registry/new-york/patterns/search-field/search-field.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/search-field.tsx"
+          "target": "@components/patterns/search-field.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "settings-section",
-      "type": "registry:component",
       "title": "settings-section",
       "description": "Design system patterns component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json"
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/patterns/settings-section.tsx",
+          "path": "registry/new-york/patterns/settings-section/settings-section.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/settings-section.tsx"
+          "target": "@components/patterns/settings-section.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
       "name": "table-toolbar",
-      "type": "registry:component",
       "title": "table-toolbar",
       "description": "Design system patterns component.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/search-field.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/search-field"
       ],
       "files": [
         {
-          "path": "src/components/patterns/table-toolbar.tsx",
+          "path": "registry/new-york/patterns/table-toolbar/table-toolbar.tsx",
           "type": "registry:component",
-          "target": "src/components/patterns/table-toolbar.tsx"
+          "target": "@components/patterns/table-toolbar.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
-      "name": "character-icons",
-      "type": "registry:component",
-      "title": "Dynamic Character Icons",
-      "description": "Dynamic six-direction character/status API and all approved artwork variants.",
+      "name": "icon-frame",
+      "title": "Icon Frame",
+      "description": "Shared frame for approved SVG artwork.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/assembly-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/fold-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json"
+        "@yukihi/design-system-styles"
       ],
       "files": [
         {
-          "path": "src/components/icons/icon-map.ts",
+          "path": "registry/new-york/icons/icon-frame/IconFrame.tsx",
           "type": "registry:component",
-          "target": "src/components/icons/icon-map.ts"
-        },
-        {
-          "path": "src/components/character/index.tsx",
-          "type": "registry:component",
-          "target": "src/components/character/index.tsx"
+          "target": "@components/icons/IconFrame.tsx"
         }
-      ]
+      ],
+      "type": "registry:component"
     },
     {
+      "name": "assembly-document-feature-icon",
+      "title": "AssemblyDocumentFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/assembly-document-feature-icon/AssemblyDocumentFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/AssemblyDocumentFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "assembly-history-feature-icon",
+      "title": "AssemblyHistoryFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/assembly-history-feature-icon/AssemblyHistoryFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/AssemblyHistoryFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "assembly-idea-feature-icon",
+      "title": "AssemblyIdeaFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/assembly-idea-feature-icon/AssemblyIdeaFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/AssemblyIdeaFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "assembly-saved-status-icon",
+      "title": "AssemblySavedStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/assembly-saved-status-icon/AssemblySavedStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/AssemblySavedStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "assembly-success-character-icon",
+      "title": "AssemblySuccessCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/assembly-success-character-icon/AssemblySuccessCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/AssemblySuccessCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "assembly-thinking-character-icon",
+      "title": "AssemblyThinkingCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/assembly-thinking-character-icon/AssemblyThinkingCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/AssemblyThinkingCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "assembly-thinking-status-icon",
+      "title": "AssemblyThinkingStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/assembly-thinking-status-icon/AssemblyThinkingStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/AssemblyThinkingStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "assembly-welcome-character-icon",
+      "title": "AssemblyWelcomeCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/assembly-welcome-character-icon/AssemblyWelcomeCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/AssemblyWelcomeCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "fold-document-feature-icon",
+      "title": "FoldDocumentFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/fold-document-feature-icon/FoldDocumentFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/FoldDocumentFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "fold-history-feature-icon",
+      "title": "FoldHistoryFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/fold-history-feature-icon/FoldHistoryFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/FoldHistoryFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "fold-idea-feature-icon",
+      "title": "FoldIdeaFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/fold-idea-feature-icon/FoldIdeaFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/FoldIdeaFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "fold-saved-status-icon",
+      "title": "FoldSavedStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/fold-saved-status-icon/FoldSavedStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/FoldSavedStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "fold-success-character-icon",
+      "title": "FoldSuccessCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/fold-success-character-icon/FoldSuccessCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/FoldSuccessCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "fold-thinking-character-icon",
+      "title": "FoldThinkingCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/fold-thinking-character-icon/FoldThinkingCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/FoldThinkingCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "fold-thinking-status-icon",
+      "title": "FoldThinkingStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/fold-thinking-status-icon/FoldThinkingStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/FoldThinkingStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "fold-welcome-character-icon",
+      "title": "FoldWelcomeCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/fold-welcome-character-icon/FoldWelcomeCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/FoldWelcomeCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "impress-document-feature-icon",
+      "title": "ImpressDocumentFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/impress-document-feature-icon/ImpressDocumentFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ImpressDocumentFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "impress-history-feature-icon",
+      "title": "ImpressHistoryFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/impress-history-feature-icon/ImpressHistoryFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ImpressHistoryFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "impress-idea-feature-icon",
+      "title": "ImpressIdeaFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/impress-idea-feature-icon/ImpressIdeaFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ImpressIdeaFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "impress-saved-status-icon",
+      "title": "ImpressSavedStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/impress-saved-status-icon/ImpressSavedStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ImpressSavedStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "impress-success-character-icon",
+      "title": "ImpressSuccessCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/impress-success-character-icon/ImpressSuccessCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ImpressSuccessCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "impress-thinking-character-icon",
+      "title": "ImpressThinkingCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/impress-thinking-character-icon/ImpressThinkingCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ImpressThinkingCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "impress-thinking-status-icon",
+      "title": "ImpressThinkingStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/impress-thinking-status-icon/ImpressThinkingStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ImpressThinkingStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "impress-welcome-character-icon",
+      "title": "ImpressWelcomeCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/impress-welcome-character-icon/ImpressWelcomeCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/ImpressWelcomeCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "ink-document-feature-icon",
+      "title": "InkDocumentFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/ink-document-feature-icon/InkDocumentFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/InkDocumentFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "ink-history-feature-icon",
+      "title": "InkHistoryFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/ink-history-feature-icon/InkHistoryFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/InkHistoryFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "ink-idea-feature-icon",
+      "title": "InkIdeaFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/ink-idea-feature-icon/InkIdeaFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/InkIdeaFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "ink-saved-status-icon",
+      "title": "InkSavedStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/ink-saved-status-icon/InkSavedStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/InkSavedStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "ink-success-character-icon",
+      "title": "InkSuccessCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/ink-success-character-icon/InkSuccessCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/InkSuccessCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "ink-thinking-character-icon",
+      "title": "InkThinkingCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/ink-thinking-character-icon/InkThinkingCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/InkThinkingCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "ink-thinking-status-icon",
+      "title": "InkThinkingStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/ink-thinking-status-icon/InkThinkingStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/InkThinkingStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "ink-welcome-character-icon",
+      "title": "InkWelcomeCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/ink-welcome-character-icon/InkWelcomeCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/InkWelcomeCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "monolith-document-feature-icon",
+      "title": "MonolithDocumentFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/monolith-document-feature-icon/MonolithDocumentFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/MonolithDocumentFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "monolith-history-feature-icon",
+      "title": "MonolithHistoryFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/monolith-history-feature-icon/MonolithHistoryFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/MonolithHistoryFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "monolith-idea-feature-icon",
+      "title": "MonolithIdeaFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/monolith-idea-feature-icon/MonolithIdeaFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/MonolithIdeaFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "monolith-saved-status-icon",
+      "title": "MonolithSavedStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/monolith-saved-status-icon/MonolithSavedStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/MonolithSavedStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "monolith-success-character-icon",
+      "title": "MonolithSuccessCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/monolith-success-character-icon/MonolithSuccessCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/MonolithSuccessCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "monolith-thinking-character-icon",
+      "title": "MonolithThinkingCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/monolith-thinking-character-icon/MonolithThinkingCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/MonolithThinkingCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "monolith-thinking-status-icon",
+      "title": "MonolithThinkingStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/monolith-thinking-status-icon/MonolithThinkingStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/MonolithThinkingStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "monolith-welcome-character-icon",
+      "title": "MonolithWelcomeCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/monolith-welcome-character-icon/MonolithWelcomeCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/MonolithWelcomeCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "orbit-document-feature-icon",
+      "title": "OrbitDocumentFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/orbit-document-feature-icon/OrbitDocumentFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/OrbitDocumentFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "orbit-history-feature-icon",
+      "title": "OrbitHistoryFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/orbit-history-feature-icon/OrbitHistoryFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/OrbitHistoryFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "orbit-idea-feature-icon",
+      "title": "OrbitIdeaFeatureIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/orbit-idea-feature-icon/OrbitIdeaFeatureIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/OrbitIdeaFeatureIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "orbit-saved-status-icon",
+      "title": "OrbitSavedStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/orbit-saved-status-icon/OrbitSavedStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/OrbitSavedStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "orbit-success-character-icon",
+      "title": "OrbitSuccessCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/orbit-success-character-icon/OrbitSuccessCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/OrbitSuccessCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "orbit-thinking-character-icon",
+      "title": "OrbitThinkingCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/orbit-thinking-character-icon/OrbitThinkingCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/OrbitThinkingCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "orbit-thinking-status-icon",
+      "title": "OrbitThinkingStatusIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/orbit-thinking-status-icon/OrbitThinkingStatusIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/OrbitThinkingStatusIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "orbit-welcome-character-icon",
+      "title": "OrbitWelcomeCharacterIcon",
+      "description": "Approved standalone SVG icon.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/design-system-styles",
+        "@yukihi/icon-frame"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/orbit-welcome-character-icon/OrbitWelcomeCharacterIcon.tsx",
+          "type": "registry:component",
+          "target": "@components/icons/OrbitWelcomeCharacterIcon.tsx"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "icons",
+      "title": "All Approved Icons",
+      "description": "Barrel exports for all approved standalone SVG icons.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@yukihi/icon-frame",
+        "@yukihi/assembly-document-feature-icon",
+        "@yukihi/assembly-history-feature-icon",
+        "@yukihi/assembly-idea-feature-icon",
+        "@yukihi/assembly-saved-status-icon",
+        "@yukihi/assembly-success-character-icon",
+        "@yukihi/assembly-thinking-character-icon",
+        "@yukihi/assembly-thinking-status-icon",
+        "@yukihi/assembly-welcome-character-icon",
+        "@yukihi/fold-document-feature-icon",
+        "@yukihi/fold-history-feature-icon",
+        "@yukihi/fold-idea-feature-icon",
+        "@yukihi/fold-saved-status-icon",
+        "@yukihi/fold-success-character-icon",
+        "@yukihi/fold-thinking-character-icon",
+        "@yukihi/fold-thinking-status-icon",
+        "@yukihi/fold-welcome-character-icon",
+        "@yukihi/impress-document-feature-icon",
+        "@yukihi/impress-history-feature-icon",
+        "@yukihi/impress-idea-feature-icon",
+        "@yukihi/impress-saved-status-icon",
+        "@yukihi/impress-success-character-icon",
+        "@yukihi/impress-thinking-character-icon",
+        "@yukihi/impress-thinking-status-icon",
+        "@yukihi/impress-welcome-character-icon",
+        "@yukihi/ink-document-feature-icon",
+        "@yukihi/ink-history-feature-icon",
+        "@yukihi/ink-idea-feature-icon",
+        "@yukihi/ink-saved-status-icon",
+        "@yukihi/ink-success-character-icon",
+        "@yukihi/ink-thinking-character-icon",
+        "@yukihi/ink-thinking-status-icon",
+        "@yukihi/ink-welcome-character-icon",
+        "@yukihi/monolith-document-feature-icon",
+        "@yukihi/monolith-history-feature-icon",
+        "@yukihi/monolith-idea-feature-icon",
+        "@yukihi/monolith-saved-status-icon",
+        "@yukihi/monolith-success-character-icon",
+        "@yukihi/monolith-thinking-character-icon",
+        "@yukihi/monolith-thinking-status-icon",
+        "@yukihi/monolith-welcome-character-icon",
+        "@yukihi/orbit-document-feature-icon",
+        "@yukihi/orbit-history-feature-icon",
+        "@yukihi/orbit-idea-feature-icon",
+        "@yukihi/orbit-saved-status-icon",
+        "@yukihi/orbit-success-character-icon",
+        "@yukihi/orbit-thinking-character-icon",
+        "@yukihi/orbit-thinking-status-icon",
+        "@yukihi/orbit-welcome-character-icon"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/icons/icons/index.ts",
+          "type": "registry:component",
+          "target": "@components/icons/index.ts"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "extends": "none",
       "name": "design-system",
-      "type": "registry:item",
       "title": "Complete Design System",
       "description": "All Foundation, Character, Pattern, and approved icon items.",
       "dependencies": [],
       "registryDependencies": [
-        "https://design.yukihi.tokyo/v1/r/design-system-styles.json",
-        "https://design.yukihi.tokyo/v1/r/utils.json",
-        "https://design.yukihi.tokyo/v1/r/theme-provider.json",
-        "https://design.yukihi.tokyo/v1/r/use-mobile.json",
-        "https://design.yukihi.tokyo/v1/r/icon-frame.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/assembly-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/fold-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/impress-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/ink-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/monolith-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-document-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-history-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-idea-feature-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-saved-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-success-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-thinking-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-thinking-status-icon.json",
-        "https://design.yukihi.tokyo/v1/r/orbit-welcome-character-icon.json",
-        "https://design.yukihi.tokyo/v1/r/accordion.json",
-        "https://design.yukihi.tokyo/v1/r/alert-dialog.json",
-        "https://design.yukihi.tokyo/v1/r/alert.json",
-        "https://design.yukihi.tokyo/v1/r/avatar.json",
-        "https://design.yukihi.tokyo/v1/r/badge.json",
-        "https://design.yukihi.tokyo/v1/r/breadcrumb.json",
-        "https://design.yukihi.tokyo/v1/r/button.json",
-        "https://design.yukihi.tokyo/v1/r/calendar.json",
-        "https://design.yukihi.tokyo/v1/r/card.json",
-        "https://design.yukihi.tokyo/v1/r/checkbox.json",
-        "https://design.yukihi.tokyo/v1/r/collapsible.json",
-        "https://design.yukihi.tokyo/v1/r/combobox.json",
-        "https://design.yukihi.tokyo/v1/r/date-picker.json",
-        "https://design.yukihi.tokyo/v1/r/dialog.json",
-        "https://design.yukihi.tokyo/v1/r/dropdown-menu.json",
-        "https://design.yukihi.tokyo/v1/r/file-upload.json",
-        "https://design.yukihi.tokyo/v1/r/icon-button.json",
-        "https://design.yukihi.tokyo/v1/r/input-group.json",
-        "https://design.yukihi.tokyo/v1/r/input.json",
-        "https://design.yukihi.tokyo/v1/r/label.json",
-        "https://design.yukihi.tokyo/v1/r/navigation-menu.json",
-        "https://design.yukihi.tokyo/v1/r/pagination.json",
-        "https://design.yukihi.tokyo/v1/r/popover.json",
-        "https://design.yukihi.tokyo/v1/r/progress.json",
-        "https://design.yukihi.tokyo/v1/r/radio-group.json",
-        "https://design.yukihi.tokyo/v1/r/select.json",
-        "https://design.yukihi.tokyo/v1/r/separator.json",
-        "https://design.yukihi.tokyo/v1/r/sheet.json",
-        "https://design.yukihi.tokyo/v1/r/sidebar.json",
-        "https://design.yukihi.tokyo/v1/r/skeleton.json",
-        "https://design.yukihi.tokyo/v1/r/slider.json",
-        "https://design.yukihi.tokyo/v1/r/sonner.json",
-        "https://design.yukihi.tokyo/v1/r/spinner.json",
-        "https://design.yukihi.tokyo/v1/r/switch.json",
-        "https://design.yukihi.tokyo/v1/r/table.json",
-        "https://design.yukihi.tokyo/v1/r/tabs.json",
-        "https://design.yukihi.tokyo/v1/r/textarea.json",
-        "https://design.yukihi.tokyo/v1/r/toast.json",
-        "https://design.yukihi.tokyo/v1/r/toggle-group.json",
-        "https://design.yukihi.tokyo/v1/r/toggle.json",
-        "https://design.yukihi.tokyo/v1/r/tooltip.json",
-        "https://design.yukihi.tokyo/v1/r/assistant-card.json",
-        "https://design.yukihi.tokyo/v1/r/empty-state.json",
-        "https://design.yukihi.tokyo/v1/r/friendly-tooltip.json",
-        "https://design.yukihi.tokyo/v1/r/message-bubble.json",
-        "https://design.yukihi.tokyo/v1/r/soft-notice.json",
-        "https://design.yukihi.tokyo/v1/r/suggestion-chip.json",
-        "https://design.yukihi.tokyo/v1/r/app-shell.json",
-        "https://design.yukihi.tokyo/v1/r/assistant-panel.json",
-        "https://design.yukihi.tokyo/v1/r/data-table.json",
-        "https://design.yukihi.tokyo/v1/r/error-state.json",
-        "https://design.yukihi.tokyo/v1/r/form-field.json",
-        "https://design.yukihi.tokyo/v1/r/loading-state.json",
-        "https://design.yukihi.tokyo/v1/r/page-header.json",
-        "https://design.yukihi.tokyo/v1/r/search-field.json",
-        "https://design.yukihi.tokyo/v1/r/settings-section.json",
-        "https://design.yukihi.tokyo/v1/r/table-toolbar.json",
-        "https://design.yukihi.tokyo/v1/r/character-icons.json"
+        "@yukihi/design-system-styles",
+        "@yukihi/utils",
+        "@yukihi/theme-provider",
+        "@yukihi/use-mobile",
+        "@yukihi/icon-frame",
+        "@yukihi/assembly-document-feature-icon",
+        "@yukihi/assembly-history-feature-icon",
+        "@yukihi/assembly-idea-feature-icon",
+        "@yukihi/assembly-saved-status-icon",
+        "@yukihi/assembly-success-character-icon",
+        "@yukihi/assembly-thinking-character-icon",
+        "@yukihi/assembly-thinking-status-icon",
+        "@yukihi/assembly-welcome-character-icon",
+        "@yukihi/fold-document-feature-icon",
+        "@yukihi/fold-history-feature-icon",
+        "@yukihi/fold-idea-feature-icon",
+        "@yukihi/fold-saved-status-icon",
+        "@yukihi/fold-success-character-icon",
+        "@yukihi/fold-thinking-character-icon",
+        "@yukihi/fold-thinking-status-icon",
+        "@yukihi/fold-welcome-character-icon",
+        "@yukihi/impress-document-feature-icon",
+        "@yukihi/impress-history-feature-icon",
+        "@yukihi/impress-idea-feature-icon",
+        "@yukihi/impress-saved-status-icon",
+        "@yukihi/impress-success-character-icon",
+        "@yukihi/impress-thinking-character-icon",
+        "@yukihi/impress-thinking-status-icon",
+        "@yukihi/impress-welcome-character-icon",
+        "@yukihi/ink-document-feature-icon",
+        "@yukihi/ink-history-feature-icon",
+        "@yukihi/ink-idea-feature-icon",
+        "@yukihi/ink-saved-status-icon",
+        "@yukihi/ink-success-character-icon",
+        "@yukihi/ink-thinking-character-icon",
+        "@yukihi/ink-thinking-status-icon",
+        "@yukihi/ink-welcome-character-icon",
+        "@yukihi/monolith-document-feature-icon",
+        "@yukihi/monolith-history-feature-icon",
+        "@yukihi/monolith-idea-feature-icon",
+        "@yukihi/monolith-saved-status-icon",
+        "@yukihi/monolith-success-character-icon",
+        "@yukihi/monolith-thinking-character-icon",
+        "@yukihi/monolith-thinking-status-icon",
+        "@yukihi/monolith-welcome-character-icon",
+        "@yukihi/orbit-document-feature-icon",
+        "@yukihi/orbit-history-feature-icon",
+        "@yukihi/orbit-idea-feature-icon",
+        "@yukihi/orbit-saved-status-icon",
+        "@yukihi/orbit-success-character-icon",
+        "@yukihi/orbit-thinking-character-icon",
+        "@yukihi/orbit-thinking-status-icon",
+        "@yukihi/orbit-welcome-character-icon",
+        "@yukihi/accordion",
+        "@yukihi/alert-dialog",
+        "@yukihi/alert",
+        "@yukihi/avatar",
+        "@yukihi/badge",
+        "@yukihi/breadcrumb",
+        "@yukihi/button",
+        "@yukihi/calendar",
+        "@yukihi/card",
+        "@yukihi/checkbox",
+        "@yukihi/collapsible",
+        "@yukihi/combobox",
+        "@yukihi/date-picker",
+        "@yukihi/dialog",
+        "@yukihi/dropdown-menu",
+        "@yukihi/file-upload",
+        "@yukihi/icon-button",
+        "@yukihi/input-group",
+        "@yukihi/input",
+        "@yukihi/label",
+        "@yukihi/navigation-menu",
+        "@yukihi/pagination",
+        "@yukihi/popover",
+        "@yukihi/progress",
+        "@yukihi/radio-group",
+        "@yukihi/select",
+        "@yukihi/separator",
+        "@yukihi/sheet",
+        "@yukihi/sidebar",
+        "@yukihi/skeleton",
+        "@yukihi/slider",
+        "@yukihi/sonner",
+        "@yukihi/spinner",
+        "@yukihi/switch",
+        "@yukihi/table",
+        "@yukihi/tabs",
+        "@yukihi/textarea",
+        "@yukihi/toast",
+        "@yukihi/toggle-group",
+        "@yukihi/toggle",
+        "@yukihi/tooltip",
+        "@yukihi/assistant-card",
+        "@yukihi/empty-state",
+        "@yukihi/friendly-tooltip",
+        "@yukihi/message-bubble",
+        "@yukihi/soft-notice",
+        "@yukihi/suggestion-chip",
+        "@yukihi/app-shell",
+        "@yukihi/assistant-panel",
+        "@yukihi/data-table",
+        "@yukihi/error-state",
+        "@yukihi/form-field",
+        "@yukihi/loading-state",
+        "@yukihi/page-header",
+        "@yukihi/search-field",
+        "@yukihi/settings-section",
+        "@yukihi/table-toolbar",
+        "@yukihi/character-icons",
+        "@yukihi/icons"
       ],
-      "files": []
+      "files": [],
+      "type": "registry:base",
+      "config": {
+        "style": "new-york",
+        "rsc": false,
+        "tsx": true,
+        "tailwind": {
+          "baseColor": "neutral"
+        },
+        "iconLibrary": "lucide",
+        "registries": {
+          "@yukihi": "https://design.yukihi.tokyo/v1/r/{name}.json"
+        }
+      }
     }
   ]
 }
