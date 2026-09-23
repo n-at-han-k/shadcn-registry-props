@@ -80,6 +80,7 @@
           "color-gold-text": "var(--gold-text)",
           "color-teal": "var(--teal)",
           "color-teal-deep": "var(--teal-deep)",
+          "color-accent-pigment-text": "var(--accent-pigment-text)",
           "radius-xs": "0.125rem",
           "radius-sm": "0.25rem",
           "radius-md": "0.375rem",
@@ -211,8 +212,8 @@
           "--lift-sm": "translateY(-2px)",
           "--fraunces-display": "\"opsz\" 144, \"SOFT\" 50, \"WONK\" 0",
           "--fraunces-accent": "\"opsz\" 144, \"SOFT\" 100, \"WONK\" 1",
-          "--fraunces-text": "\"opsz\" 24, \"SOFT\" 50",
-          "--fraunces-caption": "\"opsz\" 14, \"SOFT\" 100",
+          "--fraunces-text": "\"SOFT\" 50, \"WONK\" 0",
+          "--fraunces-caption": "\"opsz\" 14, \"SOFT\" 100, \"WONK\" 0",
           "--accent-pigment": "var(--moss)",
           "--accent-pigment-text": "var(--moss-deep)",
           "--surface-page": "var(--paper)",
@@ -282,10 +283,10 @@
           "--cl-ink-soft": "#454545",
           "--cd-ink-soft": "#C9C9C9",
           "--int-ink-soft": "#A9A791",
-          "--dk-ink-muted": "#A89880",
+          "--dk-ink-muted": "#AFA08A",
           "--cl-ink-muted": "#5E5E5E",
           "--cd-ink-muted": "#A0A0A0",
-          "--int-ink-muted": "#93927C",
+          "--int-ink-muted": "#A09F8C",
           "--dk-terracotta": "#DB8568",
           "--cl-terracotta": "#DE501B",
           "--cd-terracotta": "#F57345",
@@ -828,7 +829,7 @@
           "--accent-pigment-text": "var(--gold-text)"
         }
       },
-      "docs": "Themes — set data-theme on <html>: unset (or data-theme=\"light\") → Dawn (default) · data-theme=\"dark\" → Dusk · data-theme=\"classic-light\" → Classic Light · data-theme=\"classic-dark\" → Classic Dark · data-theme=\"intelligent\" → Intelligent. 5 themes in total. Accents — set data-accent on <html>, independently of the theme: terracotta · moss (default) · indigo · gold. The accent drives links, eyebrows, focus rings and accent italics. The two attributes are separate axes; a dark ground and an accent choice do not constrain each other. Runtime contract — the theme-selector block owns both attributes. After hydration it reads localStorage (\"quill-theme\" and \"quill-accent\") and stamps <html>. Prerendered markup is always Dawn + moss, so server output and first paint agree. Charts — use the chart tokens (--chart-series-1..5, the sequential and diverging ramps), never raw pigments. Assign series colours in that fixed order and never reorder or cycle survivors when a filter drops one: the order is what keeps the palette distinguishable under all three dichromacies. Fonts — Raleway for body, Fraunces for display. The theme file already @imports both from Google Fonts, so no next/font setup is needed; loading them again under a different family name is what makes the theme's literal font-family names fail to match. dark: utilities — stock shadcn primitives carry dark: tweaks, and a stock app only fires them on the .dark class. Installing with the CLI adds the rule that makes dark: follow Quill's dark themes as well. If you installed the theme as a file instead, add this line to your main stylesheet, after @import \"tailwindcss\": @custom-variant dark (&:is(.dark *, [data-theme=\"dark\"] *, [data-theme=\"classic-dark\"] *, [data-theme=\"intelligent\"] *)); Updating — re-run with --overwrite, not --yes. On a file you have changed, --yes does not overwrite: it prompts in a terminal and silently skips when non-interactive. Full machine-readable reference for agents: https://www.quilldesignsystem.com/llms.txt. Per-component usage guides at /usage/<name>.md."
+      "docs": "Themes — set data-theme on <html>: unset (or data-theme=\"light\") → Dawn (default) · data-theme=\"dark\" → Dusk · data-theme=\"classic-light\" → Classic Light · data-theme=\"classic-dark\" → Classic Dark · data-theme=\"intelligent\" → Intelligent. 5 themes in total. Accents — set data-accent on <html>, independently of the theme: terracotta · moss (default) · indigo · gold. The accent drives links, eyebrows, focus rings and accent italics. The two attributes are separate axes; a dark ground and an accent choice do not constrain each other. Runtime contract — the theme-selector block owns both attributes: after hydration it reads localStorage (\"quill-theme\", \"quill-accent\") and stamps <html>. Prerendered markup is always Dawn + moss, so server output and first paint agree. Charts — use the chart tokens (--chart-series-1..5, the sequential and diverging ramps), never raw pigments. Assign series colours in that fixed order and never reorder or cycle survivors when a filter drops one: the order keeps the palette distinguishable under all three dichromacies. Fonts — Raleway (body) and Fraunces (display) load through the theme file's Google Fonts @import; no next/font setup. Never load them again under another family name: the theme matches the literal names. dark: utilities — stock primitives carry dark: tweaks that only fire on the .dark class. A CLI install adds the rule that makes them follow Quill's dark themes; a file install needs this line after @import \"tailwindcss\": @custom-variant dark (&:is(.dark *, [data-theme=\"dark\"] *, [data-theme=\"classic-dark\"] *, [data-theme=\"intelligent\"] *)); Self-check — after changing UI, run `node scripts/quill-check.mjs` (install once: `npx shadcn@latest add @quill/check`) and clear every finding: stock colours, raw colours, bracket values where a token exists, retired names, dead classes. An exception: `// quill-check: allow <rule> — <why>` on the line above. Updating — re-run with --overwrite, not --yes: on a file you have changed, --yes prompts in a terminal and silently skips when non-interactive. Full machine-readable reference for agents: https://www.quilldesignsystem.com/llms.txt. Per-component usage guides at /usage/<name>.md."
     },
     {
       "name": "icon",
@@ -943,6 +944,20 @@
           "target": "~/.claude/rules/quill.md"
         }
       ]
+    },
+    {
+      "name": "check",
+      "type": "registry:file",
+      "title": "Quill check",
+      "description": "A self-check an AI agent runs inside its app after changing UI: lists every place the code stepped outside Quill — stock Tailwind colours, raw colour values, bracket values where a token exists, retired names, classes that produce no CSS in this app — each with the fix to write. Generated from the design system.",
+      "files": [
+        {
+          "path": "registry/check/quill-check.mjs",
+          "type": "registry:file",
+          "target": "~/scripts/quill-check.mjs"
+        }
+      ],
+      "docs": "Installed to scripts/quill-check.mjs. Run `node scripts/quill-check.mjs` from the app root after every UI change and clear every finding; `--json` for tools, `--dir <path>` to narrow, `--include-ui` to scan the stock primitives, `--css <entry>` if the Tailwind entry is not app/globals.css. Re-run `npx shadcn@latest add @quill/check --overwrite` after each Quill release."
     },
     {
       "name": "activity-feed",
