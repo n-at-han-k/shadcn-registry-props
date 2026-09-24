@@ -73,8 +73,6 @@
           "color-moss-deep": "var(--moss-deep)",
           "color-indigo": "var(--indigo)",
           "color-indigo-deep": "var(--indigo-deep)",
-          "color-indigo-brand": "var(--indigo)",
-          "color-indigo-brand-deep": "var(--indigo-deep)",
           "color-gold": "var(--gold)",
           "color-gold-deep": "var(--gold-deep)",
           "color-gold-text": "var(--gold-text)",
@@ -216,17 +214,6 @@
           "--fraunces-caption": "\"opsz\" 14, \"SOFT\" 100, \"WONK\" 0",
           "--accent-pigment": "var(--moss)",
           "--accent-pigment-text": "var(--moss-deep)",
-          "--surface-page": "var(--paper)",
-          "--surface-card": "var(--paper-warm)",
-          "--surface-well": "var(--paper-deep)",
-          "--text-strong": "var(--ink)",
-          "--text-body": "var(--ink-soft)",
-          "--text-muted-color": "var(--ink-muted)",
-          "--text-on-ink": "var(--paper)",
-          "--border-card": "var(--line-soft)",
-          "--border-field": "var(--line-control)",
-          "--border-divider": "var(--line-faint)",
-          "--danger": "var(--terracotta-deep)",
           "--text-accent-color": "var(--accent-pigment-text)",
           "--link": "var(--accent-pigment-text)",
           "--success": "var(--moss-deep)",
@@ -477,17 +464,6 @@
           "--shadow-pop": "var(--dk-shadow-pop)",
           "--accent-pigment": "var(--moss)",
           "--accent-pigment-text": "var(--moss-deep)",
-          "--surface-page": "var(--paper)",
-          "--surface-card": "var(--paper-warm)",
-          "--surface-well": "var(--paper-deep)",
-          "--text-strong": "var(--ink)",
-          "--text-body": "var(--ink-soft)",
-          "--text-muted-color": "var(--ink-muted)",
-          "--text-on-ink": "var(--paper)",
-          "--border-card": "var(--line-soft)",
-          "--border-field": "var(--line-control)",
-          "--border-divider": "var(--line-faint)",
-          "--danger": "var(--terracotta-deep)",
           "--text-accent-color": "var(--accent-pigment-text)",
           "--link": "var(--accent-pigment-text)",
           "--success": "var(--moss-deep)",
@@ -572,17 +548,6 @@
           "--shadow-pop": "var(--cl-shadow-pop)",
           "--accent-pigment": "var(--moss)",
           "--accent-pigment-text": "var(--moss-deep)",
-          "--surface-page": "var(--paper)",
-          "--surface-card": "var(--paper-warm)",
-          "--surface-well": "var(--paper-deep)",
-          "--text-strong": "var(--ink)",
-          "--text-body": "var(--ink-soft)",
-          "--text-muted-color": "var(--ink-muted)",
-          "--text-on-ink": "var(--paper)",
-          "--border-card": "var(--line-soft)",
-          "--border-field": "var(--line-control)",
-          "--border-divider": "var(--line-faint)",
-          "--danger": "var(--terracotta-deep)",
           "--text-accent-color": "var(--accent-pigment-text)",
           "--link": "var(--accent-pigment-text)",
           "--success": "var(--moss-deep)",
@@ -667,17 +632,6 @@
           "--shadow-pop": "var(--cd-shadow-pop)",
           "--accent-pigment": "var(--moss)",
           "--accent-pigment-text": "var(--moss-deep)",
-          "--surface-page": "var(--paper)",
-          "--surface-card": "var(--paper-warm)",
-          "--surface-well": "var(--paper-deep)",
-          "--text-strong": "var(--ink)",
-          "--text-body": "var(--ink-soft)",
-          "--text-muted-color": "var(--ink-muted)",
-          "--text-on-ink": "var(--paper)",
-          "--border-card": "var(--line-soft)",
-          "--border-field": "var(--line-control)",
-          "--border-divider": "var(--line-faint)",
-          "--danger": "var(--terracotta-deep)",
           "--text-accent-color": "var(--accent-pigment-text)",
           "--link": "var(--accent-pigment-text)",
           "--success": "var(--moss-deep)",
@@ -762,17 +716,6 @@
           "--shadow-pop": "var(--int-shadow-pop)",
           "--accent-pigment": "var(--moss)",
           "--accent-pigment-text": "var(--moss-deep)",
-          "--surface-page": "var(--paper)",
-          "--surface-card": "var(--paper-warm)",
-          "--surface-well": "var(--paper-deep)",
-          "--text-strong": "var(--ink)",
-          "--text-body": "var(--ink-soft)",
-          "--text-muted-color": "var(--ink-muted)",
-          "--text-on-ink": "var(--paper)",
-          "--border-card": "var(--line-soft)",
-          "--border-field": "var(--line-control)",
-          "--border-divider": "var(--line-faint)",
-          "--danger": "var(--terracotta-deep)",
           "--text-accent-color": "var(--accent-pigment-text)",
           "--link": "var(--accent-pigment-text)",
           "--success": "var(--moss-deep)",
@@ -829,7 +772,7 @@
           "--accent-pigment-text": "var(--gold-text)"
         }
       },
-      "docs": "Themes — set data-theme on <html>: unset (or data-theme=\"light\") → Dawn (default) · data-theme=\"dark\" → Dusk · data-theme=\"classic-light\" → Classic Light · data-theme=\"classic-dark\" → Classic Dark · data-theme=\"intelligent\" → Intelligent. 5 themes in total. Accents — set data-accent on <html>, independently of the theme: terracotta · moss (default) · indigo · gold. The accent drives links, eyebrows, focus rings and accent italics. The two attributes are separate axes; a dark ground and an accent choice do not constrain each other. Runtime contract — the theme-selector block owns both attributes: after hydration it reads localStorage (\"quill-theme\", \"quill-accent\") and stamps <html>. Prerendered markup is always Dawn + moss, so server output and first paint agree. Charts — use the chart tokens (--chart-series-1..5, the sequential and diverging ramps), never raw pigments. Assign series colours in that fixed order and never reorder or cycle survivors when a filter drops one: the order keeps the palette distinguishable under all three dichromacies. Fonts — Raleway (body) and Fraunces (display) load through the theme file's Google Fonts @import; no next/font setup. Never load them again under another family name: the theme matches the literal names. dark: utilities — stock primitives carry dark: tweaks that only fire on the .dark class. A CLI install adds the rule that makes them follow Quill's dark themes; a file install needs this line after @import \"tailwindcss\": @custom-variant dark (&:is(.dark *, [data-theme=\"dark\"] *, [data-theme=\"classic-dark\"] *, [data-theme=\"intelligent\"] *)); Self-check — after changing UI, run `node scripts/quill-check.mjs` (install once: `npx shadcn@latest add @quill/check`) and clear every finding: stock colours, raw colours, bracket values where a token exists, retired names, dead classes. An exception: `// quill-check: allow <rule> — <why>` on the line above. Updating — re-run with --overwrite, not --yes: on a file you have changed, --yes prompts in a terminal and silently skips when non-interactive. Full machine-readable reference for agents: https://www.quilldesignsystem.com/llms.txt. Per-component usage guides at /usage/<name>.md."
+      "docs": "Themes — set data-theme on <html>: unset (or data-theme=\"light\") → Dawn (default) · data-theme=\"dark\" → Dusk · data-theme=\"classic-light\" → Classic Light · data-theme=\"classic-dark\" → Classic Dark · data-theme=\"intelligent\" → Intelligent. 5 themes in total. Accents — set data-accent on <html>, independently of the theme: terracotta · moss (default) · indigo · gold. The accent drives links, eyebrows, focus rings and accent italics. The two axes are independent. Runtime contract — the theme-selector block owns both attributes: after hydration it reads localStorage (\"quill-theme\", \"quill-accent\") and stamps <html>. Prerendered markup is always Dawn + moss, so first paint matches the server. Charts — use the chart tokens (--chart-series-1..5, the sequential and diverging ramps), never raw pigments. Assign series colours in that fixed order and never reorder or cycle survivors when a filter drops one: the order keeps the palette distinguishable under all three dichromacies. Fonts — Raleway (body) and Fraunces (display) load through the theme file's @import; no next/font. Never load them again under another name: the theme matches literal names. Wiring — the CLI install merges the theme into your Tailwind stylesheet. A theme FILE must be imported from inside that stylesheet — `@import \"./quill-theme.css\"` after `@import \"tailwindcss\"` and below any `@custom-variant dark` line shadcn wrote (the last wins) — never from layout.tsx, where every Quill utility is dead. dark: utilities — stock primitives' dark: tweaks follow Quill's dark themes (and the .dark class) once the theme is wired; nothing to add by hand. Self-check — after changing UI, run `node scripts/quill-check.mjs` (install once: `npx shadcn@latest add @quill/check`) and clear every finding: stock colours, raw colours, bracket values where a token exists, retired names, dead classes. An exception: `// quill-check: allow <rule> — <why>` on the line above. Updating — re-run with --overwrite, not --yes: on a file you have changed, --yes prompts in a terminal and silently skips when non-interactive. Full machine-readable reference for agents: https://www.quilldesignsystem.com/llms.txt. Per-component usage guides at /usage/<name>.md."
     },
     {
       "name": "icon",
@@ -968,7 +911,8 @@
         "intent": [
           "data-display"
         ],
-        "use_when": "You need to show a chronological history of what happened — recent events with who, what, and when."
+        "use_when": "You need to show a chronological history of what happened — recent events with who, what, and when.",
+        "not_for": "the events need an unread/read state and a mark-all-read action, not just a read-only history → notifications; the events are really records you need to filter, sort, or act on, not just skim chronologically → data-table"
       },
       "registryDependencies": [
         "card",
@@ -997,7 +941,8 @@
         "intent": [
           "feedback"
         ],
-        "use_when": "You need to surface inline status messages of varying severity (info, success, destructive) within a page."
+        "use_when": "You need to surface inline status messages of varying severity (info, success, destructive) within a page.",
+        "not_for": "the message is transient feedback about an action just taken — use a toast, not an inline alert → sonner; the message is site-wide and dismissible rather than local to a page section → announcement-banner; the \"message\" is really an empty view that needs an explanation and a call to action → empty-state"
       },
       "registryDependencies": [
         "alert",
@@ -1025,7 +970,8 @@
           "data-viz",
           "data-display"
         ],
-        "use_when": "You need a dashboard view of trends over time — an area chart plus a bar chart on card surfaces."
+        "use_when": "You need a dashboard view of trends over time — an area chart plus a bar chart on card surfaces.",
+        "not_for": "you need at-a-glance numbers, not a trend shape — a single KPI reads faster as a number than a chart → stat-cards; the audience needs to inspect exact values per row, not the shape of change over time → data-table"
       },
       "registryDependencies": [
         "card",
@@ -1058,7 +1004,8 @@
           "feedback",
           "marketing"
         ],
-        "use_when": "You need to announce something site-wide with a dismissible banner, either inline or full-bleed."
+        "use_when": "You need to announce something site-wide with a dismissible banner, either inline or full-bleed.",
+        "not_for": "the message is local to a page section and tied to system status, not a site-wide announcement → alerts; the banner requires an explicit choice (accept/reject), not just a dismiss → cookie-consent"
       },
       "registryDependencies": [
         "badge",
@@ -1087,7 +1034,8 @@
         "intent": [
           "data-display"
         ],
-        "use_when": "You need to show status or category badges attached to a content card."
+        "use_when": "You need to show status or category badges attached to a content card.",
+        "not_for": "you need a badge whose color is driven by a semantic tone token rather than the three fixed variants here → tone-badge; the badges are actually per-row status in a list of records, not a single card's labels → data-table"
       },
       "registryDependencies": [
         "card",
@@ -1114,7 +1062,8 @@
         "intent": [
           "scheduling"
         ],
-        "use_when": "You need to pick a single date and show what's scheduled that day."
+        "use_when": "You need to pick a single date and show what's scheduled that day.",
+        "not_for": "the user is booking a span of days, not viewing what's scheduled on one → calendar-range; you want a chronological history of past events, not a schedule of upcoming sessions tied to a picked date → activity-feed"
       },
       "registryDependencies": [
         "card",
@@ -1144,7 +1093,8 @@
           "scheduling",
           "form"
         ],
-        "use_when": "You need to book a span of days with a two-month range picker and confirm/clear actions."
+        "use_when": "You need to book a span of days with a two-month range picker and confirm/clear actions.",
+        "not_for": "the user is picking a single day to view, not a multi-day span to reserve → calendar-page; the range is just one field within a larger purchase flow, not the whole card → checkout"
       },
       "registryDependencies": [
         "card",
@@ -1177,7 +1127,8 @@
         "intent": [
           "messaging"
         ],
-        "use_when": "You need a one-on-one messaging panel with a contact header, bubbles, and a composer."
+        "use_when": "You need a one-on-one messaging panel with a contact header, bubbles, and a composer.",
+        "not_for": "you need a list of conversations alongside the open thread, not just the single open thread → list-detail; the messages are one-way system alerts, not a two-way conversation with someone → notifications"
       },
       "registryDependencies": [
         "input",
@@ -1206,7 +1157,8 @@
           "commerce",
           "form"
         ],
-        "use_when": "You need to collect payment and card details alongside an order summary."
+        "use_when": "You need to collect payment and card details alongside an order summary.",
+        "not_for": "you only need the cart-review card, not the full payment form beside it → order-summary; payment is one step in a longer multi-step flow, not a single standalone page → wizard"
       },
       "registryDependencies": [
         "card",
@@ -1239,7 +1191,8 @@
         "intent": [
           "navigation"
         ],
-        "use_when": "You need a searchable ⌘K launcher for actions and quick navigation."
+        "use_when": "You need a searchable ⌘K launcher for actions and quick navigation.",
+        "not_for": "search results should live inline on the page, not in a global keyboard-triggered overlay → search-results; the list of options is small and tied to a specific trigger element, not a global searchable launcher → dropdown-menu"
       },
       "registryDependencies": [
         "command",
@@ -1266,7 +1219,8 @@
         "intent": [
           "form"
         ],
-        "use_when": "You need a get-in-touch form with name, email, topic, and message fields."
+        "use_when": "You need a get-in-touch form with name, email, topic, and message fields.",
+        "not_for": "you only need a single email field to grow a list, not a full multi-field inquiry form → newsletter; the fields are updating an existing profile, not sending a one-off message → settings"
       },
       "registryDependencies": [
         "card",
@@ -1297,7 +1251,8 @@
         "intent": [
           "feedback"
         ],
-        "use_when": "You need a compliance banner offering accept, reject, and preferences choices."
+        "use_when": "You need a compliance banner offering accept, reject, and preferences choices.",
+        "not_for": "the message is informational only and doesn't require an explicit accept/reject decision → announcement-banner; the message is a local, in-page status, not a site-wide compliance notice → alerts"
       },
       "registryDependencies": [
         "button",
@@ -1325,7 +1280,8 @@
           "app-shell",
           "data-display"
         ],
-        "use_when": "You need a full application home — sidebar, search header, and KPI cards."
+        "use_when": "You need a full application home — sidebar, search header, and KPI cards.",
+        "not_for": "you need the collapsible icon-sidebar variant with grouped menus, not this fixed-width text sidebar → sidebar-nav; you only need the KPI row, not the full shell around it → stat-cards"
       },
       "registryDependencies": [
         "button",
@@ -1356,7 +1312,8 @@
         "intent": [
           "data-display"
         ],
-        "use_when": "You need a filterable, actionable table of records with tone-mapped status pills and row actions."
+        "use_when": "You need a filterable, actionable table of records with tone-mapped status pills and row actions.",
+        "not_for": "you want a read-only chronological list, not sortable/filterable records with row actions → activity-feed; the records are better organized by status columns than by table rows → kanban"
       },
       "registryDependencies": [
         "table",
@@ -1386,7 +1343,8 @@
         "intent": [
           "feedback"
         ],
-        "use_when": "You need to explain why a view is empty and offer the primary action to fill it."
+        "use_when": "You need to explain why a view is empty and offer the primary action to fill it.",
+        "not_for": "the view is empty because the resource doesn't exist or the route is wrong, not because the user hasn't created anything yet → error-404; there's a multi-step setup to walk through, not a single action to take right now → onboarding"
       },
       "registryDependencies": [
         "button",
@@ -1413,7 +1371,8 @@
         "intent": [
           "feedback"
         ],
-        "use_when": "You need a full-page not-found state with recovery actions."
+        "use_when": "You need a full-page not-found state with recovery actions.",
+        "not_for": "the resource exists but is legitimately empty (no items yet), not missing or misrouted → empty-state; the error is recoverable inline on the current page, not a full-page dead end that needs its own route → alerts"
       },
       "registryDependencies": [
         "button",
@@ -1441,7 +1400,8 @@
           "content",
           "marketing"
         ],
-        "use_when": "You need to answer common questions in an accordion with a contact fallback."
+        "use_when": "You need to answer common questions in an accordion with a contact fallback.",
+        "not_for": "you need a bare accordion with no marketing framing (heading, contact footer) around it → accordion; the user needs to ask something not covered — this pattern only offers a CTA button, not the form itself → contact-form"
       },
       "registryDependencies": [
         "accordion",
@@ -1469,7 +1429,8 @@
         "intent": [
           "marketing"
         ],
-        "use_when": "You need to present product features in an editorial multi-column grid."
+        "use_when": "You need to present product features in an editorial multi-column grid.",
+        "not_for": "you're presenting numbers, not descriptive feature callouts with icons and body text → stats-band; the features are tied to specific paid tiers, not the product as a whole → pricing"
       },
       "registryDependencies": [
         "https://www.quilldesignsystem.com/r/icon.json"
@@ -1495,7 +1456,8 @@
         "intent": [
           "form"
         ],
-        "use_when": "You need drag-and-drop asset upload with a progress-tracked queue."
+        "use_when": "You need drag-and-drop asset upload with a progress-tracked queue.",
+        "not_for": "you need a single attachment inside a broader form, not a dedicated upload queue as the whole card → contact-form"
       },
       "registryDependencies": [
         "card",
@@ -1526,7 +1488,8 @@
           "marketing",
           "navigation"
         ],
-        "use_when": "You need a site-wide footer with link columns, a brand blurb, and legal links."
+        "use_when": "You need a site-wide footer with link columns, a brand blurb, and legal links.",
+        "not_for": "the links are primary in-app navigation, not secondary site-wide links at the page's end → sidebar-nav; the links belong at the top of the page as primary navigation, not the bottom as reference → navbar"
       },
       "registryDependencies": [
         "separator"
@@ -1553,7 +1516,8 @@
         "intent": [
           "auth"
         ],
-        "use_when": "You need a password-reset request card that sends a recovery link."
+        "use_when": "You need a password-reset request card that sends a recovery link.",
+        "not_for": "recovery works by a typed one-time code rather than an emailed link → otp-verification; the user hasn't actually forgotten anything — this card is only the detour reached from login's \"Forgot your password?\" link → login"
       },
       "registryDependencies": [
         "card",
@@ -1583,7 +1547,8 @@
         "intent": [
           "marketing"
         ],
-        "use_when": "You need the top-of-page marketing statement — headline, supporting copy, and calls to action."
+        "use_when": "You need the top-of-page marketing statement — headline, supporting copy, and calls to action.",
+        "not_for": "you're past the opening statement and need to break down specific product capabilities → feature-section; the message is a small, dismissible update, not the page's primary opening statement → announcement-banner"
       },
       "registryDependencies": [
         "badge",
@@ -1612,7 +1577,8 @@
           "commerce",
           "data-display"
         ],
-        "use_when": "You need a printable invoice with parties, line-item totals, and a download action."
+        "use_when": "You need a printable invoice with parties, line-item totals, and a download action.",
+        "not_for": "you're showing a cart before payment, not a record of a completed transaction → order-summary; you need a list of many invoices to browse, not the full detail of one → data-table"
       },
       "registryDependencies": [
         "card",
@@ -1644,7 +1610,8 @@
         "intent": [
           "productivity"
         ],
-        "use_when": "You need to manage work across status columns with draggable, tagged task cards."
+        "use_when": "You need to manage work across status columns with draggable, tagged task cards.",
+        "not_for": "status is one column among many sortable fields — a table reads better than columns once you need to sort or filter across many records → data-table; the steps are a single sequential checklist, not parallel work items across independent columns → onboarding"
       },
       "registryDependencies": [
         "badge",
@@ -1672,7 +1639,8 @@
           "messaging",
           "app-shell"
         ],
-        "use_when": "You need an inbox-style split view pairing a selectable list with a detail pane."
+        "use_when": "You need an inbox-style split view pairing a selectable list with a detail pane.",
+        "not_for": "you need a fuller mail client — search, reply composer, forward — not just list-and-read → mail-shell; the conversation is a live back-and-forth thread, not discrete messages you select and read one at a time → chat"
       },
       "registryDependencies": [
         "badge",
@@ -1702,7 +1670,8 @@
         "intent": [
           "auth"
         ],
-        "use_when": "You need the standard email-and-password sign-in with remember-me and reset links."
+        "use_when": "You need the standard email-and-password sign-in with remember-me and reset links.",
+        "not_for": "the sign-in is a full page, not an embedded card, and you want a branded testimonial panel alongside it → login-split-panel; you want the leanest possible sign-in — a single email field for a one-time code, no password at all → login-minimal; most of your users sign in through Google, GitHub, or Apple rather than a password you store → login-oauth; the user has already clicked \"Forgot your password?\" — that's a separate card, not a state of this one → forgot-password"
       },
       "registryDependencies": [
         "card",
@@ -1732,7 +1701,8 @@
         "intent": [
           "auth"
         ],
-        "use_when": "You need the leanest possible sign-in — a single field for one-time-code entry."
+        "use_when": "You need the leanest possible sign-in — a single field for one-time-code entry.",
+        "not_for": "you're collecting a password, not sending a one-time code — this pattern has no password field at all → login; you want a provider-first flow instead of email-only → login-oauth; the user already submitted their email and you're now showing the six-digit code entry — that's a separate step from this one → otp-verification"
       },
       "registryDependencies": [
         "input",
@@ -1774,7 +1744,8 @@
         "intent": [
           "auth"
         ],
-        "use_when": "Identity comes from a provider (Google, GitHub, Apple) rather than a password you store."
+        "use_when": "Identity comes from a provider (Google, GitHub, Apple) rather than a password you store.",
+        "not_for": "this is account creation, not sign-in — signup-social also leads with OAuth providers → signup-social; you store first-party passwords and don't want a provider-first order at all → login; you don't have OAuth providers configured and just need a single email field → login-minimal"
       },
       "docs": "Provider-first sign-in — Google, GitHub, and Apple buttons above an email fallback. Do: Treat the provider buttons as the primary path; keep the email form below the rule as a fallback, not the headline. Don't: Give the email field equal visual weight to the provider buttons when most users have a provider account. Do: Keep provider marks as their official inlined artwork, with GitHub and Apple taking currentColor so they invert correctly in Dusk. Don't: Restyle a provider mark to match your palette — that breaks the brand guidelines you agree to by using their sign-in. Use signup-social when this is account creation, not sign-in — signup-social also leads with OAuth providers. Use login when you store first-party passwords and don't want a provider-first order at all. Use login-minimal when you don't have OAuth providers configured and just need a single email field.",
       "categories": [
@@ -1791,7 +1762,8 @@
           "auth",
           "marketing"
         ],
-        "use_when": "You need a branded full-page sign-in with a testimonial side panel and magic-link option."
+        "use_when": "You need a branded full-page sign-in with a testimonial side panel and magic-link option.",
+        "not_for": "the sign-in is an embedded card inside an existing page shell, not its own full page → login; you don't have a testimonial or brand story worth the real estate — go bare instead → login-minimal"
       },
       "registryDependencies": [
         "input",
@@ -1823,7 +1795,8 @@
           "messaging",
           "app-shell"
         ],
-        "use_when": "You need a two-pane mail client — searchable list plus a reading pane with toolbar and reply."
+        "use_when": "You need a two-pane mail client — searchable list plus a reading pane with toolbar and reply.",
+        "not_for": "you need the simpler read-and-select pattern with no search, toolbar, or reply composer → list-detail; the messaging is a live conversational thread, not discrete emails with subjects → chat"
       },
       "registryDependencies": [
         "badge",
@@ -1856,7 +1829,8 @@
         "intent": [
           "navigation"
         ],
-        "use_when": "You need a top navigation bar with wordmark, links, and sign-in / get-started actions."
+        "use_when": "You need a top navigation bar with wordmark, links, and sign-in / get-started actions.",
+        "not_for": "primary navigation belongs in a persistent side rail for an app, not a top bar for a marketing site → sidebar-nav; navigation is keyboard-driven and searchable, not a fixed row of links → command-palette"
       },
       "registryDependencies": [
         "button",
@@ -1883,7 +1857,8 @@
         "intent": [
           "settings"
         ],
-        "use_when": "You need to let users switch among Quill's five themes and four accents, persisted to localStorage."
+        "use_when": "You need to let users switch among Quill's five themes and four accents, persisted to localStorage.",
+        "not_for": "theme choice is one field among many in a broader preferences form, not a standalone quick-switch control → settings"
       },
       "registryDependencies": [
         "button",
@@ -1912,7 +1887,8 @@
           "marketing",
           "form"
         ],
-        "use_when": "You need an email-capture section with social proof to grow a list."
+        "use_when": "You need an email-capture section with social proof to grow a list.",
+        "not_for": "you need more than an email — name, topic, a message — this pattern is intentionally a single field → contact-form; the signup is one small element within a full site footer, not its own standalone section → footer"
       },
       "registryDependencies": [
         "input",
@@ -1943,7 +1919,8 @@
           "feedback",
           "data-display"
         ],
-        "use_when": "You need a notifications center with unread indicators and a mark-all-read action."
+        "use_when": "You need a notifications center with unread indicators and a mark-all-read action.",
+        "not_for": "the list is a read-only history with no read/unread state or mark-all action → activity-feed; the message is transient feedback about something that just happened — use a toast, not a persistent notifications list → sonner"
       },
       "registryDependencies": [
         "card",
@@ -1973,7 +1950,8 @@
         "intent": [
           "productivity"
         ],
-        "use_when": "You need a setup checklist that tracks progress and links to remaining steps."
+        "use_when": "You need a setup checklist that tracks progress and links to remaining steps.",
+        "not_for": "the steps must happen in a strict sequence in one sitting, not a checklist a user dips in and out of over time → wizard; there's a single action to take, not a multi-step checklist to track → empty-state"
       },
       "registryDependencies": [
         "card",
@@ -2001,7 +1979,8 @@
         "intent": [
           "commerce"
         ],
-        "use_when": "You need a cart-review card with line items, a promo field, a total, and a pay button."
+        "use_when": "You need a cart-review card with line items, a promo field, a total, and a pay button.",
+        "not_for": "you're showing a record of a completed, already-paid transaction, not a cart pending payment → invoice; you need the full payment form (card fields, billing address) alongside the summary, not just the review → checkout"
       },
       "registryDependencies": [
         "card",
@@ -2031,7 +2010,8 @@
         "intent": [
           "auth"
         ],
-        "use_when": "You need to verify an email with a six-digit one-time passcode and resend."
+        "use_when": "You need to verify an email with a six-digit one-time passcode and resend.",
+        "not_for": "you're sending the initial one-time code, not verifying a code the user already received — that's a separate step upstream of this card → login-minimal; recovery works by emailed link, not a typed code → forgot-password"
       },
       "registryDependencies": [
         "card",
@@ -2061,7 +2041,8 @@
           "navigation",
           "app-shell"
         ],
-        "use_when": "You need a screen header with breadcrumbs, title, description, and primary actions."
+        "use_when": "You need a screen header with breadcrumbs, title, description, and primary actions.",
+        "not_for": "you need the breadcrumb as part of a full app shell's top bar, not a standalone header block → sidebar-nav; this is a marketing page's opening statement, not a utility screen's title bar → hero"
       },
       "registryDependencies": [
         "breadcrumb",
@@ -2091,7 +2072,8 @@
           "marketing",
           "commerce"
         ],
-        "use_when": "You need a tiered pricing grid with a highlighted plan and feature checklists."
+        "use_when": "You need a tiered pricing grid with a highlighted plan and feature checklists.",
+        "not_for": "you're describing capabilities in general, not comparing specific paid tiers against each other → feature-section; the user has already chosen a plan and is now reviewing a specific purchase, not comparing options → order-summary"
       },
       "registryDependencies": [
         "card",
@@ -2121,7 +2103,8 @@
         "intent": [
           "data-display"
         ],
-        "use_when": "You need a compact user profile with avatar, role, stats, and follow / message actions."
+        "use_when": "You need a compact user profile with avatar, role, stats, and follow / message actions.",
+        "not_for": "you want to show what someone did, not a static summary of who they are → activity-feed; you're listing many people at once — a table or list reads better than a full card per person → data-table"
       },
       "registryDependencies": [
         "card",
@@ -2152,7 +2135,8 @@
           "navigation",
           "data-display"
         ],
-        "use_when": "You need a search panel with a query input, result count, and a linked result list."
+        "use_when": "You need a search panel with a query input, result count, and a linked result list.",
+        "not_for": "search is a global, keyboard-triggered overlay (⌘K) rather than an inline panel on the page → command-palette; results are structured records with multiple sortable columns, not a simple linked list → data-table"
       },
       "registryDependencies": [
         "input",
@@ -2183,7 +2167,8 @@
           "settings",
           "form"
         ],
-        "use_when": "You need a profile settings form with name, bio, and notification preferences."
+        "use_when": "You need a profile settings form with name, bio, and notification preferences.",
+        "not_for": "you're sending a one-off message, not editing a persistent profile → contact-form; setup needs multiple sequential steps, not a single settings page a user returns to and edits freely → wizard"
       },
       "registryDependencies": [
         "card",
@@ -2217,7 +2202,8 @@
           "app-shell",
           "navigation"
         ],
-        "use_when": "You need a collapsible icon-sidebar app shell with grouped menus and a content area."
+        "use_when": "You need a collapsible icon-sidebar app shell with grouped menus and a content area.",
+        "not_for": "you need a simpler, fixed-width text sidebar without the icon-collapse behavior → dashboard; the main content area is a two-pane message list/reading layout, not a card grid → mail-shell"
       },
       "registryDependencies": [
         "sidebar",
@@ -2249,7 +2235,8 @@
         "intent": [
           "auth"
         ],
-        "use_when": "You need standard account creation — name, email, password, and a sign-in link."
+        "use_when": "You need standard account creation — name, email, password, and a sign-in link.",
+        "not_for": "you want OAuth providers to lead instead of a bare email/password form → signup-social; the user already has an account — this card is only for new ones → login"
       },
       "registryDependencies": [
         "card",
@@ -2278,7 +2265,8 @@
         "intent": [
           "auth"
         ],
-        "use_when": "You need signup that leads with OAuth providers and falls back to email/password."
+        "use_when": "You need signup that leads with OAuth providers and falls back to email/password.",
+        "not_for": "you don't have OAuth providers configured, or want email/password as the primary path, not a fallback → signup; this is sign-in, not new-account creation — login-oauth is the matching pattern for returning users → login-oauth"
       },
       "registryDependencies": [
         "card",
@@ -2308,7 +2296,8 @@
         "intent": [
           "data-display"
         ],
-        "use_when": "You need a row of KPI cards showing values with period-over-period deltas."
+        "use_when": "You need a row of KPI cards showing values with period-over-period deltas.",
+        "not_for": "you need to show the trend shape over time, not just the current value and one delta → analytics-charts; you have more metrics than fit comfortably in a card grid, or need to compare many rows at once → data-table"
       },
       "registryDependencies": [
         "card",
@@ -2335,7 +2324,8 @@
         "intent": [
           "marketing"
         ],
-        "use_when": "You need a marketing band of headline statistics separated by dividers."
+        "use_when": "You need a marketing band of headline statistics separated by dividers.",
+        "not_for": "each number needs its own card with a period-over-period delta — this pattern is a single flat band with no per-item chrome or comparison → stat-cards; you're describing capabilities, not reporting numbers → feature-section"
       },
       "registryDependencies": [
         "separator"
@@ -2362,7 +2352,8 @@
           "navigation",
           "settings"
         ],
-        "use_when": "You need a settings screen split into account, notifications, and security tabs."
+        "use_when": "You need a settings screen split into account, notifications, and security tabs.",
+        "not_for": "everything fits on one page without needing to split into separate tabbed sections → settings; the sections are sequential setup steps completed once, not independent settings a user revisits and edits freely → wizard"
       },
       "registryDependencies": [
         "tabs",
@@ -2393,7 +2384,8 @@
         "intent": [
           "marketing"
         ],
-        "use_when": "You need a marketing team grid with member cards, roles, and contact actions."
+        "use_when": "You need a marketing team grid with member cards, roles, and contact actions.",
+        "not_for": "you're showing one person in detail (stats, follow/message), not a grid of many team members at a glance → profile-card; you're quoting what someone said, not introducing who's on the team → testimonial"
       },
       "registryDependencies": [
         "card",
@@ -2424,7 +2416,8 @@
           "marketing",
           "content"
         ],
-        "use_when": "You need a customer-quote card with a serif pull-quote and attribution."
+        "use_when": "You need a customer-quote card with a serif pull-quote and attribution.",
+        "not_for": "you're introducing people, not quoting what a customer said about the product → team-section; the proof point is a number, not a quote → stats-band"
       },
       "registryDependencies": [],
       "files": [
@@ -2450,7 +2443,8 @@
           "form",
           "productivity"
         ],
-        "use_when": "You need a multi-step setup flow with a progress stepper and back/continue navigation."
+        "use_when": "You need a multi-step setup flow with a progress stepper and back/continue navigation.",
+        "not_for": "the steps are a checklist of tasks to complete over time, not a linear form flow completed in one sitting → onboarding; there's only one step and no sequence to track — this is a single settings page, not a flow → settings"
       },
       "registryDependencies": [
         "card",
