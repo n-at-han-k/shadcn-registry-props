@@ -10,6 +10,14 @@
          "description": "An editable data grid: range selection, spreadsheet clipboard, editing engine, validation, sorting, filtering, pinning, streaming updates. Real DOM cells, shadcn styling.",
          "author": "gridcn",
          "docs": "Docs & quick start: https://gridcn.vercel.app/docs/quick-start",
+         "cssVars": {
+            "light": {
+               "grid-pin-shadow": "oklch(0 0 0 / 10%)"
+            },
+            "dark": {
+               "grid-pin-shadow": "oklch(0 0 0 / 40%)"
+            }
+         },
          "dependencies": [
             "zustand"
          ],
@@ -132,6 +140,11 @@
                "target": "components/data-grid/columns/pin-offsets.ts"
             },
             {
+               "path": "registry/default/blocks/data-grid/columns/column-border.ts",
+               "type": "registry:component",
+               "target": "components/data-grid/columns/column-border.ts"
+            },
+            {
                "path": "registry/default/blocks/data-grid/columns/pinned-inset-style.ts",
                "type": "registry:component",
                "target": "components/data-grid/columns/pinned-inset-style.ts"
@@ -230,6 +243,11 @@
                "path": "registry/default/blocks/data-grid/keyboard/is-printable-key.ts",
                "type": "registry:component",
                "target": "components/data-grid/keyboard/is-printable-key.ts"
+            },
+            {
+               "path": "registry/default/blocks/data-grid/keyboard/key-syntax.ts",
+               "type": "registry:component",
+               "target": "components/data-grid/keyboard/key-syntax.ts"
             },
             {
                "path": "registry/default/blocks/data-grid/keyboard/match-keymap.ts",
@@ -357,10 +375,15 @@
                "target": "components/data-grid/selection/select-line-options.ts"
             },
             {
-               "path": "registry/default/blocks/data-grid/selection/selected-col-ranges-for-row.ts",
-               "type": "registry:component",
-               "target": "components/data-grid/selection/selected-col-ranges-for-row.ts"
-            },
+                "path": "registry/default/blocks/data-grid/selection/selected-col-ranges-for-row.ts",
+                "type": "registry:component",
+                "target": "components/data-grid/selection/selected-col-ranges-for-row.ts"
+             },
+            {
+                "path": "registry/default/blocks/data-grid/selection/selected-view-rows.ts",
+                "type": "registry:component",
+                "target": "components/data-grid/selection/selected-view-rows.ts"
+             },
             {
                "path": "registry/default/blocks/data-grid/selection/selection-ops.ts",
                "type": "registry:component",
@@ -806,9 +829,14 @@
                "target": "components/data-grid-context-menu/autosize-column.ts"
             },
             {
-               "path": "registry/default/blocks/data-grid-context-menu/format-keymap-shortcut.ts",
+               "path": "registry/default/blocks/data-grid-context-menu/menu-shortcut.tsx",
                "type": "registry:component",
-               "target": "components/data-grid-context-menu/format-keymap-shortcut.ts"
+               "target": "components/data-grid-context-menu/menu-shortcut.tsx"
+            },
+            {
+               "path": "components/ui/kbd.tsx",
+               "type": "registry:component",
+               "target": "components/ui/kbd.tsx"
             },
             {
                "path": "registry/default/blocks/data-grid-context-menu/has-row-op.ts",
@@ -946,6 +974,26 @@
          ]
       },
       {
+         "name": "dropzone",
+         "type": "registry:block",
+         "title": "Dropzone",
+         "description": "Dependency-free file dropzone: drag and drop or click to choose, with accept, size, and count checks and a compact variant. Used by the data-grid-io import dialog.",
+         "author": "gridcn",
+         "dependencies": [
+            "lucide-react"
+         ],
+         "files": [
+            {
+               "path": "registry/default/blocks/dropzone/dropzone.tsx",
+               "type": "registry:component",
+               "target": "components/dropzone/dropzone.tsx"
+            }
+         ],
+         "categories": [
+            "data"
+         ]
+      },
+      {
          "name": "data-grid-io",
          "type": "registry:block",
          "title": "Data Grid IO",
@@ -960,6 +1008,7 @@
          ],
          "registryDependencies": [
             "DammersCode/gridcn/data-grid",
+            "DammersCode/gridcn/dropzone",
             "dialog",
             "select",
             "dropdown-menu",
@@ -1268,6 +1317,33 @@
          ]
       },
       {
+         "name": "data-grid-filter-operators-demo",
+         "type": "registry:example",
+         "title": "Data Grid Filter Operators Demo",
+         "description": "Per-column filter operator overrides via operatorsForColumn and ColumnDef.filterOperators, plus a full column list (including hidden columns) in the sort popover via allColumns.",
+         "author": "gridcn",
+         "registryDependencies": [
+            "DammersCode/gridcn/data-grid",
+            "DammersCode/gridcn/data-grid-toolbar",
+            "DammersCode/gridcn/data-grid-sort-list"
+         ],
+         "files": [
+            {
+               "path": "registry/default/examples/data-grid-filter-operators-demo.tsx",
+               "type": "registry:example",
+               "target": "components/data-grid-filter-operators-demo.tsx"
+            },
+            {
+               "path": "registry/default/examples/demo-data.ts",
+               "type": "registry:example",
+               "target": "components/demo-data.ts"
+            }
+         ],
+         "categories": [
+            "data"
+         ]
+      },
+      {
          "name": "data-grid-history-demo",
          "type": "registry:example",
          "title": "Data Grid History Demo",
@@ -1308,6 +1384,35 @@
                "path": "registry/default/examples/data-grid-context-menu-demo.tsx",
                "type": "registry:example",
                "target": "components/data-grid-context-menu-demo.tsx"
+            },
+            {
+               "path": "registry/default/examples/demo-data.ts",
+               "type": "registry:example",
+               "target": "components/demo-data.ts"
+            }
+         ],
+         "categories": [
+            "data"
+         ]
+      },
+      {
+         "name": "data-grid-context-menu-slots-demo",
+         "type": "registry:example",
+         "title": "Data Grid Context Menu Slots Demo",
+         "description": "Custom context menu items via renderCellMenuItems and renderHeaderMenuItems, replacing the built-in item sets.",
+         "author": "gridcn",
+         "dependencies": [
+            "lucide-react"
+         ],
+         "registryDependencies": [
+            "DammersCode/gridcn/data-grid",
+            "DammersCode/gridcn/data-grid-context-menu"
+         ],
+         "files": [
+            {
+               "path": "registry/default/examples/data-grid-context-menu-slots-demo.tsx",
+               "type": "registry:example",
+               "target": "components/data-grid-context-menu-slots-demo.tsx"
             },
             {
                "path": "registry/default/examples/demo-data.ts",
@@ -1485,6 +1590,33 @@
          ],
          "dependencies": [
             "lucide-react"
+         ]
+      },
+      {
+         "name": "data-grid-pinning-all-sides-demo",
+         "type": "registry:example",
+         "title": "Data Grid Pinning All Sides Demo",
+         "description": "All four pin zones at once: Name pinned left, Score pinned right, plus an averages row pinned to the top band and a totals row pinned to the bottom band via the data-grid-pinned-rows add-on, over 200 rows so both directions scroll.",
+         "author": "gridcn",
+         "registryDependencies": [
+            "DammersCode/gridcn/data-grid",
+            "DammersCode/gridcn/data-grid-history",
+            "DammersCode/gridcn/data-grid-pinned-rows"
+         ],
+         "files": [
+            {
+               "path": "registry/default/examples/data-grid-pinning-all-sides-demo.tsx",
+               "type": "registry:example",
+               "target": "components/data-grid-pinning-all-sides-demo.tsx"
+            },
+            {
+               "path": "registry/default/examples/demo-data.ts",
+               "type": "registry:example",
+               "target": "components/demo-data.ts"
+            }
+         ],
+         "categories": [
+            "data"
          ]
       },
       {
@@ -1880,6 +2012,7 @@
          "author": "gridcn",
          "dependencies": [
             "joi",
+            "sonner",
             "valibot",
             "zod"
          ],
