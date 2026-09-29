@@ -1,0 +1,1552 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "opaline",
+  "homepage": "https://opaline.buildlab.in",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Opaline Theme",
+      "description": "Minimal, premium design tokens — Apple system typography, neutral palette and glass materials for light and dark.",
+      "cssVars": {
+        "theme": {
+          "font-sans": "-apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"SF Pro Display\", \"Inter Variable\", \"Inter\", \"Helvetica Neue\", system-ui, sans-serif",
+          "font-mono": "ui-monospace, \"SF Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+        },
+        "light": {
+          "background": "oklch(0.99 0.002 286)",
+          "foreground": "oklch(0.21 0.004 286)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.21 0.004 286)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.21 0.004 286)",
+          "primary": "oklch(0.21 0.004 286)",
+          "primary-foreground": "oklch(0.99 0 0)",
+          "secondary": "oklch(0.965 0.002 286)",
+          "secondary-foreground": "oklch(0.21 0.004 286)",
+          "muted": "oklch(0.965 0.002 286)",
+          "muted-foreground": "oklch(0.53 0.008 286)",
+          "accent": "oklch(0.955 0.003 286)",
+          "accent-foreground": "oklch(0.21 0.004 286)",
+          "destructive": "oklch(0.63 0.22 27)",
+          "border": "oklch(0.21 0.004 286 / 9%)",
+          "input": "oklch(0.21 0.004 286 / 12%)",
+          "ring": "oklch(0.62 0.19 255)",
+          "radius": "0.875rem",
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "background": "oklch(0.13 0.002 286)",
+          "foreground": "oklch(0.97 0.002 286)",
+          "card": "oklch(0.18 0.003 286)",
+          "card-foreground": "oklch(0.97 0.002 286)",
+          "popover": "oklch(0.2 0.003 286)",
+          "popover-foreground": "oklch(0.97 0.002 286)",
+          "primary": "oklch(0.97 0.002 286)",
+          "primary-foreground": "oklch(0.18 0.003 286)",
+          "secondary": "oklch(0.24 0.004 286)",
+          "secondary-foreground": "oklch(0.97 0.002 286)",
+          "muted": "oklch(0.22 0.003 286)",
+          "muted-foreground": "oklch(0.68 0.008 286)",
+          "accent": "oklch(0.25 0.004 286)",
+          "accent-foreground": "oklch(0.97 0.002 286)",
+          "destructive": "oklch(0.68 0.2 25)",
+          "border": "oklch(1 0 0 / 9%)",
+          "input": "oklch(1 0 0 / 13%)",
+          "ring": "oklch(0.68 0.16 255)",
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      },
+      "css": {
+        "@layer base": {
+          "body": {
+            "-webkit-font-smoothing": "antialiased",
+            "-moz-osx-font-smoothing": "grayscale",
+            "letter-spacing": "-0.011em",
+            "text-rendering": "optimizeLegibility"
+          }
+        }
+      }
+    },
+    {
+      "name": "liquid-glass",
+      "type": "registry:ui",
+      "title": "Liquid Glass",
+      "description": "The primitive behind every glass component. Refracts the backdrop through an SVG displacement map, with a frosted fallback.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/opaline/lib/glass-refraction.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      },
+      "css": {
+        "@keyframes opaline-glass-in": {
+          "from": {
+            "transform": "translate3d(var(--glass-enter-x, 0), var(--glass-enter-y, 0), 0) scale(var(--glass-enter-scale, 1))"
+          }
+        },
+        "@keyframes opaline-glass-out": {
+          "to": {
+            "transform": "translate3d(var(--glass-exit-x, 0), var(--glass-exit-y, 0), 0) scale(var(--glass-exit-scale, 1))"
+          }
+        }
+      }
+    },
+    {
+      "name": "use-active-indicator",
+      "type": "registry:hook",
+      "title": "useActiveIndicator",
+      "description": "Hook that tracks the active item's box to animate a selection bubble.",
+      "files": [
+        {
+          "path": "registry/opaline/hooks/use-active-indicator.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "glass-dock",
+      "type": "registry:ui",
+      "title": "Glass Dock",
+      "description": "macOS-style dock with smooth magnification and hover labels.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-dock.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-text",
+      "type": "registry:ui",
+      "title": "Glass Text",
+      "description": "Headlines cast in liquid glass — every glyph is a bevelled lens with rim light and a travelling sheen.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      },
+      "css": {
+        "@keyframes opaline-sheen": {
+          "from": {
+            "background-position": "100% 0"
+          },
+          "to": {
+            "background-position": "-150% 0"
+          }
+        }
+      }
+    },
+    {
+      "name": "glass-control-center",
+      "type": "registry:ui",
+      "title": "Glass Control Center",
+      "description": "macOS-style Control Center kit — glass modules, toggles, light-filled sliders and buttons.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-control-center.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-segmented",
+      "type": "registry:ui",
+      "title": "Glass Segmented",
+      "description": "Icon segmented picker whose glass bubble stretches like liquid as it travels.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/use-active-indicator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-segmented.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-date-picker",
+      "type": "registry:ui",
+      "title": "Glass Date Picker",
+      "description": "Glass calendar with a gliding day bubble, and a capsule date picker.",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/use-active-indicator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      },
+      "css": {
+        "@keyframes opaline-slide-in": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateX(var(--slide-from, 16px))"
+          }
+        }
+      }
+    },
+    {
+      "name": "glass-stepper",
+      "type": "registry:ui",
+      "title": "Glass Stepper",
+      "description": "Capsule stepper with rolling digits, hold-to-accelerate and a shake at the limits.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-stepper.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      },
+      "css": {
+        "@keyframes opaline-shake": {
+          "0%, 100%": {
+            "transform": "translateX(0)"
+          },
+          "20%": {
+            "transform": "translateX(-5px)"
+          },
+          "40%": {
+            "transform": "translateX(5px)"
+          },
+          "60%": {
+            "transform": "translateX(-3px)"
+          },
+          "80%": {
+            "transform": "translateX(3px)"
+          }
+        }
+      }
+    },
+    {
+      "name": "glass-context-menu",
+      "type": "registry:ui",
+      "title": "Glass Context Menu",
+      "description": "Right-click menu that springs from the cursor, with a row of round quick actions.",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-widget",
+      "type": "registry:ui",
+      "title": "Glass Widget",
+      "description": "iOS home-screen widget frame on liquid glass — small, medium and large.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-widget.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-widget-weather",
+      "type": "registry:ui",
+      "title": "Weather Widget",
+      "description": "Weather widget with animated condition art and an hourly forecast.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/glass-widget.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-widget-weather.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      },
+      "css": {
+        "@keyframes opaline-cloud": {
+          "from": {
+            "transform": "translateX(-1.5px)"
+          },
+          "to": {
+            "transform": "translateX(1.5px)"
+          }
+        },
+        "@keyframes opaline-fall": {
+          "from": {
+            "transform": "translateY(-3px)",
+            "opacity": "0"
+          },
+          "30%": {
+            "opacity": "1"
+          },
+          "to": {
+            "transform": "translateY(4px)",
+            "opacity": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "glass-widget-calendar",
+      "type": "registry:ui",
+      "title": "Calendar Widget",
+      "description": "Calendar widget showing today, what's next and a month at a glance.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/glass-widget.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-widget-calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-widget-battery",
+      "type": "registry:ui",
+      "title": "Battery Widget",
+      "description": "Batteries widget with device rings that fill, turn red when low and show charging.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/glass-widget.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-widget-battery.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-button",
+      "type": "registry:ui",
+      "title": "Glass Button",
+      "description": "Pill button made of liquid glass with a pointer-tracked highlight.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-lens",
+      "type": "registry:ui",
+      "title": "Glass Lens",
+      "description": "Draggable magnifying lens that bends whatever is beneath it.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-lens.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-sidebar",
+      "type": "registry:ui",
+      "title": "Glass Sidebar",
+      "description": "Floating source list with a sliding glass selection and icon-only mode.",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/use-active-indicator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-command",
+      "type": "registry:ui",
+      "title": "Glass Command",
+      "description": "⌘K command palette on a frosted glass sheet, powered by cmdk.",
+      "dependencies": [
+        "cmdk",
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-player",
+      "type": "registry:ui",
+      "title": "Glass Player",
+      "description": "Now-playing widget with scrubber, transport controls and volume.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-player.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-card",
+      "type": "registry:ui",
+      "title": "Glass Card",
+      "description": "Frosted card surface with header, content and footer slots.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-knob",
+      "type": "registry:ui",
+      "title": "Glass Knob",
+      "description": "Rotary dial with a glass cap — drag around it or use the arrow keys.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-knob.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-clock",
+      "type": "registry:ui",
+      "title": "Glass Clock",
+      "description": "Analog clock on a liquid glass face with a sweeping second hand.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-clock.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-stack",
+      "type": "registry:ui",
+      "title": "Glass Stack",
+      "description": "A deck of glass cards — swipe the top one away to reveal the next.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-stack.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-switch",
+      "type": "registry:ui",
+      "title": "Glass Switch",
+      "description": "iOS switch whose thumb turns into a glass lens while pressed.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-slider",
+      "type": "registry:ui",
+      "title": "Glass Slider",
+      "description": "Slider whose thumb becomes a refracting lens while dragging.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-tabs",
+      "type": "registry:ui",
+      "title": "Glass Tabs",
+      "description": "Segmented control with a glass bubble that glides between tabs.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/use-active-indicator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-tab-bar",
+      "type": "registry:ui",
+      "title": "Glass Tab Bar",
+      "description": "Floating iOS 26 tab bar with a sliding liquid selection.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/use-active-indicator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-tab-bar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-sheet",
+      "type": "registry:ui",
+      "title": "Glass Sheet",
+      "description": "Floating side sheet, or a drag-to-dismiss bottom drawer with side=\"bottom\".",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-toast",
+      "type": "registry:ui",
+      "title": "Glass Toast",
+      "description": "Imperative toasts on glass that drop in from the top.",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-toast.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-popover",
+      "type": "registry:ui",
+      "title": "Glass Popover",
+      "description": "Rich popover content on a frosted glass surface.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-select",
+      "type": "registry:ui",
+      "title": "Glass Select",
+      "description": "Capsule select with a frosted glass option list.",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-menu",
+      "type": "registry:ui",
+      "title": "Glass Menu",
+      "description": "Dropdown menu rendered on liquid glass.",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-dialog",
+      "type": "registry:ui",
+      "title": "Glass Dialog",
+      "description": "Modal on a frosted glass sheet with springy transform-only motion.",
+      "dependencies": [
+        "radix-ui",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-notification",
+      "type": "registry:ui",
+      "title": "Glass Notification",
+      "description": "iOS notification banner plus a stack that fans out on hover.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-notification.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-input",
+      "type": "registry:ui",
+      "title": "Glass Input",
+      "description": "Capsule text field with icon and adornment slots — made for search.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-toolbar",
+      "type": "registry:ui",
+      "title": "Glass Toolbar",
+      "description": "Floating capsule toolbar that groups icon actions.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-toolbar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-tooltip",
+      "type": "registry:ui",
+      "title": "Glass Tooltip",
+      "description": "Capsule tooltip that springs out of its trigger.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-badge",
+      "type": "registry:ui",
+      "title": "Glass Badge",
+      "description": "Small glass chip with an optional glowing status dot.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      }
+    },
+    {
+      "name": "glass-otp",
+      "type": "registry:ui",
+      "title": "OTP Input",
+      "description": "One-time code cells on glass with a gliding lens, paste and SMS autofill, and success / error states.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/liquid-glass.json",
+        "https://opaline.buildlab.in/r/use-active-indicator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/opaline/ui/glass-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "glass-tint": "oklch(1 0 0 / 14%)",
+          "glass-tint-frosted": "oklch(1 0 0 / 42%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 85%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 55%), inset 0 0 0 0.5px oklch(1 0 0 / 40%), inset 0 0 12px -4px oklch(1 0 0 / 60%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 6%), 0 10px 32px -8px oklch(0 0 0 / 22%)",
+          "glass-foreground": "oklch(0.18 0.004 286)",
+          "glass-highlight": "oklch(1 0 0 / 62%)"
+        },
+        "dark": {
+          "glass-tint": "oklch(0.2 0.004 286 / 22%)",
+          "glass-tint-frosted": "oklch(0.2 0.004 286 / 50%)",
+          "glass-rim": "inset 1px 1px 0 -0.5px oklch(1 0 0 / 45%), inset -1px -1px 0 -0.5px oklch(1 0 0 / 22%), inset 0 0 0 0.5px oklch(1 0 0 / 16%), inset 0 0 12px -4px oklch(1 0 0 / 22%)",
+          "glass-shadow": "0 1px 2px oklch(0 0 0 / 20%), 0 12px 36px -8px oklch(0 0 0 / 50%)",
+          "glass-foreground": "oklch(0.98 0 0)",
+          "glass-highlight": "oklch(1 0 0 / 16%)"
+        }
+      },
+      "css": {
+        "@keyframes opaline-glass-in": {
+          "from": {
+            "transform": "translate3d(var(--glass-enter-x, 0), var(--glass-enter-y, 0), 0) scale(var(--glass-enter-scale, 1))"
+          }
+        },
+        "@keyframes opaline-caret": {
+          "0%, 100%": {
+            "opacity": "1"
+          },
+          "50%": {
+            "opacity": "0"
+          }
+        },
+        "@keyframes opaline-shake": {
+          "0%, 100%": {
+            "transform": "translateX(0)"
+          },
+          "20%": {
+            "transform": "translateX(-5px)"
+          },
+          "40%": {
+            "transform": "translateX(5px)"
+          },
+          "60%": {
+            "transform": "translateX(-3px)"
+          },
+          "80%": {
+            "transform": "translateX(3px)"
+          }
+        }
+      }
+    },
+    {
+      "name": "all",
+      "type": "registry:item",
+      "title": "Everything",
+      "description": "The Opaline theme and every component in one install.",
+      "registryDependencies": [
+        "https://opaline.buildlab.in/r/theme.json",
+        "https://opaline.buildlab.in/r/glass-dock.json",
+        "https://opaline.buildlab.in/r/glass-text.json",
+        "https://opaline.buildlab.in/r/glass-control-center.json",
+        "https://opaline.buildlab.in/r/glass-segmented.json",
+        "https://opaline.buildlab.in/r/glass-date-picker.json",
+        "https://opaline.buildlab.in/r/glass-stepper.json",
+        "https://opaline.buildlab.in/r/glass-context-menu.json",
+        "https://opaline.buildlab.in/r/glass-widget.json",
+        "https://opaline.buildlab.in/r/glass-widget-weather.json",
+        "https://opaline.buildlab.in/r/glass-widget-calendar.json",
+        "https://opaline.buildlab.in/r/glass-widget-battery.json",
+        "https://opaline.buildlab.in/r/glass-button.json",
+        "https://opaline.buildlab.in/r/glass-lens.json",
+        "https://opaline.buildlab.in/r/glass-sidebar.json",
+        "https://opaline.buildlab.in/r/glass-command.json",
+        "https://opaline.buildlab.in/r/glass-player.json",
+        "https://opaline.buildlab.in/r/glass-card.json",
+        "https://opaline.buildlab.in/r/glass-knob.json",
+        "https://opaline.buildlab.in/r/glass-clock.json",
+        "https://opaline.buildlab.in/r/glass-stack.json",
+        "https://opaline.buildlab.in/r/glass-switch.json",
+        "https://opaline.buildlab.in/r/glass-slider.json",
+        "https://opaline.buildlab.in/r/glass-tabs.json",
+        "https://opaline.buildlab.in/r/glass-tab-bar.json",
+        "https://opaline.buildlab.in/r/glass-sheet.json",
+        "https://opaline.buildlab.in/r/glass-toast.json",
+        "https://opaline.buildlab.in/r/glass-popover.json",
+        "https://opaline.buildlab.in/r/glass-select.json",
+        "https://opaline.buildlab.in/r/glass-menu.json",
+        "https://opaline.buildlab.in/r/glass-dialog.json",
+        "https://opaline.buildlab.in/r/glass-notification.json",
+        "https://opaline.buildlab.in/r/glass-input.json",
+        "https://opaline.buildlab.in/r/glass-toolbar.json",
+        "https://opaline.buildlab.in/r/glass-tooltip.json",
+        "https://opaline.buildlab.in/r/glass-badge.json",
+        "https://opaline.buildlab.in/r/glass-otp.json"
+      ]
+    }
+  ]
+}

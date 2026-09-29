@@ -1,0 +1,393 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ecomcn",
+  "homepage": "https://ecomcn.vercel.app",
+  "items": [
+    {
+      "name": "price-tag",
+      "title": "Price Tag",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Locale-aware price with compare-at strike, computed discount badge and a screen-reader announcement. No dependencies.",
+      "files": [
+        {
+          "path": "src/registry/ecomcn/price-tag/price-tag.tsx",
+          "type": "registry:ui",
+          "target": "components/ecomcn/price-tag.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "sale": "0 72% 42%"
+        },
+        "dark": {
+          "sale": "4 74% 58%"
+        }
+      },
+      "categories": [
+        "ecommerce",
+        "product",
+        "pricing"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "product-card",
+      "title": "Product Card",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Catalogue tile with badges, compare-at pricing, colour swatches that swap the image, rating and a keyboard-reachable quick-add. Compound: use it as one tag, or recompose it from ProductCardMedia, ProductCardBody and their parts via useProductCard().",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "@ecomcn/price-tag"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/product-card/product-card.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/product-card.tsx"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "sale": "0 72% 42%",
+          "success": "138 30% 34%"
+        },
+        "dark": {
+          "sale": "4 74% 58%",
+          "success": "138 26% 52%"
+        }
+      },
+      "categories": [
+        "ecommerce",
+        "product",
+        "catalog"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "product-grid",
+      "title": "Product Grid",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Responsive catalogue grid with box-matched loading skeletons, appended skeletons while more results load, a density switch, a renderCard slot for composed cards, and a left-aligned empty state.",
+      "registryDependencies": [
+        "skeleton",
+        "button",
+        "@ecomcn/product-card"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/product-grid/product-grid.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/product-grid.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "catalog",
+        "listing"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "sort-toolbar",
+      "title": "Sort Toolbar",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "The rule above a listing: a result count announced to screen readers once results settle, a native sort select, a density switch and a slot for the mobile filter trigger.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/sort-toolbar/sort-toolbar.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/sort-toolbar.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "catalog",
+        "listing"
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "empty-results",
+      "title": "Empty Results",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "A no-match state that names the filters that emptied the grid, offers the single change that brings the most back, and lets shoppers remove filters one at a time. Left-aligned, never centred.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/empty-results/empty-results.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/empty-results.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "catalog",
+        "listing",
+        "empty-state"
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "filter-panel",
+      "title": "Filter Panel",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Faceted filters with state that lives in the URL: applied-filter chips, checkbox lists with counts, a dual-handle range with typed inputs, colour swatches and toggles. Compound: one tag for the default layout, or FilterPanelHeader, FilterPanelChips and FilterPanelFacet in any order via useFilterPanel(). Ships a pure parser for server components and a useFilterParams hook.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "checkbox",
+        "input",
+        "slider",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/filter-panel/filter-panel.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/filter-panel.tsx"
+        },
+        {
+          "path": "src/registry/ecomcn/filter-panel/filter-params.ts",
+          "type": "registry:lib",
+          "target": "lib/filter-params.ts"
+        },
+        {
+          "path": "src/registry/ecomcn/filter-panel/use-filter-params.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-filter-params.ts"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "catalog",
+        "listing",
+        "filters"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "filter-sheet",
+      "title": "Filter Sheet",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "The filter panel in a slide-over for small screens. Changes are staged and applied once — on Show or on close — with a live result count on the button and focus returned to the trigger. Accepts the same FilterPanel parts as children, so a custom layout stages too.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "sheet",
+        "@ecomcn/filter-panel"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/filter-sheet/filter-sheet.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/filter-sheet.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "catalog",
+        "listing",
+        "filters",
+        "mobile"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "load-more",
+      "title": "Load More",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Progressive loading for a product list: a progress rule and “Showing 24 of 312” count, a Load more button, optional hybrid or infinite auto-loading, focus moved to the first new item, and an announced count. The pattern Baymard found performs best, in one component.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/load-more/load-more.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/load-more.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "catalog",
+        "listing",
+        "pagination"
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "product-quick-view",
+      "title": "Product Quick View",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Quick view with a shared-element morph: the card image grows into the dialog and shrinks back on close. Motion's layoutId drives the morph, a native <dialog> does the modal work, focus returns to the trigger, and reduced-motion users get no movement. The one ecomcn block that depends on motion — opt-in.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "@ecomcn/price-tag",
+        "@ecomcn/product-card"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/product-quick-view/product-quick-view.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/product-quick-view.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "catalog",
+        "listing",
+        "animation"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "order-summary",
+      "title": "Order Summary",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Free-shipping progress, promo code field with applied state, itemised totals and the checkout CTA. Totals logic lives in a separate hook you can test.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/order-summary/order-summary.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/order-summary.tsx"
+        },
+        {
+          "path": "src/registry/ecomcn/order-summary/use-order-totals.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-order-totals.ts"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "sale": "0 72% 42%",
+          "success": "138 30% 34%"
+        },
+        "dark": {
+          "sale": "4 74% 58%",
+          "success": "138 26% 52%"
+        }
+      },
+      "categories": [
+        "ecommerce",
+        "cart",
+        "checkout"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "theme-editorial",
+      "title": "Editorial Theme",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "The ecomcn house style — warm paper, near-black ink, a single vermilion signal colour, and a 2px radius so nothing reads as a rounded card. Ships the complete shadcn token set plus --brand, --sale and --success.",
+      "cssVars": {
+        "light": {
+          "background": "hsl(40 30% 97%)",
+          "foreground": "hsl(30 9% 9%)",
+          "card": "hsl(40 30% 99%)",
+          "card-foreground": "hsl(30 9% 9%)",
+          "popover": "hsl(40 30% 99%)",
+          "popover-foreground": "hsl(30 9% 9%)",
+          "primary": "hsl(30 9% 9%)",
+          "primary-foreground": "hsl(40 30% 97%)",
+          "secondary": "hsl(38 20% 92%)",
+          "secondary-foreground": "hsl(30 9% 9%)",
+          "muted": "hsl(38 18% 93%)",
+          "muted-foreground": "hsl(32 6% 42%)",
+          "accent": "hsl(38 20% 92%)",
+          "accent-foreground": "hsl(30 9% 9%)",
+          "destructive": "hsl(0 72% 42%)",
+          "destructive-foreground": "hsl(40 30% 98%)",
+          "border": "hsl(34 14% 85%)",
+          "input": "hsl(34 14% 82%)",
+          "ring": "hsl(12 76% 50%)",
+          "brand": "hsl(12 76% 50%)",
+          "brand-foreground": "hsl(40 30% 98%)",
+          "sale": "hsl(0 72% 42%)",
+          "success": "hsl(138 30% 34%)",
+          "chart-1": "hsl(12 76% 50%)",
+          "chart-2": "hsl(138 30% 34%)",
+          "chart-3": "hsl(32 45% 52%)",
+          "chart-4": "hsl(200 22% 45%)",
+          "chart-5": "hsl(30 9% 25%)",
+          "sidebar": "hsl(40 30% 99%)",
+          "sidebar-foreground": "hsl(30 9% 9%)",
+          "sidebar-primary": "hsl(30 9% 9%)",
+          "sidebar-primary-foreground": "hsl(40 30% 97%)",
+          "sidebar-accent": "hsl(38 20% 92%)",
+          "sidebar-accent-foreground": "hsl(30 9% 9%)",
+          "sidebar-border": "hsl(34 14% 85%)",
+          "sidebar-ring": "hsl(12 76% 50%)",
+          "radius": "0.125rem"
+        },
+        "dark": {
+          "background": "hsl(30 8% 7%)",
+          "foreground": "hsl(40 22% 94%)",
+          "card": "hsl(30 8% 10%)",
+          "card-foreground": "hsl(40 22% 94%)",
+          "popover": "hsl(30 8% 10%)",
+          "popover-foreground": "hsl(40 22% 94%)",
+          "primary": "hsl(40 22% 94%)",
+          "primary-foreground": "hsl(30 8% 7%)",
+          "secondary": "hsl(30 6% 16%)",
+          "secondary-foreground": "hsl(40 22% 94%)",
+          "muted": "hsl(30 6% 15%)",
+          "muted-foreground": "hsl(36 8% 62%)",
+          "accent": "hsl(30 6% 16%)",
+          "accent-foreground": "hsl(40 22% 94%)",
+          "destructive": "hsl(4 74% 58%)",
+          "destructive-foreground": "hsl(30 8% 7%)",
+          "border": "hsl(30 6% 20%)",
+          "input": "hsl(30 6% 24%)",
+          "ring": "hsl(14 82% 58%)",
+          "brand": "hsl(14 82% 57%)",
+          "brand-foreground": "hsl(30 8% 7%)",
+          "sale": "hsl(4 74% 58%)",
+          "success": "hsl(138 26% 52%)",
+          "chart-1": "hsl(14 82% 57%)",
+          "chart-2": "hsl(138 26% 52%)",
+          "chart-3": "hsl(32 40% 62%)",
+          "chart-4": "hsl(200 20% 60%)",
+          "chart-5": "hsl(40 12% 74%)",
+          "sidebar": "hsl(30 8% 10%)",
+          "sidebar-foreground": "hsl(40 22% 94%)",
+          "sidebar-primary": "hsl(40 22% 94%)",
+          "sidebar-primary-foreground": "hsl(30 8% 7%)",
+          "sidebar-accent": "hsl(30 6% 16%)",
+          "sidebar-accent-foreground": "hsl(40 22% 94%)",
+          "sidebar-border": "hsl(30 6% 20%)",
+          "sidebar-ring": "hsl(14 82% 58%)"
+        }
+      },
+      "categories": [
+        "theme",
+        "ecommerce"
+      ],
+      "type": "registry:theme"
+    }
+  ]
+}

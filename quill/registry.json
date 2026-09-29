@@ -878,13 +878,553 @@
       "name": "agent-rules",
       "type": "registry:file",
       "title": "Quill agent rules",
-      "description": "Claude Code project rules so AI agents build on-brand with Quill — the theming contract, foundations, principles, icon names and the block index, generated from the design system.",
-      "docs": "Installed to .claude/rules/quill.md at the project root, where Claude Code loads it every session. Re-run `npx shadcn@latest add @quill/agent-rules --overwrite` after each Quill release to update it; the library-sync bot does this for apps that carry the file.",
+      "description": "Claude Code project rules and a component-choosing skill so AI agents build on-brand with Quill — the theming contract, foundations, principles, icon names and the block index, plus when to use each block and primitive and what to reach for instead, generated from the design system.",
+      "docs": "Installs .claude/rules/quill.md at the project root, which Claude Code loads every session, and the quill-components skill in .claude/skills/quill-components/, which loads when an agent is choosing UI. Re-run `npx shadcn@latest add @quill/agent-rules --overwrite` after each Quill release to update it; the library-sync bot does this for apps that carry the rules file, including the skill.",
       "files": [
         {
           "path": "registry/agent-rules/quill.md",
           "type": "registry:file",
           "target": "~/.claude/rules/quill.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/SKILL.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/accordion.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/accordion.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/activity-feed.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/activity-feed.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/alert.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/alert.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/alert-dialog.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/alert-dialog.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/alerts.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/alerts.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/analytics-charts.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/analytics-charts.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/announcement-banner.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/announcement-banner.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/aspect-ratio.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/aspect-ratio.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/avatar.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/avatar.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/badge.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/badge.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/badge-on-card.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/badge-on-card.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/breadcrumb.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/breadcrumb.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/button.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/button.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/button-group.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/button-group.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/calendar.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/calendar.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/calendar-page.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/calendar-page.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/calendar-range.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/calendar-range.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/card.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/card.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/carousel.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/carousel.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/chart.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/chart.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/chat.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/chat.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/checkbox.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/checkbox.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/checkout.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/checkout.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/collapsible.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/collapsible.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/combobox.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/combobox.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/command.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/command.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/command-palette.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/command-palette.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/contact-form.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/contact-form.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/context-menu.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/context-menu.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/cookie-consent.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/cookie-consent.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/dashboard.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/dashboard.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/data-table.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/data-table.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/dialog.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/dialog.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/drawer.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/drawer.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/dropdown-menu.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/dropdown-menu.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/empty.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/empty.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/empty-state.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/empty-state.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/error-404.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/error-404.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/faq.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/faq.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/feature-section.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/feature-section.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/field.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/field.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/file-upload.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/file-upload.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/footer.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/footer.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/forgot-password.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/forgot-password.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/hero.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/hero.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/hover-card.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/hover-card.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/icon.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/icon.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/input.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/input.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/input-group.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/input-group.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/input-otp.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/input-otp.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/invoice.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/invoice.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/item.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/item.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/kanban.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/kanban.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/kbd.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/kbd.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/label.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/label.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/list-detail.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/list-detail.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/login.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/login.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/login-minimal.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/login-minimal.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/login-oauth.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/login-oauth.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/login-split-panel.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/login-split-panel.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/mail-shell.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/mail-shell.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/menubar.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/menubar.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/native-select.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/native-select.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/navbar.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/navbar.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/navigation-menu.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/navigation-menu.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/newsletter.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/newsletter.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/notifications.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/notifications.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/onboarding.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/onboarding.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/order-summary.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/order-summary.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/otp-verification.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/otp-verification.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/page-header.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/page-header.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/pagination.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/pagination.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/popover.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/popover.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/pricing.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/pricing.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/profile-card.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/profile-card.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/progress.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/progress.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/radio-group.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/radio-group.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/resizable.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/resizable.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/scroll-area.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/scroll-area.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/search-results.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/search-results.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/select.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/select.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/separator.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/separator.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/settings.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/settings.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/sheet.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/sheet.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/sidebar.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/sidebar.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/sidebar-nav.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/sidebar-nav.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/signup.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/signup.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/signup-social.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/signup-social.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/skeleton.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/skeleton.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/slider.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/slider.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/sonner.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/sonner.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/spinner.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/spinner.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/stat-cards.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/stat-cards.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/stats-band.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/stats-band.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/switch.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/switch.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/table.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/table.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/tabs.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/tabs.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/tabs-page.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/tabs-page.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/team-section.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/team-section.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/testimonial.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/testimonial.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/textarea.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/textarea.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/theme-selector.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/theme-selector.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/toggle.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/toggle.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/toggle-group.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/toggle-group.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/tone-badge.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/tone-badge.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/tooltip.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/tooltip.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/wizard.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/wizard.md"
         }
       ]
     },
@@ -1701,7 +2241,7 @@
         "intent": [
           "auth"
         ],
-        "use_when": "You need the leanest possible sign-in — a single field for one-time-code entry.",
+        "use_when": "You need the leanest possible sign-in — one email field that sends a one-time code, no password.",
         "not_for": "you're collecting a password, not sending a one-time code — this pattern has no password field at all → login; you want a provider-first flow instead of email-only → login-oauth; the user already submitted their email and you're now showing the six-digit code entry — that's a separate step from this one → otp-verification"
       },
       "registryDependencies": [

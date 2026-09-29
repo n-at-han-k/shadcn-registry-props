@@ -1,0 +1,166 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "dgit",
+  "homepage": "https://ui.dgit.co",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:file",
+      "title": "Theme",
+      "description": "Neutral gray scale (light and dark), shadcn's color names on it, type scale, menu animation. Import after Tailwind.",
+      "files": [
+        {
+          "path": "registry/dgit/styles/dgit.css",
+          "type": "registry:file",
+          "target": "app/dgit.css"
+        }
+      ]
+    },
+    {
+      "name": "use-theme",
+      "type": "registry:lib",
+      "title": "useTheme",
+      "description": "System, light or dark, kept in localStorage and applied as <html data-theme>. Includes the first-paint script.",
+      "files": [
+        {
+          "path": "registry/dgit/lib/theme.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Pill buttons, 40px tall by default.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/dgit/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "A floating panel from a trigger: 12px corners, 36px rows, grows from the trigger. No positioning library.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/dgit/ui/menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "account-menu",
+      "type": "registry:ui",
+      "title": "Account menu",
+      "description": "Avatar button and menu: name and email, a system/light/dark switch, your links, log out.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@dgit/menu",
+        "@dgit/use-theme"
+      ],
+      "files": [
+        {
+          "path": "registry/dgit/ui/account-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "page",
+      "type": "registry:ui",
+      "title": "Page",
+      "description": "PageHeader, Section, List (rounded rows), Notice, and ago() for relative times.",
+      "files": [
+        {
+          "path": "registry/dgit/ui/page.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "type": "registry:ui",
+      "title": "Copy",
+      "description": "CopyButton and CopyField (a monospace value with a copy button).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@dgit/button"
+      ],
+      "files": [
+        {
+          "path": "registry/dgit/ui/copy.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "segmented",
+      "type": "registry:ui",
+      "title": "Segmented",
+      "description": "Two or three choices in one small pill.",
+      "files": [
+        {
+          "path": "registry/dgit/ui/segmented.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "app-header",
+      "type": "registry:block",
+      "title": "App header",
+      "description": "Dashboard top bar: brand, pill navigation, and a slot for the account menu.",
+      "files": [
+        {
+          "path": "registry/dgit/blocks/app-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-layout",
+      "type": "registry:block",
+      "title": "Sidebar layout",
+      "description": "Dashboard with a sidebar: drill-in groups and route layers that slide in with a back row, a top bar with a scope switcher and breadcrumbs, a drawer on phones.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@dgit/menu"
+      ],
+      "files": [
+        {
+          "path": "registry/dgit/blocks/sidebar-layout.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "auth-page",
+      "type": "registry:block",
+      "title": "Sign-in page",
+      "description": "Centered 384px column, 30px title, stacked 40px pill choices, code field, 'Signing in to <app>'.",
+      "files": [
+        {
+          "path": "registry/dgit/blocks/auth-page.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
