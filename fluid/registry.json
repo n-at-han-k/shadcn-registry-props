@@ -82,7 +82,7 @@
       "name": "tokens",
       "type": "registry:theme",
       "title": "Interaction Tokens",
-      "description": "Shared interaction-state tokens: surface-relative hover/active overlays (bg-hover, bg-active), the selected fill, the destructive-light ground, the --overlay RGB triplet, the --focus-ring color, and the base-layer :focus-visible fallback ring.",
+      "description": "Shared interaction-state tokens: surface-relative hover/active overlays (bg-hover, bg-active), the selected fill, the see-through secondary-button tint (--tint, --tint-hover), the destructive-light ground, the --overlay RGB triplet, the --focus-ring color, and the base-layer :focus-visible fallback ring.",
       "cssVars": {
         "theme": {
           "color-hover": "var(--hover)",
@@ -96,14 +96,18 @@
           "selected": "#D4D4D4",
           "destructive-light": "#FEF2F2",
           "overlay": "0 0 0",
-          "focus-ring": "#6B97FF"
+          "focus-ring": "#6B97FF",
+          "tint": "rgb(0 0 0 / 0.08)",
+          "tint-hover": "rgb(0 0 0 / 0.065)"
         },
         "dark": {
           "hover": "rgb(255 255 255 / 0.06)",
           "active": "rgb(255 255 255 / 0.1)",
           "selected": "#525252",
           "destructive-light": "#450A0A",
-          "overlay": "255 255 255"
+          "overlay": "255 255 255",
+          "tint": "rgb(255 255 255 / 0.25)",
+          "tint-hover": "rgb(255 255 255 / 0.2)"
         }
       },
       "css": {
@@ -504,6 +508,47 @@
         }
       ],
       "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/badge.",
+      "categories": [
+        "components"
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Status message built from parts (Banner, BannerTitle, BannerDescription, BannerActions, BannerAction): 5 statuses (filled glyphs for info, success, warning and error; the icon set's outline info icon for default), low or high contrast, primary, secondary and ghost actions (the library Button) that trail a one-line banner (primary at the edge) and drop under a description (primary first), a dismiss that collapses its height, and a fixed variant that sticks full-bleed to the top of the page.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://www.fluidfunctionalism.com/r/springs.json",
+        "https://www.fluidfunctionalism.com/r/font-weight.json",
+        "https://www.fluidfunctionalism.com/r/shape-context.json",
+        "https://www.fluidfunctionalism.com/r/size-context.json",
+        "https://www.fluidfunctionalism.com/r/icon-context.json",
+        "https://www.fluidfunctionalism.com/r/button.json",
+        "https://www.fluidfunctionalism.com/r/tokens.json"
+      ],
+      "cssVars": {
+        "light": {
+          "info": "#3B82F6",
+          "success": "#22C55E",
+          "warning": "#F59E0B"
+        },
+        "dark": {
+          "info": "#93C5FD",
+          "success": "#86EFAC",
+          "warning": "#FCD34D"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/default/banner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Docs & live playground: https://www.fluidfunctionalism.com/docs/banner.",
       "categories": [
         "components"
       ]

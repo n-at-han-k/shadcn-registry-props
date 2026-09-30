@@ -1,0 +1,1295 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "balick",
+  "homepage": "https://ui.balick.me",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Balick Theme",
+      "description": "The monochrome colour palette, radius and dark mode used by every Balick UI component and block.",
+      "files": [],
+      "cssVars": {
+        "light": {
+          "radius": "0.5rem",
+          "background": "oklch(0.9543 0.0067 295.4)",
+          "foreground": "oklch(0.1094 0.0374 256.1)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.1094 0.0374 256.1)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.1094 0.0374 256.1)",
+          "primary": "oklch(0.1094 0.0374 256.1)",
+          "primary-foreground": "oklch(0.9543 0.0067 295.4)",
+          "secondary": "oklch(0.925 0.01 290)",
+          "secondary-foreground": "oklch(0.1094 0.0374 256.1)",
+          "muted": "oklch(0.925 0.01 290)",
+          "muted-foreground": "oklch(0.5 0.022 275)",
+          "accent": "oklch(0.93 0.01 290)",
+          "accent-foreground": "oklch(0.1094 0.0374 256.1)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.1094 0.0374 256.1 / 12%)",
+          "input": "oklch(0.1094 0.0374 256.1 / 18%)",
+          "ring": "oklch(0.62 0.02 275)"
+        },
+        "dark": {
+          "background": "oklch(0.1094 0.0374 256.1)",
+          "foreground": "oklch(0.9543 0.0067 295.4)",
+          "card": "oklch(0.175 0.03 264)",
+          "card-foreground": "oklch(0.9543 0.0067 295.4)",
+          "popover": "oklch(0.19 0.03 265)",
+          "popover-foreground": "oklch(0.9543 0.0067 295.4)",
+          "primary": "oklch(0.9543 0.0067 295.4)",
+          "primary-foreground": "oklch(0.1094 0.0374 256.1)",
+          "secondary": "oklch(0.215 0.026 268)",
+          "secondary-foreground": "oklch(0.9543 0.0067 295.4)",
+          "muted": "oklch(0.215 0.026 268)",
+          "muted-foreground": "oklch(0.72 0.018 285)",
+          "accent": "oklch(0.235 0.025 270)",
+          "accent-foreground": "oklch(0.9543 0.0067 295.4)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(0.9543 0.0067 295.4 / 12%)",
+          "input": "oklch(0.9543 0.0067 295.4 / 16%)",
+          "ring": "oklch(0.5 0.03 275)"
+        }
+      }
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "An infinite scrolling track for logos, testimonials or anything else.",
+      "cssVars": {
+        "theme": {
+          "animate-marquee": "marquee var(--duration) linear infinite",
+          "animate-marquee-vertical": "marquee-vertical var(--duration) linear infinite"
+        }
+      },
+      "css": {
+        "@keyframes marquee": {
+          "from": {
+            "transform": "translateX(0)"
+          },
+          "to": {
+            "transform": "translateX(calc(-100% - var(--gap)))"
+          }
+        },
+        "@keyframes marquee-vertical": {
+          "from": {
+            "transform": "translateY(0)"
+          },
+          "to": {
+            "transform": "translateY(calc(-100% - var(--gap)))"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/balick/ui/marquee.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "blur-fade",
+      "type": "registry:ui",
+      "title": "Blur Fade",
+      "description": "Reveal content with a soft blur and fade, on mount or when scrolled into view.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/blur-fade.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shimmer-button",
+      "type": "registry:ui",
+      "title": "Shimmer Button",
+      "description": "A button with a beam of light travelling around its border.",
+      "cssVars": {
+        "theme": {
+          "animate-shimmer-spin": "shimmer-spin var(--shimmer-duration) linear infinite"
+        }
+      },
+      "css": {
+        "@keyframes shimmer-spin": {
+          "to": {
+            "rotate": "360deg"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/balick/ui/shimmer-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "grid-pattern",
+      "type": "registry:ui",
+      "title": "Grid Pattern",
+      "description": "A lightweight SVG grid background with optional highlighted cells.",
+      "files": [
+        {
+          "path": "registry/balick/ui/grid-pattern.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "section",
+      "type": "registry:ui",
+      "title": "Section",
+      "description": "Layout primitives shared by every block: Section, Container and SectionHeader.",
+      "files": [
+        {
+          "path": "registry/balick/ui/section.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "social-icons",
+      "type": "registry:ui",
+      "title": "Social icons",
+      "description": "Brand icons for social links (GitHub, LinkedIn, X, YouTube), which lucide-react no longer ships.",
+      "files": [
+        {
+          "path": "registry/balick/ui/social-icons.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-dot",
+      "type": "registry:ui",
+      "title": "Status Dot",
+      "description": "A small live indicator with a pulsing halo, in four tones.",
+      "files": [
+        {
+          "path": "registry/balick/ui/status-dot.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "Segmented Control",
+      "description": "A single choice between a few options, with a pill that slides to the selected one.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/segmented-control.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "animated-number",
+      "type": "registry:ui",
+      "title": "Animated Number",
+      "description": "A number that rolls up or down to its new value when it changes.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/animated-number.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-ticker",
+      "type": "registry:ui",
+      "title": "Number Ticker",
+      "description": "Counts up to a number once, when it scrolls into view.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/number-ticker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "arrow-button",
+      "type": "registry:ui",
+      "title": "Arrow Button",
+      "description": "A button or link whose arrow nudges forward on hover and focus.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/arrow-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Copies a text to the clipboard; the icon turns into a check mark.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-button",
+      "type": "registry:ui",
+      "title": "Status Button",
+      "description": "A button that shows the progress of its action: idle, loading, success or error.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/status-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hold-button",
+      "type": "registry:ui",
+      "title": "Hold Button",
+      "description": "Hold to confirm, for actions that are hard to undo.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/hold-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "text-roll-button",
+      "type": "registry:ui",
+      "title": "Text Roll Button",
+      "description": "On hover, the label rolls up and an identical copy takes its place.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/text-roll-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-button",
+      "type": "registry:ui",
+      "title": "Magnetic Button",
+      "description": "A button that leans a few pixels towards the pointer.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/magnetic-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "ripple-button",
+      "type": "registry:ui",
+      "title": "Ripple Button",
+      "description": "A button that sends a soft ripple out from where it is pressed.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/ripple-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-button",
+      "type": "registry:ui",
+      "title": "Spotlight Button",
+      "description": "A soft light follows the pointer inside the button.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/spotlight-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "expand-button",
+      "type": "registry:ui",
+      "title": "Expand Button",
+      "description": "An icon button whose label slides out on hover and focus.",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/expand-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggle-button",
+      "type": "registry:ui",
+      "title": "Theme Toggle Button",
+      "description": "Switches between light and dark; the sun grows into a moon.",
+      "dependencies": [
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/ui/theme-toggle-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marquee-demo",
+      "type": "registry:example",
+      "title": "Marquee Demo",
+      "description": "Example usage of Marquee.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/marquee.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/marquee-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "blur-fade-demo",
+      "type": "registry:example",
+      "title": "Blur Fade Demo",
+      "description": "Example usage of Blur Fade.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/blur-fade.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/blur-fade-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "shimmer-button-demo",
+      "type": "registry:example",
+      "title": "Shimmer Button Demo",
+      "description": "Example usage of Shimmer Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/shimmer-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/shimmer-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "status-dot-demo",
+      "type": "registry:example",
+      "title": "Status Dot Demo",
+      "description": "Example usage of Status Dot.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/status-dot.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/status-dot-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control-demo",
+      "type": "registry:example",
+      "title": "Segmented Control Demo",
+      "description": "Example usage of Segmented Control.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/segmented-control-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "animated-number-demo",
+      "type": "registry:example",
+      "title": "Animated Number Demo",
+      "description": "Example usage of Animated Number.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/animated-number.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/animated-number-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "number-ticker-demo",
+      "type": "registry:example",
+      "title": "Number Ticker Demo",
+      "description": "Example usage of Number Ticker.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/number-ticker.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/number-ticker-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "social-icons-demo",
+      "type": "registry:example",
+      "title": "Social Icons Demo",
+      "description": "Example usage of Social Icons.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/social-icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/social-icons-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "grid-pattern-demo",
+      "type": "registry:example",
+      "title": "Grid Pattern Demo",
+      "description": "Example usage of Grid Pattern.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/grid-pattern.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/grid-pattern-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "section-demo",
+      "type": "registry:example",
+      "title": "Section Demo",
+      "description": "Example usage of Section.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/section-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "arrow-button-demo",
+      "type": "registry:example",
+      "title": "Arrow Button Demo",
+      "description": "Example usage of Arrow Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/arrow-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/arrow-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "copy-button-demo",
+      "type": "registry:example",
+      "title": "Copy Button Demo",
+      "description": "Example usage of Copy Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/copy-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/copy-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "status-button-demo",
+      "type": "registry:example",
+      "title": "Status Button Demo",
+      "description": "Example usage of Status Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/status-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/status-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "hold-button-demo",
+      "type": "registry:example",
+      "title": "Hold Button Demo",
+      "description": "Example usage of Hold Button.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/hold-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/hold-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "text-roll-button-demo",
+      "type": "registry:example",
+      "title": "Text Roll Button Demo",
+      "description": "Example usage of Text Roll Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/text-roll-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/text-roll-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-button-demo",
+      "type": "registry:example",
+      "title": "Magnetic Button Demo",
+      "description": "Example usage of Magnetic Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/magnetic-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/magnetic-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "ripple-button-demo",
+      "type": "registry:example",
+      "title": "Ripple Button Demo",
+      "description": "Example usage of Ripple Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/ripple-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/ripple-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-button-demo",
+      "type": "registry:example",
+      "title": "Spotlight Button Demo",
+      "description": "Example usage of Spotlight Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/spotlight-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/spotlight-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "expand-button-demo",
+      "type": "registry:example",
+      "title": "Expand Button Demo",
+      "description": "Example usage of Expand Button.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/expand-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/expand-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggle-button-demo",
+      "type": "registry:example",
+      "title": "Theme Toggle Button Demo",
+      "description": "Example usage of Theme Toggle Button.",
+      "registryDependencies": [
+        "https://ui.balick.me/r/theme-toggle-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/examples/theme-toggle-button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "navbar-01",
+      "type": "registry:block",
+      "title": "Navbar with mobile menu",
+      "description": "Sticky navigation bar that turns translucent on scroll, with an accessible mobile menu.",
+      "categories": [
+        "navbar"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/navbar-01/navbar-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-01",
+      "type": "registry:block",
+      "title": "Hero with product preview",
+      "description": "Centred hero with announcement pill, animated headline, product preview and a scrolling logo cloud.",
+      "categories": [
+        "hero"
+      ],
+      "meta": {
+        "includes": [
+          "logos"
+        ]
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/blur-fade.json",
+        "https://ui.balick.me/r/grid-pattern.json",
+        "https://ui.balick.me/r/marquee.json",
+        "https://ui.balick.me/r/shimmer-button.json",
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/hero-01/hero-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-02",
+      "type": "registry:block",
+      "title": "Split hero with deploy terminal",
+      "description": "Left-aligned hero with key figures and an animated deploy terminal. No logo strip, so it pairs with logos-01.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/blur-fade.json",
+        "https://ui.balick.me/r/section.json",
+        "https://ui.balick.me/r/status-dot.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/hero-02/hero-02.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-03",
+      "type": "registry:block",
+      "title": "Personal hero",
+      "description": "Personal introduction with availability status, social links and a scrolling list of tools. Made for portfolios.",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/blur-fade.json",
+        "https://ui.balick.me/r/marquee.json",
+        "https://ui.balick.me/r/section.json",
+        "https://ui.balick.me/r/social-icons.json",
+        "https://ui.balick.me/r/status-dot.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/hero-03/hero-03.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "logos-01",
+      "type": "registry:block",
+      "title": "Logo grid",
+      "description": "Hairline grid of customer logos with a short introduction.",
+      "categories": [
+        "logos"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/logos-01/logos-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-01",
+      "type": "registry:block",
+      "title": "About with key figures",
+      "description": "Two-column introduction with paragraphs, key figures and skills.",
+      "categories": [
+        "about"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/about-01/about-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "features-01",
+      "type": "registry:block",
+      "title": "Bento features",
+      "description": "Bento grid of four illustrated features, followed by a row of secondary features.",
+      "categories": [
+        "features"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/marquee.json",
+        "https://ui.balick.me/r/section.json",
+        "https://ui.balick.me/r/status-dot.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/features-01/features-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "features-02",
+      "type": "registry:block",
+      "title": "Feature grid",
+      "description": "Six features in a hairline grid, with a left-aligned header.",
+      "categories": [
+        "features"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/features-02/features-02.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "integrations-01",
+      "type": "registry:block",
+      "title": "Integrations grid",
+      "description": "Twelve integrations in a hairline grid, next to a sticky header and a link to the full list.",
+      "categories": [
+        "integrations"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/integrations-01/integrations-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "projects-01",
+      "type": "registry:block",
+      "title": "Project grid",
+      "description": "Grid of projects with screenshots, summary, year and stack. Draws a placeholder when a project has no image.",
+      "categories": [
+        "projects"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/projects-01/projects-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-01",
+      "type": "registry:block",
+      "title": "Testimonial wall",
+      "description": "Masonry wall of customer quotes with names, roles and initials avatars.",
+      "categories": [
+        "testimonials"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/testimonials-01/testimonials-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pricing-01",
+      "type": "registry:block",
+      "title": "Pricing with billing toggle",
+      "description": "Three-tier pricing with an animated monthly / yearly toggle and a highlighted plan.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/animated-number.json",
+        "https://ui.balick.me/r/section.json",
+        "https://ui.balick.me/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/pricing-01/pricing-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pricing-02",
+      "type": "registry:block",
+      "title": "Single plan",
+      "description": "One all-inclusive plan: what's included on one side, price and call to action on the other.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/pricing-02/pricing-02.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pricing-03",
+      "type": "registry:block",
+      "title": "Plan comparison table",
+      "description": "Accessible feature comparison across three plans, grouped by category, with the featured plan highlighted.",
+      "categories": [
+        "pricing"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/pricing-03/pricing-03.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-01",
+      "type": "registry:block",
+      "title": "FAQ with accordion",
+      "description": "Two-column FAQ: sticky header with a contact link, and an accessible accordion built on native disclosure elements.",
+      "categories": [
+        "faq"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/faq-01/faq-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "blog-01",
+      "type": "registry:block",
+      "title": "Latest posts",
+      "description": "Three recent articles with a cover, category, date, author and reading time.",
+      "categories": [
+        "blog"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/blog-01/blog-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "newsletter-01",
+      "type": "registry:block",
+      "title": "Newsletter signup",
+      "description": "Email signup card with a confirmation state; posts to a configurable endpoint.",
+      "categories": [
+        "newsletter"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/newsletter-01/newsletter-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "cta-01",
+      "type": "registry:block",
+      "title": "Inverted call to action",
+      "description": "High-contrast call to action panel with a subtle grid and two actions.",
+      "categories": [
+        "cta"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://ui.balick.me/r/grid-pattern.json",
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/cta-01/cta-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "contact-01",
+      "type": "registry:block",
+      "title": "Contact with channels",
+      "description": "Contact panel with a copyable email address and a list of channels.",
+      "categories": [
+        "contact"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json",
+        "https://ui.balick.me/r/social-icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/contact-01/contact-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "contact-02",
+      "type": "registry:block",
+      "title": "Contact form with details",
+      "description": "Contact form with a confirmation state, next to email, phone, address and opening hours.",
+      "categories": [
+        "contact"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "textarea",
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/contact-02/contact-02.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stats-01",
+      "type": "registry:block",
+      "title": "Stats grid",
+      "description": "Four key figures with short descriptions, in a hairline grid.",
+      "categories": [
+        "stats"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/number-ticker.json",
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/stats-01/stats-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "timeline-01",
+      "type": "registry:block",
+      "title": "Timeline",
+      "description": "Company story as a vertical timeline, with a sticky header.",
+      "categories": [
+        "timeline"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/timeline-01/timeline-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "services-01",
+      "type": "registry:block",
+      "title": "Services list",
+      "description": "Numbered list of services with a starting price, deliverables and a link.",
+      "categories": [
+        "services"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/services-01/services-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "steps-01",
+      "type": "registry:block",
+      "title": "How it works steps",
+      "description": "Four numbered steps joined by a connector, horizontal on desktop and vertical on mobile.",
+      "categories": [
+        "steps"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/steps-01/steps-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-01",
+      "type": "registry:block",
+      "title": "Team grid",
+      "description": "Team members with an avatar, role, short bio and social links.",
+      "categories": [
+        "team"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json",
+        "https://ui.balick.me/r/social-icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/team-01/team-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-01",
+      "type": "registry:block",
+      "title": "Footer with newsletter",
+      "description": "Multi-column footer with newsletter form, status indicator, social links and an oversized wordmark.",
+      "categories": [
+        "footer"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "https://ui.balick.me/r/section.json",
+        "https://ui.balick.me/r/social-icons.json",
+        "https://ui.balick.me/r/status-dot.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/footer-01/footer-01.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-02",
+      "type": "registry:block",
+      "title": "Compact footer",
+      "description": "Single-row footer with links and socials, and a legal line.",
+      "categories": [
+        "footer"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.balick.me/r/section.json",
+        "https://ui.balick.me/r/social-icons.json"
+      ],
+      "files": [
+        {
+          "path": "registry/balick/blocks/footer-02/footer-02.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "videocn",
+  "homepage": "https://videocn.dev",
+  "items": [
+    {
+      "name": "player",
+      "type": "registry:ui",
+      "title": "Video Player",
+      "description": "Le lecteur vidéo complet : socle, contrôles, chapitres et sous-titres.",
+      "docs": "Drop it in and it works:\n\n  import { VideoCn } from \"@/components/ui/video-player/video-cn\"\n\n  <VideoCn src=\"/clip.mp4\" />\n\nEverything is tuned through props — never by editing the code you just received:\n\n  <VideoCn\n    src=\"https://example.com/stream.m3u8\"\n    poster=\"/poster.jpg\"\n    defaultVolume={0.5}\n    controls={{\n      pictureInPicture: false,\n      playbackRate: { rates: [1, 1.5, 2] },\n      autoHideDelay: 2000,\n    }}\n  />\n\nChapters are a prop as well — a start time and a title, in any order:\n\n  <VideoCn\n    src=\"/talk.mp4\"\n    chapters={[\n      { time: 0, label: \"Introduction\" },\n      { time: 135, label: \"Setting things up\" },\n      { time: 450, label: \"Questions\" },\n    ]}\n  />\n\nThey segment the progress bar and fill a menu. Live streams ignore them.\n\nThe source type is detected from the URL. Pass type=\"hls\" | \"dash\" | \"native\" when\nthe URL is signed or has no extension. Adjust the import path to match your aliases.",
+      "registryDependencies": [
+        "@shadcn/button"
+      ],
+      "dependencies": [
+        "cn",
+        "shaka-player",
+        "lucide-react"
+      ],
+      "cssVars": {
+        "light": {
+          "player-scrim": "oklch(0 0 0 / 60%)",
+          "player-backdrop": "oklch(0 0 0)"
+        },
+        "dark": {
+          "player-scrim": "oklch(0 0 0 / 70%)",
+          "player-backdrop": "oklch(0 0 0)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/videocn/player-engine.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/player-engine.ts"
+        },
+        {
+          "path": "registry/videocn/native-engine.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/native-engine.ts"
+        },
+        {
+          "path": "registry/videocn/shaka-engine.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/shaka-engine.ts"
+        },
+        {
+          "path": "registry/videocn/resolve-engine.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/resolve-engine.ts"
+        },
+        {
+          "path": "registry/videocn/playhead-store.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/playhead-store.ts"
+        },
+        {
+          "path": "registry/videocn/player-state-store.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/player-state-store.ts"
+        },
+        {
+          "path": "registry/videocn/use-player.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/use-player.ts"
+        },
+        {
+          "path": "registry/videocn/player-context.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/player-context.tsx"
+        },
+        {
+          "path": "registry/videocn/format-time.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/format-time.ts"
+        },
+        {
+          "path": "registry/videocn/chapters.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/chapters.ts"
+        },
+        {
+          "path": "registry/videocn/controls-options.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/controls-options.ts"
+        },
+        {
+          "path": "registry/videocn/controls-context.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/controls-context.tsx"
+        },
+        {
+          "path": "registry/videocn/chapters-context.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/chapters-context.tsx"
+        },
+        {
+          "path": "registry/videocn/use-controls-visibility.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/use-controls-visibility.ts"
+        },
+        {
+          "path": "registry/videocn/use-keyboard-shortcuts.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/use-keyboard-shortcuts.ts"
+        },
+        {
+          "path": "registry/videocn/video-cn.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/video-cn.tsx"
+        },
+        {
+          "path": "registry/videocn/player-controls.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/player-controls.tsx"
+        },
+        {
+          "path": "registry/videocn/player-menu.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/player-menu.tsx"
+        },
+        {
+          "path": "registry/videocn/player-slider.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/player-slider.tsx"
+        },
+        {
+          "path": "registry/videocn/use-scrub.ts",
+          "type": "registry:ui",
+          "target": "@ui/video-player/use-scrub.ts"
+        },
+        {
+          "path": "registry/videocn/player-scrubber.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/player-scrubber.tsx"
+        },
+        {
+          "path": "registry/videocn/chapter-segments.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/chapter-segments.tsx"
+        },
+        {
+          "path": "registry/videocn/play-toggle.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/play-toggle.tsx"
+        },
+        {
+          "path": "registry/videocn/volume-control.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/volume-control.tsx"
+        },
+        {
+          "path": "registry/videocn/time-display.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/time-display.tsx"
+        },
+        {
+          "path": "registry/videocn/live-badge.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/live-badge.tsx"
+        },
+        {
+          "path": "registry/videocn/chapter-menu.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/chapter-menu.tsx"
+        },
+        {
+          "path": "registry/videocn/quality-menu.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/quality-menu.tsx"
+        },
+        {
+          "path": "registry/videocn/playback-rate-menu.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/playback-rate-menu.tsx"
+        },
+        {
+          "path": "registry/videocn/picture-in-picture-toggle.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/picture-in-picture-toggle.tsx"
+        },
+        {
+          "path": "registry/videocn/fullscreen-toggle.tsx",
+          "type": "registry:ui",
+          "target": "@ui/video-player/fullscreen-toggle.tsx"
+        }
+      ]
+    }
+  ]
+}
