@@ -1402,6 +1402,36 @@
         "group": "Overlays",
         "iframeHeight": "420px"
       }
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Lista con buscador y teclado sobre Base UI Autocomplete. Misma API que el command de shadcn, sin cmdk (que trae Radix).",
+      "registryDependencies": [
+        "@saastro/dialog"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/command.tsx",
+          "type": "registry:ui",
+          "target": "@ui/command.tsx"
+        }
+      ],
+      "categories": [
+        "ui",
+        "forms"
+      ],
+      "author": "SAASTRO <https://saastro.io>",
+      "docs": "Primitivo sobre Base UI Autocomplete (inline). Sustituye al command de shadcn sin cmdk: `Command shouldFilter`, `CommandInput onValueChange`, `CommandItem value onSelect(value)`. El filtro por defecto es subcadena sobre `value` y `keywords`, no el fuzzy de cmdk. El resaltado es `data-highlighted`, no `data-selected=true`. Compuesto: va en isla `.tsx`, nunca en .astro.",
+      "meta": {
+        "group": "Forms",
+        "iframeHeight": "420px"
+      }
     }
   ],
   "description": "Landing page blocks for Astro sites, installable with the shadcn CLI."

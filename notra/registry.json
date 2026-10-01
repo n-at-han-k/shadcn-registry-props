@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "notra",
-  "homepage": "https://ui.usenotra.com",
+  "homepage": "https://github.com/usenotra/notra/tree/main/apps/ui",
   "items": [
     {
       "name": "ai-overview",
@@ -931,6 +931,75 @@
           "path": "registry/notra/shimmer/types/shimmer.ts",
           "type": "registry:lib",
           "target": "components/shimmer/types/shimmer.ts"
+        }
+      ]
+    },
+    {
+      "name": "step-slider",
+      "type": "registry:component",
+      "title": "Step Slider",
+      "description": "A slider that snaps to a fixed set of values, with a dotted fill that sweeps on every step. Built on the Base UI Slider.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "cssVars": {
+        "theme": {
+          "animate-step-slider-sweep": "step-slider-sweep 900ms ease-out forwards"
+        }
+      },
+      "css": {
+        "@keyframes step-slider-sweep": {
+          "from": {
+            "mask-position": "-60% 0"
+          },
+          "to": {
+            "mask-position": "160% 0"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/step-slider/components/step-slider.tsx",
+          "type": "registry:component",
+          "target": "components/step-slider/components/step-slider.tsx"
+        },
+        {
+          "path": "registry/notra/step-slider/types/step-slider.ts",
+          "type": "registry:lib",
+          "target": "components/step-slider/types/step-slider.ts"
+        },
+        {
+          "path": "registry/notra/step-slider/lib/step-slider.ts",
+          "type": "registry:lib",
+          "target": "components/step-slider/lib/step-slider.ts"
+        }
+      ]
+    },
+    {
+      "name": "chat-minimap",
+      "type": "registry:component",
+      "title": "Chat Minimap",
+      "description": "A rail of lines that maps a conversation, built on shadcn Button, Card, HoverCard and Tooltip.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["button", "card", "hover-card", "tooltip"],
+      "files": [
+        {
+          "path": "registry/notra/chat-minimap/components/chat-minimap.tsx",
+          "type": "registry:component",
+          "target": "components/chat-minimap/components/chat-minimap.tsx"
+        },
+        {
+          "path": "registry/notra/chat-minimap/types/chat-minimap.ts",
+          "type": "registry:lib",
+          "target": "components/chat-minimap/types/chat-minimap.ts"
+        },
+        {
+          "path": "registry/notra/chat-minimap/lib/chat-minimap.ts",
+          "type": "registry:lib",
+          "target": "components/chat-minimap/lib/chat-minimap.ts"
+        },
+        {
+          "path": "registry/notra/chat-minimap/hooks/use-chat-minimap-scroll-spy.ts",
+          "type": "registry:hook",
+          "target": "components/chat-minimap/hooks/use-chat-minimap-scroll-spy.ts"
         }
       ]
     },
@@ -7253,20 +7322,2180 @@
       }
     },
     {
+      "name": "claude-code-terminal",
+      "type": "registry:component",
+      "title": "Claude Code Terminal",
+      "description": "The terminal window with traffic lights and a title bar for Claude Code sessions.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible", "scroll-area"],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-terminal.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-terminal.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "claude-code-header",
+      "type": "registry:component",
+      "title": "Claude Code Header",
+      "description": "Claude Code's compact header: the pixel mascot next to version, model and working directory, with notices below.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-header.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-header.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-logo.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-logo.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/constants/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/constants/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/lib/claude-code-inline.tsx",
+          "type": "registry:lib",
+          "target": "components/claude-code/lib/claude-code-inline.tsx"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "claude-code-message",
+      "type": "registry:component",
+      "title": "Claude Code Message",
+      "description": "User turns on a full-width bar and assistant turns behind a white bullet, with inline code and bold.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-message.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-message.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/lib/claude-code-inline.tsx",
+          "type": "registry:lib",
+          "target": "components/claude-code/lib/claude-code-inline.tsx"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "claude-code-todo-list",
+      "type": "registry:component",
+      "title": "Claude Code Todo List",
+      "description": "The Update Todos tool call with done, active and pending items.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-todo-list.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-todo-list.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/constants/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/constants/claude-code.ts"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "claude-code-thinking",
+      "type": "registry:component",
+      "title": "Claude Code Thinking",
+      "description": "The dim \"∴ Thinking…\" line that expands to the thoughts.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["button", "card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-thinking.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-thinking.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "claude-code-tool-call",
+      "type": "registry:component",
+      "title": "Claude Code Tool Call",
+      "description": "Tool calls with a status bullet and a ⎿ result line, plus the collapsed \"Ran 3 shell commands\" summary.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["button", "card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-tool-call.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-tool-call.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/constants/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/constants/claude-code.ts"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "claude-code-status",
+      "type": "registry:component",
+      "title": "Claude Code Status",
+      "description": "The orange spinner line while Claude works and the dim \"✻ Worked for 19s\" summary after a turn.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-status.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-status.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/constants/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/constants/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/lib/claude-code-inline.tsx",
+          "type": "registry:lib",
+          "target": "components/claude-code/lib/claude-code-inline.tsx"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "claude-code-prompt",
+      "type": "registry:component",
+      "title": "Claude Code Prompt",
+      "description": "The input between two rules with the permission mode, PR link and effort below.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible", "input-group", "kbd"],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-prompt.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-prompt.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/constants/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/constants/claude-code.ts"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "claude-code",
+      "type": "registry:block",
+      "title": "Claude Code",
+      "description": "A Claude Code terminal session with the compact header, tool calls, a running turn and the prompt, built from the Claude Code components on shadcn Base UI.",
+      "dependencies": ["cn"],
+      "registryDependencies": [
+        "button",
+        "card",
+        "collapsible",
+        "input-group",
+        "kbd",
+        "scroll-area"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-claude-code-bg": "var(--claude-code-bg)",
+          "color-claude-code-chrome": "var(--claude-code-chrome)",
+          "color-claude-code-traffic": "var(--claude-code-traffic)",
+          "color-claude-code-title": "var(--claude-code-title)",
+          "color-claude-code-shadow": "var(--claude-code-shadow)",
+          "color-claude-code-ring": "var(--claude-code-ring)",
+          "color-claude-code-fg": "var(--claude-code-fg)",
+          "color-claude-code-strong": "var(--claude-code-strong)",
+          "color-claude-code-accent": "var(--claude-code-accent)",
+          "color-claude-code-muted": "var(--claude-code-muted)",
+          "color-claude-code-rule": "var(--claude-code-rule)",
+          "color-claude-code-link": "var(--claude-code-link)",
+          "color-claude-code-pr": "var(--claude-code-pr)",
+          "color-claude-code-user-bg": "var(--claude-code-user-bg)",
+          "color-claude-code-user-prompt": "var(--claude-code-user-prompt)",
+          "color-claude-code-success": "var(--claude-code-success)",
+          "color-claude-code-error": "var(--claude-code-error)",
+          "color-claude-code-mode-auto": "var(--claude-code-mode-auto)",
+          "color-claude-code-mode-accept-edits": "var(--claude-code-mode-accept-edits)",
+          "color-claude-code-mode-plan": "var(--claude-code-mode-plan)",
+          "color-claude-code-mode-bypass": "var(--claude-code-mode-bypass)",
+          "font-claude-code": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "claude-code-bg": "#ffffff",
+          "claude-code-chrome": "#ececec",
+          "claude-code-traffic": "#d4d4d4",
+          "claude-code-title": "#00000073",
+          "claude-code-shadow": "#00000026",
+          "claude-code-ring": "#0000001a",
+          "claude-code-fg": "#1f1f1f",
+          "claude-code-strong": "#000000",
+          "claude-code-accent": "#d77757",
+          "claude-code-muted": "#666666",
+          "claude-code-rule": "#999999",
+          "claude-code-link": "#5769f7",
+          "claude-code-pr": "#966c1e",
+          "claude-code-user-bg": "#f0f0f0",
+          "claude-code-user-prompt": "#999999",
+          "claude-code-success": "#2c7a39",
+          "claude-code-error": "#ab2b3f",
+          "claude-code-mode-auto": "#966c1e",
+          "claude-code-mode-accept-edits": "#8700ff",
+          "claude-code-mode-plan": "#006666",
+          "claude-code-mode-bypass": "#d1245a"
+        },
+        "dark": {
+          "claude-code-bg": "#0f0f0f",
+          "claude-code-chrome": "#1c1c1c",
+          "claude-code-traffic": "#3a3a3a",
+          "claude-code-title": "#ffffff66",
+          "claude-code-shadow": "#0000004d",
+          "claude-code-ring": "#ffffff1a",
+          "claude-code-fg": "#f7f7f7",
+          "claude-code-strong": "#ffffff",
+          "claude-code-accent": "#e06443",
+          "claude-code-muted": "#8c8c8c",
+          "claude-code-rule": "#7b7b7b",
+          "claude-code-link": "#a4b0fc",
+          "claude-code-pr": "#d9b559",
+          "claude-code-user-bg": "#2e2e2e",
+          "claude-code-user-prompt": "#5c5c5c",
+          "claude-code-success": "#4eba65",
+          "claude-code-error": "#ff6b80",
+          "claude-code-mode-auto": "#e5c07b",
+          "claude-code-mode-accept-edits": "#af87ff",
+          "claude-code-mode-plan": "#48968c",
+          "claude-code-mode-bypass": "#fd526f"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/claude-code/components/claude-code-terminal.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-terminal.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-header.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-header.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-logo.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-logo.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-message.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-message.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-thinking.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-thinking.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-todo-list.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-todo-list.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-tool-call.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-tool-call.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-status.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-status.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/components/claude-code-prompt.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/components/claude-code-prompt.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/types/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/types/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/constants/claude-code.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/constants/claude-code.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/constants/claude-code-session.ts",
+          "type": "registry:lib",
+          "target": "components/claude-code/constants/claude-code-session.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/lib/claude-code-inline.tsx",
+          "type": "registry:lib",
+          "target": "components/claude-code/lib/claude-code-inline.tsx"
+        },
+        {
+          "path": "registry/notra/claude-code/hooks/use-claude-code-chat.ts",
+          "type": "registry:hook",
+          "target": "components/claude-code/hooks/use-claude-code-chat.ts"
+        },
+        {
+          "path": "registry/notra/claude-code/examples/claude-code-demo.tsx",
+          "type": "registry:component",
+          "target": "components/claude-code/examples/claude-code-demo.tsx"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "codex-terminal",
+      "type": "registry:component",
+      "title": "Codex Terminal",
+      "description": "The Codex window: a title bar, a scrolling transcript and a pinned footer for the prompt.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible", "scroll-area"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-terminal.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-terminal.tsx"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "codex-header",
+      "type": "registry:component",
+      "title": "Codex Header",
+      "description": "The OpenAI Codex banner with version, working directory and greeting.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-header.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-header.tsx"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ]
+    },
+    {
+      "name": "codex-message",
+      "type": "registry:component",
+      "title": "Codex Message",
+      "description": "User turns on a full-width band and assistant turns behind a dim bullet.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-message.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-message.tsx"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ]
+    },
+    {
+      "name": "codex-reasoning",
+      "type": "registry:component",
+      "title": "Codex Reasoning",
+      "description": "The dim italic summary Codex shows while it reasons.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-reasoning.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-reasoning.tsx"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ]
+    },
+    {
+      "name": "codex-exec",
+      "type": "registry:component",
+      "title": "Codex Exec",
+      "description": "A Ran cell with shell syntax colors and output folded behind + N lines.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["button", "card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-exec.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-exec.tsx"
+        },
+        {
+          "path": "registry/notra/codex/lib/codex-shell.ts",
+          "type": "registry:lib",
+          "target": "components/codex/lib/codex-shell.ts"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "codex-explored",
+      "type": "registry:component",
+      "title": "Codex Explored",
+      "description": "Grouped Read, Search and List calls with a + Show details fold.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["button", "card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-explored.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-explored.tsx"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "name": "codex-working",
+      "type": "registry:component",
+      "title": "Codex Working",
+      "description": "The shimmering Working (13s • esc to interrupt) status line.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-working.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-working.tsx"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ]
+    },
+    {
+      "name": "codex-markdown",
+      "type": "registry:component",
+      "title": "Codex Markdown",
+      "description": "Bullet lists, tables with yellow headers and green inline code, styled like Codex answers.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible", "table"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-markdown.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-markdown.tsx"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ]
+    },
+    {
+      "name": "codex-composer",
+      "type": "registry:component",
+      "title": "Codex Composer",
+      "description": "The prompt band with a block cursor, the model and directory status line and shortcut hints.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["card", "collapsible", "input-group", "kbd"],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-composer.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-composer.tsx"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        }
+      ]
+    },
+    {
+      "name": "codex",
+      "type": "registry:block",
+      "title": "Codex",
+      "description": "A full recreation of an OpenAI Codex CLI session built from the Codex components on shadcn Base UI.",
+      "dependencies": ["cn"],
+      "registryDependencies": [
+        "button",
+        "card",
+        "collapsible",
+        "input-group",
+        "kbd",
+        "scroll-area",
+        "table"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-codex-bg": "var(--codex-bg)",
+          "color-codex-titlebar": "var(--codex-titlebar)",
+          "color-codex-dot": "var(--codex-dot)",
+          "color-codex-title": "var(--codex-title)",
+          "color-codex-shadow": "var(--codex-shadow)",
+          "color-codex-ring": "var(--codex-ring)",
+          "color-codex-fg": "var(--codex-fg)",
+          "color-codex-dim": "var(--codex-dim)",
+          "color-codex-muted": "var(--codex-muted)",
+          "color-codex-rule": "var(--codex-rule)",
+          "color-codex-band": "var(--codex-band)",
+          "color-codex-composer": "var(--codex-composer)",
+          "color-codex-placeholder": "var(--codex-placeholder)",
+          "color-codex-cursor": "var(--codex-cursor)",
+          "color-codex-blue": "var(--codex-blue)",
+          "color-codex-command": "var(--codex-command)",
+          "color-codex-arg": "var(--codex-arg)",
+          "color-codex-operator": "var(--codex-operator)",
+          "color-codex-flag": "var(--codex-flag)",
+          "color-codex-green": "var(--codex-green)",
+          "color-codex-success": "var(--codex-success)",
+          "color-codex-yellow": "var(--codex-yellow)",
+          "color-codex-amber": "var(--codex-amber)",
+          "color-codex-red": "var(--codex-red)",
+          "font-codex": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "codex-bg": "#ffffff",
+          "codex-titlebar": "#ececec",
+          "codex-dot": "#d4d4d4",
+          "codex-title": "#00000073",
+          "codex-shadow": "#00000026",
+          "codex-ring": "#0000001a",
+          "codex-fg": "#1a1a1a",
+          "codex-dim": "#5c5c5c",
+          "codex-muted": "#767676",
+          "codex-rule": "#e0e0e0",
+          "codex-band": "#f0f0f0",
+          "codex-composer": "#f3f3f3",
+          "codex-placeholder": "#8a8a8a",
+          "codex-cursor": "#d6006a",
+          "codex-blue": "#0a6fd6",
+          "codex-command": "#1f5fbf",
+          "codex-arg": "#3d4f8f",
+          "codex-operator": "#0f7f70",
+          "codex-flag": "#c0364d",
+          "codex-green": "#1f8a3a",
+          "codex-success": "#00852a",
+          "codex-yellow": "#8f6200",
+          "codex-amber": "#8a6420",
+          "codex-red": "#d12f2f"
+        },
+        "dark": {
+          "codex-bg": "#0f0f0f",
+          "codex-titlebar": "#1c1c1c",
+          "codex-dot": "#3a3a3a",
+          "codex-title": "#ffffff66",
+          "codex-shadow": "#00000033",
+          "codex-ring": "#ffffff00",
+          "codex-fg": "#f7f7f7",
+          "codex-dim": "#909090",
+          "codex-muted": "#777777",
+          "codex-rule": "#343434",
+          "codex-band": "#2d2d2d",
+          "codex-composer": "#252525",
+          "codex-placeholder": "#868686",
+          "codex-cursor": "#fc0076",
+          "codex-blue": "#3c9ffc",
+          "codex-command": "#70abfa",
+          "codex-arg": "#c3cff4",
+          "codex-operator": "#6cdfcd",
+          "codex-flag": "#f3909f",
+          "codex-green": "#85df8d",
+          "codex-success": "#00a12e",
+          "codex-yellow": "#fcdb9b",
+          "codex-amber": "#be9952",
+          "codex-red": "#ff6b6b"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/codex/components/codex-terminal.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-terminal.tsx"
+        },
+        {
+          "path": "registry/notra/codex/components/codex-header.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-header.tsx"
+        },
+        {
+          "path": "registry/notra/codex/components/codex-message.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-message.tsx"
+        },
+        {
+          "path": "registry/notra/codex/components/codex-reasoning.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-reasoning.tsx"
+        },
+        {
+          "path": "registry/notra/codex/components/codex-exec.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-exec.tsx"
+        },
+        {
+          "path": "registry/notra/codex/components/codex-explored.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-explored.tsx"
+        },
+        {
+          "path": "registry/notra/codex/components/codex-working.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-working.tsx"
+        },
+        {
+          "path": "registry/notra/codex/components/codex-markdown.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-markdown.tsx"
+        },
+        {
+          "path": "registry/notra/codex/components/codex-composer.tsx",
+          "type": "registry:component",
+          "target": "components/codex/components/codex-composer.tsx"
+        },
+        {
+          "path": "registry/notra/codex/lib/codex-shell.ts",
+          "type": "registry:lib",
+          "target": "components/codex/lib/codex-shell.ts"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/constants/codex-demo.ts",
+          "type": "registry:lib",
+          "target": "components/codex/constants/codex-demo.ts"
+        },
+        {
+          "path": "registry/notra/codex/types/codex.ts",
+          "type": "registry:lib",
+          "target": "components/codex/types/codex.ts"
+        },
+        {
+          "path": "registry/notra/codex/hooks/use-codex-chat.ts",
+          "type": "registry:hook",
+          "target": "components/codex/hooks/use-codex-chat.ts"
+        },
+        {
+          "path": "registry/notra/codex/examples/codex-demo.tsx",
+          "type": "registry:component",
+          "target": "components/codex/examples/codex-demo.tsx"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        }
+      }
+    },
+    {
       "name": "opencode-window",
       "type": "registry:component",
       "title": "OpenCode Window",
-      "description": "The bordered OpenCode workspace surface that sets the TUI background and font.",
+      "description": "The OpenCode terminal surface that sets the background, monospace font and line grid.",
       "dependencies": ["cn"],
       "registryDependencies": ["card", "collapsible"],
       "cssVars": {
         "theme": {
           "color-opencode-bg": "var(--opencode-bg)",
-          "color-opencode-surface": "var(--opencode-surface)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
           "color-opencode-fg": "var(--opencode-fg)",
           "color-opencode-muted": "var(--opencode-muted)",
           "color-opencode-subtle": "var(--opencode-subtle)",
-          "color-opencode-purple": "var(--opencode-purple)",
+          "color-opencode-blue": "var(--opencode-blue)",
           "color-opencode-orange": "var(--opencode-orange)",
           "color-opencode-green": "var(--opencode-green)",
           "color-opencode-logo-open": "var(--opencode-logo-open)",
@@ -7275,30 +9504,32 @@
           "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
         },
         "light": {
-          "opencode-bg": "#fdfdfd",
-          "opencode-surface": "#f6f6f6",
-          "opencode-fg": "#1d1d1d",
-          "opencode-muted": "#929292",
-          "opencode-subtle": "#dedede",
-          "opencode-purple": "#8256d6",
-          "opencode-orange": "#e48600",
-          "opencode-green": "#00a861",
-          "opencode-logo-open": "#656363",
-          "opencode-logo-code": "#211e1e",
-          "opencode-logo-fill": "#cfcecd"
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
         },
         "dark": {
-          "opencode-bg": "#0a0a0a",
-          "opencode-surface": "#141414",
-          "opencode-fg": "#eeeeee",
-          "opencode-muted": "#808080",
-          "opencode-subtle": "#484848",
-          "opencode-purple": "#9d7cd8",
-          "opencode-orange": "#fab283",
-          "opencode-green": "#7fd88f",
-          "opencode-logo-open": "#b7b1b1",
-          "opencode-logo-code": "#f1ecec",
-          "opencode-logo-fill": "#4b4646"
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
         }
       },
       "files": [
@@ -7325,17 +9556,18 @@
       "name": "opencode-logo",
       "type": "registry:component",
       "title": "OpenCode Logo",
-      "description": "The pixel wordmark from the OpenCode welcome screen, themed with tokens.",
+      "description": "The block-letter OpenCode wordmark drawn on a cell grid and themed with tokens.",
       "dependencies": ["cn"],
       "registryDependencies": ["collapsible"],
       "cssVars": {
         "theme": {
           "color-opencode-bg": "var(--opencode-bg)",
-          "color-opencode-surface": "var(--opencode-surface)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
           "color-opencode-fg": "var(--opencode-fg)",
           "color-opencode-muted": "var(--opencode-muted)",
           "color-opencode-subtle": "var(--opencode-subtle)",
-          "color-opencode-purple": "var(--opencode-purple)",
+          "color-opencode-blue": "var(--opencode-blue)",
           "color-opencode-orange": "var(--opencode-orange)",
           "color-opencode-green": "var(--opencode-green)",
           "color-opencode-logo-open": "var(--opencode-logo-open)",
@@ -7344,30 +9576,32 @@
           "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
         },
         "light": {
-          "opencode-bg": "#fdfdfd",
-          "opencode-surface": "#f6f6f6",
-          "opencode-fg": "#1d1d1d",
-          "opencode-muted": "#929292",
-          "opencode-subtle": "#dedede",
-          "opencode-purple": "#8256d6",
-          "opencode-orange": "#e48600",
-          "opencode-green": "#00a861",
-          "opencode-logo-open": "#656363",
-          "opencode-logo-code": "#211e1e",
-          "opencode-logo-fill": "#cfcecd"
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
         },
         "dark": {
-          "opencode-bg": "#0a0a0a",
-          "opencode-surface": "#141414",
-          "opencode-fg": "#eeeeee",
-          "opencode-muted": "#808080",
-          "opencode-subtle": "#484848",
-          "opencode-purple": "#9d7cd8",
-          "opencode-orange": "#fab283",
-          "opencode-green": "#7fd88f",
-          "opencode-logo-open": "#b7b1b1",
-          "opencode-logo-code": "#f1ecec",
-          "opencode-logo-fill": "#4b4646"
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
         }
       },
       "files": [
@@ -7375,6 +9609,11 @@
           "path": "registry/notra/opencode/components/opencode-logo.tsx",
           "type": "registry:component",
           "target": "components/opencode/components/opencode-logo.tsx"
+        },
+        {
+          "path": "registry/notra/opencode/constants/opencode.ts",
+          "type": "registry:lib",
+          "target": "components/opencode/constants/opencode.ts"
         },
         {
           "path": "registry/notra/opencode/types/opencode.ts",
@@ -7387,17 +9626,18 @@
       "name": "opencode-message",
       "type": "registry:component",
       "title": "OpenCode Message",
-      "description": "User turns in a purple-ruled panel and assistant turns with optional search and actions slots.",
+      "description": "User prompts on a blue-ruled panel and indented assistant replies with OpenCode's markdown colors.",
       "dependencies": ["cn"],
       "registryDependencies": ["collapsible"],
       "cssVars": {
         "theme": {
           "color-opencode-bg": "var(--opencode-bg)",
-          "color-opencode-surface": "var(--opencode-surface)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
           "color-opencode-fg": "var(--opencode-fg)",
           "color-opencode-muted": "var(--opencode-muted)",
           "color-opencode-subtle": "var(--opencode-subtle)",
-          "color-opencode-purple": "var(--opencode-purple)",
+          "color-opencode-blue": "var(--opencode-blue)",
           "color-opencode-orange": "var(--opencode-orange)",
           "color-opencode-green": "var(--opencode-green)",
           "color-opencode-logo-open": "var(--opencode-logo-open)",
@@ -7406,30 +9646,32 @@
           "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
         },
         "light": {
-          "opencode-bg": "#fdfdfd",
-          "opencode-surface": "#f6f6f6",
-          "opencode-fg": "#1d1d1d",
-          "opencode-muted": "#929292",
-          "opencode-subtle": "#dedede",
-          "opencode-purple": "#8256d6",
-          "opencode-orange": "#e48600",
-          "opencode-green": "#00a861",
-          "opencode-logo-open": "#656363",
-          "opencode-logo-code": "#211e1e",
-          "opencode-logo-fill": "#cfcecd"
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
         },
         "dark": {
-          "opencode-bg": "#0a0a0a",
-          "opencode-surface": "#141414",
-          "opencode-fg": "#eeeeee",
-          "opencode-muted": "#808080",
-          "opencode-subtle": "#484848",
-          "opencode-purple": "#9d7cd8",
-          "opencode-orange": "#fab283",
-          "opencode-green": "#7fd88f",
-          "opencode-logo-open": "#b7b1b1",
-          "opencode-logo-code": "#f1ecec",
-          "opencode-logo-fill": "#4b4646"
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
         }
       },
       "files": [
@@ -7446,20 +9688,21 @@
       ]
     },
     {
-      "name": "opencode-activity",
+      "name": "opencode-turn-footer",
       "type": "registry:component",
-      "title": "OpenCode Activity",
-      "description": "Orange reasoning lines and muted tool calls from the activity stream.",
+      "title": "OpenCode Turn Footer",
+      "description": "The blue square, agent, model and duration line that closes an assistant turn.",
       "dependencies": ["cn"],
-      "registryDependencies": ["button", "collapsible", "item"],
+      "registryDependencies": ["collapsible"],
       "cssVars": {
         "theme": {
           "color-opencode-bg": "var(--opencode-bg)",
-          "color-opencode-surface": "var(--opencode-surface)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
           "color-opencode-fg": "var(--opencode-fg)",
           "color-opencode-muted": "var(--opencode-muted)",
           "color-opencode-subtle": "var(--opencode-subtle)",
-          "color-opencode-purple": "var(--opencode-purple)",
+          "color-opencode-blue": "var(--opencode-blue)",
           "color-opencode-orange": "var(--opencode-orange)",
           "color-opencode-green": "var(--opencode-green)",
           "color-opencode-logo-open": "var(--opencode-logo-open)",
@@ -7468,37 +9711,44 @@
           "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
         },
         "light": {
-          "opencode-bg": "#fdfdfd",
-          "opencode-surface": "#f6f6f6",
-          "opencode-fg": "#1d1d1d",
-          "opencode-muted": "#929292",
-          "opencode-subtle": "#dedede",
-          "opencode-purple": "#8256d6",
-          "opencode-orange": "#e48600",
-          "opencode-green": "#00a861",
-          "opencode-logo-open": "#656363",
-          "opencode-logo-code": "#211e1e",
-          "opencode-logo-fill": "#cfcecd"
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
         },
         "dark": {
-          "opencode-bg": "#0a0a0a",
-          "opencode-surface": "#141414",
-          "opencode-fg": "#eeeeee",
-          "opencode-muted": "#808080",
-          "opencode-subtle": "#484848",
-          "opencode-purple": "#9d7cd8",
-          "opencode-orange": "#fab283",
-          "opencode-green": "#7fd88f",
-          "opencode-logo-open": "#b7b1b1",
-          "opencode-logo-code": "#f1ecec",
-          "opencode-logo-fill": "#4b4646"
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
         }
       },
       "files": [
         {
-          "path": "registry/notra/opencode/components/opencode-activity.tsx",
+          "path": "registry/notra/opencode/components/opencode-turn-footer.tsx",
           "type": "registry:component",
-          "target": "components/opencode/components/opencode-activity.tsx"
+          "target": "components/opencode/components/opencode-turn-footer.tsx"
+        },
+        {
+          "path": "registry/notra/opencode/constants/opencode.ts",
+          "type": "registry:lib",
+          "target": "components/opencode/constants/opencode.ts"
         },
         {
           "path": "registry/notra/opencode/types/opencode.ts",
@@ -7508,20 +9758,21 @@
       ]
     },
     {
-      "name": "opencode-sources",
+      "name": "opencode-activity",
       "type": "registry:component",
-      "title": "OpenCode Sources",
-      "description": "Websearch tool lines and a cited-sources list with an optional sequenced reveal.",
+      "title": "OpenCode Activity",
+      "description": "Orange thoughts with a live Thinking spinner, plus muted read, web search and tool lines.",
       "dependencies": ["cn"],
-      "registryDependencies": ["button", "collapsible", "item"],
+      "registryDependencies": ["button", "collapsible"],
       "cssVars": {
         "theme": {
           "color-opencode-bg": "var(--opencode-bg)",
-          "color-opencode-surface": "var(--opencode-surface)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
           "color-opencode-fg": "var(--opencode-fg)",
           "color-opencode-muted": "var(--opencode-muted)",
           "color-opencode-subtle": "var(--opencode-subtle)",
-          "color-opencode-purple": "var(--opencode-purple)",
+          "color-opencode-blue": "var(--opencode-blue)",
           "color-opencode-orange": "var(--opencode-orange)",
           "color-opencode-green": "var(--opencode-green)",
           "color-opencode-logo-open": "var(--opencode-logo-open)",
@@ -7530,30 +9781,112 @@
           "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
         },
         "light": {
-          "opencode-bg": "#fdfdfd",
-          "opencode-surface": "#f6f6f6",
-          "opencode-fg": "#1d1d1d",
-          "opencode-muted": "#929292",
-          "opencode-subtle": "#dedede",
-          "opencode-purple": "#8256d6",
-          "opencode-orange": "#e48600",
-          "opencode-green": "#00a861",
-          "opencode-logo-open": "#656363",
-          "opencode-logo-code": "#211e1e",
-          "opencode-logo-fill": "#cfcecd"
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
         },
         "dark": {
-          "opencode-bg": "#0a0a0a",
-          "opencode-surface": "#141414",
-          "opencode-fg": "#eeeeee",
-          "opencode-muted": "#808080",
-          "opencode-subtle": "#484848",
-          "opencode-purple": "#9d7cd8",
-          "opencode-orange": "#fab283",
-          "opencode-green": "#7fd88f",
-          "opencode-logo-open": "#b7b1b1",
-          "opencode-logo-code": "#f1ecec",
-          "opencode-logo-fill": "#4b4646"
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/opencode/components/opencode-activity.tsx",
+          "type": "registry:component",
+          "target": "components/opencode/components/opencode-activity.tsx"
+        },
+        {
+          "path": "registry/notra/opencode/constants/opencode.ts",
+          "type": "registry:lib",
+          "target": "components/opencode/constants/opencode.ts"
+        },
+        {
+          "path": "registry/notra/opencode/types/opencode.ts",
+          "type": "registry:lib",
+          "target": "components/opencode/types/opencode.ts"
+        },
+        {
+          "path": "registry/notra/opencode/hooks/use-opencode-frame.ts",
+          "type": "registry:hook",
+          "target": "components/opencode/hooks/use-opencode-frame.ts"
+        },
+        {
+          "path": "registry/notra/opencode/hooks/use-opencode-reduced-motion.ts",
+          "type": "registry:hook",
+          "target": "components/opencode/hooks/use-opencode-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "opencode-sources",
+      "type": "registry:component",
+      "title": "OpenCode Sources",
+      "description": "Web search lines and a collapsible cited-sources list with an optional sequenced reveal.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["button", "collapsible"],
+      "cssVars": {
+        "theme": {
+          "color-opencode-bg": "var(--opencode-bg)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
+          "color-opencode-fg": "var(--opencode-fg)",
+          "color-opencode-muted": "var(--opencode-muted)",
+          "color-opencode-subtle": "var(--opencode-subtle)",
+          "color-opencode-blue": "var(--opencode-blue)",
+          "color-opencode-orange": "var(--opencode-orange)",
+          "color-opencode-green": "var(--opencode-green)",
+          "color-opencode-logo-open": "var(--opencode-logo-open)",
+          "color-opencode-logo-code": "var(--opencode-logo-code)",
+          "color-opencode-logo-fill": "var(--opencode-logo-fill)",
+          "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+        "light": {
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
+        },
+        "dark": {
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
         }
       },
       "files": [
@@ -7586,6 +9919,11 @@
           "path": "registry/notra/opencode/hooks/use-opencode-reduced-motion.ts",
           "type": "registry:hook",
           "target": "components/opencode/hooks/use-opencode-reduced-motion.ts"
+        },
+        {
+          "path": "registry/notra/opencode/hooks/use-opencode-frame.ts",
+          "type": "registry:hook",
+          "target": "components/opencode/hooks/use-opencode-frame.ts"
         }
       ]
     },
@@ -7593,17 +9931,18 @@
       "name": "opencode-composer",
       "type": "registry:component",
       "title": "OpenCode Composer",
-      "description": "The prompt input with agent, model, provider, effort, shortcuts and context usage.",
+      "description": "The prompt panel with agent, model, provider and effort, over a status row with the busy scanner, context and shortcuts.",
       "dependencies": ["cn"],
       "registryDependencies": ["collapsible", "input-group", "kbd"],
       "cssVars": {
         "theme": {
           "color-opencode-bg": "var(--opencode-bg)",
-          "color-opencode-surface": "var(--opencode-surface)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
           "color-opencode-fg": "var(--opencode-fg)",
           "color-opencode-muted": "var(--opencode-muted)",
           "color-opencode-subtle": "var(--opencode-subtle)",
-          "color-opencode-purple": "var(--opencode-purple)",
+          "color-opencode-blue": "var(--opencode-blue)",
           "color-opencode-orange": "var(--opencode-orange)",
           "color-opencode-green": "var(--opencode-green)",
           "color-opencode-logo-open": "var(--opencode-logo-open)",
@@ -7612,30 +9951,32 @@
           "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
         },
         "light": {
-          "opencode-bg": "#fdfdfd",
-          "opencode-surface": "#f6f6f6",
-          "opencode-fg": "#1d1d1d",
-          "opencode-muted": "#929292",
-          "opencode-subtle": "#dedede",
-          "opencode-purple": "#8256d6",
-          "opencode-orange": "#e48600",
-          "opencode-green": "#00a861",
-          "opencode-logo-open": "#656363",
-          "opencode-logo-code": "#211e1e",
-          "opencode-logo-fill": "#cfcecd"
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
         },
         "dark": {
-          "opencode-bg": "#0a0a0a",
-          "opencode-surface": "#141414",
-          "opencode-fg": "#eeeeee",
-          "opencode-muted": "#808080",
-          "opencode-subtle": "#484848",
-          "opencode-purple": "#9d7cd8",
-          "opencode-orange": "#fab283",
-          "opencode-green": "#7fd88f",
-          "opencode-logo-open": "#b7b1b1",
-          "opencode-logo-code": "#f1ecec",
-          "opencode-logo-fill": "#4b4646"
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
         }
       },
       "files": [
@@ -7643,6 +9984,11 @@
           "path": "registry/notra/opencode/components/opencode-composer.tsx",
           "type": "registry:component",
           "target": "components/opencode/components/opencode-composer.tsx"
+        },
+        {
+          "path": "registry/notra/opencode/components/opencode-progress.tsx",
+          "type": "registry:component",
+          "target": "components/opencode/components/opencode-progress.tsx"
         },
         {
           "path": "registry/notra/opencode/constants/opencode.ts",
@@ -7653,6 +9999,16 @@
           "path": "registry/notra/opencode/types/opencode.ts",
           "type": "registry:lib",
           "target": "components/opencode/types/opencode.ts"
+        },
+        {
+          "path": "registry/notra/opencode/hooks/use-opencode-frame.ts",
+          "type": "registry:hook",
+          "target": "components/opencode/hooks/use-opencode-frame.ts"
+        },
+        {
+          "path": "registry/notra/opencode/hooks/use-opencode-reduced-motion.ts",
+          "type": "registry:hook",
+          "target": "components/opencode/hooks/use-opencode-reduced-motion.ts"
         }
       ]
     },
@@ -7660,23 +10016,18 @@
       "name": "opencode-sidebar",
       "type": "registry:component",
       "title": "OpenCode Sidebar",
-      "description": "Session context, a collapsible MCP server list, LSP state, working directory and version.",
-      "dependencies": ["cn"],
-      "registryDependencies": [
-        "badge",
-        "button",
-        "collapsible",
-        "item",
-        "scroll-area"
-      ],
+      "description": "Session title, context usage, a collapsible MCP list, LSP state, cwd with branch and version.",
+      "dependencies": ["@base-ui/react", "cn"],
+      "registryDependencies": ["button", "collapsible"],
       "cssVars": {
         "theme": {
           "color-opencode-bg": "var(--opencode-bg)",
-          "color-opencode-surface": "var(--opencode-surface)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
           "color-opencode-fg": "var(--opencode-fg)",
           "color-opencode-muted": "var(--opencode-muted)",
           "color-opencode-subtle": "var(--opencode-subtle)",
-          "color-opencode-purple": "var(--opencode-purple)",
+          "color-opencode-blue": "var(--opencode-blue)",
           "color-opencode-orange": "var(--opencode-orange)",
           "color-opencode-green": "var(--opencode-green)",
           "color-opencode-logo-open": "var(--opencode-logo-open)",
@@ -7685,33 +10036,40 @@
           "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
         },
         "light": {
-          "opencode-bg": "#fdfdfd",
-          "opencode-surface": "#f6f6f6",
-          "opencode-fg": "#1d1d1d",
-          "opencode-muted": "#929292",
-          "opencode-subtle": "#dedede",
-          "opencode-purple": "#8256d6",
-          "opencode-orange": "#e48600",
-          "opencode-green": "#00a861",
-          "opencode-logo-open": "#656363",
-          "opencode-logo-code": "#211e1e",
-          "opencode-logo-fill": "#cfcecd"
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
         },
         "dark": {
-          "opencode-bg": "#0a0a0a",
-          "opencode-surface": "#141414",
-          "opencode-fg": "#eeeeee",
-          "opencode-muted": "#808080",
-          "opencode-subtle": "#484848",
-          "opencode-purple": "#9d7cd8",
-          "opencode-orange": "#fab283",
-          "opencode-green": "#7fd88f",
-          "opencode-logo-open": "#b7b1b1",
-          "opencode-logo-code": "#f1ecec",
-          "opencode-logo-fill": "#4b4646"
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
         }
       },
       "files": [
+        {
+          "path": "registry/notra/opencode/components/opencode-scroll-area.tsx",
+          "type": "registry:component",
+          "target": "components/opencode/components/opencode-scroll-area.tsx"
+        },
         {
           "path": "registry/notra/opencode/components/opencode-sidebar.tsx",
           "type": "registry:component",
@@ -7733,26 +10091,24 @@
       "name": "opencode",
       "type": "registry:block",
       "title": "OpenCode",
-      "description": "A full recreation of an OpenCode session built from the OpenCode components.",
-      "dependencies": ["cn"],
+      "description": "A recreation of an OpenCode terminal session with a transcript, the prompt and the sidebar.",
+      "dependencies": ["@base-ui/react", "cn"],
       "registryDependencies": [
-        "badge",
         "button",
         "card",
         "collapsible",
         "input-group",
-        "item",
-        "kbd",
-        "scroll-area"
+        "kbd"
       ],
       "cssVars": {
         "theme": {
           "color-opencode-bg": "var(--opencode-bg)",
-          "color-opencode-surface": "var(--opencode-surface)",
+          "color-opencode-panel": "var(--opencode-panel)",
+          "color-opencode-sidebar": "var(--opencode-sidebar)",
           "color-opencode-fg": "var(--opencode-fg)",
           "color-opencode-muted": "var(--opencode-muted)",
           "color-opencode-subtle": "var(--opencode-subtle)",
-          "color-opencode-purple": "var(--opencode-purple)",
+          "color-opencode-blue": "var(--opencode-blue)",
           "color-opencode-orange": "var(--opencode-orange)",
           "color-opencode-green": "var(--opencode-green)",
           "color-opencode-logo-open": "var(--opencode-logo-open)",
@@ -7761,30 +10117,32 @@
           "font-opencode": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
         },
         "light": {
-          "opencode-bg": "#fdfdfd",
-          "opencode-surface": "#f6f6f6",
-          "opencode-fg": "#1d1d1d",
-          "opencode-muted": "#929292",
-          "opencode-subtle": "#dedede",
-          "opencode-purple": "#8256d6",
-          "opencode-orange": "#e48600",
-          "opencode-green": "#00a861",
-          "opencode-logo-open": "#656363",
-          "opencode-logo-code": "#211e1e",
-          "opencode-logo-fill": "#cfcecd"
+          "opencode-bg": "#ffffff",
+          "opencode-panel": "#f5f5f5",
+          "opencode-sidebar": "#fafafa",
+          "opencode-fg": "#1a1a1a",
+          "opencode-muted": "#6f6f6f",
+          "opencode-subtle": "#e1e1e1",
+          "opencode-blue": "#3b7dd8",
+          "opencode-orange": "#c47a14",
+          "opencode-green": "#2f8a4a",
+          "opencode-logo-open": "#8a8a8a",
+          "opencode-logo-code": "#1a1a1a",
+          "opencode-logo-fill": "#dcdcdc"
         },
         "dark": {
-          "opencode-bg": "#0a0a0a",
-          "opencode-surface": "#141414",
-          "opencode-fg": "#eeeeee",
-          "opencode-muted": "#808080",
-          "opencode-subtle": "#484848",
-          "opencode-purple": "#9d7cd8",
-          "opencode-orange": "#fab283",
-          "opencode-green": "#7fd88f",
-          "opencode-logo-open": "#b7b1b1",
-          "opencode-logo-code": "#f1ecec",
-          "opencode-logo-fill": "#4b4646"
+          "opencode-bg": "#090909",
+          "opencode-panel": "#191919",
+          "opencode-sidebar": "#121212",
+          "opencode-fg": "#e9e9e9",
+          "opencode-muted": "#737373",
+          "opencode-subtle": "#262626",
+          "opencode-blue": "#3b91f9",
+          "opencode-orange": "#fd9718",
+          "opencode-green": "#4fd47b",
+          "opencode-logo-open": "#737373",
+          "opencode-logo-code": "#e9e9e9",
+          "opencode-logo-fill": "#2a2a2a"
         }
       },
       "files": [
@@ -7809,6 +10167,11 @@
           "target": "components/opencode/components/opencode-message.tsx"
         },
         {
+          "path": "registry/notra/opencode/components/opencode-turn-footer.tsx",
+          "type": "registry:component",
+          "target": "components/opencode/components/opencode-turn-footer.tsx"
+        },
+        {
           "path": "registry/notra/opencode/components/opencode-activity.tsx",
           "type": "registry:component",
           "target": "components/opencode/components/opencode-activity.tsx"
@@ -7819,9 +10182,9 @@
           "target": "components/opencode/components/opencode-sources.tsx"
         },
         {
-          "path": "registry/notra/opencode/constants/opencode.ts",
-          "type": "registry:lib",
-          "target": "components/opencode/constants/opencode.ts"
+          "path": "registry/notra/opencode/components/opencode-progress.tsx",
+          "type": "registry:component",
+          "target": "components/opencode/components/opencode-progress.tsx"
         },
         {
           "path": "registry/notra/opencode/components/opencode-composer.tsx",
@@ -7829,9 +10192,19 @@
           "target": "components/opencode/components/opencode-composer.tsx"
         },
         {
+          "path": "registry/notra/opencode/components/opencode-scroll-area.tsx",
+          "type": "registry:component",
+          "target": "components/opencode/components/opencode-scroll-area.tsx"
+        },
+        {
           "path": "registry/notra/opencode/components/opencode-sidebar.tsx",
           "type": "registry:component",
           "target": "components/opencode/components/opencode-sidebar.tsx"
+        },
+        {
+          "path": "registry/notra/opencode/constants/opencode.ts",
+          "type": "registry:lib",
+          "target": "components/opencode/constants/opencode.ts"
         },
         {
           "path": "registry/notra/opencode/constants/opencode-demo.ts",
@@ -7839,19 +10212,29 @@
           "target": "components/opencode/constants/opencode-demo.ts"
         },
         {
+          "path": "registry/notra/opencode/hooks/use-opencode-chat.ts",
+          "type": "registry:hook",
+          "target": "components/opencode/hooks/use-opencode-chat.ts"
+        },
+        {
           "path": "registry/notra/opencode/examples/opencode-demo.tsx",
           "type": "registry:component",
           "target": "components/opencode/examples/opencode-demo.tsx"
         },
         {
-          "path": "registry/notra/opencode/hooks/use-opencode-sources-sequence.ts",
+          "path": "registry/notra/opencode/hooks/use-opencode-frame.ts",
           "type": "registry:hook",
-          "target": "components/opencode/hooks/use-opencode-sources-sequence.ts"
+          "target": "components/opencode/hooks/use-opencode-frame.ts"
         },
         {
           "path": "registry/notra/opencode/hooks/use-opencode-reduced-motion.ts",
           "type": "registry:hook",
           "target": "components/opencode/hooks/use-opencode-reduced-motion.ts"
+        },
+        {
+          "path": "registry/notra/opencode/hooks/use-opencode-sources-sequence.ts",
+          "type": "registry:hook",
+          "target": "components/opencode/hooks/use-opencode-sources-sequence.ts"
         }
       ],
       "css": {

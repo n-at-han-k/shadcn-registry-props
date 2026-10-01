@@ -1,0 +1,5185 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "arc",
+  "homepage": "https://uiarc.dev",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "arc-foundation",
+      "type": "registry:item",
+      "title": "Arc foundation",
+      "description": "Arc design tokens (color, surface, radius, shadow, accent, light and dark themes) and the shared motion presets every Arc component uses.",
+      "categories": [
+        "foundation"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/foundation.css",
+          "type": "registry:component",
+          "target": "@components/arc/foundation.css"
+        },
+        {
+          "path": "registry/motion-tokens.ts",
+          "type": "registry:component",
+          "target": "@components/arc/motion-tokens.ts"
+        },
+        {
+          "path": "lib/motion-tokens.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/motion-tokens.ts"
+        }
+      ],
+      "docs": "Import the tokens once in your root layout: import \"@/components/arc/foundation.css\" (Arc installs into an arc/ folder under your components alias). Set data-theme=\"dark\" on <html> for dark mode and data-accent (violet, blue, green, amber, orange, coral, rose) to change the accent. Arc files import each other with relative paths, so any alias setup works.",
+      "meta": {
+        "tier": "free",
+        "kind": "foundation",
+        "docs": "https://uiarc.dev/docs/ai"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "arc-skill",
+      "type": "registry:file",
+      "title": "Arc agent skill",
+      "description": "An Agent Skill that teaches Claude Code and other agents how to choose, install, and compose Arc components, with rule files for design, components, motion, accessibility, composition, and responsive layout.",
+      "categories": [
+        "ai"
+      ],
+      "files": [
+        {
+          "path": "skills/arc/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/SKILL.md"
+        },
+        {
+          "path": "skills/arc/INSTRUCTIONS.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/INSTRUCTIONS.md"
+        },
+        {
+          "path": "skills/arc/accessibility.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/accessibility.md"
+        },
+        {
+          "path": "skills/arc/checklist.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/checklist.md"
+        },
+        {
+          "path": "skills/arc/components.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/components.md"
+        },
+        {
+          "path": "skills/arc/composition.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/composition.md"
+        },
+        {
+          "path": "skills/arc/copy.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/copy.md"
+        },
+        {
+          "path": "skills/arc/design.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/design.md"
+        },
+        {
+          "path": "skills/arc/example-dashboard.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/example-dashboard.md"
+        },
+        {
+          "path": "skills/arc/example-pricing.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/example-pricing.md"
+        },
+        {
+          "path": "skills/arc/example-settings.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/example-settings.md"
+        },
+        {
+          "path": "skills/arc/motion.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/motion.md"
+        },
+        {
+          "path": "skills/arc/responsive.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/arc/responsive.md"
+        }
+      ],
+      "docs": "Installed to .claude/skills/arc/. SKILL.md is the entry point; INSTRUCTIONS.md holds the rules to keep in AGENTS.md or CLAUDE.md. Raw copies live at /r/skills/arc/<file>.",
+      "meta": {
+        "tier": "free",
+        "kind": "skill",
+        "docs": "https://uiarc.dev/docs/ai"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A clear, responsive action with quiet secondary states.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/button/button.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/button/button.tsx"
+        },
+        {
+          "path": "registry/components/button/button.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/button/button.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/button",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "action",
+          "control"
+        ],
+        "docs": "https://uiarc.dev/components/button",
+        "markdown": "https://uiarc.dev/components/button/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "action-button",
+      "type": "registry:ui",
+      "title": "Action button",
+      "description": "A compact button for frequent toolbar actions.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/action-button/action-button.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/action-button/action-button.tsx"
+        },
+        {
+          "path": "registry/components/action-button/action-button.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/action-button/action-button.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/action-button",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "action",
+          "toolbar"
+        ],
+        "docs": "https://uiarc.dev/components/action-button",
+        "markdown": "https://uiarc.dev/components/action-button/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "split-button",
+      "type": "registry:ui",
+      "title": "Split button",
+      "description": "A primary action with a menu of nearby alternatives.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/split-button/split-button.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/split-button/split-button.tsx"
+        },
+        {
+          "path": "registry/components/split-button/split-button.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/split-button/split-button.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/split-button",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "action",
+          "menu"
+        ],
+        "docs": "https://uiarc.dev/components/split-button",
+        "markdown": "https://uiarc.dev/components/split-button/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown menu",
+      "description": "A focused list of actions anchored to a trigger.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/dropdown-menu/dropdown-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/dropdown-menu/dropdown-menu.tsx"
+        },
+        {
+          "path": "registry/components/dropdown-menu/dropdown-menu.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/dropdown-menu/dropdown-menu.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/dropdown-menu",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "menu",
+          "action"
+        ],
+        "docs": "https://uiarc.dev/components/dropdown-menu",
+        "markdown": "https://uiarc.dev/components/dropdown-menu/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context menu",
+      "description": "Secondary actions kept close to the selected object.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/context-menu/context-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/context-menu/context-menu.tsx"
+        },
+        {
+          "path": "registry/components/context-menu/context-menu.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/context-menu/context-menu.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/context-menu",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "menu",
+          "action"
+        ],
+        "docs": "https://uiarc.dev/components/context-menu",
+        "markdown": "https://uiarc.dev/components/context-menu/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy button",
+      "description": "Copy a value with immediate confirmation.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/copy-button/copy-button.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/copy-button/copy-button.tsx"
+        },
+        {
+          "path": "registry/components/copy-button/copy-button.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/copy-button/copy-button.module.css"
+        },
+        {
+          "path": "lib/use-copy-feedback.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/use-copy-feedback.ts"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/copy-button",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "action",
+          "utility"
+        ],
+        "docs": "https://uiarc.dev/components/copy-button",
+        "markdown": "https://uiarc.dev/components/copy-button/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A temporary side surface for focused work.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/drawer/drawer.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/drawer/drawer.tsx"
+        },
+        {
+          "path": "registry/components/drawer/drawer.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/drawer/drawer.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/drawer",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "overlay",
+          "surface"
+        ],
+        "docs": "https://uiarc.dev/components/drawer",
+        "markdown": "https://uiarc.dev/components/drawer/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "theme-switch",
+      "type": "registry:ui",
+      "title": "Theme switcher",
+      "description": "Four smooth ways to move between light and dark appearance.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/theme-switch/theme-switch.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/theme-switch/theme-switch.tsx"
+        },
+        {
+          "path": "registry/components/theme-switch/theme-switch.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/theme-switch/theme-switch.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/theme-switch",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "theme",
+          "appearance",
+          "motion"
+        ],
+        "docs": "https://uiarc.dev/components/theme-switch",
+        "markdown": "https://uiarc.dev/components/theme-switch/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "theme-switch-eclipse",
+      "type": "registry:ui",
+      "title": "Eclipse",
+      "description": "The next appearance crosses the page like an eclipse.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/theme-switch/theme-switch.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/theme-switch/theme-switch.tsx"
+        },
+        {
+          "path": "registry/components/theme-switch/theme-switch.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/theme-switch/theme-switch.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/theme-switch-eclipse",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "theme",
+          "appearance",
+          "motion"
+        ],
+        "docs": "https://uiarc.dev/components/theme-switch-eclipse",
+        "markdown": "https://uiarc.dev/components/theme-switch-eclipse/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "theme-switch-split",
+      "type": "registry:ui",
+      "title": "Split",
+      "description": "The next appearance opens from a slim center seam.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/theme-switch/theme-switch.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/theme-switch/theme-switch.tsx"
+        },
+        {
+          "path": "registry/components/theme-switch/theme-switch.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/theme-switch/theme-switch.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/theme-switch-split",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "theme",
+          "appearance",
+          "motion"
+        ],
+        "docs": "https://uiarc.dev/components/theme-switch-split",
+        "markdown": "https://uiarc.dev/components/theme-switch-split/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "theme-switch-rise",
+      "type": "registry:ui",
+      "title": "Rise",
+      "description": "The next appearance rises into place.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/theme-switch/theme-switch.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/theme-switch/theme-switch.tsx"
+        },
+        {
+          "path": "registry/components/theme-switch/theme-switch.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/theme-switch/theme-switch.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/theme-switch-rise",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "theme",
+          "appearance",
+          "motion"
+        ],
+        "docs": "https://uiarc.dev/components/theme-switch-rise",
+        "markdown": "https://uiarc.dev/components/theme-switch-rise/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "A compact identity marker for people and accounts.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/avatar/avatar.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/avatar/avatar.tsx"
+        },
+        {
+          "path": "registry/components/avatar/avatar.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/avatar/avatar.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/avatar",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "identity",
+          "people"
+        ],
+        "docs": "https://uiarc.dev/components/avatar",
+        "markdown": "https://uiarc.dev/components/avatar/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar group",
+      "description": "Show a team or set of contributors in a small space.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/avatar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/avatar-group/avatar-group.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/avatar-group/avatar-group.tsx"
+        },
+        {
+          "path": "registry/components/avatar-group/avatar-group.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/avatar-group/avatar-group.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/avatar-group",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "identity",
+          "people"
+        ],
+        "docs": "https://uiarc.dev/components/avatar-group",
+        "markdown": "https://uiarc.dev/components/avatar-group/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A single line field with clear labels and useful states.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/input/input.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/input/input.tsx"
+        },
+        {
+          "path": "registry/components/input/input.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/input/input.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/input",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "form"
+        ],
+        "docs": "https://uiarc.dev/components/input",
+        "markdown": "https://uiarc.dev/components/input/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A multiline field for notes, descriptions, and longer text.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/textarea/textarea.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/textarea/textarea.tsx"
+        },
+        {
+          "path": "registry/components/textarea/textarea.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/textarea/textarea.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/textarea",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "form"
+        ],
+        "docs": "https://uiarc.dev/components/textarea",
+        "markdown": "https://uiarc.dev/components/textarea/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A compact choice field with a keyboard friendly menu.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "@radix-ui/react-select",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/select/select.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/select/select.tsx"
+        },
+        {
+          "path": "registry/components/select/select.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/select/select.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/select",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "form"
+        ],
+        "docs": "https://uiarc.dev/components/select",
+        "markdown": "https://uiarc.dev/components/select/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Search and select from a list without leaving the field.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/combobox/combobox.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/combobox/combobox.tsx"
+        },
+        {
+          "path": "registry/components/combobox/combobox.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/combobox/combobox.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/combobox",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "search"
+        ],
+        "docs": "https://uiarc.dev/components/combobox",
+        "markdown": "https://uiarc.dev/components/combobox/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A binary choice with a precise, legible state.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/checkbox/checkbox.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/checkbox/checkbox.tsx"
+        },
+        {
+          "path": "registry/components/checkbox/checkbox.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/checkbox/checkbox.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/checkbox",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "form"
+        ],
+        "docs": "https://uiarc.dev/components/checkbox",
+        "markdown": "https://uiarc.dev/components/checkbox/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A tactile toggle for settings that take effect immediately.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "@radix-ui/react-switch",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/switch/switch.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/switch/switch.tsx"
+        },
+        {
+          "path": "registry/components/switch/switch.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/switch/switch.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/switch",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "toggle",
+          "settings"
+        ],
+        "docs": "https://uiarc.dev/components/switch",
+        "markdown": "https://uiarc.dev/components/switch/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "multi-select",
+      "type": "registry:ui",
+      "title": "Multi-select",
+      "description": "Select several values while keeping the field readable.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/multi-select/multi-select.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/multi-select/multi-select.tsx"
+        },
+        {
+          "path": "registry/components/multi-select/multi-select.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/multi-select/multi-select.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/multi-select",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "choice"
+        ],
+        "docs": "https://uiarc.dev/components/multi-select",
+        "markdown": "https://uiarc.dev/components/multi-select/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "number-field",
+      "type": "registry:ui",
+      "title": "Number field",
+      "description": "Enter a bounded number with clear increment controls.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/number-field/number-field.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/number-field/number-field.tsx"
+        },
+        {
+          "path": "registry/components/number-field/number-field.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/number-field/number-field.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/number-field",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "numeric"
+        ],
+        "docs": "https://uiarc.dev/components/number-field",
+        "markdown": "https://uiarc.dev/components/number-field/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "password-field",
+      "type": "registry:ui",
+      "title": "Password field",
+      "description": "Capture sensitive text with a visible reveal control.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/password-field/password-field.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/password-field/password-field.tsx"
+        },
+        {
+          "path": "registry/components/password-field/password-field.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/password-field/password-field.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/password-field",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "security"
+        ],
+        "docs": "https://uiarc.dev/components/password-field",
+        "markdown": "https://uiarc.dev/components/password-field/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "search-field",
+      "type": "registry:ui",
+      "title": "Search field",
+      "description": "A recognizable search entry point with clear affordances.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/search-field/search-field.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/search-field/search-field.tsx"
+        },
+        {
+          "path": "registry/components/search-field/search-field.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/search-field/search-field.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/search-field",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "search"
+        ],
+        "docs": "https://uiarc.dev/components/search-field",
+        "markdown": "https://uiarc.dev/components/search-field/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tag-input",
+      "type": "registry:ui",
+      "title": "Tag input",
+      "description": "Turn short text values into removable tags.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/tag-input/tag-input.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/tag-input/tag-input.tsx"
+        },
+        {
+          "path": "registry/components/tag-input/tag-input.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/tag-input/tag-input.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/tag-input",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "tags"
+        ],
+        "docs": "https://uiarc.dev/components/tag-input",
+        "markdown": "https://uiarc.dev/components/tag-input/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "file-dropzone",
+      "type": "registry:ui",
+      "title": "File dropzone",
+      "description": "A generous target for dropping one or more files.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/file-dropzone/file-dropzone.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/file-dropzone/file-dropzone.tsx"
+        },
+        {
+          "path": "registry/components/file-dropzone/file-dropzone.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/file-dropzone/file-dropzone.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/file-dropzone",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "files"
+        ],
+        "docs": "https://uiarc.dev/components/file-dropzone",
+        "markdown": "https://uiarc.dev/components/file-dropzone/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio group",
+      "description": "Choose one option from a visible set.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/radio-group/radio-group.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/radio-group/radio-group.tsx"
+        },
+        {
+          "path": "registry/components/radio-group/radio-group.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/radio-group/radio-group.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/radio-group",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "field",
+          "choice"
+        ],
+        "docs": "https://uiarc.dev/components/radio-group",
+        "markdown": "https://uiarc.dev/components/radio-group/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "Segmented control",
+      "description": "Switch between a small set of related views.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/segmented-control/segmented-control.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/segmented-control/segmented-control.tsx"
+        },
+        {
+          "path": "registry/components/segmented-control/segmented-control.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/segmented-control/segmented-control.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/segmented-control",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "control",
+          "choice"
+        ],
+        "docs": "https://uiarc.dev/components/segmented-control",
+        "markdown": "https://uiarc.dev/components/segmented-control/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Browse dates in a clear, compact month view.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/calendar/calendar.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/calendar/calendar.tsx"
+        },
+        {
+          "path": "registry/components/calendar/calendar.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/calendar/calendar.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/calendar",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "date",
+          "field"
+        ],
+        "docs": "https://uiarc.dev/components/calendar",
+        "markdown": "https://uiarc.dev/components/calendar/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date picker",
+      "description": "Choose a date without losing context.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/calendar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/date-picker/date-picker.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/date-picker/date-picker.tsx"
+        },
+        {
+          "path": "registry/components/date-picker/date-picker.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/date-picker/date-picker.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/date-picker",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "date",
+          "field"
+        ],
+        "docs": "https://uiarc.dev/components/date-picker",
+        "markdown": "https://uiarc.dev/components/date-picker/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "time-picker",
+      "type": "registry:ui",
+      "title": "Time picker",
+      "description": "Choose a time with sensible keyboard behavior.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/time-picker/time-picker.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/time-picker/time-picker.tsx"
+        },
+        {
+          "path": "registry/components/time-picker/time-picker.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/time-picker/time-picker.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/time-picker",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "time",
+          "field"
+        ],
+        "docs": "https://uiarc.dev/components/time-picker",
+        "markdown": "https://uiarc.dev/components/time-picker/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Progressively reveal supporting information in place.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/accordion/accordion.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/accordion/accordion.tsx"
+        },
+        {
+          "path": "registry/components/accordion/accordion.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/accordion/accordion.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/accordion",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "disclosure",
+          "layout"
+        ],
+        "docs": "https://uiarc.dev/components/accordion",
+        "markdown": "https://uiarc.dev/components/accordion/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A focused surface for decisions that need attention.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/dialog/dialog.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/dialog/dialog.tsx"
+        },
+        {
+          "path": "registry/components/dialog/dialog.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/dialog/dialog.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/dialog",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "modal",
+          "overlay"
+        ],
+        "docs": "https://uiarc.dev/components/dialog",
+        "markdown": "https://uiarc.dev/components/dialog/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A small anchored surface for contextual information.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/popover/popover.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/popover/popover.tsx"
+        },
+        {
+          "path": "registry/components/popover/popover.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/popover/popover.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/popover",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "overlay",
+          "menu"
+        ],
+        "docs": "https://uiarc.dev/components/popover",
+        "markdown": "https://uiarc.dev/components/popover/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Short supporting text for unfamiliar controls.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "@radix-ui/react-tooltip",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/tooltip/tooltip.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/tooltip/tooltip.tsx"
+        },
+        {
+          "path": "registry/components/tooltip/tooltip.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/tooltip/tooltip.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/tooltip",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "hint",
+          "overlay"
+        ],
+        "docs": "https://uiarc.dev/components/tooltip",
+        "markdown": "https://uiarc.dev/components/tooltip/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Switch between related content in the same context.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "@radix-ui/react-tabs",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/tabs/tabs.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/tabs/tabs.tsx"
+        },
+        {
+          "path": "registry/components/tabs/tabs.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/tabs/tabs.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/tabs",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "navigation",
+          "layout"
+        ],
+        "docs": "https://uiarc.dev/components/tabs",
+        "markdown": "https://uiarc.dev/components/tabs/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "expandable-card",
+      "type": "registry:ui",
+      "title": "Expandable card",
+      "description": "Give a dense card more room when requested.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/expandable-card/expandable-card.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/expandable-card/expandable-card.tsx"
+        },
+        {
+          "path": "registry/components/expandable-card/expandable-card.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/expandable-card/expandable-card.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/expandable-card",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "disclosure",
+          "layout"
+        ],
+        "docs": "https://uiarc.dev/components/expandable-card",
+        "markdown": "https://uiarc.dev/components/expandable-card/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Show where a page sits in a hierarchy.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/breadcrumb/breadcrumb.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/breadcrumb/breadcrumb.tsx"
+        },
+        {
+          "path": "registry/components/breadcrumb/breadcrumb.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/breadcrumb/breadcrumb.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/breadcrumb",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "navigation",
+          "wayfinding"
+        ],
+        "docs": "https://uiarc.dev/components/breadcrumb",
+        "markdown": "https://uiarc.dev/components/breadcrumb/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "A persistent message that helps people recover or continue.",
+      "categories": [
+        "feedback"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/alert/alert.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/alert/alert.tsx"
+        },
+        {
+          "path": "registry/components/alert/alert.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/alert/alert.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/alert",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "status",
+          "message"
+        ],
+        "docs": "https://uiarc.dev/components/alert",
+        "markdown": "https://uiarc.dev/components/alert/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Brief confirmation for a completed background action.",
+      "categories": [
+        "feedback"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/toast/toast.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/toast/toast.tsx"
+        },
+        {
+          "path": "registry/components/toast/toast.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/toast/toast.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/toast",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "status",
+          "message"
+        ],
+        "docs": "https://uiarc.dev/components/toast",
+        "markdown": "https://uiarc.dev/components/toast/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Show how much of a known task is complete.",
+      "categories": [
+        "feedback"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/progress/progress.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/progress/progress.tsx"
+        },
+        {
+          "path": "registry/components/progress/progress.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/progress/progress.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/progress",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "status",
+          "loading"
+        ],
+        "docs": "https://uiarc.dev/components/progress",
+        "markdown": "https://uiarc.dev/components/progress/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Reserve space while content is still loading.",
+      "categories": [
+        "feedback"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/skeleton/skeleton.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/skeleton/skeleton.tsx"
+        },
+        {
+          "path": "registry/components/skeleton/skeleton.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/skeleton/skeleton.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/skeleton",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "loading",
+          "status"
+        ],
+        "docs": "https://uiarc.dev/components/skeleton",
+        "markdown": "https://uiarc.dev/components/skeleton/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A small label for status, category, or metadata.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/badge/badge.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/badge/badge.tsx"
+        },
+        {
+          "path": "registry/components/badge/badge.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/badge/badge.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/badge",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "label",
+          "status"
+        ],
+        "docs": "https://uiarc.dev/components/badge",
+        "markdown": "https://uiarc.dev/components/badge/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A contained group of related content and actions.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/card/card.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/card/card.tsx"
+        },
+        {
+          "path": "registry/components/card/card.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/card/card.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/card",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "surface",
+          "layout"
+        ],
+        "docs": "https://uiarc.dev/components/card",
+        "markdown": "https://uiarc.dev/components/card/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "metric-card",
+      "type": "registry:ui",
+      "title": "Metric card",
+      "description": "A compact summary for a number that needs context.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/animated-counter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/metric-card/metric-card.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/metric-card/metric-card.tsx"
+        },
+        {
+          "path": "registry/components/metric-card/metric-card.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/metric-card/metric-card.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/metric-card",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "summary"
+        ],
+        "docs": "https://uiarc.dev/components/metric-card",
+        "markdown": "https://uiarc.dev/components/metric-card/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty state",
+      "description": "A useful next step when there is nothing to show yet.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/empty-state/empty-state.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/empty-state/empty-state.tsx"
+        },
+        {
+          "path": "registry/components/empty-state/empty-state.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/empty-state/empty-state.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/empty-state",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "guidance"
+        ],
+        "docs": "https://uiarc.dev/components/empty-state",
+        "markdown": "https://uiarc.dev/components/empty-state/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tree-view",
+      "type": "registry:ui",
+      "title": "Tree view",
+      "description": "Navigate nested folders and structured content.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/tree-view/tree-view.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/tree-view/tree-view.tsx"
+        },
+        {
+          "path": "registry/components/tree-view/tree-view.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/tree-view/tree-view.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/tree-view",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "navigation"
+        ],
+        "docs": "https://uiarc.dev/components/tree-view",
+        "markdown": "https://uiarc.dev/components/tree-view/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Move through a long collection with clear bounds.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/pagination/pagination.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/pagination/pagination.tsx"
+        },
+        {
+          "path": "registry/components/pagination/pagination.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/pagination/pagination.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/pagination",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "navigation"
+        ],
+        "docs": "https://uiarc.dev/components/pagination",
+        "markdown": "https://uiarc.dev/components/pagination/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "filter-toolbar",
+      "type": "registry:ui",
+      "title": "Filter toolbar",
+      "description": "Keep collection filters close and easy to reset.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/filter-toolbar/filter-toolbar.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/filter-toolbar/filter-toolbar.tsx"
+        },
+        {
+          "path": "registry/components/filter-toolbar/filter-toolbar.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/filter-toolbar/filter-toolbar.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/filter-toolbar",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "filter"
+        ],
+        "docs": "https://uiarc.dev/components/filter-toolbar",
+        "markdown": "https://uiarc.dev/components/filter-toolbar/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sortable-data-table",
+      "type": "registry:ui",
+      "title": "Sortable data table",
+      "description": "Compare structured records with sortable columns.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/sortable-data-table/sortable-data-table.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/sortable-data-table/sortable-data-table.tsx"
+        },
+        {
+          "path": "registry/components/sortable-data-table/sortable-data-table.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/sortable-data-table/sortable-data-table.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/sortable-data-table",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "table"
+        ],
+        "docs": "https://uiarc.dev/components/sortable-data-table",
+        "markdown": "https://uiarc.dev/components/sortable-data-table/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sparkline",
+      "type": "registry:ui",
+      "title": "Sparkline",
+      "description": "Show a compact trend beside a value.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/sparkline/sparkline.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/sparkline/sparkline.tsx"
+        },
+        {
+          "path": "registry/components/sparkline/sparkline.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/sparkline/sparkline.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/sparkline",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart"
+        ],
+        "docs": "https://uiarc.dev/components/sparkline",
+        "markdown": "https://uiarc.dev/components/sparkline/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "gauge",
+      "type": "registry:ui",
+      "title": "Gauge",
+      "description": "Show a value against a known range.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/gauge/gauge.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/gauge/gauge.tsx"
+        },
+        {
+          "path": "registry/components/gauge/gauge.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/gauge/gauge.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/gauge",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart"
+        ],
+        "docs": "https://uiarc.dev/components/gauge",
+        "markdown": "https://uiarc.dev/components/gauge/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "animated-counter",
+      "type": "registry:ui",
+      "title": "Animated counter",
+      "description": "Give changing totals a clear sense of movement.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/animated-counter/animated-counter.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/animated-counter/animated-counter.tsx"
+        },
+        {
+          "path": "registry/components/animated-counter/animated-counter.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/animated-counter/animated-counter.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/animated-counter",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "motion"
+        ],
+        "docs": "https://uiarc.dev/components/animated-counter",
+        "markdown": "https://uiarc.dev/components/animated-counter/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code block",
+      "description": "Present code with legible hierarchy and copy access.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/copy-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/code-block/code-block.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/code-block/code-block.tsx"
+        },
+        {
+          "path": "registry/components/code-block/code-block.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/code-block/code-block.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/code-block",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "content",
+          "developer"
+        ],
+        "docs": "https://uiarc.dev/components/code-block",
+        "markdown": "https://uiarc.dev/components/code-block/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "text-reveal",
+      "type": "registry:ui",
+      "title": "Text reveal",
+      "description": "Reveal a short piece of content with restrained motion.",
+      "categories": [
+        "text"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/text-reveal/text-reveal.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/text-reveal/text-reveal.tsx"
+        },
+        {
+          "path": "registry/components/text-reveal/text-reveal.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/text-reveal/text-reveal.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/text-reveal",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "text",
+          "motion",
+          "content"
+        ],
+        "docs": "https://uiarc.dev/components/text-reveal",
+        "markdown": "https://uiarc.dev/components/text-reveal/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "in-view-title",
+      "type": "registry:ui",
+      "title": "In-view title",
+      "description": "Bring a section title in as it scrolls into view.",
+      "categories": [
+        "text"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/in-view-title/in-view-title.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/in-view-title/in-view-title.tsx"
+        },
+        {
+          "path": "registry/components/in-view-title/in-view-title.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/in-view-title/in-view-title.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/in-view-title",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "text",
+          "motion",
+          "heading"
+        ],
+        "docs": "https://uiarc.dev/components/in-view-title",
+        "markdown": "https://uiarc.dev/components/in-view-title/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "text-morph",
+      "type": "registry:ui",
+      "title": "Text morph",
+      "description": "Morph a label into its next state, letter by letter.",
+      "categories": [
+        "text"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/text-morph/text-morph.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/text-morph/text-morph.tsx"
+        },
+        {
+          "path": "registry/components/text-morph/text-morph.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/text-morph/text-morph.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/text-morph",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "text",
+          "motion",
+          "status"
+        ],
+        "docs": "https://uiarc.dev/components/text-morph",
+        "markdown": "https://uiarc.dev/components/text-morph/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "text-shimmer",
+      "type": "registry:ui",
+      "title": "Text shimmer",
+      "description": "Show ongoing work with a calm light across the words.",
+      "categories": [
+        "text"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/text-shimmer/text-shimmer.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/text-shimmer/text-shimmer.tsx"
+        },
+        {
+          "path": "registry/components/text-shimmer/text-shimmer.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/text-shimmer/text-shimmer.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/text-shimmer",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "text",
+          "motion",
+          "loading"
+        ],
+        "docs": "https://uiarc.dev/components/text-shimmer",
+        "markdown": "https://uiarc.dev/components/text-shimmer/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "hold-to-confirm",
+      "type": "registry:ui",
+      "title": "Hold to confirm",
+      "description": "Confirm a destructive action by holding, not tapping.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/hold-to-confirm/hold-to-confirm.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/hold-to-confirm/hold-to-confirm.tsx"
+        },
+        {
+          "path": "registry/components/hold-to-confirm/hold-to-confirm.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/hold-to-confirm/hold-to-confirm.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/hold-to-confirm",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "hold",
+          "long press",
+          "confirm"
+        ],
+        "docs": "https://uiarc.dev/components/hold-to-confirm",
+        "markdown": "https://uiarc.dev/components/hold-to-confirm/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "swipe-actions",
+      "type": "registry:ui",
+      "title": "Swipe actions",
+      "description": "Reveal row actions with a swipe, or from the same actions in a menu.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/swipe-actions/swipe-actions.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/swipe-actions/swipe-actions.tsx"
+        },
+        {
+          "path": "registry/components/swipe-actions/swipe-actions.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/swipe-actions/swipe-actions.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/swipe-actions",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "swipe",
+          "gesture",
+          "list"
+        ],
+        "docs": "https://uiarc.dev/components/swipe-actions",
+        "markdown": "https://uiarc.dev/components/swipe-actions/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Pick a value or a range on a track that follows your finger.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/slider/slider.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/slider/slider.tsx"
+        },
+        {
+          "path": "registry/components/slider/slider.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/slider/slider.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/slider",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "slider",
+          "range",
+          "input"
+        ],
+        "docs": "https://uiarc.dev/components/slider",
+        "markdown": "https://uiarc.dev/components/slider/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "inline-edit",
+      "type": "registry:ui",
+      "title": "Inline edit",
+      "description": "Rename in place: the text becomes a field without moving.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/inline-edit/inline-edit.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/inline-edit/inline-edit.tsx"
+        },
+        {
+          "path": "registry/components/inline-edit/inline-edit.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/inline-edit/inline-edit.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/inline-edit",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inline edit",
+          "rename",
+          "click to edit"
+        ],
+        "docs": "https://uiarc.dev/components/inline-edit",
+        "markdown": "https://uiarc.dev/components/inline-edit/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "expanding-search",
+      "type": "registry:ui",
+      "title": "Expanding search",
+      "description": "An icon that morphs into a search field with results beneath it.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/expanding-search/expanding-search.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/expanding-search/expanding-search.tsx"
+        },
+        {
+          "path": "registry/components/expanding-search/expanding-search.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/expanding-search/expanding-search.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/expanding-search",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "search",
+          "field",
+          "motion"
+        ],
+        "docs": "https://uiarc.dev/components/expanding-search",
+        "markdown": "https://uiarc.dev/components/expanding-search/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chip-group",
+      "type": "registry:ui",
+      "title": "Chip group",
+      "description": "Filter by a few facets with chips that morph as you pick them.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/chip-group/chip-group.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/chip-group/chip-group.tsx"
+        },
+        {
+          "path": "registry/components/chip-group/chip-group.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/chip-group/chip-group.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/chip-group",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "chips",
+          "filter",
+          "toggle"
+        ],
+        "docs": "https://uiarc.dev/components/chip-group",
+        "markdown": "https://uiarc.dev/components/chip-group/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "password-strength",
+      "type": "registry:ui",
+      "title": "Password strength",
+      "description": "Show how strong a new password is while it is typed.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/password-strength/password-strength.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/password-strength/password-strength.tsx"
+        },
+        {
+          "path": "registry/components/password-strength/password-strength.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/password-strength/password-strength.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/password-strength",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "password",
+          "strength meter",
+          "validation"
+        ],
+        "docs": "https://uiarc.dev/components/password-strength",
+        "markdown": "https://uiarc.dev/components/password-strength/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "bottom-sheet",
+      "type": "registry:ui",
+      "title": "Bottom sheet",
+      "description": "A sheet that rests at a peek or full height and follows your finger.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/bottom-sheet/bottom-sheet.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/bottom-sheet/bottom-sheet.tsx"
+        },
+        {
+          "path": "registry/components/bottom-sheet/bottom-sheet.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/bottom-sheet/bottom-sheet.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/bottom-sheet",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "overlay",
+          "gesture",
+          "motion"
+        ],
+        "docs": "https://uiarc.dev/components/bottom-sheet",
+        "markdown": "https://uiarc.dev/components/bottom-sheet/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover card",
+      "description": "Preview a person or link on hover or focus without leaving the page.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/hover-card/hover-card.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/hover-card/hover-card.tsx"
+        },
+        {
+          "path": "registry/components/hover-card/hover-card.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/hover-card/hover-card.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/hover-card",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "preview",
+          "people",
+          "popover"
+        ],
+        "docs": "https://uiarc.dev/components/hover-card",
+        "markdown": "https://uiarc.dev/components/hover-card/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "resizable-panels",
+      "type": "registry:ui",
+      "title": "Resizable panels",
+      "description": "Trade space between panes by dragging the divider between them.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/resizable-panels/resizable-panels.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/resizable-panels/resizable-panels.tsx"
+        },
+        {
+          "path": "registry/components/resizable-panels/resizable-panels.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/resizable-panels/resizable-panels.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/resizable-panels",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "split view",
+          "resizable",
+          "panes"
+        ],
+        "docs": "https://uiarc.dev/components/resizable-panels",
+        "markdown": "https://uiarc.dev/components/resizable-panels/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "toast-stack",
+      "type": "registry:ui",
+      "title": "Toast stack",
+      "description": "Stack short results at the edge until you reach for them.",
+      "categories": [
+        "feedback"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/toast-stack/toast-stack.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/toast-stack/toast-stack.tsx"
+        },
+        {
+          "path": "registry/components/toast-stack/toast-stack.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/toast-stack/toast-stack.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/toast-stack",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "toast",
+          "notification",
+          "sonner"
+        ],
+        "docs": "https://uiarc.dev/components/toast-stack",
+        "markdown": "https://uiarc.dev/components/toast-stack/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "usage-meter",
+      "type": "registry:ui",
+      "title": "Usage meter",
+      "description": "Show what fills an allowance and how close it is to the limit.",
+      "categories": [
+        "feedback"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/usage-meter/usage-meter.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/usage-meter/usage-meter.tsx"
+        },
+        {
+          "path": "registry/components/usage-meter/usage-meter.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/usage-meter/usage-meter.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/usage-meter",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "meter",
+          "usage",
+          "storage"
+        ],
+        "docs": "https://uiarc.dev/components/usage-meter",
+        "markdown": "https://uiarc.dev/components/usage-meter/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "image-compare",
+      "type": "registry:ui",
+      "title": "Image compare",
+      "description": "Drag a divider across two images to see what changed.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/image-compare/image-compare.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/image-compare/image-compare.tsx"
+        },
+        {
+          "path": "registry/components/image-compare/image-compare.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/image-compare/image-compare.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/image-compare",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "before after",
+          "comparison",
+          "image"
+        ],
+        "docs": "https://uiarc.dev/components/image-compare",
+        "markdown": "https://uiarc.dev/components/image-compare/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "Browse a row of slides by dragging, flicking, or arrowing through them.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/carousel/carousel.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/carousel/carousel.tsx"
+        },
+        {
+          "path": "registry/components/carousel/carousel.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/carousel/carousel.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/carousel",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "carousel",
+          "slider",
+          "gallery"
+        ],
+        "docs": "https://uiarc.dev/components/carousel",
+        "markdown": "https://uiarc.dev/components/carousel/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "bar-chart",
+      "type": "registry:ui",
+      "title": "Bar chart",
+      "description": "Compare one measure across days and scrub any bar for its value.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/bar-chart/bar-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/bar-chart/bar-chart.tsx"
+        },
+        {
+          "path": "registry/components/bar-chart/bar-chart.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/bar-chart/bar-chart.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/bar-chart",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "chart",
+          "bar",
+          "data"
+        ],
+        "docs": "https://uiarc.dev/components/bar-chart",
+        "markdown": "https://uiarc.dev/components/bar-chart/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "activity-heatmap",
+      "type": "registry:ui",
+      "title": "Activity heatmap",
+      "description": "See a year of activity at a glance, one square per day.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        " animate=",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/activity-heatmap/activity-heatmap.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/activity-heatmap/activity-heatmap.tsx"
+        },
+        {
+          "path": "registry/components/activity-heatmap/activity-heatmap.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/activity-heatmap/activity-heatmap.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/activity-heatmap",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart",
+          "calendar"
+        ],
+        "docs": "https://uiarc.dev/components/activity-heatmap",
+        "markdown": "https://uiarc.dev/components/activity-heatmap/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Follow what happened, newest first, grouped by day.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        " animate=",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/timeline/timeline.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/timeline/timeline.tsx"
+        },
+        {
+          "path": "registry/components/timeline/timeline.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/timeline/timeline.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/timeline",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "feed",
+          "activity"
+        ],
+        "docs": "https://uiarc.dev/components/timeline",
+        "markdown": "https://uiarc.dev/components/timeline/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "user-menu",
+      "type": "registry:ui",
+      "title": "User menu",
+      "description": "Your account, settings, theme, and sign out behind the avatar. Opens as a bottom sheet on phones.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/user-menu/user-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/user-menu/user-menu.tsx"
+        },
+        {
+          "path": "registry/components/user-menu/user-menu.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/user-menu/user-menu.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/user-menu",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "motion",
+          "product"
+        ],
+        "docs": "https://uiarc.dev/components/user-menu",
+        "markdown": "https://uiarc.dev/components/user-menu/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Show where a person is in a multi-step flow and what is done.",
+      "categories": [
+        "feedback"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/stepper/stepper.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/stepper/stepper.tsx"
+        },
+        {
+          "path": "registry/components/stepper/stepper.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/stepper/stepper.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/stepper",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "motion",
+          "product"
+        ],
+        "docs": "https://uiarc.dev/components/stepper",
+        "markdown": "https://uiarc.dev/components/stepper/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "signature-pad",
+      "type": "registry:ui",
+      "title": "Signature pad",
+      "description": "Smooth ink that thins with speed, with undo, replay, and PNG or SVG export.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/signature-pad/signature-pad.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/signature-pad/signature-pad.tsx"
+        },
+        {
+          "path": "registry/components/signature-pad/signature-pad.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/signature-pad/signature-pad.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/signature-pad",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/signature-pad",
+        "markdown": "https://uiarc.dev/components/signature-pad/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "date-range-picker",
+      "type": "registry:ui",
+      "title": "Date range picker",
+      "description": "A range picker that grows from its trigger into two months with presets and a stretching range highlight.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/date-range-picker/date-range-picker.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/date-range-picker/date-range-picker.tsx"
+        },
+        {
+          "path": "registry/components/date-range-picker/date-range-picker.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/date-range-picker/date-range-picker.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/date-range-picker",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/date-range-picker",
+        "markdown": "https://uiarc.dev/components/date-range-picker/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "color-picker",
+      "type": "registry:ui",
+      "title": "Color picker",
+      "description": "A swatch that grows into a picker with format morphing, eyedropper, saved swatches, and contrast readout.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/text-morph.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/color-picker/color-picker.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/color-picker/color-picker.tsx"
+        },
+        {
+          "path": "registry/components/color-picker/color-picker.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/color-picker/color-picker.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/color-picker",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/color-picker",
+        "markdown": "https://uiarc.dev/components/color-picker/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "line-chart",
+      "type": "registry:ui",
+      "title": "Line chart",
+      "description": "A multi-series line chart with a gliding crosshair, legend toggles, and paths that morph between ranges.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/line-chart/line-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/line-chart/line-chart.tsx"
+        },
+        {
+          "path": "registry/components/line-chart/line-chart.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/line-chart/line-chart.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/line-chart",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/line-chart",
+        "markdown": "https://uiarc.dev/components/line-chart/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "donut-chart",
+      "type": "registry:ui",
+      "title": "Donut chart",
+      "description": "A donut whose arcs morph between datasets, with the active value rolling into the center.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/donut-chart/donut-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/donut-chart/donut-chart.tsx"
+        },
+        {
+          "path": "registry/components/donut-chart/donut-chart.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/donut-chart/donut-chart.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/donut-chart",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/donut-chart",
+        "markdown": "https://uiarc.dev/components/donut-chart/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "streamgraph",
+      "type": "registry:ui",
+      "title": "Streamgraph",
+      "description": "Layered streams on a wiggle baseline that morph between ranges, with a layer you can isolate and read week by week.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/streamgraph/streamgraph.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/streamgraph/streamgraph.tsx"
+        },
+        {
+          "path": "registry/components/streamgraph/streamgraph.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/streamgraph/streamgraph.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/streamgraph",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/streamgraph",
+        "markdown": "https://uiarc.dev/components/streamgraph/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "brush-chart",
+      "type": "registry:ui",
+      "title": "Brush chart",
+      "description": "A dense time series with an overview strip: drag a window to zoom, resize it by its handles, and read events in place.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/brush-chart/brush-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/brush-chart/brush-chart.tsx"
+        },
+        {
+          "path": "registry/components/brush-chart/brush-chart.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/brush-chart/brush-chart.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/brush-chart",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/brush-chart",
+        "markdown": "https://uiarc.dev/components/brush-chart/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "ridgeline",
+      "type": "registry:ui",
+      "title": "Ridgeline",
+      "description": "Overlapping distributions, one ridge per group: hover to lift a ridge and read its quartiles, switch datasets and every curve morphs.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/ridgeline/ridgeline.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/ridgeline/ridgeline.tsx"
+        },
+        {
+          "path": "registry/components/ridgeline/ridgeline.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/ridgeline/ridgeline.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/ridgeline",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/ridgeline",
+        "markdown": "https://uiarc.dev/components/ridgeline/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "treemap",
+      "type": "registry:ui",
+      "title": "Treemap",
+      "description": "A squarified treemap: click to drill and the tiles grow to fill the view, with a breadcrumb back and metrics that morph every tile.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/treemap/treemap.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/treemap/treemap.tsx"
+        },
+        {
+          "path": "registry/components/treemap/treemap.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/treemap/treemap.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/treemap",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/treemap",
+        "markdown": "https://uiarc.dev/components/treemap/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "waffle-chart",
+      "type": "registry:ui",
+      "title": "Waffle chart",
+      "description": "A ten by ten unit chart where every cell is one percent, and cells fly to their new group when the data changes.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/waffle-chart/waffle-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/waffle-chart/waffle-chart.tsx"
+        },
+        {
+          "path": "registry/components/waffle-chart/waffle-chart.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/waffle-chart/waffle-chart.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/waffle-chart",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/waffle-chart",
+        "markdown": "https://uiarc.dev/components/waffle-chart/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "slope-chart",
+      "type": "registry:ui",
+      "title": "Slope chart",
+      "description": "Before and after on two axes: lines draw in, rank moves sit beside each value, and switching datasets slides every line to its new slope.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/slope-chart/slope-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/slope-chart/slope-chart.tsx"
+        },
+        {
+          "path": "registry/components/slope-chart/slope-chart.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/slope-chart/slope-chart.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/slope-chart",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "chart",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/slope-chart",
+        "markdown": "https://uiarc.dev/components/slope-chart/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "announcement-bar",
+      "type": "registry:ui",
+      "title": "Announcement bar",
+      "description": "A top banner that rotates messages, counts down, and collapses smoothly when dismissed.",
+      "categories": [
+        "feedback"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/announcement-bar/announcement-bar.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/announcement-bar/announcement-bar.tsx"
+        },
+        {
+          "path": "registry/components/announcement-bar/announcement-bar.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/announcement-bar/announcement-bar.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/announcement-bar",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "feedback",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/announcement-bar",
+        "markdown": "https://uiarc.dev/components/announcement-bar/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "json-viewer",
+      "type": "registry:ui",
+      "title": "JSON viewer",
+      "description": "A collapsible JSON tree with search, paging for long arrays, and copy value or path.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/json-viewer/json-viewer.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/json-viewer/json-viewer.tsx"
+        },
+        {
+          "path": "registry/components/json-viewer/json-viewer.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/json-viewer/json-viewer.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/json-viewer",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/json-viewer",
+        "markdown": "https://uiarc.dev/components/json-viewer/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "phone-input",
+      "type": "registry:ui",
+      "title": "Phone input",
+      "description": "A phone field with a country picker, formatting as you type, and E.164 output.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/phone-input/phone-input.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/phone-input/phone-input.tsx"
+        },
+        {
+          "path": "registry/components/phone-input/phone-input.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/phone-input/phone-input.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/phone-input",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/phone-input",
+        "markdown": "https://uiarc.dev/components/phone-input/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "shortcut-recorder",
+      "type": "registry:ui",
+      "title": "Shortcut recorder",
+      "description": "Record key combinations into key caps, with conflict warnings, Kbd, and a searchable cheatsheet.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/shortcut-recorder/shortcut-recorder.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/shortcut-recorder/shortcut-recorder.tsx"
+        },
+        {
+          "path": "registry/components/shortcut-recorder/shortcut-recorder.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/shortcut-recorder/shortcut-recorder.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/shortcut-recorder",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/shortcut-recorder",
+        "markdown": "https://uiarc.dev/components/shortcut-recorder/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "confirm-morph",
+      "type": "registry:ui",
+      "title": "Confirm morph",
+      "description": "A destructive button that morphs into an inline confirmation, a spinner, and a result with undo.",
+      "categories": [
+        "actions"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/confirm-morph/confirm-morph.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/confirm-morph/confirm-morph.tsx"
+        },
+        {
+          "path": "registry/components/confirm-morph/confirm-morph.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/confirm-morph/confirm-morph.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/confirm-morph",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "actions",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/confirm-morph",
+        "markdown": "https://uiarc.dev/components/confirm-morph/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "mention-input",
+      "type": "registry:ui",
+      "title": "Mention input",
+      "description": "A textarea with @people and #channel mentions that act as single tokens, with suggestions at the caret.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/mention-input/mention-input.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/mention-input/mention-input.tsx"
+        },
+        {
+          "path": "registry/components/mention-input/mention-input.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/mention-input/mention-input.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/mention-input",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/mention-input",
+        "markdown": "https://uiarc.dev/components/mention-input/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chat-thread",
+      "type": "registry:ui",
+      "title": "Chat thread",
+      "description": "A chat thread with grouped messages, reactions, read receipts, typing, and a composer with attachments.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/chat-thread/chat-thread.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/chat-thread/chat-thread.tsx"
+        },
+        {
+          "path": "registry/components/chat-thread/chat-thread.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/chat-thread/chat-thread.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/chat-thread",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/chat-thread",
+        "markdown": "https://uiarc.dev/components/chat-thread/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "rich-text-editor",
+      "type": "registry:ui",
+      "title": "Rich text editor",
+      "description": "A lightweight editor with markdown shortcuts, a floating toolbar, a slash menu, and HTML and markdown output.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/rich-text-editor/rich-text-editor.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/rich-text-editor/rich-text-editor.tsx"
+        },
+        {
+          "path": "registry/components/rich-text-editor/rich-text-editor.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/rich-text-editor/rich-text-editor.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/rich-text-editor",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/rich-text-editor",
+        "markdown": "https://uiarc.dev/components/rich-text-editor/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "billing-toggle",
+      "type": "registry:ui",
+      "title": "Billing toggle",
+      "description": "A monthly and yearly switch with a savings badge and prices that roll to the new amount.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/animated-counter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/billing-toggle/billing-toggle.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/billing-toggle/billing-toggle.tsx"
+        },
+        {
+          "path": "registry/components/billing-toggle/billing-toggle.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/billing-toggle/billing-toggle.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/billing-toggle",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/billing-toggle",
+        "markdown": "https://uiarc.dev/components/billing-toggle/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll area",
+      "description": "A native scroll container with thin overlay scrollbars and edge fades that appear only when content overflows.",
+      "categories": [
+        "disclosure"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/scroll-area/scroll-area.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/scroll-area/scroll-area.tsx"
+        },
+        {
+          "path": "registry/components/scroll-area/scroll-area.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/scroll-area/scroll-area.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/scroll-area",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "disclosure",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/scroll-area",
+        "markdown": "https://uiarc.dev/components/scroll-area/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "radio-cards",
+      "type": "registry:ui",
+      "title": "Radio cards",
+      "description": "Selectable option cards with a sliding selection ring, price and description slots, and radio keyboard behavior.",
+      "categories": [
+        "inputs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/radio-cards/radio-cards.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/radio-cards/radio-cards.tsx"
+        },
+        {
+          "path": "registry/components/radio-cards/radio-cards.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/radio-cards/radio-cards.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/radio-cards",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "inputs",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/radio-cards",
+        "markdown": "https://uiarc.dev/components/radio-cards/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "comment-thread",
+      "type": "registry:ui",
+      "title": "Comment thread",
+      "description": "Threaded comments with replies, reactions, mentions, inline edit, and resolve.",
+      "categories": [
+        "data"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/comment-thread/comment-thread.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/comment-thread/comment-thread.tsx"
+        },
+        {
+          "path": "registry/components/comment-thread/comment-thread.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/comment-thread/comment-thread.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/comment-thread",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "data",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/comment-thread",
+        "markdown": "https://uiarc.dev/components/comment-thread/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "slot-text",
+      "type": "registry:ui",
+      "title": "Slot text",
+      "description": "Text and numbers that spin into their new value on staggered slot machine reels.",
+      "categories": [
+        "special"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/slot-text/slot-text.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/slot-text/slot-text.tsx"
+        },
+        {
+          "path": "registry/components/slot-text/slot-text.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/slot-text/slot-text.module.css"
+        }
+      ],
+      "docs": "Docs and live preview: https://uiarc.dev/components/slot-text",
+      "meta": {
+        "tier": "free",
+        "kind": "component",
+        "tags": [
+          "special",
+          "text",
+          "numbers",
+          "new"
+        ],
+        "docs": "https://uiarc.dev/components/slot-text",
+        "markdown": "https://uiarc.dev/components/slot-text/markdown"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "signup-form",
+      "type": "registry:block",
+      "title": "Sign up form",
+      "description": "An account creation flow with field validation, password strength, and a clear completion state.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/checkbox.json",
+        "https://uiarc.dev/r/input.json",
+        "https://uiarc.dev/r/password-field.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/signup-form/signup-form.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/signup-form/signup-form.tsx"
+        },
+        {
+          "path": "registry/blocks/signup-form/signup-form.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/signup-form/signup-form.module.css"
+        }
+      ],
+      "docs": "Use this as the client side of an account flow. Supply an onSubmit handler that creates the account and handles server errors.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Input",
+          "Password field",
+          "Checkbox",
+          "Button"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/signup-form"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "logo-marquee",
+      "type": "registry:block",
+      "title": "Logo marquee",
+      "description": "A quiet, continuously moving row of brand marks with a pause control.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/logo-marquee/logo-marquee.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/logo-marquee/logo-marquee.tsx"
+        },
+        {
+          "path": "registry/blocks/logo-marquee/logo-marquee.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/logo-marquee/logo-marquee.module.css"
+        }
+      ],
+      "docs": "Use this to show a collection of organizations or tools. Replace the sample marks with brands you have permission to represent.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Motion",
+          "Button",
+          "Brand marks"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/logo-marquee"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "plan-comparison",
+      "type": "registry:block",
+      "title": "Plan comparison",
+      "description": "Compare meaningful differences between plans and billing periods.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/segmented-control.json",
+        "https://uiarc.dev/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/plan-comparison/plan-comparison.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/plan-comparison/plan-comparison.tsx"
+        },
+        {
+          "path": "registry/blocks/plan-comparison/plan-comparison.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/plan-comparison/plan-comparison.module.css"
+        }
+      ],
+      "docs": "Use this when people need to weigh plans side by side. Replace the sample features and prices with your current offering.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Segmented control",
+          "Button",
+          "Motion"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/plan-comparison"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "command-palette",
+      "type": "registry:block",
+      "title": "Command palette",
+      "description": "A complete keyboard driven action surface with search, grouped results, and shortcuts.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/command-palette/command-palette.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/command-palette/command-palette.tsx"
+        },
+        {
+          "path": "registry/components/command-palette/command-palette.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/command-palette/command-palette.module.css"
+        }
+      ],
+      "docs": "Use it for product wide actions and navigation. Provide meaningful groups, icons, keyboard shortcuts, and handlers.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Search",
+          "Keyboard navigation",
+          "Action list"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/command-palette"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "notification-center",
+      "type": "registry:block",
+      "title": "Notification center",
+      "description": "A home for updates with read state, grouped information, and animated disclosure.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/avatar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/notification-center/notification-center.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/notification-center/notification-center.tsx"
+        },
+        {
+          "path": "registry/components/notification-center/notification-center.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/notification-center/notification-center.module.css"
+        }
+      ],
+      "docs": "Use it when updates need a persistent home instead of a brief toast. Connect read state to your data store.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Popover",
+          "Badge",
+          "Action list"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/notification-center"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "file-upload",
+      "type": "registry:block",
+      "title": "File upload",
+      "description": "A complete file selection flow with constraints, progress, and error feedback.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/file-upload/file-upload.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/file-upload/file-upload.tsx"
+        },
+        {
+          "path": "registry/components/file-upload/file-upload.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/file-upload/file-upload.module.css"
+        }
+      ],
+      "docs": "Use it for documents or media when people need to see upload progress and recover from invalid files.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "File picker",
+          "Progress",
+          "Feedback"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/file-upload"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "otp-input",
+      "type": "registry:block",
+      "title": "OTP input",
+      "description": "A six digit verification flow with paste support and keyboard navigation.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/otp-input/otp-input.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/otp-input/otp-input.tsx"
+        },
+        {
+          "path": "registry/components/otp-input/otp-input.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/otp-input/otp-input.module.css"
+        }
+      ],
+      "docs": "Use it as part of verification after you have sent a code. Validate the code on your server.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Input",
+          "Keyboard navigation",
+          "Validation"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/otp-input"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "changelog-feed",
+      "type": "registry:block",
+      "title": "Changelog feed",
+      "description": "Release notes you can filter, open in place, and scroll through month by month.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "@halden/node",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/copy-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/changelog-feed/changelog-feed.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/changelog-feed/changelog-feed.tsx"
+        },
+        {
+          "path": "registry/blocks/changelog-feed/changelog-feed.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/changelog-feed/changelog-feed.module.css"
+        },
+        {
+          "path": "lib/media.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/media.ts"
+        }
+      ],
+      "docs": "Use this for a product changelog page. Load entries from your release notes source and connect the subscribe control to your mailing list.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Copy button"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/changelog-feed"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sign-in",
+      "type": "registry:block",
+      "title": "Sign in",
+      "description": "A sign in card that morphs from email to a six digit code to your account.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/avatar.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/input.json",
+        "https://uiarc.dev/r/otp-input.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/sign-in/sign-in.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/sign-in/sign-in.tsx"
+        },
+        {
+          "path": "registry/blocks/sign-in/sign-in.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/sign-in/sign-in.module.css"
+        },
+        {
+          "path": "lib/media.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/media.ts"
+        }
+      ],
+      "docs": "Use this as the entry to your app. Send and check codes through your auth provider, connect the passkey button to WebAuthn and the single sign-on buttons to OAuth; everything in the preview is simulated.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Input",
+          "OTP input",
+          "Button",
+          "Avatar"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/sign-in"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "page-header",
+      "type": "registry:block",
+      "title": "Page header",
+      "description": "A project page header that folds into a compact bar as you scroll, with tabs whose counts roll.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-tabs",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/animated-counter.json",
+        "https://uiarc.dev/r/avatar-group.json",
+        "https://uiarc.dev/r/avatar.json",
+        "https://uiarc.dev/r/badge.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/progress.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/page-header/page-header.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/page-header/page-header.tsx"
+        },
+        {
+          "path": "registry/blocks/page-header/page-header.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/page-header/page-header.module.css"
+        }
+      ],
+      "docs": "Use this at the top of a project, repository, or record page. Connect breadcrumbs to your router, tab counts and status to your data, and Follow, Share update, New issue, and Archive to your API; every action in the preview is simulated.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Button",
+          "Badge",
+          "Animated counter",
+          "Avatar group",
+          "Avatar",
+          "Progress"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/page-header"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "empty-states",
+      "type": "registry:block",
+      "title": "Empty states",
+      "description": "Four empty states in one illustration whose shapes morph between scenes as you switch tabs.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/empty-states/empty-states.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/empty-states/empty-states.tsx"
+        },
+        {
+          "path": "registry/blocks/empty-states/empty-states.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/empty-states/empty-states.module.css"
+        },
+        {
+          "path": "registry/blocks/empty-states/empty-states-art.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/empty-states/empty-states-art.ts"
+        }
+      ],
+      "docs": "Use this for no results, offline, inbox zero and missing page moments. Wire each action to your real filter reset, retry, refresh or search; the preview simulates them locally.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "docs": "https://uiarc.dev/components/blocks/empty-states"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "login-centered",
+      "type": "registry:block",
+      "title": "Centered login",
+      "description": "A passkey-first login card on a quiet ring backdrop that morphs through email and code.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/input.json",
+        "https://uiarc.dev/r/otp-input.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/login-centered/login-centered.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/login-centered/login-centered.tsx"
+        },
+        {
+          "path": "registry/blocks/login-centered/login-centered.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/login-centered/login-centered.module.css"
+        }
+      ],
+      "docs": "Use this as a full screen sign in page (pass fullScreen). Connect the passkey button to WebAuthn, the email step to your magic code sender, the code step to verification, and the SSO buttons to your OAuth routes; onSignIn receives the email, method and mode.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Button",
+          "Input",
+          "OTP input"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/login-centered"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "site-header",
+      "type": "registry:block",
+      "title": "Site header",
+      "description": "A sticky website header that turns solid on scroll, with a gliding active link, mega menu panels, and a mobile sheet.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/site-header/site-header.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/site-header/site-header.tsx"
+        },
+        {
+          "path": "registry/blocks/site-header/site-header.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/site-header/site-header.module.css"
+        },
+        {
+          "path": "lib/media.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/media.ts"
+        }
+      ],
+      "docs": "Use this as a starting point and replace the sample data with your own.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Motion"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/site-header"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "site-footer",
+      "type": "registry:block",
+      "title": "Site footer",
+      "description": "A website footer with link columns and newsletter, a minimal layout, and a large fading Arc mark.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/site-footer/site-footer.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/site-footer/site-footer.tsx"
+        },
+        {
+          "path": "registry/blocks/site-footer/site-footer.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/site-footer/site-footer.module.css"
+        }
+      ],
+      "docs": "Use this as a starting point and replace the sample data with your own.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Motion"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/site-footer"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "hero-section",
+      "type": "registry:block",
+      "title": "Hero section",
+      "description": "Three full screen SaaS heroes: a live dashboard rising from the bottom edge over a drifting mesh, a workflow graph that routes sample events node by node, and editorial type over a mesh gradient.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/avatar.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/copy-button.json",
+        "https://uiarc.dev/r/line-chart.json",
+        "https://uiarc.dev/r/segmented-control.json",
+        "https://uiarc.dev/r/sparkline.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero-section/hero-section.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-section.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-section.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-section.module.css"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-content.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-content.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-content.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-content.module.css"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-motion.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-motion.ts"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-mesh.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-mesh.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-mesh.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-mesh.module.css"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-cadence.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-cadence.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-cadence.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-cadence.module.css"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-relay.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-relay.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-relay.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-relay.module.css"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-lumen.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-lumen.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-lumen.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-lumen.module.css"
+        },
+        {
+          "path": "registry/blocks/hero-section/hero-lumen-data.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/hero-section/hero-lumen-data.ts"
+        },
+        {
+          "path": "lib/media.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/media.ts"
+        }
+      ],
+      "docs": "Use this as the first section of a landing page and replace the sample copy and data with your own. Events in the workflow preview are simulated.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Button",
+          "Line chart",
+          "Sparkline",
+          "Segmented control",
+          "Avatar",
+          "Gradient mesh"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/hero-section"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "faq-section",
+      "type": "registry:block",
+      "title": "FAQ section",
+      "description": "FAQs as an accordion, a topic rail, or a searchable list that highlights matches.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/search-field.json",
+        "https://uiarc.dev/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/faq-section/faq-section.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/faq-section/faq-section.tsx"
+        },
+        {
+          "path": "registry/blocks/faq-section/faq-section.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/faq-section/faq-section.module.css"
+        }
+      ],
+      "docs": "Use this as a starting point and replace the sample data with your own.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Motion"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/faq-section"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "contact-section",
+      "type": "registry:block",
+      "title": "Contact section",
+      "description": "A validated contact form that morphs into a confirmation, support channels, and office cards with local times.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/avatar.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/copy-button.json",
+        "https://uiarc.dev/r/input.json",
+        "https://uiarc.dev/r/segmented-control.json",
+        "https://uiarc.dev/r/textarea.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/contact-section/contact-section.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/contact-section/contact-section.tsx"
+        },
+        {
+          "path": "registry/blocks/contact-section/contact-section.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/contact-section/contact-section.module.css"
+        },
+        {
+          "path": "lib/media.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/media.ts"
+        }
+      ],
+      "docs": "Use this as a starting point and replace the sample data with your own.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Motion"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/contact-section"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "blog-grid",
+      "type": "registry:block",
+      "title": "Blog grid",
+      "description": "A blog index with a featured post, category filter, post cards, pagination and an in-place reader.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/blog-grid/blog-grid.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/blog-grid/blog-grid.tsx"
+        },
+        {
+          "path": "registry/blocks/blog-grid/blog-grid-data.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/blog-grid/blog-grid-data.ts"
+        },
+        {
+          "path": "registry/blocks/blog-grid/blog-grid.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/blog-grid/blog-grid.module.css"
+        }
+      ],
+      "docs": "Use this as the index of a blog, journal or news page. Load posts from your CMS into blog-grid-data.ts or the posts prop, pass getHref to link each card to its article route, and keep category and page in your URL through the controlled props.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Avatar",
+          "Pagination"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/blog-grid"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "comparison-table",
+      "type": "registry:block",
+      "title": "Comparison table",
+      "description": "An us versus them table with a sticky header, a highlighted column, and a stacked phone view.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/comparison-table/comparison-table.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/comparison-table/comparison-table.tsx"
+        },
+        {
+          "path": "registry/blocks/comparison-table/comparison-table-data.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/comparison-table/comparison-table-data.ts"
+        },
+        {
+          "path": "registry/blocks/comparison-table/comparison-table.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/comparison-table/comparison-table.module.css"
+        }
+      ],
+      "docs": "Use this on a pricing or alternatives page. Describe your columns and feature rows in comparison-table-data.ts, mark your product with highlight, and point the cta at signup; stickyTop offsets the header under a fixed site header.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Switch",
+          "Button"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/comparison-table"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stats-band",
+      "type": "registry:block",
+      "title": "Stats band",
+      "description": "Headline numbers that count up in view, each with a tiny visual that proves it and a context line on hover, plain or in a hairline grid.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/stats-band/stats-band.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/stats-band/stats-band.tsx"
+        },
+        {
+          "path": "registry/blocks/stats-band/stats-band-data.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/stats-band/stats-band-data.ts"
+        },
+        {
+          "path": "registry/blocks/stats-band/stats-band.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/stats-band/stats-band.module.css"
+        },
+        {
+          "path": "registry/blocks/stats-band/stats-band-world.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/stats-band/stats-band-world.ts"
+        }
+      ],
+      "docs": "Use this under a hero or between sections to back a claim with numbers. Replace the sample stats in stats-band-data.ts.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Segmented control"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/stats-band"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "cta-section",
+      "type": "registry:block",
+      "title": "CTA section",
+      "description": "A call to action as a centered closing section, a split beside a setup card that completes itself, or a dismissible banner.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/button.json",
+        "https://uiarc.dev/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/cta-section/cta-section.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/cta-section/cta-section.tsx"
+        },
+        {
+          "path": "registry/blocks/cta-section/cta-section-data.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/cta-section/cta-section-data.ts"
+        },
+        {
+          "path": "lib/media.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/media.ts"
+        },
+        {
+          "path": "registry/blocks/cta-section/cta-section.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/cta-section/cta-section.module.css"
+        }
+      ],
+      "docs": "Use this to ask for a trial, demo or signup. Pass href or onClick to each action; edit sample copy in cta-section-data.ts. Buttons in the preview confirm in place.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Button",
+          "Segmented control"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/cta-section"
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "newsletter-signup",
+      "type": "registry:block",
+      "title": "Newsletter signup",
+      "description": "An email signup framed by a stack of past issues; subscribing drops the next issue, addressed to you, onto the front.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://uiarc.dev/r/arc-foundation.json",
+        "https://uiarc.dev/r/animated-counter.json",
+        "https://uiarc.dev/r/segmented-control.json",
+        "https://uiarc.dev/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/newsletter-signup/newsletter-signup.tsx",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/newsletter-signup/newsletter-signup.tsx"
+        },
+        {
+          "path": "registry/blocks/newsletter-signup/newsletter-signup-data.ts",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/newsletter-signup/newsletter-signup-data.ts"
+        },
+        {
+          "path": "lib/media.ts",
+          "type": "registry:lib",
+          "target": "@components/arc/lib/media.ts"
+        },
+        {
+          "path": "registry/blocks/newsletter-signup/newsletter-signup.module.css",
+          "type": "registry:component",
+          "target": "@components/arc/blocks/newsletter-signup/newsletter-signup.module.css"
+        }
+      ],
+      "docs": "Use this to collect newsletter or waitlist emails. Pass onSubscribe to call your email provider and throw on failure; subscribing in the preview is simulated.",
+      "meta": {
+        "tier": "free",
+        "kind": "block",
+        "builtFrom": [
+          "Segmented control"
+        ],
+        "docs": "https://uiarc.dev/components/blocks/newsletter-signup"
+      }
+    }
+  ]
+}

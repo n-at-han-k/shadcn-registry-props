@@ -89,36 +89,6 @@
       "categories": ["confirmation", "form"]
     },
     {
-      "name": "bulk-confirm",
-      "type": "registry:ui",
-      "title": "Bulk Confirm",
-      "description": "A confirm for acting on many items at once that gets harder as the count grows: undo for a few, a second click for dozens, and typing the count for hundreds.",
-      "registryDependencies": ["button", "checkbox", "input", "label"],
-      "files": [
-        {
-          "path": "components/ui/sureui/confirmation.ts",
-          "type": "registry:lib",
-          "target": "@ui/sureui/confirmation.ts"
-        },
-        {
-          "path": "components/ui/sureui/confirm-button.tsx",
-          "type": "registry:ui",
-          "target": "@ui/sureui/confirm-button.tsx"
-        },
-        {
-          "path": "components/ui/sureui/type-to-confirm.tsx",
-          "type": "registry:ui",
-          "target": "@ui/sureui/type-to-confirm.tsx"
-        },
-        {
-          "path": "components/ui/sureui/bulk-confirm.tsx",
-          "type": "registry:ui",
-          "target": "@ui/sureui/bulk-confirm.tsx"
-        }
-      ],
-      "categories": ["confirmation", "bulk"]
-    },
-    {
       "name": "confirm-dialog",
       "type": "registry:ui",
       "title": "Confirm Dialog",
@@ -312,10 +282,11 @@
       "name": "danger-zone-01",
       "type": "registry:block",
       "title": "Danger Zone",
-      "description": "A project settings danger zone: pause deployments with an undo window, transfer the project in a dialog, and delete it in a dialog that asks for the project name.",
+      "description": "A project settings danger zone: pause deployments with an undo window, transfer the project in a dialog that shows what changes, and delete it in a dialog that asks for the project name.",
       "registryDependencies": [
         "@sureui/confirm-button",
         "@sureui/confirm-dialog",
+        "@sureui/consequences",
         "button",
         "card"
       ],
@@ -480,53 +451,6 @@
       "categories": ["block", "tables"]
     },
     {
-      "name": "scheduled-deletion-01",
-      "type": "registry:block",
-      "title": "Scheduled Deletion",
-      "description": "Workspace settings where Delete schedules the workspace for deletion after a 30-day grace period with a Keep banner, and a Trash list restores projects or deletes them forever on a hold.",
-      "registryDependencies": [
-        "@sureui/confirm-button",
-        "@sureui/confirm-dialog",
-        "button",
-        "card"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/scheduled-deletion-01/scheduled-deletion.tsx",
-          "type": "registry:component",
-          "target": "@components/scheduled-deletion.tsx"
-        }
-      ],
-      "categories": ["block", "settings"]
-    },
-    {
-      "name": "reauth-01",
-      "type": "registry:block",
-      "title": "Re-authentication",
-      "description": "Billing settings that ask for a 6-digit code before changing the billing email or removing a card, show an inline error on a wrong code, and don't ask again for 2 hours. The demo verify accepts 123456.",
-      "registryDependencies": [
-        "@sureui/confirm-button",
-        "button",
-        "card",
-        "dialog",
-        "input",
-        "label"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/reauth-01/reauth.tsx",
-          "type": "registry:component",
-          "target": "@components/reauth.tsx"
-        },
-        {
-          "path": "components/blocks/reauth-01/reauth-dialog.tsx",
-          "type": "registry:component",
-          "target": "@components/reauth-dialog.tsx"
-        }
-      ],
-      "categories": ["block", "settings"]
-    },
-    {
       "name": "settings-save-bar-01",
       "type": "registry:block",
       "title": "Settings Save Bar",
@@ -545,29 +469,6 @@
           "path": "components/blocks/settings-save-bar-01/settings-save-bar.tsx",
           "type": "registry:component",
           "target": "@components/settings-save-bar.tsx"
-        }
-      ],
-      "categories": ["block", "settings"]
-    },
-    {
-      "name": "transfer-ownership-01",
-      "type": "registry:block",
-      "title": "Transfer Ownership",
-      "description": "Hand a project to another member. The dialog lists what changes for you, and it asks for the project name before transferring.",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": [
-        "@sureui/confirm-dialog",
-        "@sureui/consequences",
-        "avatar",
-        "badge",
-        "button",
-        "card"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/transfer-ownership-01/transfer-ownership.tsx",
-          "type": "registry:component",
-          "target": "@components/transfer-ownership.tsx"
         }
       ],
       "categories": ["block", "settings"]
