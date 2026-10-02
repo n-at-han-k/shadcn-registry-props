@@ -521,6 +521,18 @@
       "type": "registry:hook"
     },
     {
+      "name": "use-scroll-spy",
+      "title": "useScrollSpy",
+      "description": "The id of the section on screen, for a table of contents, from one IntersectionObserver. SSR-safe, keeps the last section between two.",
+      "files": [
+        {
+          "path": "registry/default/hooks/use-scroll-spy.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "type": "registry:hook"
+    },
+    {
       "name": "button",
       "title": "Button",
       "description": "Triggers an action. Variants default, secondary, outline, ghost, destructive and link; sizes sm, default, lg and three square icon sizes. Supports asChild and a loading state.",
@@ -790,6 +802,95 @@
       "type": "registry:ui"
     },
     {
+      "name": "flip-card",
+      "title": "Flip Card",
+      "description": "A card with two faces that turns over in 3D on hover, from a trigger, or from a prop.",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "@corsair-ui/utils",
+        "@corsair-ui/use-media-query"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/flip-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "creative"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "stamp",
+      "title": "Stamp",
+      "description": "A rubber stamp that slams onto the page: it starts large and transparent and lands rotated with a small overshoot.",
+      "registryDependencies": [
+        "@corsair-ui/utils",
+        "@corsair-ui/use-entrance"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/stamp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "keyframes": {
+                "stamp": {
+                  "from": {
+                    "opacity": "0",
+                    "transform": "rotate(var(--stamp-rotate, -8deg)) scale(var(--stamp-from, 1.6))"
+                  },
+                  "70%": {
+                    "opacity": "1",
+                    "transform": "rotate(var(--stamp-rotate, -8deg)) scale(0.96)"
+                  },
+                  "to": {
+                    "opacity": "1",
+                    "transform": "rotate(var(--stamp-rotate, -8deg)) scale(1)"
+                  }
+                }
+              },
+              "animation": {
+                "stamp": "stamp 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both"
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-stamp": "stamp 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both"
+        }
+      },
+      "css": {
+        "@keyframes stamp": {
+          "from": {
+            "opacity": "0",
+            "transform": "rotate(var(--stamp-rotate, -8deg)) scale(var(--stamp-from, 1.6))"
+          },
+          "70%": {
+            "opacity": "1",
+            "transform": "rotate(var(--stamp-rotate, -8deg)) scale(0.96)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "rotate(var(--stamp-rotate, -8deg)) scale(1)"
+          }
+        }
+      },
+      "categories": [
+        "motion"
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "alert",
       "title": "Alert",
       "description": "Callout for important messages on a neutral surface; default, success, warning and destructive tones colour the icon.",
@@ -1034,6 +1135,26 @@
       "type": "registry:ui"
     },
     {
+      "name": "segmented-control",
+      "title": "Segmented Control",
+      "description": "A switch between two or more options with one thumb that slides to the active one, in three sizes. Never empty.",
+      "dependencies": [
+        "@radix-ui/react-toggle-group",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@corsair-ui/utils",
+        "@corsair-ui/use-media-query"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/segmented-control.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "number-input",
       "title": "Number Input",
       "description": "Number field with decrement and increment buttons, min, max and step, following the spinbutton keyboard pattern.",
@@ -1245,6 +1366,63 @@
       "type": "registry:ui"
     },
     {
+      "name": "tilt-scroll",
+      "title": "Tilt Scroll",
+      "description": "Content that starts tilted back in perspective and straightens as you scroll, with CSS scroll-driven animations and no JavaScript.",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "@corsair-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/tilt-scroll.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "keyframes": {
+                "tilt-scroll": {
+                  "from": {
+                    "transform": "perspective(var(--tilt-scroll-perspective, 1200px)) rotateX(var(--tilt-scroll-angle, 20deg)) scale(var(--tilt-scroll-scale, 0.9))"
+                  },
+                  "to": {
+                    "transform": "perspective(var(--tilt-scroll-perspective, 1200px)) rotateX(0deg) scale(1)"
+                  }
+                }
+              },
+              "animation": {
+                "tilt-scroll": "tilt-scroll linear both"
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-tilt-scroll": "tilt-scroll linear both"
+        }
+      },
+      "css": {
+        "@keyframes tilt-scroll": {
+          "from": {
+            "transform": "perspective(var(--tilt-scroll-perspective, 1200px)) rotateX(var(--tilt-scroll-angle, 20deg)) scale(var(--tilt-scroll-scale, 0.9))"
+          },
+          "to": {
+            "transform": "perspective(var(--tilt-scroll-perspective, 1200px)) rotateX(0deg) scale(1)"
+          }
+        }
+      },
+      "categories": [
+        "motion"
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "spotlight",
       "title": "Spotlight",
       "description": "A soft light that follows the pointer across a surface and along its edge.",
@@ -1393,6 +1571,80 @@
           },
           "to": {
             "stroke-dashoffset": "0"
+          }
+        }
+      },
+      "categories": [
+        "creative"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "path-beam",
+      "title": "Path Beam",
+      "description": "A beam of light travelling along the paths of a flow diagram, one after another, on view, with the scroll or from your own progress.",
+      "registryDependencies": [
+        "@corsair-ui/utils",
+        "@corsair-ui/use-in-view",
+        "@corsair-ui/use-media-query"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/path-beam.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "keyframes": {
+                "path-beam": {
+                  "from": {
+                    "stroke-dashoffset": "var(--path-beam-length, 0.2)"
+                  },
+                  "to": {
+                    "stroke-dashoffset": "-1"
+                  }
+                },
+                "path-beam-progress": {
+                  "from": {
+                    "--path-beam-progress": "0"
+                  },
+                  "to": {
+                    "--path-beam-progress": "1"
+                  }
+                }
+              },
+              "animation": {
+                "path-beam": "path-beam 1.2s ease-in-out both",
+                "path-beam-progress": "path-beam-progress linear both"
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-path-beam": "path-beam 1.2s ease-in-out both",
+          "animate-path-beam-progress": "path-beam-progress linear both"
+        }
+      },
+      "css": {
+        "@keyframes path-beam": {
+          "from": {
+            "stroke-dashoffset": "var(--path-beam-length, 0.2)"
+          },
+          "to": {
+            "stroke-dashoffset": "-1"
+          }
+        },
+        "@keyframes path-beam-progress": {
+          "from": {
+            "--path-beam-progress": "0"
+          },
+          "to": {
+            "--path-beam-progress": "1"
           }
         }
       },
@@ -1769,6 +2021,80 @@
       "type": "registry:ui"
     },
     {
+      "name": "split-flap",
+      "title": "Split Flap",
+      "description": "A split-flap board: when the value changes, only the characters that changed flip, like a departure board.",
+      "registryDependencies": [
+        "@corsair-ui/utils",
+        "@corsair-ui/use-in-view",
+        "@corsair-ui/use-media-query"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/split-flap.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "keyframes": {
+                "split-flap-top": {
+                  "from": {
+                    "transform": "perspective(var(--split-flap-perspective, 400px)) rotateX(0deg)"
+                  },
+                  "to": {
+                    "transform": "perspective(var(--split-flap-perspective, 400px)) rotateX(-90deg)"
+                  }
+                },
+                "split-flap-bottom": {
+                  "from": {
+                    "transform": "perspective(var(--split-flap-perspective, 400px)) rotateX(90deg)"
+                  },
+                  "to": {
+                    "transform": "perspective(var(--split-flap-perspective, 400px)) rotateX(0deg)"
+                  }
+                }
+              },
+              "animation": {
+                "split-flap-top": "split-flap-top 150ms ease-in both",
+                "split-flap-bottom": "split-flap-bottom 150ms ease-out both"
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-split-flap-top": "split-flap-top 150ms ease-in both",
+          "animate-split-flap-bottom": "split-flap-bottom 150ms ease-out both"
+        }
+      },
+      "css": {
+        "@keyframes split-flap-top": {
+          "from": {
+            "transform": "perspective(var(--split-flap-perspective, 400px)) rotateX(0deg)"
+          },
+          "to": {
+            "transform": "perspective(var(--split-flap-perspective, 400px)) rotateX(-90deg)"
+          }
+        },
+        "@keyframes split-flap-bottom": {
+          "from": {
+            "transform": "perspective(var(--split-flap-perspective, 400px)) rotateX(90deg)"
+          },
+          "to": {
+            "transform": "perspective(var(--split-flap-perspective, 400px)) rotateX(0deg)"
+          }
+        }
+      },
+      "categories": [
+        "text"
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "dissolve-text",
       "title": "Dissolve Text",
       "description": "Words or characters surfacing at scattered moments, the same on server and client.",
@@ -2062,7 +2388,7 @@
     {
       "name": "qr-code",
       "title": "QR Code",
-      "description": "A crisp SVG QR code in dots, rounded or square modules. Renders on the server.",
+      "description": "A crisp SVG QR code in dots, rounded or square modules. Renders on the server, and can draw itself in.",
       "dependencies": [
         "qrcode@^1.5.4"
       ],
@@ -2070,14 +2396,55 @@
         "@types/qrcode@^1.5.6"
       ],
       "registryDependencies": [
-        "@corsair-ui/utils"
+        "@corsair-ui/utils",
+        "@corsair-ui/use-entrance"
       ],
       "files": [
         {
           "path": "registry/default/ui/qr-code.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/ui/qr-code-reveal.tsx",
+          "type": "registry:ui"
         }
       ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "keyframes": {
+                "qr-code-reveal": {
+                  "from": {
+                    "transform": "scale(0)"
+                  },
+                  "to": {
+                    "transform": "scale(1)"
+                  }
+                }
+              },
+              "animation": {
+                "qr-code-reveal": "qr-code-reveal 800ms cubic-bezier(0.16, 1, 0.3, 1) both"
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-qr-code-reveal": "qr-code-reveal 800ms cubic-bezier(0.16, 1, 0.3, 1) both"
+        }
+      },
+      "css": {
+        "@keyframes qr-code-reveal": {
+          "from": {
+            "transform": "scale(0)"
+          },
+          "to": {
+            "transform": "scale(1)"
+          }
+        }
+      },
       "type": "registry:ui"
     },
     {
@@ -2426,6 +2793,42 @@
       "type": "registry:ui"
     },
     {
+      "name": "phone-frame",
+      "title": "Phone Frame",
+      "description": "A generic phone drawn in CSS around a screenshot or any content, with an island, a notch or no cut-out, that scales with its width.",
+      "registryDependencies": [
+        "@corsair-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/phone-frame.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "creative"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "browser-frame",
+      "title": "Browser Frame",
+      "description": "A browser window drawn in CSS around a page or a screenshot, with window dots, an address field and optional actions.",
+      "registryDependencies": [
+        "@corsair-ui/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/browser-frame.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "creative"
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "youtube-embed",
       "title": "YouTube Embed",
       "description": "A YouTube video that costs one poster image until it is played, with player controls through its ref.",
@@ -2603,6 +3006,80 @@
           }
         }
       },
+      "categories": [
+        "motion"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "scroll-scene",
+      "title": "Scroll Scene",
+      "description": "A scrollytelling scene: a stage pinned beside steps, crossfading to the slide of the step on screen, with a 0 to 1 scroll progress variable for scrubbing.",
+      "registryDependencies": [
+        "@corsair-ui/utils",
+        "@corsair-ui/use-scroll-spy"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/scroll-scene.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "keyframes": {
+                "scroll-scene-progress": {
+                  "from": {
+                    "--scroll-scene-progress": "0"
+                  },
+                  "to": {
+                    "--scroll-scene-progress": "1"
+                  }
+                }
+              },
+              "animation": {
+                "scroll-scene-progress": "scroll-scene-progress linear both"
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "animate-scroll-scene-progress": "scroll-scene-progress linear both"
+        }
+      },
+      "css": {
+        "@keyframes scroll-scene-progress": {
+          "from": {
+            "--scroll-scene-progress": "0"
+          },
+          "to": {
+            "--scroll-scene-progress": "1"
+          }
+        }
+      },
+      "categories": [
+        "motion"
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "wipe-transition",
+      "title": "Wipe Transition",
+      "description": "Switches content behind a band that sweeps across it, swapping while covered, with a crossfade for phones and reduced motion.",
+      "registryDependencies": [
+        "@corsair-ui/utils",
+        "@corsair-ui/use-media-query"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/wipe-transition.tsx",
+          "type": "registry:ui"
+        }
+      ],
       "categories": [
         "motion"
       ],

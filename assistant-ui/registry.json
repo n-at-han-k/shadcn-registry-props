@@ -33,7 +33,7 @@
         }
       ],
       "dependencies": [
-        "tw-shimmer"
+        "tw-shimmer@^0.4.13"
       ],
       "css": {
         "@import \"tw-shimmer\"": {}
@@ -53,6 +53,19 @@
       ]
     },
     {
+      "name": "elements-href",
+      "type": "registry:component",
+      "title": "Elements Href",
+      "description": "Link safety for the elements family: reducing a model's or a tool's URL to a target a browser can follow without running script.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/href.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/href.ts"
+        }
+      ]
+    },
+    {
       "name": "elements-task",
       "type": "registry:component",
       "title": "Elements Task",
@@ -65,7 +78,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ]
     },
     {
@@ -301,7 +314,8 @@
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
-        "https://r.assistant-ui.com/elements-range.json"
+        "https://r.assistant-ui.com/elements-range.json",
+        "https://r.assistant-ui.com/use-copy-to-clipboard.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -357,6 +371,7 @@
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-href.json",
         "collapsible"
       ],
       "dependencies": [
@@ -376,10 +391,28 @@
         }
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/elements-surfaces.json"
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-href.json"
       ],
       "dependencies": [
         "@base-ui/react"
+      ]
+    },
+    {
+      "name": "elements-link-preview",
+      "type": "registry:component",
+      "title": "Link preview",
+      "description": "A returned URL unfurled into a card with enough context to decide whether to open it.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/link-preview.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/link-preview.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-href.json"
       ]
     },
     {
@@ -402,10 +435,32 @@
       ]
     },
     {
+      "name": "elements-image-gallery",
+      "type": "registry:component",
+      "title": "Image gallery",
+      "description": "A compact grid of returned images that opens each one in a shared lightbox.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/image-gallery.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/image-gallery.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-href.json",
+        "https://r.assistant-ui.com/elements-range.json",
+        "dialog"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
       "name": "elements-data-table",
       "type": "registry:component",
       "title": "Data table",
-      "description": "A small comparison table the model can answer with directly.",
+      "description": "A tool's rows and columns with formatting, sorting, and a card layout in narrow columns.",
       "files": [
         {
           "type": "registry:component",
@@ -414,7 +469,9 @@
         }
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/elements-surfaces.json"
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-href.json",
+        "https://r.assistant-ui.com/elements-range.json"
       ]
     },
     {
@@ -528,6 +585,43 @@
       ],
       "dependencies": [
         "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-option-list",
+      "type": "registry:component",
+      "title": "Option list",
+      "description": "The agent asks a question with a few answers; the pick returns to it and stays as a receipt.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/option-list.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/option-list.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-range.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-question-flow",
+      "type": "registry:component",
+      "title": "Question flow",
+      "description": "A few short questions asked one at a time, answered together and kept as a receipt.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/question-flow.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/question-flow.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-option-list.json"
       ]
     },
     {
@@ -697,7 +791,8 @@
         }
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/elements-surfaces.json"
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-range.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -835,6 +930,25 @@
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
         "https://r.assistant-ui.com/elements-range.json"
+      ]
+    },
+    {
+      "name": "elements-media-player",
+      "type": "registry:component",
+      "title": "Media player",
+      "description": "Audio and video a tool returned, played inline without leaving the thread.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/media-player.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/media-player.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "lucide-react"
       ]
     },
     {
@@ -1152,7 +1266,7 @@
         "https://r.assistant-ui.com/elements-surfaces.json"
       ],
       "dependencies": [
-        "heat-graph"
+        "heat-graph@^0.0.22"
       ]
     },
     {
@@ -1464,6 +1578,28 @@
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json"
+      ]
+    },
+    {
+      "name": "elements-geo-map",
+      "type": "registry:component",
+      "title": "Geo map",
+      "description": "Places and routes on a real tiled map, with an accessible list of every place.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/geo-map.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/geo-map.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json"
+      ],
+      "dependencies": [
+        "leaflet"
+      ],
+      "devDependencies": [
+        "@types/leaflet"
       ]
     },
     {
@@ -1888,7 +2024,7 @@
         "https://r.assistant-ui.com/thread.json"
       ],
       "dependencies": [
-        "@assistant-ui/ai-sdk"
+        "@assistant-ui/ai-sdk@^0.0.9"
       ],
       "meta": {
         "importSpecifier": "Assistant",
@@ -1911,7 +2047,7 @@
       "dependencies": [
         "ai",
         "@ai-sdk/openai",
-        "@assistant-ui/ai-sdk"
+        "@assistant-ui/ai-sdk@^0.0.9"
       ]
     },
     {
@@ -1942,8 +2078,8 @@
       "dependencies": [
         "ai",
         "@ai-sdk/openai",
-        "@assistant-ui/ai-sdk",
-        "assistant-stream",
+        "@assistant-ui/ai-sdk@^0.0.9",
+        "assistant-stream@^0.3.46",
         "next"
       ]
     },
@@ -1991,6 +2127,18 @@
         },
         {
           "type": "registry:file",
+          "path": "components/assistant-ui/elements/media-player.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/media-player.tsx",
+          "target": "components/assistant-ui/elements/media-player.tsx"
+        },
+        {
+          "type": "registry:file",
+          "path": "components/assistant-ui/elements/surfaces.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/surfaces.tsx",
+          "target": "components/assistant-ui/elements/surfaces.tsx"
+        },
+        {
+          "type": "registry:file",
           "path": "components/assistant-ui/elements/follow-up-suggestions.aui.tsx",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/follow-up-suggestions.aui.tsx",
           "target": "components/assistant-ui/elements/follow-up-suggestions.aui.tsx"
@@ -2000,6 +2148,12 @@
           "path": "components/assistant-ui/elements/image.tsx",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/image.tsx",
           "target": "components/assistant-ui/elements/image.tsx"
+        },
+        {
+          "type": "registry:file",
+          "path": "components/assistant-ui/utils/href.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/href.ts",
+          "target": "components/assistant-ui/utils/href.ts"
         },
         {
           "type": "registry:file",
@@ -2081,14 +2235,14 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/eve",
-        "@assistant-ui/react",
+        "@assistant-ui/eve@^0.0.20",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react",
         "zustand",
         "class-variance-authority",
-        "@assistant-ui/react-markdown",
+        "tw-shimmer@^0.4.13",
+        "@assistant-ui/react-markdown@^0.14.18",
         "remark-gfm",
-        "tw-shimmer",
         "radix-ui"
       ],
       "docs": "Eve installs registry files without touching CSS, so add the reasoning and collapsible styles to app/globals.css, and replace the default auth policy in agent/channels/eve.ts before deploying: https://www.assistant-ui.com/docs/runtimes/eve/quickstart",
@@ -2132,7 +2286,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2192,7 +2346,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2214,7 +2368,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-voice-conversation.json"
@@ -2233,7 +2387,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-task-card.json",
@@ -2255,7 +2409,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-agent-status.json",
@@ -2294,8 +2448,8 @@
         "https://r.assistant-ui.com/use-copy-to-clipboard.json"
       ],
       "dependencies": [
-        "@assistant-ui/react",
-        "@assistant-ui/react-markdown",
+        "@assistant-ui/react@^0.15.23",
+        "@assistant-ui/react-markdown@^0.14.18",
         "lucide-react",
         "remark-gfm"
       ]
@@ -2317,7 +2471,7 @@
         "https://r.assistant-ui.com/markdown-text.json"
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ]
     },
     {
@@ -2336,7 +2490,7 @@
         "https://r.assistant-ui.com/elements-conversation-map.json"
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ]
     },
     {
@@ -2357,7 +2511,7 @@
       "dependencies": [
         "lucide-react",
         "class-variance-authority",
-        "tw-shimmer"
+        "tw-shimmer@^0.4.13"
       ],
       "css": {
         "@import \"tw-shimmer\"": {},
@@ -2394,7 +2548,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ],
       "registryDependencies": [
         "tooltip"
@@ -2413,8 +2567,8 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
-        "@assistant-ui/ai-sdk"
+        "@assistant-ui/react@^0.15.23",
+        "@assistant-ui/ai-sdk@^0.0.9"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-context-display.json"
@@ -2438,7 +2592,7 @@
         "skeleton"
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react"
       ]
     },
@@ -2463,8 +2617,8 @@
         "input"
       ],
       "dependencies": [
-        "@assistant-ui/react-mcp",
-        "@assistant-ui/store",
+        "@assistant-ui/react-mcp@^0.1.20",
+        "@assistant-ui/store@^0.3.16",
         "lucide-react"
       ]
     },
@@ -2481,7 +2635,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "zustand"
       ]
     },
@@ -2505,7 +2659,7 @@
         "https://r.assistant-ui.com/use-attachment-src.json"
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react"
       ]
     },
@@ -2523,7 +2677,7 @@
       ],
       "registryDependencies": [],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ]
     },
     {
@@ -2559,8 +2713,8 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react-syntax-highlighter",
-        "@assistant-ui/react-markdown",
+        "@assistant-ui/react-syntax-highlighter@^0.14.6",
+        "@assistant-ui/react-markdown@^0.14.18",
         "react-syntax-highlighter",
         "@types/react-syntax-highlighter"
       ]
@@ -2578,7 +2732,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2600,7 +2754,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ],
       "registryDependencies": [
         "resizable",
@@ -2620,9 +2774,9 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react",
-        "tw-shimmer"
+        "tw-shimmer@^0.4.13"
       ],
       "registryDependencies": [
         "button",
@@ -2664,10 +2818,10 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react",
         "class-variance-authority",
-        "tw-shimmer"
+        "tw-shimmer@^0.4.13"
       ],
       "registryDependencies": [
         "collapsible"
@@ -2711,8 +2865,8 @@
       ],
       "dependencies": [
         "react-shiki",
-        "@assistant-ui/react",
-        "@assistant-ui/react-markdown"
+        "@assistant-ui/react@^0.15.23",
+        "@assistant-ui/react-markdown@^0.14.18"
       ]
     },
     {
@@ -2747,8 +2901,8 @@
         "https://r.assistant-ui.com/elements-mermaid-diagram.json"
       ],
       "dependencies": [
-        "@assistant-ui/react",
-        "@assistant-ui/react-markdown"
+        "@assistant-ui/react@^0.15.23",
+        "@assistant-ui/react-markdown@^0.14.18"
       ]
     },
     {
@@ -2783,8 +2937,12 @@
       "dependencies": [
         "diff",
         "parse-diff",
-        "@assistant-ui/react-markdown",
-        "class-variance-authority"
+        "@assistant-ui/react-markdown@^0.14.18",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/use-copy-to-clipboard.json"
       ]
     },
     {
@@ -2825,7 +2983,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react"
       ],
       "registryDependencies": []
@@ -2843,11 +3001,12 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/badge.json"
+        "https://r.assistant-ui.com/badge.json",
+        "https://r.assistant-ui.com/elements-href.json"
       ]
     },
     {
@@ -2863,17 +3022,19 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react",
         "class-variance-authority"
       ],
-      "registryDependencies": []
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-href.json"
+      ]
     },
     {
       "name": "file",
       "type": "registry:component",
       "title": "File",
-      "description": "Display file parts with icon, name, size, and a download button.",
+      "description": "Display file parts with icon, name, size, and a download button, playing audio and video inline.",
       "files": [
         {
           "type": "registry:component",
@@ -2882,9 +3043,12 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react",
         "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-media-player.json"
       ]
     },
     {
@@ -2900,7 +3064,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-model-selector.json"
@@ -3093,7 +3257,7 @@
         }
       ],
       "dependencies": [
-        "heat-graph"
+        "heat-graph@^0.0.22"
       ],
       "registryDependencies": []
     },
@@ -3110,7 +3274,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react",
+        "@assistant-ui/react@^0.15.23",
         "lucide-react"
       ],
       "registryDependencies": []
@@ -3128,7 +3292,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react"
+        "@assistant-ui/react@^0.15.23"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-directive-text.json"
@@ -3252,6 +3416,29 @@
           "font-size": "0.875rem",
           "font-variant-numeric": "tabular-nums"
         },
+        "[data-aui=\"fact-delta\"]": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "gap": "0.125rem",
+          "margin": "0 0 0 0.375rem",
+          "padding": "0.125rem 0.375rem",
+          "border-radius": "9999px",
+          "font-size": "0.6875rem",
+          "font-weight": "500",
+          "vertical-align": "middle"
+        },
+        "[data-aui=\"fact-delta\"][data-aui-tone=\"good\"]": {
+          "background-color": "color-mix(in oklab, var(--aui-success) 15%, transparent)",
+          "color": "var(--aui-success)"
+        },
+        "[data-aui=\"fact-delta\"][data-aui-tone=\"bad\"]": {
+          "background-color": "color-mix(in oklab, var(--destructive) 15%, transparent)",
+          "color": "var(--destructive)"
+        },
+        "[data-aui=\"fact-delta\"][data-aui-tone=\"neutral\"]": {
+          "background-color": "var(--secondary)",
+          "color": "var(--secondary-foreground)"
+        },
         "[data-aui=\"button\"], [data-aui=\"card-confirm\"], [data-aui=\"card-cancel\"]": {
           "display": "inline-flex",
           "align-items": "center",
@@ -3312,6 +3499,21 @@
         "[data-aui=\"button\"][data-aui-style=\"danger\"]:hover": {
           "background-color": "color-mix(in oklab, var(--destructive) 90%, transparent)"
         },
+        "[data-aui=\"button\"][data-aui-state=\"pending\"]": {
+          "background-color": "color-mix(in oklab, var(--secondary) 72%, transparent)",
+          "font-variant-numeric": "tabular-nums"
+        },
+        "[data-aui=\"button-undo-status\"]": {
+          "position": "absolute",
+          "width": "1px",
+          "height": "1px",
+          "padding": "0",
+          "margin": "-1px",
+          "overflow": "hidden",
+          "clip": "rect(0, 0, 0, 0)",
+          "white-space": "nowrap",
+          "border": "0"
+        },
         "[data-aui=\"button\"][data-aui-block]": {
           "width": "100%"
         },
@@ -3344,36 +3546,135 @@
           "outline": "2px solid var(--ring)",
           "outline-offset": "2px"
         },
+        "[data-aui=\"slider-field\"]": {
+          "display": "flex",
+          "flex-direction": "column",
+          "gap": "0.375rem"
+        },
+        "[data-aui=\"slider-label\"]": {
+          "font-size": "var(--aui-control-font-size, 0.875rem)",
+          "font-weight": "500"
+        },
+        "[data-aui=\"slider\"]": {
+          "width": "100%",
+          "height": "1.25rem",
+          "margin": "0",
+          "cursor": "pointer",
+          "accent-color": "var(--foreground)",
+          "appearance": "none",
+          "background-color": "transparent"
+        },
+        "[data-aui=\"slider\"]::-webkit-slider-runnable-track": {
+          "height": "0.25rem",
+          "border-radius": "9999px",
+          "background-color": "var(--foreground)"
+        },
+        "[data-aui=\"slider\"]::-moz-range-track": {
+          "height": "0.25rem",
+          "border-radius": "9999px",
+          "background-color": "var(--foreground)"
+        },
+        "[data-aui=\"slider\"]::-webkit-slider-thumb": {
+          "width": "1rem",
+          "height": "1rem",
+          "margin-top": "-0.375rem",
+          "border-radius": "9999px",
+          "appearance": "none",
+          "background-color": "var(--foreground)"
+        },
+        "[data-aui=\"slider\"]::-moz-range-thumb": {
+          "width": "1rem",
+          "height": "1rem",
+          "border": "0",
+          "border-radius": "9999px",
+          "background-color": "var(--foreground)"
+        },
+        "[data-aui=\"slider\"]:focus-visible": {
+          "outline": "2px solid var(--ring)",
+          "outline-offset": "2px"
+        },
+        "[data-aui=\"slider-value\"]": {
+          "font-size": "0.75rem",
+          "font-variant-numeric": "tabular-nums",
+          "color": "color-mix(in oklab, currentColor 62%, transparent)"
+        },
         "[data-aui=\"checkbox\"]": {
           "display": "inline-flex",
           "align-items": "center",
           "gap": "0.5rem",
           "cursor": "pointer"
         },
-        "[data-aui=\"radiogroup-option\"]": {
+        "[data-aui=\"radiogroup-option\"], [data-aui=\"checkboxgroup-option\"]": {
           "display": "flex",
-          "align-items": "center",
+          "align-items": "flex-start",
           "gap": "0.5rem",
           "cursor": "pointer"
         },
-        "[data-aui=\"checkbox\"] input, [data-aui=\"radiogroup-option\"] input": {
+        "[data-aui=\"option-content\"]": {
+          "display": "flex",
+          "flex-direction": "column"
+        },
+        "[data-aui=\"option-description\"]": {
+          "font-size": "0.75rem",
+          "line-height": "1.4",
+          "color": "color-mix(in oklab, currentColor 62%, transparent)"
+        },
+        "[data-aui=\"checkbox\"] input, [data-aui=\"radiogroup-option\"] input, [data-aui=\"checkboxgroup-option\"] input": {
           "accent-color": "var(--primary)",
           "width": "1rem",
           "height": "1rem",
           "margin": "0",
           "cursor": "pointer"
         },
-        "[data-aui=\"checkbox\"] input:focus-visible, [data-aui=\"radiogroup-option\"] input:focus-visible": {
+        "[data-aui=\"radiogroup-option\"] input, [data-aui=\"checkboxgroup-option\"] input": {
+          "margin-top": "0.125rem"
+        },
+        "[data-aui=\"checkbox\"][data-aui-variant=\"switch\"] input": {
+          "width": "2.25rem",
+          "height": "1.25rem",
+          "border": "0",
+          "border-radius": "9999px",
+          "appearance": "none",
+          "background-color": "color-mix(in oklab, var(--foreground) 30%, transparent)",
+          "transition": "background-color 0.15s ease"
+        },
+        "[data-aui=\"checkbox\"][data-aui-variant=\"switch\"] input::before": {
+          "content": "\"\"",
+          "display": "block",
+          "width": "1rem",
+          "height": "1rem",
+          "margin": "0.125rem",
+          "border-radius": "9999px",
+          "background-color": "var(--background)",
+          "transition": "transform 0.15s ease"
+        },
+        "[data-aui=\"checkbox\"][data-aui-variant=\"switch\"] input:checked": {
+          "background-color": "var(--foreground)"
+        },
+        "[data-aui=\"checkbox\"][data-aui-variant=\"switch\"] input:checked::before": {
+          "transform": "translateX(1rem)"
+        },
+        "[data-aui=\"checkbox\"] input:focus-visible, [data-aui=\"radiogroup-option\"] input:focus-visible, [data-aui=\"checkboxgroup-option\"] input:focus-visible": {
           "outline": "2px solid var(--ring)",
           "outline-offset": "2px"
         },
-        "[data-aui=\"radiogroup\"]": {
+        "[data-aui=\"radiogroup\"], [data-aui=\"checkboxgroup\"]": {
           "border": "none",
           "margin": "0",
           "padding": "0",
           "display": "flex",
           "flex-direction": "column",
           "gap": "0.25rem"
+        },
+        "fieldset[data-aui=\"answered\"]": {
+          "border": "0",
+          "margin": "0",
+          "padding": "0",
+          "min-inline-size": "0"
+        },
+        "fieldset[data-aui=\"answered\"] [data-aui=\"button\"], fieldset[data-aui=\"answered\"] [data-aui=\"card-confirm\"], fieldset[data-aui=\"answered\"] [data-aui=\"card-cancel\"], fieldset[data-aui=\"answered\"] [data-aui=\"select\"], fieldset[data-aui=\"answered\"] [data-aui=\"input\"], fieldset[data-aui=\"answered\"] [data-aui=\"datepicker\"], fieldset[data-aui=\"answered\"] [data-aui=\"checkbox\"], fieldset[data-aui=\"answered\"] [data-aui=\"radiogroup-option\"], fieldset[data-aui=\"answered\"] [data-aui=\"checkboxgroup-option\"]": {
+          "cursor": "not-allowed",
+          "opacity": "0.55"
         },
         "[data-aui=\"root\"]": {
           "display": "flex",
@@ -3561,6 +3862,30 @@
           "text-align": "left",
           "font-variant-numeric": "tabular-nums"
         },
+        "[data-aui=\"table-col\"][data-aui-align=\"end\"], [data-aui=\"table\"] td[data-aui-align=\"end\"]": {
+          "text-align": "end"
+        },
+        "[data-aui=\"table-sort\"]": {
+          "appearance": "none",
+          "padding": "0",
+          "border": "0",
+          "background-color": "transparent",
+          "color": "inherit",
+          "font-family": "inherit",
+          "font-size": "inherit",
+          "font-weight": "inherit",
+          "letter-spacing": "inherit",
+          "line-height": "inherit",
+          "text-align": "inherit",
+          "cursor": "pointer"
+        },
+        "[data-aui=\"table-sort-direction\"]": {
+          "margin": "0 0 0 0.25rem"
+        },
+        "[data-aui=\"table-sort\"]:focus-visible": {
+          "outline": "2px solid var(--ring)",
+          "outline-offset": "2px"
+        },
         "[data-aui=\"table\"] tbody tr:not(:last-child) td": {
           "border-bottom": "1px solid color-mix(in oklab, var(--border) 60%, transparent)"
         },
@@ -3572,6 +3897,10 @@
         },
         "[data-aui=\"chart\"] polyline, [data-aui=\"chart\"] polygon": {
           "stroke-width": "1.5"
+        },
+        "[data-aui=\"chart-zero\"]": {
+          "stroke": "var(--muted-foreground)",
+          "stroke-opacity": "0.5"
         },
         "[data-aui=\"chart\"][data-aui-color] [data-aui=\"chart-series\"]:only-child": {
           "color": "inherit"
@@ -3640,22 +3969,76 @@
           "width": "0.625rem",
           "height": "0.625rem",
           "border-radius": "calc(var(--radius) - 4px)",
-          "background-color": "currentColor"
+          "background-color": "var(--aui-series-color, currentColor)"
         },
-        "[data-aui=\"chart-series\"][data-aui-series=\"0\"], [data-aui=\"chart-legend-item\"][data-aui-series=\"0\"]": {
+        "[data-aui=\"chart-series\"][data-aui-series=\"0\"]": {
           "color": "var(--chart-1)"
         },
-        "[data-aui=\"chart-series\"][data-aui-series=\"1\"], [data-aui=\"chart-legend-item\"][data-aui-series=\"1\"]": {
+        "[data-aui=\"chart-series\"][data-aui-series=\"1\"]": {
           "color": "var(--chart-2)"
         },
-        "[data-aui=\"chart-series\"][data-aui-series=\"2\"], [data-aui=\"chart-legend-item\"][data-aui-series=\"2\"]": {
+        "[data-aui=\"chart-series\"][data-aui-series=\"2\"]": {
           "color": "var(--chart-3)"
         },
-        "[data-aui=\"chart-series\"][data-aui-series=\"3\"], [data-aui=\"chart-legend-item\"][data-aui-series=\"3\"]": {
+        "[data-aui=\"chart-series\"][data-aui-series=\"3\"]": {
           "color": "var(--chart-4)"
         },
-        "[data-aui=\"chart-series\"][data-aui-series=\"4\"], [data-aui=\"chart-legend-item\"][data-aui-series=\"4\"]": {
+        "[data-aui=\"chart-series\"][data-aui-series=\"4\"]": {
           "color": "var(--chart-5)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-series=\"0\"]": {
+          "--aui-series-color": "var(--chart-1)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-series=\"1\"]": {
+          "--aui-series-color": "var(--chart-2)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-series=\"2\"]": {
+          "--aui-series-color": "var(--chart-3)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-series=\"3\"]": {
+          "--aui-series-color": "var(--chart-4)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-series=\"4\"]": {
+          "--aui-series-color": "var(--chart-5)"
+        },
+        "[data-aui=\"chart-series\"][data-aui-color=\"emphasis\"]": {
+          "color": "var(--foreground)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-color=\"emphasis\"]": {
+          "--aui-series-color": "var(--foreground)"
+        },
+        "[data-aui=\"chart-series\"][data-aui-color=\"secondary\"]": {
+          "color": "color-mix(in oklab, var(--foreground) 62%, transparent)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-color=\"secondary\"]": {
+          "--aui-series-color": "color-mix(in oklab, var(--foreground) 62%, transparent)"
+        },
+        "[data-aui=\"chart-series\"][data-aui-color=\"alpha-70\"]": {
+          "color": "color-mix(in oklab, var(--foreground) 70%, transparent)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-color=\"alpha-70\"]": {
+          "--aui-series-color": "color-mix(in oklab, var(--foreground) 70%, transparent)"
+        },
+        "[data-aui=\"chart-series\"][data-aui-color=\"white\"]": {
+          "color": "white"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-color=\"white\"]": {
+          "--aui-series-color": "white"
+        },
+        "[data-aui=\"chart-series\"][data-aui-color=\"white-70\"]": {
+          "color": "color-mix(in oklab, white 70%, transparent)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-color=\"white-70\"]": {
+          "--aui-series-color": "color-mix(in oklab, white 70%, transparent)"
+        },
+        "[data-aui=\"chart-series\"][data-aui-color=\"white-50\"]": {
+          "color": "color-mix(in oklab, white 50%, transparent)"
+        },
+        "[data-aui=\"chart-legend-item\"][data-aui-color=\"white-50\"]": {
+          "--aui-series-color": "color-mix(in oklab, white 50%, transparent)"
+        },
+        "[data-aui=\"carousel-frame\"]": {
+          "min-width": "0"
         },
         "[data-aui=\"carousel\"]": {
           "display": "flex",
@@ -3675,9 +4058,46 @@
           "flex": "0 0 auto",
           "min-width": "14rem"
         },
+        "[data-aui=\"carousel-controls\"]": {
+          "display": "flex",
+          "justify-content": "flex-end",
+          "gap": "0.25rem",
+          "margin": "0.5rem 0 0"
+        },
+        "[data-aui=\"carousel-prev\"], [data-aui=\"carousel-next\"]": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "justify-content": "center",
+          "width": "2rem",
+          "height": "2rem",
+          "padding": "0",
+          "border": "0",
+          "border-radius": "calc(var(--radius) - 2px)",
+          "appearance": "none",
+          "background-color": "transparent",
+          "color": "inherit",
+          "cursor": "pointer"
+        },
+        "[data-aui=\"carousel-prev\"]:hover, [data-aui=\"carousel-next\"]:hover": {
+          "background-color": "var(--muted)"
+        },
+        "[data-aui=\"carousel-prev\"]:focus-visible, [data-aui=\"carousel-next\"]:focus-visible": {
+          "outline": "2px solid var(--ring)",
+          "outline-offset": "2px"
+        },
+        "[data-aui=\"carousel-prev\"]:disabled, [data-aui=\"carousel-next\"]:disabled": {
+          "opacity": "0.5",
+          "cursor": "default"
+        },
         "@media (prefers-reduced-motion: reduce)": {
           "[data-aui=\"carousel\"]": {
             "scroll-behavior": "auto"
+          },
+          "[data-aui=\"checkbox\"][data-aui-variant=\"switch\"] input, [data-aui=\"checkbox\"][data-aui-variant=\"switch\"] input::before": {
+            "transition": "none"
+          },
+          "[data-aui=\"button\"][data-aui-state=\"pending\"]": {
+            "transition": "none"
           }
         },
         "[data-aui=\"listview\"]": {
@@ -3863,7 +4283,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react-generative-ui",
+        "@assistant-ui/react-generative-ui@^0.0.22",
         "react-markdown",
         "remark-gfm"
       ],
