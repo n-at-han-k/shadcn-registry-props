@@ -196,6 +196,12 @@
           "--line": "rgba(42, 38, 34, 0.15)",
           "--line-strong": "rgba(42, 38, 34, 0.20)",
           "--line-control": "#8A7F6E",
+          "--ai-from": "#C49544",
+          "--ai-via": "#DE501B",
+          "--ai-to": "#536A99",
+          "--ai-text-from": "#714F07",
+          "--ai-text-via": "#9D3209",
+          "--ai-text-to": "#3D507A",
           "--shadow-xs": "0 1px 2px -1px rgba(42, 38, 34, 0.12), 0 0 0 1px rgba(42, 38, 34, 0.05)",
           "--shadow-sm": "0 2px 4px -1px rgba(42, 38, 34, 0.14), 0 1px 2px -1px rgba(42, 38, 34, 0.08)",
           "--shadow": "0 4px 8px -2px rgba(42, 38, 34, 0.16), 0 2px 4px -2px rgba(42, 38, 34, 0.10)",
@@ -398,6 +404,30 @@
           "--cl-line-control": "#858585",
           "--cd-line-control": "#757575",
           "--int-line-control": "#767663",
+          "--dk-ai-from": "#E2B764",
+          "--cl-ai-from": "#C49544",
+          "--cd-ai-from": "#E2B764",
+          "--int-ai-from": "#E0A340",
+          "--dk-ai-via": "#F57345",
+          "--cl-ai-via": "#DE501B",
+          "--cd-ai-via": "#F57345",
+          "--int-ai-via": "#C96F4C",
+          "--dk-ai-to": "#8AA2D2",
+          "--cl-ai-to": "#536A99",
+          "--cd-ai-to": "#8AA2D2",
+          "--int-ai-to": "#8B8FD8",
+          "--dk-ai-text-from": "#ECC883",
+          "--cl-ai-text-from": "#7C5814",
+          "--cd-ai-text-from": "#ECC883",
+          "--int-ai-text-from": "#E8BC72",
+          "--dk-ai-text-via": "#FF8B64",
+          "--cl-ai-text-via": "#9D3209",
+          "--cd-ai-text-via": "#FE8D67",
+          "--int-ai-text-via": "#E08A66",
+          "--dk-ai-text-to": "#A3B8E2",
+          "--cl-ai-text-to": "#3D507A",
+          "--cd-ai-text-to": "#A3B8E2",
+          "--int-ai-text-to": "#A6AAE3",
           "--dk-shadow-xs": "0 1px 2px -1px rgba(8, 5, 3, 0.40), 0 0 0 1px rgba(8, 5, 3, 0.18)",
           "--cl-shadow-xs": "0 1px 2px -1px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05)",
           "--cd-shadow-xs": "0 1px 2px -1px rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(255, 255, 255, 0.06)",
@@ -457,6 +487,12 @@
           "--line": "var(--dk-line)",
           "--line-strong": "var(--dk-line-strong)",
           "--line-control": "var(--dk-line-control)",
+          "--ai-from": "var(--dk-ai-from)",
+          "--ai-via": "var(--dk-ai-via)",
+          "--ai-to": "var(--dk-ai-to)",
+          "--ai-text-from": "var(--dk-ai-text-from)",
+          "--ai-text-via": "var(--dk-ai-text-via)",
+          "--ai-text-to": "var(--dk-ai-text-to)",
           "--shadow-xs": "var(--dk-shadow-xs)",
           "--shadow-sm": "var(--dk-shadow-sm)",
           "--shadow": "var(--dk-shadow)",
@@ -541,6 +577,12 @@
           "--line": "var(--cl-line)",
           "--line-strong": "var(--cl-line-strong)",
           "--line-control": "var(--cl-line-control)",
+          "--ai-from": "var(--cl-ai-from)",
+          "--ai-via": "var(--cl-ai-via)",
+          "--ai-to": "var(--cl-ai-to)",
+          "--ai-text-from": "var(--cl-ai-text-from)",
+          "--ai-text-via": "var(--cl-ai-text-via)",
+          "--ai-text-to": "var(--cl-ai-text-to)",
           "--shadow-xs": "var(--cl-shadow-xs)",
           "--shadow-sm": "var(--cl-shadow-sm)",
           "--shadow": "var(--cl-shadow)",
@@ -625,6 +667,12 @@
           "--line": "var(--cd-line)",
           "--line-strong": "var(--cd-line-strong)",
           "--line-control": "var(--cd-line-control)",
+          "--ai-from": "var(--cd-ai-from)",
+          "--ai-via": "var(--cd-ai-via)",
+          "--ai-to": "var(--cd-ai-to)",
+          "--ai-text-from": "var(--cd-ai-text-from)",
+          "--ai-text-via": "var(--cd-ai-text-via)",
+          "--ai-text-to": "var(--cd-ai-text-to)",
           "--shadow-xs": "var(--cd-shadow-xs)",
           "--shadow-sm": "var(--cd-shadow-sm)",
           "--shadow": "var(--cd-shadow)",
@@ -709,6 +757,12 @@
           "--line": "var(--int-line)",
           "--line-strong": "var(--int-line-strong)",
           "--line-control": "var(--int-line-control)",
+          "--ai-from": "var(--int-ai-from)",
+          "--ai-via": "var(--int-ai-via)",
+          "--ai-to": "var(--int-ai-to)",
+          "--ai-text-from": "var(--int-ai-text-from)",
+          "--ai-text-via": "var(--int-ai-text-via)",
+          "--ai-text-to": "var(--int-ai-text-to)",
           "--shadow-xs": "var(--int-shadow-xs)",
           "--shadow-sm": "var(--int-shadow-sm)",
           "--shadow": "var(--int-shadow)",
@@ -770,6 +824,74 @@
         "[data-accent=\"gold\"]": {
           "--accent-pigment": "var(--gold-deep)",
           "--accent-pigment-text": "var(--gold-text)"
+        },
+        "@utility ai-text": {
+          "background-image": "linear-gradient(115deg, var(--ai-text-from), var(--ai-text-via) 50%, var(--ai-text-to))",
+          "-webkit-background-clip": "text",
+          "background-clip": "text",
+          "color": "transparent"
+        },
+        "@utility ai-edge": {
+          "border": "1.5px solid transparent",
+          "background": "linear-gradient(var(--background), var(--background)) padding-box, linear-gradient(115deg, color-mix(in oklab, color-mix(in oklab, var(--ai-from) 55%, var(--ai-text-from)) 45%, var(--line-control)), color-mix(in oklab, var(--ai-via) 45%, var(--line-control)) 50%, color-mix(in oklab, var(--ai-to) 45%, var(--line-control))) border-box",
+          "&:focus-within, &[data-lit]": {
+            "background": "linear-gradient(var(--background), var(--background)) padding-box, linear-gradient(115deg, color-mix(in oklab, var(--ai-from) 55%, var(--ai-text-from)), var(--ai-via) 50%, var(--ai-to)) border-box"
+          }
+        },
+        "@utility ai-edge-working": {
+          "border": "1.5px solid transparent",
+          "background": "linear-gradient(var(--background), var(--background)) padding-box, linear-gradient(90deg, color-mix(in oklab, var(--ai-from) 55%, var(--ai-text-from)), var(--ai-via), var(--ai-to), var(--ai-via), color-mix(in oklab, var(--ai-from) 55%, var(--ai-text-from))) border-box",
+          "background-size": "100% 100%, 300% 100%",
+          "animation": "ai-sweep 2.4s linear infinite",
+          "@media (prefers-reduced-motion: reduce)": {
+            "animation": "none",
+            "background-size": "100% 100%, 100% 100%"
+          }
+        },
+        "@utility ai-wash": {
+          "background-image": "linear-gradient(180deg, color-mix(in oklab, var(--ai-from) 16%, transparent) 0%, color-mix(in oklab, var(--ai-via) 8%, transparent) 45%, transparent 100%)"
+        },
+        "@utility ai-glow": {
+          "background-image": "radial-gradient(60% 70% at 30% 40%, color-mix(in oklab, var(--ai-from) 18%, transparent), transparent 70%), radial-gradient(55% 65% at 75% 60%, color-mix(in oklab, var(--ai-to) 18%, transparent), transparent 70%)"
+        },
+        "@utility ai-line": {
+          "height": "2px",
+          "border-radius": "2px",
+          "background-image": "linear-gradient(90deg, var(--ai-from), var(--ai-via), var(--ai-to), var(--ai-via), var(--ai-from))",
+          "background-size": "300% 100%",
+          "animation": "ai-line 1.6s linear infinite",
+          "@media (prefers-reduced-motion: reduce)": {
+            "animation": "none",
+            "background-size": "100% 100%"
+          }
+        },
+        "@utility ai-shimmer": {
+          "background-image": "linear-gradient(90deg, var(--muted-foreground), var(--ai-text-via), var(--muted-foreground))",
+          "background-size": "200% 100%",
+          "-webkit-background-clip": "text",
+          "background-clip": "text",
+          "color": "transparent",
+          "animation": "ai-shimmer 2.2s linear infinite",
+          "@media (prefers-reduced-motion: reduce)": {
+            "animation": "none",
+            "color": "var(--muted-foreground)",
+            "background-image": "none"
+          }
+        },
+        "@keyframes ai-sweep": {
+          "to": {
+            "background-position": "0 0, -300% 0"
+          }
+        },
+        "@keyframes ai-line": {
+          "to": {
+            "background-position": "-300% 0"
+          }
+        },
+        "@keyframes ai-shimmer": {
+          "to": {
+            "background-position": "-200% 0"
+          }
         }
       },
       "docs": "Themes — set data-theme on <html>: unset (or data-theme=\"light\") → Dawn (default) · data-theme=\"dark\" → Dusk · data-theme=\"classic-light\" → Classic Light · data-theme=\"classic-dark\" → Classic Dark · data-theme=\"intelligent\" → Intelligent. 5 themes in total. Accents — set data-accent on <html>, independently of the theme: terracotta · moss (default) · indigo · gold. The accent drives links, eyebrows, focus rings and accent italics. The two axes are independent. Runtime contract — the theme-selector block owns both attributes: after hydration it reads localStorage (\"quill-theme\", \"quill-accent\") and stamps <html>. Prerendered markup is always Dawn + moss, so first paint matches the server. Charts — use the chart tokens (--chart-series-1..5, the sequential and diverging ramps), never raw pigments. Assign series colours in that fixed order and never reorder or cycle survivors when a filter drops one: the order keeps the palette distinguishable under all three dichromacies. Fonts — Raleway (body) and Fraunces (display) load through the theme file's @import; no next/font. Never load them again under another name: the theme matches literal names. Wiring — the CLI install merges the theme into your Tailwind stylesheet. A theme FILE must be imported from inside that stylesheet — `@import \"./quill-theme.css\"` after `@import \"tailwindcss\"` and below any `@custom-variant dark` line shadcn wrote (the last wins) — never from layout.tsx, where every Quill utility is dead. dark: utilities — stock primitives' dark: tweaks follow Quill's dark themes (and the .dark class) once the theme is wired; nothing to add by hand. Self-check — after changing UI, run `node scripts/quill-check.mjs` (install once: `npx shadcn@latest add @quill/check`) and clear every finding: stock colours, raw colours, bracket values where a token exists, retired names, dead classes. An exception: `// quill-check: allow <rule> — <why>` on the line above. Updating — re-run with --overwrite, not --yes: on a file you have changed, --yes prompts in a terminal and silently skips when non-interactive. Full machine-readable reference for agents: https://www.quilldesignsystem.com/llms.txt. Per-component usage guides at /usage/<name>.md."
@@ -778,7 +900,7 @@
       "name": "icon",
       "type": "registry:ui",
       "title": "Icon (Material Symbols)",
-      "description": "The Quill icon component — Material Symbols Outlined at weight 400, shipped as a self-contained core set of 91 names covering every icon the Quill blocks use.",
+      "description": "The Quill icon component — Material Symbols Outlined at weight 400, shipped as a self-contained core set of 93 names covering every icon the Quill blocks use.",
       "files": [
         {
           "path": "registry/lib/icon.tsx",
@@ -796,7 +918,7 @@
           "target": "components/ui/icons.core.d.mts"
         }
       ],
-      "docs": "The Quill icon component — Material Symbols Outlined at weight 400, shipped as a self-contained core set of 91 names covering every icon the Quill blocks use. Do: Pick a name from the core set the `icon` item ships (91 names): account_balance, add, add_circle, archive, arrow_back, arrow_downward, arrow_forward, arrow_upward, attach_file, attach_money, calendar_today, cancel, chat_bubble, check, check_box, check_box_outline_blank, check_circle, chevron_left, chevron_right, close, cloud_upload, content_copy, credit_card, dangerous, dark_mode, dashboard, delete, description, dock_to_left, download, draft, edit, error, favorite, filter_list, folder_open, format_align_center, format_align_left, format_align_right, format_bold, format_italic, format_underlined, forward, group, help, home, info, ink_pen, keyboard_arrow_down, keyboard_arrow_left, keyboard_arrow_right, keyboard_arrow_up, keyboard_command_key, language, light_mode, link, lock, login, logout, mail, menu, menu_book, more_horiz, more_vert, notifications, open_in_new, palette, person, person_add, photo_library, progress_activity, radio_button_checked, radio_button_unchecked, refresh, remove, reply, save, schedule, search, send, settings, share, sort, space_dashboard, star, star_shine, upload, visibility, visibility_off, wallet, warning. Don't: Use any other Material Symbol name in an app. The consumer `<Icon>` bundles only the core set, so an unknown name renders as an empty, size-reserved box (plus a console warning in development); the design-system site lazy-loads the whole library, so a name can look fine on quilldesignsystem.com and be blank in your app. Do: Size through the `size` prop — a pixel number, or leave the `1em` default so the glyph follows the surrounding text. Don't: Scale an icon with a `transform` or a width/height class — the reserved box stops matching the glyph and the layout shifts. Do: Leave an icon decorative (the default renders `aria-hidden`) when the text next to it already carries the meaning. Don't: Add an `aria-label` to an icon that sits beside its own label — screen readers then announce the meaning twice. Use button when the glyph is the whole control — use Button with an icon size (`icon`, `icon-sm`) and an `aria-label`; Icon on its own is never interactive. Use spinner when the glyph means \"loading\" — Spinner carries the motion and the status semantics an icon does not."
+      "docs": "The Quill icon component — Material Symbols Outlined at weight 400, shipped as a self-contained core set of 93 names covering every icon the Quill blocks use. Do: Pick a name from the core set the `icon` item ships (93 names): account_balance, add, add_circle, archive, arrow_back, arrow_downward, arrow_forward, arrow_upward, attach_file, attach_money, calendar_today, cancel, chat_bubble, check, check_box, check_box_outline_blank, check_circle, chevron_left, chevron_right, close, cloud_upload, content_copy, credit_card, dangerous, dark_mode, dashboard, delete, description, dock_to_left, download, draft, edit, error, favorite, filter_list, folder_open, format_align_center, format_align_left, format_align_right, format_bold, format_italic, format_underlined, forward, group, help, home, info, ink_pen, keyboard_arrow_down, keyboard_arrow_left, keyboard_arrow_right, keyboard_arrow_up, keyboard_command_key, language, light_mode, link, lock, login, logout, mail, menu, menu_book, mic, more_horiz, more_vert, notifications, open_in_new, palette, person, person_add, photo_library, progress_activity, radio_button_checked, radio_button_unchecked, refresh, remove, reply, save, schedule, search, send, settings, share, sort, space_dashboard, star, star_shine, stop, upload, visibility, visibility_off, wallet, warning. Don't: Use any other Material Symbol name in an app. The consumer `<Icon>` bundles only the core set, so an unknown name renders as an empty, size-reserved box (plus a console warning in development); the design-system site lazy-loads the whole library, so a name can look fine on quilldesignsystem.com and be blank in your app. Do: Size through the `size` prop — a pixel number, or leave the `1em` default so the glyph follows the surrounding text. Don't: Scale an icon with a `transform` or a width/height class — the reserved box stops matching the glyph and the layout shifts. Do: Leave an icon decorative (the default renders `aria-hidden`) when the text next to it already carries the meaning. Don't: Add an `aria-label` to an icon that sits beside its own label — screen readers then announce the meaning twice. Use button when the glyph is the whole control — use Button with an icon size (`icon`, `icon-sm`) and an `aria-label`; Icon on its own is never interactive. Use spinner when the glyph means \"loading\" — Spinner carries the motion and the status semantics an icon does not."
     },
     {
       "name": "tone-badge",
@@ -814,6 +936,77 @@
         }
       ],
       "docs": "Quill's uppercase tag pill for status, tiers, and labels — wraps Badge with the pigment vocabulary (moss/gold/terracotta/indigo/neutral/muted) baked in so tone never drifts per call site. Do: Leave `solid` false (the tinted default) for regular status/tier labels — it is the visually quieter option and still hits AA contrast per tone. Don't: Set `solid` on every ToneBadge in a view — solid is reserved for the one strong cue (a \"current\" marker, a live state) and loses its signal once everything is solid. Do: Render every uppercase tag pill through ToneBadge, even one-off labels. Don't: Hand-roll a `rounded-full … uppercase` span with ad hoc tone colors — it drifts from the AA-checked tint/solid pairs and the two-size scale. Do: Use ToneBadge's own size scale — `md` (20px) or `sm` (16px, the count-pill scale). Don't: Shrink a pill by hand-tightening its tracking or padding instead of passing `size=\"sm\"` — type stays `--text-2xs` at 0.1em tracking in both sizes. Use badge when the label is a generic chip outside Quill's tag-pill vocabulary — use Badge directly instead of forcing it through a tone."
+    },
+    {
+      "name": "ai-badge",
+      "type": "registry:ui",
+      "title": "AI badge",
+      "description": "A small outline pill with the AI sparkle that marks content an AI made or suggested — \"AI draft\", \"Suggested\".",
+      "registryDependencies": [
+        "badge",
+        "https://www.quilldesignsystem.com/r/ai-mark.json"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/ai-badge.tsx",
+          "target": "components/ui/ai-badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "A small outline pill with the AI sparkle that marks content an AI made or suggested — \"AI draft\", \"Suggested\". Do: Use the AI badge to say who made the content: \"AI draft\", \"Suggested\", \"Generated\". Don't: Use it as a status (\"Active\", \"New\") — status belongs to ToneBadge. Use tone-badge when the label is a status, tier or category rather than \"made by AI\". Use ai-mark when there is no room for words and the mark alone is enough."
+    },
+    {
+      "name": "ai-button",
+      "type": "registry:ui",
+      "title": "AI button",
+      "description": "A stock Quill button that runs an AI action, marked with the AI sparkle; the label stays plain ink.",
+      "registryDependencies": [
+        "button",
+        "https://www.quilldesignsystem.com/r/ai-mark.json"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/ai-button.tsx",
+          "target": "components/ui/ai-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "A stock Quill button that runs an AI action, marked with the AI sparkle; the label stays plain ink. Do: Let the sparkle carry the gradient and keep the label in the button's normal text colour. Don't: Fill the button or its label with the AI gradient — the gradient belongs on the mark, and a gradient fill competes with the page. Do: Use a plain Button for Accept, Replace and Use this, even inside an AI popover. Don't: Make the button that applies an AI suggestion an AiButton — acting on AI output is an ordinary decision. Use button when the action does not involve AI. Use prompt-composer when the person needs to type what they want rather than press one action."
+    },
+    {
+      "name": "ai-mark",
+      "type": "registry:ui",
+      "title": "AI mark",
+      "description": "Quill's AI sparkle — the one icon that means AI, drawn in the AI gradient with a one-star cut for 16px and under.",
+      "files": [
+        {
+          "path": "registry/lib/ai-mark.tsx",
+          "target": "components/ui/ai-mark.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Quill's AI sparkle — the one icon that means AI, drawn in the AI gradient with a one-star cut for 16px and under. Do: Use the AI mark only where the thing it sits on calls an AI or was made by one. Don't: Use the sparkle as decoration, a \"new\" marker or a rating star — once it appears on non-AI things it stops meaning AI. Do: Let the mark draw its own gradient at every size; pass `size`, never a colour. Don't: Recolour the mark with a text colour or a single pigment — the gradient is what makes it read as AI. Do: Pass `label` when the mark is the only thing that says \"AI\" (an icon-only button or avatar). Don't: Leave a standalone mark unlabelled — screen readers hear nothing. Use ai-badge when you are labelling a piece of content as AI-made; the badge carries the mark and the words. Use icon when the icon means anything other than AI — every other icon comes from the Material Symbols set."
+    },
+    {
+      "name": "prompt-composer",
+      "type": "registry:ui",
+      "title": "Prompt composer",
+      "description": "The box people type to an AI in — grows with the text, sends on Enter, turns Send into Stop while the AI works, with slots for tools, files and a model picker.",
+      "registryDependencies": [
+        "button",
+        "textarea",
+        "command",
+        "https://www.quilldesignsystem.com/r/icon.json",
+        "https://www.quilldesignsystem.com/r/ai-mark.json"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/prompt-composer.tsx",
+          "target": "components/ui/prompt-composer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "The box people type to an AI in — grows with the text, sends on Enter, turns Send into Stop while the AI works, with slots for tools, files and a model picker. Do: Let the composer draw its own AI edge: muted at rest, full on focus, sweeping while working. Don't: Wrap it in a thick glowing gradient ring or a second border — one thin line marks AI. Do: Keep Send and Stop solid ink in the same spot. Don't: Fill the Send button with the AI gradient — it competes with the edge and breaks the never-on-Send rule. Do: Use `lg` on an AI home page and `sm` in threads, side panels and inline bars. Don't: Put the large composer inside a narrow panel — use `sm`. Do: When you pass `value`, clear it yourself in `onSubmit` (set it to an empty string). Don't: Pass `value` and expect the composer to empty itself after sending — it only clears its own state when uncontrolled. Do: Show active AI tools (Analyze data, Web search) as chips with the mark, and attached files as neutral file chips. Don't: Put the AI mark on attached files — the files are the person's, not the AI's. Do: Mark AI commands in the / menu with the AI sparkle and leave ordinary app commands unmarked. Don't: Mark every command — the mark is how people tell which actions call the AI. Do: Set `status=\"working\"` while the AI answers and pass `onStop`. Don't: Disable the whole composer while the AI works — people should be able to stop it. Do: Use `variant=\"notebook\"` where the prompt is a piece of writing — a brief, a spec, a long instruction. Don't: Use the notebook for quick questions or a help widget — its ruled page reads as \"write at length\". Do: Give each mode its own icon (`icon`) — the AI mode uses `ai: true` for the mark — and use `showModes={false}` to hide the tabs where a page has only one mode. Don't: Remove the `modes` list just to hide the tabs; that also drops each mode's placeholder. Use ai-home when you need the whole AI start page around the composer, not just the box. Use chat when two people are messaging each other and no AI is involved. Use textarea when it is an ordinary form field whose text is saved, not sent to an AI."
     },
     {
       "name": "example-app-page",
@@ -900,6 +1093,21 @@
           "path": "registry/agent-rules/skills/quill-components/reference/activity-feed.md",
           "type": "registry:file",
           "target": "~/.claude/skills/quill-components/reference/activity-feed.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/ai-badge.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/ai-badge.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/ai-button.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/ai-button.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/ai-mark.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/ai-mark.md"
         },
         {
           "path": "registry/agent-rules/skills/quill-components/reference/alert.md",
@@ -995,6 +1203,11 @@
           "path": "registry/agent-rules/skills/quill-components/reference/chat.md",
           "type": "registry:file",
           "target": "~/.claude/skills/quill-components/reference/chat.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/ai-home.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/ai-home.md"
         },
         {
           "path": "registry/agent-rules/skills/quill-components/reference/checkbox.md",
@@ -1270,6 +1483,11 @@
           "path": "registry/agent-rules/skills/quill-components/reference/progress.md",
           "type": "registry:file",
           "target": "~/.claude/skills/quill-components/reference/progress.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/prompt-composer.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/prompt-composer.md"
         },
         {
           "path": "registry/agent-rules/skills/quill-components/reference/radio-group.md",
@@ -1657,6 +1875,34 @@
         "scheduling",
         "form"
       ]
+    },
+    {
+      "name": "ai-home",
+      "type": "registry:block",
+      "title": "AI home",
+      "description": "An AI assistant's start page — a soft AI glow, a greeting, the large composer with Ask/Agent modes, and starter cards.",
+      "meta": {
+        "intent": [
+          "ai"
+        ],
+        "use_when": "An app has a page whose main job is talking to its AI assistant, and people land on it with nothing typed yet.",
+        "not_for": "you only need the box, inside a page that is about something else → prompt-composer; two people are messaging; there is no AI → chat"
+      },
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "https://www.quilldesignsystem.com/r/prompt-composer.json",
+        "https://www.quilldesignsystem.com/r/ai-mark.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/ai-home.tsx",
+          "type": "registry:component",
+          "target": "components/quill/ai-home.tsx"
+        }
+      ],
+      "docs": "An AI assistant's start page — a soft AI glow, a greeting, the large composer with Ask/Agent modes, and starter cards. Do: Keep the AI glow to this one start page. Don't: Add the glow behind other sections or pages — it marks the AI home, and repeated it becomes decoration. Use prompt-composer when you only need the box, inside a page that is about something else. Use chat when two people are messaging; there is no AI."
     },
     {
       "name": "chat",

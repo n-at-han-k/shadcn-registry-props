@@ -34,12 +34,13 @@
       "name": "product-card",
       "title": "Product Card",
       "author": "ecomcn <hello@ecomcn.dev>",
-      "description": "Catalogue tile with badges, compare-at pricing, colour swatches that swap the image, rating and a keyboard-reachable quick-add. Compound: use it as one tag, or recompose it from ProductCardMedia, ProductCardBody and their parts via useProductCard().",
+      "description": "Catalogue tile with badges, compare-at pricing, colour swatches that swap the image, rating, a keyboard-reachable quick-add, and a wishlist heart under the badge (your shadcn Toggle, optimistic). Colours can be hidden for products that don't come in any. Compound: use it as one tag, or recompose it from ProductCardMedia, ProductCardBody and their parts via useProductCard().",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "button",
+        "toggle",
         "@ecomcn/price-tag"
       ],
       "files": [
@@ -332,6 +333,92 @@
         "product",
         "pdp",
         "variants"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "product-buy-box",
+      "title": "Product Buy Box",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "The buy box: brand, name, a rating that links to the reviews, the price (the variant's own when it has one), stock-aware variant swatches, a quantity stepper, and an add-to-bag button that carries the live total — \"Add to bag — $840\". Adding is optimistic and rolls back with an inline message if your handler rejects. A missing size is asked for, not greyed out; a sold-out pick becomes \"Notify me\". Delivery is a date range from business days and a dispatch cut-off, never \"ships soon\". Labels, price and notices morph with Motion (a fade under reduced motion). Compound: the selected variant lives in one context, read through useProductBuyBox().",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "@ecomcn/price-tag",
+        "@ecomcn/variant-swatches"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/product-buy-box/product-buy-box.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/product-buy-box.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "product",
+        "pdp",
+        "cart"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "review-summary",
+      "title": "Review Summary",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "The reviews section: the average set large, a star histogram whose rows are buttons that filter the list (and read out as \"5 stars, 226 reviews, 72%\"), a fit scale with its reading in words, and reviews with a Verified buyer badge. The active row's rule slides between rows, bars grow to their share, and the list grows to its measured height as it filters — Motion, a fade under reduced motion. Takes a page of reviews plus overall counts, and reports the filter so you can fetch server-side. Compound, through useReviewSummary().",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/review-summary/review-summary.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/review-summary.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "product",
+        "pdp",
+        "reviews"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "related-products",
+      "title": "Related Products",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "A \"pairs well with\" rail of the exact product card on your shadcn Carousel, with the Carousel's own previous / next buttons in the header and a progress rule under it in place of a scrollbar. Below the fold by nature, so nothing in it loads with the page: the cards and their images mount when the rail comes within a screen of the viewport, fading in over skeletons of exactly their shape (Motion). Compound, through useRelatedProducts().",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "carousel",
+        "skeleton",
+        "@ecomcn/product-card"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/related-products/related-products.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/related-products.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "product",
+        "pdp",
+        "merchandising"
       ],
       "type": "registry:block"
     },

@@ -1,0 +1,2609 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "facade-ui",
+  "homepage": "https://facadeui.dev",
+  "items": [
+    {
+      "name": "tokens",
+      "type": "registry:file",
+      "title": "Design tokens",
+      "description": "The design tokens Facade UI needs: shadcn colour names, plus --facade-* variables for heading sizes, section spacing and animation. The default colours are Tailwind's orange and stone. Import the file in your globals.css.",
+      "categories": [
+        "theme"
+      ],
+      "files": [
+        {
+          "path": "src/tokens/globals.css",
+          "type": "registry:file",
+          "target": "styles/facade-tokens.css"
+        }
+      ]
+    },
+    {
+      "name": "themes",
+      "type": "registry:file",
+      "title": "Theme presets",
+      "description": "Three more colour themes: neutral, warm and vivid. Apply one with the data-facade-theme attribute. The default orange theme is in the tokens file.",
+      "categories": [
+        "theme"
+      ],
+      "files": [
+        {
+          "path": "src/tokens/themes.css",
+          "type": "registry:file",
+          "target": "styles/facade-themes.css"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn",
+      "description": "A helper that merges class names, using clsx and tailwind-merge. It is the same as the one in shadcn/ui, so installing it changes nothing if you already have it.",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.7.0"
+      ],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "types",
+      "type": "registry:lib",
+      "title": "Shared types",
+      "description": "Types that every section uses: heading levels, image and link components you can replace, and call-to-action items.",
+      "files": [
+        {
+          "path": "src/lib/types.ts",
+          "type": "registry:lib",
+          "target": "lib/types.ts"
+        }
+      ]
+    },
+    {
+      "name": "motion-primitives",
+      "type": "registry:component",
+      "title": "Motion primitives",
+      "description": "Animation building blocks: FacadeMotionProvider, FadeIn, Reveal, Stagger and Collapse. They animate only opacity and transform, and follow the reduced-motion setting.",
+      "categories": [
+        "motion"
+      ],
+      "dependencies": [
+        "motion@^13.4.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "lib/motion.ts"
+        },
+        {
+          "path": "src/motion/facade-motion-provider.tsx",
+          "type": "registry:component",
+          "target": "components/motion/facade-motion-provider.tsx"
+        },
+        {
+          "path": "src/motion/fade-in.tsx",
+          "type": "registry:component",
+          "target": "components/motion/fade-in.tsx"
+        },
+        {
+          "path": "src/motion/reveal.tsx",
+          "type": "registry:component",
+          "target": "components/motion/reveal.tsx"
+        },
+        {
+          "path": "src/motion/stagger.tsx",
+          "type": "registry:component",
+          "target": "components/motion/stagger.tsx"
+        },
+        {
+          "path": "src/motion/collapse.tsx",
+          "type": "registry:component",
+          "target": "components/motion/collapse.tsx"
+        },
+        {
+          "path": "src/motion/slots.tsx",
+          "type": "registry:component",
+          "target": "components/motion/slots.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button built on Base UI, with Facade styles. Every size is at least 44 by 44 pixels.",
+      "categories": [
+        "atom"
+      ],
+      "dependencies": [
+        "@base-ui-components/react@1.0.0-rc.0",
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A small label for a status or category. You can add a prefix that only screen readers announce.",
+      "categories": [
+        "atom"
+      ],
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "heading",
+      "type": "registry:ui",
+      "title": "Heading",
+      "description": "Renders an h1 to h6 from a number, so you set the heading level and the visual size separately.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/types.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/heading.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/heading.tsx"
+        }
+      ]
+    },
+    {
+      "name": "eyebrow",
+      "type": "registry:ui",
+      "title": "Eyebrow",
+      "description": "The small label above a section heading. It is a paragraph, not a heading.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/eyebrow.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/eyebrow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "container",
+      "type": "registry:ui",
+      "title": "Container",
+      "description": "Sets the maximum width and side padding that every section uses. Both come from the container tokens.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/container.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/container.tsx"
+        }
+      ]
+    },
+    {
+      "name": "section",
+      "type": "registry:ui",
+      "title": "Section",
+      "description": "The outer wrapper of a section. It sets the element, the vertical spacing, and the link to the heading that names the section.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/section.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "section-header",
+      "type": "registry:ui",
+      "title": "Section header",
+      "description": "An eyebrow, a heading and a description. It also sets the heading id that a section uses for its accessible name.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/eyebrow.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/section-header.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/section-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-group",
+      "type": "registry:ui",
+      "title": "CTA group",
+      "description": "A row of call-to-action links styled as buttons. Because they are links, people can open them in a new tab.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/cta-group.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cta-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat",
+      "type": "registry:ui",
+      "title": "Stat",
+      "description": "One number with its label, as part of a description list. You can give a spoken form for abbreviated values.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/stat.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stat.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-mark",
+      "type": "registry:ui",
+      "title": "Logo mark",
+      "description": "One customer logo, with an optional link. Logos get the same visual height, and the company name is available to screen readers.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/logo-mark.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/logo-mark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-icon",
+      "type": "registry:ui",
+      "title": "Feature icon",
+      "description": "A tinted box that holds an icon. You pass an icon component, and it is hidden from screen readers.",
+      "categories": [
+        "atom"
+      ],
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/feature-icon.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/feature-icon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonial",
+      "type": "registry:ui",
+      "title": "Testimonial",
+      "description": "A quote with the name of the person who said it, and an optional star rating that screen readers announce as text.",
+      "categories": [
+        "atom"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/testimonial.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/testimonial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-tier",
+      "type": "registry:ui",
+      "title": "Pricing tier",
+      "description": "One pricing plan as a card. The price has a spoken form, a feature that is not included says so in words, and you can mark a plan as recommended.",
+      "categories": [
+        "atom"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/badge.json",
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/pricing-tier.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pricing-tier.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A text field built on Base UI's Field, which connects the label, help text and error message to the input. The border has a contrast of at least 3:1.",
+      "categories": [
+        "atom"
+      ],
+      "dependencies": [
+        "@base-ui-components/react@1.0.0-rc.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-top",
+      "type": "registry:block",
+      "title": "Top navigation",
+      "description": "A site header and navigation bar built from one list of links. Large screens get dropdown menus. Small screens get a drawer that keeps keyboard focus inside it.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "@base-ui-components/react@1.0.0-rc.0",
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/nav-top.tsx",
+          "type": "registry:component",
+          "target": "components/sections/nav-top.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-centered",
+      "type": "registry:block",
+      "title": "Hero — centred",
+      "description": "A centred landing page hero: eyebrow, headline, text and buttons, with optional media below.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/cta-group.json",
+        "https://facadeui.dev/r/eyebrow.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/hero-centered.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-centered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-centered-motion",
+      "type": "registry:block",
+      "title": "Hero — centred (motion)",
+      "description": "The centred hero, with its parts appearing one after another when the page loads.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/hero-centered.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/hero-centered-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-centered-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-split",
+      "type": "registry:block",
+      "title": "Hero — split",
+      "description": "A landing page hero with text on one side and media on the other. The text comes first in reading order on every screen size.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/cta-group.json",
+        "https://facadeui.dev/r/eyebrow.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/hero-split.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-split.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-split-motion",
+      "type": "registry:block",
+      "title": "Hero — split (motion)",
+      "description": "The split hero, with its parts appearing one after another when the page loads.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/hero-split.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/hero-split-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-split-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-with-media",
+      "type": "registry:block",
+      "title": "Hero — with media",
+      "description": "A landing page hero with centred text over a full-width background image, or above a framed screenshot. Over a background, a dark layer keeps the text readable.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/cta-group.json",
+        "https://facadeui.dev/r/eyebrow.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/hero-with-media.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-with-media.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-with-media-motion",
+      "type": "registry:block",
+      "title": "Hero — with media (motion)",
+      "description": "The media hero, with its parts appearing one after another when the page loads.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/hero-with-media.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/hero-with-media-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-with-media-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-cloud",
+      "type": "registry:block",
+      "title": "Logo cloud",
+      "description": "A \"trusted by\" row of customer logos. Company names are available as text, so screen readers announce a list of names, not unlabelled images.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/logo-mark.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/logo-cloud.tsx",
+          "type": "registry:component",
+          "target": "components/sections/logo-cloud.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-cloud-motion",
+      "type": "registry:block",
+      "title": "Logo cloud (motion)",
+      "description": "The logo cloud, with logos fading in one after another.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/logo-cloud.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/logo-cloud-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/logo-cloud-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "usp-list",
+      "type": "registry:block",
+      "title": "USP list",
+      "description": "Three or four short selling points or benefits, each with an icon and a line of text.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/feature-icon.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/usp-list.tsx",
+          "type": "registry:component",
+          "target": "components/sections/usp-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "usp-list-motion",
+      "type": "registry:block",
+      "title": "USP list (motion)",
+      "description": "The USP list, with items appearing one after another.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/motion-primitives.json",
+        "https://facadeui.dev/r/usp-list.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/usp-list-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/usp-list-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-grid",
+      "type": "registry:block",
+      "title": "Feature grid",
+      "description": "A features section: a grid of feature cards, two to four per row. A whole card can be a link while its accessible name stays short.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/feature-icon.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/feature-grid.tsx",
+          "type": "registry:component",
+          "target": "components/sections/feature-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-grid-motion",
+      "type": "registry:block",
+      "title": "Feature grid (motion)",
+      "description": "The feature grid, with cards appearing one after another.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/feature-grid.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/feature-grid-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/feature-grid-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-rows",
+      "type": "registry:block",
+      "title": "Feature rows",
+      "description": "Rows of media and text that alternate sides. Only the layout alternates: in reading order, the text always comes first.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/eyebrow.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/feature-rows.tsx",
+          "type": "registry:component",
+          "target": "components/sections/feature-rows.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-rows-motion",
+      "type": "registry:block",
+      "title": "Feature rows (motion)",
+      "description": "The feature rows, each appearing as you scroll to it.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/feature-rows.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/feature-rows-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/feature-rows-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:block",
+      "title": "Bento grid",
+      "description": "Feature tiles in mixed sizes. Tiles are placed in the order you give, so reading order matches what you see.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/feature-icon.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/bento-grid.tsx",
+          "type": "registry:component",
+          "target": "components/sections/bento-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid-motion",
+      "type": "registry:block",
+      "title": "Bento grid (motion)",
+      "description": "The bento grid, with tiles appearing one after another.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/bento-grid.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/bento-grid-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/bento-grid-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-accordion",
+      "type": "registry:block",
+      "title": "FAQ accordion",
+      "description": "A FAQ section: questions and answers built on Base UI's Accordion. Each question is a button inside a heading, browser search finds text in closed answers, and you can add FAQPage structured data.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "@base-ui-components/react@1.0.0-rc.0",
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/faq-accordion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/faq-accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-accordion-motion",
+      "type": "registry:block",
+      "title": "FAQ accordion (motion)",
+      "description": "The FAQ accordion, with rows appearing as you scroll to them. The open and close animation works without JavaScript.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/faq-accordion.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/faq-accordion-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/faq-accordion-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-band",
+      "type": "registry:block",
+      "title": "CTA band",
+      "description": "A closing call to action band. Choose a muted, card, plain or primary-coloured background.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/cta-group.json",
+        "https://facadeui.dev/r/eyebrow.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/cta-band.tsx",
+          "type": "registry:component",
+          "target": "components/sections/cta-band.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-band-motion",
+      "type": "registry:block",
+      "title": "CTA band (motion)",
+      "description": "The CTA band, appearing as you scroll to it.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/cta-band.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/cta-band-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/cta-band-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer",
+      "type": "registry:block",
+      "title": "Footer",
+      "description": "A site footer with link groups in columns, a brand area, social links and a legal line. Each link group is a separately named navigation landmark.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/footer.tsx",
+          "type": "registry:component",
+          "target": "components/sections/footer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats",
+      "type": "registry:block",
+      "title": "Stats",
+      "description": "A row of key numbers or metrics as a description list. You can give a spoken form for abbreviated values.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/stat.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/stats.tsx",
+          "type": "registry:component",
+          "target": "components/sections/stats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-motion",
+      "type": "registry:block",
+      "title": "Stats (motion)",
+      "description": "The stats, with numbers appearing one after another as you scroll to them.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/motion-primitives.json",
+        "https://facadeui.dev/r/stats.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/stats-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/stats-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-grid",
+      "type": "registry:block",
+      "title": "Testimonials grid",
+      "description": "A social proof section: a grid of customer quotes and reviews. It can use columns of uneven height and still be read in the order you give.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/testimonial.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/testimonials-grid.tsx",
+          "type": "registry:component",
+          "target": "components/sections/testimonials-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-grid-motion",
+      "type": "registry:block",
+      "title": "Testimonials grid (motion)",
+      "description": "The testimonials grid, with quotes appearing one after another as you scroll to it.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/motion-primitives.json",
+        "https://facadeui.dev/r/testimonials-grid.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/testimonials-grid-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/testimonials-grid-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-single",
+      "type": "registry:block",
+      "title": "Testimonial — single",
+      "description": "One large customer quote, with an optional portrait beside it or a tinted background.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/testimonial.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/testimonial-single.tsx",
+          "type": "registry:component",
+          "target": "components/sections/testimonial-single.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-tiers",
+      "type": "registry:block",
+      "title": "Pricing tiers",
+      "description": "A pricing table: plans as a row of cards. Each price has a spoken form, and a feature that is not included says so in words.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/pricing-tier.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/pricing-tiers.tsx",
+          "type": "registry:component",
+          "target": "components/sections/pricing-tiers.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-tiers-motion",
+      "type": "registry:block",
+      "title": "Pricing tiers (motion)",
+      "description": "The pricing tiers, with plans appearing one after another as you scroll to them.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/motion-primitives.json",
+        "https://facadeui.dev/r/pricing-tiers.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/pricing-tiers-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/pricing-tiers-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-comparison",
+      "type": "registry:block",
+      "title": "Pricing comparison",
+      "description": "A pricing comparison table with row and column headers. Each cell states its value in text, not only with a tick.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/badge.json",
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/pricing-comparison.tsx",
+          "type": "registry:component",
+          "target": "components/sections/pricing-comparison.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-list",
+      "type": "registry:block",
+      "title": "Card list",
+      "description": "A grid of linked cards for blog posts, changelog entries or case studies. Dates are marked up so that software can read them.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/badge.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/card-list.tsx",
+          "type": "registry:component",
+          "target": "components/sections/card-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-list-motion",
+      "type": "registry:block",
+      "title": "Card list (motion)",
+      "description": "The card list, with cards appearing one after another as you scroll to it.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/card-list.json",
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/card-list-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/card-list-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-tabs",
+      "type": "registry:block",
+      "title": "Feature tabs",
+      "description": "Features shown in tabs, built on Base UI. A tab opens when you press Enter, not when you move to it with the arrow keys.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "@base-ui-components/react@1.0.0-rc.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/feature-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/sections/feature-tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "registry:block",
+      "title": "Steps",
+      "description": "A \"how it works\" sequence as an ordered list, so the order is in the markup and not only in the visible numbers.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/feature-icon.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/steps.tsx",
+          "type": "registry:component",
+          "target": "components/sections/steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "steps-motion",
+      "type": "registry:block",
+      "title": "Steps (motion)",
+      "description": "The steps, appearing in order. Here the order of the animation matches the meaning.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/motion-primitives.json",
+        "https://facadeui.dev/r/steps.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/steps-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/steps-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "team",
+      "type": "registry:block",
+      "title": "Team",
+      "description": "An \"about us\" team section. Each social link names the person as well as the network.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/team.tsx",
+          "type": "registry:component",
+          "target": "components/sections/team.tsx"
+        }
+      ]
+    },
+    {
+      "name": "team-motion",
+      "type": "registry:block",
+      "title": "Team (motion)",
+      "description": "The team grid, with people appearing one after another as you scroll to it.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/motion-primitives.json",
+        "https://facadeui.dev/r/team.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/team-motion.tsx",
+          "type": "registry:component",
+          "target": "components/sections/team-motion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "newsletter",
+      "type": "registry:block",
+      "title": "Newsletter",
+      "description": "An email sign-up (newsletter subscribe) form. It announces the result to screen readers through a live region that is on the page from the start.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/input.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/newsletter.tsx",
+          "type": "registry:component",
+          "target": "components/sections/newsletter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:block",
+      "title": "Banner",
+      "description": "An announcement bar at the top of the page that people can dismiss. It is a named landmark, and it is announced to screen readers only if you turn that on.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/banner.tsx",
+          "type": "registry:component",
+          "target": "components/sections/banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-side",
+      "type": "registry:block",
+      "title": "Side navigation",
+      "description": "Side navigation for documentation, with collapsible groups and one named landmark. On small screens it becomes a drawer.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "@base-ui-components/react@1.0.0-rc.0",
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/nav-side.tsx",
+          "type": "registry:component",
+          "target": "components/sections/nav-side.tsx"
+        }
+      ]
+    },
+    {
+      "name": "saas-landing",
+      "type": "registry:block",
+      "title": "SaaS landing page",
+      "description": "A complete SaaS landing page built from Facade UI sections. You supply one content object.",
+      "categories": [
+        "template"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/cta-band.json",
+        "https://facadeui.dev/r/faq-accordion.json",
+        "https://facadeui.dev/r/feature-grid.json",
+        "https://facadeui.dev/r/feature-rows.json",
+        "https://facadeui.dev/r/footer.json",
+        "https://facadeui.dev/r/hero-split.json",
+        "https://facadeui.dev/r/logo-cloud.json",
+        "https://facadeui.dev/r/logo-mark.json",
+        "https://facadeui.dev/r/nav-top.json",
+        "https://facadeui.dev/r/pricing-tier.json",
+        "https://facadeui.dev/r/pricing-tiers.json",
+        "https://facadeui.dev/r/stat.json",
+        "https://facadeui.dev/r/stats.json",
+        "https://facadeui.dev/r/testimonial.json",
+        "https://facadeui.dev/r/testimonials-grid.json",
+        "https://facadeui.dev/r/types.json"
+      ],
+      "files": [
+        {
+          "path": "src/templates/saas-landing.tsx",
+          "type": "registry:component",
+          "target": "components/templates/saas-landing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agency",
+      "type": "registry:block",
+      "title": "Agency site",
+      "description": "An agency or studio website: a hero over an image, a grid of work, process steps, a featured quote and the team.",
+      "categories": [
+        "template"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/card-list.json",
+        "https://facadeui.dev/r/cta-band.json",
+        "https://facadeui.dev/r/footer.json",
+        "https://facadeui.dev/r/hero-with-media.json",
+        "https://facadeui.dev/r/logo-cloud.json",
+        "https://facadeui.dev/r/logo-mark.json",
+        "https://facadeui.dev/r/nav-top.json",
+        "https://facadeui.dev/r/stat.json",
+        "https://facadeui.dev/r/stats.json",
+        "https://facadeui.dev/r/steps.json",
+        "https://facadeui.dev/r/team.json",
+        "https://facadeui.dev/r/testimonial.json",
+        "https://facadeui.dev/r/testimonial-single.json",
+        "https://facadeui.dev/r/types.json"
+      ],
+      "files": [
+        {
+          "path": "src/templates/agency.tsx",
+          "type": "registry:component",
+          "target": "components/templates/agency.tsx"
+        }
+      ]
+    },
+    {
+      "name": "product-launch",
+      "type": "registry:block",
+      "title": "Product launch",
+      "description": "A product launch landing page: an announcement banner, a bento grid of highlights, details in tabs and an email sign-up.",
+      "categories": [
+        "template"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/banner.json",
+        "https://facadeui.dev/r/bento-grid.json",
+        "https://facadeui.dev/r/faq-accordion.json",
+        "https://facadeui.dev/r/feature-tabs.json",
+        "https://facadeui.dev/r/footer.json",
+        "https://facadeui.dev/r/hero-centered.json",
+        "https://facadeui.dev/r/nav-top.json",
+        "https://facadeui.dev/r/newsletter.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/usp-list.json"
+      ],
+      "files": [
+        {
+          "path": "src/templates/product-launch.tsx",
+          "type": "registry:component",
+          "target": "components/templates/product-launch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "examples-content",
+      "type": "registry:component",
+      "title": "Example content",
+      "description": "Sample content and placeholders shared by the Facade UI examples. Installed with any *-demo item.",
+      "categories": [
+        "example"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/bento-grid.json",
+        "https://facadeui.dev/r/faq-accordion.json",
+        "https://facadeui.dev/r/feature-grid.json",
+        "https://facadeui.dev/r/feature-rows.json",
+        "https://facadeui.dev/r/logo-mark.json",
+        "https://facadeui.dev/r/nav-top.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/usp-list.json"
+      ],
+      "files": [
+        {
+          "path": "content.tsx",
+          "type": "registry:component",
+          "target": "components/examples/content.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agency-demo",
+      "type": "registry:component",
+      "title": "Agency site example",
+      "description": "Usage example (demo) for Agency site: the code behind the preview on https://facadeui.dev/components/agency. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/agency.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "agency.tsx",
+          "type": "registry:component",
+          "target": "components/examples/agency-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge-demo",
+      "type": "registry:component",
+      "title": "Badge example",
+      "description": "Usage example (demo) for Badge: the code behind the preview on https://facadeui.dev/components/badge. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "badge.tsx",
+          "type": "registry:component",
+          "target": "components/examples/badge-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "banner-demo",
+      "type": "registry:component",
+      "title": "Banner example",
+      "description": "Usage example (demo) for Banner: the code behind the preview on https://facadeui.dev/components/banner. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/banner.json"
+      ],
+      "files": [
+        {
+          "path": "banner.tsx",
+          "type": "registry:component",
+          "target": "components/examples/banner-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid-motion-demo",
+      "type": "registry:component",
+      "title": "Bento grid (motion) example",
+      "description": "Usage example (demo) for Bento grid (motion): the code behind the preview on https://facadeui.dev/components/bento-grid-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/bento-grid-motion.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "bento-grid-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/bento-grid-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid-demo",
+      "type": "registry:component",
+      "title": "Bento grid example",
+      "description": "Usage example (demo) for Bento grid: the code behind the preview on https://facadeui.dev/components/bento-grid. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/bento-grid.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "bento-grid.tsx",
+          "type": "registry:component",
+          "target": "components/examples/bento-grid-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-demo",
+      "type": "registry:component",
+      "title": "Button example",
+      "description": "Usage example (demo) for Button: the code behind the preview on https://facadeui.dev/components/button. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "button.tsx",
+          "type": "registry:component",
+          "target": "components/examples/button-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-list-motion-demo",
+      "type": "registry:component",
+      "title": "Card list (motion) example",
+      "description": "Usage example (demo) for Card list (motion): the code behind the preview on https://facadeui.dev/components/card-list-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/card-list-motion.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "card-list-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/card-list-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-list-demo",
+      "type": "registry:component",
+      "title": "Card list example",
+      "description": "Usage example (demo) for Card list: the code behind the preview on https://facadeui.dev/components/card-list. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/card-list.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "card-list.tsx",
+          "type": "registry:component",
+          "target": "components/examples/card-list-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "container-demo",
+      "type": "registry:component",
+      "title": "Container example",
+      "description": "Usage example (demo) for Container: the code behind the preview on https://facadeui.dev/components/container. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json"
+      ],
+      "files": [
+        {
+          "path": "container.tsx",
+          "type": "registry:component",
+          "target": "components/examples/container-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-band-motion-demo",
+      "type": "registry:component",
+      "title": "CTA band (motion) example",
+      "description": "Usage example (demo) for CTA band (motion): the code behind the preview on https://facadeui.dev/components/cta-band-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/cta-band-motion.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "cta-band-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/cta-band-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-band-demo",
+      "type": "registry:component",
+      "title": "CTA band example",
+      "description": "Usage example (demo) for CTA band: the code behind the preview on https://facadeui.dev/components/cta-band. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/cta-band.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "cta-band.tsx",
+          "type": "registry:component",
+          "target": "components/examples/cta-band-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-group-demo",
+      "type": "registry:component",
+      "title": "CTA group example",
+      "description": "Usage example (demo) for CTA group: the code behind the preview on https://facadeui.dev/components/cta-group. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/cta-group.json"
+      ],
+      "files": [
+        {
+          "path": "cta-group.tsx",
+          "type": "registry:component",
+          "target": "components/examples/cta-group-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "eyebrow-demo",
+      "type": "registry:component",
+      "title": "Eyebrow example",
+      "description": "Usage example (demo) for Eyebrow: the code behind the preview on https://facadeui.dev/components/eyebrow. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/eyebrow.json",
+        "https://facadeui.dev/r/heading.json"
+      ],
+      "files": [
+        {
+          "path": "eyebrow.tsx",
+          "type": "registry:component",
+          "target": "components/examples/eyebrow-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-accordion-motion-demo",
+      "type": "registry:component",
+      "title": "FAQ accordion (motion) example",
+      "description": "Usage example (demo) for FAQ accordion (motion): the code behind the preview on https://facadeui.dev/components/faq-accordion-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/faq-accordion-motion.json"
+      ],
+      "files": [
+        {
+          "path": "faq-accordion-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/faq-accordion-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-accordion-demo",
+      "type": "registry:component",
+      "title": "FAQ accordion example",
+      "description": "Usage example (demo) for FAQ accordion: the code behind the preview on https://facadeui.dev/components/faq-accordion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/faq-accordion.json"
+      ],
+      "files": [
+        {
+          "path": "faq-accordion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/faq-accordion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-grid-motion-demo",
+      "type": "registry:component",
+      "title": "Feature grid (motion) example",
+      "description": "Usage example (demo) for Feature grid (motion): the code behind the preview on https://facadeui.dev/components/feature-grid-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/feature-grid-motion.json"
+      ],
+      "files": [
+        {
+          "path": "feature-grid-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/feature-grid-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-grid-demo",
+      "type": "registry:component",
+      "title": "Feature grid example",
+      "description": "Usage example (demo) for Feature grid: the code behind the preview on https://facadeui.dev/components/feature-grid. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/feature-grid.json"
+      ],
+      "files": [
+        {
+          "path": "feature-grid.tsx",
+          "type": "registry:component",
+          "target": "components/examples/feature-grid-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-icon-demo",
+      "type": "registry:component",
+      "title": "Feature icon example",
+      "description": "Usage example (demo) for Feature icon: the code behind the preview on https://facadeui.dev/components/feature-icon. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "dependencies": [
+        "lucide-react@^1.47.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/feature-icon.json"
+      ],
+      "files": [
+        {
+          "path": "feature-icon.tsx",
+          "type": "registry:component",
+          "target": "components/examples/feature-icon-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-rows-motion-demo",
+      "type": "registry:component",
+      "title": "Feature rows (motion) example",
+      "description": "Usage example (demo) for Feature rows (motion): the code behind the preview on https://facadeui.dev/components/feature-rows-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/feature-rows-motion.json"
+      ],
+      "files": [
+        {
+          "path": "feature-rows-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/feature-rows-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-rows-demo",
+      "type": "registry:component",
+      "title": "Feature rows example",
+      "description": "Usage example (demo) for Feature rows: the code behind the preview on https://facadeui.dev/components/feature-rows. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/feature-rows.json"
+      ],
+      "files": [
+        {
+          "path": "feature-rows.tsx",
+          "type": "registry:component",
+          "target": "components/examples/feature-rows-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-tabs-demo",
+      "type": "registry:component",
+      "title": "Feature tabs example",
+      "description": "Usage example (demo) for Feature tabs: the code behind the preview on https://facadeui.dev/components/feature-tabs. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/feature-tabs.json"
+      ],
+      "files": [
+        {
+          "path": "feature-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/examples/feature-tabs-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-demo",
+      "type": "registry:component",
+      "title": "Footer example",
+      "description": "Usage example (demo) for Footer: the code behind the preview on https://facadeui.dev/components/footer. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/footer.json"
+      ],
+      "files": [
+        {
+          "path": "footer.tsx",
+          "type": "registry:component",
+          "target": "components/examples/footer-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "heading-demo",
+      "type": "registry:component",
+      "title": "Heading example",
+      "description": "Usage example (demo) for Heading: the code behind the preview on https://facadeui.dev/components/heading. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/heading.json"
+      ],
+      "files": [
+        {
+          "path": "heading.tsx",
+          "type": "registry:component",
+          "target": "components/examples/heading-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-centered-motion-demo",
+      "type": "registry:component",
+      "title": "Hero — centred (motion) example",
+      "description": "Usage example (demo) for Hero — centred (motion): the code behind the preview on https://facadeui.dev/components/hero-centered-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/badge.json",
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/hero-centered-motion.json"
+      ],
+      "files": [
+        {
+          "path": "hero-centered-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/hero-centered-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-centered-demo",
+      "type": "registry:component",
+      "title": "Hero — centred example",
+      "description": "Usage example (demo) for Hero — centred: the code behind the preview on https://facadeui.dev/components/hero-centered. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/badge.json",
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/hero-centered.json"
+      ],
+      "files": [
+        {
+          "path": "hero-centered.tsx",
+          "type": "registry:component",
+          "target": "components/examples/hero-centered-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-split-motion-demo",
+      "type": "registry:component",
+      "title": "Hero — split (motion) example",
+      "description": "Usage example (demo) for Hero — split (motion): the code behind the preview on https://facadeui.dev/components/hero-split-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/hero-split-motion.json"
+      ],
+      "files": [
+        {
+          "path": "hero-split-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/hero-split-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-split-demo",
+      "type": "registry:component",
+      "title": "Hero — split example",
+      "description": "Usage example (demo) for Hero — split: the code behind the preview on https://facadeui.dev/components/hero-split. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/hero-split.json"
+      ],
+      "files": [
+        {
+          "path": "hero-split.tsx",
+          "type": "registry:component",
+          "target": "components/examples/hero-split-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-with-media-motion-demo",
+      "type": "registry:component",
+      "title": "Hero — with media (motion) example",
+      "description": "Usage example (demo) for Hero — with media (motion): the code behind the preview on https://facadeui.dev/components/hero-with-media-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/hero-with-media-motion.json"
+      ],
+      "files": [
+        {
+          "path": "hero-with-media-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/hero-with-media-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero-with-media-demo",
+      "type": "registry:component",
+      "title": "Hero — with media example",
+      "description": "Usage example (demo) for Hero — with media: the code behind the preview on https://facadeui.dev/components/hero-with-media. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/hero-with-media.json"
+      ],
+      "files": [
+        {
+          "path": "hero-with-media.tsx",
+          "type": "registry:component",
+          "target": "components/examples/hero-with-media-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-cloud-motion-demo",
+      "type": "registry:component",
+      "title": "Logo cloud (motion) example",
+      "description": "Usage example (demo) for Logo cloud (motion): the code behind the preview on https://facadeui.dev/components/logo-cloud-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/logo-cloud-motion.json"
+      ],
+      "files": [
+        {
+          "path": "logo-cloud-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/logo-cloud-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-cloud-demo",
+      "type": "registry:component",
+      "title": "Logo cloud example",
+      "description": "Usage example (demo) for Logo cloud: the code behind the preview on https://facadeui.dev/components/logo-cloud. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/logo-cloud.json"
+      ],
+      "files": [
+        {
+          "path": "logo-cloud.tsx",
+          "type": "registry:component",
+          "target": "components/examples/logo-cloud-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-mark-demo",
+      "type": "registry:component",
+      "title": "Logo mark example",
+      "description": "Usage example (demo) for Logo mark: the code behind the preview on https://facadeui.dev/components/logo-mark. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/logo-mark.json"
+      ],
+      "files": [
+        {
+          "path": "logo-mark.tsx",
+          "type": "registry:component",
+          "target": "components/examples/logo-mark-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "motion-primitives-demo",
+      "type": "registry:component",
+      "title": "Motion primitives example",
+      "description": "Usage example (demo) for Motion primitives: the code behind the preview on https://facadeui.dev/components/motion-primitives. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/motion-primitives.json"
+      ],
+      "files": [
+        {
+          "path": "motion-primitives.tsx",
+          "type": "registry:component",
+          "target": "components/examples/motion-primitives-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-side-demo",
+      "type": "registry:component",
+      "title": "Side navigation example",
+      "description": "Usage example (demo) for Side navigation: the code behind the preview on https://facadeui.dev/components/nav-side. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/nav-side.json"
+      ],
+      "files": [
+        {
+          "path": "nav-side.tsx",
+          "type": "registry:component",
+          "target": "components/examples/nav-side-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "nav-top-demo",
+      "type": "registry:component",
+      "title": "Top navigation example",
+      "description": "Usage example (demo) for Top navigation: the code behind the preview on https://facadeui.dev/components/nav-top. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/nav-top.json"
+      ],
+      "files": [
+        {
+          "path": "nav-top.tsx",
+          "type": "registry:component",
+          "target": "components/examples/nav-top-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "newsletter-demo",
+      "type": "registry:component",
+      "title": "Newsletter example",
+      "description": "Usage example (demo) for Newsletter: the code behind the preview on https://facadeui.dev/components/newsletter. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/newsletter.json"
+      ],
+      "files": [
+        {
+          "path": "newsletter.tsx",
+          "type": "registry:component",
+          "target": "components/examples/newsletter-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-comparison-demo",
+      "type": "registry:component",
+      "title": "Pricing comparison example",
+      "description": "Usage example (demo) for Pricing comparison: the code behind the preview on https://facadeui.dev/components/pricing-comparison. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/pricing-comparison.json"
+      ],
+      "files": [
+        {
+          "path": "pricing-comparison.tsx",
+          "type": "registry:component",
+          "target": "components/examples/pricing-comparison-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-tier-demo",
+      "type": "registry:component",
+      "title": "Pricing tier example",
+      "description": "Usage example (demo) for Pricing tier: the code behind the preview on https://facadeui.dev/components/pricing-tier. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/pricing-tier.json"
+      ],
+      "files": [
+        {
+          "path": "pricing-tier.tsx",
+          "type": "registry:component",
+          "target": "components/examples/pricing-tier-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-tiers-motion-demo",
+      "type": "registry:component",
+      "title": "Pricing tiers (motion) example",
+      "description": "Usage example (demo) for Pricing tiers (motion): the code behind the preview on https://facadeui.dev/components/pricing-tiers-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/pricing-tiers-motion.json"
+      ],
+      "files": [
+        {
+          "path": "pricing-tiers-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/pricing-tiers-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-tiers-demo",
+      "type": "registry:component",
+      "title": "Pricing tiers example",
+      "description": "Usage example (demo) for Pricing tiers: the code behind the preview on https://facadeui.dev/components/pricing-tiers. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/pricing-tiers.json"
+      ],
+      "files": [
+        {
+          "path": "pricing-tiers.tsx",
+          "type": "registry:component",
+          "target": "components/examples/pricing-tiers-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "product-launch-demo",
+      "type": "registry:component",
+      "title": "Product launch example",
+      "description": "Usage example (demo) for Product launch: the code behind the preview on https://facadeui.dev/components/product-launch. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/newsletter.json",
+        "https://facadeui.dev/r/product-launch.json"
+      ],
+      "files": [
+        {
+          "path": "product-launch.tsx",
+          "type": "registry:component",
+          "target": "components/examples/product-launch-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "saas-landing-demo",
+      "type": "registry:component",
+      "title": "SaaS landing page example",
+      "description": "Usage example (demo) for SaaS landing page: the code behind the preview on https://facadeui.dev/components/saas-landing. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/saas-landing.json"
+      ],
+      "files": [
+        {
+          "path": "saas-landing.tsx",
+          "type": "registry:component",
+          "target": "components/examples/saas-landing-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "section-header-demo",
+      "type": "registry:component",
+      "title": "Section header example",
+      "description": "Usage example (demo) for Section header: the code behind the preview on https://facadeui.dev/components/section-header. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/section-header.json"
+      ],
+      "files": [
+        {
+          "path": "section-header.tsx",
+          "type": "registry:component",
+          "target": "components/examples/section-header-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "section-demo",
+      "type": "registry:component",
+      "title": "Section example",
+      "description": "Usage example (demo) for Section: the code behind the preview on https://facadeui.dev/components/section. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json"
+      ],
+      "files": [
+        {
+          "path": "section.tsx",
+          "type": "registry:component",
+          "target": "components/examples/section-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat-demo",
+      "type": "registry:component",
+      "title": "Stat example",
+      "description": "Usage example (demo) for Stat: the code behind the preview on https://facadeui.dev/components/stat. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/stat.json"
+      ],
+      "files": [
+        {
+          "path": "stat.tsx",
+          "type": "registry:component",
+          "target": "components/examples/stat-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-motion-demo",
+      "type": "registry:component",
+      "title": "Stats (motion) example",
+      "description": "Usage example (demo) for Stats (motion): the code behind the preview on https://facadeui.dev/components/stats-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/stats-motion.json"
+      ],
+      "files": [
+        {
+          "path": "stats-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/stats-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-demo",
+      "type": "registry:component",
+      "title": "Stats example",
+      "description": "Usage example (demo) for Stats: the code behind the preview on https://facadeui.dev/components/stats. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/stats.json"
+      ],
+      "files": [
+        {
+          "path": "stats.tsx",
+          "type": "registry:component",
+          "target": "components/examples/stats-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "steps-motion-demo",
+      "type": "registry:component",
+      "title": "Steps (motion) example",
+      "description": "Usage example (demo) for Steps (motion): the code behind the preview on https://facadeui.dev/components/steps-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/steps-motion.json"
+      ],
+      "files": [
+        {
+          "path": "steps-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/steps-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "steps-demo",
+      "type": "registry:component",
+      "title": "Steps example",
+      "description": "Usage example (demo) for Steps: the code behind the preview on https://facadeui.dev/components/steps. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/steps.json"
+      ],
+      "files": [
+        {
+          "path": "steps.tsx",
+          "type": "registry:component",
+          "target": "components/examples/steps-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "team-motion-demo",
+      "type": "registry:component",
+      "title": "Team (motion) example",
+      "description": "Usage example (demo) for Team (motion): the code behind the preview on https://facadeui.dev/components/team-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/team-motion.json"
+      ],
+      "files": [
+        {
+          "path": "team-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/team-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "team-demo",
+      "type": "registry:component",
+      "title": "Team example",
+      "description": "Usage example (demo) for Team: the code behind the preview on https://facadeui.dev/components/team. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/team.json"
+      ],
+      "files": [
+        {
+          "path": "team.tsx",
+          "type": "registry:component",
+          "target": "components/examples/team-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-single-demo",
+      "type": "registry:component",
+      "title": "Testimonial — single example",
+      "description": "Usage example (demo) for Testimonial — single: the code behind the preview on https://facadeui.dev/components/testimonial-single. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/testimonial-single.json"
+      ],
+      "files": [
+        {
+          "path": "testimonial-single.tsx",
+          "type": "registry:component",
+          "target": "components/examples/testimonial-single-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-demo",
+      "type": "registry:component",
+      "title": "Testimonial example",
+      "description": "Usage example (demo) for Testimonial: the code behind the preview on https://facadeui.dev/components/testimonial. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/testimonial.json"
+      ],
+      "files": [
+        {
+          "path": "testimonial.tsx",
+          "type": "registry:component",
+          "target": "components/examples/testimonial-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-grid-motion-demo",
+      "type": "registry:component",
+      "title": "Testimonials grid (motion) example",
+      "description": "Usage example (demo) for Testimonials grid (motion): the code behind the preview on https://facadeui.dev/components/testimonials-grid-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/testimonials-grid-motion.json"
+      ],
+      "files": [
+        {
+          "path": "testimonials-grid-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/testimonials-grid-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "testimonials-grid-demo",
+      "type": "registry:component",
+      "title": "Testimonials grid example",
+      "description": "Usage example (demo) for Testimonials grid: the code behind the preview on https://facadeui.dev/components/testimonials-grid. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/testimonials-grid.json"
+      ],
+      "files": [
+        {
+          "path": "testimonials-grid.tsx",
+          "type": "registry:component",
+          "target": "components/examples/testimonials-grid-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "usp-list-motion-demo",
+      "type": "registry:component",
+      "title": "USP list (motion) example",
+      "description": "Usage example (demo) for USP list (motion): the code behind the preview on https://facadeui.dev/components/usp-list-motion. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/usp-list-motion.json"
+      ],
+      "files": [
+        {
+          "path": "usp-list-motion.tsx",
+          "type": "registry:component",
+          "target": "components/examples/usp-list-motion-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "usp-list-demo",
+      "type": "registry:component",
+      "title": "USP list example",
+      "description": "Usage example (demo) for USP list: the code behind the preview on https://facadeui.dev/components/usp-list. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/examples-content.json",
+        "https://facadeui.dev/r/usp-list.json"
+      ],
+      "files": [
+        {
+          "path": "usp-list.tsx",
+          "type": "registry:component",
+          "target": "components/examples/usp-list-demo.tsx"
+        }
+      ]
+    }
+  ]
+}

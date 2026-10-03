@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "gtm",
+  "homepage": "https://pumpgtm.com",
+  "items": [
+    {
+      "name": "subscription-state",
+      "type": "registry:lib",
+      "title": "Subscription state",
+      "description": "One function that turns a Stripe subscription into the product decision: needs card, trialing, cancelling but still running, paused, past due, or ended. Scheduled cancellations keep access until Stripe ends them.",
+      "files": [
+        {
+          "path": "registry/pumpgtm/subscription-state/subscription-state.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "author": "PumpGTM (https://pumpgtm.com)"
+    },
+    {
+      "name": "cancel-flow",
+      "type": "registry:block",
+      "title": "Cancel flow",
+      "description": "An in-app Stripe cancel dialog: reason, one save offer picked from the reason (more trial days, a pause, a discount or a free month, once per subscription), then a real cancellation at period end. Records everything on the Stripe subscription, so there is no table to add.",
+      "dependencies": [
+        "stripe",
+        "server-only"
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "label",
+        "radio-group",
+        "textarea",
+        "@gtm/subscription-state"
+      ],
+      "files": [
+        {
+          "path": "registry/pumpgtm/cancel-flow/cancel-flow.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pumpgtm/cancel-flow/cancel-offer.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/pumpgtm/cancel-flow/cancel-subscription.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "author": "PumpGTM (https://pumpgtm.com)",
+      "docs": "Cancel flow by PumpGTM. PumpGTM finds buyers who need your product now and runs your LinkedIn outreach: https://pumpgtm.com"
+    }
+  ]
+}
