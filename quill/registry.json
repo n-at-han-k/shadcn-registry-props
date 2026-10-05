@@ -900,7 +900,7 @@
       "name": "icon",
       "type": "registry:ui",
       "title": "Icon (Material Symbols)",
-      "description": "The Quill icon component — Material Symbols Outlined at weight 400, shipped as a self-contained core set of 93 names covering every icon the Quill blocks use.",
+      "description": "The Quill icon component — Material Symbols Outlined at weight 400, shipped as a self-contained core set of 95 names covering every icon the Quill blocks use.",
       "files": [
         {
           "path": "registry/lib/icon.tsx",
@@ -918,7 +918,7 @@
           "target": "components/ui/icons.core.d.mts"
         }
       ],
-      "docs": "The Quill icon component — Material Symbols Outlined at weight 400, shipped as a self-contained core set of 93 names covering every icon the Quill blocks use. Do: Pick a name from the core set the `icon` item ships (93 names): account_balance, add, add_circle, archive, arrow_back, arrow_downward, arrow_forward, arrow_upward, attach_file, attach_money, calendar_today, cancel, chat_bubble, check, check_box, check_box_outline_blank, check_circle, chevron_left, chevron_right, close, cloud_upload, content_copy, credit_card, dangerous, dark_mode, dashboard, delete, description, dock_to_left, download, draft, edit, error, favorite, filter_list, folder_open, format_align_center, format_align_left, format_align_right, format_bold, format_italic, format_underlined, forward, group, help, home, info, ink_pen, keyboard_arrow_down, keyboard_arrow_left, keyboard_arrow_right, keyboard_arrow_up, keyboard_command_key, language, light_mode, link, lock, login, logout, mail, menu, menu_book, mic, more_horiz, more_vert, notifications, open_in_new, palette, person, person_add, photo_library, progress_activity, radio_button_checked, radio_button_unchecked, refresh, remove, reply, save, schedule, search, send, settings, share, sort, space_dashboard, star, star_shine, stop, upload, visibility, visibility_off, wallet, warning. Don't: Use any other Material Symbol name in an app. The consumer `<Icon>` bundles only the core set, so an unknown name renders as an empty, size-reserved box (plus a console warning in development); the design-system site lazy-loads the whole library, so a name can look fine on quilldesignsystem.com and be blank in your app. Do: Size through the `size` prop — a pixel number, or leave the `1em` default so the glyph follows the surrounding text. Don't: Scale an icon with a `transform` or a width/height class — the reserved box stops matching the glyph and the layout shifts. Do: Leave an icon decorative (the default renders `aria-hidden`) when the text next to it already carries the meaning. Don't: Add an `aria-label` to an icon that sits beside its own label — screen readers then announce the meaning twice. Use button when the glyph is the whole control — use Button with an icon size (`icon`, `icon-sm`) and an `aria-label`; Icon on its own is never interactive. Use spinner when the glyph means \"loading\" — Spinner carries the motion and the status semantics an icon does not."
+      "docs": "The Quill icon component — Material Symbols Outlined at weight 400, shipped as a self-contained core set of 95 names covering every icon the Quill blocks use. Do: Pick a name from the core set the `icon` item ships (95 names): account_balance, add, add_circle, archive, arrow_back, arrow_downward, arrow_forward, arrow_upward, attach_file, attach_money, calendar_today, cancel, chat_bubble, check, check_box, check_box_outline_blank, check_circle, chevron_left, chevron_right, close, cloud_upload, content_copy, credit_card, dangerous, dark_mode, dashboard, delete, description, dock_to_left, download, draft, edit, error, favorite, filter_list, folder_open, format_align_center, format_align_left, format_align_right, format_bold, format_italic, format_underlined, forward, group, help, home, info, ink_pen, keyboard_arrow_down, keyboard_arrow_left, keyboard_arrow_right, keyboard_arrow_up, keyboard_command_key, language, light_mode, link, lock, login, logout, mail, menu, menu_book, mic, more_horiz, more_vert, notifications, open_in_new, palette, person, person_add, photo_library, progress_activity, radio_button_checked, radio_button_unchecked, refresh, remove, reply, save, schedule, search, send, settings, share, sort, space_dashboard, star, star_shine, stop, thumb_down, thumb_up, upload, visibility, visibility_off, wallet, warning. Don't: Use any other Material Symbol name in an app. The consumer `<Icon>` bundles only the core set, so an unknown name renders as an empty, size-reserved box (plus a console warning in development); the design-system site lazy-loads the whole library, so a name can look fine on quilldesignsystem.com and be blank in your app. Do: Size through the `size` prop — a pixel number, or leave the `1em` default so the glyph follows the surrounding text. Don't: Scale an icon with a `transform` or a width/height class — the reserved box stops matching the glyph and the layout shifts. Do: Leave an icon decorative (the default renders `aria-hidden`) when the text next to it already carries the meaning. Don't: Add an `aria-label` to an icon that sits beside its own label — screen readers then announce the meaning twice. Use button when the glyph is the whole control — use Button with an icon size (`icon`, `icon-sm`) and an `aria-label`; Icon on its own is never interactive. Use spinner when the glyph means \"loading\" — Spinner carries the motion and the status semantics an icon does not."
     },
     {
       "name": "tone-badge",
@@ -972,6 +972,111 @@
         }
       ],
       "docs": "A stock Quill button that runs an AI action, marked with the AI sparkle; the label stays plain ink. Do: Let the sparkle carry the gradient and keep the label in the button's normal text colour. Don't: Fill the button or its label with the AI gradient — the gradient belongs on the mark, and a gradient fill competes with the page. Do: Use a plain Button for Accept, Replace and Use this, even inside an AI popover. Don't: Make the button that applies an AI suggestion an AiButton — acting on AI output is an ordinary decision. Use button when the action does not involve AI. Use prompt-composer when the person needs to type what they want rather than press one action."
+    },
+    {
+      "name": "ai-notice",
+      "type": "registry:ui",
+      "title": "AI notice",
+      "description": "One quiet line under an AI composer saying the AI can be wrong, with an optional link the app supplies.",
+      "files": [
+        {
+          "path": "registry/lib/ai-notice.tsx",
+          "target": "components/ui/ai-notice.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "One quiet line under an AI composer saying the AI can be wrong, with an optional link the app supplies. Do: Keep the notice to one small centred line under the composer, always present. Don't: Turn it into a banner, a callout box or a toast — it is there every time, so it stays quiet. Do: Leave it in muted ink, which passes 4.5:1 in every theme. Don't: Lighten it further with opacity — a disclaimer people cannot read does not inform them. Use alert when something has actually gone wrong and needs the person to act. Use ai-badge when one piece of content was made by AI and needs labelling where it sits."
+    },
+    {
+      "name": "ai-thinking",
+      "type": "registry:ui",
+      "title": "AI thinking",
+      "description": "Shows an AI working before its answer — a shimmering \"Thinking\" with what it is doing — then folds into one quiet \"Thought for 8 s\" row that opens the reasoning.",
+      "registryDependencies": [
+        "https://www.quilldesignsystem.com/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/ai-thinking.tsx",
+          "target": "components/ui/ai-thinking.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Shows an AI working before its answer — a shimmering \"Thinking\" with what it is doing — then folds into one quiet \"Thought for 8 s\" row that opens the reasoning. Do: Switch to status=\"done\" the moment the answer starts, so the shimmer and line stop. Don't: Leave the shimmer running beside a finished answer — motion means the AI is still working. Do: Keep the reasoning folded behind \"Thought for N s\" once the answer is there. Don't: Show the reasoning open by default after the answer lands — it pushes the answer down. Use spinner when something that is not AI is loading. Use skeleton when a page or card is loading its layout, not an AI thinking."
+    },
+    {
+      "name": "ai-message",
+      "type": "registry:ui",
+      "title": "AI message",
+      "description": "An AI's reply in a conversation — the AI mark on its avatar, the answer as plain readable text, and Copy, Try again and thumbs under it. Ships with UserMessage for the person's side.",
+      "registryDependencies": [
+        "button",
+        "https://www.quilldesignsystem.com/r/icon.json",
+        "https://www.quilldesignsystem.com/r/ai-mark.json"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/ai-message.tsx",
+          "target": "components/ui/ai-message.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "An AI's reply in a conversation — the AI mark on its avatar, the answer as plain readable text, and Copy, Try again and thumbs under it. Ships with UserMessage for the person's side. Do: Keep the answer in plain body text; the mark on the avatar already says it is AI. Don't: Colour the answer, its bubble or its headings with the AI gradient — answers have to be easy to read at length. Do: Pass streaming while the answer arrives; the actions wait until it is done. Don't: Show Copy and thumbs on a half-written answer — there is nothing finished to copy or judge yet. Use chat when two people are messaging each other; no AI is involved."
+    },
+    {
+      "name": "citations",
+      "type": "registry:ui",
+      "title": "Citations",
+      "description": "Shows where an AI answer came from — a small chip after each claim, named for its source, that previews it, and an \"N sources\" list under the answer.",
+      "registryDependencies": [
+        "hover-card",
+        "https://www.quilldesignsystem.com/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/citations.tsx",
+          "target": "components/ui/citations.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Shows where an AI answer came from — a small chip after each claim, named for its source, that previews it, and an \"N sources\" list under the answer. Do: Put the chip right after the sentence it backs, named for its source. Don't: Collect sources only in a footer — people cannot tell which source backs which claim. Do: Leave the chips and list in neutral ink. Don't: Colour citations with the AI gradient or a status colour — they are references, not AI and not status. Use hover-card when you need a preview on an ordinary link that is not an AI source. Use badge when you are labelling a category, not pointing to where a claim came from."
+    },
+    {
+      "name": "suggested-prompts",
+      "type": "registry:ui",
+      "title": "Suggested prompts",
+      "description": "Ready-made things to ask an AI — chips for follow-ups under an answer, cards for starters on an empty page, a list in a narrow panel. Picking one fills the composer; it never sends.",
+      "registryDependencies": [
+        "https://www.quilldesignsystem.com/r/icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/suggested-prompts.tsx",
+          "target": "components/ui/suggested-prompts.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Ready-made things to ask an AI — chips for follow-ups under an answer, cards for starters on an empty page, a list in a narrow panel. Picking one fills the composer; it never sends. Do: Fill the composer and focus it, so people can edit before sending. Don't: Send the suggestion the moment it is clicked — people lose the chance to adjust it. Do: Use chips under an answer, cards on an empty AI page, and the list in a narrow panel. Don't: Put large starter cards under every answer — they crowd the thread. Use command when people pick from a long, searchable list of actions. Use button when the choice runs an action straight away instead of filling the composer."
+    },
+    {
+      "name": "model-picker",
+      "type": "registry:ui",
+      "title": "Model picker",
+      "description": "Lets people choose which AI model answers — a quiet name-and-chevron trigger in the composer that opens a list with Auto first, a line on what each model is good for, and a check on the current one.",
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "https://www.quilldesignsystem.com/r/icon.json",
+        "https://www.quilldesignsystem.com/r/tone-badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/model-picker.tsx",
+          "target": "components/ui/model-picker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Lets people choose which AI model answers — a quiet name-and-chevron trigger in the composer that opens a list with Auto first, a line on what each model is good for, and a check on the current one. Do: Give every model a one-line description of what it is good for (\"Fast answers, fewer credits\"). Don't: List bare model names — people cannot choose between names they do not know. Do: Offer Auto first so people who do not care never have to choose. Don't: Make people pick a model before their first message. Use select when the choice is an ordinary form setting, not an AI model. Use radio-group when the model is chosen once on a settings page; show the same options as radios."
     },
     {
       "name": "ai-mark",
@@ -1110,6 +1215,31 @@
           "target": "~/.claude/skills/quill-components/reference/ai-mark.md"
         },
         {
+          "path": "registry/agent-rules/skills/quill-components/reference/ai-message.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/ai-message.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/ai-notice.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/ai-notice.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/ai-thinking.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/ai-thinking.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/suggested-prompts.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/suggested-prompts.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/model-picker.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/model-picker.md"
+        },
+        {
           "path": "registry/agent-rules/skills/quill-components/reference/alert.md",
           "type": "registry:file",
           "target": "~/.claude/skills/quill-components/reference/alert.md"
@@ -1210,6 +1340,11 @@
           "target": "~/.claude/skills/quill-components/reference/ai-home.md"
         },
         {
+          "path": "registry/agent-rules/skills/quill-components/reference/ai-chat.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/ai-chat.md"
+        },
+        {
           "path": "registry/agent-rules/skills/quill-components/reference/checkbox.md",
           "type": "registry:file",
           "target": "~/.claude/skills/quill-components/reference/checkbox.md"
@@ -1218,6 +1353,11 @@
           "path": "registry/agent-rules/skills/quill-components/reference/checkout.md",
           "type": "registry:file",
           "target": "~/.claude/skills/quill-components/reference/checkout.md"
+        },
+        {
+          "path": "registry/agent-rules/skills/quill-components/reference/citations.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/quill-components/reference/citations.md"
         },
         {
           "path": "registry/agent-rules/skills/quill-components/reference/collapsible.md",
@@ -1893,7 +2033,8 @@
       ],
       "registryDependencies": [
         "https://www.quilldesignsystem.com/r/prompt-composer.json",
-        "https://www.quilldesignsystem.com/r/ai-mark.json"
+        "https://www.quilldesignsystem.com/r/ai-mark.json",
+        "https://www.quilldesignsystem.com/r/suggested-prompts.json"
       ],
       "files": [
         {
@@ -1903,6 +2044,41 @@
         }
       ],
       "docs": "An AI assistant's start page — a soft AI glow, a greeting, the large composer with Ask/Agent modes, and starter cards. Do: Keep the AI glow to this one start page. Don't: Add the glow behind other sections or pages — it marks the AI home, and repeated it becomes decoration. Use prompt-composer when you only need the box, inside a page that is about something else. Use chat when two people are messaging; there is no AI."
+    },
+    {
+      "name": "ai-chat",
+      "type": "registry:block",
+      "title": "AI chat",
+      "description": "A full AI conversation page — past chats on the left, the thread in a readable column with reasoning, source chips and follow-ups, and the composer with the model picker and AI notice pinned to the bottom.",
+      "meta": {
+        "intent": [
+          "ai"
+        ],
+        "use_when": "An app has a page for an ongoing conversation with its AI assistant.",
+        "not_for": "people land with nothing typed yet and need a greeting and starters, not a thread → ai-home; two people are messaging; no AI is involved → chat"
+      },
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://www.quilldesignsystem.com/r/icon.json",
+        "https://www.quilldesignsystem.com/r/prompt-composer.json",
+        "https://www.quilldesignsystem.com/r/ai-message.json",
+        "https://www.quilldesignsystem.com/r/ai-thinking.json",
+        "https://www.quilldesignsystem.com/r/citations.json",
+        "https://www.quilldesignsystem.com/r/suggested-prompts.json",
+        "https://www.quilldesignsystem.com/r/model-picker.json",
+        "https://www.quilldesignsystem.com/r/ai-notice.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/ai-chat.tsx",
+          "type": "registry:component",
+          "target": "components/quill/ai-chat.tsx"
+        }
+      ],
+      "docs": "A full AI conversation page — past chats on the left, the thread in a readable column with reasoning, source chips and follow-ups, and the composer with the model picker and AI notice pinned to the bottom. Do: Keep the thread on the plain page; the marks and the composer edge already say AI. Don't: Add the AI glow behind the conversation — it belongs to the AI home alone. Use ai-home when people land with nothing typed yet and need a greeting and starters, not a thread. Use chat when two people are messaging; no AI is involved."
     },
     {
       "name": "chat",

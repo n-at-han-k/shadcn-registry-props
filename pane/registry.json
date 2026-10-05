@@ -7,7 +7,7 @@
       "name": "pane-style",
       "type": "registry:style",
       "title": "Style",
-      "description": "Base style for Pane. Installs the shared dependencies and the --pane-* design tokens — blur, saturation, tint, border, highlight and shadow — for light and dark.",
+      "description": "Base style for Pane. Installs the shared dependencies and the --pane-* design tokens — blur, saturation, tint, border, highlight and shadow — for light and dark, plus a zero-specificity --font-sans fallback to Geist for fresh Next.js apps.",
       "author": "Deniz Isik (https://github.com/deniiiiz-i)",
       "dependencies": [
         "class-variance-authority",
@@ -25,6 +25,8 @@
           "pane-saturation": "1.7",
           "pane-tint-regular": "rgba(255, 255, 255, 0.26)",
           "pane-tint-clear": "rgba(255, 255, 255, 0.08)",
+          "pane-blur-overlay": "24px",
+          "pane-tint-overlay": "rgba(255, 255, 255, 0.76)",
           "pane-nested-regular": "rgba(255, 255, 255, 0.4)",
           "pane-nested-clear": "rgba(255, 255, 255, 0.2)",
           "pane-border-width": "0.5px",
@@ -39,6 +41,7 @@
         "dark": {
           "pane-tint-regular": "rgba(28, 28, 32, 0.3)",
           "pane-tint-clear": "rgba(18, 18, 22, 0.12)",
+          "pane-tint-overlay": "rgba(28, 28, 32, 0.76)",
           "pane-nested-regular": "rgba(255, 255, 255, 0.12)",
           "pane-nested-clear": "rgba(255, 255, 255, 0.07)",
           "pane-border-regular": "rgba(255, 255, 255, 0.14)",
@@ -50,7 +53,14 @@
           "pane-shadow": "rgba(0, 0, 0, 0.5)"
         }
       },
-      "files": []
+      "files": [],
+      "css": {
+        "@layer base": {
+          ":where(html)": {
+            "--font-sans": "var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif)"
+          }
+        }
+      }
     },
     {
       "name": "utils",
@@ -185,7 +195,7 @@
       "name": "badge",
       "type": "registry:ui",
       "title": "Badge",
-      "description": "A compact glass badge in default and tinted variants, with asChild support for linking.",
+      "description": "A compact glass badge, with asChild support for linking.",
       "author": "Deniz Isik (https://github.com/deniiiiz-i)",
       "categories": ["ui", "display"],
       "docs": "Usage and props: https://pane.theui.company/docs/components/badge",
@@ -295,6 +305,91 @@
       "files": [
         {
           "path": "registry/pane/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A Radix popover whose content is a regular glass pane, with trigger and anchor parts.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "overlay"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/popover",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "A Radix dropdown menu on a glass pane — items, checkbox and radio items, labels, separators, shortcuts and submenus, highlighted with the nested tint.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "overlay"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/dropdown-menu",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A Radix select with a clear glass trigger and a regular glass list that scrolls inside the pane.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "form"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/select",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A Radix slider on a glass track whose knob swells into clear glass while it is dragged. Supports ranges and vertical orientation.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "form"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/slider",
+      "dependencies": ["radix-ui", "motion"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A single-choice control on a Radix toggle group, with a glass indicator that springs between segments and always keeps one selected.",
+      "author": "Deniz Isik (https://github.com/deniiiiz-i)",
+      "categories": ["ui", "form"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/toggle-group",
+      "dependencies": ["radix-ui", "motion"],
+      "registryDependencies": ["@pane/pane", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/toggle-group.tsx",
           "type": "registry:ui"
         }
       ]

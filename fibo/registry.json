@@ -229,14 +229,14 @@
       "meta": {
         "tier": "base-components",
         "group": "Forms",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-chat-composer--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-chat-composer--docs"
       },
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/progress.json",
         "https://fibo.toribryan.com/r/tooltip.json",
         "utils"
       ],
@@ -329,11 +329,15 @@
       },
       "dependencies": [
         "@base-ui/react",
+        "class-variance-authority",
         "motion",
         "lucide-react"
       ],
       "registryDependencies": [
+        "https://fibo.toribryan.com/r/badge.json",
         "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/empty-state.json",
+        "https://fibo.toribryan.com/r/input-group.json",
         "https://fibo.toribryan.com/r/kbd.json",
         "utils"
       ],
@@ -345,24 +349,52 @@
       ],
       "cssVars": {
         "theme": {
-          "color-backdrop": "var(--backdrop)",
-          "color-ring-subtle": "var(--ring-subtle)"
+          "color-backdrop": "var(--backdrop)"
         },
         "light": {
-          "backdrop": "color-mix(in oklch, var(--color-neutral-950) 20%, transparent)",
-          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
+          "backdrop": "color-mix(in oklch, var(--color-neutral-950) 20%, transparent)"
         },
         "dark": {
-          "backdrop": "color-mix(in oklch, var(--color-black) 60%, transparent)",
-          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
+          "backdrop": "color-mix(in oklch, var(--color-black) 60%, transparent)"
         }
       }
+    },
+    {
+      "name": "count",
+      "type": "registry:ui",
+      "title": "Count",
+      "description": "A number at a glance: capped at 99+, shortened to 1.2K or signed as +4, read out in full.",
+      "categories": [
+        "base-components",
+        "display"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-display-count--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Display",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-display-count--docs"
+      },
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/count.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/format-count.ts",
+          "type": "registry:lib"
+        }
+      ]
     },
     {
       "name": "data-table",
       "type": "registry:ui",
       "title": "Data table",
-      "description": "A table for lists people work through: selection, cell types, locked rows and pinned columns.",
+      "description": "A table for lists people work through, on TanStack Table: sorting, search, filters with counts, pages, selection, cell types, locked rows and pinned columns.",
       "categories": [
         "base-components",
         "display"
@@ -375,13 +407,21 @@
         "docs": "https://fibo.toribryan.com/?path=/docs/base-components-display-data-table--docs"
       },
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@tanstack/react-table",
+        "@tanstack/react-store"
       ],
       "registryDependencies": [
         "https://fibo.toribryan.com/r/avatar.json",
         "https://fibo.toribryan.com/r/button.json",
         "https://fibo.toribryan.com/r/checkbox.json",
+        "https://fibo.toribryan.com/r/count.json",
+        "https://fibo.toribryan.com/r/empty-state.json",
+        "https://fibo.toribryan.com/r/separator.json",
+        "https://fibo.toribryan.com/r/skeleton.json",
+        "https://fibo.toribryan.com/r/input-group.json",
         "https://fibo.toribryan.com/r/menu.json",
+        "https://fibo.toribryan.com/r/pagination.json",
         "https://fibo.toribryan.com/r/table.json",
         "https://fibo.toribryan.com/r/tooltip.json",
         "https://fibo.toribryan.com/r/sheet.json",
@@ -402,6 +442,81 @@
         },
         "dark": {
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
+        }
+      }
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty state",
+      "description": "What shows where content would be: a title, why it's empty, and what to do next.",
+      "categories": [
+        "base-components",
+        "feedback"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-feedback-empty-state--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Feedback",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-feedback-empty-state--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/empty-state.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "A label, description and error wired to one form control, with a group that sets the size of a whole form.",
+      "categories": [
+        "base-components",
+        "forms"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-field--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Forms",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-field--docs"
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/field-size.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "text-color-destructive": "var(--destructive-text)"
+        },
+        "light": {
+          "destructive-text": "var(--destructive)"
+        },
+        "dark": {
+          "destructive-text": "var(--destructive)"
         }
       }
     },
@@ -428,6 +543,10 @@
       ],
       "registryDependencies": [
         "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/checkbox.json",
+        "https://fibo.toribryan.com/r/count.json",
+        "https://fibo.toribryan.com/r/empty-state.json",
+        "https://fibo.toribryan.com/r/input-group.json",
         "utils"
       ],
       "files": [
@@ -435,21 +554,7 @@
           "path": "registry/ui/filter-menu.tsx",
           "type": "registry:ui"
         }
-      ],
-      "cssVars": {
-        "theme": {
-          "color-input-subtle": "var(--input-subtle)",
-          "color-ring-subtle": "var(--ring-subtle)"
-        },
-        "light": {
-          "input-subtle": "color-mix(in oklch, var(--color-neutral-200) 20%, transparent)",
-          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
-        },
-        "dark": {
-          "input-subtle": "oklch(1 0 0 / 5%)",
-          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
-        }
-      }
+      ]
     },
     {
       "name": "floating-nav",
@@ -496,6 +601,61 @@
       }
     },
     {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input group",
+      "description": "An input with an icon, text or button beside it, drawn as one field.",
+      "categories": [
+        "base-components",
+        "forms"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-input-group--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Forms",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-input-group--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input-group.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/field-size.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-destructive-ring": "var(--destructive-ring)",
+          "color-input-subtle": "var(--input-subtle)",
+          "color-ring-subtle": "var(--ring-subtle)",
+          "border-color-destructive": "var(--destructive-border)"
+        },
+        "light": {
+          "destructive-ring": "color-mix(in oklch, var(--color-red-700) 20%, transparent)",
+          "input-subtle": "color-mix(in oklch, var(--color-neutral-200) 20%, transparent)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)",
+          "destructive-border": "var(--destructive)"
+        },
+        "dark": {
+          "destructive-ring": "color-mix(in oklch, var(--color-red-400) 40%, transparent)",
+          "input-subtle": "oklch(1 0 0 / 5%)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
+          "destructive-border": "var(--destructive)"
+        }
+      }
+    },
+    {
       "name": "input",
       "type": "registry:ui",
       "title": "Input",
@@ -521,6 +681,10 @@
         {
           "path": "registry/ui/input.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/field-size.ts",
+          "type": "registry:lib"
         }
       ],
       "cssVars": {
@@ -573,6 +737,10 @@
         {
           "path": "registry/ui/integration-visual.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/merge-refs.ts",
+          "type": "registry:lib"
         }
       ],
       "cssVars": {
@@ -607,28 +775,19 @@
         "lucide-react"
       ],
       "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
         "utils"
       ],
       "files": [
         {
           "path": "registry/ui/jump-bar.tsx",
           "type": "registry:ui"
-        }
-      ],
-      "cssVars": {
-        "theme": {
-          "color-primary-hover": "var(--primary-hover)",
-          "color-ring-subtle": "var(--ring-subtle)"
         },
-        "light": {
-          "primary-hover": "color-mix(in oklch, var(--color-neutral-900) 80%, transparent)",
-          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
-        },
-        "dark": {
-          "primary-hover": "color-mix(in oklch, var(--color-neutral-50) 80%, transparent)",
-          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
+        {
+          "path": "registry/lib/format-count.ts",
+          "type": "registry:lib"
         }
-      }
+      ]
     },
     {
       "name": "kbd",
@@ -698,8 +857,7 @@
       "meta": {
         "tier": "special-components",
         "group": "Display",
-        "docs": "https://fibo.toribryan.com/?path=/docs/special-components-map-pin--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/special-components-map-pin--docs"
       },
       "dependencies": [
         "@base-ui/react",
@@ -857,6 +1015,8 @@
       ],
       "registryDependencies": [
         "https://fibo.toribryan.com/r/avatar.json",
+        "https://fibo.toribryan.com/r/empty-state.json",
+        "https://fibo.toribryan.com/r/separator.json",
         "utils"
       ],
       "files": [
@@ -935,6 +1095,10 @@
         {
           "path": "registry/ui/pixel-snail.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/merge-refs.ts",
+          "type": "registry:lib"
         }
       ]
     },
@@ -955,7 +1119,8 @@
         "docs": "https://fibo.toribryan.com/?path=/docs/base-components-feedback-progress--docs"
       },
       "dependencies": [
-        "@base-ui/react"
+        "@base-ui/react",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "utils"
@@ -1050,9 +1215,11 @@
       "dependencies": [
         "@base-ui/react",
         "class-variance-authority",
-        "lucide-react"
+        "motion"
       ],
       "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/count.json",
         "utils"
       ],
       "files": [
@@ -1065,17 +1232,20 @@
         "theme": {
           "color-popover-overlay": "var(--popover-overlay)",
           "color-primary-subtle": "var(--primary-subtle)",
-          "color-ring-subtle": "var(--ring-subtle)"
+          "color-ring-subtle": "var(--ring-subtle)",
+          "color-particle-shadow": "var(--particle-shadow)"
         },
         "light": {
           "popover-overlay": "color-mix(in oklch, var(--color-white) 85%, transparent)",
           "primary-subtle": "color-mix(in oklch, var(--color-neutral-900) 10%, transparent)",
-          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)",
+          "particle-shadow": "color-mix(in oklch, var(--color-black) 18%, transparent)"
         },
         "dark": {
           "popover-overlay": "color-mix(in oklch, var(--color-neutral-900) 85%, transparent)",
           "primary-subtle": "color-mix(in oklch, var(--color-neutral-50) 20%, transparent)",
-          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
+          "particle-shadow": "color-mix(in oklch, var(--color-black) 18%, transparent)"
         }
       }
     },
@@ -1106,6 +1276,10 @@
         {
           "path": "registry/ui/select.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/field-size.ts",
+          "type": "registry:lib"
         }
       ],
       "cssVars": {
@@ -1131,6 +1305,36 @@
           "destructive-border": "var(--destructive)"
         }
       }
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "A thin rule between groups of content, across or down, with an optional label.",
+      "categories": [
+        "base-components",
+        "display"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-display-separator--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Display",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-display-separator--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "sheet",
@@ -1279,6 +1483,55 @@
       ]
     },
     {
+      "name": "status-dot",
+      "type": "registry:ui",
+      "title": "Status dot",
+      "description": "A small mark for whether someone is present, away or offline, told apart by shape.",
+      "categories": [
+        "base-components",
+        "display"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-display-status-dot--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Display",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-display-status-dot--docs"
+      },
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/status-dot.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-success": "var(--success)",
+          "color-warning": "var(--warning)",
+          "fill-success": "var(--success-icon)",
+          "fill-warning": "var(--warning-icon)"
+        },
+        "light": {
+          "success": "var(--color-green-700)",
+          "warning": "var(--color-amber-700)",
+          "success-icon": "var(--success)",
+          "warning-icon": "var(--warning)"
+        },
+        "dark": {
+          "success": "var(--color-green-400)",
+          "warning": "var(--color-amber-400)",
+          "success-icon": "var(--success)",
+          "warning-icon": "var(--warning)"
+        }
+      }
+    },
+    {
       "name": "sticker-avatar",
       "type": "registry:ui",
       "title": "Sticker avatar",
@@ -1296,6 +1549,8 @@
       },
       "dependencies": [],
       "registryDependencies": [
+        "https://fibo.toribryan.com/r/status-dot.json",
+        "https://fibo.toribryan.com/r/count.json",
         "utils"
       ],
       "files": [
@@ -1306,30 +1561,19 @@
       ],
       "cssVars": {
         "theme": {
-          "color-success": "var(--success)",
-          "color-warning": "var(--warning)",
           "color-sticker-edge": "var(--sticker-edge)",
           "color-sticker-ink": "var(--sticker-ink)",
-          "fill-success": "var(--success-icon)",
-          "stroke-success": "var(--success-icon)",
-          "fill-warning": "var(--warning-icon)",
-          "stroke-warning": "var(--warning-icon)"
+          "color-sticker-shadow": "var(--sticker-shadow)"
         },
         "light": {
-          "success": "var(--color-green-700)",
-          "warning": "var(--color-amber-700)",
           "sticker-edge": "var(--color-white)",
           "sticker-ink": "var(--color-neutral-900)",
-          "success-icon": "var(--success)",
-          "warning-icon": "var(--warning)"
+          "sticker-shadow": "color-mix(in oklch, var(--color-black) 30%, transparent)"
         },
         "dark": {
-          "success": "var(--color-green-400)",
-          "warning": "var(--color-amber-400)",
           "sticker-edge": "var(--color-white)",
           "sticker-ink": "var(--color-neutral-900)",
-          "success-icon": "var(--success)",
-          "warning-icon": "var(--warning)"
+          "sticker-shadow": "color-mix(in oklch, var(--color-black) 30%, transparent)"
         }
       }
     },
@@ -1359,6 +1603,10 @@
         {
           "path": "registry/ui/switch.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/field-size.ts",
+          "type": "registry:lib"
         }
       ],
       "cssVars": {
@@ -1433,7 +1681,9 @@
         "group": "Forms",
         "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-textarea--docs"
       },
-      "dependencies": [],
+      "dependencies": [
+        "@base-ui/react"
+      ],
       "registryDependencies": [
         "utils"
       ],
@@ -1486,6 +1736,7 @@
       ],
       "registryDependencies": [
         "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/progress.json",
         "utils"
       ],
       "files": [
@@ -1551,6 +1802,10 @@
         {
           "path": "registry/ui/token-flow.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/merge-refs.ts",
+          "type": "registry:lib"
         }
       ]
     },
@@ -1641,8 +1896,7 @@
       "meta": {
         "tier": "special-components",
         "group": "Forms",
-        "docs": "https://fibo.toribryan.com/?path=/docs/special-components-voice-memo--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/special-components-voice-memo--docs"
       },
       "dependencies": [
         "class-variance-authority",
@@ -1751,6 +2005,8 @@
           "color-ring-subtle": "var(--ring-subtle)",
           "color-sticker-edge": "var(--sticker-edge)",
           "color-sticker-ink": "var(--sticker-ink)",
+          "color-sticker-shadow": "var(--sticker-shadow)",
+          "color-particle-shadow": "var(--particle-shadow)",
           "color-chart-1": "var(--chart-1)",
           "color-chart-2": "var(--chart-2)",
           "color-chart-3": "var(--chart-3)",
@@ -1828,6 +2084,8 @@
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)",
           "sticker-edge": "var(--color-white)",
           "sticker-ink": "var(--color-neutral-900)",
+          "sticker-shadow": "color-mix(in oklch, var(--color-black) 30%, transparent)",
+          "particle-shadow": "color-mix(in oklch, var(--color-black) 18%, transparent)",
           "chart-1": "var(--color-neutral-300)",
           "chart-2": "var(--color-neutral-500)",
           "chart-3": "var(--color-neutral-600)",
@@ -1897,6 +2155,8 @@
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
           "sticker-edge": "var(--color-white)",
           "sticker-ink": "var(--color-neutral-900)",
+          "sticker-shadow": "color-mix(in oklch, var(--color-black) 30%, transparent)",
+          "particle-shadow": "color-mix(in oklch, var(--color-black) 18%, transparent)",
           "chart-1": "var(--color-neutral-300)",
           "chart-2": "var(--color-neutral-500)",
           "chart-3": "var(--color-neutral-600)",
