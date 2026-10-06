@@ -176,6 +176,58 @@
       }
     },
     {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "A month grid for picking a day or a range, with full keyboard use; pages side by side, scrolls on phones, or fills a page with a month of events.",
+      "categories": [
+        "base-components",
+        "forms"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-calendar--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Forms",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-calendar--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/calendar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/dates.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-primary-hover": "var(--primary-hover)",
+          "color-secondary-hover": "var(--secondary-hover)",
+          "color-ring-subtle": "var(--ring-subtle)"
+        },
+        "light": {
+          "primary-hover": "color-mix(in oklch, var(--color-neutral-900) 80%, transparent)",
+          "secondary-hover": "var(--color-neutral-200)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
+        },
+        "dark": {
+          "primary-hover": "color-mix(in oklch, var(--color-neutral-50) 80%, transparent)",
+          "secondary-hover": "var(--color-neutral-700)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
+        }
+      }
+    },
+    {
       "name": "chapter-scrubber",
       "type": "registry:ui",
       "title": "Chapter scrubber",
@@ -446,6 +498,74 @@
       }
     },
     {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date picker",
+      "description": "A field that opens a calendar to pick a day, or a range with presets and Apply; a popover on desktop, a drawer on phones.",
+      "categories": [
+        "base-components",
+        "forms"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-date-picker--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Forms",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-date-picker--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/calendar.json",
+        "https://fibo.toribryan.com/r/sheet.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/date-picker.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/dates.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/lib/field-size.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-primary-hover": "var(--primary-hover)",
+          "color-destructive-ring": "var(--destructive-ring)",
+          "color-input-subtle": "var(--input-subtle)",
+          "color-input-subtle-hover": "var(--input-subtle-hover)",
+          "color-ring-subtle": "var(--ring-subtle)",
+          "border-color-destructive": "var(--destructive-border)"
+        },
+        "light": {
+          "primary-hover": "color-mix(in oklch, var(--color-neutral-900) 80%, transparent)",
+          "destructive-ring": "color-mix(in oklch, var(--color-red-700) 20%, transparent)",
+          "input-subtle": "color-mix(in oklch, var(--color-neutral-200) 20%, transparent)",
+          "input-subtle-hover": "color-mix(in oklch, var(--color-neutral-200) 50%, transparent)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)",
+          "destructive-border": "var(--destructive)"
+        },
+        "dark": {
+          "primary-hover": "color-mix(in oklch, var(--color-neutral-50) 80%, transparent)",
+          "destructive-ring": "color-mix(in oklch, var(--color-red-400) 40%, transparent)",
+          "input-subtle": "oklch(1 0 0 / 5%)",
+          "input-subtle-hover": "oklch(1 0 0 / 10%)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
+          "destructive-border": "var(--destructive)"
+        }
+      }
+    },
+    {
       "name": "empty-state",
       "type": "registry:ui",
       "title": "Empty state",
@@ -459,8 +579,7 @@
       "meta": {
         "tier": "base-components",
         "group": "Feedback",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-feedback-empty-state--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-feedback-empty-state--docs"
       },
       "dependencies": [
         "class-variance-authority"
@@ -588,14 +707,23 @@
       "cssVars": {
         "theme": {
           "color-popover-overlay": "var(--popover-overlay)",
+          "color-glass": "var(--glass)",
+          "color-glass-edge": "var(--glass-edge)",
+          "color-glass-lens": "var(--glass-lens)",
           "color-ring-subtle": "var(--ring-subtle)"
         },
         "light": {
           "popover-overlay": "color-mix(in oklch, var(--color-white) 85%, transparent)",
+          "glass": "color-mix(in oklch, var(--color-neutral-50) 20%, transparent)",
+          "glass-edge": "color-mix(in oklch, var(--color-white) 85%, transparent)",
+          "glass-lens": "color-mix(in oklch, var(--color-neutral-900) 10%, transparent)",
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
         },
         "dark": {
           "popover-overlay": "color-mix(in oklch, var(--color-neutral-900) 85%, transparent)",
+          "glass": "color-mix(in oklch, var(--color-neutral-950) 20%, transparent)",
+          "glass-edge": "color-mix(in oklch, var(--color-white) 15%, transparent)",
+          "glass-lens": "color-mix(in oklch, var(--color-white) 10%, transparent)",
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
         }
       }
@@ -614,8 +742,7 @@
       "meta": {
         "tier": "base-components",
         "group": "Forms",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-input-group--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-input-group--docs"
       },
       "dependencies": [
         "@base-ui/react",
@@ -1250,6 +1377,65 @@
       }
     },
     {
+      "name": "rich-text-editor",
+      "type": "registry:ui",
+      "title": "Rich text editor",
+      "description": "Formatted writing on Tiptap: headings, marks, lists, quotes and links from a toolbar or Markdown shortcuts, with an optional character limit.",
+      "categories": [
+        "base-components",
+        "forms"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-rich-text-editor--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Forms",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-rich-text-editor--docs"
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "@tiptap/extensions",
+        "@tiptap/react",
+        "@tiptap/starter-kit",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/input.json",
+        "https://fibo.toribryan.com/r/tooltip.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/rich-text-editor.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-destructive-ring": "var(--destructive-ring)",
+          "color-input-subtle": "var(--input-subtle)",
+          "color-ring-subtle": "var(--ring-subtle)",
+          "text-color-destructive": "var(--destructive-text)",
+          "border-color-destructive": "var(--destructive-border)"
+        },
+        "light": {
+          "destructive-ring": "color-mix(in oklch, var(--color-red-700) 20%, transparent)",
+          "input-subtle": "color-mix(in oklch, var(--color-neutral-200) 20%, transparent)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)",
+          "destructive-text": "var(--destructive)",
+          "destructive-border": "var(--destructive)"
+        },
+        "dark": {
+          "destructive-ring": "color-mix(in oklch, var(--color-red-400) 40%, transparent)",
+          "input-subtle": "oklch(1 0 0 / 5%)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
+          "destructive-text": "var(--destructive)",
+          "destructive-border": "var(--destructive)"
+        }
+      }
+    },
+    {
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
@@ -1320,8 +1506,7 @@
       "meta": {
         "tier": "base-components",
         "group": "Display",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-display-separator--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-display-separator--docs"
       },
       "dependencies": [
         "@base-ui/react"
@@ -1666,6 +1851,52 @@
       }
     },
     {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Switches between views of one subject in place, as a segmented control or a row of tabs with an underline; scrolls sideways when it runs out of room.",
+      "categories": [
+        "base-components",
+        "navigation"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-navigation-tabs--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Navigation",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-navigation-tabs--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tabs.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/merge-refs.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-ring-subtle": "var(--ring-subtle)"
+        },
+        "light": {
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
+        },
+        "dark": {
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
+        }
+      }
+    },
+    {
       "name": "textarea",
       "type": "registry:ui",
       "title": "Textarea",
@@ -1948,6 +2179,9 @@
           "color-popover-foreground": "var(--popover-foreground)",
           "color-popover-overlay": "var(--popover-overlay)",
           "color-backdrop": "var(--backdrop)",
+          "color-glass": "var(--glass)",
+          "color-glass-edge": "var(--glass-edge)",
+          "color-glass-lens": "var(--glass-lens)",
           "color-primary": "var(--primary)",
           "color-primary-foreground": "var(--primary-foreground)",
           "color-primary-hover": "var(--primary-hover)",
@@ -2039,6 +2273,9 @@
           "popover-foreground": "var(--color-neutral-950)",
           "popover-overlay": "color-mix(in oklch, var(--color-white) 85%, transparent)",
           "backdrop": "color-mix(in oklch, var(--color-neutral-950) 20%, transparent)",
+          "glass": "color-mix(in oklch, var(--color-neutral-50) 20%, transparent)",
+          "glass-edge": "color-mix(in oklch, var(--color-white) 85%, transparent)",
+          "glass-lens": "color-mix(in oklch, var(--color-neutral-900) 10%, transparent)",
           "primary": "var(--color-neutral-900)",
           "primary-foreground": "var(--color-neutral-50)",
           "primary-hover": "color-mix(in oklch, var(--color-neutral-900) 80%, transparent)",
@@ -2110,6 +2347,9 @@
           "popover-foreground": "var(--color-neutral-50)",
           "popover-overlay": "color-mix(in oklch, var(--color-neutral-900) 85%, transparent)",
           "backdrop": "color-mix(in oklch, var(--color-black) 60%, transparent)",
+          "glass": "color-mix(in oklch, var(--color-neutral-950) 20%, transparent)",
+          "glass-edge": "color-mix(in oklch, var(--color-white) 15%, transparent)",
+          "glass-lens": "color-mix(in oklch, var(--color-white) 10%, transparent)",
           "primary": "var(--color-neutral-50)",
           "primary-foreground": "var(--color-neutral-900)",
           "primary-hover": "color-mix(in oklch, var(--color-neutral-50) 80%, transparent)",

@@ -1,0 +1,845 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "isometric",
+  "homepage": "https://isometric.buildlab.in",
+  "items": [
+    {
+      "name": "isometric-engine",
+      "type": "registry:lib",
+      "title": "Isometric Engine",
+      "description": "The engine behind every figure: orthographic projection, meshes with hidden faces removed, picking, springs, one shared animation loop that sleeps offscreen, and the React factory.",
+      "files": [
+        {
+          "path": "registry/isometric/lib/isometric/iso.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/isometric/lib/isometric/motion.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/isometric/lib/isometric/stage.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/isometric/lib/isometric/styles.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/isometric/lib/isometric/figure.tsx",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/isometric/lib/isometric/mesh.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/isometric/lib/isometric/scene.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/isometric/lib/isometric/entity.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/isometric/lib/isometric/blocks.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "foundation"
+      ]
+    },
+    {
+      "name": "iso-depth",
+      "type": "registry:ui",
+      "title": "Iso Depth",
+      "description": "The line-drawn depth every primitive stands on: an offset outline and three diagonals that fade as the face sinks.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-depth.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "foundation"
+      ]
+    },
+    {
+      "name": "skyline",
+      "type": "registry:ui",
+      "title": "Skyline",
+      "description": "A city block of towers on a plinth. Towers near the pointer rise, the nearer the higher.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/skyline.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "stack",
+      "type": "registry:ui",
+      "title": "Stack",
+      "description": "An app window taken apart into four layers. Moving across opens the gap; moving down picks a layer.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/stack.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "keys",
+      "type": "registry:ui",
+      "title": "Keys",
+      "description": "A forty-key keyboard. The key under the pointer sinks and its neighbours follow; a click presses it home.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/keys.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "rack",
+      "type": "registry:ui",
+      "title": "Rack",
+      "description": "An open server rack of eight units. The pointer's height pulls the nearest units out and wakes their lights.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/rack.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "laptop",
+      "type": "registry:ui",
+      "title": "Laptop",
+      "description": "A thin laptop. The pointer's height sets how far the lid stands open; the screen lights as it opens.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/laptop.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "bars",
+      "type": "registry:ui",
+      "title": "Bars",
+      "description": "An isometric bar chart drawn from your data. The bar under the pointer lifts and reads its value.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/bars.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "registry:ui",
+      "title": "Steps",
+      "description": "A staircase that reads as progress. A token rests on the current step and hops as the pointer walks it.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/steps.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "files",
+      "type": "registry:ui",
+      "title": "Files",
+      "description": "An upright folder of five sheets. As the pointer comes near the sheets rise; the nearest rises highest.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/files.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "cylinders",
+      "type": "registry:ui",
+      "title": "Cylinders",
+      "description": "A database drawn as three stacked disks. The pointer's height parts the stack above the disk it picks.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/cylinders.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "parcel",
+      "type": "registry:ui",
+      "title": "Parcel",
+      "description": "A sealed box. Its flaps fold open as the pointer comes near, and a cube rises out.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/parcel.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "nodes",
+      "type": "registry:ui",
+      "title": "Nodes",
+      "description": "A network of a hub and eight nodes. A pulse runs the shortest route to the node nearest the pointer.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/nodes.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "cube",
+      "type": "registry:ui",
+      "title": "Cube",
+      "description": "A three by three cube. The pointer's height picks a layer and moving across twists it; it settles on a quarter turn.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/cube.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "figure"
+      ]
+    },
+    {
+      "name": "pc-case",
+      "type": "registry:ui",
+      "title": "PC Case",
+      "description": "A tower you can take apart: slide the glass panel off, lift the memory out, pull the graphics card, and press power to spin every fan.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/pc-case.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "object"
+      ]
+    },
+    {
+      "name": "heart",
+      "type": "registry:ui",
+      "title": "Heart",
+      "description": "A heart cut from a slab, beating. Point at it to quicken the pulse; click to like it, and it fills and throws off a burst of cubes.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/heart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "object"
+      ]
+    },
+    {
+      "name": "pulley",
+      "type": "registry:ui",
+      "title": "Pulley",
+      "description": "A block and tackle on a frame. Drag the rope's handle down and the load rises by the pull divided by the ratio, with the wheels turning as the rope runs.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/pulley.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "object"
+      ]
+    },
+    {
+      "name": "church",
+      "type": "registry:ui",
+      "title": "Church",
+      "description": "A small stone church: a nave under a tiled roof, buttresses between pointed windows, a rose window over arched doors, and a tower with an open belfry and a spire. The doors open, the bell rings and the windows light.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/church.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "object"
+      ]
+    },
+    {
+      "name": "reactor",
+      "type": "registry:ui",
+      "title": "Reactor",
+      "description": "A ring-core reactor: a glowing core inside ten coils. The coils charge as the pointer comes near and the ring turns; click to fire a pulse.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/reactor.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "object"
+      ]
+    },
+    {
+      "name": "block",
+      "type": "registry:ui",
+      "title": "Block",
+      "description": "One block you can mine, in nine materials. Each click cracks it; the last breaks it into fragments and drops an item, and the block grows back.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/block.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "chest",
+      "type": "registry:ui",
+      "title": "Chest",
+      "description": "A wooden chest with an iron latch. Click to lift the lid on its hinge; what is inside floats up and turns.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/chest.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "torch",
+      "type": "registry:ui",
+      "title": "Torch",
+      "description": "A torch set in a stone block. Its flame flickers and lights a ring around it; click to snuff it out in a curl of smoke, and again to light it.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/torch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "tree",
+      "type": "registry:ui",
+      "title": "Tree",
+      "description": "A block tree: a log trunk under a crown of leaves. It sways while the pointer is over it; click to shake a few leaves loose.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/tree.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "block-icon",
+      "type": "registry:ui",
+      "title": "Block Icon",
+      "description": "A block as a small static icon in its material's tint, plus the recessed slot that holds one. Plain SVG, so it renders on the server.",
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/isometric-engine.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/block-icon.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "hotbar",
+      "type": "registry:ui",
+      "title": "Hotbar",
+      "description": "A row of nine slots. Click a slot, use the arrow keys, scroll over it, or press 1 to 9 anywhere on the page.",
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/block-icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/hotbar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "inventory",
+      "type": "registry:ui",
+      "title": "Inventory",
+      "description": "A grid of slots holding blocks and their counts. Click a slot, or move with the arrow keys.",
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/block-icon.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/inventory.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "hearts-meter",
+      "type": "registry:ui",
+      "title": "Hearts Meter",
+      "description": "Health as a row of pixel hearts, with halves. A heart that is lost blinks once.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/hearts-meter.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "xp-bar",
+      "type": "registry:ui",
+      "title": "XP Bar",
+      "description": "Experience: a segmented bar with the level standing over its middle.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/xp-bar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "world",
+      "type": "registry:ui",
+      "title": "World",
+      "description": "A small isometric town where everything works: the church, a reactor in the square, a pulley yard, a PC, a garden, trees, chests and torches. Pan, zoom, and build with blocks.",
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/isometric-engine.json",
+        "https://isometric.buildlab.in/r/church.json",
+        "https://isometric.buildlab.in/r/reactor.json",
+        "https://isometric.buildlab.in/r/pulley.json",
+        "https://isometric.buildlab.in/r/pc-case.json",
+        "https://isometric.buildlab.in/r/heart.json",
+        "https://isometric.buildlab.in/r/chest.json",
+        "https://isometric.buildlab.in/r/block.json",
+        "https://isometric.buildlab.in/r/torch.json",
+        "https://isometric.buildlab.in/r/tree.json",
+        "https://isometric.buildlab.in/r/hotbar.json",
+        "https://isometric.buildlab.in/r/iso-button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/world.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "world"
+      ]
+    },
+    {
+      "name": "iso-button",
+      "type": "registry:ui",
+      "title": "Iso Button",
+      "description": "A button that stands on its own depth and sinks into it when pressed.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-card",
+      "type": "registry:ui",
+      "title": "Iso Card",
+      "description": "A slab: a card standing on its own depth, composed like shadcn's Card.",
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-switch",
+      "type": "registry:ui",
+      "title": "Iso Switch",
+      "description": "A block that slides along a recessed groove. Built on Radix Switch.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-tabs",
+      "type": "registry:ui",
+      "title": "Iso Tabs",
+      "description": "A row of tiles: the chosen tile stands up and the rest are pressed flat. Built on Radix Tabs.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-slider",
+      "type": "registry:ui",
+      "title": "Iso Slider",
+      "description": "A rail with a cube riding it, with optional ticks. Built on Radix Slider.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-toggle-group",
+      "type": "registry:ui",
+      "title": "Iso Toggle Group",
+      "description": "A row of keys; a key that is on stays pressed down. Built on Radix Toggle Group.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-kbd",
+      "type": "registry:ui",
+      "title": "Iso Kbd",
+      "description": "A keycap for shortcuts, which can be shown held down.",
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-kbd.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-badge",
+      "type": "registry:ui",
+      "title": "Iso Badge",
+      "description": "A small slab for status and counts.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-progress",
+      "type": "registry:ui",
+      "title": "Iso Progress",
+      "description": "Progress as a row of blocks: filled blocks stand up, empty ones lie flat.",
+      "registryDependencies": [
+        "utils",
+        "https://isometric.buildlab.in/r/iso-depth.json"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-input",
+      "type": "registry:ui",
+      "title": "Iso Input",
+      "description": "A recessed well: an input whose inner walls read as depth going into the page.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "iso-grid",
+      "type": "registry:ui",
+      "title": "Iso Grid",
+      "description": "An isometric lattice of fine lines to put behind content, fading toward its edges.",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/isometric/ui/isometric/iso-grid.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "ui"
+      ]
+    },
+    {
+      "name": "all",
+      "type": "registry:item",
+      "title": "Everything",
+      "description": "Every Isometric figure and primitive in one install.",
+      "registryDependencies": [
+        "https://isometric.buildlab.in/r/iso-depth.json",
+        "https://isometric.buildlab.in/r/skyline.json",
+        "https://isometric.buildlab.in/r/stack.json",
+        "https://isometric.buildlab.in/r/keys.json",
+        "https://isometric.buildlab.in/r/rack.json",
+        "https://isometric.buildlab.in/r/laptop.json",
+        "https://isometric.buildlab.in/r/bars.json",
+        "https://isometric.buildlab.in/r/steps.json",
+        "https://isometric.buildlab.in/r/files.json",
+        "https://isometric.buildlab.in/r/cylinders.json",
+        "https://isometric.buildlab.in/r/parcel.json",
+        "https://isometric.buildlab.in/r/nodes.json",
+        "https://isometric.buildlab.in/r/cube.json",
+        "https://isometric.buildlab.in/r/pc-case.json",
+        "https://isometric.buildlab.in/r/heart.json",
+        "https://isometric.buildlab.in/r/pulley.json",
+        "https://isometric.buildlab.in/r/church.json",
+        "https://isometric.buildlab.in/r/reactor.json",
+        "https://isometric.buildlab.in/r/block.json",
+        "https://isometric.buildlab.in/r/chest.json",
+        "https://isometric.buildlab.in/r/torch.json",
+        "https://isometric.buildlab.in/r/tree.json",
+        "https://isometric.buildlab.in/r/block-icon.json",
+        "https://isometric.buildlab.in/r/hotbar.json",
+        "https://isometric.buildlab.in/r/inventory.json",
+        "https://isometric.buildlab.in/r/hearts-meter.json",
+        "https://isometric.buildlab.in/r/xp-bar.json",
+        "https://isometric.buildlab.in/r/world.json",
+        "https://isometric.buildlab.in/r/iso-button.json",
+        "https://isometric.buildlab.in/r/iso-card.json",
+        "https://isometric.buildlab.in/r/iso-switch.json",
+        "https://isometric.buildlab.in/r/iso-tabs.json",
+        "https://isometric.buildlab.in/r/iso-slider.json",
+        "https://isometric.buildlab.in/r/iso-toggle-group.json",
+        "https://isometric.buildlab.in/r/iso-kbd.json",
+        "https://isometric.buildlab.in/r/iso-badge.json",
+        "https://isometric.buildlab.in/r/iso-progress.json",
+        "https://isometric.buildlab.in/r/iso-input.json",
+        "https://isometric.buildlab.in/r/iso-grid.json"
+      ]
+    }
+  ]
+}
