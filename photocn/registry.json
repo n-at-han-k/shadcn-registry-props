@@ -1,0 +1,714 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "photocn",
+  "homepage": "https://photocn.dev",
+  "items": [
+    {
+      "name": "image-editor",
+      "type": "registry:block",
+      "title": "Image Editor",
+      "description": "The complete photo editor: toolbar, canvas, tool switcher, histogram and every panel. Drop it in and go.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "badge",
+        "https://photocn.dev/r/image-editor-canvas.json",
+        "https://photocn.dev/r/image-editor-compact-layout.json",
+        "https://photocn.dev/r/image-editor-export.json",
+        "https://photocn.dev/r/image-editor-histogram.json",
+        "https://photocn.dev/r/image-editor-layout.json",
+        "https://photocn.dev/r/image-editor-recipes.json",
+        "https://photocn.dev/r/image-editor-tool-panel.json",
+        "https://photocn.dev/r/image-editor-toolbar.json",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/image-editor.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/image-editor.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-layout",
+      "type": "registry:component",
+      "title": "Layout",
+      "description": "Resizable canvas + sidebar shell with an optional top toolbar.",
+      "dependencies": [],
+      "registryDependencies": [
+        "resizable"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/layout.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/layout.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-compact-layout",
+      "type": "registry:component",
+      "title": "Compact Layout",
+      "description": "Phone layout: canvas first, a bottom tool bar, and panels in a bottom sheet that keeps the photo touchable.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu",
+        "https://photocn.dev/r/image-editor-canvas.json",
+        "https://photocn.dev/r/image-editor-export.json",
+        "https://photocn.dev/r/image-editor-layout.json",
+        "https://photocn.dev/r/image-editor-tool-panel.json",
+        "https://photocn.dev/r/image-editor-toolbar.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/compact-layout.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/compact-layout.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-canvas",
+      "type": "registry:component",
+      "title": "Canvas",
+      "description": "The image stage: crop frame and perspective corners in the crop tool; zoom, blur focus, drag-and-drop and hold-to-compare everywhere else.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "alert",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/canvas.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/canvas.tsx"
+        },
+        {
+          "path": "src/registry/image-editor/crop-overlay.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/crop-overlay.tsx"
+        },
+        {
+          "path": "src/registry/image-editor/blur-center-overlay.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/blur-center-overlay.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-toolbar",
+      "type": "registry:component",
+      "title": "Toolbar",
+      "description": "Tool switcher plus undo, redo, open, reset and compare buttons.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "toggle-group",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/toolbar.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/toolbar.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-histogram",
+      "type": "registry:component",
+      "title": "Histogram",
+      "description": "Live RGB histogram of the rendered image.",
+      "dependencies": [
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/registry/image-editor/histogram.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/histogram.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-tool-panel",
+      "type": "registry:component",
+      "title": "Tool Panel",
+      "description": "Renders the panel for the active tool; swap or add panels per tool.",
+      "dependencies": [
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "https://photocn.dev/r/image-editor-adjustments.json",
+        "https://photocn.dev/r/image-editor-blend.json",
+        "https://photocn.dev/r/image-editor-blur.json",
+        "https://photocn.dev/r/image-editor-crop.json",
+        "https://photocn.dev/r/image-editor-curves.json",
+        "https://photocn.dev/r/image-editor-filters.json",
+        "https://photocn.dev/r/image-editor-metadata.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/tool-panel.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/tool-panel.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-panel-header",
+      "type": "registry:component",
+      "title": "Panel Header",
+      "description": "Shared title + reset header used by the panels.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/panel-header.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/panel-header.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-adjustments",
+      "type": "registry:component",
+      "title": "Adjustments",
+      "description": "Light, color and effect sliders.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "field",
+        "https://photocn.dev/r/image-editor-panel-header.json",
+        "separator",
+        "slider",
+        "tabs",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/adjustments-panel.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/adjustments-panel.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-filters",
+      "type": "registry:component",
+      "title": "Filters",
+      "description": "LUT and color-matrix presets with a strength slider.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "field",
+        "https://photocn.dev/r/image-editor-panel-header.json",
+        "slider",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/filters-panel.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/filters-panel.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-curves",
+      "type": "registry:component",
+      "title": "Curves",
+      "description": "RGB and per-channel tone curves over a live histogram.",
+      "dependencies": [
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "context-menu",
+        "field",
+        "https://photocn.dev/r/image-editor-panel-header.json",
+        "tabs",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/curves-panel.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/curves-panel.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-blur",
+      "type": "registry:component",
+      "title": "Blur",
+      "description": "Bokeh and gaussian lens blur with a draggable focus point.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "field",
+        "https://photocn.dev/r/image-editor-panel-header.json",
+        "separator",
+        "slider",
+        "tabs",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/blur-panel.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/blur-panel.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-crop",
+      "type": "registry:component",
+      "title": "Crop",
+      "description": "Quarter turns, flips, aspect ratios, straighten and perspective. Non-destructive: reopen and widen the crop any time.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "field",
+        "https://photocn.dev/r/image-editor-panel-header.json",
+        "select",
+        "separator",
+        "slider",
+        "toggle",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/crop-panel.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/crop-panel.tsx"
+        },
+        {
+          "path": "src/registry/image-editor/icon-skew.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/icon-skew.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-blend",
+      "type": "registry:component",
+      "title": "Blend",
+      "description": "Blend a second image into the photo.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "field",
+        "https://photocn.dev/r/image-editor-panel-header.json",
+        "slider",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/blend-panel.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/blend-panel.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-metadata",
+      "type": "registry:component",
+      "title": "Metadata",
+      "description": "File info and EXIF of the open image.",
+      "dependencies": [
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "alert",
+        "badge",
+        "field",
+        "separator",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/metadata-panel.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/metadata-panel.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-export",
+      "type": "registry:component",
+      "title": "Export Dialog",
+      "description": "Format, quality and output size; downloads or saves the result.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "alert",
+        "button",
+        "dialog",
+        "drawer",
+        "field",
+        "https://photocn.dev/r/image-editor-layout.json",
+        "input",
+        "select",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/export-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/export-dialog.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-recipes",
+      "type": "registry:component",
+      "title": "Recipes",
+      "description": "Save a look as JSON and re-apply it to any photo.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/recipes.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/recipes.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-command-menu",
+      "type": "registry:component",
+      "title": "Command Menu",
+      "description": "Cmd+K palette for tools, history and filters.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "command",
+        "https://photocn.dev/r/image-editor-toolbar.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/command-menu.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/command-menu.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "image-editor-devtools",
+      "type": "registry:component",
+      "title": "Devtools",
+      "description": "Floating render stats for tuning the worker renderer.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "slider",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "src/registry/image-editor/devtools.tsx",
+          "type": "registry:component",
+          "target": "components/image-editor/devtools.tsx"
+        }
+      ],
+      "categories": [
+        "image-editor"
+      ]
+    },
+    {
+      "name": "editor",
+      "type": "registry:block",
+      "title": "Editor",
+      "description": "The full editor, filling the screen, with a ⌘K command menu.",
+      "dependencies": [
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "https://photocn.dev/r/image-editor-command-menu.json",
+        "https://photocn.dev/r/image-editor.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/editor.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/editor.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "editor-minimal",
+      "type": "registry:block",
+      "title": "Minimal editor",
+      "description": "Adjust, filters and crop, plus export. Nothing else.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "https://photocn.dev/r/image-editor-adjustments.json",
+        "https://photocn.dev/r/image-editor-canvas.json",
+        "https://photocn.dev/r/image-editor-crop.json",
+        "https://photocn.dev/r/image-editor-export.json",
+        "https://photocn.dev/r/image-editor-filters.json",
+        "https://photocn.dev/r/image-editor-toolbar.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/editor-minimal.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/editor-minimal.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "editor-mobile",
+      "type": "registry:block",
+      "title": "Mobile editor",
+      "description": "Photo first, tools at the bottom, controls in a sheet.",
+      "dependencies": [
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "https://photocn.dev/r/image-editor.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/editor-mobile.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/editor-mobile.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "avatar-cropper",
+      "type": "registry:block",
+      "title": "Avatar cropper",
+      "description": "Pick a photo, frame it in a square, save a 512px avatar.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "https://photocn.dev/r/image-editor-canvas.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/avatar-cropper.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/avatar-cropper.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "upload-editor",
+      "type": "registry:block",
+      "title": "Upload editor",
+      "description": "Drop a photo, edit it, then upload the result.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "https://photocn.dev/r/image-editor.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/upload-editor.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/upload-editor.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "filter-picker",
+      "type": "registry:block",
+      "title": "Filter picker",
+      "description": "A phone-style row of looks with a strength slider.",
+      "dependencies": [
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://photocn.dev/r/image-editor-canvas.json",
+        "https://photocn.dev/r/image-editor-export.json",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/filter-picker.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/filter-picker.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "before-after",
+      "type": "registry:block",
+      "title": "Before / after",
+      "description": "Drag to compare the original with the edit.",
+      "dependencies": [
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/registry/blocks/before-after.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/before-after.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    },
+    {
+      "name": "batch-looks",
+      "type": "registry:block",
+      "title": "Batch looks",
+      "description": "Choose one look and apply it to many photos at once.",
+      "dependencies": [
+        "lucide-react",
+        "photocn@^0.1.1"
+      ],
+      "registryDependencies": [
+        "button",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/batch-looks.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/batch-looks.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ]
+    }
+  ]
+}
