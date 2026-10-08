@@ -20,7 +20,7 @@
       "name": "cancel-flow",
       "type": "registry:block",
       "title": "Cancel flow",
-      "description": "An in-app Stripe cancel dialog: reason, one save offer picked from the reason (more trial days, a pause, a discount or a free month, once per subscription), then a real cancellation at period end. Records everything on the Stripe subscription, so there is no table to add.",
+      "description": "An in-app Stripe cancel dialog: a reason with one follow-up question, then a full refund if they were charged in the last 24 hours, or one save offer picked from the reason (more trial days, a pause, a discount, a free month, or this month forgiven when a payment failed), then a real cancellation. Past-due cancels void what is owed. Records everything on Stripe, so there is no table to add.",
       "dependencies": [
         "stripe",
         "server-only"
@@ -28,6 +28,7 @@
       "registryDependencies": [
         "button",
         "dialog",
+        "input",
         "label",
         "radio-group",
         "textarea",

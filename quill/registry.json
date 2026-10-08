@@ -895,6 +895,15 @@
           "to": {
             "background-position": "-200% 0"
           }
+        },
+        "@media (forced-colors: active)": {
+          ":focus-visible": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[data-focus-inset]:focus-visible": {
+            "outline-offset": "-2px"
+          }
         }
       },
       "docs": "Themes — set data-theme on <html>: unset (or data-theme=\"light\") → Dawn (default) · data-theme=\"dark\" → Dusk · data-theme=\"classic-light\" → Classic Light · data-theme=\"classic-dark\" → Classic Dark · data-theme=\"intelligent\" → Intelligent. 5 themes in total. Accents — set data-accent on <html>, independently of the theme: terracotta · moss (default) · indigo · gold. The accent drives links, eyebrows, focus rings and accent italics. The two axes are independent. Runtime contract — the theme-selector block owns both attributes: after hydration it reads localStorage (\"quill-theme\", \"quill-accent\") and stamps <html>. Prerendered markup is always Dawn + moss, so first paint matches the server. Charts — use the chart tokens (--chart-series-1..5, the sequential and diverging ramps), never raw pigments. Assign series colours in that fixed order and never reorder or cycle survivors when a filter drops one: the order keeps the palette distinguishable under all three dichromacies. Fonts — Raleway (body) and Fraunces (display) load through the theme file's @import; no next/font. Never load them again under another name: the theme matches literal names. Wiring — the CLI install merges the theme into your Tailwind stylesheet. A theme FILE must be imported from inside that stylesheet — `@import \"./quill-theme.css\"` after `@import \"tailwindcss\"` and below any `@custom-variant dark` line shadcn wrote (the last wins) — never from layout.tsx, where every Quill utility is dead. dark: utilities — stock primitives' dark: tweaks follow Quill's dark themes (and the .dark class) once the theme is wired; nothing to add by hand. Self-check — after changing UI, run `node scripts/quill-check.mjs` (install once: `npx shadcn@latest add @quill/check`) and clear every finding: stock colours, raw colours, bracket values where a token exists, retired names, dead classes. An exception: `// quill-check: allow <rule> — <why>` on the line above. Updating — re-run with --overwrite, not --yes: on a file you have changed, --yes prompts in a terminal and silently skips when non-interactive. Full machine-readable reference for agents: https://www.quilldesignsystem.com/llms.txt. Per-component usage guides at /usage/<name>.md."
