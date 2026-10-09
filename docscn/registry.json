@@ -1,0 +1,1489 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "docscn",
+  "homepage": "https://docscn.dev",
+  "items": [
+    {
+      "name": "docs-utils",
+      "type": "registry:lib",
+      "title": "Docs utilities",
+      "description": "Shared helpers used by docscn components: URL matching, ref merging, hotkeys, copy-button state and tab groups that share a selection.",
+      "files": [
+        {
+          "path": "registry/base/docs/utils/urls.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/utils/urls.ts"
+        },
+        {
+          "path": "registry/base/docs/utils/merge-refs.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/utils/merge-refs.ts"
+        },
+        {
+          "path": "registry/base/docs/utils/hotkey.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/utils/hotkey.ts"
+        },
+        {
+          "path": "registry/base/docs/utils/use-copy-button.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/utils/use-copy-button.ts"
+        },
+        {
+          "path": "registry/base/docs/utils/use-is-scroll-top.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/utils/use-is-scroll-top.ts"
+        },
+        {
+          "path": "registry/base/docs/utils/tabs-group.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/utils/tabs-group.ts"
+        },
+        {
+          "path": "registry/base/docs/utils/array.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/utils/array.ts"
+        }
+      ]
+    },
+    {
+      "name": "search-context",
+      "type": "registry:component",
+      "title": "Search context",
+      "description": "SearchProvider and useSearchContext: the search dialog's open state, its Meta/Ctrl+K hotkey and shared dialog types.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["@docscn/docs-utils"],
+      "files": [
+        {
+          "path": "registry/base/docs/contexts/search.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/contexts/search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "i18n-context",
+      "type": "registry:component",
+      "title": "I18n context",
+      "description": "I18nProvider and useI18n: the current locale, the available locales and the UI string translations, which RootProvider's i18n prop sets.",
+      "dependencies": [
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/contexts/i18n.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/contexts/i18n.tsx"
+        }
+      ]
+    },
+    {
+      "name": "i18n",
+      "type": "registry:lib",
+      "title": "I18n",
+      "description": "defineI18nUI, i18nProvider and uiTranslations: build RootProvider's i18n prop from a Fumadocs Core i18n config, with translations of the UI strings keyed as in Fumadocs UI.",
+      "dependencies": ["fumadocs-core@^16.16.2"],
+      "registryDependencies": ["@docscn/i18n-context"],
+      "files": [
+        {
+          "path": "registry/base/docs/i18n.tsx",
+          "type": "registry:lib",
+          "target": "@components/docs/i18n.tsx"
+        },
+        {
+          "path": "registry/base/docs/.translations/index.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/.translations/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "root-provider",
+      "type": "registry:component",
+      "title": "Root provider",
+      "description": "RootProvider for the root layout: theme (next-themes) with a `d` hotkey, the default search dialog, tooltips, text direction and Next.js framework adapters.",
+      "dependencies": [
+        "@base-ui/react",
+        "fumadocs-core@^16.16.2",
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "tooltip",
+        "@docscn/search-context",
+        "@docscn/docs-utils",
+        "@docscn/search-dialog-default",
+        "@docscn/i18n-context"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/provider/base.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/provider/base.tsx"
+        },
+        {
+          "path": "registry/base/docs/provider/next.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/provider/next.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme-switch",
+      "type": "registry:component",
+      "title": "Theme switch",
+      "description": "ThemeSwitch: a light/dark toggle, or a light/dark/system toggle group.",
+      "dependencies": [
+        "@fuma-translate/react@^1.0.2",
+        "lucide-react",
+        "next-themes"
+      ],
+      "registryDependencies": ["button", "toggle-group"],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/shared/slots/theme-switch.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/shared/slots/theme-switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "search-trigger",
+      "type": "registry:component",
+      "title": "Search trigger",
+      "description": "SearchTrigger (icon button) and FullSearchTrigger (search field with hotkey hint) that open the search dialog.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "lucide-react"
+      ],
+      "registryDependencies": ["button", "kbd", "@docscn/search-context"],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/shared/slots/search-trigger.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/shared/slots/search-trigger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "language-select",
+      "type": "registry:component",
+      "title": "Language select",
+      "description": "LanguageSelect and LanguageSelectText: a popover listing the locales from RootProvider's i18n prop, shown by the layouts when there is more than one.",
+      "dependencies": [
+        "class-variance-authority",
+        "cn",
+        "@fuma-translate/react@^1.0.2"
+      ],
+      "registryDependencies": ["button", "popover", "@docscn/i18n-context"],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/shared/slots/language-select.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/shared/slots/language-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layout-shared",
+      "type": "registry:component",
+      "title": "Shared layout options",
+      "description": "BaseLayoutProps, link items, layout tabs, the AI chat panel and helpers shared by the docs, notebook and home layouts.",
+      "dependencies": ["cn", "fumadocs-core@^16.16.2"],
+      "registryDependencies": [
+        "@docscn/docs-utils",
+        "@docscn/theme-switch",
+        "@docscn/search-trigger"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/shared/index.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/shared/index.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/shared/client.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/shared/client.tsx"
+        }
+      ]
+    },
+    {
+      "name": "typography",
+      "type": "registry:item",
+      "title": "Typography",
+      "description": "The docs-typeset class for MDX content, built from your shadcn/ui theme tokens. Add not-docs-typeset to opt an element out.",
+      "css": {
+        "@layer components": {
+          ".docs-typeset": {
+            "color": "var(--foreground)",
+            "font-size": "1rem",
+            "line-height": "1.75"
+          },
+          ".docs-typeset > :first-child": {
+            "margin-top": "0"
+          },
+          ".docs-typeset > :last-child": {
+            "margin-bottom": "0"
+          },
+          ".docs-typeset :where(p):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "1.25em",
+            "margin-bottom": "1.25em"
+          },
+          ".docs-typeset :where(h1):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(h2):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(h3):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(h4):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(h5):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(h6):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "color": "var(--foreground)",
+            "font-weight": "600",
+            "letter-spacing": "-0.015em"
+          },
+          ".docs-typeset :where(h1):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "font-size": "2.25em",
+            "line-height": "1.15",
+            "margin-top": "0",
+            "margin-bottom": "0.8em"
+          },
+          ".docs-typeset :where(h2):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "font-size": "1.5em",
+            "line-height": "1.35",
+            "margin-top": "2em",
+            "margin-bottom": "0.8em"
+          },
+          ".docs-typeset :where(h3):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "font-size": "1.25em",
+            "line-height": "1.5",
+            "margin-top": "1.6em",
+            "margin-bottom": "0.6em"
+          },
+          ".docs-typeset :where(h4):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(h5):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(h6):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "font-size": "1em",
+            "line-height": "1.5",
+            "margin-top": "1.5em",
+            "margin-bottom": "0.5em"
+          },
+          ".docs-typeset :where(a:not([data-card])):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "color": "var(--foreground)",
+            "font-weight": "500",
+            "text-decoration-line": "underline",
+            "text-decoration-color": "color-mix(in oklab, var(--primary) 40%, transparent)",
+            "text-underline-offset": "4px",
+            "transition": "text-decoration-color 150ms"
+          },
+          ".docs-typeset :where(a:not([data-card]):hover):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "text-decoration-color": "var(--primary)"
+          },
+          ".docs-typeset :where(strong):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "color": "var(--foreground)",
+            "font-weight": "600"
+          },
+          ".docs-typeset :where(ul):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(ol):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "1.25em",
+            "margin-bottom": "1.25em",
+            "padding-inline-start": "1.625em"
+          },
+          ".docs-typeset :where(ul):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "list-style-type": "disc"
+          },
+          ".docs-typeset :where(ol):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "list-style-type": "decimal"
+          },
+          ".docs-typeset :where(li):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "0.5em",
+            "margin-bottom": "0.5em",
+            "padding-inline-start": "0.375em"
+          },
+          ".docs-typeset :where(li):not(:where(.not-docs-typeset, .not-docs-typeset *))::marker": {
+            "color": "var(--muted-foreground)"
+          },
+          ".docs-typeset :where(li > ul):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(li > ol):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "0.75em",
+            "margin-bottom": "0.75em"
+          },
+          ".docs-typeset :where(li > p):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "0.75em",
+            "margin-bottom": "0.75em"
+          },
+          ".docs-typeset :where(blockquote):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "1.5em",
+            "margin-bottom": "1.5em",
+            "padding-inline-start": "1em",
+            "border-inline-start": "2px solid var(--border)",
+            "color": "var(--muted-foreground)",
+            "font-style": "italic"
+          },
+          ".docs-typeset :where(hr):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "3em",
+            "margin-bottom": "3em",
+            "border-color": "var(--border)"
+          },
+          ".docs-typeset :where(code:not(pre code)):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "padding": "0.2em 0.35em",
+            "border": "1px solid var(--border)",
+            "border-radius": "calc(var(--radius) * 0.6)",
+            "background-color": "var(--muted)",
+            "font-family": "var(--font-mono, ui-monospace, monospace)",
+            "font-size": "0.875em",
+            "font-weight": "500"
+          },
+          ".docs-typeset :where(pre):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "1.5em",
+            "margin-bottom": "1.5em",
+            "padding": "0.875em 1em",
+            "overflow-x": "auto",
+            "border": "1px solid var(--border)",
+            "border-radius": "var(--radius)",
+            "background-color": "var(--muted)",
+            "font-size": "0.875em",
+            "line-height": "1.7"
+          },
+          ".docs-typeset :where(kbd):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "padding": "0.1em 0.375em",
+            "border": "1px solid var(--border)",
+            "border-radius": "calc(var(--radius) * 0.6)",
+            "font-family": "var(--font-mono, ui-monospace, monospace)",
+            "font-size": "0.875em"
+          },
+          ".docs-typeset :where(table):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "width": "100%",
+            "margin-top": "2em",
+            "margin-bottom": "2em",
+            "border-collapse": "collapse",
+            "font-size": "0.875em",
+            "line-height": "1.7",
+            "text-align": "start"
+          },
+          ".docs-typeset :where(thead):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "border-bottom": "1px solid var(--border)"
+          },
+          ".docs-typeset :where(tbody tr):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "border-bottom": "1px solid var(--border)"
+          },
+          ".docs-typeset :where(tbody tr:last-child):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "border-bottom-width": "0"
+          },
+          ".docs-typeset :where(th):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "padding": "0.5em 0.75em",
+            "color": "var(--foreground)",
+            "font-weight": "600",
+            "text-align": "start",
+            "vertical-align": "bottom"
+          },
+          ".docs-typeset :where(td):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "padding": "0.5em 0.75em",
+            "vertical-align": "top"
+          },
+          ".docs-typeset :where(img):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(video):not(:where(.not-docs-typeset, .not-docs-typeset *)), .docs-typeset :where(figure):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "2em",
+            "margin-bottom": "2em"
+          },
+          ".docs-typeset :where(figcaption):not(:where(.not-docs-typeset, .not-docs-typeset *))": {
+            "margin-top": "0.75em",
+            "color": "var(--muted-foreground)",
+            "font-size": "0.875em"
+          }
+        }
+      }
+    },
+    {
+      "name": "heading",
+      "type": "registry:component",
+      "title": "Heading",
+      "description": "Heading with an anchor link and a button that copies the link to the section.",
+      "dependencies": ["cn", "@fuma-translate/react@^1.0.2", "lucide-react"],
+      "registryDependencies": ["button", "@docscn/docs-utils"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/heading.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/heading.tsx"
+        }
+      ]
+    },
+    {
+      "name": "codeblock",
+      "type": "registry:component",
+      "title": "Code block",
+      "description": "CodeBlock and CodeBlockTabs for Fumadocs MDX's Shiki output: title, icon, copy button, code tabs, and the styles for dual themes, highlights, diffs, focus and line numbers.",
+      "dependencies": ["cn", "@fuma-translate/react@^1.0.2", "lucide-react"],
+      "registryDependencies": ["button", "tabs", "@docscn/docs-utils"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/codeblock.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/codeblock.tsx"
+        }
+      ],
+      "css": {
+        "@layer components": {
+          ".shiki:not(.not-docs-codeblock *)": {
+            "--padding-left": "1rem",
+            "--padding-right": "1rem"
+          },
+          ".shiki:not(.not-docs-codeblock *) code span": {
+            "color": "var(--shiki-light)",
+            "font-style": "var(--shiki-light-font-style)"
+          },
+          ".dark .shiki:not(.not-docs-codeblock *) code span": {
+            "color": "var(--shiki-dark)",
+            "font-style": "var(--shiki-dark-font-style)"
+          },
+          ".shiki:not(.not-docs-codeblock *) .line": {
+            "position": "relative",
+            "padding-left": "var(--padding-left)",
+            "padding-right": "var(--padding-right)"
+          },
+          ".shiki:not(.not-docs-codeblock *) .line:empty": {
+            "height": "1lh"
+          },
+          ".shiki.has-focused:not(.not-docs-codeblock *) .line:not(.focused)": {
+            "filter": "blur(2px)",
+            "transition": "filter 200ms"
+          },
+          ".shiki.has-focused:not(.not-docs-codeblock *):hover .line:not(.focused)": {
+            "filter": "blur(0)"
+          },
+          ".shiki:not(.not-docs-codeblock *) .diff::before": {
+            "position": "absolute",
+            "left": "0.375rem"
+          },
+          ".shiki:not(.not-docs-codeblock *) .diff.remove": {
+            "--docs-counter-color": "rgb(230, 10, 100)",
+            "background-color": "rgba(200, 10, 100, 0.12)",
+            "opacity": "0.7"
+          },
+          ".shiki:not(.not-docs-codeblock *) .diff.remove::before": {
+            "content": "\"-\"",
+            "color": "rgb(230, 10, 100)"
+          },
+          ".shiki:not(.not-docs-codeblock *) .diff.add": {
+            "--docs-counter-color": "rgb(10, 200, 100)",
+            "background-color": "rgba(14, 180, 100, 0.1)"
+          },
+          ".shiki:not(.not-docs-codeblock *) .diff.add::before": {
+            "content": "\"+\"",
+            "color": "rgb(10, 200, 100)"
+          },
+          ".shiki:not(.not-docs-codeblock *) .highlighted": {
+            "--docs-counter-color": "var(--primary)",
+            "background-color": "color-mix(in oklab, var(--primary) 10%, transparent)"
+          },
+          ".shiki:not(.not-docs-codeblock *) .highlighted::after": {
+            "position": "absolute",
+            "inset-block": "0",
+            "left": "0",
+            "border-left": "2px solid color-mix(in oklab, var(--primary) 50%, transparent)",
+            "content": "\"\""
+          },
+          ".shiki:not(.not-docs-codeblock *) .highlighted-word": {
+            "margin-block": "-1px",
+            "padding": "1px",
+            "border": "1px solid color-mix(in oklab, var(--primary) 30%, transparent)",
+            "border-radius": "calc(var(--radius) * 0.8)",
+            "background-color": "color-mix(in oklab, var(--primary) 10%, transparent)",
+            "font-weight": "500"
+          },
+          ".shiki[data-line-numbers]:not(.not-docs-codeblock *) .line": {
+            "counter-increment": "line",
+            "padding-left": "calc(var(--padding-left) + 1.75rem)"
+          },
+          ".shiki[data-line-numbers]:not(.not-docs-codeblock *) .line::after": {
+            "position": "absolute",
+            "inset-block": "0",
+            "left": "0",
+            "width": "1.75rem",
+            "color": "color-mix(in oklab, var(--docs-counter-color, var(--muted-foreground)) 60%, transparent)",
+            "text-align": "right",
+            "content": "counter(line)"
+          },
+          "code.shiki:not(.not-docs-codeblock *) span": {
+            "color": "var(--shiki-light)",
+            "font-style": "var(--shiki-light-font-style)"
+          },
+          ".dark code.shiki:not(.not-docs-codeblock *) span": {
+            "color": "var(--shiki-dark)",
+            "font-style": "var(--shiki-dark-font-style)"
+          }
+        }
+      }
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "Cards and Card: a grid of link cards with an icon, title and description.",
+      "dependencies": ["cn", "fumadocs-core@^16.16.2"],
+      "registryDependencies": ["card"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/card.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "callout",
+      "type": "registry:component",
+      "title": "Callout",
+      "description": "Callout for notes and warnings, with info, warning, error, success and idea types.",
+      "dependencies": ["cn", "lucide-react"],
+      "registryDependencies": ["alert"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/callout.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/callout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "mdx",
+      "type": "registry:component",
+      "title": "MDX components",
+      "description": "defaultMdxComponents for Fumadocs MDX content (code blocks, headings, links, images, tables, cards and callouts) and createRelativeLink.",
+      "dependencies": ["cn", "fumadocs-core@^16.16.2"],
+      "devDependencies": ["@types/mdx"],
+      "registryDependencies": [
+        "@docscn/heading",
+        "@docscn/codeblock",
+        "@docscn/card",
+        "@docscn/callout"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/mdx.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/mdx.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tree-context",
+      "type": "registry:component",
+      "title": "Page tree context",
+      "description": "TreeContextProvider and hooks for the current page tree, the path to the current page, layout tab groups and the linear page list used for previous/next links.",
+      "dependencies": ["fumadocs-core@^16.16.2"],
+      "registryDependencies": ["@docscn/layout-shared", "@docscn/docs-utils"],
+      "files": [
+        {
+          "path": "registry/base/docs/contexts/tree.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/contexts/tree.tsx"
+        },
+        {
+          "path": "registry/base/docs/utils/use-footer-items.ts",
+          "type": "registry:lib",
+          "target": "@components/docs/utils/use-footer-items.ts"
+        }
+      ]
+    },
+    {
+      "name": "docs-sidebar",
+      "type": "registry:component",
+      "title": "Docs sidebar",
+      "description": "SidebarPageTree renders a Fumadocs page tree (pages, folders, separators, icons, external links) with the shadcn/ui sidebar menu, and SidebarLinkItem renders layout links.",
+      "dependencies": [
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "lucide-react",
+        "scroll-into-view-if-needed"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "collapsible",
+        "@docscn/tree-context",
+        "@docscn/layout-shared",
+        "@docscn/docs-utils"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/components/sidebar/page-tree.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/sidebar/page-tree.tsx"
+        },
+        {
+          "path": "registry/base/docs/components/sidebar/link-item.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/sidebar/link-item.tsx"
+        },
+        {
+          "path": "registry/base/docs/components/sidebar/base.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/sidebar/base.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-tabs",
+      "type": "registry:component",
+      "title": "Sidebar tabs",
+      "description": "getSidebarTabs and SidebarTabsDropdown: switch between root folders of the page tree from a dropdown in the sidebar.",
+      "dependencies": ["cn", "fumadocs-core@^16.16.2", "lucide-react"],
+      "registryDependencies": [
+        "dropdown-menu",
+        "sidebar",
+        "@docscn/tree-context",
+        "@docscn/layout-shared",
+        "@docscn/docs-utils"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/components/sidebar/tabs/index.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/sidebar/tabs/index.tsx"
+        },
+        {
+          "path": "registry/base/docs/components/sidebar/tabs/dropdown.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/sidebar/tabs/dropdown.tsx"
+        }
+      ]
+    },
+    {
+      "name": "docs-layout",
+      "type": "registry:component",
+      "title": "Docs layout",
+      "description": "DocsLayout: the docs layout on the shadcn/ui sidebar, with the page tree, search, layout tabs, links, a theme switch and a mobile navbar.",
+      "dependencies": ["cn", "fumadocs-core@^16.16.2", "lucide-react"],
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "@docscn/docs-sidebar",
+        "@docscn/sidebar-tabs",
+        "@docscn/theme-switch",
+        "@docscn/search-trigger",
+        "@docscn/tree-context",
+        "@docscn/layout-shared",
+        "@docscn/docs-utils",
+        "@docscn/i18n-context",
+        "@docscn/language-select"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/docs/index.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/index.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/docs/client.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/client.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/docs/slots/header.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/slots/header.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/docs/slots/sidebar.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/slots/sidebar.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/docs/slots/container.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/slots/container.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toc",
+      "type": "registry:component",
+      "title": "Table of contents",
+      "description": "TOCProvider, TOCScrollArea and the TOC items in three styles: the default, with a thumb that follows the headings in view, clerk and block.",
+      "dependencies": [
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2"
+      ],
+      "registryDependencies": ["@docscn/docs-utils"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/toc/index.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/toc/index.tsx"
+        },
+        {
+          "path": "registry/base/docs/components/toc/default.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/toc/default.tsx"
+        },
+        {
+          "path": "registry/base/docs/components/toc/clerk.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/toc/clerk.tsx"
+        },
+        {
+          "path": "registry/base/docs/components/toc/block.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/toc/block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-actions",
+      "type": "registry:component",
+      "title": "Page actions",
+      "description": "MarkdownCopyButton copies the page as Markdown, and ViewOptionsPopover links to the source on GitHub, the Markdown, and ChatGPT, Claude, Cursor and Scira.",
+      "dependencies": [
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "lucide-react"
+      ],
+      "registryDependencies": ["button", "popover", "@docscn/docs-utils"],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/shared/page-actions.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/shared/page-actions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "docs-page",
+      "type": "registry:component",
+      "title": "Docs page",
+      "description": "DocsPage, DocsTitle, DocsDescription and DocsBody, with the breadcrumb, previous/next links, the table of contents (a popover on small screens), EditOnGitHub and PageLastUpdate.",
+      "dependencies": [
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "breadcrumb",
+        "button",
+        "collapsible",
+        "@docscn/toc",
+        "@docscn/typography",
+        "@docscn/page-actions",
+        "@docscn/docs-layout",
+        "@docscn/tree-context",
+        "@docscn/docs-utils"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/docs/page/index.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/page/index.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/docs/page/slots/breadcrumb.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/page/slots/breadcrumb.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/docs/page/slots/container.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/page/slots/container.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/docs/page/slots/footer.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/page/slots/footer.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/docs/page/slots/toc.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/docs/page/slots/toc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notebook-layout",
+      "type": "registry:component",
+      "title": "Notebook layout",
+      "description": "DocsLayout from layouts/notebook: a more compact docs layout on the shadcn/ui sidebar, with a navbar beside or above the sidebar, and layout tabs in the sidebar or the navbar.",
+      "dependencies": ["cn", "fumadocs-core@^16.16.2", "lucide-react"],
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "popover",
+        "@docscn/docs-sidebar",
+        "@docscn/sidebar-tabs",
+        "@docscn/theme-switch",
+        "@docscn/search-trigger",
+        "@docscn/tree-context",
+        "@docscn/layout-shared",
+        "@docscn/docs-utils",
+        "@docscn/i18n-context",
+        "@docscn/language-select"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/notebook/index.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/index.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/notebook/client.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/client.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/notebook/slots/header.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/slots/header.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/notebook/slots/sidebar.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/slots/sidebar.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/notebook/slots/container.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/slots/container.tsx"
+        }
+      ]
+    },
+    {
+      "name": "notebook-page",
+      "type": "registry:component",
+      "title": "Notebook page",
+      "description": "DocsPage and the other page components from layouts/notebook/page, for pages in the notebook layout: the breadcrumb, previous/next links, the table of contents, EditOnGitHub and PageLastUpdate.",
+      "dependencies": [
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "breadcrumb",
+        "button",
+        "collapsible",
+        "@docscn/toc",
+        "@docscn/typography",
+        "@docscn/page-actions",
+        "@docscn/notebook-layout",
+        "@docscn/tree-context",
+        "@docscn/docs-utils"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/notebook/page/index.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/page/index.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/notebook/page/slots/breadcrumb.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/page/slots/breadcrumb.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/notebook/page/slots/container.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/page/slots/container.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/notebook/page/slots/footer.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/page/slots/footer.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/notebook/page/slots/toc.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/notebook/page/slots/toc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "search-dialog",
+      "type": "registry:component",
+      "title": "Search dialog",
+      "description": "The search dialog's parts (SearchDialog, SearchDialogContent, SearchDialogInput, SearchDialogList, TagsList, ...) for building a search dialog for any Fumadocs search client, with highlighted matches and keyboard navigation.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "lucide-react",
+        "rehype-raw",
+        "scroll-into-view-if-needed",
+        "unified",
+        "unist-util-visit"
+      ],
+      "devDependencies": ["@types/hast"],
+      "registryDependencies": [
+        "kbd",
+        "@docscn/search-context",
+        "@docscn/docs-utils"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/components/dialog/search.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/dialog/search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "search-dialog-default",
+      "type": "registry:component",
+      "title": "Default search dialog",
+      "description": "DefaultSearchDialog: the search dialog for Fumadocs' built-in search server (createFromSource), with tag filters and default links. RootProvider loads it by default.",
+      "dependencies": ["fumadocs-core@^16.16.2"],
+      "registryDependencies": [
+        "@docscn/search-dialog",
+        "@docscn/search-context"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/components/dialog/search-default.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/dialog/search-default.tsx"
+        }
+      ]
+    },
+    {
+      "name": "home-layout",
+      "type": "registry:component",
+      "title": "Home layout",
+      "description": "HomeLayout: a layout for landing pages with a navbar (links, navigation menus, search, theme switch) and a mobile menu, plus DefaultNotFound for 404 pages.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "collapsible",
+        "@docscn/layout-shared",
+        "@docscn/theme-switch",
+        "@docscn/search-trigger",
+        "@docscn/docs-utils",
+        "@docscn/i18n-context",
+        "@docscn/language-select"
+      ],
+      "files": [
+        {
+          "path": "registry/base/docs/layouts/home/index.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/home/index.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/home/navbar.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/home/navbar.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/home/not-found.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/home/not-found.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/home/slots/header.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/home/slots/header.tsx"
+        },
+        {
+          "path": "registry/base/docs/layouts/home/slots/container.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/layouts/home/slots/container.tsx"
+        }
+      ]
+    },
+    {
+      "name": "og",
+      "type": "registry:component",
+      "title": "OG image",
+      "description": "generateOGImage: a default Open Graph image for docs pages, rendered with next/og.",
+      "files": [
+        {
+          "path": "registry/base/docs/og.tsx",
+          "type": "registry:lib",
+          "target": "@components/docs/og.tsx"
+        }
+      ]
+    },
+    {
+      "name": "docs-tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Tabs and Tab for MDX content: tabs from a list of items or with explicit values, with selections shared between tab groups, persisted, or linked from the URL hash.",
+      "dependencies": ["cn"],
+      "registryDependencies": ["tabs", "@docscn/docs-utils"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/tabs.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "registry:component",
+      "title": "Steps",
+      "description": "Steps and Step: numbered steps on a line, plus the styles for the fd-steps and fd-step classes that remark-steps adds.",
+      "files": [
+        {
+          "path": "registry/base/docs/components/steps.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/steps.tsx"
+        }
+      ],
+      "css": {
+        "@layer components": {
+          ".fd-steps": {
+            "position": "relative",
+            "margin-inline-start": "1rem",
+            "padding-inline-start": "1.75rem",
+            "border-inline-start": "1px solid var(--border)",
+            "counter-reset": "step"
+          },
+          ".fd-step": {
+            "position": "relative"
+          },
+          ".fd-step::before": {
+            "position": "absolute",
+            "inset-inline-start": "calc(-1.75rem - 1rem - 0.5px)",
+            "display": "flex",
+            "align-items": "center",
+            "justify-content": "center",
+            "width": "2rem",
+            "height": "2rem",
+            "border": "1px solid var(--border)",
+            "border-radius": "9999px",
+            "background-color": "var(--background)",
+            "color": "var(--foreground)",
+            "font-size": "0.875rem",
+            "font-weight": "500",
+            "line-height": "1.25rem",
+            "content": "counter(step)",
+            "counter-increment": "step"
+          },
+          ".fd-step > :first-child": {
+            "margin-top": "0"
+          },
+          ".fd-step + .fd-step": {
+            "margin-top": "2rem"
+          }
+        }
+      }
+    },
+    {
+      "name": "docs-accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Accordions and Accordion: collapsible sections that open from the URL hash and have a copy-link button.",
+      "dependencies": ["cn", "@fuma-translate/react@^1.0.2", "lucide-react"],
+      "registryDependencies": ["accordion", "button", "@docscn/docs-utils"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/accordion.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "files",
+      "type": "registry:component",
+      "title": "Files",
+      "description": "Files, Folder and File: a file tree with collapsible folders, also rendered from remark-mdx-files output.",
+      "dependencies": ["class-variance-authority", "cn", "lucide-react"],
+      "registryDependencies": ["collapsible"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/files.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/files.tsx"
+        }
+      ]
+    },
+    {
+      "name": "type-table",
+      "type": "registry:component",
+      "title": "Type table",
+      "description": "TypeTable: a table of props or fields, each expanding to its description, full type, default, parameters and return value, and linkable from the URL hash.",
+      "dependencies": [
+        "class-variance-authority",
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "lucide-react"
+      ],
+      "registryDependencies": ["collapsible"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/type-table.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/type-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-zoom",
+      "type": "registry:component",
+      "title": "Image zoom",
+      "description": "ImageZoom: an image that zooms in to fill the screen when clicked, built on react-medium-image-zoom.",
+      "dependencies": ["fumadocs-core@^16.16.2", "react-medium-image-zoom"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/image-zoom.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/image-zoom.tsx"
+        }
+      ],
+      "css": {
+        "@layer components": {
+          "[data-rmiz]": {
+            "display": "block",
+            "position": "relative"
+          },
+          "[data-rmiz-ghost]": {
+            "position": "absolute",
+            "pointer-events": "none"
+          },
+          "[data-rmiz-btn-zoom], [data-rmiz-btn-unzoom]": {
+            "display": "none"
+          },
+          "[data-rmiz-content=\"found\"] img": {
+            "cursor": "zoom-in"
+          },
+          "[data-rmiz-modal][open]": {
+            "position": "fixed",
+            "width": "100dvw",
+            "max-width": "none",
+            "height": "100dvh",
+            "max-height": "none",
+            "margin": "0",
+            "padding": "0",
+            "overflow": "hidden",
+            "background-color": "transparent"
+          },
+          "[data-rmiz-modal]:focus-visible": {
+            "outline": "none"
+          },
+          "[data-rmiz-modal-overlay]": {
+            "position": "absolute",
+            "inset": "0",
+            "transition": "background-color 0.3s"
+          },
+          "[data-rmiz-modal-overlay=\"visible\"]": {
+            "background-color": "var(--background)"
+          },
+          "[data-rmiz-modal-overlay=\"hidden\"]": {
+            "background-color": "transparent"
+          },
+          "[data-rmiz-modal-content]": {
+            "position": "relative",
+            "width": "100%",
+            "height": "100%"
+          },
+          "[data-rmiz-modal]::backdrop": {
+            "display": "none"
+          },
+          "[data-rmiz-modal-img]": {
+            "position": "absolute",
+            "transform-origin": "0 0",
+            "cursor": "zoom-out",
+            "image-rendering": "high-quality",
+            "transition": "transform 0.3s"
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            "[data-rmiz-modal-overlay], [data-rmiz-modal-img]": {
+              "transition-duration": "0.01ms !important"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "inline-toc",
+      "type": "registry:component",
+      "title": "Inline TOC",
+      "description": "InlineTOC: a collapsible table of contents to place inside a page.",
+      "dependencies": [
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "lucide-react"
+      ],
+      "registryDependencies": ["collapsible"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/inline-toc.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/inline-toc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:component",
+      "title": "Banner",
+      "description": "Banner: an announcement bar above the layout, optionally dismissible and with a rainbow variant, that offsets docscn's layouts by its height.",
+      "dependencies": ["cn", "@fuma-translate/react@^1.0.2", "lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/banner.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "github-info",
+      "type": "registry:component",
+      "title": "GitHub info",
+      "description": "GithubInfo: a link to a GitHub repository with its star and fork counts, fetched on the server.",
+      "dependencies": ["cn", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/github-info.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/github-info.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dynamic-codeblock",
+      "type": "registry:component",
+      "title": "Dynamic code block",
+      "description": "DynamicCodeBlock: a code block highlighted with Shiki in the browser, for code that's only known at runtime.",
+      "dependencies": ["cn", "fumadocs-core@^16.16.2", "shiki@^4.5.0"],
+      "registryDependencies": ["@docscn/codeblock"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/dynamic-codeblock.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/dynamic-codeblock.tsx"
+        },
+        {
+          "path": "registry/base/docs/components/dynamic-codeblock.core.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/dynamic-codeblock.core.tsx"
+        }
+      ]
+    },
+    {
+      "name": "server-codeblock",
+      "type": "registry:component",
+      "title": "Server code block",
+      "description": "ServerCodeBlock: a code block highlighted with Shiki in a React Server Component.",
+      "dependencies": ["cn", "fumadocs-core@^16.16.2"],
+      "registryDependencies": ["@docscn/codeblock"],
+      "files": [
+        {
+          "path": "registry/base/docs/components/codeblock.rsc.tsx",
+          "type": "registry:component",
+          "target": "@components/docs/components/codeblock.rsc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-chat",
+      "type": "registry:component",
+      "title": "AI chat",
+      "description": "The AI chat UI for the layouts' aiChat option, built on the AI SDK: AIChatProvider, AIChatPanel, AIChatTrigger and AIChatSearch, with streamed Markdown answers and translated strings. Installs into components/ai/chat, where Fumadocs' CLI puts it.",
+      "dependencies": [
+        "@ai-sdk/react@^4.0.0",
+        "ai@^7.0.0",
+        "cn",
+        "@fuma-translate/react@^1.0.2",
+        "fumadocs-core@^16.16.2",
+        "hast-util-to-jsx-runtime@^2.3.6",
+        "lucide-react",
+        "remark@^15.0.1",
+        "remark-gfm@^4.0.1",
+        "remark-rehype@^11.1.2",
+        "remend@^1.4.0",
+        "unist-util-visit"
+      ],
+      "devDependencies": ["@types/hast"],
+      "registryDependencies": [
+        "button",
+        "collapsible",
+        "tooltip",
+        "@docscn/codeblock",
+        "@docscn/dynamic-codeblock",
+        "@docscn/mdx",
+        "@docscn/docs-utils"
+      ],
+      "files": [
+        {
+          "path": "registry/base/ai/chat/index.tsx",
+          "type": "registry:component",
+          "target": "components/ai/chat/index.tsx"
+        },
+        {
+          "path": "registry/base/ai/chat/conversation.tsx",
+          "type": "registry:component",
+          "target": "components/ai/chat/conversation.tsx"
+        },
+        {
+          "path": "registry/base/ai/chat/markdown.tsx",
+          "type": "registry:component",
+          "target": "components/ai/chat/markdown.tsx"
+        },
+        {
+          "path": "registry/base/ai/chat/i18n.ts",
+          "type": "registry:component",
+          "target": "components/ai/chat/i18n.ts"
+        },
+        {
+          "path": "registry/base/ai/chat/.translations/index.ts",
+          "type": "registry:component",
+          "target": "components/ai/chat/.translations/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "docs",
+      "type": "registry:block",
+      "title": "Docs",
+      "description": "Docs for a new Next.js project: every docscn component, Fumadocs MDX content in content/docs, the /docs routes and a search API.",
+      "dependencies": [
+        "fumadocs-core@^16.16.2",
+        "fumadocs-mdx@^15.4.6",
+        "lucide-react"
+      ],
+      "devDependencies": ["@types/mdx"],
+      "registryDependencies": [
+        "@docscn/root-provider",
+        "@docscn/docs-layout",
+        "@docscn/docs-page",
+        "@docscn/mdx",
+        "@docscn/layout-shared",
+        "@docscn/docs-tabs",
+        "@docscn/steps",
+        "@docscn/docs-accordion",
+        "@docscn/files",
+        "@docscn/type-table"
+      ],
+      "files": [
+        {
+          "path": "registry/base/blocks/docs/lib/source.ts",
+          "type": "registry:lib",
+          "target": "lib/source.ts"
+        },
+        {
+          "path": "registry/base/blocks/docs/lib/layout.shared.tsx",
+          "type": "registry:lib",
+          "target": "lib/layout.shared.tsx"
+        },
+        {
+          "path": "registry/base/blocks/docs/components/mdx.tsx",
+          "type": "registry:component",
+          "target": "components/mdx.tsx"
+        },
+        {
+          "path": "registry/base/blocks/docs/app/docs/layout.tsx",
+          "type": "registry:page",
+          "target": "app/docs/layout.tsx"
+        },
+        {
+          "path": "registry/base/blocks/docs/app/docs/[[...slug]]/page.tsx",
+          "type": "registry:page",
+          "target": "app/docs/[[...slug]]/page.tsx"
+        },
+        {
+          "path": "registry/base/blocks/docs/app/api/search/route.ts",
+          "type": "registry:page",
+          "target": "app/api/search/route.ts"
+        },
+        {
+          "path": "registry/base/blocks/docs/content/docs/index.mdx",
+          "type": "registry:file",
+          "target": "~/content/docs/index.mdx"
+        },
+        {
+          "path": "registry/base/blocks/docs/content/docs/meta.json",
+          "type": "registry:file",
+          "target": "~/content/docs/meta.json"
+        }
+      ],
+      "docs": "Finish the setup with two edits. 1) In app/layout.tsx, import { RootProvider } from \"@/components/docs/provider/next\" and wrap {children} in <RootProvider>. RootProvider includes next-themes, so it replaces the ThemeProvider from shadcn/ui's template or dark mode guide. Keep suppressHydrationWarning on <html>. 2) In next.config.ts, import { createMDX } from \"fumadocs-mdx/next\" and change the export to export default createMDX()(nextConfig). Then start the dev server and open /docs. See https://docscn.dev/docs/getting-started."
+    },
+    {
+      "name": "ai-chat-openrouter",
+      "type": "registry:block",
+      "title": "AI chat (OpenRouter)",
+      "description": "Ask AI for your docs: the AI chat wired into DocsLayout, with a chat route that searches your pages and answers through OpenRouter.",
+      "dependencies": [
+        "@ai-sdk/react@^4.0.0",
+        "ai@^7.0.0",
+        "@openrouter/ai-sdk-provider@^3.1.0",
+        "flexsearch@^0.8.212",
+        "fumadocs-core@^16.16.2",
+        "zod@^4.0.0"
+      ],
+      "registryDependencies": ["@docscn/ai-chat", "@docscn/docs-layout"],
+      "files": [
+        {
+          "path": "registry/base/ai/search.tsx",
+          "type": "registry:component",
+          "target": "components/ai/search.tsx"
+        },
+        {
+          "path": "registry/base/ai/layout.tsx",
+          "type": "registry:component",
+          "target": "components/ai/layout.tsx"
+        },
+        {
+          "path": "registry/base/blocks/ai-chat-openrouter/app/api/chat/route.ts",
+          "type": "registry:page",
+          "target": "app/api/chat/route.ts"
+        }
+      ],
+      "docs": "Finish the setup with two edits. 1) In app/docs/layout.tsx, import DocsLayout from \"@/components/ai/layout\" instead of \"@/components/docs/layouts/docs\". 2) Set OPENROUTER_API_KEY in .env.local (and optionally OPENROUTER_MODEL, which defaults to anthropic/claude-sonnet-5.5). The chat route reads each page's processed Markdown, so lib/source.ts needs postprocess: { includeProcessedMarkdown: true } in its docs options, as the docs block sets it. See https://docscn.dev/docs/components/ai-chat."
+    },
+    {
+      "name": "fumadocs-ui",
+      "type": "registry:item",
+      "title": "Fumadocs UI",
+      "description": "Every docscn component, for migrating from Fumadocs UI: replace fumadocs-ui/ with @/components/docs/ in your imports.",
+      "registryDependencies": [
+        "@docscn/docs-utils",
+        "@docscn/search-context",
+        "@docscn/i18n-context",
+        "@docscn/i18n",
+        "@docscn/root-provider",
+        "@docscn/theme-switch",
+        "@docscn/search-trigger",
+        "@docscn/language-select",
+        "@docscn/layout-shared",
+        "@docscn/typography",
+        "@docscn/heading",
+        "@docscn/codeblock",
+        "@docscn/card",
+        "@docscn/callout",
+        "@docscn/mdx",
+        "@docscn/tree-context",
+        "@docscn/docs-sidebar",
+        "@docscn/sidebar-tabs",
+        "@docscn/docs-layout",
+        "@docscn/toc",
+        "@docscn/page-actions",
+        "@docscn/docs-page",
+        "@docscn/notebook-layout",
+        "@docscn/notebook-page",
+        "@docscn/search-dialog",
+        "@docscn/search-dialog-default",
+        "@docscn/home-layout",
+        "@docscn/og",
+        "@docscn/docs-tabs",
+        "@docscn/steps",
+        "@docscn/docs-accordion",
+        "@docscn/files",
+        "@docscn/type-table",
+        "@docscn/image-zoom",
+        "@docscn/inline-toc",
+        "@docscn/banner",
+        "@docscn/github-info",
+        "@docscn/dynamic-codeblock",
+        "@docscn/server-codeblock"
+      ]
+    }
+  ]
+}

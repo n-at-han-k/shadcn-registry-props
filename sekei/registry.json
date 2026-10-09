@@ -27,13 +27,13 @@
 			"name": "shad-fx-engine",
 			"type": "registry:lib",
 			"title": "shad-fx: engine",
-			"description": "The frame loop, the Surface and FxEffect contracts, seeded RNG and the colour helpers every renderer and effect builds on.",
+			"description": "The frame loop, the Surface and FxEffect contracts, the useFx hook, seeded RNG and the colour helpers every renderer and effect builds on.",
 			"author": "Piergiorgio Gonni <https://www.sekei.design>",
 			"categories": [
 				"shad-fx",
 				"canvas"
 			],
-			"version": "0.1.0",
+			"version": "0.2.0",
 			"files": [
 				{
 					"path": "registry/shad-fx/engine.ts",
@@ -44,6 +44,11 @@
 					"path": "registry/shad-fx/effects/particles.ts",
 					"type": "registry:lib",
 					"target": "@components/shad-fx/effects/particles.ts"
+				},
+				{
+					"path": "registry/shad-fx/use-fx.ts",
+					"type": "registry:lib",
+					"target": "@components/shad-fx/use-fx.ts"
 				}
 			]
 		},
@@ -58,8 +63,8 @@
 				"dither",
 				"canvas"
 			],
-			"version": "0.1.0",
-			"docs": "Pair it with any effect: `<DitherCanvas effect={fx} />`. Build the effect once (useMemo or module scope) - a new reference restarts the simulation. The ordered-dither rendering derives from dither-kit (MIT, https://github.com/Boring-Software-Inc/dither-kit). See https://github.com/sekeidesign/shad-fx/blob/main/NOTICE.md",
+			"version": "0.2.0",
+			"docs": "Pair it with any effect: `const fx = useFx(fire, { height: 0.6 })`, then `<DitherCanvas effect={fx} />`. Options passed to useFx update in place without restarting the simulation. The ordered-dither rendering derives from dither-kit (MIT, https://github.com/Boring-Software-Inc/dither-kit). See https://github.com/sekeidesign/shad-fx/blob/main/NOTICE.md",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine",
 				"sekeidesign/shad-fx/use-prefers-reduced-motion",
@@ -93,8 +98,8 @@
 				"shad-fx",
 				"effects"
 			],
-			"version": "0.1.0",
-			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={fire()} />`.",
+			"version": "0.2.0",
+			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={useFx(fire)} />`.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine"
 			],
@@ -116,8 +121,8 @@
 				"shad-fx",
 				"effects"
 			],
-			"version": "0.1.0",
-			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={rings()} />`.",
+			"version": "0.2.0",
+			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={useFx(rings)} />`.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine"
 			],
@@ -139,8 +144,8 @@
 				"shad-fx",
 				"effects"
 			],
-			"version": "0.1.0",
-			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={beam()} />`.",
+			"version": "0.2.0",
+			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={useFx(beam)} />`.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine"
 			],
@@ -162,8 +167,8 @@
 				"shad-fx",
 				"effects"
 			],
-			"version": "0.1.0",
-			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={bolt()} />`.",
+			"version": "0.2.0",
+			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={useFx(bolt)} />`.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine"
 			],
@@ -185,8 +190,8 @@
 				"shad-fx",
 				"effects"
 			],
-			"version": "0.1.0",
-			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={fluid()} />`.",
+			"version": "0.2.0",
+			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={useFx(fluid)} />`.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine"
 			],
@@ -208,8 +213,8 @@
 				"shad-fx",
 				"effects"
 			],
-			"version": "0.1.0",
-			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={rain()} />`.",
+			"version": "0.2.0",
+			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={useFx(rain)} />`.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine"
 			],
@@ -231,8 +236,8 @@
 				"shad-fx",
 				"effects"
 			],
-			"version": "0.1.0",
-			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={snow()} />`.",
+			"version": "0.2.0",
+			"docs": "Runs on any renderer. Needs one to show: `npx shadcn@latest add @sekei/shad-fx-dither`, then `<DitherCanvas effect={useFx(snow)} />`.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine"
 			],
@@ -253,7 +258,7 @@
 			"categories": [
 				"shad-fx"
 			],
-			"version": "0.1.0",
+			"version": "0.2.0",
 			"docs": "Everything imports from `@/components/shad-fx`. Working with an agent? `npx skills add sekeidesign/shad-fx` installs agent skills for setting the effects up and writing new ones.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-dither",

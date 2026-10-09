@@ -451,6 +451,59 @@
       "type": "registry:block"
     },
     {
+      "name": "cart-line-item",
+      "title": "Cart Line Item",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "One line in a bag: thumbnail, name and variant, a quantity stepper, a right-aligned tabular line total, and save-for-later / remove. Removing never asks — the row folds into a \"Removed — Undo\" bar, focus moves to Undo, and onRemove runs only once the undo window has passed or the line leaves the page. Quantity changes show at once and reach onQuantityChange once, after the shopper settles. Either handler can reject: the line puts itself back and says so. Rows fold to their measured height with Motion (a fade under reduced motion). Compound, through useCartLineItem().",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/cart-line-item/cart-line-item.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/cart-line-item.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "cart"
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "cart-sheet",
+      "title": "Cart Sheet",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "The mini cart on your shadcn Sheet: a bag button with a count that turns over, and a sheet that grows out of it as a circle and folds back into it (Motion; a fade under reduced motion). Ruled header, body and footer bands — the lines are the only scroller, with soft edges instead of a scrollbar — and a footer with free-delivery progress, the subtotal and checkout. Focus is trapped and handed back to the bag button; lines are keyed by id, so a cart update never remounts one mid-undo, and the subtotal follows what the shopper sees before your cart catches up. Compound, through useCartSheet().",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "sheet",
+        "button",
+        "@ecomcn/cart-line-item"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/cart-sheet/cart-sheet.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/cart-sheet.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "cart"
+      ],
+      "type": "registry:block"
+    },
+    {
       "name": "order-summary",
       "title": "Order Summary",
       "author": "ecomcn <hello@ecomcn.dev>",
@@ -490,6 +543,28 @@
         "checkout"
       ],
       "type": "registry:block"
+    },
+    {
+      "name": "checkout-stepper",
+      "title": "Checkout Stepper",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Where the shopper is in checkout: a rail of equal ruled cells, edge to edge. Done steps carry a check and are buttons back to them; the current step is aria-current=\"step\"; steps to come are not clickable. Never colour alone — a check, a number, and a heavy rule under the current step that slides on as the shopper moves (Motion; a fade under reduced motion). On a phone the rail shows numbers, with the step named below it.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/checkout-stepper/checkout-stepper.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/checkout-stepper.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "checkout"
+      ],
+      "type": "registry:component"
     },
     {
       "name": "theme-editorial",

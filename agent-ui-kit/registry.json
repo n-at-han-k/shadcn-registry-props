@@ -1,0 +1,2304 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "agent-ui-kit",
+  "homepage": "https://github.com/dgesteves/agent-ui-kit",
+  "items": [
+    {
+      "name": "agent-status",
+      "type": "registry:component",
+      "title": "Agent Status",
+      "description": "Run state pill (thinking, working, waiting for approval, done, error) announced through an aria-live region.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "ai",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/agent-status.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/agent-status.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/highlight.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/highlight.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/hooks.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/hooks.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/primitives.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/primitives.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "tool-call-timeline",
+      "type": "registry:component",
+      "title": "Tool Call Timeline",
+      "description": "Vertical timeline of AI SDK tool calls with live states, durations, a waterfall and expandable input/output.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "@radix-ui/react-collapsible",
+        "ai",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/tool-call-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/tool-call-timeline.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/highlight.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/highlight.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/hooks.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/hooks.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/primitives.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/primitives.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "approval-card",
+      "type": "registry:component",
+      "title": "Approval Card",
+      "description": "Human-in-the-loop approve/deny for tool calls with risk levels, an args preview and keyboard shortcuts.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "@radix-ui/react-collapsible",
+        "ai",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/approval-card.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/approval-card.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/highlight.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/highlight.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/hooks.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/hooks.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/primitives.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/primitives.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/tool-call-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/tool-call-timeline.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "diff-review",
+      "type": "registry:component",
+      "title": "Diff Review",
+      "description": "Unified/split review of agent file edits with per-hunk accept/reject and keyboard navigation.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "@radix-ui/react-toggle-group",
+        "ai",
+        "clsx",
+        "diff",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/diff-review.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/diff-review.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/diff.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/diff.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/highlight.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/highlight.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/hooks.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/hooks.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/primitives.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/primitives.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "run-meter",
+      "type": "registry:component",
+      "title": "Run Meter",
+      "description": "Tokens, estimated cost and latency (TTFT, total) for an agent run, compact or expanded.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "ai",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/run-meter.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/run-meter.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/hooks.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/hooks.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/usage.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/usage.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "sources",
+      "type": "registry:component",
+      "title": "Sources",
+      "description": "Citation chips and cards for AI SDK source-url and source-document parts.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "ai",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/sources.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/sources.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "markdown",
+      "type": "registry:component",
+      "title": "Markdown",
+      "description": "Streaming-safe GFM markdown with linked [n] citations and a typing caret.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "clsx",
+        "react-markdown",
+        "remark-gfm",
+        "remend",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/markdown.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/markdown.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/highlight.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/highlight.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/images.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/images.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/primitives.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/primitives.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "reasoning",
+      "type": "registry:component",
+      "title": "Reasoning",
+      "description": "Collapsible model reasoning that opens while streaming and summarizes its duration.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "@radix-ui/react-collapsible",
+        "ai",
+        "clsx",
+        "react-markdown",
+        "remark-gfm",
+        "remend",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/reasoning.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/reasoning.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/highlight.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/highlight.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/hooks.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/hooks.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/images.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/images.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/primitives.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/primitives.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/markdown.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/markdown.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "agent-message",
+      "type": "registry:component",
+      "title": "Agent Message",
+      "description": "Renders an assistant UIMessage: markdown, reasoning, grouped tool calls, inline approvals and sources.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "@radix-ui/react-collapsible",
+        "ai",
+        "clsx",
+        "react-markdown",
+        "remark-gfm",
+        "remend",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/agent-message.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/agent-message.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/approval-card.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/approval-card.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/format.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/format.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/highlight.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/highlight.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/hooks.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/hooks.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/icons.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/icons.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/images.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/images.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/primitives.tsx",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/primitives.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/utils.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/markdown.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/markdown.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/reasoning.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/reasoning.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/sources.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/sources.tsx"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/tool-call-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/agent-ui/tool-call-timeline.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    },
+    {
+      "name": "ag-ui",
+      "type": "registry:component",
+      "title": "AG-UI Adapter",
+      "description": "useAgUiAgent: renders any AG-UI agent (LangGraph, CrewAI, Mastra, Pydantic AI) with these components, interrupts as approvals.",
+      "author": "Diogo Esteves <https://github.com/dgesteves>",
+      "dependencies": [
+        "ai"
+      ],
+      "files": [
+        {
+          "path": "packages/agent-ui-kit/src/use-ag-ui-agent.ts",
+          "type": "registry:component",
+          "target": "components/agent-ui/use-ag-ui-agent.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ag-ui.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ag-ui.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/ai.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/ai.ts"
+        },
+        {
+          "path": "packages/agent-ui-kit/src/lib/usage.ts",
+          "type": "registry:lib",
+          "target": "components/agent-ui/lib/usage.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-aui-bg": "var(--aui-bg)",
+          "color-aui-surface": "var(--aui-surface)",
+          "color-aui-surface-2": "var(--aui-surface-2)",
+          "color-aui-border": "var(--aui-border)",
+          "color-aui-border-strong": "var(--aui-border-strong)",
+          "color-aui-fg": "var(--aui-fg)",
+          "color-aui-fg-muted": "var(--aui-fg-muted)",
+          "color-aui-fg-subtle": "var(--aui-fg-subtle)",
+          "color-aui-accent": "var(--aui-accent)",
+          "color-aui-accent-fg": "var(--aui-accent-fg)",
+          "color-aui-on-accent": "var(--aui-on-accent)",
+          "color-aui-hot": "var(--aui-hot)",
+          "color-aui-hot-fg": "var(--aui-hot-fg)",
+          "color-aui-on-hot": "var(--aui-on-hot)",
+          "color-aui-warn": "var(--aui-warn)",
+          "color-aui-warn-fg": "var(--aui-warn-fg)",
+          "color-aui-ring": "var(--aui-ring)",
+          "color-aui-add": "var(--aui-add-bg)",
+          "color-aui-add-strong": "var(--aui-add-strong)",
+          "color-aui-del": "var(--aui-del-bg)",
+          "color-aui-del-strong": "var(--aui-del-strong)",
+          "color-aui-chart-input": "var(--aui-chart-input)",
+          "color-aui-chart-output": "var(--aui-chart-output)",
+          "color-aui-code-keyword": "var(--aui-code-keyword)",
+          "color-aui-code-string": "var(--aui-code-string)",
+          "color-aui-code-number": "var(--aui-code-number)",
+          "color-aui-code-comment": "var(--aui-code-comment)",
+          "color-aui-code-punctuation": "var(--aui-code-punctuation)",
+          "radius-aui": "var(--aui-radius)",
+          "font-aui-sans": "var(--aui-font-sans)",
+          "font-aui-mono": "var(--aui-font-mono)",
+          "animate-aui-shimmer": "aui-shimmer 2.2s linear infinite",
+          "animate-aui-ping": "aui-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+          "animate-aui-spin": "aui-spin 0.9s linear infinite",
+          "animate-aui-blink": "aui-blink 1.1s steps(2, start) infinite",
+          "animate-aui-enter": "aui-enter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both",
+          "animate-aui-indeterminate": "aui-indeterminate 1.4s ease-in-out infinite",
+          "animate-aui-expand": "aui-expand 0.22s cubic-bezier(0.2, 0.7, 0.2, 1)",
+          "animate-aui-collapse": "aui-collapse 0.18s ease-in"
+        },
+        "light": {
+          "aui-bg": "#ffffff",
+          "aui-surface": "#f6f7f9",
+          "aui-surface-2": "#eef0f3",
+          "aui-border": "#e2e5ea",
+          "aui-border-strong": "#cdd2d9",
+          "aui-fg": "#0d0f12",
+          "aui-fg-muted": "#4b5563",
+          "aui-fg-subtle": "#5f6875",
+          "aui-accent": "#0e7490",
+          "aui-accent-fg": "#155e75",
+          "aui-on-accent": "#ffffff",
+          "aui-hot": "#be185d",
+          "aui-hot-fg": "#9d174d",
+          "aui-on-hot": "#ffffff",
+          "aui-warn": "#b45309",
+          "aui-warn-fg": "#92400e",
+          "aui-ring": "#0e7490",
+          "aui-add-bg": "rgb(8 145 178 / 0.08)",
+          "aui-add-strong": "rgb(8 145 178 / 0.16)",
+          "aui-del-bg": "rgb(190 24 93 / 0.07)",
+          "aui-del-strong": "rgb(190 24 93 / 0.14)",
+          "aui-chart-input": "#0891b2",
+          "aui-chart-output": "#db2777",
+          "aui-code-keyword": "#155e75",
+          "aui-code-string": "#9a3412",
+          "aui-code-number": "#9d174d",
+          "aui-code-comment": "#525b67",
+          "aui-code-punctuation": "#4b5563",
+          "aui-radius": "0.75rem",
+          "aui-font-sans": "var(--font-sans, var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif))",
+          "aui-font-mono": "var(--font-mono, var(--font-geist-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace))"
+        },
+        "dark": {
+          "aui-bg": "#0d0f12",
+          "aui-surface": "#181c22",
+          "aui-surface-2": "#1e232a",
+          "aui-border": "#262b33",
+          "aui-border-strong": "#353c47",
+          "aui-fg": "#e8eaed",
+          "aui-fg-muted": "#a1a9b4",
+          "aui-fg-subtle": "#8b94a0",
+          "aui-accent": "#22d3ee",
+          "aui-accent-fg": "#67e8f9",
+          "aui-on-accent": "#0d0f12",
+          "aui-hot": "#f0468a",
+          "aui-hot-fg": "#f472a8",
+          "aui-on-hot": "#0d0f12",
+          "aui-warn": "#fbbf24",
+          "aui-warn-fg": "#fcd34d",
+          "aui-ring": "#67e8f9",
+          "aui-add-bg": "rgb(34 211 238 / 0.08)",
+          "aui-add-strong": "rgb(34 211 238 / 0.14)",
+          "aui-del-bg": "rgb(240 70 138 / 0.08)",
+          "aui-del-strong": "rgb(240 70 138 / 0.26)",
+          "aui-chart-input": "#11a2bc",
+          "aui-chart-output": "#f0468a",
+          "aui-code-keyword": "#67e8f9",
+          "aui-code-string": "#f5c27a",
+          "aui-code-number": "#f9a8d4",
+          "aui-code-comment": "#a1a9b4",
+          "aui-code-punctuation": "#a1a9b4"
+        }
+      },
+      "css": {
+        "@keyframes aui-shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes aui-ping": {
+          "0%": {
+            "transform": "scale(1)",
+            "opacity": "0.7"
+          },
+          "80%, 100%": {
+            "transform": "scale(2.2)",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-spin": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "@keyframes aui-blink": {
+          "to": {
+            "visibility": "hidden"
+          }
+        },
+        "@keyframes aui-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@keyframes aui-expand": {
+          "from": {
+            "height": "0",
+            "opacity": "0"
+          },
+          "to": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          }
+        },
+        "@keyframes aui-collapse": {
+          "from": {
+            "height": "var(--radix-collapsible-content-height)",
+            "opacity": "1"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0"
+          }
+        },
+        "@keyframes aui-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(250%)"
+          }
+        }
+      }
+    }
+  ]
+}
