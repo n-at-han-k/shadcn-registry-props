@@ -2389,7 +2389,7 @@
           "navigation"
         ],
         "use_when": "You need a searchable ⌘K launcher for actions and quick navigation.",
-        "not_for": "search results should live inline on the page, not in a global keyboard-triggered overlay → search-results; the list of options is small and tied to a specific trigger element, not a global searchable launcher → dropdown-menu"
+        "not_for": "the list is embedded in the page (settings search) or needs groups and behaviour the finished launcher does not have, so you build it from Command parts. Use command-palette for the ready-made ⌘K overlay → command; search results should live inline on the page, not in a global keyboard-triggered overlay → search-results; the list of options is small and tied to a specific trigger element, not a global searchable launcher → dropdown-menu"
       },
       "registryDependencies": [
         "command",
@@ -2402,7 +2402,7 @@
           "target": "components/quill/command-palette.tsx"
         }
       ],
-      "docs": "A searchable ⌘K command palette with grouped actions, recent items, and keyboard shortcuts. Do: Group items into labeled sections (Actions, Recent) so a long list stays scannable. Don't: Dump every possible command into one flat, unlabeled list. Use search-results when search results should live inline on the page, not in a global keyboard-triggered overlay. Use dropdown-menu when the list of options is small and tied to a specific trigger element, not a global searchable launcher.",
+      "docs": "A searchable ⌘K command palette with grouped actions, recent items, and keyboard shortcuts. Do: Group items into labeled sections (Actions, Recent) so a long list stays scannable. Don't: Dump every possible command into one flat, unlabeled list. Use command when the list is embedded in the page (settings search) or needs groups and behaviour the finished launcher does not have, so you build it from Command parts. Use command-palette for the ready-made ⌘K overlay. Use search-results when search results should live inline on the page, not in a global keyboard-triggered overlay. Use dropdown-menu when the list of options is small and tied to a specific trigger element, not a global searchable launcher.",
       "categories": [
         "navigation"
       ]
@@ -2541,7 +2541,7 @@
           "feedback"
         ],
         "use_when": "You need to explain why a view is empty and offer the primary action to fill it.",
-        "not_for": "the view is empty because the resource doesn't exist or the route is wrong, not because the user hasn't created anything yet → error-404; there's a multi-step setup to walk through, not a single action to take right now → onboarding"
+        "not_for": "the empty state sits inside an existing surface (a list, a table, a card, a search result) and you compose it from parts: media, title, description and actions. Use empty-state for the finished stand-alone panel → empty; the view is empty because the resource doesn't exist or the route is wrong, not because the user hasn't created anything yet → error-404; there's a multi-step setup to walk through, not a single action to take right now → onboarding"
       },
       "registryDependencies": [
         "button",
@@ -2554,7 +2554,7 @@
           "target": "components/quill/empty-state.tsx"
         }
       ],
-      "docs": "A dashed-border empty state with an icon, explanatory text, and a primary action. Do: Pair the explanation with a real, primary action button that actually fills the view (e.g. \"New project\"). Don't: Explain that a view is empty and leave the user with no way to act on it from that screen. Use error-404 when the view is empty because the resource doesn't exist or the route is wrong, not because the user hasn't created anything yet. Use onboarding when there's a multi-step setup to walk through, not a single action to take right now.",
+      "docs": "A dashed-border empty state with an icon, explanatory text, and a primary action. Do: Pair the explanation with a real, primary action button that actually fills the view (e.g. \"New project\"). Don't: Explain that a view is empty and leave the user with no way to act on it from that screen. Use empty when the empty state sits inside an existing surface (a list, a table, a card, a search result) and you compose it from parts: media, title, description and actions. Use empty-state for the finished stand-alone panel. Use error-404 when the view is empty because the resource doesn't exist or the route is wrong, not because the user hasn't created anything yet. Use onboarding when there's a multi-step setup to walk through, not a single action to take right now.",
       "categories": [
         "feedback"
       ]

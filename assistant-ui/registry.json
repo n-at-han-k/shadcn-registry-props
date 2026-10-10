@@ -21,6 +21,22 @@
       ]
     },
     {
+      "name": "elements-collapsible-root",
+      "type": "registry:component",
+      "title": "Collapsible Root",
+      "description": "Ref-bearing disclosure root for assistant-ui components.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/collapsible-root.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/collapsible-root.tsx"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ]
+    },
+    {
       "name": "elements-surfaces",
       "type": "registry:component",
       "title": "Elements Surfaces",
@@ -30,6 +46,11 @@
           "type": "registry:component",
           "path": "components/assistant-ui/elements/surfaces.tsx",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/surfaces.tsx"
+        },
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/useIsomorphicLayoutEffect.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/useIsomorphicLayoutEffect.ts"
         }
       ],
       "dependencies": [
@@ -49,6 +70,19 @@
           "type": "registry:component",
           "path": "components/assistant-ui/utils/range.ts",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/range.ts"
+        }
+      ]
+    },
+    {
+      "name": "elements-tokens",
+      "type": "registry:component",
+      "title": "Elements Tokens",
+      "description": "Token count formatting for the elements family: a count in the unit that keeps it short, such as 48.2k or 912.5M.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/tokens.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/tokens.ts"
         }
       ]
     },
@@ -75,10 +109,15 @@
           "type": "registry:component",
           "path": "components/assistant-ui/utils/task.ts",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/task.ts"
+        },
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/useIsomorphicLayoutEffect.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/useIsomorphicLayoutEffect.ts"
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ]
     },
     {
@@ -128,7 +167,7 @@
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
         "https://r.assistant-ui.com/elements-range.json",
-        "collapsible"
+        "https://r.assistant-ui.com/elements-collapsible-root.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -273,7 +312,27 @@
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
-        "collapsible"
+        "https://r.assistant-ui.com/elements-collapsible-root.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-run-activity",
+      "type": "registry:component",
+      "title": "Run activity",
+      "description": "Ordered commentary and tools, with a live summary and a final answer that stays visible.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/run-activity.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/run-activity.tsx"
+        }
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-collapsible-root.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -294,7 +353,7 @@
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
         "https://r.assistant-ui.com/elements-range.json",
-        "collapsible"
+        "https://r.assistant-ui.com/elements-collapsible-root.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -372,7 +431,7 @@
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
         "https://r.assistant-ui.com/elements-href.json",
-        "collapsible"
+        "https://r.assistant-ui.com/elements-collapsible-root.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -581,10 +640,29 @@
         }
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/elements-surfaces.json"
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-receipt-focus.json"
       ],
       "dependencies": [
         "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-receipt-focus",
+      "type": "registry:component",
+      "title": "Receipt focus",
+      "description": "Keeps focus on a receipt when the focused answer is replaced.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/elements/receipt-focus.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/receipt-focus.ts"
+        },
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/useIsomorphicLayoutEffect.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/useIsomorphicLayoutEffect.ts"
+        }
       ]
     },
     {
@@ -601,7 +679,8 @@
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
-        "https://r.assistant-ui.com/elements-range.json"
+        "https://r.assistant-ui.com/elements-range.json",
+        "https://r.assistant-ui.com/elements-receipt-focus.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -621,7 +700,8 @@
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
-        "https://r.assistant-ui.com/elements-option-list.json"
+        "https://r.assistant-ui.com/elements-option-list.json",
+        "https://r.assistant-ui.com/elements-receipt-focus.json"
       ]
     },
     {
@@ -637,7 +717,8 @@
         }
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/elements-surfaces.json"
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-receipt-focus.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -889,7 +970,8 @@
         }
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/elements-surfaces.json"
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-receipt-focus.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -1266,7 +1348,7 @@
         "https://r.assistant-ui.com/elements-surfaces.json"
       ],
       "dependencies": [
-        "heat-graph@^0.0.23"
+        "heat-graph@^0.0.24"
       ]
     },
     {
@@ -1462,7 +1544,8 @@
         }
       ],
       "registryDependencies": [
-        "https://r.assistant-ui.com/elements-surfaces.json"
+        "https://r.assistant-ui.com/elements-surfaces.json",
+        "https://r.assistant-ui.com/elements-receipt-focus.json"
       ],
       "dependencies": [
         "lucide-react"
@@ -1723,7 +1806,8 @@
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-surfaces.json",
-        "https://r.assistant-ui.com/elements-range.json"
+        "https://r.assistant-ui.com/elements-range.json",
+        "https://r.assistant-ui.com/elements-tokens.json"
       ]
     },
     {
@@ -2024,7 +2108,7 @@
         "https://r.assistant-ui.com/thread.json"
       ],
       "dependencies": [
-        "@assistant-ui/ai-sdk@^0.0.11"
+        "@assistant-ui/ai-sdk@^0.0.12"
       ],
       "meta": {
         "importSpecifier": "Assistant",
@@ -2047,7 +2131,7 @@
       "dependencies": [
         "ai",
         "@ai-sdk/openai",
-        "@assistant-ui/ai-sdk@^0.0.11"
+        "@assistant-ui/ai-sdk@^0.0.12"
       ]
     },
     {
@@ -2078,8 +2162,8 @@
       "dependencies": [
         "ai",
         "@ai-sdk/openai",
-        "@assistant-ui/ai-sdk@^0.0.11",
-        "assistant-stream@^0.3.48",
+        "@assistant-ui/ai-sdk@^0.0.12",
+        "assistant-stream@^0.3.49",
         "next"
       ]
     },
@@ -2139,6 +2223,12 @@
         },
         {
           "type": "registry:file",
+          "path": "components/assistant-ui/utils/useIsomorphicLayoutEffect.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/useIsomorphicLayoutEffect.ts",
+          "target": "components/assistant-ui/utils/useIsomorphicLayoutEffect.ts"
+        },
+        {
+          "type": "registry:file",
           "path": "components/assistant-ui/elements/follow-up-suggestions.aui.tsx",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/follow-up-suggestions.aui.tsx",
           "target": "components/assistant-ui/elements/follow-up-suggestions.aui.tsx"
@@ -2181,6 +2271,18 @@
         },
         {
           "type": "registry:file",
+          "path": "components/assistant-ui/utils/useIsomorphicLayoutEffect.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/useIsomorphicLayoutEffect.ts",
+          "target": "components/assistant-ui/utils/useIsomorphicLayoutEffect.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "components/assistant-ui/elements/collapsible-root.tsx",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/collapsible-root.tsx",
+          "target": "components/assistant-ui/elements/collapsible-root.tsx"
+        },
+        {
+          "type": "registry:file",
           "path": "components/assistant-ui/elements/tool-fallback.aui.tsx",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/tool-fallback.aui.tsx",
           "target": "components/assistant-ui/elements/tool-fallback.aui.tsx"
@@ -2193,6 +2295,12 @@
         },
         {
           "type": "registry:file",
+          "path": "components/eve-ask-question.tsx",
+          "sourcePath": "templates/eve/components/eve-ask-question.tsx",
+          "target": "components/eve-ask-question.tsx"
+        },
+        {
+          "type": "registry:file",
           "path": "components/ui/avatar.tsx",
           "sourcePath": "../../packages/ui/src/components/react/ui/radix/avatar.tsx",
           "target": "components/ui/avatar.tsx"
@@ -2202,12 +2310,6 @@
           "path": "components/ui/button.tsx",
           "sourcePath": "../../packages/ui/src/components/react/ui/radix/button.tsx",
           "target": "components/ui/button.tsx"
-        },
-        {
-          "type": "registry:file",
-          "path": "components/ui/collapsible.tsx",
-          "sourcePath": "../../packages/ui/src/components/react/ui/radix/collapsible.tsx",
-          "target": "components/ui/collapsible.tsx"
         },
         {
           "type": "registry:file",
@@ -2235,13 +2337,13 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/eve@^0.0.22",
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/eve@^0.0.23",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react",
         "zustand",
         "class-variance-authority",
         "tw-shimmer@^0.4.13",
-        "@assistant-ui/react-markdown@^0.14.19",
+        "@assistant-ui/react-markdown@^0.14.20",
         "remark-gfm",
         "radix-ui"
       ],
@@ -2274,6 +2376,25 @@
       }
     },
     {
+      "name": "eve-ask-question",
+      "type": "registry:component",
+      "title": "Eve Ask Question",
+      "description": "Renders Eve's built-in ask_question tool as a standalone question with answer controls, outside the collapsed tool group.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/eve-ask-question.tsx",
+          "sourcePath": "templates/eve/components/eve-ask-question.tsx"
+        }
+      ],
+      "dependencies": [
+        "@assistant-ui/react@^0.15.26"
+      ],
+      "registryDependencies": [
+        "https://r.assistant-ui.com/tool-fallback.json"
+      ]
+    },
+    {
       "name": "thread",
       "type": "registry:component",
       "title": "Thread",
@@ -2286,7 +2407,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2330,7 +2451,22 @@
         }
       ],
       "registryDependencies": [
-        "tooltip"
+        "tooltip",
+        "https://r.assistant-ui.com/elements-tokens.json",
+        "https://r.assistant-ui.com/elements-context-usage.json"
+      ]
+    },
+    {
+      "name": "elements-context-usage",
+      "type": "registry:component",
+      "title": "Elements Context Usage",
+      "description": "Shared usage colors and segment labels for context displays.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/context-usage.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/context-usage.ts"
+        }
       ]
     },
     {
@@ -2346,7 +2482,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -2368,7 +2504,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-voice-conversation.json"
@@ -2387,7 +2523,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-task-card.json",
@@ -2409,7 +2545,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-agent-status.json",
@@ -2448,8 +2584,8 @@
         "https://r.assistant-ui.com/use-copy-to-clipboard.json"
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
-        "@assistant-ui/react-markdown@^0.14.19",
+        "@assistant-ui/react@^0.15.26",
+        "@assistant-ui/react-markdown@^0.14.20",
         "lucide-react",
         "remark-gfm"
       ]
@@ -2471,7 +2607,7 @@
         "https://r.assistant-ui.com/markdown-text.json"
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ]
     },
     {
@@ -2490,7 +2626,7 @@
         "https://r.assistant-ui.com/elements-conversation-map.json"
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ]
     },
     {
@@ -2503,10 +2639,15 @@
           "type": "registry:component",
           "path": "components/assistant-ui/elements/reasoning.tsx",
           "sourcePath": "../../packages/ui/src/components/react/assistant-ui/elements/reasoning.tsx"
+        },
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/useIsomorphicLayoutEffect.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/useIsomorphicLayoutEffect.ts"
         }
       ],
       "registryDependencies": [
-        "collapsible"
+        "https://r.assistant-ui.com/elements-collapsible-root.json"
       ],
       "dependencies": [
         "lucide-react",
@@ -2548,7 +2689,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ],
       "registryDependencies": [
         "tooltip"
@@ -2567,8 +2708,8 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
-        "@assistant-ui/ai-sdk@^0.0.11"
+        "@assistant-ui/react@^0.15.26",
+        "@assistant-ui/ai-sdk@^0.0.12"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-context-display.json"
@@ -2592,7 +2733,7 @@
         "skeleton"
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react"
       ]
     },
@@ -2614,12 +2755,30 @@
         "dialog",
         "label",
         "separator",
+        "https://r.assistant-ui.com/elements-mcp-config-state.json",
         "input"
       ],
       "dependencies": [
-        "@assistant-ui/react-mcp@^0.1.21",
-        "@assistant-ui/store@^0.3.17",
+        "@assistant-ui/react-mcp@^0.1.22",
+        "@assistant-ui/store@^0.3.18",
         "lucide-react"
+      ]
+    },
+    {
+      "name": "elements-mcp-config-state",
+      "type": "registry:component",
+      "title": "Elements MCP Config State",
+      "description": "Shared focus and announcement state for MCP config dialogs.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/mcp-config-state.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/mcp-config-state.ts"
+        }
+      ],
+      "dependencies": [
+        "@assistant-ui/react-mcp@^0.1.22",
+        "@assistant-ui/store@^0.3.18"
       ]
     },
     {
@@ -2635,7 +2794,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "zustand"
       ]
     },
@@ -2659,7 +2818,7 @@
         "https://r.assistant-ui.com/use-attachment-src.json"
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react"
       ]
     },
@@ -2677,7 +2836,7 @@
       ],
       "registryDependencies": [],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ]
     },
     {
@@ -2714,9 +2873,22 @@
       ],
       "dependencies": [
         "@assistant-ui/react-syntax-highlighter@^0.14.7",
-        "@assistant-ui/react-markdown@^0.14.19",
+        "@assistant-ui/react-markdown@^0.14.20",
         "react-syntax-highlighter",
         "@types/react-syntax-highlighter"
+      ]
+    },
+    {
+      "name": "elements-modal-size",
+      "type": "registry:component",
+      "title": "Elements Modal Size",
+      "description": "Shared resizing and stored size for the assistant modal.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/modal-size.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/modal-size.ts"
+        }
       ]
     },
     {
@@ -2732,13 +2904,14 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/thread.json",
         "https://r.assistant-ui.com/thread-list.json",
-        "https://r.assistant-ui.com/tooltip-icon-button.json"
+        "https://r.assistant-ui.com/tooltip-icon-button.json",
+        "https://r.assistant-ui.com/elements-modal-size.json"
       ]
     },
     {
@@ -2754,7 +2927,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ],
       "registryDependencies": [
         "resizable",
@@ -2774,13 +2947,13 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react",
         "tw-shimmer@^0.4.13"
       ],
       "registryDependencies": [
+        "https://r.assistant-ui.com/elements-collapsible-root.json",
         "button",
-        "collapsible",
         "textarea"
       ],
       "css": {
@@ -2818,13 +2991,13 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react",
         "class-variance-authority",
         "tw-shimmer@^0.4.13"
       ],
       "registryDependencies": [
-        "collapsible"
+        "https://r.assistant-ui.com/elements-collapsible-root.json"
       ],
       "css": {
         "@import \"tw-shimmer\"": {},
@@ -2865,8 +3038,9 @@
       ],
       "dependencies": [
         "react-shiki",
-        "@assistant-ui/react@^0.15.25",
-        "@assistant-ui/react-markdown@^0.14.19"
+        "shiki",
+        "@assistant-ui/react@^0.15.26",
+        "@assistant-ui/react-markdown@^0.14.20"
       ]
     },
     {
@@ -2882,7 +3056,8 @@
         }
       ],
       "dependencies": [
-        "react-shiki"
+        "react-shiki",
+        "shiki"
       ]
     },
     {
@@ -2901,8 +3076,8 @@
         "https://r.assistant-ui.com/elements-mermaid-diagram.json"
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
-        "@assistant-ui/react-markdown@^0.14.19"
+        "@assistant-ui/react@^0.15.26",
+        "@assistant-ui/react-markdown@^0.14.20"
       ]
     },
     {
@@ -2937,7 +3112,7 @@
       "dependencies": [
         "diff",
         "parse-diff",
-        "@assistant-ui/react-markdown@^0.14.19",
+        "@assistant-ui/react-markdown@^0.14.20",
         "class-variance-authority",
         "lucide-react"
       ],
@@ -2983,7 +3158,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react"
       ],
       "registryDependencies": []
@@ -3001,7 +3176,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react"
       ],
       "registryDependencies": [
@@ -3022,7 +3197,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react",
         "class-variance-authority"
       ],
@@ -3043,7 +3218,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react",
         "class-variance-authority"
       ],
@@ -3064,7 +3239,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-model-selector.json"
@@ -3089,7 +3264,21 @@
       ],
       "registryDependencies": [
         "command",
-        "popover"
+        "popover",
+        "https://r.assistant-ui.com/elements-model-selection.json"
+      ]
+    },
+    {
+      "name": "elements-model-selection",
+      "type": "registry:component",
+      "title": "Elements Model Selection",
+      "description": "Shared model selection state and effort resolution for model selectors.",
+      "files": [
+        {
+          "type": "registry:component",
+          "path": "components/assistant-ui/utils/model-selection.ts",
+          "sourcePath": "../../packages/ui/src/components/react/assistant-ui/utils/model-selection.ts"
+        }
       ]
     },
     {
@@ -3257,7 +3446,7 @@
         }
       ],
       "dependencies": [
-        "heat-graph@^0.0.23"
+        "heat-graph@^0.0.24"
       ],
       "registryDependencies": []
     },
@@ -3274,7 +3463,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25",
+        "@assistant-ui/react@^0.15.26",
         "lucide-react"
       ],
       "registryDependencies": []
@@ -3292,7 +3481,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react@^0.15.25"
+        "@assistant-ui/react@^0.15.26"
       ],
       "registryDependencies": [
         "https://r.assistant-ui.com/elements-directive-text.json"
@@ -4227,6 +4416,28 @@
           "color": "color-mix(in oklab, currentColor 62%, transparent)",
           "margin": "0.5em 0"
         },
+        "[data-aui=\"markdown\"] table": {
+          "display": "block",
+          "max-width": "100%",
+          "overflow-x": "auto",
+          "border-collapse": "collapse",
+          "margin": "0.5rem 0",
+          "font-size": "0.8125rem"
+        },
+        "[data-aui=\"markdown\"] th, [data-aui=\"markdown\"] td": {
+          "padding": "0.375rem 0.75rem",
+          "vertical-align": "top"
+        },
+        "[data-aui=\"markdown\"] th:not([align]), [data-aui=\"markdown\"] td:not([align])": {
+          "text-align": "start"
+        },
+        "[data-aui=\"markdown\"] th": {
+          "font-weight": "500",
+          "border-bottom": "1px solid color-mix(in oklab, var(--border) 60%, transparent)"
+        },
+        "[data-aui=\"markdown\"] tbody tr:not(:last-child) td": {
+          "border-bottom": "1px solid color-mix(in oklab, var(--border) 60%, transparent)"
+        },
         "[data-aui=\"badge\"]": {
           "display": "inline-flex",
           "align-self": "flex-start",
@@ -4283,7 +4494,7 @@
         }
       ],
       "dependencies": [
-        "@assistant-ui/react-generative-ui@^0.0.24",
+        "@assistant-ui/react-generative-ui@^0.1.0",
         "react-markdown",
         "remark-gfm"
       ],
