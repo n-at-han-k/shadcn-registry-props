@@ -482,6 +482,22 @@
       "type": "registry:lib"
     },
     {
+      "name": "story-export",
+      "title": "Story Export",
+      "description": "Turns stories into images for Instagram, WhatsApp and TikTok: renderStoryPng() draws JSX to a 1080 × 1920 PNG in the browser with Satori, shareStory() opens the share sheet with it, plus downloadStory(), loadFont() and the safe area the apps draw over.",
+      "dependencies": [
+        "satori@^0.47.1"
+      ],
+      "files": [
+        {
+          "path": "registry/default/lib/story-export.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Next.js and webpack load Satori's layout engine by themselves. With Vite, call setStoryWasm() first with the URL of satori/layout.wasm (import wasm from \"satori/layout.wasm?url\").",
+      "type": "registry:lib"
+    },
+    {
       "name": "use-media-query",
       "title": "useMediaQuery",
       "description": "Subscribes to a CSS media query. SSR-safe: renders a fallback on the server and hydrates without a mismatch.",
@@ -3970,6 +3986,41 @@
       "files": [
         {
           "path": "registry/default/ui/donut-chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "story-frame",
+      "title": "Story Frame",
+      "description": "A 9:16 story preview that is the exported PNG itself, with Share (the phone's share sheet, Instagram included), Download and Copy link, and the safe area the apps draw over.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@corsair-ui/utils",
+        "@corsair-ui/button",
+        "@corsair-ui/story-export"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/story-frame.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "story",
+      "title": "Story",
+      "description": "A 1080 × 1920 story put together from parts (header, eyebrow, title, grid of tiles, list of rows, highlight, image, call to action), laid out inside the safe area, with themes, patterns and a background photo. Drawn by Satori: render it with story-frame or renderStoryPng().",
+      "registryDependencies": [
+        "@corsair-ui/story-export"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/story.tsx",
           "type": "registry:ui"
         }
       ],
