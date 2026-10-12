@@ -126,7 +126,7 @@
         "atom"
       ],
       "dependencies": [
-        "@base-ui-components/react@1.0.0-rc.0",
+        "@base-ui/react@^1.9.0",
         "class-variance-authority@^0.7.1",
         "lucide-react@^1.47.0"
       ],
@@ -403,7 +403,7 @@
         "atom"
       ],
       "dependencies": [
-        "@base-ui-components/react@1.0.0-rc.0"
+        "@base-ui/react@^1.9.0"
       ],
       "registryDependencies": [
         "https://facadeui.dev/r/utils.json"
@@ -425,7 +425,7 @@
         "atom"
       ],
       "dependencies": [
-        "@base-ui-components/react@1.0.0-rc.0",
+        "@base-ui/react@^1.9.0",
         "lucide-react@^1.47.0"
       ],
       "registryDependencies": [
@@ -440,6 +440,47 @@
       ]
     },
     {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A multi-line text field built on Base UI's Field, so the label, help text and error message are connected to the control. Same border and focus ring as Input.",
+      "categories": [
+        "atom"
+      ],
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "prose",
+      "type": "registry:ui",
+      "title": "Prose",
+      "description": "Styles for an article body: headings, paragraphs, lists, links, code, quotes and tables on the Facade type scale. Wrap rendered markdown or hand-written HTML in it.",
+      "categories": [
+        "atom"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/ui/prose.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/prose.tsx"
+        }
+      ]
+    },
+    {
       "name": "nav-top",
       "type": "registry:block",
       "title": "Top navigation",
@@ -448,7 +489,7 @@
         "section"
       ],
       "dependencies": [
-        "@base-ui-components/react@1.0.0-rc.0",
+        "@base-ui/react@^1.9.0",
         "lucide-react@^1.47.0"
       ],
       "registryDependencies": [
@@ -840,7 +881,7 @@
         "section"
       ],
       "dependencies": [
-        "@base-ui-components/react@1.0.0-rc.0",
+        "@base-ui/react@^1.9.0",
         "lucide-react@^1.47.0"
       ],
       "registryDependencies": [
@@ -1183,7 +1224,7 @@
         "section"
       ],
       "dependencies": [
-        "@base-ui-components/react@1.0.0-rc.0"
+        "@base-ui/react@^1.9.0"
       ],
       "registryDependencies": [
         "https://facadeui.dev/r/container.json",
@@ -1349,7 +1390,7 @@
         "section"
       ],
       "dependencies": [
-        "@base-ui-components/react@1.0.0-rc.0",
+        "@base-ui/react@^1.9.0",
         "lucide-react@^1.47.0"
       ],
       "registryDependencies": [
@@ -1363,6 +1404,61 @@
           "path": "src/sections/nav-side.tsx",
           "type": "registry:component",
           "target": "components/sections/nav-side.tsx"
+        }
+      ]
+    },
+    {
+      "name": "changelog-list",
+      "type": "registry:block",
+      "title": "Changelog list",
+      "description": "A list of releases. Each has a version, a date and its changes, labelled Added, Changed, Fixed, Removed, Deprecated or Security. Every release is its own article with a heading and an anchor.",
+      "categories": [
+        "section"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/badge.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/changelog-list.tsx",
+          "type": "registry:component",
+          "target": "components/sections/changelog-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-form",
+      "type": "registry:block",
+      "title": "Contact form",
+      "description": "A contact form built from Input, Select and Textarea, with your contact details beside it. It checks required fields, shows errors from your server on the right field, and announces the result. It makes no network call itself.",
+      "categories": [
+        "section"
+      ],
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/input.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/select.json",
+        "https://facadeui.dev/r/textarea.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/sections/contact-form.tsx",
+          "type": "registry:component",
+          "target": "components/sections/contact-form.tsx"
         }
       ]
     },
@@ -1461,6 +1557,60 @@
       ]
     },
     {
+      "name": "changelog",
+      "type": "registry:block",
+      "title": "Changelog page",
+      "description": "A complete changelog page built from Facade UI sections: a header, the releases with their changes, and an optional email sign-up. You supply one content object.",
+      "categories": [
+        "template"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/changelog-list.json",
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/cta-group.json",
+        "https://facadeui.dev/r/footer.json",
+        "https://facadeui.dev/r/nav-top.json",
+        "https://facadeui.dev/r/newsletter.json",
+        "https://facadeui.dev/r/section.json",
+        "https://facadeui.dev/r/section-header.json",
+        "https://facadeui.dev/r/types.json"
+      ],
+      "files": [
+        {
+          "path": "src/templates/changelog.tsx",
+          "type": "registry:component",
+          "target": "components/templates/changelog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "docs-site",
+      "type": "registry:block",
+      "title": "Documentation page",
+      "description": "A documentation page built from Facade UI sections: top navigation, side navigation, the article, an 'On this page' list and previous and next links. You supply one content object and the article body.",
+      "categories": [
+        "template"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/container.json",
+        "https://facadeui.dev/r/eyebrow.json",
+        "https://facadeui.dev/r/footer.json",
+        "https://facadeui.dev/r/heading.json",
+        "https://facadeui.dev/r/nav-side.json",
+        "https://facadeui.dev/r/nav-top.json",
+        "https://facadeui.dev/r/prose.json",
+        "https://facadeui.dev/r/types.json",
+        "https://facadeui.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/templates/docs-site.tsx",
+          "type": "registry:component",
+          "target": "components/templates/docs-site.tsx"
+        }
+      ]
+    },
+    {
       "name": "examples-content",
       "type": "registry:component",
       "title": "Example content",
@@ -1472,11 +1622,14 @@
         "lucide-react@^1.47.0"
       ],
       "registryDependencies": [
+        "https://facadeui.dev/r/badge.json",
         "https://facadeui.dev/r/bento-grid.json",
+        "https://facadeui.dev/r/changelog-list.json",
         "https://facadeui.dev/r/faq-accordion.json",
         "https://facadeui.dev/r/feature-grid.json",
         "https://facadeui.dev/r/feature-rows.json",
         "https://facadeui.dev/r/logo-mark.json",
+        "https://facadeui.dev/r/nav-side.json",
         "https://facadeui.dev/r/nav-top.json",
         "https://facadeui.dev/r/types.json",
         "https://facadeui.dev/r/usp-list.json"
@@ -1653,6 +1806,65 @@
       ]
     },
     {
+      "name": "changelog-list-demo",
+      "type": "registry:component",
+      "title": "Changelog list example",
+      "description": "Usage example (demo) for Changelog list: the code behind the preview on https://facadeui.dev/components/changelog-list. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/changelog-list.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "changelog-list.tsx",
+          "type": "registry:component",
+          "target": "components/examples/changelog-list-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "changelog-demo",
+      "type": "registry:component",
+      "title": "Changelog page example",
+      "description": "Usage example (demo) for Changelog page: the code behind the preview on https://facadeui.dev/components/changelog. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/changelog.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "changelog.tsx",
+          "type": "registry:component",
+          "target": "components/examples/changelog-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-form-demo",
+      "type": "registry:component",
+      "title": "Contact form example",
+      "description": "Usage example (demo) for Contact form: the code behind the preview on https://facadeui.dev/components/contact-form. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/contact-form.json"
+      ],
+      "files": [
+        {
+          "path": "contact-form.tsx",
+          "type": "registry:component",
+          "target": "components/examples/contact-form-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "container-demo",
       "type": "registry:component",
       "title": "Container example",
@@ -1727,6 +1939,26 @@
           "path": "cta-group.tsx",
           "type": "registry:component",
           "target": "components/examples/cta-group-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "docs-site-demo",
+      "type": "registry:component",
+      "title": "Documentation page example",
+      "description": "Usage example (demo) for Documentation page: the code behind the preview on https://facadeui.dev/components/docs-site. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/docs-site.json",
+        "https://facadeui.dev/r/examples-content.json"
+      ],
+      "files": [
+        {
+          "path": "docs-site.tsx",
+          "type": "registry:component",
+          "target": "components/examples/docs-site-demo.tsx"
         }
       ]
     },
@@ -2074,6 +2306,26 @@
       ]
     },
     {
+      "name": "input-demo",
+      "type": "registry:component",
+      "title": "Input example",
+      "description": "Usage example (demo) for Input: the code behind the preview on https://facadeui.dev/components/input. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "input.tsx",
+          "type": "registry:component",
+          "target": "components/examples/input-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "logo-cloud-motion-demo",
       "type": "registry:component",
       "title": "Logo cloud (motion) example",
@@ -2306,6 +2558,25 @@
           "path": "product-launch.tsx",
           "type": "registry:component",
           "target": "components/examples/product-launch-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "prose-demo",
+      "type": "registry:component",
+      "title": "Prose example",
+      "description": "Usage example (demo) for Prose: the code behind the preview on https://facadeui.dev/components/prose. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/prose.json"
+      ],
+      "files": [
+        {
+          "path": "prose.tsx",
+          "type": "registry:component",
+          "target": "components/examples/prose-demo.tsx"
         }
       ]
     },
@@ -2604,6 +2875,27 @@
           "path": "testimonials-grid.tsx",
           "type": "registry:component",
           "target": "components/examples/testimonials-grid-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea-demo",
+      "type": "registry:component",
+      "title": "Textarea example",
+      "description": "Usage example (demo) for Textarea: the code behind the preview on https://facadeui.dev/components/textarea. Installs the items it uses.",
+      "categories": [
+        "example"
+      ],
+      "registryDependencies": [
+        "https://facadeui.dev/r/button.json",
+        "https://facadeui.dev/r/input.json",
+        "https://facadeui.dev/r/textarea.json"
+      ],
+      "files": [
+        {
+          "path": "textarea.tsx",
+          "type": "registry:component",
+          "target": "components/examples/textarea-demo.tsx"
         }
       ]
     },
