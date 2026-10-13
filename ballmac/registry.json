@@ -4027,7 +4027,9 @@
         "https://ui.ballmac.com/r/reasoning-disclosure.json",
         "https://ui.ballmac.com/r/select.json",
         "https://ui.ballmac.com/r/streaming-text.json",
-        "https://ui.ballmac.com/r/tool-call-card.json"
+        "https://ui.ballmac.com/r/tool-call-card.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -4051,8 +4053,22 @@
           "copilot",
           "app"
         ],
-        "version": "1.0.0",
-        "updated": "2026-09-28",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton thread while history loads, a welcome when empty, and a failed-reply row with Try again. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-09-28",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A ready-made chat screen driven entirely by props. Map your chat state (for example the Vercel AI SDK's useChat messages) to `messages`, call your API in `onSubmit`, and pass `streaming` while a reply arrives.",
           "whenToUse": [
@@ -4072,11 +4088,38 @@
             "messages: { id, role, text, streaming?, reasoning?, tools? }[]",
             "conversations, activeConversation, onSelectConversation(id | null)",
             "models, model, onModelChange",
-            "onSubmit(value, files), onStop, streaming"
+            "onSubmit(value, files), onStop, streaming",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. loading shows a skeleton thread and disables the prompt; error shows a failed-reply row with Try again (onRetry) under the messages. Pair with useResource for the history"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "ai-chat-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "The conversation list and prompt stay; the thread shows placeholder messages, announced as loading, and the prompt is disabled."
+          },
+          {
+            "id": "empty",
+            "title": "New chat",
+            "example": "ai-chat-1-new-chat",
+            "trigger": "state=\"empty\"",
+            "note": "A welcome in the thread. emptyState sets the title, description and an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "ai-chat-1-error",
+            "trigger": "state=\"error\"",
+            "note": "The messages stay and a failed-reply row sits where the reply would be, with Try again (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
-          "ai-chat-1-demo"
+          "ai-chat-1-demo",
+          "ai-chat-1-loading",
+          "ai-chat-1-error",
+          "ai-chat-1-new-chat"
         ],
         "url": "https://ui.ballmac.com/components/ai-chat-1"
       }
@@ -4106,6 +4149,78 @@
       }
     },
     {
+      "name": "ai-chat-1-loading",
+      "type": "registry:example",
+      "title": "AI Chat 1: full chat app pane: Loading",
+      "description": "Loading example of AI Chat 1: full chat app pane.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/ai-chat-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/ai-chat-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/ai-chat-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "ai-chat-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "ai-chat-1-error",
+      "type": "registry:example",
+      "title": "AI Chat 1: full chat app pane: Could not load",
+      "description": "Could not load example of AI Chat 1: full chat app pane.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/ai-chat-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/ai-chat-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/ai-chat-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "ai-chat-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "ai-chat-1-new-chat",
+      "type": "registry:example",
+      "title": "AI Chat 1: full chat app pane: New chat",
+      "description": "New chat example of AI Chat 1: full chat app pane.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/ai-chat-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/ai-chat-1-new-chat.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/ai-chat-1-new-chat.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "ai-chat-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "ai-chat-2",
       "type": "registry:block",
       "title": "AI Chat 2: conversation with artifact panel",
@@ -4121,7 +4236,9 @@
         "https://ui.ballmac.com/r/artifact-panel.json",
         "https://ui.ballmac.com/r/button.json",
         "https://ui.ballmac.com/r/prompt-input.json",
-        "https://ui.ballmac.com/r/streaming-text.json"
+        "https://ui.ballmac.com/r/streaming-text.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -4146,8 +4263,22 @@
           "side panel",
           "versions"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton thread while history loads, a welcome when empty, and a failed-reply row with Try again. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "An assistant UI that produces artifacts. Pass versions=[{ code, preview, note }], defaultMessages, suggestions and onSend(prompt) returning { reply, artifact? } (the 1-based version the reply moves to). Without onSend a built-in script lets you try the whole flow.",
           "whenToUse": [
@@ -4179,12 +4310,39 @@
           "customization": [
             "versions, defaultMessages, suggestions, conversations",
             "artifactTitle, artifactKind, filename, language",
-            "onSend(prompt) async"
+            "onSend(prompt) async",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. loading shows a skeleton thread and disables the prompt; error shows a failed-reply row with Try again (onRetry) under the messages. Pair with useResource for the history"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "ai-chat-2-loading",
+            "trigger": "state=\"loading\"",
+            "note": "The conversation list and prompt stay; the thread shows placeholder messages, announced as loading, and the prompt is disabled."
+          },
+          {
+            "id": "empty",
+            "title": "New chat",
+            "example": "ai-chat-2-new-chat",
+            "trigger": "state=\"empty\"",
+            "note": "A welcome in the thread. emptyState sets the title, description and an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "ai-chat-2-error",
+            "trigger": "state=\"error\"",
+            "note": "The messages stay and a failed-reply row sits where the reply would be, with Try again (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "ai-chat-2-demo",
-          "ai-chat-2-blank"
+          "ai-chat-2-blank",
+          "ai-chat-2-loading",
+          "ai-chat-2-error",
+          "ai-chat-2-new-chat"
         ],
         "url": "https://ui.ballmac.com/components/ai-chat-2"
       }
@@ -4226,6 +4384,78 @@
           "path": "registry/examples/ai-chat-2-blank.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/ai-chat-2-blank.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "ai-chat-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "ai-chat-2-loading",
+      "type": "registry:example",
+      "title": "AI Chat 2: conversation with artifact panel: Loading",
+      "description": "Loading example of AI Chat 2: conversation with artifact panel.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/ai-chat-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/ai-chat-2-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/ai-chat-2-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "ai-chat-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "ai-chat-2-error",
+      "type": "registry:example",
+      "title": "AI Chat 2: conversation with artifact panel: Could not load",
+      "description": "Could not load example of AI Chat 2: conversation with artifact panel.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/ai-chat-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/ai-chat-2-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/ai-chat-2-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "ai-chat-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "ai-chat-2-new-chat",
+      "type": "registry:example",
+      "title": "AI Chat 2: conversation with artifact panel: New chat",
+      "description": "New chat example of AI Chat 2: conversation with artifact panel.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/ai-chat-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/ai-chat-2-new-chat.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/ai-chat-2-new-chat.tsx"
         }
       ],
       "categories": [
@@ -4317,6 +4547,7 @@
             "defaultCollapsed, height ('100svh' for a full-screen app)"
           ]
         },
+        "statesNone": "A layout around your own pages; each page inside shows its own states.",
         "examples": [
           "app-shell-1-demo",
           "app-shell-1-collapsed"
@@ -4391,7 +4622,9 @@
         "https://ui.ballmac.com/r/dialog.json",
         "https://ui.ballmac.com/r/field.json",
         "https://ui.ballmac.com/r/input.json",
-        "https://ui.ballmac.com/r/i18n.json"
+        "https://ui.ballmac.com/r/i18n.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -4415,8 +4648,28 @@
           "payment method",
           "plan"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.1",
+        "updated": "2026-10-12",
+        "changelog": [
+          {
+            "version": "1.1.1",
+            "date": "2026-10-12",
+            "note": "The loading skeleton no longer makes the page scroll sideways on a phone: its columns can shrink below the width of the placeholders.",
+            "breaking": false
+          },
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton with the same shapes as the ready view, an error with retry, and an empty message. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "The billing screen. Pass plan, usage=[{ label, used, limit?, unit? }], card, contact, invoices, currency and handlers onChangePlan / onUpdateCard (throw to show an error). Real card numbers must go to your payment provider's hosted fields, not through this form.",
           "whenToUse": [
@@ -4449,12 +4702,39 @@
           "customization": [
             "plan, usage, card, contact, invoices",
             "currency, locale",
-            "onChangePlan, onUpdateCard"
+            "onChangePlan, onUpdateCard",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "billing-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No billing details",
+            "example": "billing-1-no-billing",
+            "trigger": "state=\"empty\"",
+            "note": "A clear message that there is nothing yet. emptyState sets the copy and can add an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "billing-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "billing-1-demo",
-          "billing-1-starter"
+          "billing-1-starter",
+          "billing-1-loading",
+          "billing-1-error",
+          "billing-1-no-billing"
         ],
         "url": "https://ui.ballmac.com/components/billing-1"
       }
@@ -4508,6 +4788,78 @@
       }
     },
     {
+      "name": "billing-1-loading",
+      "type": "registry:example",
+      "title": "Billing 1: plan, usage and invoices: Loading",
+      "description": "Loading example of Billing 1: plan, usage and invoices.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/billing-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/billing-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/billing-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "billing-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "billing-1-error",
+      "type": "registry:example",
+      "title": "Billing 1: plan, usage and invoices: Could not load",
+      "description": "Could not load example of Billing 1: plan, usage and invoices.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/billing-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/billing-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/billing-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "billing-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "billing-1-no-billing",
+      "type": "registry:example",
+      "title": "Billing 1: plan, usage and invoices: No billing details",
+      "description": "No billing details example of Billing 1: plan, usage and invoices.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/billing-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/billing-1-no-billing.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/billing-1-no-billing.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "billing-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "billing-2",
       "type": "registry:block",
       "title": "Billing 2: change plan with proration",
@@ -4521,7 +4873,9 @@
         "https://ui.ballmac.com/r/badge.json",
         "https://ui.ballmac.com/r/button.json",
         "https://ui.ballmac.com/r/segmented-control.json",
-        "https://ui.ballmac.com/r/i18n.json"
+        "https://ui.ballmac.com/r/i18n.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -4546,8 +4900,22 @@
           "plans",
           "checkout"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton with the same shapes as the ready view, an error with retry, and an empty message. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "Upgrade and downgrade flow. Pass plans=[{ id, name, monthly, yearly, description, features }], currentPlan, currentSeats, today and renewsOn (ISO dates, so server and browser agree) and onConfirm({ plan, seats, interval }) (throw to show an error).",
           "whenToUse": [
@@ -4579,12 +4947,39 @@
           "customization": [
             "plans, currentPlan, currentSeats, currentInterval, minSeats",
             "today and renewsOn drive the proration",
-            "onConfirm(change) async"
+            "onConfirm(change) async",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "billing-2-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No plans",
+            "example": "billing-2-no-plans",
+            "trigger": "state=\"empty\"",
+            "note": "A clear message that there is nothing yet. emptyState sets the copy and can add an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "billing-2-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "billing-2-demo",
-          "billing-2-yearly"
+          "billing-2-yearly",
+          "billing-2-loading",
+          "billing-2-error",
+          "billing-2-no-plans"
         ],
         "url": "https://ui.ballmac.com/components/billing-2"
       }
@@ -4638,6 +5033,78 @@
       }
     },
     {
+      "name": "billing-2-loading",
+      "type": "registry:example",
+      "title": "Billing 2: change plan with proration: Loading",
+      "description": "Loading example of Billing 2: change plan with proration.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/billing-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/billing-2-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/billing-2-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "billing-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "billing-2-error",
+      "type": "registry:example",
+      "title": "Billing 2: change plan with proration: Could not load",
+      "description": "Could not load example of Billing 2: change plan with proration.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/billing-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/billing-2-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/billing-2-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "billing-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "billing-2-no-plans",
+      "type": "registry:example",
+      "title": "Billing 2: change plan with proration: No plans",
+      "description": "No plans example of Billing 2: change plan with proration.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/billing-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/billing-2-no-plans.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/billing-2-no-plans.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "billing-2",
+        "tier": "free"
+      }
+    },
+    {
       "name": "blog-1",
       "type": "registry:block",
       "title": "Blog 1: featured post with filterable grid",
@@ -4649,7 +5116,9 @@
       "registryDependencies": [
         "utils",
         "https://ui.ballmac.com/r/i18n.json",
-        "https://ui.ballmac.com/r/media.json"
+        "https://ui.ballmac.com/r/media.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -4673,8 +5142,22 @@
           "filter",
           "cards"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton with the same shapes as the ready view, an error with retry, and an empty message. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "The index page of a blog. Pass posts=[{ title, excerpt, category, date, readMinutes, author, role?, href, image?, cover? }]; the first post is featured. Also exports BlogCover for your own cards.",
           "whenToUse": [
@@ -4704,12 +5187,39 @@
           "customization": [
             "posts: image for a photo, or cover (0 to 4) to choose a generated cover",
             "filterable: false hides the chips",
-            "locale for dates (UTC, fixed by default)"
+            "locale for dates (UTC, fixed by default)",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "blog-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No posts",
+            "example": "blog-1-no-posts",
+            "trigger": "state=\"empty\"",
+            "note": "A clear message that there is nothing yet. emptyState sets the copy and can add an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "blog-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "blog-1-demo",
-          "blog-1-compact"
+          "blog-1-compact",
+          "blog-1-loading",
+          "blog-1-error",
+          "blog-1-no-posts"
         ],
         "url": "https://ui.ballmac.com/components/blog-1"
       }
@@ -4751,6 +5261,78 @@
           "path": "registry/examples/blog-1-compact.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/blog-1-compact.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "blog-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "blog-1-loading",
+      "type": "registry:example",
+      "title": "Blog 1: featured post with filterable grid: Loading",
+      "description": "Loading example of Blog 1: featured post with filterable grid.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/blog-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/blog-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/blog-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "blog-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "blog-1-error",
+      "type": "registry:example",
+      "title": "Blog 1: featured post with filterable grid: Could not load",
+      "description": "Could not load example of Blog 1: featured post with filterable grid.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/blog-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/blog-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/blog-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "blog-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "blog-1-no-posts",
+      "type": "registry:example",
+      "title": "Blog 1: featured post with filterable grid: No posts",
+      "description": "No posts example of Blog 1: featured post with filterable grid.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/blog-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/blog-1-no-posts.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/blog-1-no-posts.tsx"
         }
       ],
       "categories": [
@@ -4837,6 +5419,7 @@
             "related: [] hides the Keep reading section"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "blog-post-1-demo",
           "blog-post-1-short"
@@ -4907,7 +5490,9 @@
         "https://ui.ballmac.com/r/calendar.json",
         "https://ui.ballmac.com/r/dialog.json",
         "https://ui.ballmac.com/r/input.json",
-        "https://ui.ballmac.com/r/popover.json"
+        "https://ui.ballmac.com/r/popover.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -4931,9 +5516,15 @@
           "planner",
           "agenda"
         ],
-        "version": "1.0.1",
+        "version": "1.1.0",
         "updated": "2026-10-11",
         "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton with the same shapes as the ready view, an error with retry, and an empty message. Unchanged without state.",
+            "breaking": false
+          },
           {
             "version": "1.0.1",
             "date": "2026-10-11",
@@ -4973,12 +5564,39 @@
           "customization": [
             "defaultEvents, calendars, today, now (null hides the line)",
             "startHour and endHour",
-            "onAdd(event), height"
+            "onAdd(event), height",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "calendar-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No events",
+            "example": "calendar-1-no-events",
+            "trigger": "state=\"empty\"",
+            "note": "The real week with no events, so adding one still works."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "calendar-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "calendar-1-demo",
-          "calendar-1-compact"
+          "calendar-1-compact",
+          "calendar-1-loading",
+          "calendar-1-error",
+          "calendar-1-no-events"
         ],
         "url": "https://ui.ballmac.com/components/calendar-1"
       }
@@ -5020,6 +5638,78 @@
           "path": "registry/examples/calendar-1-compact.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/calendar-1-compact.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "calendar-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "calendar-1-loading",
+      "type": "registry:example",
+      "title": "Calendar 1: week view with mini month: Loading",
+      "description": "Loading example of Calendar 1: week view with mini month.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/calendar-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/calendar-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/calendar-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "calendar-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "calendar-1-error",
+      "type": "registry:example",
+      "title": "Calendar 1: week view with mini month: Could not load",
+      "description": "Could not load example of Calendar 1: week view with mini month.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/calendar-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/calendar-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/calendar-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "calendar-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "calendar-1-no-events",
+      "type": "registry:example",
+      "title": "Calendar 1: week view with mini month: No events",
+      "description": "No events example of Calendar 1: week view with mini month.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/calendar-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/calendar-1-no-events.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/calendar-1-no-events.tsx"
         }
       ],
       "categories": [
@@ -5114,6 +5804,7 @@
             "openApplication: null hides the link"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "careers-1-demo",
           "careers-1-small"
@@ -5183,7 +5874,9 @@
         "https://ui.ballmac.com/r/blog-1.json",
         "https://ui.ballmac.com/r/button.json",
         "https://ui.ballmac.com/r/i18n.json",
-        "https://ui.ballmac.com/r/media.json"
+        "https://ui.ballmac.com/r/media.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -5207,8 +5900,22 @@
           "timeline",
           "filter"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton with the same shapes as the ready view, an error with retry, and an empty message. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A public changelog page. Pass releases=[{ version, date, title, summary?, changes: { type: 'new' | 'improved' | 'fixed', text }[], cover? }] newest first.",
           "whenToUse": [
@@ -5237,12 +5944,39 @@
           "customization": [
             "releases: cover (0 to 4) adds banner art to a headline release",
             "initialCount: releases shown before the button",
-            "feed: null hides the RSS button"
+            "feed: null hides the RSS button",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "changelog-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No releases",
+            "example": "changelog-1-no-releases",
+            "trigger": "state=\"empty\"",
+            "note": "A clear message that there is nothing yet. emptyState sets the copy and can add an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "changelog-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "changelog-1-demo",
-          "changelog-1-minimal"
+          "changelog-1-minimal",
+          "changelog-1-loading",
+          "changelog-1-error",
+          "changelog-1-no-releases"
         ],
         "url": "https://ui.ballmac.com/components/changelog-1"
       }
@@ -5284,6 +6018,78 @@
           "path": "registry/examples/changelog-1-minimal.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/changelog-1-minimal.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "changelog-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "changelog-1-loading",
+      "type": "registry:example",
+      "title": "Changelog 1: release notes timeline: Loading",
+      "description": "Loading example of Changelog 1: release notes timeline.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/changelog-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/changelog-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/changelog-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "changelog-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "changelog-1-error",
+      "type": "registry:example",
+      "title": "Changelog 1: release notes timeline: Could not load",
+      "description": "Could not load example of Changelog 1: release notes timeline.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/changelog-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/changelog-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/changelog-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "changelog-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "changelog-1-no-releases",
+      "type": "registry:example",
+      "title": "Changelog 1: release notes timeline: No releases",
+      "description": "No releases example of Changelog 1: release notes timeline.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/changelog-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/changelog-1-no-releases.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/changelog-1-no-releases.tsx"
         }
       ],
       "categories": [
@@ -5362,6 +6168,7 @@
             "reasons: [] hides the headline results"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "comparison-1-demo",
           "comparison-1-single"
@@ -5434,7 +6241,8 @@
         "https://ui.ballmac.com/r/input.json",
         "https://ui.ballmac.com/r/select.json",
         "https://ui.ballmac.com/r/status-dot.json",
-        "https://ui.ballmac.com/r/textarea.json"
+        "https://ui.ballmac.com/r/textarea.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -5458,8 +6266,22 @@
           "email",
           "sales"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "Contact page section. Pass methods, topics and onSubmit(values) (throw to show an error). Validation, focus on the first error, loading and the thank-you screen are built in.",
           "whenToUse": [
@@ -5490,12 +6312,39 @@
             "methods: { icon?, label, value, href? }[]",
             "topics: [] hides the dropdown",
             "responseTime: null hides the pill",
-            "onSubmit(values): async; throw to show the error state"
+            "onSubmit(values): async; throw to show the error state",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Sending",
+            "example": "contact-1-sending",
+            "trigger": "state=\"submitting\"",
+            "note": "Every field and button is disabled while the request is in flight, the button shows a spinner, and the form is marked busy."
+          },
+          {
+            "id": "success",
+            "title": "Message sent",
+            "example": "contact-1-sent",
+            "trigger": "state=\"success\"",
+            "note": "The confirmation screen the flow ends on."
+          },
+          {
+            "id": "error",
+            "title": "Could not send",
+            "example": "contact-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An alert above the form with the message (errorState.description to change it); the fields stay editable so it can be fixed."
+          }
+        ],
         "examples": [
           "contact-1-demo",
-          "contact-1-support"
+          "contact-1-support",
+          "contact-1-sending",
+          "contact-1-sent",
+          "contact-1-error"
         ],
         "url": "https://ui.ballmac.com/components/contact-1"
       }
@@ -5540,6 +6389,78 @@
           "path": "registry/examples/contact-1-support.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/contact-1-support.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "contact-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "contact-1-sending",
+      "type": "registry:example",
+      "title": "Contact 1: form with contact methods: Sending",
+      "description": "Sending example of Contact 1: form with contact methods.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/contact-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/contact-1-sending.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/contact-1-sending.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "contact-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "contact-1-sent",
+      "type": "registry:example",
+      "title": "Contact 1: form with contact methods: Message sent",
+      "description": "Message sent example of Contact 1: form with contact methods.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/contact-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/contact-1-sent.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/contact-1-sent.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "contact-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "contact-1-error",
+      "type": "registry:example",
+      "title": "Contact 1: form with contact methods: Could not send",
+      "description": "Could not send example of Contact 1: form with contact methods.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/contact-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/contact-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/contact-1-error.tsx"
         }
       ],
       "categories": [
@@ -5605,6 +6526,7 @@
             "title, description, primaryAction, secondaryAction props"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "cta-1-demo"
         ],
@@ -5693,6 +6615,7 @@
             "onSubmit(email): Promise<void>"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "cta-2-demo"
         ],
@@ -5788,6 +6711,7 @@
             "notes: short facts under the command"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "cta-3-demo",
           "cta-3-custom"
@@ -5860,7 +6784,9 @@
         "https://ui.ballmac.com/r/chart.json",
         "https://ui.ballmac.com/r/segmented-control.json",
         "https://ui.ballmac.com/r/sparkline.json",
-        "https://ui.ballmac.com/r/i18n.json"
+        "https://ui.ballmac.com/r/i18n.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -5885,8 +6811,22 @@
           "sales",
           "table"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton of the cards, chart and tables under the real heading, an error with retry, and an empty message. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "The first screen of a store or SaaS admin. Pass getSeries(range) returning { label, revenue, previous, orders }[], plus channels, orders and currency; the KPIs, deltas and chart are derived from the series.",
           "whenToUse": [
@@ -5919,12 +6859,39 @@
           "customization": [
             "getSeries(range) for your own data",
             "channels, orders, currency, locale",
-            "onRangeChange to fetch"
+            "onRangeChange to fetch",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "dashboard-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No sales yet",
+            "example": "dashboard-1-no-data",
+            "trigger": "state=\"empty\"",
+            "note": "A clear message that there is nothing yet. emptyState sets the copy and can add an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "dashboard-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "dashboard-1-demo",
-          "dashboard-1-week"
+          "dashboard-1-week",
+          "dashboard-1-loading",
+          "dashboard-1-error",
+          "dashboard-1-no-data"
         ],
         "url": "https://ui.ballmac.com/components/dashboard-1"
       }
@@ -5978,6 +6945,78 @@
       }
     },
     {
+      "name": "dashboard-1-loading",
+      "type": "registry:example",
+      "title": "Dashboard 1: sales overview: Loading",
+      "description": "Loading example of Dashboard 1: sales overview.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/dashboard-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/dashboard-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/dashboard-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "dashboard-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "dashboard-1-error",
+      "type": "registry:example",
+      "title": "Dashboard 1: sales overview: Could not load",
+      "description": "Could not load example of Dashboard 1: sales overview.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/dashboard-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/dashboard-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/dashboard-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "dashboard-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "dashboard-1-no-data",
+      "type": "registry:example",
+      "title": "Dashboard 1: sales overview: No sales yet",
+      "description": "No sales yet example of Dashboard 1: sales overview.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/dashboard-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/dashboard-1-no-data.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/dashboard-1-no-data.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "dashboard-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "dashboard-2",
       "type": "registry:block",
       "title": "Dashboard 2: traffic analytics",
@@ -5993,7 +7032,9 @@
         "https://ui.ballmac.com/r/segmented-control.json",
         "https://ui.ballmac.com/r/status-dot.json",
         "https://ui.ballmac.com/r/switch.json",
-        "https://ui.ballmac.com/r/i18n.json"
+        "https://ui.ballmac.com/r/i18n.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -6018,8 +7059,22 @@
           "visitors",
           "web"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton of the cards, chart and tables under the real heading, an error with retry, and an empty message. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A traffic dashboard. Pass getSeries(range) returning { label, visitors, previous }[], plus sources, devices, pages, countries and live (null hides the pill).",
           "whenToUse": [
@@ -6051,12 +7106,39 @@
           "customization": [
             "getSeries, sources, devices, pages, countries",
             "live: number | null",
-            "locale"
+            "locale",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "dashboard-2-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No traffic yet",
+            "example": "dashboard-2-no-data",
+            "trigger": "state=\"empty\"",
+            "note": "A clear message that there is nothing yet. emptyState sets the copy and can add an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "dashboard-2-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "dashboard-2-demo",
-          "dashboard-2-week"
+          "dashboard-2-week",
+          "dashboard-2-loading",
+          "dashboard-2-error",
+          "dashboard-2-no-data"
         ],
         "url": "https://ui.ballmac.com/components/dashboard-2"
       }
@@ -6098,6 +7180,78 @@
           "path": "registry/examples/dashboard-2-week.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/dashboard-2-week.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "dashboard-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "dashboard-2-loading",
+      "type": "registry:example",
+      "title": "Dashboard 2: traffic analytics: Loading",
+      "description": "Loading example of Dashboard 2: traffic analytics.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/dashboard-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/dashboard-2-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/dashboard-2-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "dashboard-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "dashboard-2-error",
+      "type": "registry:example",
+      "title": "Dashboard 2: traffic analytics: Could not load",
+      "description": "Could not load example of Dashboard 2: traffic analytics.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/dashboard-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/dashboard-2-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/dashboard-2-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "dashboard-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "dashboard-2-no-data",
+      "type": "registry:example",
+      "title": "Dashboard 2: traffic analytics: No traffic yet",
+      "description": "No traffic yet example of Dashboard 2: traffic analytics.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/dashboard-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/dashboard-2-no-data.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/dashboard-2-no-data.tsx"
         }
       ],
       "categories": [
@@ -6184,6 +7338,7 @@
             "screens: any node per device"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "devices-1-demo",
           "devices-1-custom"
@@ -6317,6 +7472,7 @@
             "glyph: a letter or short text on the icon"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "download-1-demo",
           "download-1-simple"
@@ -6456,6 +7612,7 @@
             "The orbiting moon stops for reduced motion"
           ]
         },
+        "statesNone": "This block is the error page itself.",
         "examples": [
           "error-1-demo",
           "error-1-server"
@@ -6565,6 +7722,7 @@
             "title and description props"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "faq-1-demo"
         ],
@@ -6665,6 +7823,7 @@
             "support: { label, href, text? } (null to hide)"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "faq-2-demo",
           "faq-2-compact"
@@ -6776,6 +7935,7 @@
             "Change cells, spans (md:col-span-2) and icons in the source"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "features-1-demo"
         ],
@@ -6859,6 +8019,7 @@
             "eyebrow and title props"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "features-2-demo"
         ],
@@ -6944,6 +8105,7 @@
             "integrations, hubIcon, hubLabel"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "features-3-demo"
         ],
@@ -7030,6 +8192,7 @@
             "BentoCard title, description, icon and background visual per feature"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "features-4-demo"
         ],
@@ -7127,6 +8290,7 @@
             "eyebrow, title, description props"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "features-5-demo",
           "features-5-custom"
@@ -7251,6 +8415,7 @@
             "defaultValue: the tab selected first"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "features-6-demo",
           "features-6-two"
@@ -7384,6 +8549,7 @@
             "defaultValue, time"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "features-7-demo",
           "features-7-two"
@@ -7494,6 +8660,7 @@
             "onSubscribe(email) shows the newsletter form"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "footer-1-demo"
         ],
@@ -7582,6 +8749,7 @@
             "columns / socials / legalLinks"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "footer-2-demo",
           "footer-2-long"
@@ -7651,7 +8819,8 @@
         "https://ui.ballmac.com/r/button.json",
         "https://ui.ballmac.com/r/field.json",
         "https://ui.ballmac.com/r/input.json",
-        "https://ui.ballmac.com/r/password-input.json"
+        "https://ui.ballmac.com/r/password-input.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -7675,8 +8844,22 @@
           "email",
           "countdown"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "Use it on /forgot-password (initialView 'request') and on the page the emailed link opens (initialView 'reset'). Pass onRequest(email) and onReset(password); throw to show an error.",
           "whenToUse": [
@@ -7704,12 +8887,39 @@
           "customization": [
             "initialView: 'request' | 'sent' | 'reset' | 'done'",
             "onRequest / onReset async handlers",
-            "resendAfter: cooldown in seconds"
+            "resendAfter: cooldown in seconds",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Sending the link",
+            "example": "forgot-password-1-submitting",
+            "trigger": "state=\"submitting\"",
+            "note": "Every field and button is disabled while the request is in flight, the button shows a spinner, and the form is marked busy."
+          },
+          {
+            "id": "success",
+            "title": "Check your email",
+            "example": "forgot-password-1-success",
+            "trigger": "state=\"success\"",
+            "note": "The confirmation screen the flow ends on."
+          },
+          {
+            "id": "error",
+            "title": "Could not send",
+            "example": "forgot-password-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An alert above the form with the message (errorState.description to change it); the fields stay editable so it can be fixed."
+          }
+        ],
         "examples": [
           "forgot-password-1-demo",
-          "forgot-password-1-reset"
+          "forgot-password-1-reset",
+          "forgot-password-1-submitting",
+          "forgot-password-1-success",
+          "forgot-password-1-error"
         ],
         "url": "https://ui.ballmac.com/components/forgot-password-1"
       }
@@ -7751,6 +8961,78 @@
           "path": "registry/examples/forgot-password-1-reset.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/forgot-password-1-reset.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "forgot-password-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "forgot-password-1-submitting",
+      "type": "registry:example",
+      "title": "Forgot Password 1: request, resend and reset: Sending the link",
+      "description": "Sending the link example of Forgot Password 1: request, resend and reset.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/forgot-password-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/forgot-password-1-submitting.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/forgot-password-1-submitting.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "forgot-password-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "forgot-password-1-success",
+      "type": "registry:example",
+      "title": "Forgot Password 1: request, resend and reset: Check your email",
+      "description": "Check your email example of Forgot Password 1: request, resend and reset.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/forgot-password-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/forgot-password-1-success.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/forgot-password-1-success.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "forgot-password-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "forgot-password-1-error",
+      "type": "registry:example",
+      "title": "Forgot Password 1: request, resend and reset: Could not send",
+      "description": "Could not send example of Forgot Password 1: request, resend and reset.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/forgot-password-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/forgot-password-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/forgot-password-1-error.tsx"
         }
       ],
       "categories": [
@@ -7826,6 +9108,7 @@
             "sticky: false for a static header"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "header-1-demo"
         ],
@@ -7931,6 +9214,7 @@
             "sticky: false for a static header"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "header-2-demo",
           "header-2-simple"
@@ -8047,6 +9331,7 @@
             "Replace HeroVisual with an image or live component"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "hero-1-demo"
         ],
@@ -8138,6 +9423,7 @@
             "Replace the terminal lines with your tool's output"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "hero-2-demo"
         ],
@@ -8230,6 +9516,7 @@
             "Change the demo answer, reasoning and tool call to match your product"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "hero-3-demo"
         ],
@@ -8318,6 +9605,7 @@
             "stats: up to three { value, label }"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "hero-4-demo"
         ],
@@ -8409,6 +9697,7 @@
             "screen: any ReactNode laid out at 1280px wide and scaled"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "hero-5-demo"
         ],
@@ -8522,6 +9811,7 @@
             "The mesh uses --chart-1, --chart-3 and --chart-5, so it follows your theme"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "hero-6-demo",
           "hero-6-custom"
@@ -8648,6 +9938,7 @@
             "screen: any ReactNode, scaled to fit"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "hero-7-demo",
           "hero-7-custom"
@@ -8716,7 +10007,8 @@
         "utils",
         "https://ui.ballmac.com/r/badge.json",
         "https://ui.ballmac.com/r/button.json",
-        "https://ui.ballmac.com/r/media.json"
+        "https://ui.ballmac.com/r/media.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -8740,8 +10032,22 @@
           "accept",
           "join"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "Landing page for an emailed invitation. Pass workspace, inviter, role, email, access, onAccept / onDecline / onRequestNew (throw to show an error) and status ('pending' | 'expired').",
           "whenToUse": [
@@ -8770,12 +10076,46 @@
           "customization": [
             "status: 'expired' shows the request-a-new-link flow",
             "onDecline / onSwitchAccount: null hides them",
-            "access: [] hides the list"
+            "access: [] hides the list",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Joining",
+            "example": "invite-1-joining",
+            "trigger": "state=\"submitting\"",
+            "note": "Every field and button is disabled while the request is in flight, the button shows a spinner, and the form is marked busy."
+          },
+          {
+            "id": "success",
+            "title": "Welcome",
+            "example": "invite-1-welcome",
+            "trigger": "state=\"success\"",
+            "note": "The confirmation screen the flow ends on."
+          },
+          {
+            "id": "error",
+            "title": "Could not join",
+            "example": "invite-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An alert above the form with the message (errorState.description to change it); the fields stay editable so it can be fixed."
+          },
+          {
+            "id": "expired",
+            "title": "Expired",
+            "example": "invite-1-expired",
+            "trigger": "status=\"expired\"",
+            "note": "The invitation has run out: the page says so and offers to ask for a new one."
+          }
+        ],
         "examples": [
           "invite-1-demo",
-          "invite-1-expired"
+          "invite-1-expired",
+          "invite-1-joining",
+          "invite-1-welcome",
+          "invite-1-error"
         ],
         "url": "https://ui.ballmac.com/components/invite-1"
       }
@@ -8829,6 +10169,78 @@
       }
     },
     {
+      "name": "invite-1-joining",
+      "type": "registry:example",
+      "title": "Invite 1: accept a team invitation: Joining",
+      "description": "Joining example of Invite 1: accept a team invitation.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/invite-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/invite-1-joining.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/invite-1-joining.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "invite-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "invite-1-welcome",
+      "type": "registry:example",
+      "title": "Invite 1: accept a team invitation: Welcome",
+      "description": "Welcome example of Invite 1: accept a team invitation.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/invite-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/invite-1-welcome.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/invite-1-welcome.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "invite-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "invite-1-error",
+      "type": "registry:example",
+      "title": "Invite 1: accept a team invitation: Could not join",
+      "description": "Could not join example of Invite 1: accept a team invitation.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/invite-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/invite-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/invite-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "invite-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "kanban-1",
       "type": "registry:block",
       "title": "Kanban 1: project board with drag and keyboard moves",
@@ -8843,7 +10255,9 @@
         "https://ui.ballmac.com/r/badge.json",
         "https://ui.ballmac.com/r/button.json",
         "https://ui.ballmac.com/r/dropdown-menu.json",
-        "https://ui.ballmac.com/r/input.json"
+        "https://ui.ballmac.com/r/input.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -8867,8 +10281,22 @@
           "project",
           "keyboard"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton with the same shapes as the ready view, an error with retry, and an empty message. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A task board. Pass defaultColumns=[{ id, title, tasks: [{ id, title, tags?, priority?, assignee?, due?, comments? }] }] and onChange(columns).",
           "whenToUse": [
@@ -8900,12 +10328,39 @@
           "customization": [
             "defaultColumns and onChange(columns)",
             "height of the board area",
-            "priority: low, medium or high"
+            "priority: low, medium or high",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "kanban-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No cards",
+            "example": "kanban-1-no-cards",
+            "trigger": "state=\"empty\"",
+            "note": "A clear message that there is nothing yet. emptyState sets the copy and can add an action."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "kanban-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "kanban-1-demo",
-          "kanban-1-simple"
+          "kanban-1-simple",
+          "kanban-1-loading",
+          "kanban-1-error",
+          "kanban-1-no-cards"
         ],
         "url": "https://ui.ballmac.com/components/kanban-1"
       }
@@ -8959,6 +10414,78 @@
       }
     },
     {
+      "name": "kanban-1-loading",
+      "type": "registry:example",
+      "title": "Kanban 1: project board with drag and keyboard moves: Loading",
+      "description": "Loading example of Kanban 1: project board with drag and keyboard moves.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/kanban-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/kanban-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/kanban-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "kanban-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "kanban-1-error",
+      "type": "registry:example",
+      "title": "Kanban 1: project board with drag and keyboard moves: Could not load",
+      "description": "Could not load example of Kanban 1: project board with drag and keyboard moves.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/kanban-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/kanban-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/kanban-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "kanban-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "kanban-1-no-cards",
+      "type": "registry:example",
+      "title": "Kanban 1: project board with drag and keyboard moves: No cards",
+      "description": "No cards example of Kanban 1: project board with drag and keyboard moves.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/kanban-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/kanban-1-no-cards.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/kanban-1-no-cards.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "kanban-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "login-1",
       "type": "registry:block",
       "title": "Login 1: card with SSO and magic link",
@@ -8972,7 +10499,8 @@
         "https://ui.ballmac.com/r/button.json",
         "https://ui.ballmac.com/r/checkbox.json",
         "https://ui.ballmac.com/r/input.json",
-        "https://ui.ballmac.com/r/label.json"
+        "https://ui.ballmac.com/r/label.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -8995,8 +10523,22 @@
           "form",
           "sso"
         ],
-        "version": "1.0.0",
-        "updated": "2026-09-28",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-09-28",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A sign-in screen. Wire onSubmit to your auth (it can be async; the button shows a spinner), pass error to show failures, and onSso/onMagicLink for passwordless options.",
           "whenToUse": [
@@ -9013,11 +10555,30 @@
           "customization": [
             "onSubmit({ email, password, remember })",
             "error, onSso, onMagicLink, forgotHref, signupHref props",
-            "Pass onSso={null} or onMagicLink={null} to hide that button"
+            "Pass onSso={null} or onMagicLink={null} to hide that button",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Signing in",
+            "example": "login-1-submitting",
+            "trigger": "state=\"submitting\"",
+            "note": "Every field and button is disabled while the request is in flight, the button shows a spinner, and the form is marked busy."
+          },
+          {
+            "id": "error",
+            "title": "Wrong password",
+            "example": "login-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An alert above the form with the message (errorState.description to change it); the fields stay editable so it can be fixed."
+          }
+        ],
         "examples": [
-          "login-1-demo"
+          "login-1-demo",
+          "login-1-submitting",
+          "login-1-error"
         ],
         "url": "https://ui.ballmac.com/components/login-1"
       }
@@ -9047,6 +10608,54 @@
       }
     },
     {
+      "name": "login-1-submitting",
+      "type": "registry:example",
+      "title": "Login 1: card with SSO and magic link: Signing in",
+      "description": "Signing in example of Login 1: card with SSO and magic link.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/login-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/login-1-submitting.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/login-1-submitting.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "login-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "login-1-error",
+      "type": "registry:example",
+      "title": "Login 1: card with SSO and magic link: Wrong password",
+      "description": "Wrong password example of Login 1: card with SSO and magic link.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/login-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/login-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/login-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "login-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "login-2",
       "type": "registry:block",
       "title": "Login 2: split screen with testimonial",
@@ -9062,7 +10671,8 @@
         "https://ui.ballmac.com/r/field.json",
         "https://ui.ballmac.com/r/input.json",
         "https://ui.ballmac.com/r/password-input.json",
-        "https://ui.ballmac.com/r/media.json"
+        "https://ui.ballmac.com/r/media.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -9086,8 +10696,22 @@
           "passkey",
           "sso"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A full-width sign-in page. Pass onSubmit(values) (throw to show errorMessage), onSso / onPasskey (null hides), quote and author, or visual to replace the right side.",
           "whenToUse": [
@@ -9115,12 +10739,31 @@
           "customization": [
             "onSubmit(values) async; throw for the error state",
             "quote, author or visual (any node)",
-            "onSso / onPasskey: null hides"
+            "onSso / onPasskey: null hides",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Signing in",
+            "example": "login-2-submitting",
+            "trigger": "state=\"submitting\"",
+            "note": "Every field and button is disabled while the request is in flight, the button shows a spinner, and the form is marked busy."
+          },
+          {
+            "id": "error",
+            "title": "Wrong password",
+            "example": "login-2-failed",
+            "trigger": "state=\"error\"",
+            "note": "An alert above the form with the message (errorState.description to change it); the fields stay editable so it can be fixed."
+          }
+        ],
         "examples": [
           "login-2-demo",
-          "login-2-error"
+          "login-2-error",
+          "login-2-submitting",
+          "login-2-failed"
         ],
         "url": "https://ui.ballmac.com/components/login-2"
       }
@@ -9162,6 +10805,54 @@
           "path": "registry/examples/login-2-error.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/login-2-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "login-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "login-2-submitting",
+      "type": "registry:example",
+      "title": "Login 2: split screen with testimonial: Signing in",
+      "description": "Signing in example of Login 2: split screen with testimonial.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/login-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/login-2-submitting.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/login-2-submitting.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "login-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "login-2-failed",
+      "type": "registry:example",
+      "title": "Login 2: split screen with testimonial: Wrong password",
+      "description": "Wrong password example of Login 2: split screen with testimonial.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/login-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/login-2-failed.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/login-2-failed.tsx"
         }
       ],
       "categories": [
@@ -9228,6 +10919,7 @@
             "Marquee speed and gap in the source"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "logo-cloud-1-demo",
           "logo-cloud-1-grid"
@@ -9300,7 +10992,9 @@
         "https://ui.ballmac.com/r/input.json",
         "https://ui.ballmac.com/r/search-field.json",
         "https://ui.ballmac.com/r/select.json",
-        "https://ui.ballmac.com/r/textarea.json"
+        "https://ui.ballmac.com/r/textarea.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -9325,8 +11019,22 @@
           "compose",
           "reply"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry, emptyState and errorState: a skeleton of the three panes, an error with retry, and an empty mailbox where Compose still works. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "An email client UI. Pass messages=[{ id, folder, from, subject, body[], time, unread?, starred?, attachments? }], me and onSend(to, subject, body); archive, delete, star, read state, search and reply are handled in state.",
           "whenToUse": [
@@ -9358,12 +11066,39 @@
           "customization": [
             "messages, me, height",
             "onSend(to, subject, body)",
-            "folders are inbox, sent and archive plus Starred"
+            "folders are inbox, sent and archive plus Starred",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={mail.state} messages={mail.data} onRetry={mail.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "mail-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton of the three panes, announced as \"Loading messages\"; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "No messages",
+            "example": "mail-1-no-messages",
+            "trigger": "state=\"empty\"",
+            "note": "The real interface over an empty mailbox, so Compose still works. emptyState sets the copy."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "mail-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An error in the same frame with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "mail-1-demo",
-          "mail-1-empty"
+          "mail-1-empty",
+          "mail-1-loading",
+          "mail-1-error",
+          "mail-1-no-messages"
         ],
         "url": "https://ui.ballmac.com/components/mail-1"
       }
@@ -9417,6 +11152,78 @@
       }
     },
     {
+      "name": "mail-1-loading",
+      "type": "registry:example",
+      "title": "Mail 1: three-pane inbox: Loading",
+      "description": "Loading example of Mail 1: three-pane inbox.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/mail-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/mail-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/mail-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "mail-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "mail-1-error",
+      "type": "registry:example",
+      "title": "Mail 1: three-pane inbox: Could not load",
+      "description": "Could not load example of Mail 1: three-pane inbox.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/mail-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/mail-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/mail-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "mail-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "mail-1-no-messages",
+      "type": "registry:example",
+      "title": "Mail 1: three-pane inbox: No messages",
+      "description": "No messages example of Mail 1: three-pane inbox.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/mail-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/mail-1-no-messages.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/mail-1-no-messages.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "mail-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "newsletter-1",
       "type": "registry:block",
       "title": "Newsletter 1: signup with topics and sample issue",
@@ -9429,7 +11236,8 @@
         "utils",
         "https://ui.ballmac.com/r/button.json",
         "https://ui.ballmac.com/r/input.json",
-        "https://ui.ballmac.com/r/media.json"
+        "https://ui.ballmac.com/r/media.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -9453,8 +11261,22 @@
           "topics",
           "form"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A newsletter signup section. Pass topics (or [] for none), proof, issue headlines for the preview card, and onSubmit(email, topics); throw to show an error.",
           "whenToUse": [
@@ -9484,12 +11306,39 @@
             "topics: [] hides the chips",
             "defaultTopics",
             "issue: { name, number, headlines } for the preview card",
-            "onSubmit(email, topics)"
+            "onSubmit(email, topics)",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Subscribing",
+            "example": "newsletter-1-subscribing",
+            "trigger": "state=\"submitting\"",
+            "note": "Every field and button is disabled while the request is in flight, the button shows a spinner, and the form is marked busy."
+          },
+          {
+            "id": "success",
+            "title": "Subscribed",
+            "example": "newsletter-1-subscribed",
+            "trigger": "state=\"success\"",
+            "note": "The confirmation screen the flow ends on."
+          },
+          {
+            "id": "error",
+            "title": "Could not subscribe",
+            "example": "newsletter-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An alert above the form with the message (errorState.description to change it); the fields stay editable so it can be fixed."
+          }
+        ],
         "examples": [
           "newsletter-1-demo",
-          "newsletter-1-simple"
+          "newsletter-1-simple",
+          "newsletter-1-subscribing",
+          "newsletter-1-subscribed",
+          "newsletter-1-error"
         ],
         "url": "https://ui.ballmac.com/components/newsletter-1"
       }
@@ -9543,6 +11392,78 @@
       }
     },
     {
+      "name": "newsletter-1-subscribing",
+      "type": "registry:example",
+      "title": "Newsletter 1: signup with topics and sample issue: Subscribing",
+      "description": "Subscribing example of Newsletter 1: signup with topics and sample issue.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/newsletter-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/newsletter-1-subscribing.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/newsletter-1-subscribing.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "newsletter-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "newsletter-1-subscribed",
+      "type": "registry:example",
+      "title": "Newsletter 1: signup with topics and sample issue: Subscribed",
+      "description": "Subscribed example of Newsletter 1: signup with topics and sample issue.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/newsletter-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/newsletter-1-subscribed.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/newsletter-1-subscribed.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "newsletter-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "newsletter-1-error",
+      "type": "registry:example",
+      "title": "Newsletter 1: signup with topics and sample issue: Could not subscribe",
+      "description": "Could not subscribe example of Newsletter 1: signup with topics and sample issue.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/newsletter-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/newsletter-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/newsletter-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "newsletter-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "onboarding-1",
       "type": "registry:block",
       "title": "Onboarding 1: workspace setup wizard",
@@ -9556,7 +11477,8 @@
         "utils",
         "https://ui.ballmac.com/r/button.json",
         "https://ui.ballmac.com/r/field.json",
-        "https://ui.ballmac.com/r/input.json"
+        "https://ui.ballmac.com/r/input.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -9580,8 +11502,22 @@
           "steps",
           "invite"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "First-run setup after signup. Pass product, domain, goals=[{ id, title, description }] and onComplete(values) with { name, slug, color, goals, invites } (throw to show an error).",
           "whenToUse": [
@@ -9614,12 +11550,39 @@
           "customization": [
             "goals: { id, title, description }[]",
             "product, domain, continueHref",
-            "onComplete(values) async"
+            "onComplete(values) async",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Creating the workspace",
+            "example": "onboarding-1-creating",
+            "trigger": "state=\"submitting\"",
+            "note": "The review step with its button spinning and the steps locked."
+          },
+          {
+            "id": "success",
+            "title": "Workspace ready",
+            "example": "onboarding-1-ready",
+            "trigger": "state=\"success\"",
+            "note": "The confirmation screen the flow ends on."
+          },
+          {
+            "id": "error",
+            "title": "Could not create",
+            "example": "onboarding-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An alert above the form with the message (errorState.description to change it); the fields stay editable so it can be fixed."
+          }
+        ],
         "examples": [
           "onboarding-1-demo",
-          "onboarding-1-custom"
+          "onboarding-1-custom",
+          "onboarding-1-creating",
+          "onboarding-1-ready",
+          "onboarding-1-error"
         ],
         "url": "https://ui.ballmac.com/components/onboarding-1"
       }
@@ -9661,6 +11624,78 @@
           "path": "registry/examples/onboarding-1-custom.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/onboarding-1-custom.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "onboarding-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "onboarding-1-creating",
+      "type": "registry:example",
+      "title": "Onboarding 1: workspace setup wizard: Creating the workspace",
+      "description": "Creating the workspace example of Onboarding 1: workspace setup wizard.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/onboarding-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/onboarding-1-creating.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/onboarding-1-creating.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "onboarding-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "onboarding-1-ready",
+      "type": "registry:example",
+      "title": "Onboarding 1: workspace setup wizard: Workspace ready",
+      "description": "Workspace ready example of Onboarding 1: workspace setup wizard.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/onboarding-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/onboarding-1-ready.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/onboarding-1-ready.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "onboarding-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "onboarding-1-error",
+      "type": "registry:example",
+      "title": "Onboarding 1: workspace setup wizard: Could not create",
+      "description": "Could not create example of Onboarding 1: workspace setup wizard.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/onboarding-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/onboarding-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/onboarding-1-error.tsx"
         }
       ],
       "categories": [
@@ -9728,6 +11763,7 @@
             "title, description, note props"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "pricing-1-demo"
         ],
@@ -9832,6 +11868,7 @@
             "discountLabel, currency, note, enterprise (null to hide)"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "pricing-2-demo",
           "pricing-2-custom"
@@ -9957,6 +11994,7 @@
             "values: true / false render an icon with a text label; strings render as text"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "pricing-3-demo",
           "pricing-3-two"
@@ -10091,6 +12129,7 @@
             "onceIncludes / subscribeIncludes: the checklist for each way to pay"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "pricing-4-demo",
           "pricing-4-custom"
@@ -10167,7 +12206,10 @@
         "https://ui.ballmac.com/r/password-input.json",
         "https://ui.ballmac.com/r/segmented-control.json",
         "https://ui.ballmac.com/r/select.json",
-        "https://ui.ballmac.com/r/textarea.json"
+        "https://ui.ballmac.com/r/textarea.json",
+        "https://ui.ballmac.com/r/use-resource.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -10191,8 +12233,22 @@
           "save bar",
           "danger zone"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state: loading shows a skeleton of the form while its values are fetched; submitting, success and error drive the save status. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "Profile and account settings. Pass defaultValues, email, onSave(values) (throw to show an error) and onDeleteAccount; the dirty-state save bar, validation and availability hint are built in.",
           "whenToUse": [
@@ -10224,12 +12280,47 @@
           ],
           "customization": [
             "defaultValues, email, takenUsernames, languages, timezones",
-            "onSave(values), onDeleteAccount()"
+            "onSave(values), onDeleteAccount()",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "settings-1-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton of the profile, sign-in and preferences groups under the real heading, announced as loading."
+          },
+          {
+            "id": "submitting",
+            "title": "Saving",
+            "example": "settings-1-saving",
+            "trigger": "state=\"submitting\"",
+            "note": "A save bar appears with a spinner and \"Saving…\" and Save and Discard are disabled."
+          },
+          {
+            "id": "success",
+            "title": "Saved",
+            "example": "settings-1-saved",
+            "trigger": "state=\"success\"",
+            "note": "The bar says \"All changes saved\"."
+          },
+          {
+            "id": "error",
+            "title": "Could not save",
+            "example": "settings-1-error",
+            "trigger": "state=\"error\"",
+            "note": "The bar says the save failed and offers to try again; the edits are kept."
+          }
+        ],
         "examples": [
           "settings-1-demo",
-          "settings-1-save"
+          "settings-1-save",
+          "settings-1-loading",
+          "settings-1-saving",
+          "settings-1-saved",
+          "settings-1-error"
         ],
         "url": "https://ui.ballmac.com/components/settings-1"
       }
@@ -10283,6 +12374,102 @@
       }
     },
     {
+      "name": "settings-1-loading",
+      "type": "registry:example",
+      "title": "Settings 1: profile and account: Loading",
+      "description": "Loading example of Settings 1: profile and account.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-1-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-1-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-1-saving",
+      "type": "registry:example",
+      "title": "Settings 1: profile and account: Saving",
+      "description": "Saving example of Settings 1: profile and account.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-1-saving.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-1-saving.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-1-saved",
+      "type": "registry:example",
+      "title": "Settings 1: profile and account: Saved",
+      "description": "Saved example of Settings 1: profile and account.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-1-saved.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-1-saved.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-1-error",
+      "type": "registry:example",
+      "title": "Settings 1: profile and account: Could not save",
+      "description": "Could not save example of Settings 1: profile and account.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-1-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-1",
+        "tier": "free"
+      }
+    },
+    {
       "name": "settings-2",
       "type": "registry:block",
       "title": "Settings 2: notification preferences",
@@ -10295,7 +12482,10 @@
         "utils",
         "https://ui.ballmac.com/r/input.json",
         "https://ui.ballmac.com/r/switch.json",
-        "https://ui.ballmac.com/r/toggle-group.json"
+        "https://ui.ballmac.com/r/toggle-group.json",
+        "https://ui.ballmac.com/r/use-resource.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -10319,8 +12509,28 @@
           "quiet hours",
           "digest"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.1",
+        "updated": "2026-10-12",
+        "changelog": [
+          {
+            "version": "1.1.1",
+            "date": "2026-10-12",
+            "note": "The loading skeleton no longer makes the page scroll sideways on a phone: its columns can shrink below the width of the placeholders.",
+            "breaking": false
+          },
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state: loading shows a skeleton of the form while its values are fetched; submitting, success and error drive the save status. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "Notification preferences with instant saving. Pass events=[{ id, label, description }], defaultValues and onChange(values) (return a promise; throw to show an error).",
           "whenToUse": [
@@ -10352,12 +12562,47 @@
           "customization": [
             "events: { id, label, description }[]",
             "defaultValues: digest, events, quiet",
-            "onChange(values) async"
+            "onChange(values) async",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "settings-2-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton of the digest choice and the notification list under the real heading, announced as loading."
+          },
+          {
+            "id": "submitting",
+            "title": "Saving",
+            "example": "settings-2-saving",
+            "trigger": "state=\"submitting\"",
+            "note": "\"Saving…\" appears beside the heading."
+          },
+          {
+            "id": "success",
+            "title": "Saved",
+            "example": "settings-2-saved",
+            "trigger": "state=\"success\"",
+            "note": "\"Saved\" with a check appears beside the heading."
+          },
+          {
+            "id": "error",
+            "title": "Could not save",
+            "example": "settings-2-error",
+            "trigger": "state=\"error\"",
+            "note": "The heading shows that saving failed; the choices are kept."
+          }
+        ],
         "examples": [
           "settings-2-demo",
-          "settings-2-custom"
+          "settings-2-custom",
+          "settings-2-loading",
+          "settings-2-saving",
+          "settings-2-saved",
+          "settings-2-error"
         ],
         "url": "https://ui.ballmac.com/components/settings-2"
       }
@@ -10411,6 +12656,102 @@
       }
     },
     {
+      "name": "settings-2-loading",
+      "type": "registry:example",
+      "title": "Settings 2: notification preferences: Loading",
+      "description": "Loading example of Settings 2: notification preferences.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-2-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-2-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-2-saving",
+      "type": "registry:example",
+      "title": "Settings 2: notification preferences: Saving",
+      "description": "Saving example of Settings 2: notification preferences.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-2-saving.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-2-saving.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-2-saved",
+      "type": "registry:example",
+      "title": "Settings 2: notification preferences: Saved",
+      "description": "Saved example of Settings 2: notification preferences.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-2-saved.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-2-saved.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-2",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-2-error",
+      "type": "registry:example",
+      "title": "Settings 2: notification preferences: Could not save",
+      "description": "Could not save example of Settings 2: notification preferences.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-2.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-2-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-2-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-2",
+        "tier": "free"
+      }
+    },
+    {
       "name": "settings-3",
       "type": "registry:block",
       "title": "Settings 3: team members and roles",
@@ -10428,7 +12769,9 @@
         "https://ui.ballmac.com/r/dropdown-menu.json",
         "https://ui.ballmac.com/r/input.json",
         "https://ui.ballmac.com/r/search-field.json",
-        "https://ui.ballmac.com/r/select.json"
+        "https://ui.ballmac.com/r/select.json",
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/skeleton.json"
       ],
       "files": [
         {
@@ -10453,8 +12796,22 @@
           "permissions",
           "seats"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (loading, empty, error) with onRetry and errorState: a skeleton of the invite row and member list, an error with retry, and the real page with nobody on the team. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "Workspace member management. Pass members=[{ id, name, email, role, status, lastActive? }], roles, seats and onInvite / onRoleChange / onRemove; the Owner can't be changed or removed.",
           "whenToUse": [
@@ -10488,12 +12845,39 @@
           "customization": [
             "members, roles, seats",
             "onInvite(email, role) async; throw to show an error",
-            "onRoleChange(id, role), onRemove(id)"
+            "onRoleChange(id, role), onRemove(id)",
+            "state: \"ready\" | \"loading\" | \"empty\" | \"error\"; onRetry, emptyState and errorState set the retry action and the copy. Pair with useResource: state={r.state} onRetry={r.retry}"
           ]
         },
+        "states": [
+          {
+            "id": "loading",
+            "title": "Loading",
+            "example": "settings-3-loading",
+            "trigger": "state=\"loading\"",
+            "note": "A skeleton with the same shapes as the ready view, announced as loading; nothing is clickable."
+          },
+          {
+            "id": "empty",
+            "title": "Nobody yet",
+            "example": "settings-3-no-members",
+            "trigger": "state=\"empty\"",
+            "note": "The real page with nobody on the team, so inviting still works."
+          },
+          {
+            "id": "error",
+            "title": "Could not load",
+            "example": "settings-3-error",
+            "trigger": "state=\"error\"",
+            "note": "An error with a Try again button (onRetry), announced as an alert."
+          }
+        ],
         "examples": [
           "settings-3-demo",
-          "settings-3-full"
+          "settings-3-full",
+          "settings-3-loading",
+          "settings-3-error",
+          "settings-3-no-members"
         ],
         "url": "https://ui.ballmac.com/components/settings-3"
       }
@@ -10535,6 +12919,78 @@
           "path": "registry/examples/settings-3-full.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/settings-3-full.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-3",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-3-loading",
+      "type": "registry:example",
+      "title": "Settings 3: team members and roles: Loading",
+      "description": "Loading example of Settings 3: team members and roles.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-3.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-3-loading.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-3-loading.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-3",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-3-error",
+      "type": "registry:example",
+      "title": "Settings 3: team members and roles: Could not load",
+      "description": "Could not load example of Settings 3: team members and roles.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-3.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-3-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-3-error.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "settings-3",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "settings-3-no-members",
+      "type": "registry:example",
+      "title": "Settings 3: team members and roles: Nobody yet",
+      "description": "Nobody yet example of Settings 3: team members and roles.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/settings-3.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/settings-3-no-members.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/settings-3-no-members.tsx"
         }
       ],
       "categories": [
@@ -10622,6 +13078,7 @@
             "children: your window content, laid out in a container (use @sm: / @md: variants)"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "showcase-1-demo",
           "showcase-1-custom"
@@ -10693,7 +13150,8 @@
         "https://ui.ballmac.com/r/field.json",
         "https://ui.ballmac.com/r/input.json",
         "https://ui.ballmac.com/r/password-input.json",
-        "https://ui.ballmac.com/r/media.json"
+        "https://ui.ballmac.com/r/media.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -10717,8 +13175,22 @@
           "form",
           "sso"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A registration page. Pass onSubmit(values) (throw to show an error), onSso (null hides), and benefits / pitch / proof for the left column.",
           "whenToUse": [
@@ -10748,12 +13220,39 @@
           "customization": [
             "onSubmit(values) async; throw for the error state",
             "benefits, pitch, proof",
-            "onSso: null hides the SSO button"
+            "onSso: null hides the SSO button",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Creating account",
+            "example": "signup-1-submitting",
+            "trigger": "state=\"submitting\"",
+            "note": "Every field and button is disabled while the request is in flight, the button shows a spinner, and the form is marked busy."
+          },
+          {
+            "id": "success",
+            "title": "Check your inbox",
+            "example": "signup-1-success",
+            "trigger": "state=\"success\"",
+            "note": "The confirmation screen the flow ends on."
+          },
+          {
+            "id": "error",
+            "title": "Could not create",
+            "example": "signup-1-error",
+            "trigger": "state=\"error\"",
+            "note": "An alert above the form with the message (errorState.description to change it); the fields stay editable so it can be fixed."
+          }
+        ],
         "examples": [
           "signup-1-demo",
-          "signup-1-simple"
+          "signup-1-simple",
+          "signup-1-submitting",
+          "signup-1-success",
+          "signup-1-error"
         ],
         "url": "https://ui.ballmac.com/components/signup-1"
       }
@@ -10795,6 +13294,78 @@
           "path": "registry/examples/signup-1-simple.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/signup-1-simple.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "signup-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "signup-1-submitting",
+      "type": "registry:example",
+      "title": "Signup 1: form with benefits column: Creating account",
+      "description": "Creating account example of Signup 1: form with benefits column.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/signup-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/signup-1-submitting.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/signup-1-submitting.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "signup-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "signup-1-success",
+      "type": "registry:example",
+      "title": "Signup 1: form with benefits column: Check your inbox",
+      "description": "Check your inbox example of Signup 1: form with benefits column.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/signup-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/signup-1-success.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/signup-1-success.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "signup-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "signup-1-error",
+      "type": "registry:example",
+      "title": "Signup 1: form with benefits column: Could not create",
+      "description": "Could not create example of Signup 1: form with benefits column.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/signup-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/signup-1-error.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/signup-1-error.tsx"
         }
       ],
       "categories": [
@@ -10879,6 +13450,7 @@
             "decimals controls the digits after the point; suffix can be %, k, M+ and so on"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "stats-1-demo",
           "stats-1-simple"
@@ -10997,6 +13569,7 @@
             "action: link beside the heading (null to hide)"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "team-1-demo",
           "team-1-small"
@@ -11108,6 +13681,7 @@
             "Column speed and direction are set per column in the source"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "testimonials-1-demo"
         ],
@@ -11214,6 +13788,7 @@
             "value / defaultValue / onValueChange"
           ]
         },
+        "statesNone": "Static content: nothing to load, submit or fail.",
         "examples": [
           "testimonials-2-demo",
           "testimonials-2-autoplay"
@@ -11282,7 +13857,8 @@
       "registryDependencies": [
         "utils",
         "https://ui.ballmac.com/r/button.json",
-        "https://ui.ballmac.com/r/input-otp.json"
+        "https://ui.ballmac.com/r/input-otp.json",
+        "https://ui.ballmac.com/r/use-resource.json"
       ],
       "files": [
         {
@@ -11306,8 +13882,22 @@
           "email",
           "resend"
         ],
-        "version": "1.0.0",
-        "updated": "2026-10-01",
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds state (submitting, success, error) to drive the form from your own async code, and defaultValues or defaultEmail to prefill. Fields lock while a request is in flight. Unchanged without state.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-01",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "Email or SMS code verification. Pass email, length, onVerify(code) (throw for a wrong code) and onResend. Without onVerify any code except all zeros succeeds, so you can try every state.",
           "whenToUse": [
@@ -11340,12 +13930,39 @@
           "customization": [
             "length: digits in the code",
             "onVerify, onResend, onChangeEmail (null hides)",
-            "resendAfter: seconds"
+            "resendAfter: seconds",
+            "state: \"submitting\" | \"success\" | \"error\" (omit it and the form runs by itself); errorState.description sets the failure message. Pair with your own async handler: state={pending ? \"submitting\" : failed ? \"error\" : done ? \"success\" : undefined}"
           ]
         },
+        "states": [
+          {
+            "id": "submitting",
+            "title": "Checking the code",
+            "example": "verify-1-checking",
+            "trigger": "state=\"submitting\"",
+            "note": "The code slots are disabled and the status says it is being checked."
+          },
+          {
+            "id": "success",
+            "title": "Verified",
+            "example": "verify-1-verified",
+            "trigger": "state=\"success\"",
+            "note": "The confirmation screen the flow ends on."
+          },
+          {
+            "id": "error",
+            "title": "Wrong code",
+            "example": "verify-1-wrong-code",
+            "trigger": "state=\"error\"",
+            "note": "The slots turn red, shake once (not under reduced motion) and the status says the code is wrong."
+          }
+        ],
         "examples": [
           "verify-1-demo",
-          "verify-1-four"
+          "verify-1-four",
+          "verify-1-checking",
+          "verify-1-verified",
+          "verify-1-wrong-code"
         ],
         "url": "https://ui.ballmac.com/components/verify-1"
       }
@@ -11387,6 +14004,78 @@
           "path": "registry/examples/verify-1-four.tsx",
           "type": "registry:example",
           "target": "@components/ballmac/examples/verify-1-four.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "verify-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "verify-1-checking",
+      "type": "registry:example",
+      "title": "Verify 1: one-time code with resend: Checking the code",
+      "description": "Checking the code example of Verify 1: one-time code with resend.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/verify-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/verify-1-checking.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/verify-1-checking.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "verify-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "verify-1-verified",
+      "type": "registry:example",
+      "title": "Verify 1: one-time code with resend: Verified",
+      "description": "Verified example of Verify 1: one-time code with resend.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/verify-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/verify-1-verified.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/verify-1-verified.tsx"
+        }
+      ],
+      "categories": [
+        "blocks"
+      ],
+      "meta": {
+        "example": true,
+        "of": "verify-1",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "verify-1-wrong-code",
+      "type": "registry:example",
+      "title": "Verify 1: one-time code with resend: Wrong code",
+      "description": "Wrong code example of Verify 1: one-time code with resend.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/verify-1.json"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/verify-1-wrong-code.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/verify-1-wrong-code.tsx"
         }
       ],
       "categories": [
@@ -12047,9 +14736,21 @@
           "loading",
           "radix"
         ],
-        "version": "1.0.2",
-        "updated": "2026-10-11",
+        "version": "1.0.4",
+        "updated": "2026-10-12",
         "changelog": [
+          {
+            "version": "1.0.4",
+            "date": "2026-10-12",
+            "note": "Every size honours the platform feel's smallest touch target (--bm-target-min): 44 px under the iOS feel, no change otherwise.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.3",
+            "date": "2026-10-12",
+            "note": "A loading button keeps its label in the accessibility tree (opacity instead of visibility), so a busy button still has a name.",
+            "breaking": false
+          },
           {
             "version": "1.0.2",
             "date": "2026-10-11",
@@ -16867,9 +19568,15 @@
           "markers",
           "locations"
         ],
-        "version": "1.0.1",
-        "updated": "2026-10-11",
+        "version": "1.0.2",
+        "updated": "2026-10-12",
         "changelog": [
+          {
+            "version": "1.0.2",
+            "date": "2026-10-12",
+            "note": "The route lines held still correctly only after the page knew about reduced motion; a loop that had already started now stops too.",
+            "breaking": false
+          },
           {
             "version": "1.0.1",
             "date": "2026-10-11",
@@ -18168,6 +20875,19 @@
         "[class*=\"focus-within:ring-[3px]\"]:focus-within": {
           "--tw-ring-color": "color-mix(in oklab, var(--bm-focus-color, var(--ring)) var(--bm-focus-alpha, 50%), transparent)",
           "--tw-ring-shadow": "var(--tw-ring-inset,) 0 0 0 calc(var(--bm-focus-width, 3px) + var(--tw-ring-offset-width, 0px)) var(--tw-ring-color)"
+        },
+        "@media (forced-colors: active)": {
+          "[class*=\"focus-visible:ring\"]:focus-visible": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[class*=\"focus-within:ring\"]:focus-within": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[data-slot=\"button\"]": {
+            "border": "1px solid ButtonText"
+          }
         },
         "@layer base": {
           "*": {
@@ -31295,8 +34015,22 @@
           "placeholder",
           "pulse"
         ],
-        "version": "1.0.0",
-        "updated": "2026-09-29",
+        "version": "1.0.1",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.0.1",
+            "date": "2026-10-11",
+            "note": "The pulse holds still when the theme turns decorative loops off (--bm-ambient-state). Unchanged by default.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-09-29",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
         "ai": {
           "summary": "A theme-aware loading placeholder with an animation that stops when reduced motion is requested.",
           "whenToUse": [
@@ -33257,6 +35991,165 @@
       "meta": {
         "example": true,
         "of": "stat-card",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "state-view",
+      "type": "registry:ui",
+      "title": "State View",
+      "description": "Shows the right thing for what the data is doing: a skeleton while loading, a helpful empty state, an error with retry, or your content. Announced to screen readers, never steals focus, fades with the theme's motion.",
+      "author": "Ballmac <https://ui.ballmac.com>",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.ballmac.com/r/button.json",
+        "https://ui.ballmac.com/r/empty.json",
+        "https://ui.ballmac.com/r/skeleton.json",
+        "https://ui.ballmac.com/r/i18n.json",
+        "https://ui.ballmac.com/r/use-resource.json",
+        "https://ui.ballmac.com/r/frame-props.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ballmac/components/state-view.tsx",
+          "type": "registry:ui",
+          "target": "@components/ballmac/state-view.tsx"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "meta": {
+        "schema": 1,
+        "tier": "free",
+        "tags": [
+          "state",
+          "loading",
+          "empty",
+          "error",
+          "skeleton",
+          "retry",
+          "boundary",
+          "async"
+        ],
+        "version": "1.0.1",
+        "updated": "2026-10-12",
+        "changelog": [
+          {
+            "version": "1.0.1",
+            "date": "2026-10-12",
+            "note": "Moves frameProps into its own frame-props module so server components can use it; state-view still exports it.",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-12",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
+        "tests": true,
+        "ai": {
+          "summary": "Wrap any data view: <StateView state={state} loading={<MySkeleton/>} empty={{ title, description, action }} error={{ title, description, details }} onRetry={retry}>{ready content}</StateView>. Pair with useResource, which returns the state. Loading is announced and the region is aria-busy; errors use role=alert; focus is never moved.",
+          "whenToUse": [
+            "Any list, table, feed or panel that loads data",
+            "Giving a block its loading, empty and error views without writing them each time"
+          ],
+          "whenNotToUse": [
+            "Forms: they track submitting and success themselves (blocks with a state prop handle it)",
+            "A single value that is just a number: use a skeleton line"
+          ],
+          "composesWith": [
+            "use-resource",
+            "empty",
+            "skeleton",
+            "button"
+          ],
+          "a11y": [
+            {
+              "keys": "Screen reader",
+              "action": "Loading is announced as a status; an error is announced as an alert; the region is aria-busy while loading"
+            },
+            {
+              "keys": "Tab",
+              "action": "Reaches the retry button and the details disclosure; focus is never moved for you"
+            }
+          ],
+          "customization": [
+            "loading: pass a skeleton shaped like your content so nothing jumps",
+            "empty and error: a config object ({ title, description, icon, action } and { title, description, details, retryLabel, action }) or your own node",
+            "onRetry: draws the retry button"
+          ]
+        },
+        "examples": [
+          "state-view-demo",
+          "state-view-resource"
+        ],
+        "url": "https://ui.ballmac.com/components/state-view"
+      }
+    },
+    {
+      "name": "state-view-demo",
+      "type": "registry:example",
+      "title": "State View: Every state",
+      "description": "Every state example of State View.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/button.json",
+        "https://ui.ballmac.com/r/segmented-control.json",
+        "https://ui.ballmac.com/r/skeleton.json",
+        "https://ui.ballmac.com/r/use-resource.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/state-view-demo.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/state-view-demo.tsx"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "meta": {
+        "example": true,
+        "of": "state-view",
+        "tier": "free"
+      }
+    },
+    {
+      "name": "state-view-resource",
+      "type": "registry:example",
+      "title": "State View: With a real fetch",
+      "description": "With a real fetch example of State View.",
+      "registryDependencies": [
+        "https://ui.ballmac.com/r/state-view.json",
+        "https://ui.ballmac.com/r/button.json",
+        "https://ui.ballmac.com/r/segmented-control.json",
+        "https://ui.ballmac.com/r/skeleton.json",
+        "https://ui.ballmac.com/r/use-resource.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/state-view-resource.tsx",
+          "type": "registry:example",
+          "target": "@components/ballmac/examples/state-view-resource.tsx"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "meta": {
+        "example": true,
+        "of": "state-view",
         "tier": "free"
       }
     },
@@ -43297,6 +46190,54 @@
       }
     },
     {
+      "name": "frame-props",
+      "type": "registry:lib",
+      "title": "Frame Props",
+      "description": "Picks the plain HTML attributes from a block's props, so a block that shows a loading or error frame never spreads its own data props onto a DOM element. Safe in server components.",
+      "author": "Ballmac <https://ui.ballmac.com>",
+      "files": [
+        {
+          "path": "registry/ballmac/lib/frame-props.ts",
+          "type": "registry:lib",
+          "target": "@lib/ballmac/frame-props.ts"
+        }
+      ],
+      "categories": [
+        "foundation"
+      ],
+      "meta": {
+        "schema": 1,
+        "tier": "free",
+        "tags": [
+          "state",
+          "props",
+          "server",
+          "helper"
+        ],
+        "version": "1.0.0",
+        "updated": "2026-10-12",
+        "ai": {
+          "summary": "frameProps(props) returns only id, style, lang, dir, role, hidden, title, tabIndex and aria-* and data-* attributes. Spread it onto the frame a block draws while it is loading or has failed.",
+          "whenToUse": [
+            "Writing a block with a state prop: the frame it draws instead of its content",
+            "A server component that needs the same helper state-view exports"
+          ],
+          "whenNotToUse": [
+            "Passing every prop through to the ready block: spread them as normal"
+          ],
+          "composesWith": [
+            "state-view"
+          ],
+          "a11y": [],
+          "customization": [
+            "Add attributes by wrapping it: { ...frameProps(props), onClick }"
+          ]
+        },
+        "examples": [],
+        "url": "https://ui.ballmac.com/components/frame-props"
+      }
+    },
+    {
       "name": "highlight",
       "type": "registry:lib",
       "title": "Highlight",
@@ -43554,6 +46495,77 @@
       }
     },
     {
+      "name": "use-resource",
+      "type": "registry:lib",
+      "title": "Use Resource",
+      "description": "A small fetch state machine that gives every block the state to show: loading, ready, empty or error, with retry, abort and stale-answer protection. Includes an adapter for TanStack Query and SWR.",
+      "author": "Ballmac <https://ui.ballmac.com>",
+      "files": [
+        {
+          "path": "registry/ballmac/lib/use-resource.ts",
+          "type": "registry:lib",
+          "target": "@lib/ballmac/use-resource.ts"
+        }
+      ],
+      "categories": [
+        "foundation"
+      ],
+      "meta": {
+        "schema": 1,
+        "tier": "free",
+        "tags": [
+          "state",
+          "loading",
+          "empty",
+          "error",
+          "fetch",
+          "hook",
+          "swr",
+          "tanstack"
+        ],
+        "version": "1.1.0",
+        "updated": "2026-10-11",
+        "changelog": [
+          {
+            "version": "1.1.0",
+            "date": "2026-10-11",
+            "note": "Adds FormStateProps and formPhase, the shared state contract for form blocks (submitting, success, error).",
+            "breaking": false
+          },
+          {
+            "version": "1.0.0",
+            "date": "2026-10-12",
+            "note": "First release.",
+            "breaking": false
+          }
+        ],
+        "tests": true,
+        "ai": {
+          "summary": "useResource(fetcher) returns { state, data, error, retry, setData }. Pass state, data and onRetry to any Ballmac block that has a state prop. stateOf(query) maps TanStack Query or SWR results onto the same states. BlockState is the shared type.",
+          "whenToUse": [
+            "Wiring a block's loading, empty and error states to a fetch",
+            "Mapping TanStack Query or SWR results onto a block's state prop"
+          ],
+          "whenNotToUse": [
+            "Server components that fetch before render: pass the data and let the block render ready or empty",
+            "Mutations: forms track submitting and success themselves"
+          ],
+          "composesWith": [
+            "state-view"
+          ],
+          "a11y": [],
+          "customization": [
+            "isEmpty: decide what counts as no data",
+            "enabled: wait until you can fetch",
+            "deps: fetch again when they change",
+            "setData: update the data after an optimistic edit"
+          ]
+        },
+        "examples": [],
+        "url": "https://ui.ballmac.com/components/use-resource"
+      }
+    },
+    {
       "name": "feel-ios",
       "type": "registry:theme",
       "title": "iOS feel",
@@ -43680,6 +46692,19 @@
         "[class*=\"focus-within:ring-[3px]\"]:focus-within": {
           "--tw-ring-color": "color-mix(in oklab, var(--bm-focus-color, var(--ring)) var(--bm-focus-alpha, 50%), transparent)",
           "--tw-ring-shadow": "var(--tw-ring-inset,) 0 0 0 calc(var(--bm-focus-width, 3px) + var(--tw-ring-offset-width, 0px)) var(--tw-ring-color)"
+        },
+        "@media (forced-colors: active)": {
+          "[class*=\"focus-visible:ring\"]:focus-visible": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[class*=\"focus-within:ring\"]:focus-within": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[data-slot=\"button\"]": {
+            "border": "1px solid ButtonText"
+          }
         },
         "@layer base": {
           "*": {
@@ -43855,6 +46880,19 @@
         "[class*=\"focus-within:ring-[3px]\"]:focus-within": {
           "--tw-ring-color": "color-mix(in oklab, var(--bm-focus-color, var(--ring)) var(--bm-focus-alpha, 50%), transparent)",
           "--tw-ring-shadow": "var(--tw-ring-inset,) 0 0 0 calc(var(--bm-focus-width, 3px) + var(--tw-ring-offset-width, 0px)) var(--tw-ring-color)"
+        },
+        "@media (forced-colors: active)": {
+          "[class*=\"focus-visible:ring\"]:focus-visible": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[class*=\"focus-within:ring\"]:focus-within": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[data-slot=\"button\"]": {
+            "border": "1px solid ButtonText"
+          }
         },
         "@layer base": {
           "*": {
@@ -44187,6 +47225,19 @@
         "[class*=\"focus-within:ring-[3px]\"]:focus-within": {
           "--tw-ring-color": "color-mix(in oklab, var(--bm-focus-color, var(--ring)) var(--bm-focus-alpha, 50%), transparent)",
           "--tw-ring-shadow": "var(--tw-ring-inset,) 0 0 0 calc(var(--bm-focus-width, 3px) + var(--tw-ring-offset-width, 0px)) var(--tw-ring-color)"
+        },
+        "@media (forced-colors: active)": {
+          "[class*=\"focus-visible:ring\"]:focus-visible": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[class*=\"focus-within:ring\"]:focus-within": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[data-slot=\"button\"]": {
+            "border": "1px solid ButtonText"
+          }
         },
         "@layer base": {
           "*": {
@@ -47622,6 +50673,19 @@
         "[class*=\"focus-within:ring-[3px]\"]:focus-within": {
           "--tw-ring-color": "color-mix(in oklab, var(--bm-focus-color, var(--ring)) var(--bm-focus-alpha, 50%), transparent)",
           "--tw-ring-shadow": "var(--tw-ring-inset,) 0 0 0 calc(var(--bm-focus-width, 3px) + var(--tw-ring-offset-width, 0px)) var(--tw-ring-color)"
+        },
+        "@media (forced-colors: active)": {
+          "[class*=\"focus-visible:ring\"]:focus-visible": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[class*=\"focus-within:ring\"]:focus-within": {
+            "outline": "2px solid Highlight",
+            "outline-offset": "2px"
+          },
+          "[data-slot=\"button\"]": {
+            "border": "1px solid ButtonText"
+          }
         },
         "@layer base": {
           "*": {

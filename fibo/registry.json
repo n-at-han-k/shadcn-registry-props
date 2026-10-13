@@ -2181,17 +2181,64 @@
       ],
       "cssVars": {
         "theme": {
+          "color-burgundy-950": "oklch(0.21 0.035 12)",
+          "color-burgundy-700": "oklch(0.44 0.05 12)",
+          "color-success": "var(--success)",
           "color-ring-subtle": "var(--ring-subtle)",
+          "color-finish-burgundy": "var(--finish-burgundy)",
+          "color-finish-burgundy-highlight": "var(--finish-burgundy-highlight)",
+          "color-finish-burgundy-shadow": "var(--finish-burgundy-shadow)",
           "background-color-destructive": "var(--destructive)",
-          "fill-destructive": "var(--destructive-icon)"
+          "animate-voice-memo-wake": "voice-memo-wake 0.6s linear"
         },
         "light": {
+          "success": "var(--color-green-700)",
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)",
-          "destructive-icon": "var(--destructive)"
+          "finish-burgundy": "var(--color-burgundy-950)",
+          "finish-burgundy-highlight": "var(--color-burgundy-700)",
+          "finish-burgundy-shadow": "var(--color-black)"
         },
         "dark": {
+          "success": "var(--color-green-400)",
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
-          "destructive-icon": "var(--destructive)"
+          "finish-burgundy": "var(--color-burgundy-950)",
+          "finish-burgundy-highlight": "var(--color-burgundy-700)",
+          "finish-burgundy-shadow": "var(--color-black)"
+        }
+      },
+      "css": {
+        "@keyframes voice-memo-wake": {
+          "0%": {
+            "transform": "perspective(600px) scale(1) rotateY(0deg)",
+            "animation-timing-function": "ease-out"
+          },
+          "14%": {
+            "transform": "perspective(600px) scale(1.035) rotateY(-18deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "28%": {
+            "transform": "perspective(600px) scale(1.06) rotateY(18deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "42%": {
+            "transform": "perspective(600px) scale(1.06) rotateY(-15deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "56%": {
+            "transform": "perspective(600px) scale(1.05) rotateY(12deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "70%": {
+            "transform": "perspective(600px) scale(1.03) rotateY(-7.5deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "84%": {
+            "transform": "perspective(600px) scale(1.012) rotateY(3deg)",
+            "animation-timing-function": "ease-out"
+          },
+          "100%": {
+            "transform": "perspective(600px) scale(1) rotateY(0deg)"
+          }
         }
       }
     },
@@ -2279,6 +2326,11 @@
           "color-sticker-ink": "var(--sticker-ink)",
           "color-sticker-shadow": "var(--sticker-shadow)",
           "color-particle-shadow": "var(--particle-shadow)",
+          "color-burgundy-700": "oklch(0.44 0.05 12)",
+          "color-burgundy-950": "oklch(0.21 0.035 12)",
+          "color-finish-burgundy": "var(--finish-burgundy)",
+          "color-finish-burgundy-highlight": "var(--finish-burgundy-highlight)",
+          "color-finish-burgundy-shadow": "var(--finish-burgundy-shadow)",
           "color-chart-1": "var(--chart-1)",
           "color-chart-2": "var(--chart-2)",
           "color-chart-3": "var(--chart-3)",
@@ -2300,6 +2352,7 @@
           "radius-3xl": "calc(var(--radius) + 12px)",
           "radius-4xl": "calc(var(--radius) + 16px)",
           "animate-progress-indeterminate": "progress-indeterminate 1.4s ease-in-out infinite",
+          "animate-voice-memo-wake": "voice-memo-wake 0.6s linear",
           "animate-typing-dot": "typing-dot 1.2s ease-in-out infinite"
         },
         "light": {
@@ -2368,6 +2421,9 @@
           "sticker-ink": "var(--color-neutral-900)",
           "sticker-shadow": "color-mix(in oklch, var(--color-black) 30%, transparent)",
           "particle-shadow": "color-mix(in oklch, var(--color-black) 18%, transparent)",
+          "finish-burgundy": "var(--color-burgundy-950)",
+          "finish-burgundy-highlight": "var(--color-burgundy-700)",
+          "finish-burgundy-shadow": "var(--color-black)",
           "chart-1": "var(--color-neutral-300)",
           "chart-2": "var(--color-neutral-500)",
           "chart-3": "var(--color-neutral-600)",
@@ -2449,6 +2505,9 @@
           "sticker-ink": "var(--color-neutral-900)",
           "sticker-shadow": "color-mix(in oklch, var(--color-black) 30%, transparent)",
           "particle-shadow": "color-mix(in oklch, var(--color-black) 18%, transparent)",
+          "finish-burgundy": "var(--color-burgundy-950)",
+          "finish-burgundy-highlight": "var(--color-burgundy-700)",
+          "finish-burgundy-shadow": "var(--color-black)",
           "chart-1": "var(--color-neutral-300)",
           "chart-2": "var(--color-neutral-500)",
           "chart-3": "var(--color-neutral-600)",
@@ -2471,6 +2530,39 @@
           },
           "to": {
             "transform": "translateX(300%)"
+          }
+        },
+        "@keyframes voice-memo-wake": {
+          "0%": {
+            "transform": "perspective(600px) scale(1) rotateY(0deg)",
+            "animation-timing-function": "ease-out"
+          },
+          "14%": {
+            "transform": "perspective(600px) scale(1.035) rotateY(-18deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "28%": {
+            "transform": "perspective(600px) scale(1.06) rotateY(18deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "42%": {
+            "transform": "perspective(600px) scale(1.06) rotateY(-15deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "56%": {
+            "transform": "perspective(600px) scale(1.05) rotateY(12deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "70%": {
+            "transform": "perspective(600px) scale(1.03) rotateY(-7.5deg)",
+            "animation-timing-function": "ease-in-out"
+          },
+          "84%": {
+            "transform": "perspective(600px) scale(1.012) rotateY(3deg)",
+            "animation-timing-function": "ease-out"
+          },
+          "100%": {
+            "transform": "perspective(600px) scale(1) rotateY(0deg)"
           }
         },
         "@keyframes typing-dot": {

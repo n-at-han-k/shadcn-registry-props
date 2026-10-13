@@ -1,0 +1,2184 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ikas",
+  "homepage": "https://builders.ikas.com/tr/docs/app-development/ui-kit",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "ikas Theme",
+      "description": "Light-first neutral theme tokens: surfaces, six-color palette, status colors, radius and elevation. Install first.",
+      "categories": [
+        "theme"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/tokens",
+      "dependencies": [
+        "shadcn",
+        "tw-animate-css"
+      ],
+      "css": {
+        "@import \"tw-animate-css\"": {},
+        "@import \"shadcn/tailwind.css\"": {},
+        "@layer base": {
+          "*": {
+            "@apply border-border outline-ring/50": {}
+          },
+          "html": {
+            "@apply font-sans": {},
+            "color-scheme": "light"
+          },
+          "html.dark": {
+            "color-scheme": "dark"
+          },
+          "body": {
+            "@apply bg-background text-foreground antialiased": {},
+            "font-feature-settings": "\"cv11\", \"ss01\""
+          },
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        },
+        "@keyframes panel-enter": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(6px)",
+            "filter": "blur(4px)"
+          }
+        },
+        "@keyframes icon-ring": {
+          "0%, 100%": {
+            "rotate": "0deg"
+          },
+          "20%": {
+            "rotate": "-14deg"
+          },
+          "40%": {
+            "rotate": "11deg"
+          },
+          "60%": {
+            "rotate": "-7deg"
+          },
+          "80%": {
+            "rotate": "3deg"
+          }
+        },
+        "@keyframes icon-wiggle": {
+          "0%, 100%": {
+            "rotate": "0deg"
+          },
+          "30%": {
+            "rotate": "-9deg"
+          },
+          "70%": {
+            "rotate": "7deg"
+          }
+        },
+        "@keyframes icon-bounce": {
+          "0%, 100%": {
+            "translate": "0 0"
+          },
+          "40%": {
+            "translate": "0 -3px"
+          }
+        },
+        "@keyframes icon-drop": {
+          "0%, 100%": {
+            "translate": "0 0"
+          },
+          "50%": {
+            "translate": "0 2px"
+          }
+        },
+        "@keyframes chart-shimmer": {
+          "from": {
+            "translate": "-100% 0"
+          },
+          "to": {
+            "translate": "100% 0"
+          }
+        },
+        "@utility animate-panel-enter": {
+          "animation": "panel-enter 360ms var(--ease-out) both",
+          "animation-delay": "calc(60ms * var(--stagger, 0))"
+        },
+        "@layer components": {
+          "[data-anim]": {
+            "transform-box": "fill-box",
+            "transform-origin": "center",
+            "transition": "rotate 450ms var(--ease-spring), translate 300ms var(--ease-spring), scale 300ms var(--ease-spring)"
+          },
+          ":where(a, button, label, [role=\"button\"], [data-icon-trigger]):is(:hover, :focus-visible) [data-anim=\"spin\"]": {
+            "rotate": "90deg"
+          },
+          ":where(a, button, label, [role=\"button\"], [data-icon-trigger]):is(:hover, :focus-visible) [data-anim=\"nudge\"]": {
+            "translate": "2px 0"
+          },
+          ":where(a, button, label, [role=\"button\"], [data-icon-trigger]):is(:hover, :focus-visible) [data-anim=\"lift\"]": {
+            "translate": "1.5px -1.5px"
+          },
+          ":where(a, button, label, [role=\"button\"], [data-icon-trigger]):is(:hover, :focus-visible) [data-anim=\"pop\"]": {
+            "scale": "1.15"
+          },
+          ":where(a, button, label, [role=\"button\"], [data-icon-trigger]):is(:hover, :focus-visible) [data-anim=\"drop\"]": {
+            "animation": "icon-drop 450ms var(--ease-out)"
+          },
+          ":where(a, button, label, [role=\"button\"], [data-icon-trigger]):is(:hover, :focus-visible) [data-anim=\"ring\"]": {
+            "transform-origin": "top center",
+            "animation": "icon-ring 500ms var(--ease-out)"
+          },
+          ":where(a, button, label, [role=\"button\"], [data-icon-trigger]):is(:hover, :focus-visible) [data-anim=\"wiggle\"]": {
+            "animation": "icon-wiggle 320ms var(--ease-out)"
+          },
+          ":where(a, button, label, [role=\"button\"], [data-icon-trigger]):is(:hover, :focus-visible) [data-anim=\"bounce\"]": {
+            "animation": "icon-bounce 400ms var(--ease-out)"
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            "[data-anim]": {
+              "animation": "none !important",
+              "transition": "none !important",
+              "rotate": "none !important",
+              "translate": "none !important",
+              "scale": "none !important"
+            },
+            ".animate-panel-enter": {
+              "animation": "none"
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "font-sans": "var(--font-inter, ui-sans-serif, system-ui, sans-serif)",
+          "font-mono": "var(--font-geist-mono, ui-monospace, monospace)",
+          "font-heading": "var(--font-sans)",
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-card": "var(--card)",
+          "color-card-foreground": "var(--card-foreground)",
+          "color-popover": "var(--popover)",
+          "color-popover-foreground": "var(--popover-foreground)",
+          "color-primary": "var(--primary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-primary-subtle": "var(--primary-subtle)",
+          "color-primary-subtle-foreground": "var(--primary-subtle-foreground)",
+          "color-secondary": "var(--secondary)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-accent": "var(--accent)",
+          "color-accent-foreground": "var(--accent-foreground)",
+          "color-destructive": "var(--destructive)",
+          "color-destructive-foreground": "var(--destructive-foreground)",
+          "color-border": "var(--border)",
+          "color-border-strong": "var(--border-strong)",
+          "color-input": "var(--input)",
+          "color-ring": "var(--ring)",
+          "color-icon": "var(--icon)",
+          "color-tint-surface": "var(--tint-surface)",
+          "color-tint-surface-hover": "var(--tint-surface-hover)",
+          "color-neutral": "var(--neutral)",
+          "color-neutral-foreground": "var(--neutral-foreground)",
+          "color-neutral-subtle": "var(--neutral-subtle)",
+          "color-neutral-subtle-foreground": "var(--neutral-subtle-foreground)",
+          "color-neutral-border": "var(--neutral-border)",
+          "color-blue": "var(--blue)",
+          "color-blue-foreground": "var(--blue-foreground)",
+          "color-blue-subtle": "var(--blue-subtle)",
+          "color-blue-subtle-foreground": "var(--blue-subtle-foreground)",
+          "color-blue-border": "var(--blue-border)",
+          "color-violet": "var(--violet)",
+          "color-violet-foreground": "var(--violet-foreground)",
+          "color-violet-subtle": "var(--violet-subtle)",
+          "color-violet-subtle-foreground": "var(--violet-subtle-foreground)",
+          "color-violet-border": "var(--violet-border)",
+          "color-green": "var(--green)",
+          "color-green-foreground": "var(--green-foreground)",
+          "color-green-subtle": "var(--green-subtle)",
+          "color-green-subtle-foreground": "var(--green-subtle-foreground)",
+          "color-green-border": "var(--green-border)",
+          "color-lime": "var(--lime)",
+          "color-lime-foreground": "var(--lime-foreground)",
+          "color-lime-subtle": "var(--lime-subtle)",
+          "color-lime-subtle-foreground": "var(--lime-subtle-foreground)",
+          "color-lime-border": "var(--lime-border)",
+          "color-amber": "var(--amber)",
+          "color-amber-foreground": "var(--amber-foreground)",
+          "color-amber-subtle": "var(--amber-subtle)",
+          "color-amber-subtle-foreground": "var(--amber-subtle-foreground)",
+          "color-amber-border": "var(--amber-border)",
+          "color-red": "var(--red)",
+          "color-red-foreground": "var(--red-foreground)",
+          "color-red-subtle": "var(--red-subtle)",
+          "color-red-subtle-foreground": "var(--red-subtle-foreground)",
+          "color-red-border": "var(--red-border)",
+          "color-info": "var(--info)",
+          "color-info-foreground": "var(--info-foreground)",
+          "color-info-subtle": "var(--info-subtle)",
+          "color-info-subtle-foreground": "var(--info-subtle-foreground)",
+          "color-info-border": "var(--info-border)",
+          "color-success": "var(--success)",
+          "color-success-foreground": "var(--success-foreground)",
+          "color-success-subtle": "var(--success-subtle)",
+          "color-success-subtle-foreground": "var(--success-subtle-foreground)",
+          "color-success-border": "var(--success-border)",
+          "color-warning": "var(--warning)",
+          "color-warning-foreground": "var(--warning-foreground)",
+          "color-warning-subtle": "var(--warning-subtle)",
+          "color-warning-subtle-foreground": "var(--warning-subtle-foreground)",
+          "color-warning-border": "var(--warning-border)",
+          "color-danger": "var(--danger)",
+          "color-danger-foreground": "var(--danger-foreground)",
+          "color-danger-subtle": "var(--danger-subtle)",
+          "color-danger-subtle-foreground": "var(--danger-subtle-foreground)",
+          "color-danger-border": "var(--danger-border)",
+          "color-chart-1": "var(--chart-1)",
+          "color-chart-2": "var(--chart-2)",
+          "color-chart-3": "var(--chart-3)",
+          "color-chart-4": "var(--chart-4)",
+          "color-chart-5": "var(--chart-5)",
+          "color-chart-6": "var(--chart-6)",
+          "color-chart-ink": "var(--chart-ink)",
+          "color-sidebar": "var(--sidebar)",
+          "color-sidebar-foreground": "var(--sidebar-foreground)",
+          "color-sidebar-primary": "var(--sidebar-primary)",
+          "color-sidebar-primary-foreground": "var(--sidebar-primary-foreground)",
+          "color-sidebar-accent": "var(--sidebar-accent)",
+          "color-sidebar-accent-foreground": "var(--sidebar-accent-foreground)",
+          "color-sidebar-border": "var(--sidebar-border)",
+          "color-sidebar-ring": "var(--sidebar-ring)",
+          "radius-sm": "calc(var(--radius) * 0.6)",
+          "radius-md": "calc(var(--radius) * 0.8)",
+          "radius-lg": "var(--radius)",
+          "radius-xl": "calc(var(--radius) * 1.4)",
+          "radius-2xl": "calc(var(--radius) * 1.8)",
+          "radius-3xl": "calc(var(--radius) * 2.2)",
+          "radius-4xl": "calc(var(--radius) * 2.6)",
+          "shadow-card": "0 0 0 1px var(--shade-border), 0 1px 2px 0 var(--shade-1), 0 2px 6px -2px var(--shade-1)",
+          "shadow-overlay": "0 0 0 1px var(--shade-border), 0 12px 32px -8px var(--shade-3), 0 4px 10px -4px var(--shade-2)",
+          "shadow-raised": "inset 0 -1px 0 0 var(--shade-1), 0 0 0 1px var(--shade-border-strong), 0 1px 2px 0 var(--shade-1)",
+          "shadow-raised-hover": "inset 0 -1px 0 0 var(--shade-1), 0 0 0 1px var(--shade-border-strong), 0 2px 4px -1px var(--shade-2)",
+          "shadow-solid": "inset 0 1px 0 0 rgb(255 255 255 / 0.2), inset 0 -1px 0 0 rgb(0 0 0 / 0.12), 0 0 0 1px color-mix(in oklab, var(--c) 86%, black), 0 1px 2px 0 rgb(0 0 0 / 0.1), 0 3px 10px -3px color-mix(in oklab, var(--c) 55%, transparent)",
+          "shadow-solid-hover": "inset 0 1px 0 0 rgb(255 255 255 / 0.24), inset 0 -1px 0 0 rgb(0 0 0 / 0.12), 0 0 0 1px color-mix(in oklab, var(--c) 86%, black), 0 1px 2px 0 rgb(0 0 0 / 0.1), 0 5px 16px -4px color-mix(in oklab, var(--c) 70%, transparent)",
+          "shadow-pressed": "inset 0 1px 2px 0 rgb(0 0 0 / 0.22), 0 0 0 1px color-mix(in oklab, var(--c) 86%, black)",
+          "shadow-inset": "inset 0 1px 2px 0 var(--shade-1)",
+          "ease-out": "cubic-bezier(0.23, 1, 0.32, 1)",
+          "ease-in-out": "cubic-bezier(0.77, 0, 0.175, 1)",
+          "ease-reveal": "cubic-bezier(0.33, 1, 0.68, 1)",
+          "ease-drawer": "cubic-bezier(0.32, 0.72, 0, 1)",
+          "ease-spring": "cubic-bezier(0.34, 1.45, 0.64, 1)",
+          "shadow-thumb": "0 0 0 0.5px var(--shade-border-strong), 0 1px 2px 0 var(--shade-2), 0 2px 4px -1px var(--shade-1)"
+        },
+        "light": {
+          "radius": "0.5rem",
+          "background": "oklch(0.985 0 0)",
+          "foreground": "oklch(0.175 0 0)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.175 0 0)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.175 0 0)",
+          "primary": "oklch(0.205 0 0)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "primary-subtle": "oklch(0.96 0 0)",
+          "primary-subtle-foreground": "oklch(0.205 0 0)",
+          "secondary": "oklch(0.965 0 0)",
+          "secondary-foreground": "oklch(0.205 0 0)",
+          "muted": "oklch(0.97 0 0)",
+          "muted-foreground": "oklch(0.52 0 0)",
+          "accent": "oklch(0.965 0 0)",
+          "accent-foreground": "oklch(0.205 0 0)",
+          "destructive": "oklch(0.577 0.215 27.3)",
+          "destructive-foreground": "oklch(0.985 0 0)",
+          "border": "oklch(0.925 0 0)",
+          "border-strong": "oklch(0.875 0 0)",
+          "input": "oklch(0.885 0 0)",
+          "ring": "oklch(0.62 0.19 259.8)",
+          "icon": "oklch(0.58 0 0)",
+          "tint-surface": "oklch(1 0 0 / 0.72)",
+          "tint-surface-hover": "oklch(1 0 0 / 0.42)",
+          "shade-1": "rgb(0 0 0 / 0.05)",
+          "shade-2": "rgb(0 0 0 / 0.08)",
+          "shade-3": "rgb(0 0 0 / 0.14)",
+          "shade-border": "rgb(0 0 0 / 0.07)",
+          "shade-border-strong": "rgb(0 0 0 / 0.11)",
+          "neutral": "oklch(0.205 0 0)",
+          "neutral-foreground": "oklch(0.985 0 0)",
+          "neutral-subtle": "oklch(0.955 0 0)",
+          "neutral-subtle-foreground": "oklch(0.32 0 0)",
+          "neutral-border": "oklch(0.885 0 0)",
+          "blue": "oklch(0.546 0.215 262.9)",
+          "blue-foreground": "oklch(0.985 0 0)",
+          "blue-subtle": "oklch(0.966 0.018 254.6)",
+          "blue-subtle-foreground": "oklch(0.488 0.2 264.4)",
+          "blue-border": "oklch(0.89 0.05 254.1)",
+          "violet": "oklch(0.541 0.24 293)",
+          "violet-foreground": "oklch(0.985 0 0)",
+          "violet-subtle": "oklch(0.966 0.018 293.8)",
+          "violet-subtle-foreground": "oklch(0.491 0.23 292.6)",
+          "violet-border": "oklch(0.9 0.05 293.3)",
+          "green": "oklch(0.53 0.13 163.2)",
+          "green-foreground": "oklch(0.985 0 0)",
+          "green-subtle": "oklch(0.973 0.025 166.1)",
+          "green-subtle-foreground": "oklch(0.48 0.11 165.6)",
+          "green-border": "oklch(0.9 0.07 164.2)",
+          "lime": "oklch(0.86 0.2 127)",
+          "lime-foreground": "oklch(0.27 0.07 132)",
+          "lime-subtle": "oklch(0.975 0.045 122)",
+          "lime-subtle-foreground": "oklch(0.45 0.12 131)",
+          "lime-border": "oklch(0.9 0.13 124)",
+          "amber": "oklch(0.78 0.16 72)",
+          "amber-foreground": "oklch(0.28 0.07 45.6)",
+          "amber-subtle": "oklch(0.982 0.03 92)",
+          "amber-subtle-foreground": "oklch(0.48 0.13 46.2)",
+          "amber-border": "oklch(0.91 0.1 92)",
+          "red": "oklch(0.577 0.215 27.3)",
+          "red-foreground": "oklch(0.985 0 0)",
+          "red-subtle": "oklch(0.971 0.014 17.4)",
+          "red-subtle-foreground": "oklch(0.505 0.19 27.5)",
+          "red-border": "oklch(0.9 0.05 18.3)",
+          "info": "var(--blue)",
+          "info-foreground": "var(--blue-foreground)",
+          "info-subtle": "var(--blue-subtle)",
+          "info-subtle-foreground": "var(--blue-subtle-foreground)",
+          "info-border": "var(--blue-border)",
+          "success": "var(--green)",
+          "success-foreground": "var(--green-foreground)",
+          "success-subtle": "var(--green-subtle)",
+          "success-subtle-foreground": "var(--green-subtle-foreground)",
+          "success-border": "var(--green-border)",
+          "warning": "var(--amber)",
+          "warning-foreground": "var(--amber-foreground)",
+          "warning-subtle": "var(--amber-subtle)",
+          "warning-subtle-foreground": "var(--amber-subtle-foreground)",
+          "warning-border": "var(--amber-border)",
+          "danger": "var(--red)",
+          "danger-foreground": "var(--red-foreground)",
+          "danger-subtle": "var(--red-subtle)",
+          "danger-subtle-foreground": "var(--red-subtle-foreground)",
+          "danger-border": "var(--red-border)",
+          "chart-ink": "oklch(0.205 0 0)",
+          "chart-1": "#2867e4",
+          "chart-2": "#dd6f23",
+          "chart-3": "#008e89",
+          "chart-4": "#8047e1",
+          "chart-5": "#6b9e1f",
+          "chart-6": "#d13d91",
+          "sidebar": "oklch(0.985 0 0)",
+          "sidebar-foreground": "oklch(0.175 0 0)",
+          "sidebar-primary": "oklch(0.205 0 0)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.955 0 0)",
+          "sidebar-accent-foreground": "oklch(0.175 0 0)",
+          "sidebar-border": "oklch(0.925 0 0)",
+          "sidebar-ring": "oklch(0.62 0.19 259.8)"
+        },
+        "dark": {
+          "background": "oklch(0.155 0 0)",
+          "foreground": "oklch(0.96 0 0)",
+          "card": "oklch(0.195 0 0)",
+          "card-foreground": "oklch(0.96 0 0)",
+          "popover": "oklch(0.215 0 0)",
+          "popover-foreground": "oklch(0.96 0 0)",
+          "primary": "oklch(0.96 0 0)",
+          "primary-foreground": "oklch(0.175 0 0)",
+          "primary-subtle": "oklch(0.26 0 0)",
+          "primary-subtle-foreground": "oklch(0.96 0 0)",
+          "secondary": "oklch(0.25 0 0)",
+          "secondary-foreground": "oklch(0.96 0 0)",
+          "muted": "oklch(0.23 0 0)",
+          "muted-foreground": "oklch(0.68 0 0)",
+          "accent": "oklch(0.25 0 0)",
+          "accent-foreground": "oklch(0.96 0 0)",
+          "destructive": "oklch(0.575 0.2 25)",
+          "destructive-foreground": "oklch(0.985 0 0)",
+          "border": "oklch(1 0 0 / 0.08)",
+          "border-strong": "oklch(1 0 0 / 0.14)",
+          "input": "oklch(1 0 0 / 0.14)",
+          "ring": "oklch(0.68 0.16 259.8)",
+          "icon": "oklch(0.62 0 0)",
+          "tint-surface": "oklch(1 0 0 / 0.06)",
+          "tint-surface-hover": "oklch(1 0 0 / 0.11)",
+          "shade-1": "rgb(0 0 0 / 0.3)",
+          "shade-2": "rgb(0 0 0 / 0.4)",
+          "shade-3": "rgb(0 0 0 / 0.6)",
+          "shade-border": "rgb(255 255 255 / 0.07)",
+          "shade-border-strong": "rgb(255 255 255 / 0.1)",
+          "neutral": "oklch(0.96 0 0)",
+          "neutral-foreground": "oklch(0.175 0 0)",
+          "neutral-subtle": "oklch(0.26 0 0)",
+          "neutral-subtle-foreground": "oklch(0.88 0 0)",
+          "neutral-border": "oklch(1 0 0 / 0.14)",
+          "blue": "oklch(0.56 0.2 262)",
+          "blue-foreground": "oklch(0.985 0 0)",
+          "blue-subtle": "oklch(0.26 0.06 262)",
+          "blue-subtle-foreground": "oklch(0.8 0.1 255)",
+          "blue-border": "oklch(0.36 0.09 262)",
+          "violet": "oklch(0.57 0.22 293)",
+          "violet-foreground": "oklch(0.985 0 0)",
+          "violet-subtle": "oklch(0.26 0.07 293)",
+          "violet-subtle-foreground": "oklch(0.81 0.1 293)",
+          "violet-border": "oklch(0.37 0.11 293)",
+          "green": "oklch(0.65 0.14 163)",
+          "green-foreground": "oklch(0.16 0.04 163)",
+          "green-subtle": "oklch(0.25 0.045 163)",
+          "green-subtle-foreground": "oklch(0.82 0.11 163)",
+          "green-border": "oklch(0.36 0.07 163)",
+          "lime": "oklch(0.85 0.19 128)",
+          "lime-foreground": "oklch(0.22 0.06 132)",
+          "lime-subtle": "oklch(0.26 0.05 130)",
+          "lime-subtle-foreground": "oklch(0.86 0.15 127)",
+          "lime-border": "oklch(0.37 0.08 130)",
+          "amber": "oklch(0.8 0.15 75)",
+          "amber-foreground": "oklch(0.22 0.05 50)",
+          "amber-subtle": "oklch(0.27 0.05 70)",
+          "amber-subtle-foreground": "oklch(0.86 0.12 85)",
+          "amber-border": "oklch(0.38 0.07 70)",
+          "red": "oklch(0.575 0.2 25)",
+          "red-foreground": "oklch(0.985 0 0)",
+          "red-subtle": "oklch(0.26 0.06 25)",
+          "red-subtle-foreground": "oklch(0.8 0.11 20)",
+          "red-border": "oklch(0.38 0.1 25)",
+          "info": "var(--blue)",
+          "info-foreground": "var(--blue-foreground)",
+          "info-subtle": "var(--blue-subtle)",
+          "info-subtle-foreground": "var(--blue-subtle-foreground)",
+          "info-border": "var(--blue-border)",
+          "success": "var(--green)",
+          "success-foreground": "var(--green-foreground)",
+          "success-subtle": "var(--green-subtle)",
+          "success-subtle-foreground": "var(--green-subtle-foreground)",
+          "success-border": "var(--green-border)",
+          "warning": "var(--amber)",
+          "warning-foreground": "var(--amber-foreground)",
+          "warning-subtle": "var(--amber-subtle)",
+          "warning-subtle-foreground": "var(--amber-subtle-foreground)",
+          "warning-border": "var(--amber-border)",
+          "danger": "var(--red)",
+          "danger-foreground": "var(--red-foreground)",
+          "danger-subtle": "var(--red-subtle)",
+          "danger-subtle-foreground": "var(--red-subtle-foreground)",
+          "danger-border": "var(--red-border)",
+          "chart-ink": "oklch(0.96 0 0)",
+          "chart-1": "#4a81eb",
+          "chart-2": "#d8732b",
+          "chart-3": "#009b95",
+          "chart-4": "#8b61e3",
+          "chart-5": "#73a434",
+          "chart-6": "#d8559b",
+          "sidebar": "oklch(0.175 0 0)",
+          "sidebar-foreground": "oklch(0.96 0 0)",
+          "sidebar-primary": "oklch(0.96 0 0)",
+          "sidebar-primary-foreground": "oklch(0.175 0 0)",
+          "sidebar-accent": "oklch(0.25 0 0)",
+          "sidebar-accent-foreground": "oklch(0.96 0 0)",
+          "sidebar-border": "oklch(1 0 0 / 0.08)",
+          "sidebar-ring": "oklch(0.68 0.16 259.8)"
+        }
+      }
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Motion",
+      "description": "Shared spring and easing tokens so all animations in the app move the same way.",
+      "categories": [
+        "motion",
+        "utilities"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/motion",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/motion.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "type": "registry:lib",
+      "title": "Status",
+      "description": "Status tint classes (info, success, warning, danger, neutral) for surfaces, text, icons and actions.",
+      "categories": [
+        "utilities",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/tokens",
+      "files": [
+        {
+          "path": "registry/lib/status.ts",
+          "type": "registry:lib",
+          "target": "@lib/status.ts"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "The cn() helper that merges Tailwind class names; used by every component.",
+      "categories": [
+        "utilities"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Stacked sections that expand one at a time or together, as a list or cards.",
+      "categories": [
+        "primitives",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/accordion",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Modal that asks to confirm or cancel an action, with a status-tinted icon.",
+      "categories": [
+        "primitives",
+        "overlays"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/alert-dialog",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Plain inline callout in default or destructive style; use Banner for status messages.",
+      "categories": [
+        "primitives",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Round user or store image with fallback initials, badge, and stacked groups.",
+      "categories": [
+        "primitives",
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Small label for statuses (info, success, warning, danger) or counts, with optional dot.",
+      "categories": [
+        "primitives",
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/badge",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Joins buttons, inputs or selects into one connected horizontal or vertical group.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/button-group",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/separator",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Button in solid, soft, outline, ghost and link variants, any palette color, loading state.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/button",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/spinner",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Month grid for picking a day, range or several days; Turkish, Monday first.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/calendar",
+      "dependencies": [
+        "date-fns",
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Raised surface with header, title, description, action, content and footer slots.",
+      "categories": [
+        "primitives",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/card",
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Recharts container, tooltip and legend wired to theme colors; base for the ikas charts.",
+      "categories": [
+        "primitives",
+        "charts"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkbox for on/off choices in forms and table row selection.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/form",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Searchable select with single or multiple choice, chips and groups; built on Base UI.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/combobox",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/input-group",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal window for focused tasks and confirmations, with header, footer and close button.",
+      "categories": [
+        "primitives",
+        "overlays"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Panel that slides in from an edge and drags closed; suits mobile actions.",
+      "categories": [
+        "primitives",
+        "overlays"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/drawer",
+      "dependencies": [
+        "vaul"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Menu of actions opened from a button, with groups, checkboxes, radios and submenus.",
+      "categories": [
+        "primitives",
+        "overlays"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Form structure: label, description, error and grouping for any input control.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/form",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@ikas/label",
+        "@ikas/separator",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "Input or textarea with attached addons: icons, text, prefixes and buttons.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/form",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/input",
+        "@ikas/textarea",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Single-line text input styled with the theme's inset field surface.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/form",
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Shows keyboard keys and shortcuts, alone or grouped.",
+      "categories": [
+        "primitives",
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Accessible text label for form controls.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/form",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Floating panel anchored to a trigger for small forms, pickers or extra details.",
+      "categories": [
+        "primitives",
+        "overlays"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Thin horizontal bar showing how far a task has progressed.",
+      "categories": [
+        "primitives",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "title": "Questionnaire",
+      "description": "Multi-step form, one question at a time: choices, free text, skip, validation, progress.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/questionnaire",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/questionnaire.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Set of radio buttons for picking exactly one option.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Dropdown for picking one value from a list, with groups and separators.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/form",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Thin horizontal or vertical line that divides content.",
+      "categories": [
+        "primitives",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Panel that slides in from a screen edge for side tasks and details.",
+      "categories": [
+        "primitives",
+        "overlays"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/sheet",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Pulsing placeholder block shown while content loads.",
+      "categories": [
+        "primitives",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Toaster for short confirmations: status types, surface or soft variant, optional countdown bar.",
+      "categories": [
+        "primitives",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/toast",
+      "dependencies": [
+        "lucide-react",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-check",
+        "@ikas/button",
+        "@ikas/spinner",
+        "@ikas/status",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Animated loading indicator for buttons and pending sections.",
+      "categories": [
+        "primitives",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Toggle switch for settings that turn on or off immediately.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/form",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Basic table building blocks: header, body, rows, cells, footer and caption.",
+      "categories": [
+        "primitives",
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tab list for switching between views of the same screen, in pill or line style.",
+      "categories": [
+        "primitives",
+        "navigation"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multi-line text input that grows with its content.",
+      "categories": [
+        "primitives",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/form",
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Short hint shown on hover or keyboard focus of an element.",
+      "categories": [
+        "primitives",
+        "overlays"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "wheel-picker",
+      "type": "registry:ui",
+      "title": "Wheel Picker",
+      "description": "iOS-style picker wheel you drag, flick, scroll or step; groups side by side.",
+      "categories": [
+        "forms",
+        "motion"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/wheel-picker",
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/wheel-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "action-bar",
+      "type": "registry:component",
+      "title": "Action Bar",
+      "description": "Icon toolbar whose labels appear on hover or focus; saves room in dense headers.",
+      "categories": [
+        "navigation"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/action-bar",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/action-bar.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/action-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-check",
+      "type": "registry:component",
+      "title": "Animated Check",
+      "description": "Self-drawing check icon, plus a copy-to-clipboard button that confirms with it.",
+      "categories": [
+        "motion",
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/animated-check",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/animated-check.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/animated-check.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-number",
+      "type": "registry:component",
+      "title": "Animated Number",
+      "description": "Number that rolls up or down when its value changes.",
+      "categories": [
+        "motion",
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/animated-number",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/animated-number.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/animated-number.tsx"
+        }
+      ]
+    },
+    {
+      "name": "area-chart",
+      "type": "registry:component",
+      "title": "Area Chart",
+      "description": "Area or line chart over time, with stacking, legend, tooltip and estimated points.",
+      "categories": [
+        "charts"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/area-chart",
+      "dependencies": [
+        "motion",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@ikas/chart",
+        "@ikas/chart-kit",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/area-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/area-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:component",
+      "title": "Banner",
+      "description": "Persistent message in info, success, warning or danger, with optional actions and dismiss.",
+      "categories": [
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/banner",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/status",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/banner.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/banner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:component",
+      "title": "Bar Chart",
+      "description": "Vertical or horizontal bar chart, grouped or stacked, with hover trace and in-progress bars.",
+      "categories": [
+        "charts"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/bar-chart",
+      "dependencies": [
+        "motion",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-number",
+        "@ikas/chart",
+        "@ikas/chart-kit",
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/bar-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/bar-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bar-list",
+      "type": "registry:component",
+      "title": "Bar List",
+      "description": "Ranked list of labels with proportional bars and values, e.g. top products.",
+      "categories": [
+        "charts",
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/bar-list",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/chart-kit",
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/bar-list.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/bar-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-card",
+      "type": "registry:component",
+      "title": "Chart Card",
+      "description": "Dashboard chart frame with title, headline value, change and a time range switch.",
+      "categories": [
+        "charts",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/chart-card",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-number",
+        "@ikas/badge",
+        "@ikas/chart-kit",
+        "@ikas/segmented-control",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/chart-card.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/chart-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-kit",
+      "type": "registry:component",
+      "title": "Chart Kit",
+      "description": "Shared chart parts: colors, fills, legend, tooltip, loading and reveal used by ikas charts.",
+      "categories": [
+        "charts",
+        "utilities"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/chart-kit",
+      "dependencies": [
+        "motion",
+        "recharts"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/chart-kit.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/chart-kit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "collapse",
+      "type": "registry:component",
+      "title": "Collapse",
+      "description": "Animates content open and closed between zero and full height.",
+      "categories": [
+        "motion",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/collapse",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/collapse.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/collapse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "confirm-button",
+      "type": "registry:component",
+      "title": "Confirm Button",
+      "description": "Two-click inline confirm for destructive actions that do not need a dialog.",
+      "categories": [
+        "forms",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/confirm-button",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/confirm-button.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/confirm-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:component",
+      "title": "Date Picker",
+      "description": "Outline button that opens a calendar and shows the picked date as dd.MM.yyyy.",
+      "categories": [
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/date-picker",
+      "dependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/calendar",
+        "@ikas/popover",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/date-picker.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/date-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "date-range-picker",
+      "type": "registry:component",
+      "title": "Date Range Picker",
+      "description": "Date range picker with presets, two months, and Apply and Clear buttons.",
+      "categories": [
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/date-range-picker",
+      "dependencies": [
+        "date-fns",
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/calendar",
+        "@ikas/popover",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/date-range-picker.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/date-range-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "date-wheel-picker",
+      "type": "registry:component",
+      "title": "Date Wheel Picker",
+      "description": "Day, month and year wheels in one frame, with min and max dates.",
+      "categories": [
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/date-wheel-picker",
+      "registryDependencies": [
+        "@ikas/utils",
+        "@ikas/wheel-picker"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/date-wheel-picker.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/date-wheel-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "description-list",
+      "type": "registry:component",
+      "title": "Description List",
+      "description": "Label and value pairs for detail pages, side by side or stacked.",
+      "categories": [
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/description-list",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/description-list.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/description-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "donut-chart",
+      "type": "registry:component",
+      "title": "Donut Chart",
+      "description": "Donut chart for part-to-whole data, with the total in the center and a legend.",
+      "categories": [
+        "charts"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/donut-chart",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-number",
+        "@ikas/chart-kit",
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/donut-chart.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/donut-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "Empty State",
+      "description": "Explains an empty or failed view and offers the next step or a retry.",
+      "categories": [
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/empty-state",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/status",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/empty-state.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/empty-state.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-search",
+      "type": "registry:component",
+      "title": "Expandable Search",
+      "description": "Search icon that expands into a text input and stays open while filled.",
+      "categories": [
+        "forms",
+        "navigation"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/expandable-search",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/expandable-search.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/expandable-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "launchpad",
+      "type": "registry:component",
+      "title": "Launchpad",
+      "description": "First-run setup steps for the app home; the active step opens with its actions.",
+      "categories": [
+        "feedback",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/launchpad",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/collapse",
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/launchpad.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/launchpad.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "type": "registry:component",
+      "title": "Layout",
+      "description": "Column presets (main-aside, half, third) and numbered SettingsGroup sections for settings screens.",
+      "categories": [
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/layout",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/layout.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "meter",
+      "type": "registry:component",
+      "title": "Meter",
+      "description": "Usage against a limit as a bar or ring, with warning and danger states.",
+      "categories": [
+        "data-display",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/meter",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-number",
+        "@ikas/chart-kit",
+        "@ikas/motion",
+        "@ikas/status",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/meter.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/meter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "number-stepper",
+      "type": "registry:component",
+      "title": "Number Stepper",
+      "description": "Number input with minus and plus buttons; click the value to type it.",
+      "categories": [
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/number-stepper",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-number",
+        "@ikas/button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/number-stepper.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/number-stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page",
+      "type": "registry:component",
+      "title": "Page",
+      "description": "Screen wrapper with width presets and a PageHeader with back link, badges and actions.",
+      "categories": [
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/page",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/page.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "record-table",
+      "type": "registry:component",
+      "title": "Record Table",
+      "description": "Table for lists of records with selection, bulk actions, loading, empty, error and pagination.",
+      "categories": [
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/record-table",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/checkbox",
+        "@ikas/empty-state",
+        "@ikas/skeleton",
+        "@ikas/table",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/record-table.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/record-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "script-installer",
+      "type": "registry:component",
+      "title": "Script Installer",
+      "description": "Installs, updates and removes the app's storefront script, one row per storefront.",
+      "categories": [
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/script-installer",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-check",
+        "@ikas/badge",
+        "@ikas/banner",
+        "@ikas/button",
+        "@ikas/confirm-button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/script-installer.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/script-installer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:component",
+      "title": "Segmented Control",
+      "description": "Pick one of two to five options, as view tabs or a radio choice.",
+      "categories": [
+        "forms",
+        "navigation"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/segmented-control",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/segmented-control.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/segmented-control.tsx"
+        }
+      ]
+    },
+    {
+      "name": "setting-row",
+      "type": "registry:component",
+      "title": "Setting Row",
+      "description": "One setting row: title, description and its control aligned right.",
+      "categories": [
+        "forms",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/setting-row",
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/setting-row.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/setting-row.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:component",
+      "title": "Sparkline",
+      "description": "Tiny trend line without axes for stat cards and table cells.",
+      "categories": [
+        "charts"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/sparkline",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/chart-kit",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/sparkline.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/sparkline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:component",
+      "title": "Stat Card",
+      "description": "KPI card: label, value and change against the previous period.",
+      "categories": [
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/stat-card",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@ikas/status",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/stat-card.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/stat-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-section",
+      "type": "registry:component",
+      "title": "Toggle Section",
+      "description": "Feature section with an on/off switch that reveals its settings when on.",
+      "categories": [
+        "forms",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/toggle-section",
+      "registryDependencies": [
+        "@ikas/collapse",
+        "@ikas/switch",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/toggle-section.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/toggle-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "unsaved-bar",
+      "type": "registry:component",
+      "title": "Unsaved Bar",
+      "description": "Bar with save and discard that appears while a form has unsaved changes.",
+      "categories": [
+        "forms",
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/unsaved-bar",
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/unsaved-bar.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/unsaved-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ui-rules",
+      "type": "registry:file",
+      "title": "UI Rules for AI agents",
+      "description": "ikas-ui.md design rules for AI coding agents; reference it from AGENTS.md or CLAUDE.md.",
+      "categories": [
+        "ai"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/ai-agent",
+      "files": [
+        {
+          "path": "registry/rules/ikas-ui.md",
+          "type": "registry:file",
+          "target": "~/ikas-ui.md"
+        }
+      ]
+    }
+  ]
+}

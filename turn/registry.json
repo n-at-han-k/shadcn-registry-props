@@ -1,0 +1,379 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "turn",
+  "homepage": "https://turnui.xyz",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "turn theme",
+      "description": "Color tokens the turn components read. Optional: skip it if your own theme already defines them.",
+      "cssVars": {
+        "light": {
+          "background": "#ffffff",
+          "foreground": "#0a0a0a",
+          "muted": "#f2f2ee",
+          "muted-foreground": "#525252",
+          "border": "rgb(0 0 0 / 0.12)",
+          "primary": "#0a0a0a",
+          "primary-foreground": "#fafaf5",
+          "ring": "#0a0a0a"
+        },
+        "dark": {
+          "background": "#000000",
+          "foreground": "#efefe4",
+          "muted": "#1a1a1a",
+          "muted-foreground": "#a3a3a3",
+          "border": "rgb(255 255 255 / 0.13)",
+          "primary": "#efefe4",
+          "primary-foreground": "#0a0a0a",
+          "ring": "#efefe4"
+        }
+      }
+    },
+    {
+      "name": "turn-button",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/turn-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "src/registry/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "dependencies": [
+        "shiki"
+      ],
+      "registryDependencies": [
+        "https://turnui.xyz/r/turn-button.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "streaming-markdown",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-markdown",
+        "remark-gfm",
+        "marked"
+      ],
+      "registryDependencies": [
+        "https://turnui.xyz/r/citations.json",
+        "https://turnui.xyz/r/code-block.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/streaming-markdown.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "prompt-composer",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "https://turnui.xyz/r/turn-button.json",
+        "utils",
+        "https://turnui.xyz/r/command-menu.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/prompt-composer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "use-auto-scroll",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "src/registry/hooks/use-auto-scroll.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "reasoning",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/reasoning.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "tool-call",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/tool-call.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "citations",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/citations.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "use-fake-stream",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "src/registry/hooks/use-fake-stream.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "plan",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/plan.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "trace",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/trace.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "approval-prompt",
+      "type": "registry:ui",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://turnui.xyz/r/turn-button.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/approval-prompt.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "artifact",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://turnui.xyz/r/turn-button.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/artifact.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "use-attachments",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "src/registry/hooks/use-attachments.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils",
+        "https://turnui.xyz/r/use-attachments.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/attachment.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "model-picker",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/model-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command-menu",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/command-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "feedback",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "utils",
+        "https://turnui.xyz/r/turn-button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/feedback.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-to-bottom",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "src/registry/ui/scroll-to-bottom.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://turnui.xyz/r/turn-button.json"
+      ]
+    },
+    {
+      "name": "suggestions",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "src/registry/ui/suggestions.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "thinking",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "src/registry/ui/thinking.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils"
+      ]
+    },
+    {
+      "name": "error-notice",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "src/registry/ui/error-notice.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://turnui.xyz/r/turn-button.json"
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "src/registry/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "registryDependencies": [
+        "https://turnui.xyz/r/turn-button.json"
+      ]
+    }
+  ]
+}

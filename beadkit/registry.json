@@ -1,0 +1,541 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "beadkit",
+  "homepage": "https://beadkit.dev",
+  "items": [
+    {
+      "name": "learning-core",
+      "type": "registry:component",
+      "title": "Learning core",
+      "description": "Shared card shell and xAPI telemetry. Every learning component depends on this; installing a component pulls it in automatically.",
+      "files": [
+        {
+          "path": "components/learning/LearningCard.tsx",
+          "type": "registry:component",
+          "target": "@components/learning/LearningCard.tsx"
+        },
+        {
+          "path": "components/learning/ComponentBoundary.tsx",
+          "type": "registry:component",
+          "target": "@components/learning/ComponentBoundary.tsx"
+        },
+        {
+          "path": "components/learning/xapi.ts",
+          "type": "registry:lib",
+          "target": "@components/learning/xapi.ts"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "success": "oklch(0.44 0.13 150.5)"
+        },
+        "dark": {
+          "success": "oklch(0.79 0.19 150.5)"
+        }
+      }
+    },
+    {
+      "name": "quiz",
+      "type": "registry:component",
+      "title": "Quiz",
+      "description": "Inline concept check with immediate feedback and an xAPI answered statement.",
+      "registryDependencies": [
+        "learning-core"
+      ],
+      "files": [
+        {
+          "path": "components/learning/QuizBlock.tsx",
+          "type": "registry:component",
+          "target": "@components/learning/QuizBlock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flashcard",
+      "type": "registry:component",
+      "title": "Flashcard",
+      "description": "Two-sided card with an xAPI experienced statement on first reveal.",
+      "registryDependencies": [
+        "learning-core"
+      ],
+      "files": [
+        {
+          "path": "components/learning/FlashcardBlock.tsx",
+          "type": "registry:component",
+          "target": "@components/learning/FlashcardBlock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sequence",
+      "type": "registry:component",
+      "title": "Sequence builder",
+      "description": "Shuffled steps the learner drags back into order, with equivalent keyboard reordering, live-region announcements, and an xAPI answered statement carrying the submitted order.",
+      "registryDependencies": [
+        "learning-core"
+      ],
+      "dependencies": [
+        "@dnd-kit/dom",
+        "@dnd-kit/helpers",
+        "@dnd-kit/react"
+      ],
+      "files": [
+        {
+          "path": "components/learning/SequenceBuilder.tsx",
+          "type": "registry:component",
+          "target": "@components/learning/SequenceBuilder.tsx"
+        }
+      ]
+    },
+    {
+      "name": "mastery",
+      "type": "registry:component",
+      "title": "Mastery meter",
+      "description": "Per-skill mastery bars plus a learner self-rating, emitting an xAPI rated statement.",
+      "registryDependencies": [
+        "learning-core"
+      ],
+      "files": [
+        {
+          "path": "components/learning/MasteryMeter.tsx",
+          "type": "registry:component",
+          "target": "@components/learning/MasteryMeter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "learning-stream",
+      "type": "registry:component",
+      "title": "Learning stream",
+      "description": "Parses <LEARNING_COMPONENT> payloads out of streaming model output and hydrates them inline. Pulls in every component it can render.",
+      "registryDependencies": [
+        "quiz",
+        "flashcard",
+        "sequence",
+        "mastery"
+      ],
+      "files": [
+        {
+          "path": "components/learning/parse.ts",
+          "type": "registry:lib",
+          "target": "@components/learning/parse.ts"
+        },
+        {
+          "path": "components/learning/registry.tsx",
+          "type": "registry:lib",
+          "target": "@components/learning/registry.tsx"
+        },
+        {
+          "path": "components/learning/LearningStream.tsx",
+          "type": "registry:component",
+          "target": "@components/learning/LearningStream.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-core",
+      "type": "registry:component",
+      "title": "AI interface core",
+      "description": "Shared motion styles and the upstream Beautiful UI MIT notice used by Beadkit's AI interface primitives.",
+      "files": [
+        {
+          "path": "components/ai/ai-state.module.css",
+          "type": "registry:style",
+          "target": "@components/ai/ai-state.module.css"
+        },
+        {
+          "path": "components/ai/BEAUTIFUL_UI_LICENSE.txt",
+          "type": "registry:file",
+          "target": "@components/ai/BEAUTIFUL_UI_LICENSE.txt"
+        },
+        {
+          "path": "components/ai/useReducedMotion.ts",
+          "type": "registry:lib",
+          "target": "@components/ai/useReducedMotion.ts"
+        },
+        {
+          "path": "components/ai/safeExternalHref.ts",
+          "type": "registry:lib",
+          "target": "@components/ai/safeExternalHref.ts"
+        }
+      ]
+    },
+    {
+      "name": "loading-state",
+      "type": "registry:component",
+      "title": "Loading state",
+      "description": "Pixel-grid AI loading state with Drive, Dots, and Orbit variants, a shimmer label, elapsed time, and reduced-motion support.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/LoadingState.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/LoadingState.tsx"
+        }
+      ]
+    },
+    {
+      "name": "thinking",
+      "type": "registry:component",
+      "title": "Thinking",
+      "description": "Expandable AI trace for step, reasoning, search, and coding progress with reusable row data and reduced-motion support.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/ThinkingState.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/ThinkingState.tsx"
+        }
+      ]
+    },
+    {
+      "name": "thinking-examples",
+      "type": "registry:example",
+      "title": "Thinking examples",
+      "description": "Approved deterministic Thinking scenarios used by the Beadkit workbench.",
+      "registryDependencies": [
+        "thinking"
+      ],
+      "files": [
+        {
+          "path": "components/examples/scenario.ts",
+          "type": "registry:example",
+          "target": "@components/examples/scenario.ts"
+        },
+        {
+          "path": "components/examples/thinking.ts",
+          "type": "registry:example",
+          "target": "@components/examples/thinking.ts"
+        }
+      ]
+    },
+    {
+      "name": "approval-card",
+      "type": "registry:component",
+      "title": "Approval card",
+      "description": "Paged human-in-the-loop questions with single- and multi-select answers, custom input, and submission state.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/ApprovalCard.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/ApprovalCard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tool-chips",
+      "type": "registry:component",
+      "title": "Tool chips",
+      "description": "Progressively revealed tool calls with expandable details and file diff summaries.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/ToolChips.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/ToolChips.tsx"
+        }
+      ]
+    },
+    {
+      "name": "task-rows",
+      "type": "registry:component",
+      "title": "Task rows",
+      "description": "Expandable agent task rows with pending, running, failed, and completed states plus Capsule and List layouts.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/TaskRows.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/TaskRows.tsx"
+        }
+      ]
+    },
+    {
+      "name": "recommendation-card",
+      "type": "registry:component",
+      "title": "Recommendation card",
+      "description": "Agent recommendation with confidence meter, alternatives drawer, and acceptance callback.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/RecommendationCard.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/RecommendationCard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-cards",
+      "type": "registry:component",
+      "title": "Context cards",
+      "description": "Retrieved context chunks with metadata and linked source attribution.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/ContextCards.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/ContextCards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:component",
+      "title": "Code block",
+      "description": "Line-streaming code surface with typed syntax tokens, static output mode, and accessible copy feedback.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/CodeBlock.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/CodeBlock.tsx"
+        }
+      ]
+    },
+    {
+      "name": "streaming-text",
+      "type": "registry:component",
+      "title": "Streaming text",
+      "description": "Paced response text with inline citations, sources, actions, follow-ups, and reduced-motion behavior.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/StreamingText.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/StreamingText.tsx"
+        }
+      ]
+    },
+    {
+      "name": "prompt-bar",
+      "type": "registry:component",
+      "title": "Prompt bar",
+      "description": "Rounded or Pill composer with source mentions, slash commands, attachments, model selection, and dictation state.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/PromptBar.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/PromptBar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "selection-actions",
+      "type": "registry:component",
+      "title": "Selection actions",
+      "description": "Async rewrite actions for selected text with custom instructions, retry, keep, and discard controls.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/SelectionActions.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/SelectionActions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chat",
+      "type": "registry:component",
+      "title": "Chat",
+      "description": "Tabbed AI SDK chat with a reusable prompt bar, typed learning tools, streamed Markdown, and compatibility with the learning-component protocol.",
+      "registryDependencies": [
+        "prompt-bar",
+        "loading-state",
+        "code-block",
+        "learning-stream"
+      ],
+      "dependencies": [
+        "@ai-sdk/gateway",
+        "@ai-sdk/react",
+        "@shadcn/react",
+        "ai",
+        "react-markdown",
+        "remark-gfm",
+        "zod"
+      ],
+      "files": [
+        {
+          "path": "components/chat/BeadkitChat.tsx",
+          "type": "registry:component",
+          "target": "@components/chat/BeadkitChat.tsx"
+        },
+        {
+          "path": "components/chat/ChatMessage.tsx",
+          "type": "registry:component",
+          "target": "@components/chat/ChatMessage.tsx"
+        },
+        {
+          "path": "components/chat/LearningActivityPart.tsx",
+          "type": "registry:component",
+          "target": "@components/chat/LearningActivityPart.tsx"
+        },
+        {
+          "path": "components/chat/QuestionCard.tsx",
+          "type": "registry:component",
+          "target": "@components/chat/QuestionCard.tsx"
+        },
+        {
+          "path": "lib/chat-models.ts",
+          "type": "registry:lib",
+          "target": "@lib/chat-models.ts"
+        },
+        {
+          "path": "lib/chat-tools.ts",
+          "type": "registry:lib",
+          "target": "@lib/chat-tools.ts"
+        },
+        {
+          "path": "lib/chat-prompt.ts",
+          "type": "registry:lib",
+          "target": "@lib/chat-prompt.ts"
+        },
+        {
+          "path": "lib/chat-rate-limit.ts",
+          "type": "registry:lib",
+          "target": "@lib/chat-rate-limit.ts"
+        },
+        {
+          "path": "app/api/chat/route.ts",
+          "type": "registry:file",
+          "target": "app/api/chat/route.ts"
+        }
+      ]
+    },
+    {
+      "name": "diff-table",
+      "type": "registry:component",
+      "title": "Diff table",
+      "description": "AI-proposed table changes with staged reveal and row-level or bulk accept/reject decisions.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/DiffTable.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/DiffTable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "records-table",
+      "type": "registry:component",
+      "title": "Records table",
+      "description": "CRM-style sortable and selectable records grid with tags, relationship status, and links.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/RecordsTable.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/RecordsTable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "filter-table",
+      "type": "registry:component",
+      "title": "Filter table",
+      "description": "Controlled or uncontrolled status chips that filter a responsive semantic data table.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/FilterTable.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/FilterTable.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-nav",
+      "type": "registry:component",
+      "title": "Sidebar navigation",
+      "description": "Expanded or collapsed workspace navigation with sections, counts, actions, and quick search.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/SidebarNav.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/SidebarNav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "type": "registry:component",
+      "title": "Search",
+      "description": "Live command search with keyboard navigation, result callbacks, clearing, and an empty state.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/Search.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/Search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "insight-cards",
+      "type": "registry:component",
+      "title": "Insight cards",
+      "description": "Paged agent insights with responsive, pointer- and keyboard-scrubbable SVG charts.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/InsightCards.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/InsightCards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fine-tune-card",
+      "type": "registry:component",
+      "title": "Fine-tune card",
+      "description": "Controlled or uncontrolled design inspector for layout, dimensions, radius, opacity, and type.",
+      "registryDependencies": [
+        "ai-core"
+      ],
+      "files": [
+        {
+          "path": "components/ai/FineTuneCard.tsx",
+          "type": "registry:component",
+          "target": "@components/ai/FineTuneCard.tsx"
+        }
+      ]
+    }
+  ]
+}
