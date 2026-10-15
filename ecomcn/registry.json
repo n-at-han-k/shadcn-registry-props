@@ -567,6 +567,31 @@
       "type": "registry:component"
     },
     {
+      "name": "delivery-options",
+      "title": "Delivery Options",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "How it gets there: one ruled list of delivery methods, each with its arrival dates and price. Arrival is a date range from business days and a dispatch cut-off on the shopper's own clock, worked out after hydration so the server never guesses their time zone, with a countdown to the cut-off on the chosen method. Prices are right-aligned tabular figures and a free method says Free. Unavailable methods give their reason in words; loading and empty states included. The heavy rule slides to the chosen method (Motion; a fade under reduced motion).",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "radio-group",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/delivery-options/delivery-options.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/delivery-options.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "checkout"
+      ],
+      "type": "registry:block"
+    },
+    {
       "name": "address-form",
       "title": "Address Form",
       "author": "ecomcn <hello@ecomcn.dev>",
@@ -592,6 +617,32 @@
           "path": "src/registry/ecomcn/address-form/address-format.ts",
           "type": "registry:lib",
           "target": "lib/address-format.ts"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "checkout"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "payment-selector",
+      "title": "Payment Selector",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "How the shopper pays: one ruled list of methods (card, wallet, pay in instalments, bank) where the chosen one opens onto your payment provider's own fields. It never renders a card-number field: each panel is a renderPanel slot for Stripe's Payment Element, Adyen's Drop-in, PayPal or a redirect notice, kept mounted once opened so a provider iframe keeps the half-typed card. Panels sit outside the radio group, so arrow keys move between methods without reaching into a provider's fields, yet render under their own method as one object. Instalment lines from the order total, unavailable methods with their reason in words, a provider error in the open panel, loading and empty states. The heavy rule slides to the chosen method and its panel grows to its measured height (Motion; a fade under reduced motion).",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "radio-group",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/payment-selector/payment-selector.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/payment-selector.tsx"
         }
       ],
       "categories": [

@@ -27,13 +27,13 @@
 			"name": "shad-fx-engine",
 			"type": "registry:lib",
 			"title": "shad-fx: engine",
-			"description": "The frame loop, the Surface and FxEffect contracts, the useFx hook, seeded RNG and the colour helpers every renderer and effect builds on.",
+			"description": "The frame loop, the Surface and FxEffect contracts, the useFx and useFxEngine hooks, seeded RNG and the colour helpers every renderer and effect builds on.",
 			"author": "Piergiorgio Gonni <https://www.sekei.design>",
 			"categories": [
 				"shad-fx",
 				"canvas"
 			],
-			"version": "0.2.0",
+			"version": "0.3.0",
 			"files": [
 				{
 					"path": "registry/shad-fx/engine.ts",
@@ -49,6 +49,11 @@
 					"path": "registry/shad-fx/use-fx.ts",
 					"type": "registry:lib",
 					"target": "@components/shad-fx/use-fx.ts"
+				},
+				{
+					"path": "registry/shad-fx/use-fx-engine.ts",
+					"type": "registry:lib",
+					"target": "@components/shad-fx/use-fx-engine.ts"
 				}
 			]
 		},
@@ -63,7 +68,7 @@
 				"dither",
 				"canvas"
 			],
-			"version": "0.2.0",
+			"version": "0.2.1",
 			"docs": "Pair it with any effect: `const fx = useFx(fire, { height: 0.6 })`, then `<DitherCanvas effect={fx} />`. Options passed to useFx update in place without restarting the simulation. The ordered-dither rendering derives from dither-kit (MIT, https://github.com/Boring-Software-Inc/dither-kit). See https://github.com/sekeidesign/shad-fx/blob/main/NOTICE.md",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-engine",
@@ -85,6 +90,42 @@
 					"path": "registry/shad-fx/dither/index.ts",
 					"type": "registry:lib",
 					"target": "@components/shad-fx/dither/index.ts"
+				}
+			]
+		},
+		{
+			"name": "shad-fx-ascii",
+			"type": "registry:ui",
+			"title": "shad-fx: ASCII renderer",
+			"description": "AsciiCanvas: fills its positioned parent with a canvas that draws any effect as coloured glyphs, in the system monospace or a font you pass.",
+			"author": "Piergiorgio Gonni <https://www.sekei.design>",
+			"categories": [
+				"shad-fx",
+				"ascii",
+				"canvas"
+			],
+			"version": "0.1.1",
+			"docs": "Pair it with any effect: `const fx = useFx(fire, { height: 0.6 })`, then `<AsciiCanvas effect={fx} />`. The font defaults to the system monospace, so nothing is downloaded; pass a font-family name as `fontFamily`, as in CSS, to use your own. Options passed to useFx update in place without restarting the simulation.",
+			"registryDependencies": [
+				"sekeidesign/shad-fx/shad-fx-engine",
+				"sekeidesign/shad-fx/use-prefers-reduced-motion",
+				"utils"
+			],
+			"files": [
+				{
+					"path": "registry/shad-fx/ascii/painter.ts",
+					"type": "registry:lib",
+					"target": "@components/shad-fx/ascii/painter.ts"
+				},
+				{
+					"path": "registry/shad-fx/ascii/ascii-canvas.tsx",
+					"type": "registry:ui",
+					"target": "@components/shad-fx/ascii/ascii-canvas.tsx"
+				},
+				{
+					"path": "registry/shad-fx/ascii/index.ts",
+					"type": "registry:lib",
+					"target": "@components/shad-fx/ascii/index.ts"
 				}
 			]
 		},
@@ -253,7 +294,7 @@
 			"name": "shad-fx",
 			"type": "registry:ui",
 			"title": "shad-fx",
-			"description": "The dither renderer, every effect, and a barrel that re-exports them.",
+			"description": "The dither and ASCII renderers, every effect, and a barrel that re-exports them.",
 			"author": "Piergiorgio Gonni <https://www.sekei.design>",
 			"categories": [
 				"shad-fx"
@@ -262,6 +303,7 @@
 			"docs": "Everything imports from `@/components/shad-fx`. Working with an agent? `npx skills add sekeidesign/shad-fx` installs agent skills for setting the effects up and writing new ones.",
 			"registryDependencies": [
 				"sekeidesign/shad-fx/shad-fx-dither",
+				"sekeidesign/shad-fx/shad-fx-ascii",
 				"sekeidesign/shad-fx/shad-fx-fire",
 				"sekeidesign/shad-fx/shad-fx-rings",
 				"sekeidesign/shad-fx/shad-fx-beam",
