@@ -395,7 +395,7 @@
       "css": {
         "@keyframes switch-on": {
           "0%": {
-            "translate": "0 0"
+            "translate": "var(--switch-from, 0px) 0"
           },
           "55%": {
             "translate": "calc(var(--switch-end) + var(--switch-overshoot)) 0"
@@ -406,7 +406,7 @@
         },
         "@keyframes switch-off": {
           "0%": {
-            "translate": "var(--switch-end) 0"
+            "translate": "var(--switch-from, var(--switch-end)) 0"
           },
           "55%": {
             "translate": "calc(0px - var(--switch-overshoot)) 0"
@@ -540,7 +540,7 @@
       "name": "product-card",
       "type": "registry:ui",
       "title": "Product Card",
-      "description": "Compound card for commerce rows \u2014 image well, overlaid badge, and a title/subtitle/metric footer.",
+      "description": "Compound card for commerce rows \u2014 image well and a title/subtitle/metric footer.",
       "registryDependencies": [
         "utils",
         "tokens"
