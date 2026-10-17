@@ -4,6 +4,129 @@
   "homepage": "https://fibo.toribryan.com",
   "items": [
     {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert dialog",
+      "description": "Asks for a decision before something that can't be undone, with Cancel focused and no click-outside dismiss.",
+      "categories": [
+        "base-components",
+        "overlays"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-overlays-alert-dialog--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Overlays",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-overlays-alert-dialog--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/dialog.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "annotated-text",
+      "type": "registry:ui",
+      "title": "Annotated text",
+      "description": "Hand-drawn marks on a word or phrase, from underlines and circles to a highlighter, plus sticker chips that can cycle through words.",
+      "categories": [
+        "special-components",
+        "display"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/special-components-annotated-text--docs",
+      "meta": {
+        "tier": "special-components",
+        "group": "Display",
+        "docs": "https://fibo.toribryan.com/?path=/docs/special-components-annotated-text--docs"
+      },
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/annotated-text.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/merge-refs.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-highlight": "var(--highlight)",
+          "color-chip": "var(--chip)",
+          "color-destructive-subtle": "var(--destructive-subtle)",
+          "color-success": "var(--success)",
+          "color-success-subtle": "var(--success-subtle)",
+          "color-warning": "var(--warning)",
+          "color-warning-subtle": "var(--warning-subtle)",
+          "color-info": "var(--info)",
+          "color-info-subtle": "var(--info-subtle)",
+          "color-sticker-edge": "var(--sticker-edge)",
+          "color-sticker-ink": "var(--sticker-ink)",
+          "color-sticker-shadow": "var(--sticker-shadow)",
+          "stroke-destructive": "var(--destructive-icon)",
+          "stroke-success": "var(--success-icon)",
+          "stroke-warning": "var(--warning-icon)",
+          "stroke-info": "var(--info-icon)"
+        },
+        "light": {
+          "highlight": "var(--color-neutral-200)",
+          "chip": "var(--color-neutral-200)",
+          "destructive-subtle": "color-mix(in oklch, var(--color-red-700) 8%, transparent)",
+          "success": "var(--color-green-700)",
+          "success-subtle": "color-mix(in oklch, var(--color-green-700) 6%, transparent)",
+          "warning": "var(--color-amber-700)",
+          "warning-subtle": "color-mix(in oklch, var(--color-amber-700) 6%, transparent)",
+          "info": "var(--color-blue-700)",
+          "info-subtle": "color-mix(in oklch, var(--color-blue-700) 6%, transparent)",
+          "sticker-edge": "var(--color-white)",
+          "sticker-ink": "var(--color-neutral-900)",
+          "sticker-shadow": "color-mix(in oklch, var(--color-black) 30%, transparent)",
+          "destructive-icon": "var(--destructive)",
+          "success-icon": "var(--success)",
+          "warning-icon": "var(--warning)",
+          "info-icon": "var(--info)"
+        },
+        "dark": {
+          "highlight": "var(--color-neutral-700)",
+          "chip": "var(--color-neutral-800)",
+          "destructive-subtle": "color-mix(in oklch, var(--color-red-400) 20%, transparent)",
+          "success": "var(--color-green-400)",
+          "success-subtle": "color-mix(in oklch, var(--color-green-400) 20%, transparent)",
+          "warning": "var(--color-amber-400)",
+          "warning-subtle": "color-mix(in oklch, var(--color-amber-400) 20%, transparent)",
+          "info": "var(--color-blue-400)",
+          "info-subtle": "color-mix(in oklch, var(--color-blue-400) 20%, transparent)",
+          "sticker-edge": "var(--color-white)",
+          "sticker-ink": "var(--color-neutral-900)",
+          "sticker-shadow": "color-mix(in oklch, var(--color-black) 30%, transparent)",
+          "destructive-icon": "var(--destructive)",
+          "success-icon": "var(--success)",
+          "warning-icon": "var(--warning)",
+          "info-icon": "var(--info)"
+        }
+      }
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "title": "Avatar",
@@ -189,8 +312,7 @@
       "meta": {
         "tier": "base-components",
         "group": "Forms",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-calendar--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-calendar--docs"
       },
       "dependencies": [
         "lucide-react"
@@ -523,8 +645,7 @@
       "meta": {
         "tier": "base-components",
         "group": "Forms",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-date-picker--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-date-picker--docs"
       },
       "dependencies": [
         "@base-ui/react",
@@ -582,6 +703,49 @@
           "input-subtle-hover": "oklch(1 0 0 / 10%)",
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
           "destructive-border": "var(--destructive)"
+        }
+      }
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A window over the page for a short task, such as editing a few fields, that keeps focus until it's done or dismissed.",
+      "categories": [
+        "base-components",
+        "overlays"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-overlays-dialog--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Overlays",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-overlays-dialog--docs"
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-backdrop": "var(--backdrop)"
+        },
+        "light": {
+          "backdrop": "color-mix(in oklch, var(--color-neutral-950) 20%, transparent)"
+        },
+        "dark": {
+          "backdrop": "color-mix(in oklch, var(--color-black) 60%, transparent)"
         }
       }
     },
@@ -1468,6 +1632,47 @@
       }
     },
     {
+      "name": "search-input",
+      "type": "registry:ui",
+      "title": "Search input",
+      "description": "A search box with a Cmd+K shortcut and a clear button, and a compact trigger for a header whose search opens in a command menu.",
+      "categories": [
+        "base-components",
+        "forms"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-search-input--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Forms",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-search-input--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/input-group.json",
+        "https://fibo.toribryan.com/r/kbd.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/search-input.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/lib/field-size.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/lib/merge-refs.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
@@ -1661,43 +1866,6 @@
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
         }
       }
-    },
-    {
-      "name": "spinner",
-      "type": "registry:ui",
-      "title": "Spinner",
-      "description": "A spinning ring that says something is loading.",
-      "categories": [
-        "base-components",
-        "feedback"
-      ],
-      "author": "Tori Bryan",
-      "docs": "Deprecated in 0.2.0 and removed in 0.3.0. Use Progress (@fibo/progress) instead.\nMigrate: pnpm dlx jscodeshift --parser tsx -t https://fibo.toribryan.com/codemods/spinner-to-progress.js src\nDocs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-feedback-spinner--docs",
-      "meta": {
-        "tier": "base-components",
-        "group": "Feedback",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-feedback-spinner--docs",
-        "status": "deprecated",
-        "deprecated": {
-          "since": "0.2.0",
-          "removal": "0.3.0",
-          "replacement": "progress",
-          "reason": "A spinner says nothing about how long a wait will be or what is happening. An indeterminate Progress takes a label, and turns determinate once the total is known.",
-          "codemod": "spinner-to-progress"
-        }
-      },
-      "dependencies": [
-        "class-variance-authority"
-      ],
-      "registryDependencies": [
-        "utils"
-      ],
-      "files": [
-        {
-          "path": "registry/ui/spinner.tsx",
-          "type": "registry:ui"
-        }
-      ]
     },
     {
       "name": "status-dot",
@@ -1896,8 +2064,7 @@
       "meta": {
         "tier": "base-components",
         "group": "Navigation",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-navigation-tabs--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-navigation-tabs--docs"
       },
       "dependencies": [
         "@base-ui/react",
@@ -2074,7 +2241,18 @@
           "path": "registry/lib/use-media-query.ts",
           "type": "registry:lib"
         }
-      ]
+      ],
+      "cssVars": {
+        "theme": {
+          "color-chip": "var(--chip)"
+        },
+        "light": {
+          "chip": "var(--color-neutral-200)"
+        },
+        "dark": {
+          "chip": "var(--color-neutral-800)"
+        }
+      }
     },
     {
       "name": "tooltip",
@@ -2183,6 +2361,7 @@
         "theme": {
           "color-burgundy-950": "oklch(0.21 0.035 12)",
           "color-burgundy-700": "oklch(0.44 0.05 12)",
+          "color-highlight": "var(--highlight)",
           "color-success": "var(--success)",
           "color-ring-subtle": "var(--ring-subtle)",
           "color-finish-burgundy": "var(--finish-burgundy)",
@@ -2192,6 +2371,7 @@
           "animate-voice-memo-wake": "voice-memo-wake 0.6s linear"
         },
         "light": {
+          "highlight": "var(--color-neutral-200)",
           "success": "var(--color-green-700)",
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)",
           "finish-burgundy": "var(--color-burgundy-950)",
@@ -2199,6 +2379,7 @@
           "finish-burgundy-shadow": "var(--color-black)"
         },
         "dark": {
+          "highlight": "var(--color-neutral-700)",
           "success": "var(--color-green-400)",
           "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
           "finish-burgundy": "var(--color-burgundy-950)",
@@ -2243,6 +2424,184 @@
       }
     },
     {
+      "name": "app-shell",
+      "type": "registry:block",
+      "title": "App shell",
+      "description": "A workspace app's frame: a header with Command menu on Cmd+K, pages for home, projects and an inbox, and Floating nav to move between them.",
+      "categories": [
+        "blocks",
+        "shells"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Installed into components/blocks/app-shell. Render <AppShell /> where the screen goes, then edit it: it's yours. Docs: https://fibo.toribryan.com/?path=/docs/blocks-app-shell--docs",
+      "meta": {
+        "tier": "blocks",
+        "group": "Shells",
+        "docs": "https://fibo.toribryan.com/?path=/docs/blocks-app-shell--docs"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/avatar.json",
+        "https://fibo.toribryan.com/r/command-menu.json",
+        "https://fibo.toribryan.com/r/floating-nav.json",
+        "utils",
+        "https://fibo.toribryan.com/r/badge.json",
+        "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/empty-state.json",
+        "https://fibo.toribryan.com/r/kbd.json",
+        "https://fibo.toribryan.com/r/table.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/app-shell/app-shell.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/app-shell/app-shell.tsx"
+        },
+        {
+          "path": "registry/blocks/app-shell/data.ts",
+          "type": "registry:component",
+          "target": "components/blocks/app-shell/data.ts"
+        },
+        {
+          "path": "registry/blocks/app-shell/pages.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/app-shell/pages.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-ring-subtle": "var(--ring-subtle)"
+        },
+        "light": {
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
+        },
+        "dark": {
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
+        }
+      }
+    },
+    {
+      "name": "settings-page",
+      "type": "registry:block",
+      "title": "Settings page",
+      "description": "A settings screen in tabs for profile, notifications and account, with a save bar that appears on change and a confirmed danger zone.",
+      "categories": [
+        "blocks",
+        "pages"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Installed into components/blocks/settings-page. Render <SettingsPage /> where the screen goes, then edit it: it's yours. Docs: https://fibo.toribryan.com/?path=/docs/blocks-settings-page--docs",
+      "meta": {
+        "tier": "blocks",
+        "group": "Pages",
+        "docs": "https://fibo.toribryan.com/?path=/docs/blocks-settings-page--docs",
+        "status": "new"
+      },
+      "dependencies": [],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/alert-dialog.json",
+        "https://fibo.toribryan.com/r/avatar.json",
+        "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/field.json",
+        "https://fibo.toribryan.com/r/input.json",
+        "https://fibo.toribryan.com/r/radio-group.json",
+        "https://fibo.toribryan.com/r/select.json",
+        "https://fibo.toribryan.com/r/switch.json",
+        "https://fibo.toribryan.com/r/textarea.json",
+        "https://fibo.toribryan.com/r/kbd.json",
+        "https://fibo.toribryan.com/r/tabs.json",
+        "https://fibo.toribryan.com/r/toast.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/settings-page/data.ts",
+          "type": "registry:component",
+          "target": "components/blocks/settings-page/data.ts"
+        },
+        {
+          "path": "registry/blocks/settings-page/sections.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/settings-page/sections.tsx"
+        },
+        {
+          "path": "registry/blocks/settings-page/settings-page.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/settings-page/settings-page.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-destructive-ring": "var(--destructive-ring)"
+        },
+        "light": {
+          "destructive-ring": "color-mix(in oklch, var(--color-red-700) 20%, transparent)"
+        },
+        "dark": {
+          "destructive-ring": "color-mix(in oklch, var(--color-red-400) 40%, transparent)"
+        }
+      }
+    },
+    {
+      "name": "sitemap",
+      "type": "registry:block",
+      "title": "Sitemap",
+      "description": "A human-readable sitemap: a location search, popular picks, and every destination grouped by job, in columns that fold to cards on a phone.",
+      "categories": [
+        "blocks",
+        "pages"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Installed into components/blocks/sitemap. Render <Sitemap /> where the screen goes, then edit it: it's yours. Docs: https://fibo.toribryan.com/?path=/docs/blocks-sitemap--docs",
+      "meta": {
+        "tier": "blocks",
+        "group": "Pages",
+        "docs": "https://fibo.toribryan.com/?path=/docs/blocks-sitemap--docs"
+      },
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/input-group.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/sitemap/data.ts",
+          "type": "registry:component",
+          "target": "components/blocks/sitemap/data.ts"
+        },
+        {
+          "path": "registry/blocks/sitemap/parts.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/sitemap/parts.tsx"
+        },
+        {
+          "path": "registry/blocks/sitemap/sitemap.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/sitemap/sitemap.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-secondary-hover": "var(--secondary-hover)",
+          "color-ring-subtle": "var(--ring-subtle)"
+        },
+        "light": {
+          "secondary-hover": "var(--color-neutral-200)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)"
+        },
+        "dark": {
+          "secondary-hover": "var(--color-neutral-700)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)"
+        }
+      }
+    },
+    {
       "name": "theme",
       "type": "registry:theme",
       "title": "Theme",
@@ -2278,6 +2637,8 @@
           "color-muted-foreground": "var(--muted-foreground)",
           "color-accent": "var(--accent)",
           "color-accent-foreground": "var(--accent-foreground)",
+          "color-highlight": "var(--highlight)",
+          "color-chip": "var(--chip)",
           "color-destructive": "var(--destructive)",
           "color-destructive-foreground": "var(--destructive-foreground)",
           "color-destructive-subtle": "var(--destructive-subtle)",
@@ -2380,6 +2741,8 @@
           "muted-foreground": "var(--color-neutral-500)",
           "accent": "var(--color-neutral-100)",
           "accent-foreground": "var(--color-neutral-900)",
+          "highlight": "var(--color-neutral-200)",
+          "chip": "var(--color-neutral-200)",
           "destructive": "var(--color-red-700)",
           "destructive-foreground": "var(--color-neutral-50)",
           "destructive-subtle": "color-mix(in oklch, var(--color-red-700) 8%, transparent)",
@@ -2464,6 +2827,8 @@
           "muted-foreground": "var(--color-neutral-400)",
           "accent": "var(--color-neutral-800)",
           "accent-foreground": "var(--color-neutral-50)",
+          "highlight": "var(--color-neutral-700)",
+          "chip": "var(--color-neutral-800)",
           "destructive": "var(--color-red-400)",
           "destructive-foreground": "var(--color-neutral-950)",
           "destructive-subtle": "color-mix(in oklch, var(--color-red-400) 20%, transparent)",

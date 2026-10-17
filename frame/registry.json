@@ -1,0 +1,746 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "frame",
+  "homepage": "https://system.beibeidesign.com/",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "frame",
+      "type": "registry:component",
+      "title": "Frame Design System",
+      "description": "React components and design foundation for AI agent, chat, message and confirmation interfaces.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. The full install includes every component currently marked published plus FRAME_AI_GUIDE.md. Import ./frame.css once. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/chat-message.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/chat-message.tsx"
+        },
+        {
+          "path": "components/chat-panel.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/chat-panel.tsx"
+        },
+        {
+          "path": "components/chat-input.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/chat-input.tsx"
+        },
+        {
+          "path": "components/message-card.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/message-card.tsx"
+        },
+        {
+          "path": "components/status-tag.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/status-tag.tsx"
+        },
+        {
+          "path": "components/tag.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/tag.tsx"
+        },
+        {
+          "path": "components/side-panel-body.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/side-panel-body.tsx"
+        },
+        {
+          "path": "components/section-count.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/section-count.tsx"
+        },
+        {
+          "path": "components/time-pill.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/time-pill.tsx"
+        },
+        {
+          "path": "components/step-indicator.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/step-indicator.tsx"
+        },
+        {
+          "path": "components/secondary-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/secondary-button.tsx"
+        },
+        {
+          "path": "components/tertiary-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/tertiary-button.tsx"
+        },
+        {
+          "path": "components/ghost-pill-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/ghost-pill-button.tsx"
+        },
+        {
+          "path": "components/header-icon-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/header-icon-button.tsx"
+        },
+        {
+          "path": "components/menu-row.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/menu-row.tsx"
+        },
+        {
+          "path": "components/icon-badge.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/icon-badge.tsx"
+        },
+        {
+          "path": "components/text-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/text-button.tsx"
+        },
+        {
+          "path": "components/utility-chip.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/utility-chip.tsx"
+        },
+        {
+          "path": "components/summary-footer.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/summary-footer.tsx"
+        },
+        {
+          "path": "components/choice-card.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/choice-card.tsx"
+        },
+        {
+          "path": "components/review-item-card.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/review-item-card.tsx"
+        },
+        {
+          "path": "components/empty-state.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/empty-state.tsx"
+        },
+        {
+          "path": "components/version-row.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/version-row.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        },
+        {
+          "path": "FRAME_AI_GUIDE.md",
+          "type": "registry:file",
+          "target": "~/src/components/frame/FRAME_AI_GUIDE.md"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chat-message",
+      "type": "registry:component",
+      "title": "ChatMessage",
+      "description": "User and assistant message presentation with a visual streaming state. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/chat-message.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/chat-message.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chat-panel",
+      "type": "registry:component",
+      "title": "ChatPanel",
+      "description": "Conversation layout with message and composer slots and near-bottom scrolling. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/chat-panel.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/chat-panel.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chat-input",
+      "type": "registry:component",
+      "title": "ChatInput",
+      "description": "Prompt composer with callback-based sending, optional attachments and mentions. No model provider is included. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/chat-input.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/chat-input.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "message-card",
+      "type": "registry:component",
+      "title": "MessageCard",
+      "description": "Inline event notice with information, success or warning tone and an optional action slot. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/message-card.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/message-card.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "status-tag",
+      "type": "registry:component",
+      "title": "StatusTag",
+      "description": "Semantic status pill for pending, processing, review and completed states. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/status-tag.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/status-tag.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tag",
+      "type": "registry:component",
+      "title": "Tag",
+      "description": "Compact neutral label with an optional outline and tooltip. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/tag.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/tag.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "side-panel-body",
+      "type": "registry:component",
+      "title": "SidePanelBody",
+      "description": "Scrollable conversation inspector body with spacing and an automatic scrollbar. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/side-panel-body.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/side-panel-body.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "section-count",
+      "type": "registry:component",
+      "title": "SectionCount",
+      "description": "Compact count label for grouped messages, references or workflow steps. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/section-count.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/section-count.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "time-pill",
+      "type": "registry:component",
+      "title": "TimePill",
+      "description": "Compact time or effort label using the shared status presentation. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/time-pill.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/time-pill.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "step-indicator",
+      "type": "registry:component",
+      "title": "StepIndicator",
+      "description": "Visual pending, active and completed workflow step marker; pair with a text label. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/step-indicator.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/step-indicator.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "secondary-button",
+      "type": "registry:component",
+      "title": "SecondaryButton",
+      "description": "Secondary action button for prompt or workflow decisions. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/secondary-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/secondary-button.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tertiary-button",
+      "type": "registry:component",
+      "title": "TertiaryButton",
+      "description": "Outlined action button for quieter conversation and workflow actions. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/tertiary-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/tertiary-button.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "ghost-pill-button",
+      "type": "registry:component",
+      "title": "GhostPillButton",
+      "description": "Pill-shaped secondary action with optional icon and disabled state. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/ghost-pill-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/ghost-pill-button.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "header-icon-button",
+      "type": "registry:component",
+      "title": "HeaderIconButton",
+      "description": "Named icon action for conversation headers; size the mobile hit area to at least 44 pixels. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/header-icon-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/header-icon-button.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "menu-row",
+      "type": "registry:component",
+      "title": "MenuRow",
+      "description": "Workflow or conversation selection row with optional secondary text and current state. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/menu-row.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/menu-row.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "icon-badge",
+      "type": "registry:component",
+      "title": "IconBadge",
+      "description": "Decorative icon badge for message context or workflow groups; not an interactive control. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/icon-badge.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/icon-badge.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "text-button",
+      "type": "registry:component",
+      "title": "TextButton",
+      "description": "Quiet text action with disabled and disclosure attributes. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/text-button.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/text-button.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "utility-chip",
+      "type": "registry:component",
+      "title": "UtilityChip",
+      "description": "Compact context action with optional pressed state for prompt toolbars. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/utility-chip.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/utility-chip.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "summary-footer",
+      "type": "registry:component",
+      "title": "SummaryFooter",
+      "description": "Compact elapsed-time or summary line beneath a conversation result. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/summary-footer.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/summary-footer.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "choice-card",
+      "type": "registry:component",
+      "title": "ChoiceCard",
+      "description": "Selectable title and description card for choosing a prompt or workflow option. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/choice-card.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/choice-card.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "review-item-card",
+      "type": "registry:component",
+      "title": "ReviewItemCard",
+      "description": "Presentational review-result row with type, time and completed state; does not implement a review workflow. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/review-item-card.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/review-item-card.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "EmptyState",
+      "description": "Icon and explanation for an empty message, result or reference area. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/empty-state.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/empty-state.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "version-row",
+      "type": "registry:component",
+      "title": "VersionRow",
+      "description": "Version comparison and update-status presentation without a network or update client. A React component for AI agent and conversational UI.",
+      "author": "Beibei Zhang",
+      "dependencies": [
+        "react@19.2.5",
+        "react-dom@19.2.5",
+        "lucide-react@1.14.0"
+      ],
+      "docs": "React 19, ReactDOM 19, TypeScript and lucide-react 1.14.0. Import the accompanying frame.css once and wrap Frame content in a div with className=\"frame-root\". Set the wrapper background to var(--color-bg-page) and color to var(--color-text-primary), or supply a matching host surface. Add dark to an ancestor or that wrapper for dark mode. CSS is generated from Tailwind 3 and scoped; it does not replace your Tailwind config or global theme. Optional microphone and voice features are off in examples. Import ./frame.css next to the installed components. Review LICENSE at the source repository.",
+      "files": [
+        {
+          "path": "components/version-row.tsx",
+          "type": "registry:file",
+          "target": "~/src/components/frame/version-row.tsx"
+        },
+        {
+          "path": "styles/frame.css",
+          "type": "registry:file",
+          "target": "~/src/components/frame/frame.css"
+        }
+      ]
+    }
+  ]
+}

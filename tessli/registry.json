@@ -1,0 +1,974 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "tessli",
+  "homepage": "https://tessli.vercel.app/library",
+  "items": [
+    {
+      "name": "auth-forms",
+      "type": "registry:block",
+      "title": "Sign-in and sign-up with validation",
+      "description": "Sign-in and sign-up pages that check each field when people leave it, explain every error in text next to its field, and show progress, failure and success plainly.",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/auth-forms/auth-forms.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["auth"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/auth-forms",
+      "meta": {
+        "tessli": {
+          "id": "auth-forms",
+          "kind": "page",
+          "category": "auth",
+          "title": "Sign-in and sign-up with validation",
+          "summary": "Sign-in and sign-up pages that check each field when people leave it, explain every error in text next to its field, and show progress, failure and success plainly.",
+          "use_when": [
+            "The product signs people in with an email address and password, and creates accounts the same way.",
+            "You need the sign-in and sign-up screens to share one structure, so people who switch between them are not surprised."
+          ],
+          "avoid_when": [
+            "Sign-in is only through single sign-on or a social provider; show one clear button per provider instead of an empty form.",
+            "The product uses passwordless email links or passkeys only; ask for the email address alone and explain what happens next.",
+            "Sign-up needs several steps (workspace, plan, invitations); keep this as the first step and move the rest after the account exists."
+          ],
+          "rules": [
+            "A-04",
+            "C-02",
+            "ST-03",
+            "ST-04",
+            "W-04",
+            "A-05",
+            "H-01",
+            "A-01"
+          ],
+          "ai_default": "A centred card on a gradient background with a logo, placeholder-only inputs, a \"Remember me\" checkbox, two equally loud buttons (\"Sign in\" and \"Sign up\"), and validation that runs only on submit and shows a red border or a red \"Invalid input\" banner at the top of the form, with no word about which field is wrong or what to do.",
+          "why_this_is_better": [
+            "Every field has a visible label; hints and errors sit under their field and are tied to it with aria-describedby, so a screen reader reads the error with the field.",
+            "A field is checked when people leave it with a value, not while they type and not only on submit. Once an error shows, it clears the moment the value is fixed.",
+            "Errors carry an icon and words as well as colour, and say what to do (\"Enter an email address in the format name@example.com\", \"Use at least 12 characters. This one has 9.\").",
+            "The line under each field is reserved, and form-level messages appear below the button, so validation and failures never push the fields or the button down.",
+            "Sign-in only checks that a password was typed; length rules apply at sign-up, where a password is created. The one rule is length, with no composition rules.",
+            "A failed sign-in says the outcome first (\"You’re not signed in\"), explains why without revealing which field was wrong, and offers a password reset link.",
+            "A Show button reveals the password instead of a second \"confirm password\" field, and the inputs use autocomplete values that password managers recognise.",
+            "Sign-up success replaces the form with \"Check your email\", names the address used, and moves focus to that heading."
+          ],
+          "failures": [
+            "Validating on every keystroke, which shows \"invalid email\" before people have finished typing.",
+            "Disabling the submit button until the form is valid, which hides why nothing happens.",
+            "Applying sign-up password rules at sign-in, which locks out people whose password predates the rules.",
+            "Saying which of email or password was wrong, which tells an attacker which addresses have accounts.",
+            "Removing the reserved message line to save space, so the form jumps as errors come and go.",
+            "Blocking paste into the password field, which breaks password managers."
+          ],
+          "states": [
+            "sign-in",
+            "sign-in-errors",
+            "signing-in",
+            "sign-in-failed",
+            "sign-up",
+            "sign-up-errors",
+            "check-email"
+          ],
+          "responsive": {
+            "desktop": "A single form column (at most 28rem) in a bordered panel, centred under the product name; labels sit above full-width inputs and the one primary button spans the column.",
+            "mobile": "Below 640px the panel border and padding go away and the form is the page, with full-width 44px inputs and button and the 16px text that stops phones zooming in on focus."
+          },
+          "a11y": [
+            "Every input has a visible label element; hints and errors are linked with aria-describedby and invalid fields set aria-invalid.",
+            "Errors show an icon and text, not only a red border, and the form-level message names the fields to fix.",
+            "On submit with errors, focus moves to the first invalid field; progress, failure and success are announced through one polite live region below the button.",
+            "The password toggle is a real button whose name reads \"Show password\" or \"Hide password\", and the submit button keeps focus while the request runs.",
+            "Inputs, the password toggle, the reset link and the switch link are at least 44px tall and show a focus ring; the spinner stops under reduced motion while the button text still says what is happening."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "closing-cta-footer",
+      "type": "registry:block",
+      "title": "Closing CTA and footer",
+      "description": "One final action tied to the page's job, then a compact footer with a few grouped links, a real contact route and the legal links.",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/closing-cta-footer/closing-cta-footer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["cta"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/closing-cta-footer",
+      "meta": {
+        "tessli": {
+          "id": "closing-cta-footer",
+          "kind": "section",
+          "category": "cta",
+          "title": "Closing CTA and footer",
+          "summary": "One final action tied to the page's job, then a compact footer with a few grouped links, a real contact route and the legal links.",
+          "use_when": [
+            "A marketing, pricing or product page ends and the reader should have one clear next step.",
+            "The site needs a footer that helps people find a few things (pricing, help, contact, legal), not a sitemap."
+          ],
+          "avoid_when": [
+            "The page's job is not to convert (documentation, help, legal); leave out the CTA and keep the footer only.",
+            "The site has dozens of destinations people browse from the footer; give it a proper sitemap page and link to it.",
+            "The last action on the page is already the same as the hero's with nothing new to say; restate why to act, or drop the CTA."
+          ],
+          "rules": [
+            "H-01",
+            "W-01",
+            "W-02",
+            "W-05",
+            "S-02",
+            "K-02",
+            "R-01",
+            "A-01"
+          ],
+          "ai_default": "A centred \"Ready to get started?\" band on a gradient with two equal filled buttons (\"Get started\" and \"Book a demo\") repeating the hero word for word, followed by a five-column link-farm footer of every page, a newsletter field, a row of social-media icons and an arrow after every link.",
+          "why_this_is_better": [
+            "The closing heading restates the page's point as a reason to act now, and the single primary action says what happens next (\"Create a free workspace\").",
+            "The alternative is a quiet text link (\"Compare plans\"), so the page ends on one obvious step instead of a choice between two equal buttons.",
+            "A short note under the action removes the last doubt (price, card, commitment) and only says what is true.",
+            "The footer groups a handful of links people actually look for, names a real contact route with who answers and how fast, and keeps legal links in their own row.",
+            "Only the link that leaves the site carries ↗, with a screen-reader note; nothing else gets an arrow, and there are no icon-only social links."
+          ],
+          "failures": [
+            "Repeating the hero's headline and buttons word for word, so the closing section adds nothing.",
+            "Adding a second filled button, or styling the secondary link as a button of equal weight.",
+            "Turning the footer into a sitemap with five or more columns, or adding social icons with no visible labels.",
+            "Writing a reassurance note (\"Cancel anytime\", \"No card needed\") that the product's terms do not support.",
+            "Pointing the contact line at an inbox nobody reads, or promising a reply time nobody keeps."
+          ],
+          "states": ["default", "footer-only"],
+          "responsive": {
+            "desktop": "The closing heading, text and actions share one left edge with text capped at a readable measure; the footer puts the name, description and contact in one column beside two to four link groups, with copyright and legal links in a row below.",
+            "mobile": "The primary action becomes full width with the text link below it on the same left edge; the footer stacks name and contact first, link groups in two columns, then copyright and legal links."
+          },
+          "a11y": [
+            "The closing section is labelled by its h2; the footer is a footer element with two navigation landmarks, \"Footer\" and \"Legal\".",
+            "Each link group is a list labelled by its visible group name (aria-labelledby), so screen readers announce \"Product, list, 3 items\".",
+            "Every footer link, the brand link and the text link are at least 44px tall with a visible focus ring; the mailto link in the contact sentence is an inline link.",
+            "The external link's ↗ is aria-hidden and replaced by \"(another site)\" for screen readers; nothing relies on colour or hover alone."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "dashboard-overview",
+      "type": "registry:block",
+      "title": "Dashboard overview",
+      "description": "Opens on the one question the dashboard exists to answer, gives the answer in a sentence, backs it with two or three compared metrics and a trend, and lists what needs attention.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/dashboard-overview/dashboard-overview.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["dashboards"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/dashboard-overview",
+      "meta": {
+        "tessli": {
+          "id": "dashboard-overview",
+          "kind": "page",
+          "category": "dashboards",
+          "title": "Dashboard overview",
+          "summary": "Opens on the one question the dashboard exists to answer, gives the answer in a sentence, backs it with two or three compared metrics and a trend, and lists what needs attention.",
+          "use_when": [
+            "People open the dashboard with one recurring question, such as whether work is on time, money is on budget or a service is healthy.",
+            "The figures have a meaningful baseline (last period, a target) and there are specific items someone can act on."
+          ],
+          "avoid_when": [
+            "People come to explore many unrelated metrics; give them a report builder or a data table with filters instead.",
+            "The data is real-time operations monitoring where seconds matter; use a status board with alerts.",
+            "There is no baseline or target to compare against yet; show the raw list until there is one."
+          ],
+          "rules": [
+            "H-01",
+            "W-01",
+            "W-03",
+            "W-04",
+            "T-03",
+            "C-02",
+            "ST-01",
+            "R-01"
+          ],
+          "ai_default": "A \"Dashboard\" heading over four identical KPI cards (total users, revenue, sessions, conversion) each with a big number and a green or red \"+12.5%\" badge with an arrow, a large area chart with a gradient fill and no stated baseline, a \"Recent activity\" feed, and no loading, empty or error state.",
+          "why_this_is_better": [
+            "The heading is the question people open the page to answer, and the first sentence answers it, so most visits end after one line.",
+            "Three metrics instead of four interchangeable cards, each with its baseline and target written out (\"Up 8 points from 74% last week\", \"Target 80% or more\"), so a change can be judged without guessing what it is compared with.",
+            "Changes are written in words that say which way is better (\"0.5 days faster\"), not a coloured percentage with an arrow, so meaning survives greyscale and screen readers.",
+            "The trend is a table with a bar in each row and the value written beside it, so the chart is its own text alternative and needs no chart library.",
+            "A short list of the items that need action, longest wait first, with one primary action that clears it, turns the answer into something to do.",
+            "Loading keeps metric labels and row positions in place; empty and error each say why and offer one way forward."
+          ],
+          "failures": [
+            "Adding a fourth and fifth metric until the answer is buried in a KPI grid again.",
+            "Showing a change without its baseline (\"+8\") or colouring it green when lower would be better.",
+            "Writing a heading like \"Overview\" that answers nothing, or an answer sentence that no longer matches the figures.",
+            "Turning the attention list into an activity feed of everything that happened.",
+            "Shipping the demo figures, or a target nobody agreed, as if they were real."
+          ],
+          "states": ["default", "loading", "empty", "error"],
+          "responsive": {
+            "desktop": "The question, answer and period run across the top at reading width; the metrics form one bordered strip of aligned columns; below, the attention list takes the wider column beside the trend chart.",
+            "mobile": "One column in priority order (question and answer first), then metrics stacked with dividers, the attention list with full-width 44px rows and a full-width action, then the trend as compact horizontal bars that fit 320px."
+          },
+          "a11y": [
+            "The question is the page heading (h1 by default, h2 under a page title); every region is a section labelled by its own heading.",
+            "Metrics are a description list; changes and targets are text, never colour or an arrow alone.",
+            "The chart is a table with row headers for each period and the value as text; bars, the dashed target line and its legend swatch are hidden from assistive technology, and the target is stated in text.",
+            "Loading is announced through a status region and marked aria-busy; empty and error messages appear in a polite live region, and the error names its cause in text as well as colour.",
+            "Each item that needs attention is one link at least 44px tall with a visible focus ring."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "data-table",
+      "type": "registry:component",
+      "title": "Data table with filters and states",
+      "description": "A compact, sortable table with labelled search and one filter, and designed loading, empty, no-results and error states that keep the layout still.",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/data-table/data-table.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["tables"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/data-table",
+      "meta": {
+        "tessli": {
+          "id": "data-table",
+          "kind": "component",
+          "category": "tables",
+          "title": "Data table with filters and states",
+          "summary": "A compact, sortable table with labelled search and one filter, and designed loading, empty, no-results and error states that keep the layout still.",
+          "use_when": [
+            "People scan, compare and open records that share the same few attributes, such as notes, invoices, members or orders.",
+            "The full list fits in the browser (up to a few hundred rows), so search, filter and sort can run on the client.",
+            "One or two columns carry the comparison (status, a count, a date) and deserve sorting."
+          ],
+          "avoid_when": [
+            "Records have little in common or are read rather than compared; use a list of cards or a feed instead.",
+            "There are thousands of rows; move search, sort and pagination to the server and keep these states.",
+            "People need to edit cells in place, select many rows or reorder columns; use a grid component built for that.",
+            "There are only two or three records; a short list reads better than a table."
+          ],
+          "rules": [
+            "ST-01",
+            "ST-02",
+            "ST-03",
+            "ST-04",
+            "S-03",
+            "T-03",
+            "A-05",
+            "R-02"
+          ],
+          "ai_default": "A bare table with roomy rows and every column in the same grey, a search box with only a placeholder, unsortable headers or click-to-sort with no aria-sort, a centred spinner (or nothing) while loading, one \"No data\" message for an empty account, a search with no matches and a failed request alike, and a table that either overflows the phone screen or is shrunk to tiny text.",
+          "why_this_is_better": [
+            "Five states are designed, not one. Loading keeps the header and placeholder rows so nothing jumps; first use offers the next step; no results repeats the query and clears filters in one action; an error says what failed and offers a retry.",
+            "Sorting is a native button inside each header, and the sorted header carries aria-sort, so the order is announced as well as shown by the chevron.",
+            "The search and the filter have visible labels, and the result count (\"Showing 3 of 12 notes\") sits in a polite live region, so screen-reader users hear the effect of each change without losing focus.",
+            "Rows stay at 44px with compact padding, numbers are right-aligned in tabular figures, and the first column is a real row header that links to the record, so the table is quick to scan and compare.",
+            "On narrow screens the table scrolls inside its own frame with the first column pinned and a text hint, so the page never scrolls sideways and every row stays identifiable.",
+            "Placeholder rows do not pulse or shimmer; nothing moves unless someone acts."
+          ],
+          "failures": [
+            "Dropping the loading rows for a spinner, which collapses the frame and makes the page jump when data arrives.",
+            "Reusing the first-use message for no results, so people with a typo are told they have no data.",
+            "Repeating the header's primary action inside the empty state, so two buttons compete for the same job.",
+            "Adding more columns until the pinned column and one other are all a phone can show; move secondary detail to the record page instead.",
+            "Turning rows into clickable divs instead of linking the row header, which breaks keyboard use, middle click and screen-reader row navigation.",
+            "Colouring statuses without the status text, which fails in greyscale and for screen readers."
+          ],
+          "states": ["default", "loading", "empty", "no-results", "error"],
+          "responsive": {
+            "desktop": "Title, description and the one primary action share a row above a labelled search box and filter; the table fills the width with compact 44px rows, text columns left and numbers right.",
+            "mobile": "Header, action, search and filter stack full width in that order; the table scrolls sideways inside its bordered frame with the first column pinned and a line saying it scrolls, while the page itself never scrolls sideways."
+          },
+          "a11y": [
+            "The section and the table are labelled by the visible heading; the first cell of each row is a th with scope=\"row\" and the column headers have scope=\"col\".",
+            "Sortable headers are native buttons; the sorted column's th has aria-sort, and the chevron icon is decorative.",
+            "Search and filter have visible labels and sit in a form with role=\"search\"; Enter does not reload the page.",
+            "The result count is a polite live region that also reports loading, no data and a failed load; the error state adds a text label above its title, so it never relies on colour.",
+            "When the table overflows, its scroll container becomes a labelled, focusable region so keyboard users can scroll it; focus rings are visible on every control.",
+            "Clearing filters from the no-results state moves focus to the search box, because the button that was pressed disappears.",
+            "Placeholder rows are hidden from assistive technology and the table is marked aria-busy while loading."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "Empty state that says why and what next",
+      "description": "Replaces a list, table or feed that has nothing to show, and tells people why it is empty and the one thing to do next.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/empty-state/empty-state.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["empty-states"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/empty-state",
+      "meta": {
+        "tessli": {
+          "id": "empty-state",
+          "kind": "component",
+          "category": "empty-states",
+          "title": "Empty state that says why and what next",
+          "summary": "Replaces a list, table or feed that has nothing to show, and tells people why it is empty and the one thing to do next.",
+          "use_when": [
+            "A region that normally holds content is empty on first use, after a search or filter, or because loading failed.",
+            "There is one clear next action, such as creating, importing, clearing a filter or retrying."
+          ],
+          "avoid_when": [
+            "The whole screen is empty because the user has no access; show a permission message with who to ask instead.",
+            "Content is still loading; show a skeleton or progress state, not an empty state.",
+            "The empty region is minor (a sidebar list, a small widget); a single muted sentence is enough."
+          ],
+          "rules": [
+            "H-02",
+            "S-02",
+            "C-02",
+            "W-02",
+            "ST-01",
+            "ST-02",
+            "ST-04",
+            "A-01"
+          ],
+          "ai_default": "A large centred illustration or icon, the headline \"Nothing here yet\", a vague line such as \"Get started by creating your first item\", and the same generic message for first use, no search results and failed loads.",
+          "why_this_is_better": [
+            "The title names what is empty in the user's words (\"No notes in Field research yet\"), so it reads correctly out of context and to screen readers.",
+            "First use, no results and error are different states with different copy and actions, because they have different causes.",
+            "No results echoes the query and says what the search covered, so people can tell a typo from missing content.",
+            "The error state says what failed and what is safe (\"Nothing was deleted\") before offering a retry, and is labelled in text, not only by colour.",
+            "It sits where the content would be, left-aligned with the page, instead of a centred illustration that pushes the action below the fold.",
+            "One primary action, at most one secondary, both at least 44px tall."
+          ],
+          "failures": [
+            "Adding an illustration that is larger than the message and pushes the action off small screens.",
+            "Repeating a primary action that the toolbar above already offers, so two buttons compete for the same job.",
+            "Using one generic \"No data\" message for every cause.",
+            "Turning the error state into a red banner with no explanation of what is safe or what to do."
+          ],
+          "states": ["first-use", "no-results", "error"],
+          "responsive": {
+            "desktop": "Bordered region aligned with the surrounding content; actions sit side by side under the text, which keeps a readable measure.",
+            "mobile": "Same order; padding tightens and actions become full-width buttons stacked in priority order."
+          },
+          "a11y": [
+            "A real heading (level set by headingLevel to match the page outline) names the region through aria-labelledby.",
+            "The error variant adds a text label above the title, so the state is not conveyed by colour alone.",
+            "Actions are native buttons or links at least 44px tall with a visible focus ring.",
+            "If the state appears after an action (a search, a failed save), announce it from your own live region; the component does not announce on its own."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "faq",
+      "type": "registry:block",
+      "title": "FAQ that answers real objections",
+      "description": "Answers the questions buyers ask before committing, with direct answers and a real contact route, using native disclosure widgets.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/faq/faq.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["faq"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/faq",
+      "meta": {
+        "tessli": {
+          "id": "faq",
+          "kind": "section",
+          "category": "faq",
+          "title": "FAQ that answers real objections",
+          "summary": "Answers the questions buyers ask before committing, with direct answers and a real contact route, using native disclosure widgets.",
+          "use_when": [
+            "A marketing or pricing page has four to eight recurring questions about data, billing, cancellation or access.",
+            "The answers are short and stable enough to live on the page."
+          ],
+          "avoid_when": [
+            "The questions need long, step-by-step answers; link to documentation instead.",
+            "You have fewer than three real questions; answer them in the page copy.",
+            "The content is support troubleshooting that changes often; keep it in a help centre."
+          ],
+          "rules": [
+            "H-02",
+            "S-02",
+            "K-01",
+            "W-04",
+            "R-03",
+            "M-01",
+            "M-02",
+            "A-06"
+          ],
+          "ai_default": "A centred \"Frequently Asked Questions\" heading over a JavaScript accordion of filler questions such as \"What is [product]?\" and \"Why choose us?\", answered with marketing copy, only one item open at a time, and no way to reach a person.",
+          "why_this_is_better": [
+            "Questions are real objections (export, cancellation, billing, sharing, offline) in the words a buyer would use.",
+            "Each answer starts with the direct answer (\"Yes.\", \"Only the people you invite.\") before the detail.",
+            "Native details and summary elements need no JavaScript, work with the keyboard and screen readers out of the box, and let people open several answers at once.",
+            "A heading that says what the questions are about, plus a real contact route for anything not covered.",
+            "On wide screens the heading column stays in view beside the questions instead of a centred single column."
+          ],
+          "failures": [
+            "Padding the list with questions nobody asks to make the section look complete.",
+            "Hiding prices, limits or cancellation terms in an FAQ instead of stating them where people decide.",
+            "Replacing the native disclosure with a custom accordion that loses keyboard and find-in-page support.",
+            "Linking the contact line to a form that does not exist yet."
+          ],
+          "states": ["default"],
+          "responsive": {
+            "desktop": "Two columns from 1024px; the heading, description and contact route stay in view beside the questions.",
+            "mobile": "One column; the heading block comes first, then full-width questions with 44px touch targets."
+          },
+          "a11y": [
+            "The section is labelled by its h2; questions are summary elements inside details, so their expanded state is announced natively.",
+            "The plus icon is decorative (aria-hidden) and rotates into a cross; the open state never relies on the icon alone.",
+            "Each summary is at least 44px tall and shows a focus ring.",
+            "The rotation honours reduced motion."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "feature-evidence",
+      "type": "registry:block",
+      "title": "Feature section, evidence-led",
+      "description": "Shows each feature with the artefact that proves it (a UI fragment, a before/after, an exact limit), giving the most important feature the most room.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/feature-evidence/feature-evidence.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["features"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/feature-evidence",
+      "meta": {
+        "tessli": {
+          "id": "feature-evidence",
+          "kind": "section",
+          "category": "features",
+          "title": "Feature section, evidence-led",
+          "summary": "Shows each feature with the artefact that proves it (a UI fragment, a before/after, an exact limit), giving the most important feature the most room.",
+          "use_when": [
+            "A marketing or product page has to explain two to four features that a buyer will check before switching.",
+            "Each feature can be shown with something concrete from the product, such as a screen fragment, an output or a stated limit.",
+            "The features differ in importance and the page should say which one matters most."
+          ],
+          "avoid_when": [
+            "You cannot yet show the feature working; ship a short description list and add evidence once it exists.",
+            "There are more than about six features of equal weight; use a compact list or a comparison table.",
+            "The section is a step-by-step setup flow; use a numbered sequence instead."
+          ],
+          "rules": [
+            "K-04",
+            "W-01",
+            "W-03",
+            "C-03",
+            "H-02",
+            "T-01",
+            "T-03",
+            "R-01"
+          ],
+          "ai_default": "A centred \"Features\" heading over three identical rounded cards, each with a primary-coloured icon in a tinted circle, a two-word title such as \"Lightning fast\" or \"Secure by default\" and one line of filler, often with a \"Learn more →\" link on every card.",
+          "why_this_is_better": [
+            "Each feature is shown with an artefact a reader can check (a version history, the exported file, a number with a unit) instead of an icon and an adjective.",
+            "Emphasis follows importance; the lead feature gets the widest column and a bigger heading, supporting features sit below it, and small features become a plain list.",
+            "Headings state the claim (\"Every edit is kept, and any version can be restored\"), so they still make sense out of context and would not fit another product.",
+            "Limits are written as exact values in tabular figures, in a row layout, not implied by \"Unlimited\" or a tick.",
+            "The section uses no accent colour at all; hierarchy comes from size, width, borders and order, so it holds in any theme.",
+            "Demo content is labelled fictional in a footnote, so placeholder proof cannot ship as if it were real."
+          ],
+          "failures": [
+            "Swapping the artefacts back for icons, which turns the section into the default it replaces.",
+            "Using a mock-up, number or screenshot that the product cannot actually produce, or leaving the demo limits in place.",
+            "Giving every feature the lead treatment, so nothing reads as most important.",
+            "Putting live, clickable controls inside an artefact, so people try to use a picture of the product.",
+            "Removing the captions, which leaves screen-reader users and skimmers without the point of each artefact."
+          ],
+          "states": ["default", "two-features"],
+          "responsive": {
+            "desktop": "From 1024px the lead feature puts its text beside a wider artefact; two supporting features sit in two columns from 768px, and the remaining features form a three- or two-column list chosen so none is left alone on a row. The before/after goes side by side only when its own container is at least 36rem wide.",
+            "mobile": "One column in priority order, lead first; each feature's heading and text come before its artefact, limits stay large, and the before/after stacks so both panels keep a readable width."
+          },
+          "a11y": [
+            "The section is labelled by its h2; every feature title is an h3, including the \"also\" list heading.",
+            "Each artefact is a figure with a figcaption that states what it shows; artefacts hold no focusable controls.",
+            "Added and removed lines in the diff are announced as \"Added\" and \"Removed\" and shown with + and − marks and strike-through, not by colour; the version being viewed is labelled \"Viewing\" in text.",
+            "Checklist marks in the before/after are decorative; their state is given in hidden text (\"Done\", \"To do\").",
+            "The only links are real links at least 44px tall with a visible focus ring."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "mobile-list-detail",
+      "type": "registry:block",
+      "title": "Mobile list to detail",
+      "description": "A list of records that becomes one view at a time on phones, with large rows and a back button, and two panes side by side from 768px.",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/mobile-list-detail/mobile-list-detail.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["mobile"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/mobile-list-detail",
+      "meta": {
+        "tessli": {
+          "id": "mobile-list-detail",
+          "kind": "page",
+          "category": "mobile",
+          "title": "Mobile list to detail",
+          "summary": "A list of records that becomes one view at a time on phones, with large rows and a back button, and two panes side by side from 768px.",
+          "use_when": [
+            "People scan a list of records (notes, messages, orders, tickets) and open one at a time to read or act on it.",
+            "The same screen has to work on phones and on wide screens without a separate mobile app.",
+            "Each record has a short title and one or two lines that tell rows apart."
+          ],
+          "avoid_when": [
+            "People compare many records across columns; use a data table instead.",
+            "Records are edited side by side or several at once; a list and one detail view will slow them down.",
+            "The list has fewer than three records; show them all on one page."
+          ],
+          "rules": [
+            "R-01",
+            "R-03",
+            "A-01",
+            "A-06",
+            "A-05",
+            "K-01",
+            "H-02",
+            "ST-04"
+          ],
+          "ai_default": "The desktop layout shrunk to fit: a narrow sidebar list squeezed beside an unreadable detail column at 390px, or both stacked so the detail sits below a long list, with small rows, the selected item marked only by a tinted background, and no way back except the browser.",
+          "why_this_is_better": [
+            "On phones the list and the detail are separate views; opening a row replaces the list instead of pushing the content below the fold.",
+            "Rows are full-width buttons at least 44px tall, with the title, a date and two lines of content, so people can tell records apart before they open one.",
+            "The detail view has a visible back button that names where it goes (\"All notes\") and returns focus to the row that was opened.",
+            "From 768px both panes fit, so the list stays in view beside the open record and the back button disappears.",
+            "The selected row is marked with a bar, a fill, bolder text and aria-current, not by colour alone.",
+            "Empty and failed loads replace the list with a message that says what happened and one way forward."
+          ],
+          "failures": [
+            "Keeping the selection only in component state in a real app. Use your router so links, refresh and the browser Back button work; this item stays state-driven so it installs anywhere.",
+            "Stacking the detail below the list on phones, so opening a row does nothing visible.",
+            "Dropping the back button because \"the browser has one\", or labelling it only with an arrow icon.",
+            "Moving focus into the detail on wide screens, which loses people's place in the list while they compare records.",
+            "Shrinking row padding to fit more rows on a phone until the targets fall under 44px."
+          ],
+          "states": ["default", "detail", "empty", "error"],
+          "responsive": {
+            "desktop": "From 768px, a bordered two-pane layout under one header with the list name and count; the list (up to 22rem) sits beside the open record, which shows the first record until another is chosen.",
+            "mobile": "Below 768px, one view at a time, edge to edge. The list shows full-width rows; opening one shows the record with a back button at the top, and the list header is kept only for screen readers."
+          },
+          "a11y": [
+            "The list name is the section's heading and labels the list; the open record is an article labelled by its own heading, one level deeper.",
+            "Rows are native buttons, at least 44px tall, with a visible focus ring; the open row has aria-current and a visible bar.",
+            "On phones, opening a row moves focus to the record's heading and Back returns it to that row, so focus never lands on a hidden view.",
+            "On wide screens focus stays in the list and a polite live region announces which record is shown.",
+            "The error message starts with a text label, so it does not rely on colour."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "pricing-tiers",
+      "type": "registry:block",
+      "title": "Pricing tiers compared on the limits that matter",
+      "description": "Two or three plans compared on the few limits buyers actually weigh, with one recommended plan and an honest billing-period switch.",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/pricing-tiers/pricing-tiers.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["pricing"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/pricing-tiers",
+      "meta": {
+        "tessli": {
+          "id": "pricing-tiers",
+          "kind": "section",
+          "category": "pricing",
+          "title": "Pricing tiers compared on the limits that matter",
+          "summary": "Two or three plans compared on the few limits buyers actually weigh, with one recommended plan and an honest billing-period switch.",
+          "use_when": [
+            "The product has two or three self-serve plans that differ on a few clear limits.",
+            "Monthly and annual billing are both offered and the difference should be visible before checkout."
+          ],
+          "avoid_when": [
+            "There are more than three plans, or pricing is usage-based; use a calculator or a full comparison table.",
+            "Every plan needs a sales conversation; show what is included and one contact route instead.",
+            "The plans differ on dozens of features; link to a full comparison table below a short summary."
+          ],
+          "rules": [
+            "H-01",
+            "T-03",
+            "C-02",
+            "C-04",
+            "K-03",
+            "W-02",
+            "ST-03",
+            "R-03"
+          ],
+          "ai_default": "Three identical rounded cards, the middle one raised with a gradient border and a \"Most popular\" pill, a dozen ticked features per card that mostly repeat, the same \"Get started\" button on every card, and an annual toggle whose saving is a hard-coded percentage.",
+          "why_this_is_better": [
+            "Plans are compared on three named limits, written out as values (\"Up to 50\", \"1 year\") in the same order on every plan, so the difference is readable at a glance.",
+            "Only the recommended plan gets the primary button; it is marked with a text label as well as a border, so the recommendation does not depend on colour.",
+            "The annual saving is computed from the prices, and the billed-yearly total is shown, so the switch never promises a discount the numbers do not support.",
+            "Each call to action says what happens next (\"Start 14-day trial\", \"Choose Business\") instead of repeating \"Get started\".",
+            "A footnote states taxes and trial terms near the price, not on another page."
+          ],
+          "failures": [
+            "Adding a fourth plan to the same grid, which breaks the comparison on tablets and phones.",
+            "Listing features every plan has, which buries the limits that differ.",
+            "Marking more than one plan as recommended, or giving every plan a primary button.",
+            "Typing a saving percentage by hand that no longer matches the prices."
+          ],
+          "states": ["default", "annual"],
+          "responsive": {
+            "desktop": "Plans side by side (three plans from 1024px, two from 768px), each a subgrid over the same rows so names, prices, actions and limits line up; the billing switch sits beside the heading.",
+            "mobile": "Plans stack in order with the recommended plan unchanged in position; each keeps its own labelled list of limits, so nothing depends on column alignment."
+          },
+          "a11y": [
+            "The billing period is a fieldset with a visible legend and two native radio buttons, operable with arrow keys and labelled with the saving in text.",
+            "Plan names are h3 headings inside a list; prices and limits are text, and the recommended plan is named in text, not only by its border.",
+            "Calls to action are links at least 44px tall with a visible focus ring."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "product-hero",
+      "type": "registry:block",
+      "title": "Product hero with real UI",
+      "description": "A landing-page hero that says what the product does, offers one primary action and shows the product itself, composed from interface components.",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/product-hero/product-hero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["hero"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/product-hero",
+      "meta": {
+        "tessli": {
+          "id": "product-hero",
+          "kind": "section",
+          "category": "hero",
+          "title": "Product hero with real UI",
+          "summary": "A landing-page hero that says what the product does, offers one primary action and shows the product itself, composed from interface components.",
+          "use_when": [
+            "The top of a landing page for a product people use on screen, where seeing the interface answers \"what is it?\" faster than copy.",
+            "You can compose a representative view of the product from your own components and tokens, with content that looks like real use."
+          ],
+          "avoid_when": [
+            "The product has no interface worth showing (an API, a service); show a short code sample or the outcome instead.",
+            "The view you would show is not built yet; describe what exists and leave the frame out rather than mocking up features.",
+            "A page deeper in the site (docs, pricing); use a plain heading and description there, not a hero."
+          ],
+          "rules": [
+            "H-01",
+            "W-01",
+            "W-02",
+            "W-03",
+            "C-03",
+            "C-04",
+            "S-02",
+            "R-01"
+          ],
+          "ai_default": "A centred headline such as \"Supercharge your workflow\" over a purple-to-blue gradient blob, a vague subline, two equal buttons (\"Get started\" and \"Learn more\"), a row of grey customer logos and \"Trusted by 10,000+ teams\", and a tilted, glowing screenshot or an abstract 3D shape where the product should be.",
+          "why_this_is_better": [
+            "The headline says what the product does for whom, so a visitor knows within one line whether to keep reading.",
+            "One primary button names what happens next; the secondary route is a quiet underlined link, so the two never compete.",
+            "The product is shown as it is used, with a notebook open and believable notes, instead of a gradient or a decorative shape standing in for it.",
+            "The frame is built from the same semantic tokens as the page, so it follows the theme (light or dark) and stays sharp at every width, unlike a screenshot.",
+            "The frame recomposes as it narrows (the list alone on phones, then the open note, then the notebooks column) instead of shrinking a desktop picture until its text is unreadable.",
+            "The terms people check before clicking (\"Free for one person. No card needed.\") sit under the action, and there are no logos, counts or quotes the page cannot source."
+          ],
+          "failures": [
+            "Mocking up features the product does not have, or content that no user would write, so the frame promises more than the product does.",
+            "Adding a second primary button, or styling the secondary link as a full outline button so the choice becomes equal.",
+            "Swapping the frame for a screenshot that turns into unreadable text on phones and ignores the theme.",
+            "Putting real, focusable controls inside the frame; it is a picture, hidden from assistive technology.",
+            "Filling the space under the actions with invented logos or \"Trusted by\" counts.",
+            "Centring a long headline and description, which makes the text ragged and hard to scan."
+          ],
+          "states": ["default"],
+          "responsive": {
+            "desktop": "Headline, description and actions on one left edge, capped at a readable width, with the product frame full width below; from 56rem of frame width it shows the notebooks column, the notes list and the open note.",
+            "mobile": "The text block comes first and the actions stack full width with the primary on top; the frame below drops to the notes list alone, at full text size, and adds the open note from 36rem."
+          },
+          "a11y": [
+            "The section is labelled by its heading; headingLevel is 1 on a landing page (the hero holds the page title) and 2 where the page already has an h1, as in this preview.",
+            "Both actions are links to their destinations, at least 44px tall with a visible focus ring; the secondary is underlined, so it reads as a link without relying on colour.",
+            "The product frame is a figure whose visible caption is its text alternative; the composed interface inside it is aria-hidden and inert, so it adds no tab stops and no duplicate reading.",
+            "Selection in the frame is shown with a left bar and weight as well as a background tint, so it survives greyscale.",
+            "Nothing animates."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "settings-account",
+      "type": "registry:block",
+      "title": "Settings: account and danger zone",
+      "description": "An account settings page whose profile form validates per field and reports saves in place, with a separate danger zone that offers export before a typed, confirmed delete.",
+      "registryDependencies": ["button"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/settings-account/settings-account.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["settings"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/settings-account",
+      "meta": {
+        "tessli": {
+          "id": "settings-account",
+          "kind": "page",
+          "category": "settings",
+          "title": "Settings: account and danger zone",
+          "summary": "An account settings page whose profile form validates per field and reports saves in place, with a separate danger zone that offers export before a typed, confirmed delete.",
+          "use_when": [
+            "People edit a small profile (name, sign-in email) and can also close their account from the same page.",
+            "Deleting the account removes data people may want to keep, so an export has to come first."
+          ],
+          "avoid_when": [
+            "The settings span many areas (billing, notifications, security); give each its own page and keep only the danger zone here.",
+            "The action is reversible, such as archiving or leaving a workspace; offer undo instead of typed confirmation.",
+            "Deletion needs an admin or a support request; explain that route instead of showing a button that cannot finish the job."
+          ],
+          "rules": [
+            "ST-05",
+            "ST-04",
+            "ST-03",
+            "A-04",
+            "A-05",
+            "A-06",
+            "H-01",
+            "W-02"
+          ],
+          "ai_default": "One card with Name and Email inputs, placeholder-only labels and a \"Submit\" button that gives no sign of whether anything saved, followed by a red \"Delete account\" button in the same card that deletes at once or opens an \"Are you sure?\" dialog with OK and Cancel and no word about what is lost or how to keep a copy.",
+          "why_this_is_better": [
+            "Every field has a visible label and a hint; errors are written under the field, linked with aria-describedby, and the first invalid field takes focus, so people know which field to fix and how.",
+            "Saving reports its result in place (\"Saved\", or \"Not saved\" with what is still safe), in space reserved under the button, so the form never jumps and a failed save does not lose edits.",
+            "The danger zone is its own section at the end of the page with its own heading, and its trigger is outlined, so Save stays the only primary action and a stray click cannot delete anything.",
+            "The danger zone offers the export first and lists, with real counts, what deletion removes and what stays with other people, before anyone opens the dialog.",
+            "The dialog repeats the consequences, gives Cancel the focus, and asks people to type their email address, so confirming is a decision rather than a reflex.",
+            "Errors say what happened to the data (\"Nothing was removed\") and offer one way forward."
+          ],
+          "failures": [
+            "Leaving the counts out of the deletes list, or writing \"all your data\", which hides what is actually lost.",
+            "Making the danger-zone trigger a filled red button beside Save, so the page has two competing primary actions.",
+            "Typing a fixed word such as DELETE to confirm, which people learn to type without reading; use something specific to the account.",
+            "Disabling the confirm button until the text matches, which gives keyboard and screen-reader users no reason why it does nothing.",
+            "Removing the export link because the export is slow; say how long it takes instead.",
+            "Showing \"Saved\" before the server confirms, or clearing the form when a save fails."
+          ],
+          "states": [
+            "default",
+            "field-errors",
+            "saved",
+            "save-error",
+            "confirm-delete",
+            "delete-error",
+            "deletion-started"
+          ],
+          "responsive": {
+            "desktop": "Each section is a two-column row from 1024px, its heading and explanation on the left and the form or danger zone on the right; Save and its status message sit side by side, and the dialog's Cancel and Delete buttons sit right-aligned in one row.",
+            "mobile": "Sections stack heading first, inputs and buttons run full width with the status message under Save, and the dialog stacks Cancel above Delete so the safe action is reached first."
+          },
+          "a11y": [
+            "The page title, sections and danger-zone blocks are headings in order (headingLevel sets the top level); the confirmation is a native modal dialog labelled by its own heading and described by the consequences.",
+            "Every input has a visible label and a hint; errors are linked with aria-describedby, inputs are marked aria-invalid, and the first invalid field takes focus on submit.",
+            "Save results, deletion errors and the start of deletion are announced through polite status regions; each message starts with its outcome and carries an icon as well as colour.",
+            "Escape or Cancel closes the dialog and returns focus to the button that opened it; when deletion starts, focus moves to the message that replaces that button.",
+            "Buttons and the export link are at least 44px tall with a visible focus ring; nothing depends on hover."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "social-proof-honest",
+      "type": "registry:block",
+      "title": "Honest social proof",
+      "description": "Shows only proof a reader can check, real quotes with a name and a link to the source, and public records instead when there is none yet.",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "web/registry/items/social-proof-honest/social-proof-honest.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["social-proof"],
+      "docs": "Taste notes, states and rules: https://tessli.vercel.app/library/social-proof-honest",
+      "meta": {
+        "tessli": {
+          "id": "social-proof-honest",
+          "kind": "section",
+          "category": "social-proof",
+          "title": "Honest social proof",
+          "summary": "Shows only proof a reader can check, real quotes with a name and a link to the source, and public records instead when there is none yet.",
+          "use_when": [
+            "You have one to three quotes that named people agreed, in writing, to have published with their name and role.",
+            "Each quote already exists somewhere a reader can follow, such as a case study, the person's own post or a recorded talk.",
+            "The product is new and has no quotes yet, but has public records (changelog, source code, status history) a reader can check."
+          ],
+          "avoid_when": [
+            "You have no permissioned quotes and no public record to point at; leave the section out rather than fill it.",
+            "You want to show usage numbers or customer logos; publish those only with a cited source and written permission, in their own section.",
+            "The quotes are long stories; link to full case studies from a short list instead."
+          ],
+          "rules": [
+            "W-03",
+            "W-02",
+            "W-05",
+            "K-04",
+            "S-02",
+            "T-01",
+            "C-04",
+            "A-01"
+          ],
+          "ai_default": "A \"Trusted by\" strip of grey placeholder logos, three counters such as \"10,000+ teams\" and \"4.9/5 rating\", and a grid of identical testimonial cards with five stars, a stock avatar, a first name and a vague line of praise, none of it traceable to a real person or source.",
+          "why_this_is_better": [
+            "Every quote needs a full name and a link to where it was first published, so the claim can be checked, and readers can see the person said it in context.",
+            "Example quotes carry a visible \"Example — replace with a real, permissioned quote\" label, so a placeholder cannot ship looking like a real customer.",
+            "With no quotes, the section shows public records a reader can check (changelog, source code, status history) instead of inventing proof; with nothing at all, it renders nothing.",
+            "No logos, star ratings or counters, which are the parts most often invented and least often sourced.",
+            "The first quote leads and the rest follow in a quieter column, instead of identical cards that make every quote equally vague.",
+            "Links say where they go (\"Read the case study\"), and only links that leave the site get ↗."
+          ],
+          "failures": [
+            "Shipping the demo with the placeholder flag removed, so example quotes read as real customers.",
+            "Editing a quote to make it punchier, or trimming the parts that qualify it; publish the person's exact words.",
+            "Linking the source to a page that does not contain the quote, or to the home page.",
+            "Adding a logo strip or usage counters next to the quotes without a source and permission for each.",
+            "Keeping a quote after the person has left the organisation or asked for it to be removed."
+          ],
+          "states": ["default", "single", "no-proof-yet"],
+          "responsive": {
+            "desktop": "From 1024px the first quote sits in a wider left column at a larger size and the others stack in a narrower right column, all sharing the heading's left edge; quote text keeps a readable measure.",
+            "mobile": "One column in reading order, heading first, then the lead quote and the others below it; the fallback links stack above their descriptions and stay at least 44px tall."
+          },
+          "a11y": [
+            "The section is labelled by its h2; each quote is a figure with a blockquote, its cite attribute set to the source, and a figcaption naming the person.",
+            "The example label is visible text above the quote, so placeholder status is not shown by the dashed border alone.",
+            "External links add \"(another site)\" for screen readers; the ↗ glyph is hidden from them.",
+            "Source and fallback links are at least 44px tall with a visible focus ring, and nothing moves or appears on hover only."
+          ],
+          "status": "community",
+          "reviewed_by": [],
+          "reviewed_at": null,
+          "contributors": [],
+          "provenance": "original",
+          "license": "MIT"
+        }
+      }
+    },
+    {
+      "name": "rules",
+      "type": "registry:file",
+      "title": "Tessli UI rules (TESSLI.md)",
+      "description": "A compact index of Tessli's 39 UI rules (drafts until a maintainer signs them), installed as TESSLI.md at the project root for coding agents to read.",
+      "files": [
+        {
+          "path": "rules/TESSLI.md",
+          "type": "registry:file",
+          "target": "~/TESSLI.md"
+        }
+      ],
+      "docs": "Every rule with its reasons, checks and sources: https://tessli.vercel.app/rules"
+    }
+  ]
+}
