@@ -1,0 +1,2071 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "bevel",
+  "homepage": "https://github.com/hiteshbandhu/bevel",
+  "items": [
+    {
+      "name": "bevel",
+      "type": "registry:item",
+      "title": "Bevel foundation",
+      "description": "Light, depth, materials, motion and shape tokens, plus the utilities components use to apply them.",
+      "css": {
+        ":root": {
+          "--bevel-highlight": "oklch(1 0 0 / 0.22)",
+          "--bevel-highlight-strong": "oklch(1 0 0 / 0.35)",
+          "--bevel-shade": "oklch(0 0 0 / 0.32)",
+          "--bevel-shade-strong": "oklch(0 0 0 / 0.5)",
+          "--bevel-cast": "oklch(0.25 0.03 50 / 0.22)",
+          "--bevel-deboss": "0 -1px 0 oklch(0 0 0 / 0.45), 0 1px 0 oklch(1 0 0 / 0.12)",
+          "--bevel-material": "oklch(0.47 0.085 52)",
+          "--bevel-material-edge": "oklch(0.3 0.06 44)",
+          "--bevel-material-recess": "oklch(0.2 0.008 260)",
+          "--bevel-grain": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .7 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E\")",
+          "--bevel-grain-size": "180px",
+          "--bevel-depth-recessed": "inset 0 1px 2px var(--bevel-shade-strong), 0 1px 0 var(--bevel-highlight)",
+          "--bevel-depth-flush": "inset 0 1px 0 var(--bevel-highlight), inset 0 -1px 0 var(--bevel-shade)",
+          "--bevel-depth-raised": "inset 0 1px 0 var(--bevel-highlight), 0 1px 0 var(--bevel-material-edge), 0 2px 0 var(--bevel-material-edge), 0 3px 5px var(--bevel-shade)",
+          "--bevel-depth-pressed": "inset 0 1px 2px var(--bevel-shade), 0 1px 0 var(--bevel-highlight)",
+          "--bevel-depth-object": "inset 0 1px 0 var(--bevel-highlight), inset 0 -1px 0 var(--bevel-shade), 0 0 0 1px var(--bevel-material-edge), 0 1px 1px var(--bevel-cast), 0 6px 12px -2px var(--bevel-cast), 0 18px 32px -8px var(--bevel-cast)",
+          "--bevel-depth-cast-sm": "0 4px 6px var(--bevel-cast)",
+          "--bevel-depth-sheet": "inset 0 1px 0 var(--bevel-highlight-strong), inset 0 0 0 1px oklch(0 0 0 / 0.12), 0 -1px 2px oklch(0 0 0 / 0.18)",
+          "--bevel-ease-out": "cubic-bezier(0.23, 1, 0.32, 1)",
+          "--bevel-ease-in-out": "cubic-bezier(0.77, 0, 0.175, 1)",
+          "--bevel-ease-spring": "linear(0, 0.06, 0.202, 0.38, 0.561, 0.723, 0.856, 0.955, 1.023, 1.062, 1.081, 1.083, 1.075, 1.062, 1.047, 1.032, 1.019, 1.009, 1.002, 0.997, 0.994, 0.993, 0.993, 0.994, 1)",
+          "--bevel-duration-press": "100ms",
+          "--bevel-duration-small": "200ms",
+          "--bevel-duration-move": "300ms",
+          "--bevel-duration-ambient": "520ms",
+          "--bevel-stagger": "30ms",
+          "--bevel-lift": "3px",
+          "--bevel-perspective": "30rem",
+          "--bevel-dim": "0.82",
+          "--bevel-radius-xs": "0.25rem",
+          "--bevel-radius-sm": "0.5rem",
+          "--bevel-radius-md": "0.625rem",
+          "--bevel-radius-lg": "1rem",
+          "--bevel-radius-xl": "1.5rem",
+          "--bevel-stitch-width": "1.5px",
+          "--bevel-stitch-inset": "0.375rem",
+          "--bevel-amount": "2.25rem",
+          "--bevel-amount-minor": "1.25rem",
+          "--bevel-label": "0.75rem",
+          "--bevel-fine": "0.6875rem",
+          "--bevel-tracking-label": "0.08em",
+          "--bevel-tracking-print": "0.06em",
+          "--bevel-paper": "oklch(0.975 0.008 85)",
+          "--bevel-paper-foreground": "oklch(0.28 0.02 260)",
+          "--bevel-paper-muted": "oklch(0.48 0.015 260)",
+          "--bevel-paper-rule": "oklch(0.78 0.04 240 / 0.45)",
+          "--bevel-paper-margin": "oklch(0.68 0.14 25 / 0.45)",
+          "--bevel-fibre": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .35' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .18 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E\")",
+          "--bevel-ink-texture": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='i'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.4 0 0 0 2.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23i)'/%3E%3C/svg%3E\")",
+          "--bevel-ink-red": "oklch(0.52 0.19 27)",
+          "--bevel-ink-blue": "oklch(0.44 0.14 262)",
+          "--bevel-ink-green": "oklch(0.5 0.12 155)",
+          "--bevel-ink-black": "oklch(0.3 0.01 260)",
+          "--bevel-ink-amber": "oklch(0.55 0.13 65)",
+          "--bevel-brass": "oklch(0.76 0.11 82)",
+          "--bevel-brass-edge": "oklch(0.52 0.08 70)",
+          "--bevel-ivory": "oklch(0.95 0.025 90)",
+          "--bevel-ivory-foreground": "oklch(0.25 0.015 60)",
+          "--bevel-needle": "oklch(0.55 0.2 27)",
+          "--bevel-pad": "oklch(0.95 0.075 98)",
+          "--bevel-pad-foreground": "oklch(0.27 0.03 255)",
+          "--bevel-pad-rule": "oklch(0.72 0.06 235 / 0.45)",
+          "--bevel-pad-margin": "oklch(0.62 0.16 25 / 0.55)",
+          "--bevel-pen-red": "oklch(0.52 0.2 27)",
+          "--bevel-pen-blue": "oklch(0.42 0.15 262)",
+          "--bevel-pencil": "oklch(0.55 0.01 260)",
+          "--bevel-sticker": "oklch(0.9 0.12 95)",
+          "--bevel-sticker-foreground": "oklch(0.26 0.03 70)",
+          "--bevel-font-marker": "\"Permanent Marker\", \"Marker Felt\", \"Chalkboard SE\", ui-rounded, \"Arial Rounded MT Bold\", system-ui, sans-serif"
+        },
+        ".dark": {
+          "--bevel-highlight": "oklch(1 0 0 / 0.14)",
+          "--bevel-paper": "oklch(0.88 0.008 85)",
+          "--bevel-ivory": "oklch(0.86 0.022 90)",
+          "--bevel-pad": "oklch(0.86 0.07 98)",
+          "--bevel-cast": "oklch(0 0 0 / 0.55)"
+        },
+        "@utility bevel-recessed": {
+          "background-color": "var(--bevel-material-recess)",
+          "box-shadow": "var(--bevel-depth-recessed)"
+        },
+        "@utility bevel-flush": {
+          "box-shadow": "var(--bevel-depth-flush)"
+        },
+        "@utility bevel-raised": {
+          "background-color": "color-mix(in oklch, var(--bevel-material), white 7%)",
+          "background-image": "linear-gradient(to bottom, var(--bevel-highlight), transparent 60%)",
+          "box-shadow": "var(--bevel-depth-raised)"
+        },
+        "@utility bevel-pressed": {
+          "background-color": "color-mix(in oklch, var(--bevel-material), black 4%)",
+          "background-image": "none",
+          "box-shadow": "var(--bevel-depth-pressed)"
+        },
+        "@utility bevel-object": {
+          "box-shadow": "var(--bevel-depth-object)"
+        },
+        "@utility bevel-leather": {
+          "background-color": "var(--bevel-material)",
+          "background-image": "var(--bevel-grain), linear-gradient(to bottom, var(--bevel-highlight), transparent 28%, transparent 72%, var(--bevel-shade))",
+          "background-size": "var(--bevel-grain-size) var(--bevel-grain-size), 100% 100%",
+          "background-blend-mode": "soft-light, normal"
+        },
+        "@utility bevel-plastic": {
+          "background-color": "var(--bevel-material)",
+          "background-image": "linear-gradient(115deg, var(--bevel-highlight-strong), transparent 40%), linear-gradient(to bottom, transparent 25%, oklch(0 0 0 / 0.45))",
+          "box-shadow": "var(--bevel-depth-sheet)"
+        },
+        "@utility bevel-metal": {
+          "background-color": "var(--bevel-material)",
+          "background-image": "linear-gradient(to bottom, var(--bevel-highlight-strong), transparent 45%, var(--bevel-shade) 100%), repeating-linear-gradient(90deg, oklch(1 0 0 / 0.06) 0 1px, transparent 1px 3px)",
+          "box-shadow": "inset 0 0 0 1px oklch(0 0 0 / 0.25), inset 0 1px 0 var(--bevel-highlight-strong)"
+        },
+        "@utility bevel-deboss": {
+          "text-shadow": "var(--bevel-deboss)"
+        },
+        "@utility bevel-stitch": {
+          "border-color": "var(--bevel-stitch, oklch(0.88 0.05 82 / 0.8))",
+          "border-style": "dashed",
+          "border-width": "var(--bevel-stitch-width)",
+          "filter": "drop-shadow(0 1px 0 var(--bevel-shade))"
+        },
+        "@utility bevel-fill": {
+          "background-color": "var(--bevel-fill)",
+          "background-image": "linear-gradient(to bottom, oklch(1 0 0 / 0.55), transparent 55%, oklch(0 0 0 / 0.18))",
+          "box-shadow": "0 0 6px -1px var(--bevel-fill)"
+        },
+        "@utility bevel-led": {
+          "background-color": "var(--bevel-led)",
+          "background-image": "radial-gradient(circle at 35% 30%, oklch(1 0 0 / 0.85), transparent 45%)",
+          "box-shadow": "0 0 6px var(--bevel-led), inset 0 -1px 1px oklch(0 0 0 / 0.35), 0 1px 0 var(--bevel-highlight)"
+        },
+        "@utility bevel-paper": {
+          "background-color": "var(--bevel-paper)",
+          "background-image": "var(--bevel-fibre)",
+          "background-size": "240px 240px",
+          "color": "var(--bevel-paper-foreground)",
+          "box-shadow": "0 1px 1px var(--bevel-cast), 0 6px 14px -4px var(--bevel-cast)"
+        },
+        "@utility bevel-ink": {
+          "color": "var(--bevel-ink, var(--bevel-ink-red))",
+          "border-color": "currentColor",
+          "mix-blend-mode": "multiply",
+          "mask-image": "var(--bevel-ink-texture)",
+          "mask-size": "160px 160px"
+        },
+        "@utility bevel-glass": {
+          "pointer-events": "none",
+          "background-image": "linear-gradient(165deg, var(--bevel-highlight-strong) 0%, transparent 38%, transparent 70%, var(--bevel-shade) 100%)"
+        },
+        "[data-bevel-family=\"leather\"]": {
+          "--bevel-cast": "oklch(0.25 0.03 50 / 0.22)"
+        },
+        "[data-bevel-family=\"paper\"]": {
+          "--bevel-cast": "oklch(0.3 0.01 250 / 0.16)"
+        },
+        ".dark :is([data-bevel-family=\"leather\"], [data-bevel-family=\"paper\"])": {
+          "--bevel-cast": "oklch(0 0 0 / 0.55)"
+        },
+        "@utility bevel-ruled": {
+          "background-color": "var(--bevel-sheet, var(--bevel-paper))",
+          "background-image": "linear-gradient( to right, transparent calc(var(--bevel-rule-margin) - 1px), var(--bevel-sheet-margin, var(--bevel-paper-margin)) calc(var(--bevel-rule-margin) - 1px) calc(var(--bevel-rule-margin) + 1px), transparent calc(var(--bevel-rule-margin) + 1px) ), repeating-linear-gradient( to bottom, transparent 0 calc(var(--bevel-rule-height) - 1px), var(--bevel-sheet-rule, var(--bevel-paper-rule)) calc(var(--bevel-rule-height) - 1px) var(--bevel-rule-height) ), var(--bevel-fibre)",
+          "background-size": "100% 100%, 100% 100%, 240px 240px",
+          "background-attachment": "local",
+          "color": "var(--bevel-paper-foreground)",
+          "box-shadow": "0 1px 1px var(--bevel-cast), 0 6px 14px -4px var(--bevel-cast)"
+        }
+      }
+    },
+    {
+      "name": "theme-transition",
+      "type": "registry:lib",
+      "title": "Theme transition",
+      "description": "Switch light and dark as a change in lighting: the room dims, or the lights come up. Uses View Transitions.",
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/lib/theme-transition.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "css": {
+        "[data-theme-transition]::view-transition-old(root), [data-theme-transition]::view-transition-new(root)": {
+          "animation": "none",
+          "mix-blend-mode": "normal"
+        },
+        "[data-theme-transition=\"dark\"]::view-transition-old(root)": {
+          "z-index": "1",
+          "animation": "theme-lights-down var(--bevel-duration-ambient) var(--bevel-ease-in-out) both"
+        },
+        "[data-theme-transition=\"light\"]::view-transition-new(root)": {
+          "animation": "theme-lights-up calc(var(--bevel-duration-ambient) * 0.7) var(--bevel-ease-out) both"
+        },
+        "@keyframes theme-lights-down": {
+          "to": {
+            "opacity": "0",
+            "filter": "brightness(0.45)"
+          }
+        },
+        "@keyframes theme-lights-up": {
+          "from": {
+            "opacity": "0",
+            "filter": "brightness(0.7)"
+          }
+        }
+      }
+    },
+    {
+      "name": "wallet",
+      "type": "registry:ui",
+      "title": "Wallet",
+      "description": "A customer's stored balance, shown as a leather wallet. Saved cards sit in it, and picking one pulls it out of the pocket.",
+      "categories": [
+        "money"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/payment-card.json",
+        "https://bevel-ui.vercel.app/r/amount.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/wallet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--wallet-leather": "oklch(0.47 0.085 52)",
+          "--wallet-lining": "oklch(0.36 0.07 46)",
+          "--wallet-edge": "oklch(0.3 0.06 44)",
+          "--wallet-recess": "oklch(0.29 0.055 44)",
+          "--wallet-foreground": "oklch(0.97 0.02 82)",
+          "--wallet-muted-foreground": "oklch(0.88 0.035 72)",
+          "--wallet-stitch": "oklch(0.88 0.05 82 / 0.8)",
+          "--wallet-meter": "oklch(0.84 0.12 85)",
+          "--wallet-ok": "oklch(0.82 0.18 150)",
+          "--wallet-low": "oklch(0.86 0.16 82)",
+          "--wallet-danger": "oklch(0.72 0.19 28)",
+          "--wallet-notch": "1.75rem",
+          "--wallet-card-peek": "2.25rem",
+          "--wallet-card-pull": "0.5rem",
+          "--wallet-card-enter": "3rem",
+          "--wallet-card-step": "1.25rem",
+          "--wallet-card-step-pick": "2rem",
+          "--wallet-card-lift": "0px",
+          "--wallet-card-slots": "3"
+        },
+        "[data-slot=\"wallet\"][data-variant=\"noir\"]": {
+          "--wallet-leather": "oklch(0.29 0.008 260)",
+          "--wallet-lining": "oklch(0.22 0.008 260)",
+          "--wallet-edge": "oklch(0.16 0.006 260)",
+          "--wallet-recess": "oklch(0.17 0.006 260)",
+          "--wallet-foreground": "oklch(0.96 0.004 260)",
+          "--wallet-muted-foreground": "oklch(0.8 0.008 260)",
+          "--wallet-stitch": "oklch(0.72 0.01 260 / 0.75)",
+          "--wallet-meter": "oklch(0.88 0.01 260)"
+        },
+        "[data-slot=\"wallet\"][data-variant=\"oxblood\"]": {
+          "--wallet-leather": "oklch(0.38 0.105 22)",
+          "--wallet-lining": "oklch(0.29 0.085 20)",
+          "--wallet-edge": "oklch(0.23 0.07 20)",
+          "--wallet-recess": "oklch(0.22 0.065 20)",
+          "--wallet-foreground": "oklch(0.96 0.02 70)",
+          "--wallet-muted-foreground": "oklch(0.87 0.035 50)",
+          "--wallet-stitch": "oklch(0.86 0.05 75 / 0.75)"
+        },
+        "[data-slot=\"wallet\"]": {
+          "--bevel-material": "var(--wallet-lining)",
+          "--bevel-material-edge": "var(--wallet-edge)",
+          "--bevel-material-recess": "var(--wallet-recess)",
+          "--bevel-stitch": "var(--wallet-stitch)",
+          "--bevel-fill": "var(--wallet-meter)",
+          "--bevel-led": "var(--wallet-ok)"
+        },
+        "[data-slot=\"wallet-pocket\"]": {
+          "--bevel-material": "var(--wallet-leather)"
+        },
+        "[data-slot=\"wallet\"][data-status=\"low\"]": {
+          "--bevel-fill": "var(--wallet-low)",
+          "--bevel-led": "var(--wallet-low)"
+        },
+        "[data-slot=\"wallet\"]:is([data-status=\"empty\"], [data-status=\"insufficient\"])": {
+          "--bevel-fill": "var(--wallet-danger)",
+          "--bevel-led": "var(--wallet-danger)"
+        },
+        "@utility wallet-pocket": {
+          "background-color": "var(--bevel-material)",
+          "background-image": "radial-gradient( circle at 50% 0, transparent var(--wallet-notch), var(--bevel-highlight) calc(var(--wallet-notch) + 1px), transparent calc(var(--wallet-notch) + 4px) ), var(--bevel-grain), linear-gradient(to bottom, var(--bevel-highlight), transparent 28%, transparent 72%, var(--bevel-shade))",
+          "background-size": "100% 100%, var(--bevel-grain-size) var(--bevel-grain-size), 100% 100%",
+          "background-blend-mode": "normal, soft-light, normal",
+          "box-shadow": "inset 0 1px 0 var(--bevel-highlight), inset 0 2px 0 var(--bevel-shade), inset 0 -2px 3px var(--bevel-shade)",
+          "mask-image": "radial-gradient(circle at 50% 0, transparent var(--wallet-notch), black calc(var(--wallet-notch) + 0.5px))"
+        },
+        "@layer components": {
+          "[data-slot=\"wallet-cards\"]": {
+            "--wallet-card-gap": "calc( var(--wallet-card-step) * (var(--wallet-card-slots) - 1) / max(var(--wallet-card-count) - 1, var(--wallet-card-slots) - 1) )",
+            "height": "calc(var(--wallet-card-peek) + (var(--wallet-card-slots) - 1) * var(--wallet-card-step))"
+          },
+          "[data-slot=\"wallet-cards\"][data-selectable]": {
+            "--wallet-card-gap": "var(--wallet-card-step-pick)",
+            "height": "calc(var(--wallet-card-peek) + max(var(--wallet-card-count) - 1, 0) * var(--wallet-card-step-pick))"
+          }
+        }
+      }
+    },
+    {
+      "name": "payment-card",
+      "type": "registry:ui",
+      "title": "Payment card",
+      "description": "A plastic payment card at real proportions. Use it on its own, as a radio in a picker, or inside a Wallet.",
+      "categories": [
+        "money"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/payment-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--payment-card-sapphire": "oklch(0.55 0.14 258)",
+          "--payment-card-sapphire-foreground": "oklch(0.98 0.01 258)",
+          "--payment-card-gold": "oklch(0.8 0.11 86)",
+          "--payment-card-gold-foreground": "oklch(0.28 0.04 70)",
+          "--payment-card-graphite": "oklch(0.27 0.015 260)",
+          "--payment-card-graphite-foreground": "oklch(0.93 0.005 260)",
+          "--payment-card-chip": "oklch(0.8 0.09 85)"
+        },
+        "[data-slot=\"payment-card\"][data-tone=\"sapphire\"]": {
+          "--bevel-material": "var(--payment-card-sapphire)",
+          "--payment-card-foreground": "var(--payment-card-sapphire-foreground)"
+        },
+        "[data-slot=\"payment-card\"][data-tone=\"gold\"]": {
+          "--bevel-material": "var(--payment-card-gold)",
+          "--payment-card-foreground": "var(--payment-card-gold-foreground)"
+        },
+        "[data-slot=\"payment-card\"][data-tone=\"graphite\"]": {
+          "--bevel-material": "var(--payment-card-graphite)",
+          "--payment-card-foreground": "var(--payment-card-graphite-foreground)"
+        }
+      }
+    },
+    {
+      "name": "amount",
+      "type": "registry:ui",
+      "title": "Amount",
+      "description": "A formatted figure with steady digits, in any currency and locale. Every amount in Bevel is one of these.",
+      "categories": [
+        "money"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/lib/format-amount.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/bevel/ui/amount.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-wheel",
+      "type": "registry:ui",
+      "title": "Number wheel",
+      "description": "Mechanical rolling digits. Each digit is a printed drum that turns to its figure, lowest digit first.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/amount.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/number-wheel.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--number-wheel-cell": "1.25em",
+          "--number-wheel-drum": "0.72em",
+          "--number-wheel-plate": "0.08em"
+        },
+        "[data-slot=\"number-wheel\"]": {
+          "--bevel-material-recess": "oklch(0.16 0.01 260)",
+          "--number-wheel-face": "var(--bevel-ivory)",
+          "--number-wheel-foreground": "var(--bevel-ivory-foreground)"
+        },
+        "[data-slot=\"number-wheel\"][data-tone=\"black\"]": {
+          "--number-wheel-face": "oklch(0.22 0.01 260)",
+          "--number-wheel-foreground": "oklch(0.95 0.01 90)"
+        },
+        "@utility number-wheel-drum": {
+          "background-color": "var(--number-wheel-face)",
+          "background-image": "linear-gradient( to bottom, var(--bevel-shade-strong) 0%, transparent 28%, transparent 72%, var(--bevel-shade-strong) 100% )",
+          "color": "var(--number-wheel-foreground)"
+        }
+      }
+    },
+    {
+      "name": "meter",
+      "type": "registry:ui",
+      "title": "Meter",
+      "description": "A brass metering instrument with a rolling reading: live spend that ticks up, or a prepaid balance that counts down.",
+      "categories": [
+        "money"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/number-wheel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/meter.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--meter-face": "oklch(0.24 0.012 260)",
+          "--meter-foreground": "oklch(0.93 0.02 90)",
+          "--meter-muted-foreground": "oklch(0.74 0.02 90)",
+          "--meter-running": "oklch(0.82 0.17 75)",
+          "--meter-stopped": "oklch(0.45 0.01 260)"
+        },
+        "[data-slot=\"meter\"]": {
+          "--bevel-material": "var(--bevel-brass)",
+          "--bevel-material-edge": "var(--bevel-brass-edge)",
+          "--bevel-led": "var(--meter-stopped)"
+        },
+        "[data-slot=\"meter\"][data-variant=\"graphite\"]": {
+          "--bevel-material": "oklch(0.42 0.01 260)",
+          "--bevel-material-edge": "oklch(0.28 0.01 260)"
+        },
+        "[data-slot=\"meter\"][data-state=\"running\"]": {
+          "--bevel-led": "var(--meter-running)"
+        },
+        "[data-slot=\"meter-face\"]": {
+          "--bevel-material": "var(--meter-face)",
+          "--bevel-material-recess": "oklch(0.17 0.01 260)"
+        },
+        "[data-slot=\"meter-button\"]": {
+          "--bevel-material": "var(--bevel-brass)",
+          "--bevel-material-edge": "var(--bevel-brass-edge)"
+        }
+      }
+    },
+    {
+      "name": "stamp",
+      "type": "registry:ui",
+      "title": "Stamp and seal",
+      "description": "A rubber-stamp impression in ink for statuses, and an embossed seal for the moment something becomes official.",
+      "categories": [
+        "marks"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/stamp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--stamp-border": "3px",
+          "--stamp-tilt": "-4deg",
+          "--stamp-land-scale": "1.4",
+          "--seal-relief": "oklch(0.9 0.01 85)"
+        },
+        "[data-slot=\"stamp\"]": {
+          "--bevel-ink": "var(--bevel-ink-red)"
+        },
+        "[data-slot=\"stamp\"][data-tone=\"blue\"]": {
+          "--bevel-ink": "var(--bevel-ink-blue)"
+        },
+        "[data-slot=\"stamp\"][data-tone=\"green\"]": {
+          "--bevel-ink": "var(--bevel-ink-green)"
+        },
+        "[data-slot=\"stamp\"][data-tone=\"amber\"]": {
+          "--bevel-ink": "var(--bevel-ink-amber)"
+        },
+        "[data-slot=\"stamp\"][data-tone=\"black\"]": {
+          "--bevel-ink": "var(--bevel-ink-black)"
+        },
+        "@utility seal-relief": {
+          "color": "var(--seal-relief)",
+          "filter": "drop-shadow(0 -1px 0 var(--bevel-highlight-strong)) drop-shadow(0 1px 1px var(--bevel-shade))"
+        }
+      }
+    },
+    {
+      "name": "receipt",
+      "type": "registry:ui",
+      "title": "Receipt",
+      "description": "Thermal paper with torn edges. Lines print in as they're added; a stamp or seal lands when it's paid.",
+      "categories": [
+        "money"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/amount.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/receipt.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--receipt-tooth": "0.625rem",
+          "--receipt-carbon": "oklch(0.93 0.07 95)",
+          "--receipt-carbon-offset": "0.375rem",
+          "--receipt-print-in": "0.5em"
+        },
+        "@utility receipt-edges": {
+          "mask-image": "conic-gradient(from 135deg at top, transparent, black 1deg 89deg, transparent 90deg), conic-gradient(from -45deg at bottom, transparent, black 1deg 89deg, transparent 90deg), linear-gradient(black, black)",
+          "mask-size": "var(--receipt-tooth) var(--receipt-tooth), var(--receipt-tooth) var(--receipt-tooth), 100% calc(100% - var(--receipt-tooth))",
+          "mask-position": "top, bottom, center",
+          "mask-repeat": "repeat-x, repeat-x, no-repeat"
+        },
+        "@utility receipt-shadow": {
+          "filter": "drop-shadow(0 1px 1px var(--bevel-cast)) drop-shadow(0 6px 10px var(--bevel-cast))"
+        }
+      }
+    },
+    {
+      "name": "ticket-sheet",
+      "type": "registry:ui",
+      "title": "Ticket sheet",
+      "description": "A sheet of perforated tickets, one per option. Picking one tears it off. A radio group underneath.",
+      "categories": [
+        "money"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/ticket-sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--ticket-hole": "0.25rem",
+          "--ticket-tear-tilt": "-2deg",
+          "--ticket-tear-lift": "0.375rem",
+          "--ticket-vermilion": "oklch(0.5 0.17 32)",
+          "--ticket-ultramarine": "oklch(0.45 0.15 265)",
+          "--ticket-emerald": "oklch(0.44 0.1 160)",
+          "--ticket-ochre": "oklch(0.78 0.13 80)",
+          "--ticket-light-foreground": "oklch(0.98 0.01 90)",
+          "--ticket-dark-foreground": "oklch(0.24 0.04 60)"
+        },
+        "[data-slot=\"ticket\"]": {
+          "--ticket-tone": "var(--ticket-vermilion)",
+          "--ticket-foreground": "var(--ticket-light-foreground)"
+        },
+        "[data-slot=\"ticket\"][data-tone=\"ultramarine\"]": {
+          "--ticket-tone": "var(--ticket-ultramarine)"
+        },
+        "[data-slot=\"ticket\"][data-tone=\"emerald\"]": {
+          "--ticket-tone": "var(--ticket-emerald)"
+        },
+        "[data-slot=\"ticket\"][data-tone=\"ochre\"]": {
+          "--ticket-tone": "var(--ticket-ochre)",
+          "--ticket-foreground": "var(--ticket-dark-foreground)"
+        },
+        "@utility ticket-perforated": {
+          "padding": "calc(var(--ticket-hole) * 2)",
+          "mask-image": "radial-gradient(circle, transparent var(--ticket-hole), black calc(var(--ticket-hole) + 0.5px)), linear-gradient(black, black)",
+          "mask-size": "calc(var(--ticket-hole) * 3) calc(var(--ticket-hole) * 3), 100% 100%",
+          "mask-position": "calc(var(--ticket-hole) * -1.5) calc(var(--ticket-hole) * -1.5), center",
+          "mask-repeat": "round, no-repeat",
+          "mask-clip": "border-box, content-box",
+          "mask-origin": "border-box, content-box"
+        }
+      }
+    },
+    {
+      "name": "dial",
+      "type": "registry:ui",
+      "title": "Gauge and dial",
+      "description": "A needle on a brass-bezelled scale. Gauge reads a value; Dial sets one, turned by drag or keyboard.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/amount.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/dial.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--dial-mark-red": "oklch(0.58 0.2 27)",
+          "--dial-mark-amber": "oklch(0.75 0.16 70)",
+          "--dial-mark-green": "oklch(0.6 0.15 150)"
+        },
+        "[data-slot=\"gauge\"], [data-slot=\"dial\"]": {
+          "--bevel-material": "var(--bevel-brass)",
+          "--bevel-material-edge": "var(--bevel-brass-edge)"
+        },
+        "[data-slot=\"dial-mark\"]": {
+          "--dial-mark": "var(--dial-mark-red)"
+        },
+        "[data-slot=\"dial-mark\"][data-tone=\"amber\"]": {
+          "--dial-mark": "var(--dial-mark-amber)"
+        },
+        "[data-slot=\"dial-mark\"][data-tone=\"green\"]": {
+          "--dial-mark": "var(--dial-mark-green)"
+        }
+      }
+    },
+    {
+      "name": "breaker",
+      "type": "registry:ui",
+      "title": "Breaker",
+      "description": "A circuit breaker: on, off, or tripped until someone resets it. For spending caps, kill switches and feature flags.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/breaker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--breaker-panel": "oklch(0.36 0.008 260)",
+          "--breaker-panel-edge": "oklch(0.22 0.008 260)",
+          "--breaker-body": "oklch(0.2 0.006 260)",
+          "--breaker-lever": "oklch(0.93 0.008 90)",
+          "--breaker-lever-edge": "oklch(0.7 0.01 90)",
+          "--breaker-tripped": "oklch(0.6 0.21 27)",
+          "--breaker-on": "oklch(0.8 0.17 150)",
+          "--breaker-off": "oklch(0.4 0.01 260)",
+          "--breaker-throw": "1.25rem",
+          "--breaker-slot-height": "4.5rem"
+        },
+        "[data-slot=\"breaker-panel\"]": {
+          "--bevel-material": "var(--breaker-panel)",
+          "--bevel-material-edge": "var(--breaker-panel-edge)"
+        },
+        "[data-slot=\"breaker-switch\"]": {
+          "--bevel-material-recess": "var(--breaker-body)"
+        },
+        "[data-slot=\"breaker-lever\"]": {
+          "--bevel-material": "var(--breaker-lever)",
+          "--bevel-material-edge": "var(--breaker-lever-edge)"
+        },
+        "[data-slot=\"breaker\"]": {
+          "--bevel-led": "var(--breaker-off)"
+        },
+        "[data-slot=\"breaker\"][data-state=\"on\"]": {
+          "--bevel-led": "var(--breaker-on)"
+        },
+        "[data-slot=\"breaker\"][data-state=\"tripped\"]": {
+          "--bevel-led": "var(--breaker-tripped)"
+        }
+      }
+    },
+    {
+      "name": "ledger",
+      "type": "registry:ui",
+      "title": "Ledger",
+      "description": "A ruled page of numbered entries with a red margin. History and audit logs that read like a passbook.",
+      "categories": [
+        "money"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/amount.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/ledger.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--ledger-rule": "2.25rem",
+          "--ledger-margin": "5.5rem",
+          "--ledger-indent": "calc(var(--ledger-margin) + 0.75rem)",
+          "--ledger-baseline": "0.375rem",
+          "--ledger-credit": "oklch(0.45 0.12 155)",
+          "--ledger-debit": "var(--bevel-paper-foreground)"
+        },
+        "@utility ledger-ruling": {
+          "background-image": "linear-gradient( to right, transparent calc(var(--ledger-margin) - 1px), var(--bevel-paper-margin) calc(var(--ledger-margin) - 1px) calc(var(--ledger-margin) + 1px), transparent calc(var(--ledger-margin) + 1px) ), repeating-linear-gradient( to bottom, transparent 0 calc(var(--ledger-rule) - 1px), var(--bevel-paper-rule) calc(var(--ledger-rule) - 1px) var(--ledger-rule) ), var(--bevel-fibre)",
+          "background-size": "100% 100%, 100% 100%, 240px 240px",
+          "background-attachment": "local"
+        }
+      }
+    },
+    {
+      "name": "keycard",
+      "type": "registry:ui",
+      "title": "Keycard",
+      "description": "An API key on a plastic card that slides into a brass reader. For bring-your-own-key and credential screens.",
+      "categories": [
+        "money"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/payment-card.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/keycard.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--keycard-stripe": "oklch(0.18 0.01 260)",
+          "--keycard-plate-height": "3.75rem",
+          "--keycard-insert": "62%",
+          "--keycard-swipe-overlap": "1.25rem",
+          "--keycard-slot-ok": "oklch(0.8 0.17 150)",
+          "--keycard-slot-idle": "oklch(0.45 0.01 260)"
+        },
+        "[data-slot=\"keycard-slot\"]": {
+          "--bevel-led": "var(--keycard-slot-idle)"
+        },
+        "[data-slot=\"keycard-slot\"][data-inserted], [data-slot=\"keycard-swipe\"][data-accepted]": {
+          "--bevel-led": "var(--keycard-slot-ok)"
+        },
+        "[data-slot=\"keycard-swipe\"]": {
+          "--bevel-led": "var(--keycard-slot-idle)"
+        },
+        "[data-slot=\"keycard-reader\"]": {
+          "--bevel-material": "var(--bevel-brass)",
+          "--bevel-material-edge": "var(--bevel-brass-edge)"
+        },
+        "@utility keycard-mouth": {
+          "clip-path": "inset(-2rem -2rem calc(var(--keycard-plate-height) * -1) -2rem)"
+        }
+      }
+    },
+    {
+      "name": "name-tag",
+      "type": "registry:ui",
+      "title": "Name tag",
+      "description": "Who someone is: an agent, a person, a guest. The “HELLO my name is” sticker, a visitor badge for outside collaborators, and a plain tag for lists.",
+      "categories": [
+        "agents"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/name-tag.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--name-tag-red": "oklch(0.55 0.2 27)",
+          "--name-tag-blue": "oklch(0.45 0.15 262)",
+          "--name-tag-card": "oklch(0.99 0.004 90)",
+          "--name-tag-ink": "oklch(0.22 0.02 260)",
+          "--name-tag-band-foreground": "oklch(0.99 0 0)"
+        },
+        "[data-slot=\"name-tag\"]": {
+          "--name-tag-band": "var(--name-tag-red)",
+          "--name-tag-name-size": "1.75rem"
+        },
+        "[data-slot=\"name-tag\"][data-variant=\"visitor\"]": {
+          "--name-tag-band": "var(--name-tag-blue)",
+          "--name-tag-name-size": "1.5rem"
+        },
+        "[data-slot=\"name-tag\"][data-variant=\"plain\"]": {
+          "--name-tag-name-size": "0.875rem"
+        },
+        "@utility name-tag-sticker": {
+          "background-color": "var(--name-tag-band)",
+          "background-image": "linear-gradient(115deg, var(--bevel-highlight-strong), transparent 35%)",
+          "box-shadow": "var(--bevel-depth-sheet)"
+        }
+      }
+    },
+    {
+      "name": "citation",
+      "type": "registry:ui",
+      "title": "Citation",
+      "description": "An exhibit sticker in the text that opens the exact passage it cites, with a stamp saying whether the source checks out.",
+      "categories": [
+        "documents"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/citation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--citation-tilt": "-2deg",
+          "--citation-size": "0.75em",
+          "--citation-abbreviation-size": "0.8em",
+          "--citation-highlight": "oklch(0.93 0.13 100 / 0.75)",
+          "--citation-sticker-blue": "oklch(0.86 0.06 240)",
+          "--citation-sticker-white": "oklch(0.97 0.004 90)",
+          "--citation-pop-scale": "0.96"
+        },
+        "[data-slot=\"citation-trigger\"]": {
+          "--citation-sticker": "var(--bevel-sticker)"
+        },
+        "[data-slot=\"citation-trigger\"][data-tone=\"blue\"]": {
+          "--citation-sticker": "var(--citation-sticker-blue)"
+        },
+        "[data-slot=\"citation-trigger\"][data-tone=\"white\"]": {
+          "--citation-sticker": "var(--citation-sticker-white)"
+        }
+      }
+    },
+    {
+      "name": "task-plan",
+      "type": "registry:ui",
+      "title": "Task plan",
+      "description": "An agent's plan on a legal pad. Finished steps are ticked in ink, the current one is underlined in red pen, the rest are still in pencil.",
+      "categories": [
+        "agents"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/task-plan.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--task-plan-binding": "oklch(0.36 0.09 25)",
+          "--task-plan-check-length": "24"
+        },
+        "[data-slot=\"task-plan\"]": {
+          "--bevel-sheet": "var(--bevel-pad)",
+          "--bevel-sheet-rule": "var(--bevel-pad-rule)",
+          "--bevel-sheet-margin": "var(--bevel-pad-margin)",
+          "--bevel-rule-height": "2rem",
+          "--bevel-rule-margin": "2.5rem",
+          "--task-plan-indent": "calc(var(--bevel-rule-margin) + 0.75rem)",
+          "--task-plan-sink": "0.4rem",
+          "color": "var(--bevel-pad-foreground)"
+        },
+        "[data-slot=\"task-plan-step\"]": {
+          "--task-plan-ink": "var(--bevel-pen-blue)"
+        },
+        "[data-slot=\"task-plan-step\"][data-status=\"pending\"], [data-slot=\"task-plan-step\"][data-status=\"skipped\"]": {
+          "--task-plan-ink": "var(--bevel-pencil)"
+        },
+        "[data-slot=\"task-plan-step\"][data-status=\"error\"]": {
+          "--task-plan-ink": "var(--bevel-pen-red)"
+        }
+      }
+    },
+    {
+      "name": "activity-log",
+      "type": "registry:ui",
+      "title": "Activity log",
+      "description": "A docket of what an agent did: thoughts, actions, questions, responses and errors, each timed. Questions waiting on you are highlighted.",
+      "categories": [
+        "agents"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/activity-log.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--activity-log-height": "22rem",
+          "--activity-log-time": "3.25rem",
+          "--activity-log-kind": "5.5rem",
+          "--activity-log-print-in": "0.5em",
+          "--activity-log-question": "oklch(0.93 0.1 95 / 0.55)"
+        },
+        "[data-slot=\"activity-log-entry\"]": {
+          "--activity-log-ink": "var(--bevel-paper-foreground)"
+        },
+        "[data-slot=\"activity-log-entry\"][data-kind=\"thought\"]": {
+          "--activity-log-ink": "var(--bevel-pencil)"
+        },
+        "[data-slot=\"activity-log-entry\"][data-kind=\"action\"]": {
+          "--activity-log-ink": "var(--bevel-pen-blue)"
+        },
+        "[data-slot=\"activity-log-entry\"][data-kind=\"question\"]": {
+          "--activity-log-ink": "var(--bevel-ink-amber)"
+        },
+        "[data-slot=\"activity-log-entry\"][data-kind=\"error\"]": {
+          "--activity-log-ink": "var(--bevel-pen-red)"
+        }
+      }
+    },
+    {
+      "name": "approval",
+      "type": "registry:ui",
+      "title": "Approval",
+      "description": "An action an agent wants to take, waiting for a person. Say what it does and what can't be undone; press and hold the brass seal to approve.",
+      "categories": [
+        "agents"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/approval.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--approval-hold": "1200ms",
+          "--approval-release": "200ms",
+          "--approval-press-fill": "oklch(0.42 0.08 70 / 0.55)",
+          "--approval-seal-size": "5rem"
+        },
+        "[data-slot=\"approval-seal\"]": {
+          "--bevel-material": "var(--bevel-brass)",
+          "--bevel-material-edge": "var(--bevel-brass-edge)"
+        }
+      }
+    },
+    {
+      "name": "delegation-board",
+      "type": "registry:ui",
+      "title": "Delegation board",
+      "description": "Pigeonholes for delegated work, one per subagent: its task slip, a lamp and a word for its status, and its progress. Finished work rises out of its cubby.",
+      "categories": [
+        "agents"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/name-tag.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/delegation-board.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--delegation-board": "oklch(0.33 0.05 52)",
+          "--delegation-board-edge": "oklch(0.22 0.04 48)",
+          "--delegation-cubby": "oklch(0.2 0.03 45)",
+          "--delegation-foreground": "oklch(0.93 0.02 80)",
+          "--delegation-pending": "oklch(0.5 0.01 260)",
+          "--delegation-active": "oklch(0.82 0.16 75)",
+          "--delegation-awaiting": "oklch(0.8 0.17 55)",
+          "--delegation-error": "oklch(0.68 0.2 27)",
+          "--delegation-complete": "oklch(0.8 0.17 150)",
+          "--delegation-return": "0.5rem"
+        },
+        "[data-slot=\"delegation-board\"]": {
+          "--bevel-material": "var(--delegation-board)",
+          "--bevel-material-edge": "var(--delegation-board-edge)",
+          "--bevel-material-recess": "var(--delegation-cubby)"
+        },
+        "[data-slot=\"delegation-slot\"]": {
+          "--bevel-led": "var(--delegation-pending)"
+        },
+        "[data-slot=\"delegation-slot\"][data-status=\"active\"]": {
+          "--bevel-led": "var(--delegation-active)"
+        },
+        "[data-slot=\"delegation-slot\"][data-status=\"awaiting\"]": {
+          "--bevel-led": "var(--delegation-awaiting)"
+        },
+        "[data-slot=\"delegation-slot\"][data-status=\"error\"]": {
+          "--bevel-led": "var(--delegation-error)"
+        },
+        "[data-slot=\"delegation-slot\"][data-status=\"complete\"]": {
+          "--bevel-led": "var(--delegation-complete)"
+        }
+      }
+    },
+    {
+      "name": "redline",
+      "type": "registry:ui",
+      "title": "Redline",
+      "description": "Proposed edits in proofreader's red ink, each with a sign-here flag to accept or reject it. Nothing is applied until someone decides.",
+      "categories": [
+        "documents"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/redline.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--redline-flag": "var(--bevel-sticker)",
+          "--redline-flag-foreground": "var(--bevel-sticker-foreground)",
+          "--redline-strike": "2px"
+        },
+        "@utility redline-flag-shape": {
+          "clip-path": "polygon(0.5rem 0, 100% 0, 100% 100%, 0.5rem 100%, 0 50%)"
+        }
+      }
+    },
+    {
+      "name": "redaction",
+      "type": "registry:ui",
+      "title": "Redaction",
+      "description": "A black marker bar over withheld text, read as “Redacted” with the reason. Hidden text is never rendered; revealed text keeps a trace of the marker.",
+      "categories": [
+        "marks"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/redaction.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--redaction-ink": "oklch(0.16 0.005 260)",
+          "--redaction-revealed": "oklch(0.16 0.005 260 / 0.08)",
+          "--redaction-height": "1.1em",
+          "--redaction-drop": "0.15em"
+        },
+        "@utility redaction-bar": {
+          "background-color": "var(--redaction-ink)",
+          "mask-image": "var(--bevel-ink-texture)",
+          "mask-size": "160px 160px"
+        }
+      }
+    },
+    {
+      "name": "guarded-switch",
+      "type": "registry:ui",
+      "title": "Guarded switch",
+      "description": "A critical switch under a flip-up cover, as in a cockpit. Lift the cover, then flip it; closing the cover returns it to safe, and the cover closes itself if left.",
+      "categories": [
+        "coordination"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/guarded-switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--guarded-switch-plate": "oklch(0.3 0.008 260)",
+          "--guarded-switch-plate-edge": "oklch(0.2 0.008 260)",
+          "--guarded-switch-cover": "oklch(0.58 0.21 27 / 0.72)",
+          "--guarded-switch-cover-edge": "oklch(0.42 0.18 27)",
+          "--guarded-switch-lever": "oklch(0.9 0.006 260)",
+          "--guarded-switch-lever-edge": "oklch(0.62 0.01 260)",
+          "--guarded-switch-on": "oklch(0.72 0.19 27)",
+          "--guarded-switch-off": "oklch(0.45 0.01 260)",
+          "--guarded-switch-open-angle": "-112deg",
+          "--guarded-switch-throw": "0.75rem",
+          "--guarded-switch-close-after": "8s"
+        },
+        "[data-slot=\"guarded-switch\"]": {
+          "--bevel-material": "var(--guarded-switch-plate)",
+          "--bevel-material-edge": "var(--guarded-switch-plate-edge)",
+          "--bevel-material-recess": "var(--guarded-switch-plate-edge)",
+          "--bevel-led": "var(--guarded-switch-off)"
+        },
+        "[data-slot=\"guarded-switch\"][data-checked]": {
+          "--bevel-led": "var(--guarded-switch-on)"
+        },
+        "[data-slot=\"guarded-switch-lever\"]": {
+          "--bevel-material": "var(--guarded-switch-lever)",
+          "--bevel-material-edge": "var(--guarded-switch-lever-edge)"
+        },
+        "@utility guarded-switch-cover": {
+          "background-color": "var(--guarded-switch-cover)",
+          "background-image": "linear-gradient(to bottom, var(--bevel-highlight-strong), transparent 45%, var(--bevel-shade))",
+          "box-shadow": "inset 0 0 0 1px var(--guarded-switch-cover-edge), 0 4px 8px -2px var(--bevel-cast)"
+        }
+      }
+    },
+    {
+      "name": "vigilance",
+      "type": "registry:ui",
+      "title": "Dead man's switch",
+      "description": "A train cab's vigilance control for supervised agent runs: the run keeps going only while someone checks in. Miss the window and it warns, then pauses.",
+      "categories": [
+        "coordination"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/vigilance.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--vigilance-panel": "oklch(0.26 0.008 260)",
+          "--vigilance-panel-edge": "oklch(0.17 0.008 260)",
+          "--vigilance-clear": "oklch(0.8 0.17 150)",
+          "--vigilance-warning": "oklch(0.83 0.16 80)",
+          "--vigilance-stopping": "oklch(0.66 0.21 27)",
+          "--vigilance-off": "oklch(0.36 0.01 260)",
+          "--vigilance-tick": "250ms"
+        },
+        "[data-slot=\"vigilance\"]": {
+          "--bevel-material": "var(--vigilance-panel)",
+          "--bevel-material-edge": "var(--vigilance-panel-edge)",
+          "--bevel-material-recess": "var(--vigilance-panel-edge)"
+        },
+        "[data-slot=\"vigilance-button\"]": {
+          "--bevel-material": "var(--bevel-brass)",
+          "--bevel-material-edge": "var(--bevel-brass-edge)"
+        },
+        "[data-slot=\"vigilance-lamp\"]": {
+          "--bevel-led": "var(--vigilance-off)"
+        },
+        "[data-slot=\"vigilance-lamp\"][data-lit][data-stage=\"clear\"]": {
+          "--bevel-led": "var(--vigilance-clear)"
+        },
+        "[data-slot=\"vigilance-lamp\"][data-lit][data-stage=\"warning\"]": {
+          "--bevel-led": "var(--vigilance-warning)"
+        },
+        "[data-slot=\"vigilance-lamp\"][data-lit][data-stage=\"stopping\"], [data-slot=\"vigilance-lamp\"][data-lit][data-stage=\"paused\"]": {
+          "--bevel-led": "var(--vigilance-stopping)"
+        }
+      }
+    },
+    {
+      "name": "lockout",
+      "type": "registry:ui",
+      "title": "Lockout",
+      "description": "A lockout-tagout hasp: everyone working on something hangs their own padlock and tag, and it can't start until the last lock comes off. For freezes and holds.",
+      "categories": [
+        "coordination"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/lockout.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--lockout-hasp": "oklch(0.72 0.01 260)",
+          "--lockout-hasp-edge": "oklch(0.48 0.01 260)",
+          "--lockout-lock": "oklch(0.55 0.2 27)",
+          "--lockout-lock-edge": "oklch(0.38 0.16 27)",
+          "--lockout-shackle": "oklch(0.82 0.01 260)",
+          "--lockout-tag": "oklch(0.86 0.15 90)",
+          "--lockout-tag-foreground": "oklch(0.22 0.02 260)",
+          "--lockout-clear": "oklch(0.6 0.15 150)"
+        },
+        "[data-slot=\"lockout\"]": {
+          "--bevel-material": "var(--lockout-hasp)",
+          "--bevel-material-edge": "var(--lockout-hasp-edge)"
+        },
+        "[data-slot=\"lockout-lock-body\"]": {
+          "--bevel-material": "var(--lockout-lock)",
+          "--bevel-material-edge": "var(--lockout-lock-edge)"
+        }
+      }
+    },
+    {
+      "name": "take-a-number",
+      "type": "registry:ui",
+      "title": "Take a number",
+      "description": "A ticket dispenser and a Now Serving sign: your place in the queue is the number in your hand. For support queues, waitlists and jobs waiting their turn.",
+      "categories": [
+        "coordination"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/number-wheel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/take-a-number.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--take-a-number-red": "oklch(0.55 0.2 27)",
+          "--take-a-number-red-edge": "oklch(0.38 0.15 27)",
+          "--take-a-number-foreground": "oklch(0.97 0.01 90)",
+          "--take-a-number-turn": "oklch(0.8 0.17 150)"
+        },
+        "[data-slot=\"take-a-number-sign\"], [data-slot=\"take-a-number-dispenser\"]": {
+          "--bevel-material": "var(--take-a-number-red)",
+          "--bevel-material-edge": "var(--take-a-number-red-edge)",
+          "--bevel-material-recess": "oklch(0.16 0.01 260)",
+          "--bevel-led": "var(--take-a-number-turn)"
+        }
+      }
+    },
+    {
+      "name": "engine-telegraph",
+      "type": "registry:ui",
+      "title": "Engine telegraph",
+      "description": "A ship's engine order telegraph: you set an order, the other side answers by moving its own pointer to match. Both show on one dial, so a pending order is visible at a glance. For autonomy levels, deploy stages and any setting that takes effect only once acknowledged.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/engine-telegraph.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--engine-telegraph-answer": "oklch(0.55 0.2 27)",
+          "--engine-telegraph-pending": "oklch(0.78 0.16 75)",
+          "--engine-telegraph-agreed": "oklch(0.72 0.16 150)",
+          "--engine-telegraph-pivot": "50px 56px"
+        },
+        "[data-slot=\"engine-telegraph\"]": {
+          "--bevel-material": "var(--bevel-brass)",
+          "--bevel-material-edge": "var(--bevel-brass-edge)",
+          "--bevel-led": "var(--engine-telegraph-agreed)"
+        },
+        "[data-slot=\"engine-telegraph\"][data-pending]": {
+          "--bevel-led": "var(--engine-telegraph-pending)"
+        }
+      }
+    },
+    {
+      "name": "annunciator",
+      "type": "registry:ui",
+      "title": "Annunciator",
+      "description": "A panel of alarm lamps from a control room. A new alarm flashes until someone acknowledges it, then stays lit while its condition lasts; one that clears unseen keeps flashing, so nothing passes unnoticed. For agent, build and system alerts.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/annunciator.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--annunciator-panel": "oklch(0.3 0.01 260)",
+          "--annunciator-panel-edge": "oklch(0.2 0.01 260)",
+          "--annunciator-off": "oklch(0.24 0.01 260)",
+          "--annunciator-off-foreground": "oklch(0.5 0.01 260)",
+          "--annunciator-red": "oklch(0.62 0.22 27)",
+          "--annunciator-amber": "oklch(0.8 0.16 75)",
+          "--annunciator-green": "oklch(0.74 0.17 150)",
+          "--annunciator-white": "oklch(0.94 0.02 90)",
+          "--annunciator-lit-foreground": "oklch(0.2 0.02 60)",
+          "--annunciator-flash": "900ms"
+        },
+        "[data-slot=\"annunciator\"]": {
+          "--bevel-material": "var(--annunciator-panel)",
+          "--bevel-material-edge": "var(--annunciator-panel-edge)"
+        },
+        "[data-slot=\"annunciator-tile\"]": {
+          "--annunciator-lamp": "var(--annunciator-amber)"
+        },
+        "[data-slot=\"annunciator-tile\"][data-tone=\"red\"]": {
+          "--annunciator-lamp": "var(--annunciator-red)"
+        },
+        "[data-slot=\"annunciator-tile\"][data-tone=\"green\"]": {
+          "--annunciator-lamp": "var(--annunciator-green)"
+        },
+        "[data-slot=\"annunciator-tile\"][data-tone=\"white\"]": {
+          "--annunciator-lamp": "var(--annunciator-white)"
+        },
+        "@keyframes annunciator-flash": {
+          "50%": {
+            "opacity": "0.25"
+          }
+        },
+        "@utility annunciator-flash": {
+          "animation": "annunciator-flash var(--annunciator-flash) steps(1, end) infinite"
+        }
+      }
+    },
+    {
+      "name": "detent-knob",
+      "type": "registry:ui",
+      "title": "Detent knob",
+      "description": "A rotary switch that clicks into fixed positions and stops hard at both ends. For a few ordered settings where the order matters: reasoning effort, quality presets, verbosity.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/detent-knob.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--detent-knob-cap": "oklch(0.3 0.01 260)",
+          "--detent-knob-cap-edge": "oklch(0.18 0.01 260)",
+          "--detent-knob-pointer": "oklch(0.95 0.02 90)",
+          "--detent-knob-active": "oklch(0.82 0.15 85)",
+          "--detent-knob-label-radius": "5.5rem",
+          "--detent-knob-bump": "4deg"
+        },
+        "[data-slot=\"detent-knob-cap\"]": {
+          "--bevel-material": "var(--detent-knob-cap)",
+          "--bevel-material-edge": "var(--detent-knob-cap-edge)"
+        },
+        "@utility detent-knob-knurl": {
+          "background-image": "repeating-conic-gradient(var(--bevel-highlight) 0deg 3deg, var(--bevel-shade) 3deg 6deg)"
+        },
+        "@keyframes detent-knob-bump": {
+          "40%": {
+            "rotate": "var(--detent-knob-bump-to)"
+          }
+        },
+        "[data-slot=\"detent-knob-body\"][data-bump=\"up\"]": {
+          "--detent-knob-bump-to": "var(--detent-knob-bump)"
+        },
+        "[data-slot=\"detent-knob-body\"][data-bump=\"down\"]": {
+          "--detent-knob-bump-to": "calc(var(--detent-knob-bump) * -1)"
+        },
+        "@utility detent-knob-bump": {
+          "animation": "detent-knob-bump var(--bevel-duration-small) var(--bevel-ease-out)"
+        }
+      }
+    },
+    {
+      "name": "push-to-talk",
+      "type": "registry:ui",
+      "title": "Push to talk",
+      "description": "A radio's push-to-talk key: it listens only while held, and letting go stops it. Nothing records by accident. For voice input to agents, walkie-talkie chat and dictation.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/push-to-talk.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--push-to-talk-body": "oklch(0.26 0.01 260)",
+          "--push-to-talk-body-edge": "oklch(0.18 0.01 260)",
+          "--push-to-talk-key": "oklch(0.36 0.01 260)",
+          "--push-to-talk-live": "oklch(0.62 0.22 27)",
+          "--push-to-talk-grille": "oklch(0.14 0.01 260)"
+        },
+        "[data-slot=\"push-to-talk\"]": {
+          "--bevel-material": "var(--push-to-talk-body)",
+          "--bevel-material-edge": "var(--push-to-talk-body-edge)",
+          "--bevel-led": "var(--push-to-talk-live)"
+        },
+        "[data-slot=\"push-to-talk-key\"]": {
+          "--bevel-material": "var(--push-to-talk-key)"
+        },
+        "@utility push-to-talk-grille": {
+          "background-image": "radial-gradient(circle, var(--push-to-talk-grille) 35%, transparent 40%)",
+          "background-size": "0.5rem 0.5rem"
+        }
+      }
+    },
+    {
+      "name": "motorized-fader",
+      "type": "registry:ui",
+      "title": "Motorized fader",
+      "description": "A console fader with a motor: when someone else sets it, the cap travels there on its own and says who moved it. Grab it and it's yours. For settings an agent, a teammate or an automation can change too.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/motorized-fader.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--motorized-fader-travel": "9rem",
+          "--motorized-fader-cap": "1.75rem",
+          "--motorized-fader-panel": "oklch(0.3 0.01 260)",
+          "--motorized-fader-panel-edge": "oklch(0.2 0.01 260)",
+          "--motorized-fader-cap-colour": "oklch(0.86 0.01 260)",
+          "--motorized-fader-cap-edge": "oklch(0.6 0.01 260)",
+          "--motorized-fader-line": "oklch(0.3 0.01 260)",
+          "--motorized-fader-remote": "oklch(0.78 0.15 230)"
+        },
+        "[data-slot=\"motorized-fader\"]": {
+          "--bevel-material-recess": "oklch(0.12 0.01 260)",
+          "--bevel-led": "var(--motorized-fader-remote)"
+        },
+        "[data-slot=\"motorized-fader-cap\"]": {
+          "--bevel-material": "var(--motorized-fader-cap-colour)",
+          "--bevel-material-edge": "var(--motorized-fader-cap-edge)"
+        }
+      }
+    },
+    {
+      "name": "mixer-strip",
+      "type": "registry:ui",
+      "title": "Mixer strip",
+      "description": "One channel of a mixing console per agent or source: its name, mute and solo keys, and a motorized fader that an orchestrator can move and you can take. For balancing subagents, models or data sources.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/motorized-fader.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/mixer-strip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--mixer-strip-panel": "oklch(0.32 0.01 260)",
+          "--mixer-strip-panel-edge": "oklch(0.22 0.01 260)",
+          "--mixer-strip-key": "oklch(0.42 0.01 260)",
+          "--mixer-strip-mute": "oklch(0.62 0.22 27)",
+          "--mixer-strip-solo": "oklch(0.84 0.16 90)",
+          "--mixer-strip-lit-foreground": "oklch(0.2 0.02 60)",
+          "--mixer-strip-scribble": "oklch(0.2 0.02 230)",
+          "--mixer-strip-scribble-foreground": "oklch(0.88 0.08 230)"
+        },
+        "[data-slot=\"mixer-strip\"]": {
+          "--bevel-material": "var(--mixer-strip-panel)",
+          "--bevel-material-edge": "var(--mixer-strip-panel-edge)"
+        },
+        "[data-slot=\"mixer-strip-mute\"], [data-slot=\"mixer-strip-solo\"]": {
+          "--bevel-material": "var(--mixer-strip-key)"
+        },
+        "[data-slot=\"mixer-strip-mute\"][data-pressed]": {
+          "--bevel-material": "var(--mixer-strip-mute)"
+        },
+        "[data-slot=\"mixer-strip-solo\"][data-pressed]": {
+          "--bevel-material": "var(--mixer-strip-solo)"
+        }
+      }
+    },
+    {
+      "name": "keysort-filter",
+      "type": "registry:ui",
+      "title": "Keysort filter",
+      "description": "Edge-notched cards from the 1950s office: each hole along the top is an attribute, notched open if the card has it. Push needles down the columns and the cards notched for all of them fall free. AND filtering you can see. For documents, tickets and records with tags.",
+      "categories": [
+        "records"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/keysort-filter.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--keysort-filter-card": "oklch(0.93 0.04 85)",
+          "--keysort-filter-card-held": "oklch(0.86 0.02 85)",
+          "--keysort-filter-card-foreground": "oklch(0.3 0.04 70)",
+          "--keysort-filter-hole": "oklch(0.3 0.02 70)",
+          "--keysort-filter-match": "oklch(0.58 0.15 150)",
+          "--keysort-filter-needle": "oklch(0.8 0.01 260)",
+          "--keysort-filter-needle-edge": "oklch(0.5 0.01 260)",
+          "--keysort-filter-column": "2.5rem"
+        },
+        "@media (width >= 40rem)": {
+          ":root": {
+            "--keysort-filter-column": "3.5rem"
+          }
+        },
+        "[data-slot=\"keysort-filter\"]": {
+          "--bevel-material": "var(--keysort-filter-needle)",
+          "--bevel-material-edge": "var(--keysort-filter-needle-edge)"
+        }
+      }
+    },
+    {
+      "name": "visible-file",
+      "type": "registry:ui",
+      "title": "Visible file",
+      "description": "A Kardex visible-index tray: each record shows only its edge, and coloured signal clips slide along it to mark where it stands, so a whole tray reads at a glance. For pipelines, renewals and task stages.",
+      "categories": [
+        "records"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/visible-file.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--visible-file-tray": "oklch(0.55 0.03 150)",
+          "--visible-file-tray-edge": "oklch(0.38 0.03 150)",
+          "--visible-file-card": "oklch(0.96 0.01 90)",
+          "--visible-file-card-foreground": "oklch(0.25 0.02 260)",
+          "--visible-file-rule": "oklch(0.85 0.02 90)",
+          "--visible-file-red": "oklch(0.6 0.2 27)",
+          "--visible-file-amber": "oklch(0.8 0.16 75)",
+          "--visible-file-green": "oklch(0.65 0.16 150)",
+          "--visible-file-blue": "oklch(0.6 0.15 250)"
+        },
+        "[data-slot=\"visible-file\"]": {
+          "--bevel-material": "var(--visible-file-tray)",
+          "--bevel-material-edge": "var(--visible-file-tray-edge)"
+        },
+        "[data-slot=\"visible-file-signal\"]": {
+          "--bevel-material": "var(--visible-file-blue)"
+        },
+        "[data-slot=\"visible-file-signal\"][data-tone=\"red\"]": {
+          "--bevel-material": "var(--visible-file-red)"
+        },
+        "[data-slot=\"visible-file-signal\"][data-tone=\"amber\"]": {
+          "--bevel-material": "var(--visible-file-amber)"
+        },
+        "[data-slot=\"visible-file-signal\"][data-tone=\"green\"]": {
+          "--bevel-material": "var(--visible-file-green)"
+        }
+      }
+    },
+    {
+      "name": "contact-sheet",
+      "type": "registry:ui",
+      "title": "Contact sheet",
+      "description": "A photographer's contact sheet: every frame at once on a strip of film, marked with a grease pencil. Circle the keepers, cross out the rest. For reviewing generated images, design variants and screenshots.",
+      "categories": [
+        "records"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/contact-sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--contact-sheet-film": "oklch(0.17 0.01 60)",
+          "--contact-sheet-edge-print": "oklch(0.72 0.12 70)",
+          "--contact-sheet-sprocket": "oklch(0.93 0.01 90)",
+          "--contact-sheet-pick": "oklch(0.6 0.22 27)",
+          "--contact-sheet-reject": "oklch(0.96 0.01 90)",
+          "--contact-sheet-columns": "4"
+        },
+        "[data-slot=\"contact-sheet-frame\"]": {
+          "--bevel-ink": "var(--contact-sheet-pick)"
+        }
+      }
+    },
+    {
+      "name": "split-flap",
+      "type": "registry:ui",
+      "title": "Split-flap board",
+      "description": "A station departure board: each character is a pair of flaps that falls to the next value, column by column. The text is the truth and changes are announced once per row. For deploy boards, queues and live status.",
+      "categories": [
+        "records"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/split-flap.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--split-flap-housing": "oklch(0.22 0.01 260)",
+          "--split-flap-housing-edge": "oklch(0.14 0.01 260)",
+          "--split-flap-flap": "oklch(0.2 0.005 260)",
+          "--split-flap-flap-lower": "oklch(0.17 0.005 260)",
+          "--split-flap-hinge": "oklch(0.08 0 0)",
+          "--split-flap-foreground": "oklch(0.95 0.02 90)",
+          "--split-flap-amber": "oklch(0.84 0.16 80)",
+          "--split-flap-cell-width": "1.15em",
+          "--split-flap-cell-height": "1.6em",
+          "--split-flap-delay": "0s",
+          "--split-flap-announce-after": "1200ms"
+        },
+        "[data-slot=\"split-flap\"]": {
+          "--bevel-material": "var(--split-flap-housing)",
+          "--bevel-material-edge": "var(--split-flap-housing-edge)"
+        },
+        "@keyframes split-flap-top": {
+          "to": {
+            "transform": "rotateX(-90deg)"
+          }
+        },
+        "@keyframes split-flap-bottom": {
+          "from": {
+            "transform": "rotateX(90deg)"
+          }
+        },
+        "@keyframes split-flap-fade": {
+          "from": {
+            "opacity": "0"
+          }
+        },
+        "@utility split-flap-top": {
+          "transform-origin": "bottom",
+          "animation": "split-flap-top calc(var(--bevel-duration-small) / 2) var(--bevel-ease-in-out) both",
+          "animation-delay": "var(--split-flap-delay)"
+        },
+        "@utility split-flap-bottom": {
+          "transform-origin": "top",
+          "animation": "split-flap-bottom calc(var(--bevel-duration-small) / 2) var(--bevel-ease-out) both",
+          "animation-delay": "calc(var(--split-flap-delay) + var(--bevel-duration-small) / 2)"
+        },
+        "@utility split-flap-fade": {
+          "animation": "split-flap-fade var(--bevel-duration-small) var(--bevel-ease-out) both"
+        }
+      }
+    },
+    {
+      "name": "due-date-slip",
+      "type": "registry:ui",
+      "title": "Due-date slip",
+      "description": "The library card in the back of a book: each loan or renewal stamps the next ruled line, and the last date is when it's due. Overdue dates are stamped red. For expiring keys, trials, seats and access grants.",
+      "categories": [
+        "records"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/due-date-slip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--due-date-slip-paper": "oklch(0.93 0.05 95)",
+          "--due-date-slip-rule": "oklch(0.7 0.08 240 / 0.45)",
+          "--due-date-slip-header": "oklch(0.45 0.12 27)",
+          "--due-date-slip-line": "2rem"
+        },
+        "[data-slot=\"due-date-slip\"]": {
+          "--bevel-paper": "var(--due-date-slip-paper)"
+        }
+      }
+    },
+    {
+      "name": "agent-console",
+      "type": "registry:block",
+      "title": "Relay, AI agent control room",
+      "description": "Supervise a coding agent and its subagents: set its autonomy, balance effort between subagents, hold the dead man's switch, and lift the cover to ship. A whole screen for a Next.js app, at /agent-console.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/annunciator.json",
+        "https://bevel-ui.vercel.app/r/engine-telegraph.json",
+        "https://bevel-ui.vercel.app/r/guarded-switch.json",
+        "https://bevel-ui.vercel.app/r/mixer-strip.json",
+        "https://bevel-ui.vercel.app/r/push-to-talk.json",
+        "https://bevel-ui.vercel.app/r/task-plan.json",
+        "https://bevel-ui.vercel.app/r/vigilance.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/blocks/agent-console/relay/relay-app.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/relay/relay-app.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/agent-console/relay/run.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/relay/run.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/agent-console/shared/environment.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/environment.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/agent-console/shared/events.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/events.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/agent-console/shared/fonts.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/fonts.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/agent-console/page.tsx",
+          "type": "registry:page",
+          "target": "app/agent-console/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "billing-desk",
+      "type": "registry:block",
+      "title": "Meterline, Usage billing",
+      "description": "A usage-based account page: the balance in a wallet, spend running on a meter, caps on breakers, the ledger, and API keys that expire on a library slip. A whole screen for a Next.js app, at /billing-desk.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/amount.json",
+        "https://bevel-ui.vercel.app/r/breaker.json",
+        "https://bevel-ui.vercel.app/r/due-date-slip.json",
+        "https://bevel-ui.vercel.app/r/ledger.json",
+        "https://bevel-ui.vercel.app/r/meter.json",
+        "https://bevel-ui.vercel.app/r/payment-card.json",
+        "https://bevel-ui.vercel.app/r/receipt.json",
+        "https://bevel-ui.vercel.app/r/stamp.json",
+        "https://bevel-ui.vercel.app/r/ticket-sheet.json",
+        "https://bevel-ui.vercel.app/r/wallet.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/blocks/billing-desk/meterline/header.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/meterline/header.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/billing-desk/meterline/meterline.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/meterline/meterline.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/billing-desk/meterline/state.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/meterline/state.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/billing-desk/shared/environment.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/environment.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/billing-desk/shared/events.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/events.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/billing-desk/shared/fonts.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/fonts.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/billing-desk/page.tsx",
+          "type": "registry:page",
+          "target": "app/billing-desk/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "release-hall",
+      "type": "registry:block",
+      "title": "Shipyard, Release coordination",
+      "description": "A release board for a team: regions on a split-flap board, services moving through stages, a deploy queue, a freeze everyone must lift, and the promote switch. A whole screen for a Next.js app, at /release-hall.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/annunciator.json",
+        "https://bevel-ui.vercel.app/r/guarded-switch.json",
+        "https://bevel-ui.vercel.app/r/lockout.json",
+        "https://bevel-ui.vercel.app/r/split-flap.json",
+        "https://bevel-ui.vercel.app/r/take-a-number.json",
+        "https://bevel-ui.vercel.app/r/visible-file.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/blocks/release-hall/shipyard/shipyard.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shipyard/shipyard.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/release-hall/shared/environment.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/environment.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/release-hall/shared/events.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/events.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/release-hall/shared/fonts.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/fonts.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/release-hall/page.tsx",
+          "type": "registry:page",
+          "target": "app/release-hall/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "review-desk",
+      "type": "registry:block",
+      "title": "Casefile, Legal review desk",
+      "description": "A lawyer's desk with an AI assistant: pull contracts with needles, mark up a clause, check the answer's sources, redact, and seal before it leaves. A whole screen for a Next.js app, at /review-desk.",
+      "categories": [
+        "blocks"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/approval.json",
+        "https://bevel-ui.vercel.app/r/citation.json",
+        "https://bevel-ui.vercel.app/r/keysort-filter.json",
+        "https://bevel-ui.vercel.app/r/redaction.json",
+        "https://bevel-ui.vercel.app/r/redline.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/blocks/review-desk/casefile/casefile-app.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/casefile/casefile-app.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/review-desk/casefile/contracts.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/casefile/contracts.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/review-desk/shared/environment.tsx",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/environment.tsx"
+        },
+        {
+          "path": "registry/bevel/blocks/review-desk/shared/events.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/events.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/review-desk/shared/fonts.ts",
+          "type": "registry:component",
+          "target": "components/bevel-demos/shared/fonts.ts"
+        },
+        {
+          "path": "registry/bevel/blocks/review-desk/page.tsx",
+          "type": "registry:page",
+          "target": "app/review-desk/page.tsx"
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,125 @@
   "homepage": "https://ecomcn.vercel.app",
   "items": [
     {
+      "name": "announcement-bar",
+      "title": "Announcement Bar",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "The thin inverted ink bar above everything — free-shipping thresholds, sale windows, drops — with a brand dot between messages. Static, or a marquee at 26s a loop that holds still under the pointer or focus and has a pause button; under reduced motion the marquee doesn't run. Dismissing folds it away and is remembered per version, so it stays gone across routes and visits until the announcement changes; pass `dismissed` from a cookie to skip it on the server.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/announcement-bar/announcement-bar.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/announcement-bar.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "marketing"
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "hero-editorial",
+      "title": "Editorial Hero",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "An asymmetric split hero: an oversized serif headline on the left, a campaign image on the right with a product caption sitting on it. 1.05fr / 0.95fr, not 50/50. The image is the page's largest contentful paint, so it loads eagerly with fetchpriority=high inside a real aspect-ratio box and never shifts; renderImage hands the props to next/image. No state and no \"use client\": it renders on the server.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/hero-editorial/hero-editorial.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/hero-editorial.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "marketing"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "category-rail",
+      "title": "Category Rail",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Numbered category tiles with a photo and an item count, snapping along your shadcn Carousel. Tiles sit 1px apart over a track in your border colour, so the rail reads as one ruled object. The Carousel's previous and next buttons fade out and leave the tab order when everything fits; a tile reached by Tab scrolls into view. Loading skeleton included.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "carousel",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/category-rail/category-rail.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/category-rail.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "marketing"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "collection-grid",
+      "title": "Collection Grid",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Three collections as a magazine spread: one dominant tile spanning both rows on a 7/5 split, two supporting it, the type scaling with the tile. On a phone the lead stays full width and tall and the other two pair up beneath it, smaller — never three identical cards. Ruled 1px apart; a scrim keeps the words legible on any photo. Renders on the server.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/collection-grid/collection-grid.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/collection-grid.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "marketing"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "lookbook-strip",
+      "title": "Lookbook Strip",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "A campaign photo you can shop: numbered hairline-ring hotspots, placed by percentage with their own positions for a mobile crop, each opening its product on your shadcn Popover — on hover with a pointer, on tap or Enter otherwise. The card grows out of the hotspot and folds back into it, held open until the fold has played (Motion; a fade under reduced motion). The same products are listed under the image, and hovering one marks its hotspot.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/lookbook-strip/lookbook-strip.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/lookbook-strip.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "marketing"
+      ],
+      "type": "registry:block"
+    },
+    {
       "name": "price-tag",
       "title": "Price Tag",
       "author": "ecomcn <hello@ecomcn.dev>",
@@ -648,6 +767,63 @@
       "categories": [
         "ecommerce",
         "checkout"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "order-confirmation",
+      "title": "Order Confirmation",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "The page after Pay: the receipt people screenshot, print and come back to. A thank-you set large in your serif on a grained band, with a check that draws itself; the order number, placed date, arrival window and amount paid in one ruled row above the fold; the items as a ledger with totals; ship-to, delivery and payment. Prints as a plain black-on-white receipt with the permalink written out; Copy order link for a permalink you give it. Calendar dates in UTC so they never slip a day; the placed time in the visitor's zone once hydrated. Loading skeleton included. Compound, through useOrderConfirmation().",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/order-confirmation/order-confirmation.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/order-confirmation.tsx"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "post-purchase"
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "order-tracking",
+      "title": "Order Tracking",
+      "author": "ecomcn <hello@ecomcn.dev>",
+      "description": "Where the parcel is: a status chip, the arrival window, a vertical timeline of milestones and the carrier's updates. Carrier webhooks arrive out of order and twice, so events are de-duplicated by id and sorted by when they happened — sortTrackingEvents and trackingProgress live in lib/tracking-events.ts, with no \"use client\", so a webhook handler runs the same code. The current node is ringed with a live pulse, passed ones solid ink, those to come hollow grey; a carrier problem turns the chip to Needs attention and says why. Rules fill as the parcel moves and the update log grows to its measured height (Motion; a fade under reduced motion). Loading and empty states included.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ecomcn/order-tracking/order-tracking.tsx",
+          "type": "registry:component",
+          "target": "components/ecomcn/order-tracking.tsx"
+        },
+        {
+          "path": "src/registry/ecomcn/order-tracking/tracking-events.ts",
+          "type": "registry:lib",
+          "target": "lib/tracking-events.ts"
+        }
+      ],
+      "categories": [
+        "ecommerce",
+        "post-purchase"
       ],
       "type": "registry:block"
     },

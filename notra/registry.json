@@ -1214,6 +1214,109 @@
       ]
     },
     {
+      "name": "notra-sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "The shadcn sidebar on Base UI with a fading icon rail, a resizable rail, collapsible sub-rows and gliding Notra tooltips.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "cn",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.usenotra.com/r/notra-button.json",
+        "https://ui.usenotra.com/r/notra-tooltip.json",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sidebar.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-sidebar": "var(--sidebar)",
+          "color-sidebar-foreground": "var(--sidebar-foreground)",
+          "color-sidebar-accent": "var(--sidebar-accent)",
+          "color-sidebar-accent-foreground": "var(--sidebar-accent-foreground)",
+          "color-sidebar-border": "var(--sidebar-border)",
+          "color-sidebar-ring": "var(--sidebar-ring)"
+        },
+        "light": {
+          "sidebar": "oklch(0.985 0 0)",
+          "sidebar-foreground": "oklch(0.145 0 0)",
+          "sidebar-accent": "oklch(0.97 0 0)",
+          "sidebar-accent-foreground": "oklch(0.205 0 0)",
+          "sidebar-border": "oklch(0.922 0 0)",
+          "sidebar-ring": "oklch(0.4907 0.2412 292.5809)"
+        },
+        "dark": {
+          "sidebar": "oklch(0.17 0.006 270)",
+          "sidebar-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.245 0.006 270)",
+          "sidebar-accent-foreground": "oklch(0.985 0 0)",
+          "sidebar-border": "oklch(0.275 0.006 270)",
+          "sidebar-ring": "oklch(0.709 0.1592 293.5412)"
+        }
+      }
+    },
+    {
+      "name": "app-sidebar",
+      "type": "registry:block",
+      "title": "App Sidebar",
+      "description": "The Notra dashboard sidebar: project switcher, search, grouped navigation with sub-rows and a rail flyout, and the account menu.",
+      "dependencies": ["cn", "lucide-react"],
+      "registryDependencies": [
+        "https://ui.usenotra.com/r/notra-sidebar.json",
+        "https://ui.usenotra.com/r/notra-dropdown-menu.json",
+        "avatar",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "registry/notra/app-sidebar/components/sidebar-nav.tsx",
+          "type": "registry:component",
+          "target": "components/app-sidebar/components/sidebar-nav.tsx"
+        },
+        {
+          "path": "registry/notra/app-sidebar/components/sidebar-search.tsx",
+          "type": "registry:component",
+          "target": "components/app-sidebar/components/sidebar-search.tsx"
+        },
+        {
+          "path": "registry/notra/app-sidebar/components/sidebar-switcher.tsx",
+          "type": "registry:component",
+          "target": "components/app-sidebar/components/sidebar-switcher.tsx"
+        },
+        {
+          "path": "registry/notra/app-sidebar/components/sidebar-user-menu.tsx",
+          "type": "registry:component",
+          "target": "components/app-sidebar/components/sidebar-user-menu.tsx"
+        },
+        {
+          "path": "registry/notra/app-sidebar/constants/app-sidebar.ts",
+          "type": "registry:lib",
+          "target": "components/app-sidebar/constants/app-sidebar.ts"
+        },
+        {
+          "path": "registry/notra/app-sidebar/hooks/use-sidebar-settled.ts",
+          "type": "registry:hook",
+          "target": "components/app-sidebar/hooks/use-sidebar-settled.ts"
+        },
+        {
+          "path": "registry/notra/app-sidebar/types/app-sidebar.ts",
+          "type": "registry:lib",
+          "target": "components/app-sidebar/types/app-sidebar.ts"
+        }
+      ]
+    },
+    {
       "name": "shimmer",
       "type": "registry:component",
       "title": "Shimmer",

@@ -1,0 +1,1005 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "organui",
+  "homepage": "https://organui.com",
+  "items": [
+    {
+      "name": "anatomy-tree",
+      "type": "registry:ui",
+      "title": "Anatomy tree",
+      "description": "Search, select and control visibility in hierarchical anatomy data.",
+      "categories": ["anatomy"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": ["button", "empty", "field", "input"],
+      "files": [
+        {
+          "path": "registry/base-nova/anatomy-tree/anatomy-tree.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Anatomy tree docs: https://organui.com/docs/components/anatomy-tree"
+    },
+    {
+      "name": "vital-signs",
+      "type": "registry:ui",
+      "title": "Vital signs",
+      "description": "Heart rate, blood pressure, SpO\u2082 and temperature, each flagged against a configurable normal range.",
+      "categories": ["clinical"],
+      "dependencies": ["cn@^0.5.0"],
+      "registryDependencies": ["card"],
+      "files": [
+        {
+          "path": "registry/base-nova/vital-signs/vital-signs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Vital signs docs: https://organui.com/docs/components/vital-signs"
+    },
+    {
+      "name": "ecg-trace",
+      "type": "registry:ui",
+      "title": "ECG trace",
+      "description": "A recorded or live ECG rhythm strip on standard paper, with labelled P, QRS and T waves. Not for diagnostic use.",
+      "categories": ["clinical"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/base-nova/ecg-trace/ecg-trace.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "ECG trace docs: https://organui.com/docs/components/ecg-trace"
+    },
+    {
+      "name": "body-map",
+      "type": "registry:ui",
+      "title": "Body map",
+      "description": "Pick regions on a front and back body outline to record where pain or symptoms are.",
+      "categories": ["clinical"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/base-nova/body-map/body-map.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Body map docs: https://organui.com/docs/components/body-map"
+    },
+    {
+      "name": "organ-viewer",
+      "type": "registry:component",
+      "title": "Organ viewer",
+      "description": "Rotate, frame and select the structures of a GLB anatomy model, with ghosting and named views.",
+      "categories": ["anatomy"],
+      "dependencies": [
+        "three@^0.186.0",
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "devDependencies": ["@types/three@^0.186.0"],
+      "registryDependencies": [
+        "alert",
+        "button",
+        "progress",
+        "select",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/base-nova/organ-viewer/organ-viewer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Organ viewer docs: https://organui.com/docs/components/organ-viewer. Needs one of shadcn's Base UI styles, such as base-nova: its controls use Base UI's render prop, so on a Radix style its buttons do nothing."
+    },
+    {
+      "name": "molecule-viewer",
+      "type": "registry:component",
+      "title": "Molecule viewer",
+      "description": "Load a PDB or mmCIF structure and explore it as a cartoon, ball and stick or spacefill model, with residue selection and a sequence strip.",
+      "dependencies": [
+        "three@^0.186.0",
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "devDependencies": ["@types/three@^0.186.0"],
+      "registryDependencies": ["alert", "button", "select", "tooltip"],
+      "categories": ["molecular"],
+      "files": [
+        {
+          "path": "registry/base-nova/molecule-viewer/molecule-viewer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Molecule viewer docs: https://organui.com/docs/components/molecule-viewer. Needs one of shadcn's Base UI styles, such as base-nova: its controls use Base UI's render prop, so on a Radix style its buttons do nothing."
+    },
+    {
+      "name": "dna-helix",
+      "type": "registry:component",
+      "title": "DNA helix",
+      "description": "A procedural B-DNA double helix built from a sequence, with selectable base pairs and both strands listed below.",
+      "dependencies": [
+        "three@^0.186.0",
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "devDependencies": ["@types/three@^0.186.0"],
+      "registryDependencies": ["alert", "button", "tooltip"],
+      "categories": ["molecular"],
+      "files": [
+        {
+          "path": "registry/base-nova/dna-helix/dna-helix.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "DNA helix docs: https://organui.com/docs/components/dna-helix. Needs one of shadcn's Base UI styles, such as base-nova: its controls use Base UI's render prop, so on a Radix style its buttons do nothing."
+    },
+    {
+      "name": "lab-results",
+      "type": "registry:ui",
+      "title": "Lab results table",
+      "description": "Lab values flagged against the reference ranges you pass, with text and icon flags and a trend sparkline.",
+      "categories": ["clinical"],
+      "dependencies": ["cn@^0.5.0"],
+      "registryDependencies": ["table"],
+      "files": [
+        {
+          "path": "registry/base-nova/lab-results/lab-results.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Lab results table docs: https://organui.com/docs/components/lab-results"
+    },
+    {
+      "name": "growth-chart",
+      "type": "registry:ui",
+      "title": "Growth chart",
+      "description": "Child growth percentile curves for weight, length/height and head circumference from reference tables you supply, with plotted measurements, percentiles and z-scores.",
+      "categories": ["clinical"],
+      "registryDependencies": [],
+      "dependencies": ["cn@^0.5.0"],
+      "files": [
+        {
+          "path": "registry/base-nova/growth-chart/growth-chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Growth chart docs: https://organui.com/docs/components/growth-chart. The item ships no growth data and no loader: you pass the reference tables. The docs say where to get them and under what terms. The WHO Child Growth Standards are © World Health Organization, distributed in WHO's anthro package under GPL-3 (https://www.gnu.org/licenses/gpl-3.0.html), and WHO requires permission for commercial use (https://www.who.int/about/policies/publishing/copyright)."
+    },
+    {
+      "name": "medication-schedule",
+      "type": "registry:ui",
+      "title": "Medication schedule",
+      "description": "A daily dosing timeline with dose tracking and interaction warnings from data you provide.",
+      "categories": ["clinical"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": ["alert", "button", "card", "empty"],
+      "files": [
+        {
+          "path": "registry/base-nova/medication-schedule/medication-schedule.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Medication schedule docs: https://organui.com/docs/components/medication-schedule"
+    },
+    {
+      "name": "dermatome-map",
+      "type": "registry:ui",
+      "title": "Dermatome map",
+      "description": "Front and back body map of the skin each spinal nerve supplies, C2 to S4-5, with ISNCSCI key sensory points.",
+      "categories": ["clinical"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/base-nova/dermatome-map/dermatome-map.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Dermatome map docs: https://organui.com/docs/components/dermatome-map. A simplified illustration that follows the ISNCSCI sensory levels and key sensory points; not a clinical tool."
+    },
+    {
+      "name": "image-viewer",
+      "type": "registry:ui",
+      "title": "Medical image viewer",
+      "description": "Scroll through CT or MRI slices with window and level, zoom and pan, and read DICOM files in the browser.",
+      "categories": ["imaging"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": [
+        "alert",
+        "button",
+        "progress",
+        "select",
+        "slider",
+        "toggle",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/base-nova/image-viewer/image-viewer.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/base-nova/image-viewer/dicom.ts",
+          "type": "registry:ui",
+          "target": "lib/dicom.ts"
+        },
+        {
+          "path": "registry/base-nova/image-viewer/head-phantom.ts",
+          "type": "registry:ui",
+          "target": "lib/head-phantom.ts"
+        }
+      ],
+      "docs": "Medical image viewer docs: https://organui.com/docs/components/image-viewer. Needs one of shadcn's Base UI styles, such as base-nova: its controls use Base UI's render prop, so on a Radix style its buttons do nothing. The DICOM reader (lib/dicom.ts) handles uncompressed, single-frame grayscale files only; use a full DICOM toolkit for compressed, color or multi-frame images. Not a medical device."
+    },
+    {
+      "name": "adrenals",
+      "type": "registry:component",
+      "title": "Adrenals",
+      "description": "The adrenals from the OrganUI adrenals explorer: 12 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "endocrine"],
+      "files": [
+        {
+          "path": "registry/base-nova/adrenals/adrenals.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Adrenals docs: https://organui.com/docs/components/adrenals. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "appendix",
+      "type": "registry:component",
+      "title": "Appendix",
+      "description": "The vermiform appendix with the cecum, terminal ileum, iliac vessels and the muscles behind it: 7 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/appendix/appendix.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Appendix docs: https://organui.com/docs/components/appendix. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "bladder",
+      "type": "registry:component",
+      "title": "Bladder",
+      "description": "The bladder from the OrganUI bladder explorer: 12 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "urinary"],
+      "files": [
+        {
+          "path": "registry/base-nova/bladder/bladder.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Bladder docs: https://organui.com/docs/components/bladder. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "brain",
+      "type": "registry:component",
+      "title": "Brain",
+      "description": "The brain from the OrganUI brain explorer: 19 selectable structures and 6 named views. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "nervous"],
+      "files": [
+        {
+          "path": "registry/base-nova/brain/brain.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Brain docs: https://organui.com/docs/components/brain. The model is licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); keep the viewer's credit visible."
+    },
+    {
+      "name": "breast",
+      "type": "registry:component",
+      "title": "Breast",
+      "description": "Both breasts from the HuBMAP Human Reference Atlas: 16 selectable structures and 3 named views. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "reproductive"],
+      "files": [
+        {
+          "path": "registry/base-nova/breast/breast.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Breast docs: https://organui.com/docs/components/breast. The model is licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "cell",
+      "type": "registry:component",
+      "title": "Cell",
+      "description": "An animal cell with a quarter cut away, from an original OrganUI schematic model: 15 selectable organelles and structures and 4 named views. Model licensed CC0 1.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["cell"],
+      "files": [
+        {
+          "path": "registry/base-nova/cell/cell.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Cell docs: https://organui.com/docs/components/cell. The model is licensed CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "diaphragm",
+      "type": "registry:component",
+      "title": "Diaphragm",
+      "description": "The diaphragm with the structures that pass through it and the organs above and below: 13 selectable structures and 4 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "respiratory"],
+      "files": [
+        {
+          "path": "registry/base-nova/diaphragm/diaphragm.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Diaphragm docs: https://organui.com/docs/components/diaphragm. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "ear",
+      "type": "registry:component",
+      "title": "Ear",
+      "description": "The ear from the OrganUI ear explorer: 16 selectable structures and 3 named views. Model licensed CC BY-SA 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "senses"],
+      "files": [
+        {
+          "path": "registry/base-nova/ear/ear.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Ear docs: https://organui.com/docs/components/ear. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "esophagus",
+      "type": "registry:component",
+      "title": "Esophagus",
+      "description": "The esophagus from the OrganUI esophagus explorer: 17 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/esophagus/esophagus.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Esophagus docs: https://organui.com/docs/components/esophagus. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "eye",
+      "type": "registry:component",
+      "title": "Eye",
+      "description": "The eye from the OrganUI eye explorer: 21 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "senses"],
+      "files": [
+        {
+          "path": "registry/base-nova/eye/eye.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Eye docs: https://organui.com/docs/components/eye. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "gallbladder",
+      "type": "registry:component",
+      "title": "Gallbladder",
+      "description": "The gallbladder from the OrganUI gallbladder explorer: 15 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/gallbladder/gallbladder.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Gallbladder docs: https://organui.com/docs/components/gallbladder. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "hair",
+      "type": "registry:component",
+      "title": "Hair",
+      "description": "A hair follicle in a cut-away plug of scalp, from an original OrganUI schematic model: 14 selectable structures and 3 named views. Model licensed CC0 1.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "integumentary"],
+      "files": [
+        {
+          "path": "registry/base-nova/hair/hair.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Hair docs: https://organui.com/docs/components/hair. The model is licensed CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "heart",
+      "type": "registry:component",
+      "title": "Heart",
+      "description": "The heart from the OrganUI heart explorer: 11 selectable structures and 3 named views. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "cardiovascular"],
+      "files": [
+        {
+          "path": "registry/base-nova/heart/heart.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Heart docs: https://organui.com/docs/components/heart. The model is licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); keep the viewer's credit visible."
+    },
+    {
+      "name": "intestines",
+      "type": "registry:component",
+      "title": "Intestines",
+      "description": "The intestines from the OrganUI intestines explorer: 11 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/intestines/intestines.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Intestines docs: https://organui.com/docs/components/intestines. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "joints",
+      "type": "registry:component",
+      "title": "Joints",
+      "description": "The joints and ligaments of the whole body, from Z-Anatomy: 197 selectable structures and 9 named views. Model licensed CC BY-SA 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "musculoskeletal"],
+      "files": [
+        {
+          "path": "registry/base-nova/joints/joints.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Joints docs: https://organui.com/docs/components/joints. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "kidneys",
+      "type": "registry:component",
+      "title": "Kidneys",
+      "description": "The kidneys from the OrganUI kidneys explorer: 6 selectable structures and 4 named views. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "urinary"],
+      "files": [
+        {
+          "path": "registry/base-nova/kidneys/kidneys.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Kidneys docs: https://organui.com/docs/components/kidneys. The model is licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); keep the viewer's credit visible."
+    },
+    {
+      "name": "larynx",
+      "type": "registry:component",
+      "title": "Larynx",
+      "description": "The larynx from the OrganUI larynx explorer: 20 selectable structures and 4 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "respiratory"],
+      "files": [
+        {
+          "path": "registry/base-nova/larynx/larynx.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Larynx docs: https://organui.com/docs/components/larynx. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "liver",
+      "type": "registry:component",
+      "title": "Liver",
+      "description": "The liver from the OrganUI liver explorer: 7 selectable structures and 5 named views. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/liver/liver.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Liver docs: https://organui.com/docs/components/liver. The model is licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); keep the viewer's credit visible."
+    },
+    {
+      "name": "lungs",
+      "type": "registry:component",
+      "title": "Lungs",
+      "description": "The lungs from the OrganUI lungs explorer: 20 selectable structures and 4 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "respiratory"],
+      "files": [
+        {
+          "path": "registry/base-nova/lungs/lungs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Lungs docs: https://organui.com/docs/components/lungs. The model is licensed CC BY-SA 2.1 JP (https://lifesciencedb.jp/bp3d/info/index.html#License); keep the viewer's credit visible."
+    },
+    {
+      "name": "lymph",
+      "type": "registry:component",
+      "title": "Lymph node",
+      "description": "The lymph node from the OrganUI lymph node explorer: 7 selectable structures and 3 named views. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "lymphatic"],
+      "files": [
+        {
+          "path": "registry/base-nova/lymph/lymph.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Lymph node docs: https://organui.com/docs/components/lymph. The model is licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "muscles",
+      "type": "registry:component",
+      "title": "Muscles",
+      "description": "The muscles from the OrganUI muscles explorer: 177 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "musculoskeletal"],
+      "files": [
+        {
+          "path": "registry/base-nova/muscles/muscles.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Muscles docs: https://organui.com/docs/components/muscles. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "nails",
+      "type": "registry:component",
+      "title": "Nails",
+      "description": "A fingertip halved through the nail, from an original OrganUI schematic model: 14 selectable structures and 3 named views. Model licensed CC0 1.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "integumentary"],
+      "files": [
+        {
+          "path": "registry/base-nova/nails/nails.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Nails docs: https://organui.com/docs/components/nails. The model is licensed CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "nerves",
+      "type": "registry:component",
+      "title": "Nerves",
+      "description": "The peripheral nerves of the whole body, from the cranial nerves to the plexuses of the arms and legs: 41 selectable structures and 6 named views. Model licensed CC BY-SA 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "nervous"],
+      "files": [
+        {
+          "path": "registry/base-nova/nerves/nerves.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Nerves docs: https://organui.com/docs/components/nerves. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "nose",
+      "type": "registry:component",
+      "title": "Nose",
+      "description": "The nose from the OrganUI nose explorer: 22 selectable structures and 3 named views. Model licensed CC BY-SA 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "respiratory"],
+      "files": [
+        {
+          "path": "registry/base-nova/nose/nose.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Nose docs: https://organui.com/docs/components/nose. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "pancreas",
+      "type": "registry:component",
+      "title": "Pancreas",
+      "description": "The pancreas from the OrganUI pancreas explorer: 15 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/pancreas/pancreas.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Pancreas docs: https://organui.com/docs/components/pancreas. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "parathyroid",
+      "type": "registry:component",
+      "title": "Parathyroid",
+      "description": "The four parathyroid glands on the back of the thyroid: 9 selectable structures and 5 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "endocrine"],
+      "files": [
+        {
+          "path": "registry/base-nova/parathyroid/parathyroid.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Parathyroid docs: https://organui.com/docs/components/parathyroid. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "pharynx",
+      "type": "registry:component",
+      "title": "Pharynx",
+      "description": "The pharynx from the OrganUI pharynx explorer: 20 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "respiratory"],
+      "files": [
+        {
+          "path": "registry/base-nova/pharynx/pharynx.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Pharynx docs: https://organui.com/docs/components/pharynx. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "pineal",
+      "type": "registry:component",
+      "title": "Pineal",
+      "description": "The pineal gland and its neighbours deep in the brain: the epithalamus, thalami, midbrain tectum and deep veins. 15 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "endocrine"],
+      "files": [
+        {
+          "path": "registry/base-nova/pineal/pineal.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Pineal docs: https://organui.com/docs/components/pineal. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "pituitary",
+      "type": "registry:component",
+      "title": "Pituitary",
+      "description": "The pituitary gland in its setting: the hypothalamus above it, the optic chiasm, its portal blood supply, the cavernous sinus and the sphenoid bone. 19 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "endocrine"],
+      "files": [
+        {
+          "path": "registry/base-nova/pituitary/pituitary.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Pituitary docs: https://organui.com/docs/components/pituitary. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "prostate",
+      "type": "registry:component",
+      "title": "Prostate",
+      "description": "The prostate from the OrganUI prostate explorer: 13 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "reproductive"],
+      "files": [
+        {
+          "path": "registry/base-nova/prostate/prostate.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Prostate docs: https://organui.com/docs/components/prostate. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "salivary-glands",
+      "type": "registry:component",
+      "title": "Salivary glands",
+      "description": "The major salivary glands, from Z-Anatomy: 15 selectable structures and 3 named views. Model licensed CC BY-SA 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/salivary-glands/salivary-glands.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Salivary glands docs: https://organui.com/docs/components/salivary-glands. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "The skeleton from the OrganUI skeleton explorer: 242 selectable structures and 8 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "musculoskeletal"],
+      "files": [
+        {
+          "path": "registry/base-nova/skeleton/skeleton.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Skeleton docs: https://organui.com/docs/components/skeleton. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "skin",
+      "type": "registry:component",
+      "title": "Skin",
+      "description": "The skin from the OrganUI skin explorer: 13 selectable structures and 3 named views. Model licensed CC0 1.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "integumentary"],
+      "files": [
+        {
+          "path": "registry/base-nova/skin/skin.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Skin docs: https://organui.com/docs/components/skin. The model is licensed CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "spinal-cord",
+      "type": "registry:component",
+      "title": "Spinal cord",
+      "description": "The spinal cord from the OrganUI spinal cord explorer: 63 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "nervous"],
+      "files": [
+        {
+          "path": "registry/base-nova/spinal-cord/spinal-cord.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Spinal cord docs: https://organui.com/docs/components/spinal-cord. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "spleen",
+      "type": "registry:component",
+      "title": "Spleen",
+      "description": "The spleen from the OrganUI spleen explorer: 9 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "lymphatic"],
+      "files": [
+        {
+          "path": "registry/base-nova/spleen/spleen.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Spleen docs: https://organui.com/docs/components/spleen. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "stomach",
+      "type": "registry:component",
+      "title": "Stomach",
+      "description": "The stomach from the OrganUI stomach explorer: 9 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/stomach/stomach.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Stomach docs: https://organui.com/docs/components/stomach. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "teeth",
+      "type": "registry:component",
+      "title": "Teeth",
+      "description": "The teeth from the OrganUI teeth explorer: 33 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/teeth/teeth.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Teeth docs: https://organui.com/docs/components/teeth. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "thymus",
+      "type": "registry:component",
+      "title": "Thymus",
+      "description": "The thymus from the OrganUI thymus explorer: 13 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "lymphatic"],
+      "files": [
+        {
+          "path": "registry/base-nova/thymus/thymus.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Thymus docs: https://organui.com/docs/components/thymus. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "thyroid",
+      "type": "registry:component",
+      "title": "Thyroid",
+      "description": "The thyroid from the OrganUI thyroid explorer: 18 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "endocrine"],
+      "files": [
+        {
+          "path": "registry/base-nova/thyroid/thyroid.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Thyroid docs: https://organui.com/docs/components/thyroid. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "tongue",
+      "type": "registry:component",
+      "title": "Tongue",
+      "description": "The tongue from the OrganUI tongue explorer: 13 selectable structures and 3 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/tongue/tongue.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Tongue docs: https://organui.com/docs/components/tongue. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "uterus",
+      "type": "registry:component",
+      "title": "Uterus",
+      "description": "The uterus from the OrganUI uterus explorer: 27 selectable structures and 3 named views. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "reproductive"],
+      "files": [
+        {
+          "path": "registry/base-nova/uterus/uterus.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Uterus docs: https://organui.com/docs/components/uterus. The model is licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "vessels",
+      "type": "registry:component",
+      "title": "Vessels",
+      "description": "The vessels from the OrganUI vessels explorer: 51 selectable structures and 6 named views. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "cardiovascular"],
+      "files": [
+        {
+          "path": "registry/base-nova/vessels/vessels.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Vessels docs: https://organui.com/docs/components/vessels. The model is licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible."
+    },
+    {
+      "name": "vestibular",
+      "type": "registry:component",
+      "title": "Vestibular system",
+      "description": "The inner ear's balance organs: the vestibule and three semicircular canals, with the cochlea and vestibular nerve. 6 selectable structures and 4 named views. Model licensed CC BY-SA 4.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["organ", "senses"],
+      "files": [
+        {
+          "path": "registry/base-nova/vestibular/vestibular.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Vestibular system docs: https://organui.com/docs/components/vestibular. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "explorer-01",
+      "type": "registry:block",
+      "title": "Explorer 01",
+      "description": "An organ viewer with an anatomy panel that docks beside it on wide screens and opens as a sheet on phones. Heart model licensed CC BY 4.0.",
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": [
+        "sheet",
+        "toggle",
+        "@organui/anatomy-tree",
+        "@organui/heart",
+        "@organui/organ-viewer"
+      ],
+      "files": [
+        {
+          "path": "registry/base-nova/blocks/explorer-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/explorer/page.tsx"
+        },
+        {
+          "path": "registry/base-nova/blocks/explorer-01/components/organ-explorer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["explorer"],
+      "docs": "Explorer 01: https://organui.com/blocks#explorer-01. Keep the organ viewer's model credit visible."
+    },
+    {
+      "name": "explorer-02",
+      "type": "registry:block",
+      "title": "Explorer 02",
+      "description": "A full-height anatomy workspace with the tree in a sidebar and a details card to hide or isolate the selected structure. Heart model licensed CC BY 4.0.",
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "sheet",
+        "@organui/anatomy-tree",
+        "@organui/heart",
+        "@organui/organ-viewer"
+      ],
+      "files": [
+        {
+          "path": "registry/base-nova/blocks/explorer-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/workspace/page.tsx"
+        },
+        {
+          "path": "registry/base-nova/blocks/explorer-02/components/anatomy-workspace.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["explorer"],
+      "docs": "Explorer 02: https://organui.com/blocks#explorer-02. Keep the organ viewer's model credit visible."
+    },
+    {
+      "name": "explorer-03",
+      "type": "registry:block",
+      "title": "Explorer 03",
+      "description": "One viewer that switches between several organs from a menu, here the heart, kidneys, stomach and pancreas. Models licensed CC BY 4.0 and CC BY-SA 2.1 JP.",
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": [
+        "select",
+        "@organui/heart",
+        "@organui/kidneys",
+        "@organui/organ-viewer",
+        "@organui/pancreas",
+        "@organui/stomach"
+      ],
+      "files": [
+        {
+          "path": "registry/base-nova/blocks/explorer-03/page.tsx",
+          "type": "registry:page",
+          "target": "app/organs/page.tsx"
+        },
+        {
+          "path": "registry/base-nova/blocks/explorer-03/components/organ-switcher.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["explorer"],
+      "docs": "Explorer 03: https://organui.com/blocks#explorer-03. Keep the organ viewer's model credit visible."
+    }
+  ]
+}
