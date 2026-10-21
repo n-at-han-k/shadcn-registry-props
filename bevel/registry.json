@@ -7,6 +7,9 @@
       "name": "bevel",
       "type": "registry:item",
       "title": "Bevel foundation",
+      "categories": [
+        "foundation"
+      ],
       "description": "Light, depth, materials, motion and shape tokens, plus the utilities components use to apply them.",
       "css": {
         ":root": {
@@ -183,6 +186,9 @@
       "name": "theme-transition",
       "type": "registry:lib",
       "title": "Theme transition",
+      "categories": [
+        "foundation"
+      ],
       "description": "Switch light and dark as a change in lighting: the room dims, or the lights come up. Uses View Transitions.",
       "registryDependencies": [
         "https://bevel-ui.vercel.app/r/bevel.json"
@@ -218,6 +224,121 @@
           }
         }
       }
+    },
+    {
+      "name": "themes",
+      "type": "registry:item",
+      "title": "Material themes",
+      "categories": [
+        "foundation"
+      ],
+      "description": "Brass, bakelite and anodized aluminium. Set data-bevel-theme on <html> or any container; build your own at /themes.",
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "css": {
+        "[data-bevel-theme]": {
+          "--bevel-theme-panel-edge": "oklch(from var(--bevel-theme-panel) calc(l - 0.1) c h)",
+          "--bevel-theme-panel-deep": "oklch(from var(--bevel-theme-panel) calc(l - 0.06) c h)",
+          "--bevel-theme-key": "oklch(from var(--bevel-theme-panel) calc(l + 0.1) c h)",
+          "--bevel-theme-hardware-edge": "oklch(from var(--bevel-theme-hardware) calc(l - 0.24) calc(c * 0.7) h)",
+          "--bevel-brass": "var(--bevel-theme-hardware)",
+          "--bevel-brass-edge": "var(--bevel-theme-hardware-edge)",
+          "--bevel-ivory": "var(--bevel-theme-face)",
+          "--annunciator-panel": "var(--bevel-theme-panel)",
+          "--annunciator-panel-edge": "var(--bevel-theme-panel-edge)",
+          "--annunciator-off": "var(--bevel-theme-panel-deep)",
+          "--dip-switch-black": "var(--bevel-theme-panel)",
+          "--dip-switch-black-edge": "var(--bevel-theme-panel-edge)",
+          "--breaker-panel": "var(--bevel-theme-panel)",
+          "--breaker-panel-edge": "var(--bevel-theme-panel-edge)",
+          "--breaker-body": "var(--bevel-theme-panel-deep)",
+          "--detent-knob-cap": "var(--bevel-theme-panel)",
+          "--detent-knob-cap-edge": "var(--bevel-theme-panel-edge)",
+          "--detent-knob-pointer": "var(--bevel-theme-face)",
+          "--guarded-switch-plate": "var(--bevel-theme-panel)",
+          "--guarded-switch-plate-edge": "var(--bevel-theme-panel-edge)",
+          "--meter-face": "var(--bevel-theme-panel-deep)",
+          "--meter-foreground": "var(--bevel-theme-face)",
+          "--mixer-strip-panel": "var(--bevel-theme-panel)",
+          "--mixer-strip-panel-edge": "var(--bevel-theme-panel-edge)",
+          "--mixer-strip-key": "var(--bevel-theme-key)",
+          "--motorized-fader-panel": "var(--bevel-theme-panel)",
+          "--motorized-fader-panel-edge": "var(--bevel-theme-panel-edge)",
+          "--motorized-fader-line": "var(--bevel-theme-panel-deep)",
+          "--patch-bay-panel": "var(--bevel-theme-panel)",
+          "--patch-bay-panel-edge": "var(--bevel-theme-panel-edge)",
+          "--patch-bay-ring": "var(--bevel-theme-hardware)",
+          "--push-to-talk-body": "var(--bevel-theme-panel)",
+          "--push-to-talk-body-edge": "var(--bevel-theme-panel-edge)",
+          "--push-to-talk-key": "var(--bevel-theme-key)",
+          "--split-flap-housing": "var(--bevel-theme-panel)",
+          "--split-flap-housing-edge": "var(--bevel-theme-panel-edge)",
+          "--split-flap-foreground": "var(--bevel-theme-face)",
+          "--time-card-key": "var(--bevel-theme-panel)",
+          "--time-card-key-edge": "var(--bevel-theme-panel-edge)",
+          "--vigilance-panel": "var(--bevel-theme-panel)",
+          "--vigilance-panel-edge": "var(--bevel-theme-panel-edge)",
+          "--bevel-radius-xs": "calc(0.25rem * var(--bevel-radius-scale, 1))",
+          "--bevel-radius-sm": "calc(0.5rem * var(--bevel-radius-scale, 1))",
+          "--bevel-radius-md": "calc(0.625rem * var(--bevel-radius-scale, 1))",
+          "--bevel-radius-lg": "calc(1rem * var(--bevel-radius-scale, 1))",
+          "--bevel-radius-xl": "calc(1.5rem * var(--bevel-radius-scale, 1))",
+          "--bevel-duration-press": "calc(100ms * var(--bevel-speed, 1))",
+          "--bevel-duration-small": "calc(200ms * var(--bevel-speed, 1))",
+          "--bevel-duration-move": "calc(300ms * var(--bevel-speed, 1))",
+          "--bevel-duration-ambient": "calc(520ms * var(--bevel-speed, 1))"
+        },
+        "[data-bevel-theme=\"brass\"]": {
+          "--bevel-theme-panel": "oklch(0.33 0.045 62)",
+          "--bevel-theme-hardware": "oklch(0.79 0.13 82)",
+          "--bevel-theme-face": "oklch(0.94 0.04 85)",
+          "--bevel-highlight": "oklch(1 0.03 85 / 0.26)",
+          "--bevel-shade": "oklch(0.1 0.03 50 / 0.36)",
+          "--bevel-cast": "oklch(0.3 0.06 55 / 0.28)",
+          "--bevel-radius-scale": "1",
+          "--bevel-speed": "1.15"
+        },
+        "[data-bevel-theme=\"bakelite\"]": {
+          "--bevel-theme-panel": "oklch(0.3 0.06 32)",
+          "--bevel-theme-hardware": "oklch(0.84 0.012 90)",
+          "--bevel-theme-face": "oklch(0.92 0.045 88)",
+          "--bevel-highlight": "oklch(1 0 0 / 0.34)",
+          "--bevel-shade": "oklch(0.08 0.03 30 / 0.42)",
+          "--bevel-cast": "oklch(0.22 0.05 30 / 0.26)",
+          "--bevel-radius-scale": "1.6",
+          "--bevel-speed": "1"
+        },
+        "[data-bevel-theme=\"anodized\"]": {
+          "--bevel-theme-panel": "oklch(0.46 0.1 252)",
+          "--bevel-theme-hardware": "oklch(0.86 0.012 250)",
+          "--bevel-theme-face": "oklch(0.97 0.006 250)",
+          "--bevel-highlight": "oklch(1 0 0 / 0.3)",
+          "--bevel-shade": "oklch(0.1 0.04 255 / 0.34)",
+          "--bevel-cast": "oklch(0.25 0.05 255 / 0.22)",
+          "--bevel-radius-scale": "0.55",
+          "--bevel-speed": "0.8"
+        },
+        ".dark [data-bevel-theme], .dark[data-bevel-theme]": {
+          "--bevel-highlight": "oklch(1 0 0 / 0.16)",
+          "--bevel-cast": "oklch(0 0 0 / 0.55)"
+        }
+      }
+    },
+    {
+      "name": "feedback",
+      "type": "registry:lib",
+      "title": "Sound and haptics",
+      "description": "Opt-in sound and haptics for Bevel controls: <BevelFeedback sound haptics> and useBevelFeedback(). Synthesised with Web Audio; silent outside the provider.",
+      "categories": [
+        "foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/lib/feedback.ts",
+          "type": "registry:lib"
+        }
+      ]
     },
     {
       "name": "wallet",
@@ -690,7 +811,8 @@
         "cn"
       ],
       "registryDependencies": [
-        "https://bevel-ui.vercel.app/r/bevel.json"
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
       ],
       "files": [
         {
@@ -1171,7 +1293,8 @@
         "cn"
       ],
       "registryDependencies": [
-        "https://bevel-ui.vercel.app/r/bevel.json"
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
       ],
       "files": [
         {
@@ -1359,7 +1482,8 @@
         "cn"
       ],
       "registryDependencies": [
-        "https://bevel-ui.vercel.app/r/bevel.json"
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
       ],
       "files": [
         {
@@ -1456,7 +1580,8 @@
         "cn"
       ],
       "registryDependencies": [
-        "https://bevel-ui.vercel.app/r/bevel.json"
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
       ],
       "files": [
         {
@@ -1508,7 +1633,8 @@
         "cn"
       ],
       "registryDependencies": [
-        "https://bevel-ui.vercel.app/r/bevel.json"
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
       ],
       "files": [
         {
@@ -1624,6 +1750,179 @@
         },
         "[data-slot=\"mixer-strip-solo\"][data-pressed]": {
           "--bevel-material": "var(--mixer-strip-solo)"
+        }
+      }
+    },
+    {
+      "name": "dip-switch",
+      "type": "registry:ui",
+      "title": "DIP switches",
+      "description": "A bank of tiny numbered slide switches, ON at the top, as on a circuit board. Every flag is visible at once and the bank reads as one value. For feature flags, permission bits and config words.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/dip-switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--dip-switch-red": "oklch(0.5 0.17 27)",
+          "--dip-switch-red-edge": "oklch(0.34 0.12 27)",
+          "--dip-switch-blue": "oklch(0.45 0.13 258)",
+          "--dip-switch-blue-edge": "oklch(0.3 0.09 258)",
+          "--dip-switch-black": "oklch(0.26 0.01 260)",
+          "--dip-switch-black-edge": "oklch(0.16 0.01 260)",
+          "--dip-switch-slot": "oklch(0.18 0.01 260)",
+          "--dip-switch-actuator": "oklch(0.96 0.005 90)",
+          "--dip-switch-actuator-edge": "oklch(0.72 0.01 90)",
+          "--dip-switch-print": "oklch(0.97 0.01 90)",
+          "--dip-switch-focus": "oklch(0.97 0.01 90)",
+          "--dip-switch-print-size": "0.625rem",
+          "--dip-switch-slot-width": "1.25rem",
+          "--dip-switch-slot-height": "2.75rem",
+          "--dip-switch-actuator-height": "1.125rem",
+          "--dip-switch-throw": "1.375rem",
+          "--dip-switch-gap": "0.5rem"
+        },
+        "[data-slot=\"dip-switch\"]": {
+          "--dip-switch-body": "var(--dip-switch-red)",
+          "--dip-switch-body-edge": "var(--dip-switch-red-edge)"
+        },
+        "[data-slot=\"dip-switch\"][data-variant=\"blue\"]": {
+          "--dip-switch-body": "var(--dip-switch-blue)",
+          "--dip-switch-body-edge": "var(--dip-switch-blue-edge)"
+        },
+        "[data-slot=\"dip-switch\"][data-variant=\"black\"]": {
+          "--dip-switch-body": "var(--dip-switch-black)",
+          "--dip-switch-body-edge": "var(--dip-switch-black-edge)"
+        },
+        "[data-slot=\"dip-switch-bank\"]": {
+          "--bevel-material": "var(--dip-switch-body)",
+          "--bevel-material-edge": "var(--dip-switch-body-edge)",
+          "--bevel-material-recess": "var(--dip-switch-slot)"
+        },
+        "[data-slot=\"dip-switch-actuator\"]": {
+          "--bevel-material": "var(--dip-switch-actuator)",
+          "--bevel-material-edge": "var(--dip-switch-actuator-edge)"
+        },
+        "@utility dip-switch-arrow": {
+          "width": "0",
+          "height": "0",
+          "border-inline": "0.1875rem solid transparent",
+          "border-bottom": "0.3125rem solid currentColor"
+        },
+        "@media (forced-colors: active)": {
+          "[data-slot=\"dip-switch-toggle\"]": {
+            "border": "1px solid CanvasText"
+          },
+          "[data-slot=\"dip-switch-actuator\"]": {
+            "background": "ButtonText"
+          }
+        }
+      }
+    },
+    {
+      "name": "patch-bay",
+      "type": "registry:ui",
+      "title": "Patch bay",
+      "description": "A rack of jacks joined by patch cables: every route from a source to a destination is a cable you can see and pull. For webhook events to handlers, agent tools to agents, and inputs to outputs.",
+      "categories": [
+        "instruments"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/patch-bay.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--patch-bay-panel": "oklch(0.27 0.008 260)",
+          "--patch-bay-panel-edge": "oklch(0.17 0.008 260)",
+          "--patch-bay-print": "oklch(0.9 0.01 90)",
+          "--patch-bay-ring": "oklch(0.78 0.01 260)",
+          "--patch-bay-hole": "oklch(0.1 0.005 260)",
+          "--patch-bay-armed": "oklch(0.82 0.15 85)",
+          "--patch-bay-focus": "oklch(0.82 0.15 85)",
+          "--patch-bay-cable-1": "oklch(0.6 0.19 27)",
+          "--patch-bay-cable-2": "oklch(0.58 0.14 255)",
+          "--patch-bay-cable-3": "oklch(0.8 0.15 90)",
+          "--patch-bay-cable-4": "oklch(0.6 0.13 150)",
+          "--patch-bay-cable-5": "oklch(0.92 0.01 90)",
+          "--patch-bay-cable-6": "oklch(0.6 0.15 320)",
+          "--patch-bay-cable-width": "4px",
+          "--patch-bay-plug-radius": "7px",
+          "--patch-bay-jack-size": "2rem",
+          "--patch-bay-hole-size": "0.75rem",
+          "--patch-bay-jack-width": "4.5rem",
+          "--patch-bay-label-height": "1.75rem",
+          "--patch-bay-row-gap": "4.5rem"
+        },
+        "[data-slot=\"patch-bay-panel\"]": {
+          "--bevel-material": "var(--patch-bay-panel)",
+          "--bevel-material-edge": "var(--patch-bay-panel-edge)"
+        },
+        "@utility patch-bay-socket": {
+          "background-color": "var(--patch-bay-ring)",
+          "background-image": "linear-gradient(to bottom, var(--bevel-highlight-strong), transparent 50%, var(--bevel-shade))",
+          "box-shadow": "0 0 0 2px var(--patch-bay-panel-edge), 0 2px 3px var(--bevel-shade)"
+        },
+        "@utility patch-bay-socket-armed": {
+          "box-shadow": "0 0 0 2px var(--patch-bay-panel-edge), 0 0 0 4px var(--patch-bay-armed), 0 0 10px 2px var(--patch-bay-armed)"
+        },
+        "@utility patch-bay-hole": {
+          "background-color": "var(--patch-bay-hole)",
+          "box-shadow": "var(--bevel-depth-recessed)"
+        },
+        "@utility patch-bay-cable-body": {
+          "fill": "none",
+          "stroke": "var(--patch-bay-cable)",
+          "stroke-width": "var(--patch-bay-cable-width)",
+          "stroke-linecap": "round"
+        },
+        "@utility patch-bay-cable-shadow": {
+          "fill": "none",
+          "stroke": "var(--bevel-shade-strong)",
+          "stroke-width": "var(--patch-bay-cable-width)",
+          "stroke-linecap": "round",
+          "translate": "0 3px",
+          "filter": "blur(1.5px)"
+        },
+        "@utility patch-bay-plug": {
+          "r": "var(--patch-bay-plug-radius)",
+          "fill": "var(--patch-bay-cable)",
+          "stroke": "var(--bevel-shade-strong)",
+          "stroke-width": "1.5px"
+        },
+        "@media (forced-colors: active)": {
+          "[data-slot=\"patch-bay-jack\"]": {
+            "border": "1px solid ButtonText"
+          },
+          "[data-slot=\"patch-bay-jack\"][aria-pressed=\"true\"]": {
+            "outline": "3px solid Highlight"
+          },
+          ".patch-bay-cable-body, .patch-bay-plug": {
+            "stroke": "CanvasText"
+          }
         }
       }
     },
@@ -1819,6 +2118,65 @@
         },
         "@utility split-flap-fade": {
           "animation": "split-flap-fade var(--bevel-duration-small) var(--bevel-ease-out) both"
+        }
+      }
+    },
+    {
+      "name": "time-card",
+      "type": "registry:ui",
+      "title": "Time card",
+      "description": "A punch clock's time card: each session is a row with its date, time in, time out and how long it ran, and the key stamps the time now onto the next line. For timesheets, focus sessions and on-call shifts.",
+      "categories": [
+        "records"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/time-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--time-card-paper": "oklch(0.91 0.045 85)",
+          "--time-card-rule": "oklch(0.62 0.06 150 / 0.45)",
+          "--time-card-header": "oklch(0.45 0.09 150)",
+          "--time-card-ink": "oklch(0.42 0.14 300)",
+          "--time-card-key": "oklch(0.3 0.01 260)",
+          "--time-card-key-edge": "oklch(0.18 0.01 260)",
+          "--time-card-key-foreground": "oklch(0.95 0.01 90)",
+          "--time-card-in": "oklch(0.68 0.16 150)",
+          "--time-card-out": "oklch(0.45 0.01 260)",
+          "--time-card-line": "2rem",
+          "--time-card-land-scale": "1.4"
+        },
+        ".dark": {
+          "--time-card-paper": "oklch(0.84 0.04 85)"
+        },
+        "[data-slot=\"time-card-card\"]": {
+          "--bevel-paper": "var(--time-card-paper)"
+        },
+        "[data-slot=\"time-card\"]": {
+          "--bevel-led": "var(--time-card-out)"
+        },
+        "[data-slot=\"time-card\"][data-open]": {
+          "--bevel-led": "var(--time-card-in)"
+        },
+        "[data-slot=\"time-card-punch\"]": {
+          "--bevel-material": "var(--time-card-key)",
+          "--bevel-material-edge": "var(--time-card-key-edge)"
+        },
+        "@media (forced-colors: active)": {
+          "[data-slot=\"time-card-punch\"]": {
+            "border": "1px solid ButtonText"
+          }
         }
       }
     },
@@ -2064,6 +2422,952 @@
           "path": "registry/bevel/blocks/review-desk/page.tsx",
           "type": "registry:page",
           "target": "app/review-desk/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "wallet-demo",
+      "type": "registry:example",
+      "title": "Wallet: Checkout",
+      "description": "Pay from stored balance. Pay once to drain it, then pick the card that covers the rest. An example of Wallet.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/wallet.json",
+        "https://bevel-ui.vercel.app/r/payment-card.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/wallet-checkout.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/wallet-checkout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "wallet-demo-billing",
+      "type": "registry:example",
+      "title": "Wallet: Billing",
+      "description": "Account credit and saved cards. Add a card and it slides into the wallet. An example of Wallet.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/wallet.json",
+        "https://bevel-ui.vercel.app/r/payment-card.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/wallet-billing.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/wallet-billing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "wallet-demo-usage",
+      "type": "registry:example",
+      "title": "Wallet: Usage",
+      "description": "Prepaid credits running down over a billing cycle. Low balance turns the light and meter amber. An example of Wallet.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/wallet.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/wallet-usage.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/wallet-usage.tsx"
+        }
+      ]
+    },
+    {
+      "name": "payment-card-demo",
+      "type": "registry:example",
+      "title": "Payment card: Saved payment methods",
+      "description": "Cards as a radio group, without a wallet. The chosen card lifts; arrow keys move between them. An example of Payment card.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/payment-card.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/payment-card-picker.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/payment-card-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "amount-demo",
+      "type": "registry:example",
+      "title": "Amount: Currencies and locales",
+      "description": "Digits are tabular so columns line up; separators keep their natural width in any font. An example of Amount.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/amount.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/amount-formats.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/amount-formats.tsx"
+        }
+      ]
+    },
+    {
+      "name": "number-wheel-demo",
+      "type": "registry:example",
+      "title": "Number wheel: Counter",
+      "description": "Change the value and the drums roll to it. Sized by font size. An example of Number wheel.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/number-wheel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/number-wheel-counter.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/number-wheel-counter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "meter-demo",
+      "type": "registry:example",
+      "title": "Meter: Live usage",
+      "description": "The cost of a chat turn, ticking while the model writes. Run it, stop it, clear it. An example of Meter.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/meter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/meter-live-usage.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/meter-live-usage.tsx"
+        }
+      ]
+    },
+    {
+      "name": "meter-demo-prepaid",
+      "type": "registry:example",
+      "title": "Meter: Prepaid balance",
+      "description": "Like a postage meter: each call stamps a little off; add credit to refill. An example of Meter.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/meter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/meter-postage.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/meter-postage.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stamp-demo",
+      "type": "registry:example",
+      "title": "Stamp and seal: Statuses",
+      "description": "Stamps replace badges: Received, Refunded, Held, Auto. The seal marks something verified. An example of Stamp and seal.",
+      "categories": [
+        "marks",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/stamp-marks.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/stamp-marks.tsx"
+        }
+      ]
+    },
+    {
+      "name": "receipt-demo",
+      "type": "registry:example",
+      "title": "Receipt: Buying credits",
+      "description": "Pick a pack and the receipt reprints; pay and it's stamped. Ticket sheet, receipt and stamp together. An example of Receipt.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/receipt.json",
+        "https://bevel-ui.vercel.app/r/amount.json",
+        "https://bevel-ui.vercel.app/r/stamp.json",
+        "https://bevel-ui.vercel.app/r/ticket-sheet.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/credits-checkout.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/credits-checkout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ticket-sheet-demo",
+      "type": "registry:example",
+      "title": "Ticket sheet: Plans",
+      "description": "Plans as tickets. Arrow keys move between them; a sold-out one is disabled. An example of Ticket sheet.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/ticket-sheet.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/ticket-sheet-plans.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/ticket-sheet-plans.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ticket-sheet-demo-credits-checkout",
+      "type": "registry:example",
+      "title": "Ticket sheet: Credit packs with a receipt",
+      "description": "The sheet driving a receipt. An example of Ticket sheet.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/ticket-sheet.json",
+        "https://bevel-ui.vercel.app/r/amount.json",
+        "https://bevel-ui.vercel.app/r/receipt.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/credits-checkout.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/credits-checkout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dial-demo",
+      "type": "registry:example",
+      "title": "Gauge and dial: Runway",
+      "description": "Days of credit left, with the auto top-up level marked. An example of Gauge and dial.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/dial.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/dial-runway.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/dial-runway.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dial-demo-auto-top-up",
+      "type": "registry:example",
+      "title": "Gauge and dial: Auto top-up",
+      "description": "Set like a thermostat: the level to keep above, and how much to add. An example of Gauge and dial.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/dial.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/dial-auto-top-up.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/dial-auto-top-up.tsx"
+        }
+      ]
+    },
+    {
+      "name": "breaker-demo",
+      "type": "registry:example",
+      "title": "Breaker: Spending caps",
+      "description": "The per-person cap has tripped; switch it to reset. Overage is locked to owners. An example of Breaker.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/breaker.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/breaker-caps.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/breaker-caps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ledger-demo",
+      "type": "registry:example",
+      "title": "Ledger: Credit history",
+      "description": "Numbered entries with the balance after each, and stamped statuses. An example of Ledger.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/ledger.json",
+        "https://bevel-ui.vercel.app/r/amount.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/ledger-history.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/ledger-history.tsx"
+        }
+      ]
+    },
+    {
+      "name": "keycard-demo",
+      "type": "registry:example",
+      "title": "Keycard: Bring your own key",
+      "description": "Switch the breaker and the key goes into the reader: usage bills to it instead of credits. An example of Keycard.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/keycard.json",
+        "https://bevel-ui.vercel.app/r/breaker.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/keycard-byok.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/keycard-byok.tsx"
+        }
+      ]
+    },
+    {
+      "name": "keycard-demo-swipe",
+      "type": "registry:example",
+      "title": "Keycard: Swipe to use",
+      "description": "Drag the card through the reader, or flick it. A short drag springs back. Keyboard: focus the card, press Enter. An example of Keycard.",
+      "categories": [
+        "money",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/keycard.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/keycard-swipe.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/keycard-swipe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "name-tag-demo",
+      "type": "registry:example",
+      "title": "Name tag: Agents and guests",
+      "description": "Rename the agent by writing on its sticker. Guests get a visitor badge; lists use the plain tag. An example of Name tag.",
+      "categories": [
+        "agents",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/name-tag.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/name-tag-agents.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/name-tag-agents.tsx"
+        }
+      ]
+    },
+    {
+      "name": "citation-demo",
+      "type": "registry:example",
+      "title": "Citation: An answer with sources",
+      "description": "Open a sticker to read the cited passage. The third source has been appealed. An example of Citation.",
+      "categories": [
+        "documents",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/citation.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/citation-answer.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/citation-answer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "task-plan-demo",
+      "type": "registry:example",
+      "title": "Task plan: An agent at work",
+      "description": "The plan advances on its own. Each step is ticked in ink as it finishes. An example of Task plan.",
+      "categories": [
+        "agents",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/task-plan.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/task-plan-agent.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/task-plan-agent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "activity-log-demo",
+      "type": "registry:example",
+      "title": "Activity log: Two agents on a matter",
+      "description": "Entries arrive as the agents work. Who acted is a plain Name tag. An example of Activity log.",
+      "categories": [
+        "agents",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/activity-log.json",
+        "https://bevel-ui.vercel.app/r/name-tag.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/activity-log-agent.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/activity-log-agent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "approval-demo",
+      "type": "registry:example",
+      "title": "Approval: Before an agent sends email",
+      "description": "Hold the seal until it presses. Let go early and nothing happens. An example of Approval.",
+      "categories": [
+        "agents",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/approval.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/approval-send.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/approval-send.tsx"
+        }
+      ]
+    },
+    {
+      "name": "delegation-board-demo",
+      "type": "registry:example",
+      "title": "Delegation board: A coordinator's subagents",
+      "description": "Four agents working in parallel. Drafting stops to ask you a question; answer it to unblock Review. An example of Delegation board.",
+      "categories": [
+        "agents",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/delegation-board.json",
+        "https://bevel-ui.vercel.app/r/name-tag.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/delegation-board-agents.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/delegation-board-agents.tsx"
+        }
+      ]
+    },
+    {
+      "name": "redline-demo",
+      "type": "registry:example",
+      "title": "Redline: A notice clause",
+      "description": "Three suggested edits. Decide each one, or all at once. An example of Redline.",
+      "categories": [
+        "documents",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/redline.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/redline-clause.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/redline-clause.tsx"
+        }
+      ]
+    },
+    {
+      "name": "redaction-demo",
+      "type": "registry:example",
+      "title": "Redaction: Privilege marks",
+      "description": "A privileged memo, stamped. Switch who's reading: opposing counsel sees the redactions. An example of Redaction.",
+      "categories": [
+        "marks",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/redaction.json",
+        "https://bevel-ui.vercel.app/r/stamp.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/privilege-marks.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/privilege-marks.tsx"
+        }
+      ]
+    },
+    {
+      "name": "guarded-switch-demo",
+      "type": "registry:example",
+      "title": "Guarded switch: Agent permissions and deploys",
+      "description": "Lift a cover, then flip the switch. Leave it and the cover closes, turning it off. An example of Guarded switch.",
+      "categories": [
+        "coordination",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/guarded-switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/guarded-switch-deploy.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/guarded-switch-deploy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "vigilance-demo",
+      "type": "registry:example",
+      "title": "Dead man's switch: A supervised agent run",
+      "description": "Check in every 12 seconds to keep it going. Stop checking in and watch it warn, then pause. An example of Dead man's switch.",
+      "categories": [
+        "coordination",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/vigilance.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/vigilance-agent.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/vigilance-agent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "lockout-demo",
+      "type": "registry:example",
+      "title": "Lockout: A migration on hold",
+      "description": "Three locks hold the migration. Remove yours; the others come off as their work finishes. An example of Lockout.",
+      "categories": [
+        "coordination",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/lockout.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/lockout-migration.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/lockout-migration.tsx"
+        }
+      ]
+    },
+    {
+      "name": "take-a-number-demo",
+      "type": "registry:example",
+      "title": "Take a number: A support queue",
+      "description": "Take a number; the sign rolls on every two seconds until it's your turn. An example of Take a number.",
+      "categories": [
+        "coordination",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/take-a-number.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/take-a-number-support.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/take-a-number-support.tsx"
+        }
+      ]
+    },
+    {
+      "name": "engine-telegraph-demo",
+      "type": "registry:example",
+      "title": "Engine telegraph: Agent autonomy",
+      "description": "Set how much the agent may do alone. It answers once its current step is done. An example of Engine telegraph.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/engine-telegraph.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/engine-telegraph-autonomy.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/engine-telegraph-autonomy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "annunciator-demo",
+      "type": "registry:example",
+      "title": "Annunciator: An agent's alert panel",
+      "description": "Conditions come and go on their own. Acknowledge them one by one, or all at once. An example of Annunciator.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/annunciator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/annunciator-agent.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/annunciator-agent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "detent-knob-demo",
+      "type": "registry:example",
+      "title": "Detent knob: Reasoning effort",
+      "description": "Turn the knob to trade speed and cost for how hard the model thinks. An example of Detent knob.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/detent-knob.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/detent-knob-effort.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/detent-knob-effort.tsx"
+        }
+      ]
+    },
+    {
+      "name": "push-to-talk-demo",
+      "type": "registry:example",
+      "title": "Push to talk: Voice notes to an agent",
+      "description": "Hold the key, or Space, to record a note. Let go to send it. An example of Push to talk.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/push-to-talk.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/push-to-talk-agent.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/push-to-talk-agent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "motorized-fader-demo",
+      "type": "registry:example",
+      "title": "Motorized fader: Temperature the agent tunes",
+      "description": "The agent adjusts its own temperature; grab the fader to take over, then hand it back. An example of Motorized fader.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/motorized-fader.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/motorized-fader-temperature.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/motorized-fader-temperature.tsx"
+        }
+      ]
+    },
+    {
+      "name": "mixer-strip-demo",
+      "type": "registry:example",
+      "title": "Mixer strip: Subagents on a console",
+      "description": "A lead agent rebalances effort as it goes. Take a fader to override it; mute pauses a subagent, solo runs one alone. An example of Mixer strip.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/mixer-strip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/mixer-strip-agents.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/mixer-strip-agents.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dip-switch-demo",
+      "type": "registry:example",
+      "title": "DIP switches: Feature flags",
+      "description": "Flip a workspace's flags; the bank is also the config value you ship. One is locked by the organisation. An example of DIP switches.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/dip-switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/dip-switch-flags.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/dip-switch-flags.tsx"
+        }
+      ]
+    },
+    {
+      "name": "patch-bay-demo",
+      "type": "registry:example",
+      "title": "Patch bay: Webhook routing",
+      "description": "Patch a billing provider's events to your handlers. One event can feed several handlers. An example of Patch bay.",
+      "categories": [
+        "instruments",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/patch-bay.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/patch-bay-webhooks.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/patch-bay-webhooks.tsx"
+        }
+      ]
+    },
+    {
+      "name": "keysort-filter-demo",
+      "type": "registry:example",
+      "title": "Keysort filter: A drawer of contracts",
+      "description": "Push needles through to find the contracts with every attribute. An example of Keysort filter.",
+      "categories": [
+        "records",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/keysort-filter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/keysort-filter-contracts.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/keysort-filter-contracts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "visible-file-demo",
+      "type": "registry:example",
+      "title": "Visible file: Agent tasks by stage",
+      "description": "Signals slide along each card as its task moves through the stages. An example of Visible file.",
+      "categories": [
+        "records",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/visible-file.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/visible-file-tasks.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/visible-file-tasks.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contact-sheet-demo",
+      "type": "registry:example",
+      "title": "Contact sheet: Generated variants",
+      "description": "Eight variants of one prompt. Circle the keepers, cross out the rest. An example of Contact sheet.",
+      "categories": [
+        "records",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/contact-sheet.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/contact-sheet-variants.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/contact-sheet-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "split-flap-demo",
+      "type": "registry:example",
+      "title": "Split-flap board: A deploy board",
+      "description": "Each region's status flips over as its rollout moves on. An example of Split-flap board.",
+      "categories": [
+        "records",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/split-flap.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/split-flap-deploys.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/split-flap-deploys.tsx"
+        }
+      ]
+    },
+    {
+      "name": "time-card-demo",
+      "type": "registry:example",
+      "title": "Time card: A contractor's timesheet",
+      "description": "Three sessions on the card already. Punch in, then out, and watch the clock stamp each time. An example of Time card.",
+      "categories": [
+        "records",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/time-card.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/time-card-timesheet.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/time-card-timesheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "due-date-slip-demo",
+      "type": "registry:example",
+      "title": "Due-date slip: An expiring API key",
+      "description": "The key lapsed four days ago. Renew it, and again, until the renewals run out. An example of Due-date slip.",
+      "categories": [
+        "records",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/due-date-slip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/due-date-slip-key.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/due-date-slip-key.tsx"
         }
       ]
     }
