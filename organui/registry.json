@@ -105,7 +105,7 @@
           "type": "registry:component"
         }
       ],
-      "docs": "Organ viewer docs: https://organui.com/docs/components/organ-viewer. Needs one of shadcn's Base UI styles, such as base-nova: its controls use Base UI's render prop, so on a Radix style its buttons do nothing."
+      "docs": "Organ viewer docs: https://organui.com/docs/components/organ-viewer. Built for shadcn's Base UI styles; Radix projects get the Radix version through a {style} registry URL (https://organui.com/docs/base-ui#radix)."
     },
     {
       "name": "molecule-viewer",
@@ -127,7 +127,7 @@
           "type": "registry:component"
         }
       ],
-      "docs": "Molecule viewer docs: https://organui.com/docs/components/molecule-viewer. Needs one of shadcn's Base UI styles, such as base-nova: its controls use Base UI's render prop, so on a Radix style its buttons do nothing."
+      "docs": "Molecule viewer docs: https://organui.com/docs/components/molecule-viewer. Built for shadcn's Base UI styles; Radix projects get the Radix version through a {style} registry URL (https://organui.com/docs/base-ui#radix)."
     },
     {
       "name": "dna-helix",
@@ -149,7 +149,7 @@
           "type": "registry:component"
         }
       ],
-      "docs": "DNA helix docs: https://organui.com/docs/components/dna-helix. Needs one of shadcn's Base UI styles, such as base-nova: its controls use Base UI's render prop, so on a Radix style its buttons do nothing."
+      "docs": "DNA helix docs: https://organui.com/docs/components/dna-helix. Built for shadcn's Base UI styles; Radix projects get the Radix version through a {style} registry URL (https://organui.com/docs/base-ui#radix)."
     },
     {
       "name": "lab-results",
@@ -158,7 +158,7 @@
       "description": "Lab values flagged against the reference ranges you pass, with text and icon flags and a trend sparkline.",
       "categories": ["clinical"],
       "dependencies": ["cn@^0.5.0"],
-      "registryDependencies": ["table"],
+      "registryDependencies": ["table", "@organui/reference-ranges"],
       "files": [
         {
           "path": "registry/base-nova/lab-results/lab-results.tsx",
@@ -173,7 +173,7 @@
       "title": "Growth chart",
       "description": "Child growth percentile curves for weight, length/height and head circumference from reference tables you supply, with plotted measurements, percentiles and z-scores.",
       "categories": ["clinical"],
-      "registryDependencies": ["empty"],
+      "registryDependencies": ["empty", "@organui/age", "@organui/z-scores"],
       "dependencies": ["cn@^0.5.0"],
       "files": [
         {
@@ -181,7 +181,7 @@
           "type": "registry:ui"
         }
       ],
-      "docs": "Growth chart docs: https://organui.com/docs/components/growth-chart. The item ships no growth data and no loader: you pass the reference tables. The docs say where to get them and under what terms. The WHO Child Growth Standards are © World Health Organization, distributed in WHO's anthro package under GPL-3 (https://www.gnu.org/licenses/gpl-3.0.html), and WHO requires permission for commercial use (https://www.who.int/about/policies/publishing/copyright)."
+      "docs": "Growth chart docs: https://organui.com/docs/components/growth-chart. The item ships no growth data and no loader: you pass the reference tables. The docs say where to get them and under what terms. The WHO Child Growth Standards are \u00a9 World Health Organization, distributed in WHO's anthro package under GPL-3 (https://www.gnu.org/licenses/gpl-3.0.html), and WHO requires permission for commercial use (https://www.who.int/about/policies/publishing/copyright)."
     },
     {
       "name": "medication-schedule",
@@ -259,7 +259,7 @@
           "target": "lib/head-phantom.ts"
         }
       ],
-      "docs": "Medical image viewer docs: https://organui.com/docs/components/image-viewer. Needs one of shadcn's Base UI styles, such as base-nova: its controls use Base UI's render prop, so on a Radix style its buttons do nothing. The DICOM reader (lib/dicom.ts) handles uncompressed, single-frame grayscale files only; use a full DICOM toolkit for compressed, color or multi-frame images. Not a medical device."
+      "docs": "Medical image viewer docs: https://organui.com/docs/components/image-viewer. Built for shadcn's Base UI styles; Radix projects get the Radix version through a {style} registry URL (https://organui.com/docs/base-ui#radix). The DICOM reader (lib/dicom.ts) handles uncompressed, single-frame grayscale files only; use a full DICOM toolkit for compressed, color or multi-frame images. Not a medical device."
     },
     {
       "name": "adrenals",
@@ -907,10 +907,255 @@
       "docs": "Vestibular system docs: https://organui.com/docs/components/vestibular. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
     },
     {
+      "name": "ai-disclaimer",
+      "type": "registry:ui",
+      "title": "AI disclaimer",
+      "description": "Marks content as AI-generated: the model, when it ran, and whether a clinician has reviewed it.",
+      "categories": ["ai"],
+      "dependencies": ["cn@^0.5.0"],
+      "registryDependencies": ["alert"],
+      "files": [
+        {
+          "path": "registry/base-nova/ai-disclaimer/ai-disclaimer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "AI disclaimer docs: https://organui.com/docs/ai-elements/ai-disclaimer"
+    },
+    {
+      "name": "clinical-citation",
+      "type": "registry:ui",
+      "title": "Clinical citation",
+      "description": "A record cited in the sentence that relies on it: a lab result, note, image or guideline, opening on hover or focus like shadcn's Inline Citation.",
+      "categories": ["ai"],
+      "dependencies": [],
+      "registryDependencies": ["button", "hover-card"],
+      "files": [
+        {
+          "path": "registry/base-nova/clinical-citation/clinical-citation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Clinical citation docs: https://organui.com/docs/ai-elements/clinical-citation. Built for shadcn's Base UI styles; Radix projects get the Radix version through a {style} registry URL (https://organui.com/docs/base-ui#radix)."
+    },
+    {
+      "name": "clinical-sources",
+      "type": "registry:ui",
+      "title": "Clinical sources",
+      "description": "The records an AI answer used, under one line that opens into the list, built on shadcn's Trace like its Sources.",
+      "categories": ["ai"],
+      "dependencies": [],
+      "registryDependencies": ["trace", "@organui/clinical-citation"],
+      "files": [
+        {
+          "path": "registry/base-nova/clinical-sources/clinical-sources.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Clinical sources docs: https://organui.com/docs/ai-elements/clinical-sources"
+    },
+    {
+      "name": "differential-list",
+      "type": "registry:ui",
+      "title": "Differential list",
+      "description": "Suggested diagnoses ranked by model confidence, as shadcn Items, each with the findings for and against it.",
+      "categories": ["ai"],
+      "dependencies": ["cn@^0.5.0"],
+      "registryDependencies": ["collapsible", "item", "progress"],
+      "files": [
+        {
+          "path": "registry/base-nova/differential-list/differential-list.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Differential list docs: https://organui.com/docs/ai-elements/differential-list"
+    },
+    {
+      "name": "clinician-review",
+      "type": "registry:ui",
+      "title": "Clinician review",
+      "description": "A clinician's sign-off on AI-generated content, built like shadcn's Confirmation: approve, or request changes or reject with a reason, recording who and when.",
+      "categories": ["ai"],
+      "dependencies": ["cn@^0.5.0"],
+      "registryDependencies": ["button", "field", "item", "textarea"],
+      "files": [
+        {
+          "path": "registry/base-nova/clinician-review/clinician-review.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "Clinician review docs: https://organui.com/docs/ai-elements/clinician-review"
+    },
+    {
+      "name": "ai-note",
+      "type": "registry:ui",
+      "title": "AI note",
+      "description": "An AI-drafted clinical note whose claims cite the records they rely on, with unsupported claims marked for review.",
+      "categories": ["ai"],
+      "dependencies": ["cn@^0.5.0"],
+      "registryDependencies": [
+        "@organui/clinical-citation",
+        "@organui/clinical-sources"
+      ],
+      "files": [
+        {
+          "path": "registry/base-nova/ai-note/ai-note.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "AI note docs: https://organui.com/docs/ai-elements/ai-note"
+    },
+    {
+      "name": "age",
+      "type": "registry:lib",
+      "title": "Age",
+      "description": "Age in months and years, age corrected for prematurity, and age formatted for charts.",
+      "categories": ["helper"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/base-nova/age/age.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Age docs: https://organui.com/docs/helpers/age"
+    },
+    {
+      "name": "z-scores",
+      "type": "registry:lib",
+      "title": "Z-scores",
+      "description": "Z-scores and percentiles from LMS reference parameters, with WHO's restricted extrapolation.",
+      "categories": ["helper"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/base-nova/z-scores/z-scores.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Z-scores docs: https://organui.com/docs/helpers/z-scores"
+    },
+    {
+      "name": "reference-ranges",
+      "type": "registry:lib",
+      "title": "Reference ranges",
+      "description": "Flags a value low, high or critical against its reference range, and prints the range as a report does.",
+      "categories": ["helper"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/base-nova/reference-ranges/reference-ranges.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Reference ranges docs: https://organui.com/docs/helpers/reference-ranges"
+    },
+    {
+      "name": "clinical-units",
+      "type": "registry:lib",
+      "title": "Clinical units",
+      "description": "Converts laboratory values between conventional and SI units, and temperature, weight and length between systems.",
+      "categories": ["helper"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/base-nova/clinical-units/clinical-units.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Clinical units docs: https://organui.com/docs/helpers/clinical-units. Check each factor against your laboratory's units before clinical use."
+    },
+    {
+      "name": "body-measurements",
+      "type": "registry:lib",
+      "title": "Body measurements",
+      "description": "Body mass index with its WHO category, and body surface area by the Mosteller, Du Bois or Haycock formula.",
+      "categories": ["helper"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/base-nova/body-measurements/body-measurements.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "Body measurements docs: https://organui.com/docs/helpers/body-measurements"
+    },
+    {
+      "name": "utilities",
+      "type": "registry:item",
+      "title": "Utilities",
+      "description": "Tailwind utilities for clinical interfaces: a heartbeat animation, ECG paper and severity colours. One install adds them all to your CSS file.",
+      "categories": ["utility"],
+      "registryDependencies": [],
+      "files": [],
+      "cssVars": {
+        "theme": {
+          "color-severity-normal": "var(--severity-normal)",
+          "color-severity-info": "var(--severity-info)",
+          "color-severity-warning": "var(--severity-warning)",
+          "color-severity-critical": "var(--severity-critical)"
+        },
+        "light": {
+          "severity-normal": "oklch(0.448 0.119 151.328)",
+          "severity-info": "oklch(0.488 0.243 264.376)",
+          "severity-warning": "oklch(0.473 0.137 46.201)",
+          "severity-critical": "oklch(0.505 0.213 27.518)"
+        },
+        "dark": {
+          "severity-normal": "oklch(0.792 0.209 151.711)",
+          "severity-info": "oklch(0.707 0.165 254.624)",
+          "severity-warning": "oklch(0.828 0.189 84.429)",
+          "severity-critical": "oklch(0.704 0.191 22.216)"
+        }
+      },
+      "css": {
+        "@keyframes heartbeat": {
+          "0%, 40%, 100%": {
+            "transform": "scale(1)"
+          },
+          "10%": {
+            "transform": "scale(1.12)"
+          },
+          "20%": {
+            "transform": "scale(1.02)"
+          },
+          "30%": {
+            "transform": "scale(1.08)"
+          }
+        },
+        "@utility animate-heartbeat": {
+          "animation": "heartbeat var(--heartbeat-duration, 1s) ease-in-out infinite",
+          "@media (prefers-reduced-motion: reduce)": {
+            "animation": "none"
+          }
+        },
+        "@utility heartbeat-rate-*": {
+          "--heartbeat-duration": "calc(60s / --value(integer))"
+        },
+        "@utility bg-ecg-grid": {
+          "--ecg-grid-minor": "color-mix(in oklch, var(--ecg-grid-color, var(--color-red-500)) 18%, transparent)",
+          "--ecg-grid-major": "color-mix(in oklch, var(--ecg-grid-color, var(--color-red-500)) 45%, transparent)",
+          "--ecg-grid-step": "var(--ecg-grid-size, 4px)",
+          "background-image": "linear-gradient(to right, var(--ecg-grid-major) 1px, transparent 1px), linear-gradient(to bottom, var(--ecg-grid-major) 1px, transparent 1px), linear-gradient(to right, var(--ecg-grid-minor) 1px, transparent 1px), linear-gradient(to bottom, var(--ecg-grid-minor) 1px, transparent 1px)",
+          "background-size": "calc(var(--ecg-grid-step) * 5) calc(var(--ecg-grid-step) * 5), calc(var(--ecg-grid-step) * 5) calc(var(--ecg-grid-step) * 5), var(--ecg-grid-step) var(--ecg-grid-step), var(--ecg-grid-step) var(--ecg-grid-step)"
+        },
+        "@utility ecg-grid-size-*": {
+          "--ecg-grid-size": "calc(var(--spacing) * --value(number))"
+        },
+        "@utility ecg-grid-color-*": {
+          "--ecg-grid-color": "--value(--color-*, [color])"
+        }
+      },
+      "docs": "Utilities docs: https://organui.com/docs/utilities"
+    },
+    {
       "name": "explorer-01",
       "type": "registry:block",
       "title": "Explorer 01",
       "description": "An organ viewer with an anatomy panel that docks beside it on wide screens and opens as a sheet on phones. Heart model licensed CC BY 4.0.",
+      "meta": {
+        "iframeHeight": "700px"
+      },
       "dependencies": [
         "@base-ui/react@^1.8.0",
         "class-variance-authority@^0.7.1",
@@ -942,6 +1187,9 @@
       "type": "registry:block",
       "title": "Explorer 02",
       "description": "A full-height anatomy workspace with the tree in a sidebar and a details card to hide or isolate the selected structure. Heart model licensed CC BY 4.0.",
+      "meta": {
+        "iframeHeight": "800px"
+      },
       "dependencies": [
         "@base-ui/react@^1.8.0",
         "class-variance-authority@^0.7.1",
@@ -974,6 +1222,9 @@
       "type": "registry:block",
       "title": "Explorer 03",
       "description": "One viewer that switches between several organs from a menu, here the heart, kidneys, stomach and pancreas. Models licensed CC BY 4.0 and CC BY-SA 2.1 JP.",
+      "meta": {
+        "iframeHeight": "760px"
+      },
       "dependencies": [
         "@base-ui/react@^1.8.0",
         "class-variance-authority@^0.7.1",
@@ -1000,6 +1251,372 @@
       ],
       "categories": ["explorer"],
       "docs": "Explorer 03: https://organui.com/blocks#explorer-03. Keep the organ viewer's model credit visible."
+    },
+    {
+      "name": "dashboard-01",
+      "type": "registry:block",
+      "title": "Dashboard 01",
+      "description": "One patient at a glance: vital signs, a live ECG, lab results with trends and the day's medicines, with fictional data to replace with your records.",
+      "meta": {
+        "iframeHeight": "1120px"
+      },
+      "registryDependencies": [
+        "badge",
+        "card",
+        "@organui/ecg-trace",
+        "@organui/lab-results",
+        "@organui/medication-schedule",
+        "@organui/vital-signs"
+      ],
+      "files": [
+        {
+          "path": "registry/base-nova/blocks/dashboard-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/dashboard/page.tsx"
+        },
+        {
+          "path": "registry/base-nova/blocks/dashboard-01/components/patient-dashboard.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["dashboard"],
+      "docs": "Dashboard 01: https://organui.com/blocks#dashboard-01. The patient and readings are fictional; connect your own records before clinical use."
+    },
+    {
+      "name": "chart-area-admissions",
+      "type": "registry:block",
+      "title": "Admissions area chart",
+      "description": "Hospital admissions by month, as an area chart.",
+      "categories": ["charts", "charts-area"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-area-admissions.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Admissions area chart: https://organui.com/charts/area#chart-area-admissions"
+    },
+    {
+      "name": "chart-area-census",
+      "type": "registry:block",
+      "title": "Census area chart",
+      "description": "Daily census by status, as a stacked area chart.",
+      "categories": ["charts", "charts-area"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-area-census.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Census area chart: https://organui.com/charts/area#chart-area-census"
+    },
+    {
+      "name": "chart-area-heart-rate",
+      "type": "registry:block",
+      "title": "Heart rate area chart",
+      "description": "Heart rate across a shift, as a gradient area chart.",
+      "categories": ["charts", "charts-area"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-area-heart-rate.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Heart rate area chart: https://organui.com/charts/area#chart-area-heart-rate"
+    },
+    {
+      "name": "chart-area-oxygen",
+      "type": "registry:block",
+      "title": "Oxygen weaning area chart",
+      "description": "Oxygen flow rate over time, as a step area chart.",
+      "categories": ["charts", "charts-area"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-area-oxygen.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Oxygen weaning area chart: https://organui.com/charts/area#chart-area-oxygen"
+    },
+    {
+      "name": "chart-bar-appointments",
+      "type": "registry:block",
+      "title": "Appointments bar chart",
+      "description": "Clinic appointments attended and missed, as a stacked bar chart.",
+      "categories": ["charts", "charts-bar"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-bar-appointments.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Appointments bar chart: https://organui.com/charts/bar#chart-bar-appointments"
+    },
+    {
+      "name": "chart-bar-diagnoses",
+      "type": "registry:block",
+      "title": "Top diagnoses bar chart",
+      "description": "Most common discharge diagnoses, as a horizontal bar chart.",
+      "categories": ["charts", "charts-bar"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-bar-diagnoses.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Top diagnoses bar chart: https://organui.com/charts/bar#chart-bar-diagnoses"
+    },
+    {
+      "name": "chart-bar-ed-visits",
+      "type": "registry:block",
+      "title": "ED visits bar chart",
+      "description": "Emergency department visits by weekday, as a bar chart.",
+      "categories": ["charts", "charts-bar"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-bar-ed-visits.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "ED visits bar chart: https://organui.com/charts/bar#chart-bar-ed-visits"
+    },
+    {
+      "name": "chart-bar-vaccinations",
+      "type": "registry:block",
+      "title": "Vaccinations bar chart",
+      "description": "Vaccine doses by age group, as a multiple bar chart.",
+      "categories": ["charts", "charts-bar"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-bar-vaccinations.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Vaccinations bar chart: https://organui.com/charts/bar#chart-bar-vaccinations"
+    },
+    {
+      "name": "chart-line-blood-pressure",
+      "type": "registry:block",
+      "title": "Blood pressure line chart",
+      "description": "Home blood pressure readings, as a multiple line chart.",
+      "categories": ["charts", "charts-line"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-line-blood-pressure.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Blood pressure line chart: https://organui.com/charts/line#chart-line-blood-pressure"
+    },
+    {
+      "name": "chart-line-glucose",
+      "type": "registry:block",
+      "title": "Fasting glucose line chart",
+      "description": "Fasting glucose readings, as a line chart with dots.",
+      "categories": ["charts", "charts-line"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-line-glucose.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Fasting glucose line chart: https://organui.com/charts/line#chart-line-glucose"
+    },
+    {
+      "name": "chart-line-hba1c",
+      "type": "registry:block",
+      "title": "HbA1c line chart",
+      "description": "HbA1c by quarter, as a line chart with labels.",
+      "categories": ["charts", "charts-line"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-line-hba1c.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "HbA1c line chart: https://organui.com/charts/line#chart-line-hba1c"
+    },
+    {
+      "name": "chart-line-insulin",
+      "type": "registry:block",
+      "title": "Insulin titration line chart",
+      "description": "Basal insulin dose titration, as a step line chart.",
+      "categories": ["charts", "charts-line"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-line-insulin.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Insulin titration line chart: https://organui.com/charts/line#chart-line-insulin"
+    },
+    {
+      "name": "chart-pie-adherence",
+      "type": "registry:block",
+      "title": "Adherence pie chart",
+      "description": "Medication adherence, as a pie chart with a legend.",
+      "categories": ["charts", "charts-pie"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-pie-adherence.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Adherence pie chart: https://organui.com/charts/pie#chart-pie-adherence"
+    },
+    {
+      "name": "chart-pie-blood-types",
+      "type": "registry:block",
+      "title": "Blood donations pie chart",
+      "description": "Blood donations by type, as a pie chart.",
+      "categories": ["charts", "charts-pie"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-pie-blood-types.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Blood donations pie chart: https://organui.com/charts/pie#chart-pie-blood-types"
+    },
+    {
+      "name": "chart-pie-occupancy",
+      "type": "registry:block",
+      "title": "Bed occupancy pie chart",
+      "description": "Bed occupancy, as a donut chart with the total.",
+      "categories": ["charts", "charts-pie"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-pie-occupancy.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Bed occupancy pie chart: https://organui.com/charts/pie#chart-pie-occupancy"
+    },
+    {
+      "name": "chart-radar-outcomes",
+      "type": "registry:block",
+      "title": "Outcomes radar chart",
+      "description": "Patient-reported outcomes before and after, as a radar chart.",
+      "categories": ["charts", "charts-radar"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-radar-outcomes.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Outcomes radar chart: https://organui.com/charts/radar#chart-radar-outcomes"
+    },
+    {
+      "name": "chart-radar-sleep",
+      "type": "registry:block",
+      "title": "Sleep radar chart",
+      "description": "Sleep quality by domain, as a radar chart with a circular grid.",
+      "categories": ["charts", "charts-radar"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-radar-sleep.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Sleep radar chart: https://organui.com/charts/radar#chart-radar-sleep"
+    },
+    {
+      "name": "chart-radar-symptoms",
+      "type": "registry:block",
+      "title": "Symptoms radar chart",
+      "description": "A symptom profile, as a radar chart.",
+      "categories": ["charts", "charts-radar"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-radar-symptoms.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Symptoms radar chart: https://organui.com/charts/radar#chart-radar-symptoms"
+    },
+    {
+      "name": "chart-radial-coverage",
+      "type": "registry:block",
+      "title": "Vaccine coverage radial chart",
+      "description": "Vaccination coverage by vaccine, as a radial chart.",
+      "categories": ["charts", "charts-radial"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-radial-coverage.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Vaccine coverage radial chart: https://organui.com/charts/radial#chart-radial-coverage"
+    },
+    {
+      "name": "chart-radial-fluids",
+      "type": "registry:block",
+      "title": "Fluid balance radial chart",
+      "description": "Fluid intake and output, as a stacked radial chart.",
+      "categories": ["charts", "charts-radial"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-radial-fluids.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Fluid balance radial chart: https://organui.com/charts/radial#chart-radial-fluids"
+    },
+    {
+      "name": "chart-radial-steps",
+      "type": "registry:block",
+      "title": "Steps radial chart",
+      "description": "Daily steps toward a goal, as a radial chart with text.",
+      "categories": ["charts", "charts-radial"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
+      "files": [
+        {
+          "path": "registry/base-nova/charts/chart-radial-steps.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "docs": "Steps radial chart: https://organui.com/charts/radial#chart-radial-steps"
     }
   ]
 }
