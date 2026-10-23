@@ -504,7 +504,7 @@
       "name": "undo-pill",
       "type": "registry:ui",
       "title": "Undo Pill",
-      "description": "An animated undo pill for React and shadcn, with a countdown ring that commits the action only when it runs out.",
+      "description": "Undo toast for React and shadcn: a pill with a draining countdown ring that commits the destructive action only when it runs out.",
       "docs": "Import UndoPill from components/eased/undo-pill/undo-pill. The Eased tokens were merged into your global CSS; nothing to import. useUndoQueue() handles batching, undo and commit. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -522,7 +522,7 @@
         }
       ],
       "meta": {
-        "details": "A pill that rises after a destructive action with a draining countdown ring. Undo (or ⌘Z) reverts it; only expiry commits it. Hover or focus pauses the countdown."
+        "details": "A pill that rises after a destructive action with a draining countdown ring. Undo (or ⌘Z / Ctrl+Z) reverts it; only expiry commits it. Hover or focus pauses the countdown."
       }
     },
     {
@@ -550,7 +550,7 @@
       "name": "concentric-frame",
       "type": "registry:ui",
       "title": "Concentric Frame",
-      "description": "A layout frame for React and shadcn that keeps nested corner radii concentric through CSS variables.",
+      "description": "Concentric border radius frame for React and shadcn: nested corners take the outer radius minus padding and border, through CSS variables.",
       "docs": "Import Frame, FrameInner and useFrame from components/eased/concentric-frame/concentric-frame. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "registryDependencies": [
         "https://eased.dev/r/eased-tokens.json"
@@ -563,7 +563,7 @@
         }
       ],
       "meta": {
-        "details": "A layout primitive that exposes outer, padding and inner radius as CSS variables so nested corners stay concentric."
+        "details": "A layout primitive that keeps nested corners parallel: the inner radius is the outer radius minus padding and border, exposed as CSS variables. Nested frames continue the curve, FrameInner takes it, and useFrame returns the numbers."
       }
     },
     {
@@ -608,7 +608,7 @@
       "name": "accordion",
       "type": "registry:ui",
       "title": "Accordion",
-      "description": "An animated accordion for React and shadcn, built on Base UI Accordion.",
+      "description": "Animated accordion for React and shadcn: panels open to their real height, one or several at a time, built on Base UI.",
       "docs": "Import Accordion and AccordionItem from components/eased/accordion/accordion. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "@base-ui/react"
@@ -625,7 +625,7 @@
         }
       ],
       "meta": {
-        "details": "Disclosures whose height springs open with no overshoot, content fading in as the height lands and the chevron turning on the same spring. Base UI Accordion behaviour."
+        "details": "Disclosures whose height springs open with no overshoot, content fading in as the height lands and the chevron turning on the same spring. Built on Base UI Accordion."
       }
     },
     {
@@ -655,7 +655,7 @@
       "name": "avatar",
       "type": "registry:ui",
       "title": "Avatar",
-      "description": "An animated avatar for React and shadcn, with groups that spread apart on hover.",
+      "description": "Animated avatar for React and shadcn: images fade in from a soft blur, initials fill in when they fail, and avatar groups spread apart on hover.",
       "docs": "Import Avatar and AvatarGroup from components/eased/avatar/avatar. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "@base-ui/react"
@@ -673,7 +673,7 @@
         }
       ],
       "meta": {
-        "details": "Avatar and AvatarGroup on Base UI Avatar: images fade in from a 4px blur once loaded so initials never flash; overlapping stacks with a cut-out ring spread apart on hover; the overflow count rolls."
+        "details": "Avatar and AvatarGroup on Base UI Avatar: images fade in from a 4px blur once loaded, so a quick image never flashes the initials. Overlapping stacks with a cut-out ring spread apart on hover, and the overflow count rolls."
       }
     },
     {
@@ -699,7 +699,7 @@
       "name": "badge",
       "type": "registry:ui",
       "title": "Badge",
-      "description": "An animated badge for React and shadcn, for statuses and counts, with an optional live dot.",
+      "description": "Animated badge for React and shadcn for statuses and counts: counts roll their digits, and a count-only badge leaves at zero.",
       "docs": "Import Badge from components/eased/badge/badge. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -717,7 +717,7 @@
         }
       ],
       "meta": {
-        "details": "A status or count chip. Counts roll their digits; a count-only badge pops in above zero and leaves when cleared; a live dot breathes slowly and stops under reduced motion."
+        "details": "A status or count chip in six tones: counts roll their digits, and a count-only badge pops in above zero and leaves when cleared. A live dot breathes slowly and stops under reduced motion."
       }
     },
     {
@@ -742,7 +742,7 @@
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
-      "description": "An animated button for React and shadcn, with a loading state that keeps its width.",
+      "description": "Animated button for React and shadcn: labels swap while the width springs, and the loading spinner keeps its width.",
       "docs": "Import Button from components/eased/button/button. Variants: primary, secondary, ghost, danger, danger-solid. Sizes: sm, md, lg, icon-sm, icon, icon-lg. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -996,7 +996,7 @@
       "name": "field",
       "type": "registry:ui",
       "title": "Field",
-      "description": "An animated form field for React and shadcn, with a label, a control and one line for help or errors.",
+      "description": "Form field for React and shadcn: a label, a control and one message line where help text and errors swap in place.",
       "docs": "Import Field from components/eased/field/field and put an Input, Textarea or Search Field inside. The Eased tokens were merged into your global CSS; nothing to import.",
       "registryDependencies": [
         "https://eased.dev/r/eased-tokens.json",
@@ -1010,7 +1010,7 @@
         }
       ],
       "meta": {
-        "details": "Label, control and one message line on Base UI Field. The description and the error share the line and swap with y + blur; inside Base UI's Form, submitting focuses the first invalid field."
+        "details": "A label, a control and one message line on Base UI Field, where the description and the error swap in place with y + blur. Inside Base UI's Form, submitting focuses the first invalid field."
       }
     },
     {
@@ -1035,7 +1035,7 @@
       "name": "input",
       "type": "registry:ui",
       "title": "Input",
-      "description": "An animated text input for React and shadcn, with leading and trailing addons and an error state.",
+      "description": "Text input for React and shadcn on Base UI, with leading and trailing addons and an error state that shakes once.",
       "docs": "Import Input from components/eased/input/input; wrap it in Field for a label and messages. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react"
@@ -1052,7 +1052,7 @@
         }
       ],
       "meta": {
-        "details": "A Base UI text input whose focus is the border alone. An error shakes it once, 6px, then the field's message opens with a height spring. Leading and trailing addons."
+        "details": "A Base UI text input whose focus firms the border and grows a soft glow. An error shakes it once, 6px, then the field's message opens with a height spring. Leading and trailing addons."
       }
     },
     {
@@ -1077,7 +1077,7 @@
       "name": "kbd",
       "type": "registry:ui",
       "title": "Kbd",
-      "description": "An animated keycap for React and shadcn, pressing down when the real key does.",
+      "description": "Keyboard shortcut keycap (kbd) for React and shadcn that presses down while the real key is held.",
       "docs": "Import Kbd and useKeysHeld from components/eased/kbd/kbd. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "registryDependencies": [
         "https://eased.dev/r/eased-tokens.json"
@@ -1119,7 +1119,7 @@
       "name": "number-roll",
       "type": "registry:ui",
       "title": "Number Roll",
-      "description": "An animated number counter for React and shadcn, with locale-aware formatting.",
+      "description": "Animated number counter for React and shadcn: each digit rolls to its new value, formatted for the user's locale.",
       "docs": "Import NumberRoll from components/eased/number-roll/number-roll. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "registryDependencies": [
         "https://eased.dev/r/eased-tokens.json",
@@ -1133,7 +1133,7 @@
         }
       ],
       "meta": {
-        "details": "Tabular digits that roll in the direction of change: a 9 → 0 carry rolls forward, a value that changes mid-roll redirects, new places fade in while the rest slide over. Intl formatting, locale-aware separators."
+        "details": "Tabular digits that roll in the direction of change, formatted with Intl.NumberFormat for any locale. A 9 → 0 carry rolls forward, a value that changes mid-roll redirects, and new places fade in while the rest slide over."
       }
     },
     {
@@ -1162,7 +1162,7 @@
       "name": "popover",
       "type": "registry:ui",
       "title": "Popover",
-      "description": "An animated popover for React and shadcn, opening from its trigger, built on Base UI.",
+      "description": "Animated popover for React and shadcn that grows out of its trigger, moves focus inside and closes on Esc, built on Base UI.",
       "dependencies": [
         "@base-ui/react"
       ],
@@ -1210,7 +1210,7 @@
       "name": "progress",
       "type": "registry:ui",
       "title": "Progress",
-      "description": "An animated progress bar for React and shadcn, with an indeterminate state that hands over to the real value.",
+      "description": "Animated progress bar for React and shadcn on Base UI, with a spring-driven bar, a rolling value and an indeterminate sweep.",
       "docs": "Import Progress from components/eased/progress/progress. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion",
@@ -1229,7 +1229,7 @@
         }
       ],
       "meta": {
-        "details": "A progress bar on Base UI Progress: the bar rides a spring and its value rolls; an unknown length sweeps with an accelerate–decelerate curve and hands over to the bar when a value arrives."
+        "details": "A progress bar on Base UI Progress: the bar rides a spring that never overshoots, and its value rolls. An unknown length sweeps on an accelerate–decelerate curve and hands over to the bar the moment a value arrives."
       }
     },
     {
@@ -1256,7 +1256,7 @@
       "name": "progressive-blur",
       "type": "registry:ui",
       "title": "Progressive Blur",
-      "description": "A progressive blur for React and shadcn, fading content toward an edge under headers, bottom bars and composers.",
+      "description": "Progressive blur for React and shadcn: a backdrop blur that ramps up to 20px toward an edge, under sticky headers, bottom bars and composers.",
       "docs": "Import ProgressiveBlur from components/eased/progressive-blur/progressive-blur. Place it over the scroller in a positioned parent, never inside it, and keep opacity, filter and mask off its ancestors.",
       "dependencies": [
         "motion"
@@ -1297,7 +1297,7 @@
       "name": "radio-group",
       "type": "registry:ui",
       "title": "Radio Group",
-      "description": "An animated radio group for React and shadcn, with plain radios or selectable cards.",
+      "description": "Radio group for React and shadcn, with plain radios or selectable cards whose selected border travels between them.",
       "docs": "Import RadioGroup, Radio, RadioCards and RadioCard from components/eased/radio-group/radio-group. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "@base-ui/react"
@@ -1340,7 +1340,7 @@
       "name": "scroll-area",
       "type": "registry:ui",
       "title": "Scroll Area",
-      "description": "An animated scroll area for React and shadcn, with a thin overlay scrollbar and edge fades.",
+      "description": "Custom scrollbar for React and shadcn: a thin overlay bar on a native scroller, with edge fades only where more remains.",
       "docs": "Import ScrollArea from components/eased/scroll-area/scroll-area. Size it with className; give it an aria-label. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react"
@@ -1388,7 +1388,7 @@
       "name": "segmented",
       "type": "registry:ui",
       "title": "Segmented",
-      "description": "An animated segmented control for React and shadcn, for picking one option from a few.",
+      "description": "Segmented control for React and shadcn: a thumb glides to the chosen option, with radio semantics that submit with a form.",
       "docs": "Import Segmented from components/eased/segmented/segmented. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "@base-ui/react"
@@ -1431,7 +1431,7 @@
       "name": "skeleton",
       "type": "registry:ui",
       "title": "Skeleton",
-      "description": "An animated skeleton for React and shadcn, where every placeholder on the page shares one shimmer.",
+      "description": "Skeleton loader for React and shadcn: every placeholder on the page shares one shimmer, and the real content fades in in place.",
       "docs": "Import Skeleton and SkeletonText from components/eased/skeleton/skeleton. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -1448,7 +1448,7 @@
         }
       ],
       "meta": {
-        "details": "Loading placeholders with one page-wide shimmer: every skeleton shares a viewport-space highlight and one phase, so a single band sweeps across all of them. Wrap the real content and it hands off in place, fading in from a soft blur."
+        "details": "Loading placeholders with one page-wide shimmer: every skeleton shares a highlight and a phase, so a single band sweeps across them all. Wrap the real content and it hands off in place, fading in from a soft blur."
       }
     },
     {
@@ -1478,7 +1478,7 @@
       "name": "spinner",
       "type": "registry:ui",
       "title": "Spinner",
-      "description": "An animated spinner for React and shadcn, that pauses off-screen and announces itself to screen readers.",
+      "description": "Loading spinner for React and shadcn: a CSS arc that keeps turning while the main thread is busy and announces itself to screen readers.",
       "docs": "Import Spinner from components/eased/spinner/spinner. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "registryDependencies": [
         "https://eased.dev/r/eased-tokens.json"
@@ -1494,7 +1494,7 @@
         "motion"
       ],
       "meta": {
-        "details": "A quarter arc turning on a faint ring, the eased.dev status-badge mark. Spins on the compositor, pauses off-screen, freezes under reduced motion, announces itself unless visible text already does."
+        "details": "A loading spinner that turns on the compositor, so it keeps spinning while the main thread is busy, and announces itself unless visible text already does. A quarter arc on a faint ring, the eased.dev status-badge mark; it pauses off-screen and freezes under reduced motion."
       }
     },
     {
@@ -1520,7 +1520,7 @@
       "name": "tabs",
       "type": "registry:ui",
       "title": "Tabs",
-      "description": "Animated tabs for React and shadcn, with an underline or pill indicator.",
+      "description": "Animated tabs for React and shadcn: an underline or pill indicator glides to the active tab and panels cross-fade.",
       "docs": "Import Tabs, TabsList, Tab, TabsPanels and TabsPanel from components/eased/tabs/tabs. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion",
@@ -1566,7 +1566,7 @@
       "name": "text-swap",
       "type": "registry:ui",
       "title": "Text Swap",
-      "description": "An animated text swap for React and shadcn, for changing a label or value without its neighbours jumping.",
+      "description": "Animated text change for React and shadcn: a label or value swaps with a lift and blur while the width springs to fit.",
       "docs": "Import TextSwap from components/eased/text-swap/text-swap. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "registryDependencies": [
         "https://eased.dev/r/eased-tokens.json",
@@ -1607,7 +1607,7 @@
       "name": "textarea",
       "type": "registry:ui",
       "title": "Textarea",
-      "description": "An animated textarea for React and shadcn, growing with its text, with a character counter.",
+      "description": "Auto-resizing textarea for React and shadcn: it grows with its text on a spring, with a character counter whose digits roll.",
       "docs": "Import Textarea from components/eased/textarea/textarea; wrap it in Field for a label and messages. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -1651,7 +1651,7 @@
       "name": "toggle-group",
       "type": "registry:ui",
       "title": "Toggle Group",
-      "description": "An animated toggle group for React and shadcn, with single or multiple selection.",
+      "description": "Toggle button group for React and shadcn, single or multiple selection, for toolbars like bold, italic and underline.",
       "docs": "Import ToggleGroup and ToggleGroupItem from components/eased/toggle-group/toggle-group. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion",
@@ -1698,7 +1698,7 @@
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",
-      "description": "An animated tooltip for React and shadcn, with an optional shortcut, never shown on touch.",
+      "description": "Animated tooltip for React and shadcn with an optional keyboard shortcut; after the first, neighbours open instantly.",
       "dependencies": [
         "@base-ui/react"
       ],
@@ -1741,7 +1741,7 @@
       "name": "cells",
       "type": "registry:ui",
       "title": "Cells kit",
-      "description": "An animated set of table cells for React and shadcn, for names, statuses, numbers, progress, times and IDs.",
+      "description": "Table cells for React and shadcn: avatars with names, status badges, rolling numbers with coloured deltas, progress meters, times and IDs.",
       "docs": "Import PersonCell, StatusCell, DeltaCell, ProgressCell, RelativeTimeCell and IdCell from components/eased/cells/cells. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -1809,7 +1809,7 @@
       "name": "table",
       "type": "registry:ui",
       "title": "Table",
-      "description": "A hairline table for React and shadcn, built on TanStack Table with a sticky header and dense or comfortable rows.",
+      "description": "Data table for React and shadcn on TanStack Table, with half-pixel row rules, a sticky header and 36px or 48px rows.",
       "docs": "Import Table and easedColumns from components/eased/table/table. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "@tanstack/react-table"
@@ -1826,7 +1826,7 @@
         }
       ],
       "meta": {
-        "details": "A premium hairline table on TanStack Table: half-pixel row rules, a quiet sentence-case header, numbers right-aligned on one edge, one emphasised cell per row, a sticky header, and dense or comfortable rows."
+        "details": "A hairline table on TanStack Table: half-pixel row rules, a quiet sentence-case header, numbers right-aligned on one edge, one emphasised cell per row, a sticky header, and dense or comfortable rows."
       }
     },
     {
@@ -1851,7 +1851,7 @@
       "name": "attachment",
       "type": "registry:ui",
       "title": "Attachment Chip",
-      "description": "An animated attachment chip for React and shadcn, with image thumbnails, upload progress and retry.",
+      "description": "File attachment chip for React and shadcn: image thumbnails sharpen as they load, a ring tracks the upload, and failures offer Retry.",
       "docs": "Import AttachmentChip and AttachmentList from components/eased/attachment/attachment-chip. Pair with useAttachments from components/eased/_primitives/chat-core/chat-core.",
       "dependencies": [
         "motion"
@@ -1896,7 +1896,7 @@
       "name": "composer",
       "type": "registry:ui",
       "title": "Composer",
-      "description": "An animated chat composer for React and shadcn, with file attachments and a Stop button while a reply streams.",
+      "description": "AI chat input for React and shadcn: the box grows as you type, files drop or paste in, and Send morphs into Stop while a reply streams.",
       "docs": "Import Composer from components/eased/composer/composer. With AI SDK: const { composer } = fromUseChat(useChat()); <Composer {...composer} />.",
       "dependencies": [
         "motion"
@@ -2000,7 +2000,7 @@
       "name": "message",
       "type": "registry:ui",
       "title": "Message",
-      "description": "An animated chat message for React and shadcn, rendering AI SDK UIMessage text and file parts.",
+      "description": "Chat message bubble for React and shadcn that renders AI SDK messages, tightening the corners where consecutive bubbles meet.",
       "docs": "Import Message, MessageAction and CopyAction from components/eased/message/message. Group with groupMessages from chat-core.",
       "dependencies": [
         "motion"
@@ -2091,7 +2091,7 @@
       "name": "shimmer-text",
       "type": "registry:ui",
       "title": "Shimmer Text",
-      "description": "Animated shimmer text for React and shadcn, for status labels while something is working.",
+      "description": "Shimmer text effect for React and shadcn: a band of light sweeps a loading label, in one phase shared by every shimmer on the page.",
       "docs": "Import ShimmerText from components/eased/shimmer-text/shimmer-text. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "motion"
@@ -2109,7 +2109,7 @@
         }
       ],
       "meta": {
-        "details": "A soft band of light sweeps across a label while something is working. Every shimmer on the page shares one phase, status changes swap in without restarting the band, and turning it off fades the band out in place."
+        "details": "Shimmer text for React: a soft band of light sweeps across a label while something is working. Every shimmer on the page shares one phase, status changes swap in without restarting the band, and turning it off fades the band out in place."
       }
     },
     {
@@ -2138,7 +2138,7 @@
       "name": "thinking-bar",
       "type": "registry:ui",
       "title": "Thinking Bar",
-      "description": "An animated thinking bar for React and shadcn, showing how long a reasoning model has been thinking.",
+      "description": "AI reasoning indicator for React and shadcn: \"Thinking 4s\" counts up while the model reasons, then reads \"Thought for 12s\" and folds away.",
       "docs": "Import ThinkingBar from components/eased/thinking-bar/thinking-bar. Drive status from your reasoning stream; pass the reasoning as children.",
       "dependencies": [
         "motion",
@@ -2193,7 +2193,7 @@
       "name": "agent-orb",
       "type": "registry:ui",
       "title": "Agent Orb",
-      "description": "An animated agent orb for React and shadcn, showing whether an assistant is idle, listening, thinking or speaking.",
+      "description": "AI agent orb for React and shadcn showing idle, listening, thinking or speaking, with a swirl that speeds up with the token rate.",
       "docs": "Import AgentOrb from components/eased/agent-orb/agent-orb. Feed rate from useTokenRate (eased-thinking-core) to tie its speed to your stream.",
       "dependencies": [
         "motion"
@@ -2335,7 +2335,7 @@
       "name": "sparkline",
       "type": "registry:ui",
       "title": "Sparkline",
-      "description": "An animated sparkline for React and shadcn, a word-sized line chart with an optional scrub readout.",
+      "description": "Sparkline chart for React and shadcn: a word-sized line that draws in once and morphs to new values, with an optional scrub readout.",
       "docs": "Import Sparkline from components/eased/sparkline/sparkline. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "registryDependencies": [
         "https://eased.dev/r/eased-tokens.json",
@@ -2373,7 +2373,7 @@
       "name": "code-block",
       "type": "registry:ui",
       "title": "Code Block",
-      "description": "An animated code block for React and shadcn, with Shiki highlighting, a copy button and collapsible long blocks.",
+      "description": "Code block for React and shadcn with Shiki syntax highlighting, a copy button, line highlights and long blocks that collapse under a blur.",
       "docs": "Import CodeBlock from components/eased/code-block/code-block. Grammars load on demand; pass `tokens` from highlight() (components/eased/_primitives/code-core/highlighter) on the server for a first paint that is already coloured. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion",
@@ -2415,7 +2415,7 @@
       "name": "code-tabs",
       "type": "registry:ui",
       "title": "Code Tabs",
-      "description": "Animated code tabs for React and shadcn, showing several files or one command per package manager.",
+      "description": "Code tabs for React and shadcn: several files or one install command per package manager, with the pnpm or npm choice synced across the page.",
       "docs": "Import CodeTabs, packageManagerItems and packageCommand from components/eased/code-tabs/code-tabs. Use groupId=\"package-manager\" on install blocks so pnpm/npm/yarn/bun stays in sync across the page.",
       "dependencies": [
         "motion",
@@ -2516,7 +2516,7 @@
       "name": "snippet",
       "type": "registry:ui",
       "title": "Snippet",
-      "description": "An animated command snippet for React and shadcn, a one-line command with a copy button.",
+      "description": "Copyable command snippet for React and shadcn: one shell line with a $ prompt that is never copied, and a copy button that turns into a check.",
       "docs": "Import Snippet from components/eased/snippet/snippet. Pair it with useChoice(\"package-manager\") from code-core and packageCommand from code-tabs to follow the reader's package manager.",
       "dependencies": [
         "motion",
@@ -2536,7 +2536,7 @@
         }
       ],
       "meta": {
-        "details": "A one-line command with a $ prompt and a copy button that morphs into a check. When the command changes (pnpm ↔ npm) the text swaps and the width springs, so the copy button glides instead of jumping."
+        "details": "A copyable command snippet: one line with a $ prompt and a copy button that morphs into a check. When the command changes (pnpm ↔ npm) the text swaps and the width springs, so the copy button glides instead of jumping."
       }
     },
     {
@@ -2595,7 +2595,7 @@
       "name": "mac-hud",
       "type": "registry:ui",
       "title": "Mac HUD",
-      "description": "An animated macOS volume and brightness HUD for React and shadcn, as the classic square or the macOS 26 pill.",
+      "description": "macOS volume and brightness HUD for React and shadcn, square or macOS 26 pill, updating in place and holding 1.1s after each change.",
       "docs": "Import MacHud and useMacHud from components/eased/mac-hud/mac-hud. The Eased tokens were merged into your global CSS; nothing to import. Call show(kind, value) from useMacHud() and spread hud onto <MacHud>. Dark mode follows .dark or data-theme=\"dark\". In a Tauri or Electron HUD window with native vibrancy, pass material=\"native\" and position=\"none\", hide the window in onExitComplete, keep html and body transparent, and call useSystemAppearance() from components/eased/lib/mac so dark follows the system.",
       "dependencies": [
         "motion"
@@ -2638,7 +2638,7 @@
       "name": "mac-menu-popover",
       "type": "registry:ui",
       "title": "Mac menu popover",
-      "description": "An animated macOS menu bar popover for React and shadcn, for Tauri and Electron apps.",
+      "description": "macOS menu bar popover for React and shadcn, for Tauri and Electron apps: the panel grows from its arrow tip and reverses mid-flight.",
       "docs": "Import MacMenuPopover, MacStatusItem, MacMenuPopoverContent, MacMenuItem and MacMenuSeparator from components/eased/mac-menu-popover/mac-menu-popover. The Eased tokens were merged into your global CSS; nothing to import. Put MacStatusItem (with a label) and MacMenuPopoverContent inside MacMenuPopover, and wrap rows that should close the panel in MacMenuPopoverClose. Dark mode follows .dark or data-theme=\"dark\". In a Tauri or Electron tray window, render MacMenuPanel instead; it defaults to material=\"native\" (a CSS blur cannot see the desktop there). Keep html and body transparent and call useSystemAppearance() from components/eased/lib/mac so dark follows the system.",
       "dependencies": [
         "@base-ui/react"
@@ -2727,7 +2727,7 @@
       "name": "image-compare",
       "type": "registry:ui",
       "title": "Image Compare",
-      "description": "An animated image compare slider for React and shadcn, with a divider you drag or move by keyboard.",
+      "description": "Before and after image comparison slider for React and shadcn: drag the divider, flick it to 0, 50 or 100, or move it by keyboard.",
       "docs": "Import ImageCompare from components/eased/image-compare/image-compare. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -3074,7 +3074,7 @@
       "name": "alert",
       "type": "registry:ui",
       "title": "Alert",
-      "description": "An animated alert for React and shadcn, for context, success, warning and error messages.",
+      "description": "Inline alert for React and shadcn for info, success, warning and error messages, with optional actions and a dismiss button.",
       "docs": "Import Alert from components/eased/alert/alert. Props: tone (neutral, info, success, warning, danger), title, children, icon, actions, onDismiss, open, role, innerClassName. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "motion"
@@ -3132,7 +3132,7 @@
       "name": "checkbox",
       "type": "registry:ui",
       "title": "Checkbox",
-      "description": "An animated checkbox for React and shadcn, with an indeterminate state for parent checkboxes.",
+      "description": "Animated checkbox for React and shadcn: the check draws itself and morphs into a dash for indeterminate parent checkboxes.",
       "docs": "Import Checkbox and CheckboxGroup from components/eased/checkbox/checkbox. Checkbox: checked, defaultChecked, onCheckedChange, indeterminate, parent, value, name, disabled, children (label), description. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -3213,7 +3213,7 @@
       "name": "slider",
       "type": "registry:ui",
       "title": "Slider",
-      "description": "An animated slider for React and shadcn, single or range, with a live value readout.",
+      "description": "Range slider for React and shadcn, single or two-thumb, with a value readout whose digits roll as it steps.",
       "docs": "Import Slider from components/eased/slider/slider. Props: value or defaultValue (a number, or two for a range), onValueChange, onValueCommitted, min, max, step, largeStep, format, locale, label, showValue, disabled. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -3231,7 +3231,7 @@
         }
       ],
       "meta": {
-        "details": "A Base UI slider, single or range. The thumb swells while held, and the readout's digits roll when the value steps, then follow the finger exactly while dragging.",
+        "details": "A Base UI slider, single or range, whose thumb swells while held and whose readout's digits roll when the value steps. While dragging, the readout follows the finger exactly.",
         "industries": [
           "saas",
           "finance",
@@ -3267,7 +3267,7 @@
       "name": "switch",
       "type": "registry:ui",
       "title": "Switch",
-      "description": "An animated switch for React and shadcn, which becomes a full settings row when given a label.",
+      "description": "Toggle switch for React and shadcn: the thumb stretches toward where it is going, and a label turns it into a settings row.",
       "docs": "Import Switch from components/eased/switch/switch. Props: checked, defaultChecked, onCheckedChange, name, value, disabled, required, children (label), description. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react"
@@ -3327,7 +3327,7 @@
       "name": "dialog",
       "type": "registry:ui",
       "title": "Dialog",
-      "description": "An animated dialog for React and shadcn, with alert dialogs and nested dialogs, built on Base UI.",
+      "description": "Modal dialog for React and shadcn, with confirm (alert) dialogs and nested dialogs, built on Base UI.",
       "dependencies": [
         "@base-ui/react"
       ],
@@ -3378,7 +3378,7 @@
       "name": "command-palette",
       "type": "registry:ui",
       "title": "Command Palette",
-      "description": "An animated command palette for React and shadcn, opened with ⌘K, where Enter runs the first match.",
+      "description": "Command palette for React and shadcn: ⌘K opens it at once, commands filter as you type, and Enter runs the first match.",
       "dependencies": [
         "@base-ui/react"
       ],
@@ -3429,7 +3429,7 @@
       "name": "context-menu",
       "type": "registry:ui",
       "title": "Context Menu",
-      "description": "An animated context menu for React and shadcn, opened by right-click or long-press, with submenus.",
+      "description": "Right-click context menu for React and shadcn on Base UI: it opens at the pointer, or on a 500ms long press on touch, with submenus.",
       "dependencies": [
         "@base-ui/react"
       ],
@@ -3481,7 +3481,7 @@
       "name": "dropdown-menu",
       "type": "registry:ui",
       "title": "Dropdown Menu",
-      "description": "An animated dropdown menu for React and shadcn, with checkbox and radio rows, shortcuts and submenus.",
+      "description": "Dropdown menu for React and shadcn: one highlight glides between rows, and a chosen row blinks before the menu closes, as on macOS.",
       "dependencies": [
         "@base-ui/react"
       ],
@@ -3540,7 +3540,7 @@
       "name": "sheet",
       "type": "registry:ui",
       "title": "Sheet",
-      "description": "An animated sheet for React and shadcn, sliding in from an edge and becoming a bottom sheet on small screens.",
+      "description": "Sheet and side drawer for React and shadcn on Base UI Drawer: swipe to dismiss, and side sheets become bottom sheets under 640px.",
       "dependencies": [
         "@base-ui/react"
       ],
@@ -3591,7 +3591,7 @@
       "name": "combobox",
       "type": "registry:ui",
       "title": "Combobox",
-      "description": "An animated combobox for React and shadcn, with filtering, a clear button and multi-select chips.",
+      "description": "Searchable select (combobox) for React and shadcn, with filtering, a clear button and multi-select chips, on Base UI.",
       "docs": "Import Combobox from components/eased/combobox/combobox; pass items as { value, label } objects (flat or grouped), add multiple for chips, and wrap it in Field for a label. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -3648,7 +3648,7 @@
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "An animated select for React and shadcn, opening with the chosen option over its trigger.",
+      "description": "Select dropdown for React and shadcn that opens with the chosen option over its trigger, like a macOS pop-up button.",
       "docs": "Import Select from components/eased/select/select; pass items (flat or grouped) or compose SelectItem children, and wrap it in Field for a label. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -3702,7 +3702,7 @@
       "name": "toast",
       "type": "registry:ui",
       "title": "Toast",
-      "description": "An animated toast stack for React and shadcn, with an action button such as Undo.",
+      "description": "Toast notifications for React and shadcn: toasts stack behind the newest, fan out on hover and pause their timers, with an Undo action.",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -3723,7 +3723,7 @@
         }
       ],
       "meta": {
-        "details": "Toasts rise 12px on the smooth spring and stack behind the newest, peeking 10px and 5% smaller; hover fans them out and pauses every timer. Promise toasts morph from spinner to check in place.",
+        "details": "A toast stack on Base UI Toast: toasts rise 12px on the smooth spring and stack behind the newest, each peeking 10px and 5% smaller. Hover fans them out and pauses every timer. Promise toasts morph from spinner to check in place.",
         "industries": [
           "saas",
           "devtools",
@@ -3813,7 +3813,7 @@
       "name": "breadcrumb",
       "type": "registry:ui",
       "title": "Breadcrumb",
-      "description": "An animated breadcrumb for React and shadcn, folding middle crumbs into a menu when space runs out.",
+      "description": "Animated breadcrumb for React and shadcn that folds the middle crumbs into a menu when the trail runs out of room.",
       "docs": "Import Breadcrumb from components/eased/breadcrumb/breadcrumb. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [],
       "registryDependencies": [
@@ -3829,7 +3829,7 @@
         }
       ],
       "meta": {
-        "details": "A trail from the root to the current page that folds its middle crumbs into a menu when it runs out of room, measured rather than guessed, with links that underline on hover.",
+        "details": "A trail from the root to the current page that folds its middle crumbs into a menu when it runs out of room, measured rather than guessed. Links underline on hover.",
         "industries": [
           "saas",
           "devtools",
@@ -3865,7 +3865,7 @@
       "name": "pagination",
       "type": "registry:ui",
       "title": "Pagination",
-      "description": "Animated pagination for React and shadcn, with a width that never changes as you page.",
+      "description": "Animated pagination for React and shadcn: the selected page chip glides on a spring, and the width never changes as you page.",
       "docs": "Import Pagination from components/eased/pagination/pagination. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -3884,7 +3884,7 @@
         }
       ],
       "meta": {
-        "details": "Numbered pages whose selected chip glides on a spring, with ellipses in a fixed number of slots so the width never changes, and a compact Page 3 of 12 variant.",
+        "details": "Numbered pages whose selected chip glides on a spring, with ellipses in a fixed number of slots so the width never changes. There is also a compact Page 3 of 12 variant.",
         "industries": [
           "saas",
           "finance",
@@ -3920,7 +3920,7 @@
       "name": "rating",
       "type": "registry:ui",
       "title": "Rating",
-      "description": "An animated star rating for React and shadcn, with hover preview, half steps and a read-only mode.",
+      "description": "Star rating for React and shadcn on Base UI RadioGroup, with hover preview, half stars and a read-only mode for any fraction.",
       "docs": "Import Rating from components/eased/rating/rating. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "@base-ui/react",
@@ -3970,7 +3970,7 @@
       "name": "carousel",
       "type": "registry:ui",
       "title": "Carousel",
-      "description": "An animated carousel for React and shadcn, with scroll snapping, mouse drag and arrow keys.",
+      "description": "Carousel for React and shadcn on native scroll snapping, with mouse drag, arrow keys and a dot that stretches between pages.",
       "docs": "Import Carousel from components/eased/carousel/carousel. Set --carousel-inset on a parent to inset the slides and footer. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -4022,7 +4022,7 @@
       "name": "file-upload",
       "type": "registry:ui",
       "title": "File Upload",
-      "description": "An animated file upload for React and shadcn, with a dropzone, per-file progress and inline reasons for refused files.",
+      "description": "Drag and drop file upload for React and shadcn: the dropzone wakes when files cross the page, with per-file progress and retry.",
       "docs": "Import FileUpload and useFileUpload from components/eased/file-upload/file-upload. Pass an upload function to report progress; the network call is yours. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -4073,7 +4073,7 @@
       "name": "tree",
       "type": "registry:ui",
       "title": "Tree",
-      "description": "An animated file tree for React and shadcn, with keyboard support that follows WAI-ARIA.",
+      "description": "React file tree for shadcn: folders spring open, one selection glides between rows, and arrow keys and typeahead follow WAI-ARIA.",
       "docs": "Import Tree and TreeNode from components/eased/tree/tree. Give it a max height and it scrolls with edge fades. The Eased tokens were merged into your global CSS; nothing to import. Dark mode follows .dark or data-theme=\"dark\".",
       "dependencies": [
         "motion"
@@ -4125,7 +4125,7 @@
       "name": "date-picker",
       "type": "registry:ui",
       "title": "Date Picker",
-      "description": "An animated date picker for React and shadcn, with a calendar popover, typed dates and ranges.",
+      "description": "Date picker for React and shadcn with a calendar popover and ranges, reading typed dates such as 24 Oct or tomorrow in the field's locale.",
       "docs": "Import DatePicker (or Calendar for an inline grid) from components/eased/date-picker/date-picker; wrap it in Field for a label and messages. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -4179,7 +4179,7 @@
       "name": "number-field",
       "type": "registry:ui",
       "title": "Number Field",
-      "description": "An animated number field for React and shadcn, with steppers that speed up while held.",
+      "description": "Number input for React and shadcn on Base UI: steppers speed up the longer you hold them, and each step rolls the digits.",
       "docs": "Import NumberField from components/eased/number-field/number-field; give it a label, or wrap it in Field. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -4225,7 +4225,7 @@
       "name": "otp-field",
       "type": "registry:ui",
       "title": "OTP Field",
-      "description": "An animated one-time code field for React and shadcn, with autofill and paste across every cell.",
+      "description": "OTP input for React and shadcn on Base UI: SMS autofill, password managers and a pasted code fill every cell at once.",
       "docs": "Import OtpField from components/eased/otp-field/otp-field; wrap it in Field for a label and messages. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -4391,7 +4391,7 @@
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
-      "description": "A card for React and shadcn, with shadcn's parts and an optional link that makes the whole card clickable.",
+      "description": "Card component for React and shadcn with shadcn's parts and slots, plus a CardLink that makes the whole card one clickable link.",
       "docs": "Import Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter and CardLink from components/eased/card/card. Card props: size (default, sm), autoHeight. CardTitle and CardLink take render. The Eased tokens were merged into your global CSS; nothing to import.",
       "dependencies": [
         "@base-ui/react",
@@ -4429,6 +4429,62 @@
         "demo": {
           "height": 600
         }
+      }
+    },
+    {
+      "name": "appointment-scheduler-demo",
+      "type": "registry:example",
+      "title": "Appointment Scheduler demo",
+      "description": "Booking a 20-minute follow-up at Willow Health across three clinicians and the next five weekdays.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://eased.dev/r/appointment-scheduler.json",
+        "https://eased.dev/r/eased-fixtures.json",
+        "https://eased.dev/r/eased-demo-frame.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/eased/appointment-scheduler/appointment-scheduler-demo.tsx",
+          "type": "registry:example",
+          "target": "@components/eased/appointment-scheduler/appointment-scheduler-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "appointment-scheduler",
+      "type": "registry:ui",
+      "title": "Appointment Scheduler",
+      "description": "Appointment booking for React and shadcn: pick a provider, day and time, and the chosen slot lifts into the confirmation card.",
+      "docs": "Import AppointmentScheduler from components/eased/appointment-scheduler/appointment-scheduler. Pass providers, busy intervals per provider, days (midnights), hours ({ start, end, lunch, slotMinutes }), visit and onBook.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://eased.dev/r/eased-tokens.json",
+        "https://eased.dev/r/eased-motion.json",
+        "https://eased.dev/r/eased-indicator.json",
+        "https://eased.dev/r/eased-text-swap.json",
+        "https://eased.dev/r/eased-health-core.json",
+        "https://eased.dev/r/avatar.json",
+        "https://eased.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/eased/appointment-scheduler/appointment-scheduler.tsx",
+          "type": "registry:ui",
+          "target": "@components/eased/appointment-scheduler/appointment-scheduler.tsx"
+        }
+      ],
+      "meta": {
+        "details": "Book a visit in three choices: provider and day highlights glide, the day's slots re-tint in a ripple, and the picked time lifts out of the grid into the confirmation card before Book morphs to Booked.",
+        "industries": [
+          "health"
+        ],
+        "primaryIndustry": "health",
+        "kind": "block",
+        "releaseAt": "2026-10-23"
       }
     }
   ]

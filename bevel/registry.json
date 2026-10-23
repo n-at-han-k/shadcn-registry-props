@@ -279,6 +279,12 @@
           "--time-card-key-edge": "var(--bevel-theme-panel-edge)",
           "--vigilance-panel": "var(--bevel-theme-panel)",
           "--vigilance-panel-edge": "var(--bevel-theme-panel-edge)",
+          "--key-primary": "var(--bevel-theme-hardware)",
+          "--key-primary-side": "var(--bevel-theme-hardware-edge)",
+          "--key-primary-foreground": "oklch(from var(--bevel-theme-hardware) 0.25 c h)",
+          "--key-secondary": "var(--bevel-theme-key)",
+          "--key-secondary-side": "var(--bevel-theme-panel-edge)",
+          "--key-secondary-foreground": "var(--bevel-theme-face)",
           "--bevel-radius-xs": "calc(0.25rem * var(--bevel-radius-scale, 1))",
           "--bevel-radius-sm": "calc(0.5rem * var(--bevel-radius-scale, 1))",
           "--bevel-radius-md": "calc(0.625rem * var(--bevel-radius-scale, 1))",
@@ -339,6 +345,224 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "key",
+      "type": "registry:ui",
+      "title": "Key",
+      "description": "A button made as a keycap: a cap with a lit top edge on a visible side, which travels down by the side's depth when pressed by pointer, Space or Enter. While its action runs it latches down with a small lamp lit, instead of a spinner, and pops back up when done.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/key.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--key-primary": "oklch(0.76 0.14 68)",
+          "--key-primary-side": "oklch(0.58 0.13 55)",
+          "--key-primary-foreground": "oklch(0.24 0.04 55)",
+          "--key-secondary": "oklch(0.97 0.004 250)",
+          "--key-secondary-side": "oklch(0.8 0.008 250)",
+          "--key-secondary-foreground": "oklch(0.27 0.012 250)",
+          "--key-danger": "oklch(0.55 0.19 27)",
+          "--key-danger-side": "oklch(0.4 0.15 27)",
+          "--key-danger-foreground": "oklch(0.98 0.01 27)",
+          "--key-ghost-foreground": "currentColor",
+          "--key-ghost-hover": "oklch(0.5 0.01 250 / 0.08)",
+          "--key-ghost-well": "oklch(0.5 0.01 250 / 0.14)",
+          "--key-lamp": "oklch(0.82 0.17 145)",
+          "--key-lamp-off": "oklch(0.45 0.01 250 / 0.55)",
+          "--key-travel-sm": "2px",
+          "--key-travel": "3px",
+          "--key-travel-lg": "3px"
+        },
+        ".dark": {
+          "--key-primary": "oklch(0.74 0.13 68)",
+          "--key-primary-side": "oklch(0.5 0.11 55)",
+          "--key-secondary": "oklch(0.36 0.008 250)",
+          "--key-secondary-side": "oklch(0.22 0.008 250)",
+          "--key-secondary-foreground": "oklch(0.94 0.01 90)",
+          "--key-danger": "oklch(0.56 0.18 27)",
+          "--key-danger-side": "oklch(0.36 0.13 27)",
+          "--key-ghost-hover": "oklch(1 0 0 / 0.06)",
+          "--key-ghost-well": "oklch(0 0 0 / 0.3)"
+        },
+        "[data-slot=\"key\"]": {
+          "--key-depth": "var(--key-travel)",
+          "--key-cap": "var(--key-primary)",
+          "--key-cap-side": "var(--key-primary-side)",
+          "--key-cap-foreground": "var(--key-primary-foreground)",
+          "--bevel-led": "var(--key-lamp)",
+          "--key-cap-sheen": "var(--bevel-highlight)",
+          "--key-cap-light": "inset 0 1px 0 var(--bevel-highlight-strong), inset 0 0 0 1px oklch(0 0 0 / 0.06)",
+          "--key-cast": "0 1px 2px var(--bevel-cast)"
+        },
+        "[data-slot=\"key\"][data-size=\"sm\"]": {
+          "--key-depth": "var(--key-travel-sm)"
+        },
+        "[data-slot=\"key\"][data-size=\"lg\"]": {
+          "--key-depth": "var(--key-travel-lg)"
+        },
+        "[data-slot=\"key\"][data-variant=\"secondary\"]": {
+          "--key-cap": "var(--key-secondary)",
+          "--key-cap-side": "var(--key-secondary-side)",
+          "--key-cap-foreground": "var(--key-secondary-foreground)"
+        },
+        "[data-slot=\"key\"][data-variant=\"danger\"]": {
+          "--key-cap": "var(--key-danger)",
+          "--key-cap-side": "var(--key-danger-side)",
+          "--key-cap-foreground": "var(--key-danger-foreground)"
+        },
+        "[data-slot=\"key\"][data-variant=\"ghost\"]": {
+          "--key-depth": "0px",
+          "--key-cap": "transparent",
+          "--key-cap-side": "transparent",
+          "--key-cap-foreground": "var(--key-ghost-foreground)",
+          "--key-cap-sheen": "transparent",
+          "--key-cap-light": "none",
+          "--key-cast": "none"
+        },
+        "[data-slot=\"key\"][data-variant=\"ghost\"]:hover:not([data-state])": {
+          "--key-cap": "var(--key-ghost-hover)"
+        },
+        "[data-slot=\"key\"][data-variant=\"ghost\"]:is([data-pressed], [data-state=\"pending\"])": {
+          "--key-cap": "var(--key-ghost-well)",
+          "--key-cap-light": "var(--bevel-depth-pressed)"
+        },
+        "[data-slot=\"key\"][data-state=\"disabled\"]": {
+          "--key-cap-light": "none"
+        }
+      }
+    },
+    {
+      "name": "icon-key",
+      "type": "registry:ui",
+      "title": "Icon key",
+      "description": "A square keycap for a single icon: copy, close, toolbar actions. It must be given an aria-label, and is secondary by default so a row of them stays quiet.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/key.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/icon-key.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "A keycap printed in a line of text, for shortcuts and docs. Symbols such as ⌘ are read aloud by name. With listen, the cap goes down when the reader presses that key on their own keyboard, so a shortcut list shows its keys working.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--kbd-cap": "oklch(0.985 0.003 250)",
+          "--kbd-side": "oklch(0.82 0.008 250)",
+          "--kbd-foreground": "oklch(0.4 0.012 250)",
+          "--kbd-travel": "2px"
+        },
+        ".dark": {
+          "--kbd-cap": "oklch(0.34 0.008 250)",
+          "--kbd-side": "oklch(0.21 0.008 250)",
+          "--kbd-foreground": "oklch(0.88 0.01 250)"
+        },
+        "[data-slot=\"kbd\"]": {
+          "--kbd-cap-light": "inset 0 1px 0 var(--bevel-highlight-strong), inset 0 0 0 1px oklch(0 0 0 / 0.05)",
+          "--kbd-cast": "0 0 0 1px oklch(0 0 0 / 0.06), 0 1px 1px var(--bevel-cast)"
+        }
+      }
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A small printed plate with an indicator lamp, for status in tables, lists and headings. Five tones; a lamp is lit while its condition holds and dark when it doesn't. Lamps burn steady and never blink.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--badge-plate-color": "oklch(0.955 0.004 250)",
+          "--badge-plate-foreground": "oklch(0.38 0.012 250)",
+          "--badge-neutral": "oklch(0.86 0.02 90)",
+          "--badge-info": "oklch(0.7 0.14 245)",
+          "--badge-success": "oklch(0.74 0.17 150)",
+          "--badge-warning": "oklch(0.8 0.16 75)",
+          "--badge-danger": "oklch(0.63 0.22 27)"
+        },
+        ".dark": {
+          "--badge-plate-color": "oklch(0.27 0.008 250)",
+          "--badge-plate-foreground": "oklch(0.86 0.01 250)"
+        },
+        "[data-slot=\"badge\"]": {
+          "--badge-plate": "var(--badge-plate-color)",
+          "--badge-foreground": "var(--badge-plate-foreground)",
+          "--badge-plate-edge": "inset 0 1px 0 var(--bevel-highlight), inset 0 0 0 1px oklch(0 0 0 / 0.08)",
+          "--badge-lamp": "var(--badge-neutral)",
+          "--bevel-led": "var(--badge-lamp)",
+          "--badge-lamp-off": "color-mix(in oklch, var(--badge-lamp), black 55%)"
+        },
+        "[data-slot=\"badge\"][data-tone=\"neutral\"]": {
+          "--badge-lamp": "var(--badge-neutral)"
+        },
+        "[data-slot=\"badge\"][data-tone=\"info\"]": {
+          "--badge-lamp": "var(--badge-info)"
+        },
+        "[data-slot=\"badge\"][data-tone=\"success\"]": {
+          "--badge-lamp": "var(--badge-success)"
+        },
+        "[data-slot=\"badge\"][data-tone=\"warning\"]": {
+          "--badge-lamp": "var(--badge-warning)"
+        },
+        "[data-slot=\"badge\"][data-tone=\"danger\"]": {
+          "--badge-lamp": "var(--badge-danger)"
+        }
+      }
     },
     {
       "name": "wallet",
@@ -2215,6 +2439,704 @@
       }
     },
     {
+      "name": "text-field",
+      "type": "registry:ui",
+      "title": "Text field",
+      "description": "A text input cut into the panel as a slot, with a printed label above and description and error lines below. Focus lights the slot's edge amber, the colour of a caret; an invalid field edges in red and lights a lamp by its label. Inputs, textareas, search boxes with an icon and a key hint, amounts with a unit.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/text-field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--text-field-well": "oklch(0.955 0.004 90)",
+          "--text-field-shade": "oklch(0 0 0 / 0.2)",
+          "--text-field-glow": "oklch(0.76 0.15 68)",
+          "--text-field-glow-soft": "oklch(0.76 0.15 68 / 0.35)",
+          "--text-field-error": "oklch(0.6 0.21 27)",
+          "--text-field-error-soft": "oklch(0.6 0.21 27 / 0.3)",
+          "--text-field-error-print": "oklch(0.5 0.19 27)",
+          "--text-field-print": "oklch(0.45 0.01 260)",
+          "--text-field-key": "oklch(0.97 0.004 90)",
+          "--text-field-key-edge": "oklch(0.8 0.006 90)",
+          "--text-field-key-print": "oklch(0.4 0.01 260)",
+          "--text-field-height": "2.25rem",
+          "--text-field-textarea-height": "5.5rem"
+        },
+        ".dark": {
+          "--text-field-well": "oklch(0.17 0.005 260)",
+          "--text-field-shade": "oklch(0 0 0 / 0.7)",
+          "--text-field-error-print": "oklch(0.72 0.17 25)",
+          "--text-field-print": "oklch(0.72 0.01 260)",
+          "--text-field-key": "oklch(0.32 0.006 260)",
+          "--text-field-key-edge": "oklch(0.2 0.006 260)",
+          "--text-field-key-print": "oklch(0.86 0.005 260)"
+        },
+        "[data-slot=\"text-field\"][data-size=\"sm\"]": {
+          "--text-field-height": "2rem",
+          "--text-field-textarea-height": "4.5rem"
+        },
+        "@utility text-field-well": {
+          "--bevel-material-recess": "var(--text-field-well)",
+          "--bevel-shade-strong": "var(--text-field-shade)",
+          "background-color": "var(--bevel-material-recess)",
+          "box-shadow": "var(--bevel-depth-recessed)"
+        },
+        "[data-slot=\"text-field-slot\"] :is([data-slot=\"text-field-input\"], [data-slot=\"text-field-textarea\"])": {
+          "background-color": "transparent",
+          "box-shadow": "none"
+        },
+        "[data-slot=\"text-field-slot\"]:has([data-slot=\"text-field-textarea\"])": {
+          "align-items": "flex-start"
+        },
+        "[data-slot=\"text-field-slot\"]:focus-within, :is([data-slot=\"text-field-input\"], [data-slot=\"text-field-textarea\"]):not([data-slot=\"text-field-slot\"] *):focus-visible": {
+          "box-shadow": "var(--bevel-depth-recessed), 0 0 0 1px var(--text-field-glow), 0 0 0 3px var(--text-field-glow-soft)"
+        },
+        "[data-slot=\"text-field\"][data-invalid] :is([data-slot=\"text-field-slot\"], [data-slot=\"text-field-input\"], [data-slot=\"text-field-textarea\"]):not([data-slot=\"text-field-slot\"] *)": {
+          "box-shadow": "var(--bevel-depth-recessed), 0 0 0 1px var(--text-field-error)"
+        },
+        "[data-slot=\"text-field\"][data-invalid] :is([data-slot=\"text-field-slot\"]:focus-within, :is([data-slot=\"text-field-input\"], [data-slot=\"text-field-textarea\"]):not([data-slot=\"text-field-slot\"] *):focus-visible)": {
+          "box-shadow": "var(--bevel-depth-recessed), 0 0 0 1px var(--text-field-error), 0 0 0 3px var(--text-field-error-soft)"
+        },
+        "[data-slot=\"text-field-lamp\"]": {
+          "--bevel-led": "var(--text-field-error)"
+        },
+        "[data-slot=\"text-field-kbd\"]": {
+          "--bevel-material": "var(--text-field-key)",
+          "--bevel-material-edge": "var(--text-field-key-edge)"
+        },
+        "@media (forced-colors: active)": {
+          "[data-slot=\"text-field-slot\"], :is([data-slot=\"text-field-input\"], [data-slot=\"text-field-textarea\"]):not([data-slot=\"text-field-slot\"] *)": {
+            "border": "1px solid CanvasText"
+          },
+          "[data-slot=\"text-field-slot\"]:focus-within, :is([data-slot=\"text-field-input\"], [data-slot=\"text-field-textarea\"]):not([data-slot=\"text-field-slot\"] *):focus-visible": {
+            "outline": "2px solid Highlight"
+          }
+        }
+      }
+    },
+    {
+      "name": "toggle-lever",
+      "type": "registry:ui",
+      "title": "Toggle lever",
+      "description": "An everyday on/off switch, as a bat-handle toggle on a small plate. The lever swings through its bushing toward the side that's on and settles with a little spring; a lamp at the end of the plate lights. For settings rows. (For banks of config bits use DIP switches; for dangerous actions, the guarded switch.)",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/toggle-lever.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--toggle-lever-plate": "oklch(0.88 0.004 260)",
+          "--toggle-lever-plate-edge": "oklch(0.68 0.006 260)",
+          "--toggle-lever-print": "oklch(0.42 0.01 260)",
+          "--toggle-lever-print-lit": "oklch(0.2 0.01 260)",
+          "--toggle-lever-print-size": "0.5625rem",
+          "--toggle-lever-chrome": "oklch(0.97 0.003 260)",
+          "--toggle-lever-chrome-shaft": "oklch(0.8 0.004 260)",
+          "--toggle-lever-chrome-edge": "oklch(0.55 0.006 260)",
+          "--toggle-lever-bushing": "oklch(0.6 0.006 260)",
+          "--toggle-lever-lamp-off": "oklch(0.55 0.01 260)",
+          "--toggle-lever-lamp-on": "oklch(0.8 0.17 145)",
+          "--toggle-lever-focus": "oklch(0.76 0.15 68)",
+          "--toggle-lever-cast": "0 1px 0.5px oklch(0 0 0 / 0.45)",
+          "--toggle-lever-glint": "oklch(1 0 0)",
+          "--toggle-lever-lamp-shade": "oklch(0 0 0 / 0.35)",
+          "--toggle-lever-throw": "1.5rem",
+          "--toggle-lever-reach": "0.6875rem"
+        },
+        ".dark": {
+          "--toggle-lever-plate": "oklch(0.34 0.006 260)",
+          "--toggle-lever-plate-edge": "oklch(0.22 0.006 260)",
+          "--toggle-lever-print": "oklch(0.66 0.01 260)",
+          "--toggle-lever-print-lit": "oklch(0.95 0.005 260)",
+          "--toggle-lever-bushing": "oklch(0.24 0.006 260)",
+          "--toggle-lever-lamp-off": "oklch(0.3 0.01 260)"
+        },
+        "[data-slot=\"toggle-lever\"]": {
+          "--bevel-material": "var(--toggle-lever-plate)",
+          "--bevel-material-edge": "var(--toggle-lever-plate-edge)",
+          "--bevel-led": "var(--toggle-lever-lamp-off)"
+        },
+        "[data-slot=\"toggle-lever\"][data-checked]": {
+          "--bevel-led": "var(--toggle-lever-lamp-on)"
+        },
+        "[data-slot=\"toggle-lever\"]:not([data-checked]) [data-slot=\"toggle-lever-lamp\"]": {
+          "box-shadow": "inset 0 -1px 1px var(--toggle-lever-lamp-shade), 0 1px 0 var(--bevel-highlight)"
+        },
+        "@utility toggle-lever-print": {
+          "font-size": "var(--toggle-lever-print-size)",
+          "font-weight": "700",
+          "line-height": "1",
+          "letter-spacing": "var(--bevel-tracking-label)",
+          "text-transform": "uppercase",
+          "color": "var(--toggle-lever-print)",
+          "text-shadow": "var(--bevel-deboss)"
+        },
+        "[data-slot=\"toggle-lever\"][data-checked] [data-side=\"on\"], [data-slot=\"toggle-lever\"][data-unchecked] [data-side=\"off\"]": {
+          "color": "var(--toggle-lever-print-lit)"
+        },
+        "@utility toggle-lever-bat": {
+          "filter": "drop-shadow(var(--toggle-lever-cast))"
+        },
+        "@utility toggle-lever-ball": {
+          "background-color": "var(--toggle-lever-chrome)",
+          "background-image": "radial-gradient(circle at 35% 30%, var(--toggle-lever-glint), transparent 55%)",
+          "box-shadow": "inset 0 0 0 0.5px var(--toggle-lever-chrome-edge)"
+        },
+        "@utility toggle-lever-bushing": {
+          "background-color": "var(--toggle-lever-bushing)",
+          "background-image": "radial-gradient(circle at 50% 35%, var(--bevel-highlight-strong), transparent 60%)",
+          "box-shadow": "inset 0 0 0 1px var(--toggle-lever-chrome-edge), 0 1px 0 var(--bevel-highlight)"
+        },
+        "@media (forced-colors: active)": {
+          "[data-slot=\"toggle-lever\"]": {
+            "border": "1px solid CanvasText"
+          },
+          "[data-slot=\"toggle-lever-bat\"] > *": {
+            "background": "CanvasText"
+          },
+          "[data-slot=\"toggle-lever\"][data-checked] [data-slot=\"toggle-lever-lamp\"]": {
+            "background": "Highlight"
+          }
+        }
+      }
+    },
+    {
+      "name": "latch-checkbox",
+      "type": "registry:ui",
+      "title": "Latch checkbox",
+      "description": "A checkbox as a latching push-key. Press it and it sinks and stays down with its mark lit amber; press again and it springs back up. Mixed holds it half-down with a dash. Small enough for lists and table rows.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/latch-checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--latch-checkbox-collar": "oklch(0.86 0.004 260)",
+          "--latch-checkbox-cap-face": "oklch(0.985 0.004 90)",
+          "--latch-checkbox-cap-edge": "oklch(0.74 0.008 90)",
+          "--latch-checkbox-lit": "oklch(0.7 0.16 62)",
+          "--latch-checkbox-glow": "drop-shadow(0 0 2px oklch(0.78 0.16 68 / 0.75))",
+          "--latch-checkbox-focus": "oklch(0.76 0.15 68)",
+          "--latch-checkbox-shade": "oklch(0 0 0 / 0.28)",
+          "--latch-checkbox-size": "1.25rem",
+          "--latch-checkbox-cap": "1rem",
+          "--latch-checkbox-cap-radius": "0.125rem",
+          "--latch-checkbox-glyph": "0.75rem",
+          "--latch-checkbox-travel": "0.125rem",
+          "--latch-checkbox-half": "0.0625rem"
+        },
+        ".dark": {
+          "--latch-checkbox-collar": "oklch(0.15 0.005 260)",
+          "--latch-checkbox-cap-face": "oklch(0.36 0.006 260)",
+          "--latch-checkbox-cap-edge": "oklch(0.22 0.006 260)",
+          "--latch-checkbox-lit": "oklch(0.8 0.16 72)",
+          "--latch-checkbox-shade": "oklch(0 0 0 / 0.7)"
+        },
+        "[data-slot=\"latch-checkbox\"]": {
+          "--bevel-material-recess": "var(--latch-checkbox-collar)",
+          "--bevel-shade-strong": "var(--latch-checkbox-shade)"
+        },
+        "[data-slot=\"latch-checkbox-cap\"]": {
+          "--bevel-material": "var(--latch-checkbox-cap-face)",
+          "--bevel-material-edge": "var(--latch-checkbox-cap-edge)"
+        },
+        "@utility latch-checkbox-mark": {
+          "color": "var(--latch-checkbox-lit)",
+          "filter": "var(--latch-checkbox-glow)"
+        },
+        "@media (forced-colors: active)": {
+          "[data-slot=\"latch-checkbox\"]": {
+            "border": "1px solid CanvasText"
+          },
+          "[data-slot=\"latch-checkbox-mark\"]": {
+            "color": "Highlight",
+            "filter": "none"
+          }
+        }
+      }
+    },
+    {
+      "name": "preset-keys",
+      "type": "registry:ui",
+      "title": "Preset keys",
+      "description": "Tabs and segmented controls as interlocked preset keys, like a car radio's: press one and it latches down while the one that was down springs back up. Only one is ever down. PresetTabs switches panels; PresetKeys picks a value.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json",
+        "https://bevel-ui.vercel.app/r/feedback.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/preset-keys.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--preset-keys-bed": "oklch(0.87 0.004 260)",
+          "--preset-keys-key": "oklch(0.985 0.003 90)",
+          "--preset-keys-key-edge": "oklch(0.76 0.006 90)",
+          "--preset-keys-print": "oklch(0.45 0.01 260)",
+          "--preset-keys-print-down": "oklch(0.2 0.01 260)",
+          "--preset-keys-lamp-off": "oklch(0.8 0.006 260)",
+          "--preset-keys-lamp-on": "oklch(0.76 0.16 66)",
+          "--preset-keys-lamp-shade": "oklch(0 0 0 / 0.25)",
+          "--preset-keys-focus": "oklch(0.7 0.15 66)",
+          "--preset-keys-shade": "oklch(0 0 0 / 0.25)",
+          "--preset-keys-inset": "0.1875rem",
+          "--preset-keys-gap": "0.1875rem",
+          "--preset-keys-key-radius": "0.3125rem",
+          "--preset-keys-travel": "0.125rem",
+          "--preset-keys-height": "2rem",
+          "--preset-keys-pad": "0.875rem",
+          "--preset-keys-text": "0.875rem"
+        },
+        ".dark": {
+          "--preset-keys-bed": "oklch(0.15 0.005 260)",
+          "--preset-keys-key": "oklch(0.34 0.006 260)",
+          "--preset-keys-key-edge": "oklch(0.2 0.006 260)",
+          "--preset-keys-print": "oklch(0.74 0.01 260)",
+          "--preset-keys-print-down": "oklch(0.96 0.005 260)",
+          "--preset-keys-lamp-off": "oklch(0.24 0.006 260)",
+          "--preset-keys-lamp-on": "oklch(0.8 0.16 70)",
+          "--preset-keys-shade": "oklch(0 0 0 / 0.7)"
+        },
+        ":is([data-slot=\"preset-tabs-list\"], [data-slot=\"preset-keys\"])[data-size=\"sm\"]": {
+          "--preset-keys-height": "1.75rem",
+          "--preset-keys-pad": "0.625rem",
+          "--preset-keys-text": "0.75rem",
+          "--preset-keys-inset": "0.125rem",
+          "--preset-keys-key-radius": "0.375rem",
+          "--preset-keys-travel": "0.09375rem"
+        },
+        "[data-slot=\"preset-tabs-list\"], [data-slot=\"preset-keys\"]": {
+          "--bevel-material-recess": "var(--preset-keys-bed)",
+          "--bevel-shade-strong": "var(--preset-keys-shade)"
+        },
+        "[data-slot=\"preset-tabs-tab\"], [data-slot=\"preset-key\"]": {
+          "--bevel-material": "var(--preset-keys-key)",
+          "--bevel-material-edge": "var(--preset-keys-key-edge)",
+          "--bevel-led": "var(--preset-keys-lamp-on)"
+        },
+        "@utility preset-keys-lamp": {
+          "background-color": "var(--preset-keys-lamp-off)",
+          "box-shadow": "inset 0 1px 1px var(--preset-keys-lamp-shade)"
+        },
+        ":is([data-slot=\"preset-tabs-tab\"][data-active], [data-slot=\"preset-key\"][data-checked]) [data-slot=\"preset-keys-lamp\"]": {
+          "background-color": "var(--bevel-led)",
+          "background-image": "radial-gradient(circle at 35% 30%, var(--bevel-highlight-strong), transparent 45%)",
+          "box-shadow": "0 0 5px var(--bevel-led)"
+        },
+        "@media (forced-colors: active)": {
+          "[data-slot=\"preset-tabs-tab\"], [data-slot=\"preset-key\"]": {
+            "border": "1px solid ButtonText"
+          },
+          ":is([data-slot=\"preset-tabs-tab\"][data-active], [data-slot=\"preset-key\"][data-checked])": {
+            "border-color": "Highlight",
+            "outline": "1px solid Highlight"
+          }
+        }
+      }
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A label-maker strip: dark embossing tape with raised pale letters and a tab pointing at the trigger. It feeds out a short way from the trigger's side; in a group, the next one prints at once.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--tooltip-tape-black": "oklch(0.22 0.008 260)",
+          "--tooltip-tape-red": "oklch(0.47 0.17 27)",
+          "--tooltip-tape-blue": "oklch(0.42 0.13 258)",
+          "--tooltip-letter": "oklch(0.96 0.006 90)",
+          "--tooltip-rim": "oklch(0 0 0 / 0.3)",
+          "--tooltip-emboss": "0 1px 0 oklch(0 0 0 / 0.55), 0 -0.5px 0 oklch(1 0 0 / 0.35)",
+          "--tooltip-text": "0.75rem",
+          "--tooltip-max-width": "18rem",
+          "--tooltip-offset": "0.5rem",
+          "--tooltip-slide": "0.25rem",
+          "--tooltip-tab-width": "0.625rem",
+          "--tooltip-tab-depth": "0.3125rem"
+        },
+        ".dark": {
+          "--tooltip-tape-black": "oklch(0.42 0.008 260)",
+          "--tooltip-rim": "oklch(1 0 0 / 0.16)"
+        },
+        "[data-slot=\"tooltip-content\"], [data-slot=\"tooltip-tab\"]": {
+          "--tooltip-tape": "var(--tooltip-tape-black)"
+        },
+        "[data-slot=\"tooltip-content\"][data-tone=\"red\"], [data-slot=\"tooltip-content\"][data-tone=\"red\"] [data-slot=\"tooltip-tab\"]": {
+          "--tooltip-tape": "var(--tooltip-tape-red)"
+        },
+        "[data-slot=\"tooltip-content\"][data-tone=\"blue\"], [data-slot=\"tooltip-content\"][data-tone=\"blue\"] [data-slot=\"tooltip-tab\"]": {
+          "--tooltip-tape": "var(--tooltip-tape-blue)"
+        },
+        "@utility tooltip-tape": {
+          "background-color": "var(--tooltip-tape)",
+          "background-image": "linear-gradient(to bottom, var(--bevel-highlight-strong), transparent 45%, var(--bevel-shade))",
+          "box-shadow": "inset 0 0 0 1px var(--tooltip-rim), var(--bevel-depth-cast-sm)",
+          "color": "var(--tooltip-letter)",
+          "text-shadow": "var(--tooltip-emboss)"
+        },
+        "[data-slot=\"tooltip-tab\"]": {
+          "background-color": "var(--tooltip-tape)"
+        },
+        "[data-slot=\"tooltip-tab\"][data-side=\"top\"], [data-slot=\"tooltip-tab\"][data-side=\"bottom\"]": {
+          "width": "var(--tooltip-tab-width)",
+          "height": "var(--tooltip-tab-depth)"
+        },
+        "[data-slot=\"tooltip-tab\"][data-side=\"left\"], [data-slot=\"tooltip-tab\"][data-side=\"right\"]": {
+          "width": "var(--tooltip-tab-depth)",
+          "height": "var(--tooltip-tab-width)"
+        },
+        "[data-slot=\"tooltip-tab\"][data-side=\"top\"]": {
+          "top": "100%",
+          "clip-path": "polygon(0 0, 100% 0, 70% 100%, 30% 100%)"
+        },
+        "[data-slot=\"tooltip-tab\"][data-side=\"bottom\"]": {
+          "bottom": "100%",
+          "clip-path": "polygon(30% 0, 70% 0, 100% 100%, 0 100%)",
+          "background-image": "linear-gradient(to bottom, transparent, var(--bevel-highlight-strong))"
+        },
+        "[data-slot=\"tooltip-tab\"][data-side=\"left\"]": {
+          "left": "100%",
+          "clip-path": "polygon(0 0, 100% 30%, 100% 70%, 0 100%)"
+        },
+        "[data-slot=\"tooltip-tab\"][data-side=\"right\"]": {
+          "right": "100%",
+          "clip-path": "polygon(0 30%, 100% 0, 100% 100%, 0 70%)"
+        }
+      }
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A sheet of panel stock lifted off the page on the shared light, with a folded tab at its trigger. It lifts toward you and settles; Escape or a click outside puts it down and returns focus.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--popover-sheet": "oklch(0.985 0.005 85)",
+          "--popover-sheet-foreground": "oklch(0.26 0.015 260)",
+          "--popover-sheet-muted": "oklch(0.5 0.015 260)",
+          "--popover-fold": "oklch(0.9 0.008 85)",
+          "--popover-crease": "oklch(0 0 0 / 0.14)",
+          "--popover-rim": "oklch(0 0 0 / 0.1)",
+          "--popover-depth": "inset 0 1px 0 var(--bevel-highlight-strong), 0 0 0 1px var(--popover-rim), 0 2px 3px var(--bevel-cast), 0 14px 28px -10px var(--bevel-cast)",
+          "--popover-width": "20rem",
+          "--popover-lift": "0.375rem",
+          "--popover-lift-scale": "0.97",
+          "--popover-tab": "0.875rem"
+        },
+        ".dark": {
+          "--popover-sheet": "oklch(0.29 0.008 260)",
+          "--popover-sheet-foreground": "oklch(0.95 0.005 90)",
+          "--popover-sheet-muted": "oklch(0.72 0.01 260)",
+          "--popover-fold": "oklch(0.24 0.008 260)",
+          "--popover-crease": "oklch(0 0 0 / 0.35)",
+          "--popover-rim": "oklch(1 0 0 / 0.08)"
+        },
+        "@utility popover-sheet": {
+          "background-color": "var(--popover-sheet)",
+          "background-image": "linear-gradient(to bottom, var(--bevel-highlight), transparent 30%)",
+          "box-shadow": "var(--popover-depth)",
+          "color": "var(--popover-sheet-foreground)"
+        },
+        "[data-slot=\"popover-tab\"]": {
+          "width": "var(--popover-tab)",
+          "height": "var(--popover-tab)",
+          "background-image": "linear-gradient( 135deg, var(--popover-fold) calc(50% - 1px), var(--popover-crease) calc(50% - 1px) 50%, transparent 50% )"
+        },
+        "[data-slot=\"popover-tab\"][data-side=\"bottom\"]": {
+          "top": "calc(var(--popover-tab) / -2)",
+          "rotate": "45deg"
+        },
+        "[data-slot=\"popover-tab\"][data-side=\"top\"]": {
+          "bottom": "calc(var(--popover-tab) / -2)",
+          "rotate": "225deg"
+        },
+        "[data-slot=\"popover-tab\"][data-side=\"left\"]": {
+          "right": "calc(var(--popover-tab) / -2)",
+          "rotate": "135deg"
+        },
+        "[data-slot=\"popover-tab\"][data-side=\"right\"]": {
+          "left": "calc(var(--popover-tab) / -2)",
+          "rotate": "-45deg"
+        }
+      }
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "description": "A selector plate: items engraved into brushed metal, the highlighted one pressed in, a lamp for checked settings, engraved rules between groups and keycaps for shortcuts. Dropdown, submenu and context menu.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--menu-plate": "oklch(0.91 0.004 250)",
+          "--menu-plate-edge": "oklch(0.68 0.006 250)",
+          "--menu-rim": "oklch(0 0 0 / 0.14)",
+          "--menu-brush": "oklch(1 0 0 / 0.05)",
+          "--menu-ink": "oklch(0.25 0.01 260)",
+          "--menu-ink-muted": "oklch(0.45 0.01 260)",
+          "--menu-engrave": "0 1px 0 oklch(1 0 0 / 0.55)",
+          "--menu-rule-shade": "oklch(0 0 0 / 0.16)",
+          "--menu-rule-light": "oklch(1 0 0 / 0.7)",
+          "--menu-lamp-off": "oklch(0.6 0.02 150)",
+          "--menu-lamp-on": "oklch(0.74 0.19 145)",
+          "--menu-key": "oklch(0.98 0.003 90)",
+          "--menu-key-edge": "oklch(0.74 0.006 250)",
+          "--menu-key-foreground": "oklch(0.32 0.01 260)",
+          "--menu-danger": "oklch(0.5 0.19 27)",
+          "--menu-depth": "inset 0 1px 0 var(--bevel-highlight-strong), inset 0 0 0 1px var(--menu-rim), 0 1px 1px var(--bevel-cast), 0 10px 22px -8px var(--bevel-cast)",
+          "--menu-min-width": "12rem",
+          "--menu-key-size": "1.125rem",
+          "--menu-lift": "0.25rem"
+        },
+        ".dark": {
+          "--menu-plate": "oklch(0.32 0.006 260)",
+          "--menu-plate-edge": "oklch(0.2 0.006 260)",
+          "--menu-rim": "oklch(0 0 0 / 0.4)",
+          "--menu-ink": "oklch(0.94 0.004 90)",
+          "--menu-ink-muted": "oklch(0.72 0.008 260)",
+          "--menu-engrave": "0 -1px 0 oklch(0 0 0 / 0.5)",
+          "--menu-rule-shade": "oklch(0 0 0 / 0.45)",
+          "--menu-rule-light": "oklch(1 0 0 / 0.08)",
+          "--menu-lamp-off": "oklch(0.38 0.02 150)",
+          "--menu-key": "oklch(0.42 0.006 260)",
+          "--menu-key-edge": "oklch(0.22 0.006 260)",
+          "--menu-key-foreground": "oklch(0.92 0.004 90)",
+          "--menu-danger": "oklch(0.72 0.17 27)"
+        },
+        "[data-slot=\"menu-content\"]": {
+          "--bevel-material": "var(--menu-plate)",
+          "--bevel-material-edge": "var(--menu-plate-edge)"
+        },
+        "[data-slot=\"menu-shortcut\"]": {
+          "--bevel-material": "var(--menu-key)",
+          "--bevel-material-edge": "var(--menu-key-edge)"
+        },
+        "[data-slot=\"menu-lamp\"]": {
+          "--bevel-led": "var(--menu-lamp-off)"
+        },
+        "[data-checked] > [data-slot=\"menu-lamp\"]": {
+          "--bevel-led": "var(--menu-lamp-on)"
+        },
+        "@utility menu-plate": {
+          "background-color": "var(--menu-plate)",
+          "background-image": "linear-gradient(to bottom, var(--bevel-highlight), transparent 40%, var(--bevel-shade) 140%), repeating-linear-gradient(90deg, var(--menu-brush) 0 1px, transparent 1px 3px)",
+          "box-shadow": "var(--menu-depth)",
+          "color": "var(--menu-ink)",
+          "text-shadow": "var(--menu-engrave)"
+        },
+        "@utility menu-rule": {
+          "border-top": "1px solid var(--menu-rule-shade)",
+          "border-bottom": "1px solid var(--menu-rule-light)"
+        }
+      }
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "The lights go down and a panel rises onto the desk, screwed or stitched at its corners. Content has no padding of its own, so it hosts forms and command palettes alike; AlertDialog asks before something can't be undone.",
+      "categories": [
+        "essentials"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/bevel.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ":root": {
+          "--dialog-panel": "oklch(0.985 0.005 85)",
+          "--dialog-panel-foreground": "oklch(0.26 0.015 260)",
+          "--dialog-panel-muted": "oklch(0.5 0.015 260)",
+          "--dialog-ledge": "oklch(0.955 0.007 85)",
+          "--dialog-rim": "oklch(0 0 0 / 0.12)",
+          "--dialog-rule-shade": "oklch(0 0 0 / 0.1)",
+          "--dialog-rule-light": "oklch(1 0 0 / 0.8)",
+          "--dialog-dim": "oklch(0.14 0.01 260 / 0.42)",
+          "--dialog-dim-brightness": "0.8",
+          "--dialog-screw": "oklch(0.8 0.01 250)",
+          "--dialog-screw-slot": "oklch(0.35 0.01 250 / 0.7)",
+          "--dialog-stitch": "oklch(0.55 0.02 260 / 0.35)",
+          "--dialog-key": "oklch(0.97 0.004 85)",
+          "--dialog-key-edge": "oklch(0.76 0.008 250)",
+          "--dialog-key-foreground": "oklch(0.26 0.015 260)",
+          "--dialog-danger": "oklch(0.55 0.2 27)",
+          "--dialog-danger-edge": "oklch(0.38 0.15 27)",
+          "--dialog-danger-foreground": "oklch(0.99 0.005 90)",
+          "--dialog-depth": "inset 0 1px 0 var(--bevel-highlight-strong), 0 0 0 1px var(--dialog-rim), 0 2px 4px var(--bevel-cast), 0 30px 60px -20px var(--bevel-cast)",
+          "--dialog-width": "32rem",
+          "--dialog-alert-width": "26rem",
+          "--dialog-top": "12vh",
+          "--dialog-rise": "1rem",
+          "--dialog-screw-size": "0.4375rem",
+          "--dialog-screw-inset": "0.5rem"
+        },
+        ".dark": {
+          "--dialog-panel": "oklch(0.29 0.008 260)",
+          "--dialog-panel-foreground": "oklch(0.95 0.005 90)",
+          "--dialog-panel-muted": "oklch(0.72 0.01 260)",
+          "--dialog-ledge": "oklch(0.255 0.008 260)",
+          "--dialog-rim": "oklch(1 0 0 / 0.08)",
+          "--dialog-rule-shade": "oklch(0 0 0 / 0.45)",
+          "--dialog-rule-light": "oklch(1 0 0 / 0.06)",
+          "--dialog-dim": "oklch(0.05 0.01 260 / 0.6)",
+          "--dialog-dim-brightness": "0.6",
+          "--dialog-screw": "oklch(0.55 0.01 250)",
+          "--dialog-screw-slot": "oklch(0.15 0.01 250 / 0.8)",
+          "--dialog-stitch": "oklch(0.85 0.02 260 / 0.25)",
+          "--dialog-key": "oklch(0.38 0.008 260)",
+          "--dialog-key-edge": "oklch(0.2 0.008 260)",
+          "--dialog-key-foreground": "oklch(0.95 0.005 90)",
+          "--dialog-danger": "oklch(0.55 0.19 27)",
+          "--dialog-danger-edge": "oklch(0.32 0.13 27)"
+        },
+        "@utility dialog-panel": {
+          "background-color": "var(--dialog-panel)",
+          "background-image": "linear-gradient(to bottom, var(--bevel-highlight), transparent 20%)",
+          "box-shadow": "var(--dialog-depth)",
+          "color": "var(--dialog-panel-foreground)"
+        },
+        "@utility dialog-dim": {
+          "background-color": "var(--dialog-dim)",
+          "backdrop-filter": "brightness(var(--dialog-dim-brightness))"
+        },
+        "@utility dialog-screw": {
+          "width": "var(--dialog-screw-size)",
+          "height": "var(--dialog-screw-size)",
+          "border-radius": "9999px",
+          "background-color": "var(--dialog-screw)",
+          "background-image": "linear-gradient(var(--dialog-screw-angle, 30deg), transparent 42%, var(--dialog-screw-slot) 42% 58%, transparent 58%), radial-gradient(circle at 35% 30%, var(--bevel-highlight-strong), transparent 60%)",
+          "box-shadow": "inset 0 -1px 1px var(--bevel-shade), 0 1px 0 var(--bevel-highlight-strong)"
+        },
+        "[data-slot=\"dialog-screws\"] > :nth-child(1)": {
+          "--dialog-screw-angle": "20deg"
+        },
+        "[data-slot=\"dialog-screws\"] > :nth-child(2)": {
+          "--dialog-screw-angle": "75deg"
+        },
+        "[data-slot=\"dialog-screws\"] > :nth-child(3)": {
+          "--dialog-screw-angle": "130deg"
+        },
+        "[data-slot=\"dialog-screws\"] > :nth-child(4)": {
+          "--dialog-screw-angle": "160deg"
+        },
+        "[data-slot=\"dialog-close\"], [data-slot=\"alert-dialog-cancel\"], [data-slot=\"alert-dialog-action\"]": {
+          "--bevel-material": "var(--dialog-key)",
+          "--bevel-material-edge": "var(--dialog-key-edge)",
+          "--dialog-key-ink": "var(--dialog-key-foreground)"
+        },
+        "[data-tone=\"destructive\"]:is([data-slot=\"dialog-close\"], [data-slot=\"alert-dialog-action\"])": {
+          "--bevel-material": "var(--dialog-danger)",
+          "--bevel-material-edge": "var(--dialog-danger-edge)",
+          "--dialog-key-ink": "var(--dialog-danger-foreground)"
+        }
+      }
+    },
+    {
       "name": "agent-console",
       "type": "registry:block",
       "title": "Relay, AI agent control room",
@@ -2422,6 +3344,115 @@
           "path": "registry/bevel/blocks/review-desk/page.tsx",
           "type": "registry:page",
           "target": "app/review-desk/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "key-demo",
+      "type": "registry:example",
+      "title": "Key: Saving a form",
+      "description": "Cancel and Save at the foot of a settings form. Save latches down with its lamp lit while the request runs, then pops back up. An example of Key.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/key.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/key-form.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/key-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "key-demo-variants",
+      "type": "registry:example",
+      "title": "Key: Variants and sizes",
+      "description": "Primary, secondary, ghost and danger at sm, md and lg, with icons, and disabled. An example of Key.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/key.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/key-variants.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/key-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icon-key-demo",
+      "type": "registry:example",
+      "title": "Icon key: Toolbar and copy button",
+      "description": "Ghost keys in a formatting toolbar, and a copy key that latches while it writes to the clipboard. An example of Icon key.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/icon-key.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/icon-key-toolbar.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/icon-key-toolbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "kbd-demo",
+      "type": "registry:example",
+      "title": "Kbd: Keyboard shortcuts",
+      "description": "A shortcuts sheet whose caps go down as you press them. Try ⌘K or Esc. An example of Kbd.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/kbd.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/kbd-shortcuts.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/kbd-shortcuts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge-demo",
+      "type": "registry:example",
+      "title": "Badge: Deployments",
+      "description": "A deployments table: the lamp is lit while a build runs or a release is live, and dark once it's superseded. An example of Badge.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/badge-deploys.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/badge-deploys.tsx"
         }
       ]
     },
@@ -3368,6 +4399,321 @@
           "path": "registry/bevel/examples/due-date-slip-key.tsx",
           "type": "registry:example",
           "target": "components/bevel-examples/due-date-slip-key.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-field-demo",
+      "type": "registry:example",
+      "title": "Text field: Workspace settings",
+      "description": "Fields validate as you leave them and again on save; the server's answer comes back on the field it's about. Save as is: the URL is taken. An example of Text field.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/text-field.json",
+        "https://bevel-ui.vercel.app/r/toggle-lever.json",
+        "https://bevel-ui.vercel.app/r/latch-checkbox.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/text-field-settings.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/text-field-settings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-field-demo-search",
+      "type": "registry:example",
+      "title": "Text field: Search box",
+      "description": "An icon and a key hint in the slot. ⌘K or / focuses it from anywhere on the page. An example of Text field.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/text-field.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/text-field-search.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/text-field-search.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-lever-demo",
+      "type": "registry:example",
+      "title": "Toggle lever: Notification settings",
+      "description": "A lever per row, and a master lever that pauses them all. An example of Toggle lever.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/toggle-lever.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/toggle-lever-notifications.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/toggle-lever-notifications.tsx"
+        }
+      ]
+    },
+    {
+      "name": "latch-checkbox-demo",
+      "type": "registry:example",
+      "title": "Latch checkbox: Agent permissions",
+      "description": "Which tools an agent may use. The top key presses them all, and sits half-down while only some are on. An example of Latch checkbox.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/latch-checkbox.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/latch-checkbox-permissions.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/latch-checkbox-permissions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "preset-keys-demo",
+      "type": "registry:example",
+      "title": "Preset keys: Preview and code",
+      "description": "The tabs over a docs example, at the small size. An example of Preset keys.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/preset-keys.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/preset-keys-example.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/preset-keys-example.tsx"
+        }
+      ]
+    },
+    {
+      "name": "preset-keys-demo-range",
+      "type": "registry:example",
+      "title": "Preset keys: Time range",
+      "description": "A segmented range picker over a usage chart. An example of Preset keys.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/preset-keys.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/preset-keys-range.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/preset-keys-range.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip-demo",
+      "type": "registry:example",
+      "title": "Tooltip: Icon buttons",
+      "description": "An editor toolbar. Hover one button and slide along: each label prints at once. An example of Tooltip.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/tooltip-toolbar.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/tooltip-toolbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip-demo-tapes",
+      "type": "registry:example",
+      "title": "Tooltip: Sides and tapes",
+      "description": "Each label feeds out from its own side. Red and blue tape are for the label that must stand out. An example of Tooltip.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/tooltip-tapes.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/tooltip-tapes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover-demo",
+      "type": "registry:example",
+      "title": "Popover: Share a page",
+      "description": "A link to copy and who can see it. An example of Popover.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/popover-share.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/popover-share.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-demo",
+      "type": "registry:example",
+      "title": "Menu: Copy page",
+      "description": "The menu on a docs page with a Markdown version: copy it, view it, or open it in ChatGPT or Claude. Pass markdownUrl. An example of Menu.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/menu.json",
+        "https://bevel-ui.vercel.app/r/icon-key.json",
+        "https://bevel-ui.vercel.app/r/key.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/menu-copy-page.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/menu-copy-page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menu-demo-file-actions",
+      "type": "registry:example",
+      "title": "Menu: File actions",
+      "description": "Shortcuts as keycaps, a submenu, a setting with a lamp, a sort order and a destructive item. An example of Menu.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/menu.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/menu-file-actions.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/menu-file-actions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-demo",
+      "type": "registry:example",
+      "title": "Dialog: Delete a project",
+      "description": "An alert dialog with a red key. Cancel takes focus, and a stray click outside does nothing. An example of Dialog.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/dialog-delete-project.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/dialog-delete-project.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-demo-rename",
+      "type": "registry:example",
+      "title": "Dialog: A form",
+      "description": "Rename a document. Enter saves; Escape, × or Cancel leave it. An example of Dialog.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/dialog-rename.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/dialog-rename.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog-demo-command",
+      "type": "registry:example",
+      "title": "Dialog: Command palette",
+      "description": "⌘K opens a palette in the dialog: top-aligned, no padding, no fasteners. An example of Dialog.",
+      "categories": [
+        "essentials",
+        "examples"
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://bevel-ui.vercel.app/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "registry/bevel/examples/dialog-command.tsx",
+          "type": "registry:example",
+          "target": "components/bevel-examples/dialog-command.tsx"
         }
       ]
     }
