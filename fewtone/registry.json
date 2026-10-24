@@ -1,0 +1,1326 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "fewtone",
+  "homepage": "https://ui.fewtone.com",
+  "items": [
+    {
+      "name": "tokens",
+      "type": "registry:lib",
+      "title": "FewTone UI tokens",
+      "description": "Sizes, motion durations, easing, focus ring and popover animations that FewTone UI components use. Adds only what your project does not define yet.",
+      "author": "FewTone <https://fewtone.com>",
+      "cssVars": {
+        "theme": {
+          "animate-popover-in": "popover-in var(--duration-fast) cubic-bezier(0.22, 1, 0.36, 1) both",
+          "animate-popover-out": "popover-out var(--duration-instant) cubic-bezier(0.55, 0, 1, 0.45) both",
+          "animate-collapsible-open": "collapsible-open var(--duration-slow) cubic-bezier(0.22, 1, 0.36, 1)",
+          "animate-collapsible-close": "collapsible-close var(--duration-base) cubic-bezier(0.55, 0, 1, 0.45) both"
+        },
+        "light": {
+          "size-control-sm": "2rem",
+          "size-control-md": "2.25rem",
+          "size-control-lg": "2.5rem",
+          "size-icon-sm": "0.875rem",
+          "size-icon-md": "1rem",
+          "size-icon-lg": "1.25rem",
+          "size-roll-fade": "0.25em",
+          "size-roll-fade-x": "0.5em",
+          "duration-instant": "80ms",
+          "duration-fast": "150ms",
+          "duration-base": "220ms",
+          "duration-slow": "350ms",
+          "duration-slower": "500ms",
+          "z-overlay": "1200",
+          "z-modal": "1300",
+          "z-popover": "1400",
+          "z-toast": "1500",
+          "z-tooltip": "1600",
+          "focus-ring-width": "2px",
+          "focus-ring-offset": "2px",
+          "opacity-disabled": "0.5",
+          "ease-spring": "linear(0, 0.157, 0.48, 0.77, 0.97, 1.07, 1.1, 1.09, 1.05, 1.02, 1, 0.995, 1)",
+          "destructive-foreground": "oklch(1 0 0)",
+          "overlay": "color-mix(in oklch, oklch(0 0 0) 40%, transparent)"
+        },
+        "dark": {
+          "destructive-foreground": "oklch(1 0 0)",
+          "overlay": "color-mix(in oklch, oklch(0 0 0) 60%, transparent)"
+        }
+      },
+      "css": {
+        "@keyframes popover-in": {
+          "from": {
+            "opacity": "0",
+            "filter": "blur(6px)",
+            "transform": "scale(0.96)"
+          },
+          "to": {
+            "opacity": "1",
+            "filter": "blur(0)",
+            "transform": "scale(1)"
+          }
+        },
+        "@keyframes popover-out": {
+          "from": {
+            "opacity": "1",
+            "filter": "blur(0)",
+            "transform": "scale(1)"
+          },
+          "to": {
+            "opacity": "0",
+            "filter": "blur(6px)",
+            "transform": "scale(0.96)"
+          }
+        },
+        "@keyframes collapsible-open": {
+          "from": {
+            "height": "0",
+            "opacity": "0",
+            "filter": "blur(6px)"
+          },
+          "to": {
+            "height": "var(--collapsible-height)",
+            "opacity": "1",
+            "filter": "blur(0)"
+          }
+        },
+        "@keyframes collapsible-close": {
+          "from": {
+            "height": "var(--collapsible-height)",
+            "opacity": "1",
+            "filter": "blur(0)"
+          },
+          "to": {
+            "height": "0",
+            "opacity": "0",
+            "filter": "blur(6px)"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ":root": {
+            "--duration-instant": "1ms",
+            "--duration-fast": "1ms",
+            "--duration-base": "1ms",
+            "--duration-slow": "1ms",
+            "--duration-slower": "1ms"
+          }
+        }
+      }
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Motion presets",
+      "description": "The spring, duration and easing presets FewTone UI components animate with, for motion/react.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/lib/motion.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "An accessible React accordion for Next.js: sections that open and close with a smooth height change, as one card, separate cards or plain rows. Built on Radix.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/accordion"
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "An accessible React alert dialog for Next.js that asks people to confirm destructive actions, with focus starting on Cancel, built on Radix Alert Dialog.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/button.json",
+        "https://ui.fewtone.com/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/alert-dialog"
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "An accessible React avatar for Next.js and Tailwind CSS: a picture or initials in three sizes, alone or in an overlapping group, built on Radix Avatar.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/avatar"
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "An accessible React badge for Next.js and Tailwind CSS: small status labels in five variants, including one with a light travelling round its edge.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/badge.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/fewtone/ui/badge-shine.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/badge"
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "An accessible React breadcrumb for Next.js and Tailwind CSS: a trail of links whose levels animate as you move, with custom separators and a collapsed middle.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/breadcrumb"
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "An accessible React button for Next.js and Tailwind CSS with six variants, three sizes, icons and a soft tint on hover and press, built on a native button.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "buttons"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/button"
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "An accessible React calendar for Next.js and Tailwind CSS: pick a day or a range, with full keyboard support, disabled days and Intl names. No date library.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/calendar"
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A React card for Next.js and Tailwind CSS: a surface for grouped content with header, action, content and footer parts, a small size and a link style.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/card"
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "An accessible React checkbox for Next.js forms, with a check that draws itself in and an indeterminate state, built on Radix Checkbox.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/checkbox"
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "An accessible React combobox for Next.js and Tailwind CSS: type in the field to filter and pick one option, or several as chips, with a gliding highlight.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/command.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/combobox"
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "An accessible React command menu for Next.js and Tailwind CSS: a ⌘K palette that filters and ranks as you type, with groups, shortcuts and a gliding highlight.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/command"
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "An accessible React context menu for Next.js: a right-click menu with a gliding highlight, shortcuts, checkbox and radio items and sub-menus, built on Radix.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/dropdown-menu.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/context-menu"
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "An accessible React copy to clipboard button for Next.js: the copy icon turns into a check, and screen readers hear \"Copied\".",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "buttons"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/copy-button"
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "An accessible React date picker for Next.js and Tailwind CSS: a calendar in a popover for a date or a date range, with presets and Intl formatting.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/calendar.json",
+        "https://ui.fewtone.com/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/date-picker"
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "An accessible React dialog for Next.js and Tailwind CSS: a modal window that grows out of its trigger, keeps focus inside and returns it, built on Radix Dialog.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/dialog"
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "An accessible React dropdown menu for Next.js with a highlight that glides between items, shortcuts, checkbox and radio items and sub-menus, built on Radix.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/dropdown-menu"
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "An accessible React hover card for Next.js and Tailwind CSS: a preview card for a link, like a profile on an @mention, built on Radix Hover Card.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/hover-card"
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "An accessible React text input with three sizes and clear invalid, disabled and file states, built on a native input.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/input"
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "An accessible React one-time code input for Next.js and Tailwind: boxes that move on as you type and take a pasted code, built on Radix.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/input-otp"
+    },
+    {
+      "name": "loading-button",
+      "type": "registry:ui",
+      "title": "Loading Button",
+      "description": "An accessible React loading button for Next.js that shows loading, success and error states for async actions, without changing width.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/loading-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "buttons"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/loading-button"
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "An accessible React marquee for Next.js and Tailwind CSS: an endless, seamless row of logos or cards that pauses on hover and stops with reduced motion.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/marquee.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/marquee"
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "An accessible React navigation menu for Next.js and Tailwind CSS: a top bar with rich dropdown panels that glide between sizes, built on Radix Navigation Menu.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/navigation-menu"
+    },
+    {
+      "name": "number-input",
+      "type": "registry:ui",
+      "title": "Number Input",
+      "description": "An accessible React number input for Next.js and Tailwind with step buttons, keyboard control, min and max, and Intl number formatting.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/number-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/number-input"
+    },
+    {
+      "name": "number-ticker",
+      "type": "registry:ui",
+      "title": "Number Ticker",
+      "description": "An accessible React number ticker for Next.js and Tailwind CSS: digits roll like an odometer and glide as the number changes length, with Intl formatting.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/number-ticker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/number-ticker"
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "An accessible React pagination for Next.js and Tailwind CSS: page links with ellipses, Previous and Next, and a pill that slides to the current page.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/pagination.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/fewtone/ui/pagination-pill.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/pagination"
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "An accessible React popover for Next.js and Tailwind CSS: forms, settings and other rich content anchored to a button, built on Radix Popover.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/popover"
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "An accessible React progress bar and ring for Next.js and Tailwind CSS that show how far along a task is, with an indeterminate state.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/progress"
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "An accessible React radio group for Next.js forms, where the selected dot travels to the new choice, built on Radix Radio Group.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/radio-group"
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "An accessible React scroll area for Next.js and Tailwind CSS: native scrolling with a slim scrollbar and soft fades at the edges, built on Radix.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/scroll-area"
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "An accessible React select with a gliding highlight, groups, labels and a scrollable list, built on Radix Select.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/select"
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "An accessible React sheet for Next.js: a side panel that slides in from any edge of the screen, for forms, filters and navigation, built on Radix Dialog.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/sheet"
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "An accessible React sidebar for Next.js and Tailwind CSS: collapses to icons or off canvas, with a gliding active indicator and a sheet on phones.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json",
+        "https://ui.fewtone.com/r/sheet.json",
+        "https://ui.fewtone.com/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/sidebar"
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "A React skeleton loader for Next.js and Tailwind CSS: placeholder blocks while content loads, with a calm sheen that sweeps every skeleton in step.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/skeleton.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/fewtone/ui/skeleton-sheen.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/skeleton"
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "An accessible React slider for Next.js and Tailwind: one value or a range, with a thumb that grows into a pill showing its value as you reach for it.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/number-ticker.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/slider"
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "An accessible React spinner for Next.js and Tailwind CSS: one line going round an infinity that fills it once the task is done.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/spinner"
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "An accessible React stepper for Next.js and Tailwind CSS: the steps of a checkout or setup, with a line that fills as you advance and checks that draw in.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/stepper"
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "An accessible React switch for on/off settings, with a spring-animated thumb, built on Radix Switch.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/switch"
+    },
+    {
+      "name": "switcher",
+      "type": "registry:ui",
+      "title": "Switcher",
+      "description": "An accessible React segmented control for Next.js: one choice from a few options, with a pill that slides to the one you pick.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/switcher.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "buttons"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/switcher"
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "An accessible React table for Next.js and Tailwind CSS: rows and columns with sortable headers, selectable rows and rows that glide when sorted.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/table.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/fewtone/ui/table-motion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/table"
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Accessible React tabs for Next.js, with an underline or pill that slides to the active tab and panels that glide in, built on Radix Tabs.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/tabs"
+    },
+    {
+      "name": "text-effects",
+      "type": "registry:ui",
+      "title": "Text Effects",
+      "description": "Accessible React text effects for Next.js and Tailwind CSS: a shimmer, a word-by-word reveal and a typewriter, all real text and off with reduced motion.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/text-effects.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/text-effects"
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "An accessible React textarea for Next.js that grows smoothly with its content, with min and max rows, styled like Input with Tailwind CSS.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/textarea"
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:ui",
+      "title": "Theme Toggle",
+      "description": "An accessible React dark mode toggle for Next.js that reveals the new theme from the button with a View Transition: a circle, ink, a wave or a page turn.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "motion@^14.0.0",
+        "next-themes@^0.4.6"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/theme-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "buttons"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/theme-toggle"
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "An accessible React toast for Next.js: notifications that slide in, stack like a deck and swipe away, with a toast() function and Radix Toast parts.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.52.0",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json",
+        "https://ui.fewtone.com/r/button.json",
+        "https://ui.fewtone.com/r/spinner.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/toast"
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "An accessible React toggle group for Next.js: buttons you switch on and off independently, like Bold, Italic and Underline in a toolbar.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "motion@^14.0.0",
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json",
+        "https://ui.fewtone.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "buttons"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/toggle-group"
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "An accessible React tooltip for Next.js and Tailwind CSS: a short hint on hover and keyboard focus, fast across a toolbar, built on Radix Tooltip.",
+      "author": "FewTone <https://fewtone.com>",
+      "dependencies": [
+        "radix-ui@^1.7.0"
+      ],
+      "registryDependencies": [
+        "https://ui.fewtone.com/r/tokens.json"
+      ],
+      "files": [
+        {
+          "path": "registry/fewtone/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Usage and examples: https://ui.fewtone.com/components/tooltip"
+    }
+  ]
+}

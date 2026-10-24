@@ -120,6 +120,51 @@
       "categories": ["voice"]
     },
     {
+      "name": "duplex-timeline",
+      "type": "registry:component",
+      "title": "Duplex Timeline",
+      "description": "Scrolling agent and user waveforms on one clock, colored by what the audio was: speech, backchannels, and interruptions where the user talks over the bot. Dashed rules mark each handoff, with the reply latency between them. Headless view for any two tracks and a marker list, plus a Pipecat-connected wrapper that builds the markers from RTVI turn and backchannel events.",
+      "dependencies": [
+        "@pipecat-ai/client-js@^1.14.0",
+        "@pipecat-ai/client-react@^1.9.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/duplex-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/duplex-timeline.tsx"
+        },
+        {
+          "path": "src/components/duplex-timeline-renderer.ts",
+          "type": "registry:component",
+          "target": "components/pipecat/duplex-timeline-renderer.ts"
+        },
+        {
+          "path": "src/components/duplex-timeline-markers.ts",
+          "type": "registry:component",
+          "target": "components/pipecat/duplex-timeline-markers.ts"
+        },
+        {
+          "path": "src/lib/visualizer.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "agent-foreground": "oklch(0.585 0.233 277.117)",
+          "client-foreground": "oklch(0.623 0.214 259.815)",
+          "inactive-background": "oklch(0.702 0.189 22.23)"
+        },
+        "dark": {
+          "agent-foreground": "oklch(0.585 0.233 277.117)",
+          "client-foreground": "oklch(0.623 0.214 259.815)",
+          "inactive-background": "oklch(0.702 0.189 22.23)"
+        }
+      },
+      "docs": "Use DuplexTimeline inside a PipecatClientProvider; it reads both audio tracks, scrolls while the transport is ready, and marks backchannels from RTVI 2.2 bots. Use DuplexTimelineView with your own tracks and markers (useDuplexTimelineMarkers, or reduceDuplexTimeline from duplex-timeline-markers), and DuplexTimelineLegend to place the color key outside the timeline (with noLegend). Hide parts with the no* props (noBackchannels, noInterruptions, noLatency, noTimeLabels, noLegend…) and style labels with laneLabelClassName and the other *LabelClassName props.",
+      "categories": ["voice"]
+    },
+    {
       "name": "device-select",
       "type": "registry:component",
       "title": "Device Select",

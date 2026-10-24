@@ -263,8 +263,8 @@
           "--litt-line-strong": "#38332f",
           "--litt-line-control": "#6e6762",
           "--litt-fg": "#f9f8f7",
-          "--litt-fg-muted": "#968d86",
-          "--litt-fg-subtle": "#968d86",
+          "--litt-fg-muted": "#cec4bd",
+          "--litt-fg-subtle": "#cec4bd",
           "--litt-fg-disabled": "#6b645f",
           "--litt-accent": "#2d57e5",
           "--litt-accent-hover": "#3864eb",
@@ -307,8 +307,8 @@
             "--litt-line-strong": "#38332f",
             "--litt-line-control": "#6e6762",
             "--litt-fg": "#f9f8f7",
-            "--litt-fg-muted": "#968d86",
-            "--litt-fg-subtle": "#968d86",
+            "--litt-fg-muted": "#cec4bd",
+            "--litt-fg-subtle": "#cec4bd",
             "--litt-fg-disabled": "#6b645f",
             "--litt-accent": "#2d57e5",
             "--litt-accent-hover": "#3864eb",
@@ -438,8 +438,8 @@
       },
       "docs": "Added to your global CSS: --litt-* variables, Tailwind names such as bg-litt-surface-1 and rounded-litt-control, and the litt-glass class and its siblings. Nothing of yours is changed. Dark follows .dark, [data-theme=\"dark\"] or the system setting.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md"
       }
     },
@@ -813,6 +813,9 @@
       "type": "registry:ui",
       "title": "Carousel",
       "description": "A row of slides that scrolls sideways with the browser's own scrolling, snaps each slide to the start edge and lets the next one peek. The range in words with Previous and Next, arrow keys on the track and a mouse drag. It never moves on its own.",
+      "dependencies": [
+        "motion"
+      ],
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/button.json",
@@ -999,8 +1002,8 @@
       ],
       "docs": "Import ColorPicker and ColorPanel from components/litt/color-picker, plus parseHex, describeColor, getContrastInk, hexToHsv and hsvToHex. Values are six-digit lowercase hex strings with the hash. ColorPicker needs a label; hold the value in state with value and onValueChange (null for none), pass name for a form, and swatches as { label, value }. Save with onValueCommit, which fires on release. Use getContrastInk for text drawn on the picked color.",
       "meta": {
-        "version": "2026.10.21",
-        "released": "2026-10-21",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1410,8 +1413,8 @@
       ],
       "docs": "Installed in lib/litt/glide.tsx. Menu and Command menu use it for you.",
       "meta": {
-        "version": "2026.10.12",
-        "released": "2026-10-12",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1750,8 +1753,8 @@
       ],
       "docs": "Import LogView and LogLine from components/litt/log-view. Append lines ({ time, level, text }) as the run writes, and give it a height. Say how the run ended in your own status; lines are not read out one by one.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1856,8 +1859,8 @@
       ],
       "docs": "Installed in lib/litt/motion. The components use it for you, and it needs no provider.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1898,14 +1901,18 @@
       "type": "registry:ui",
       "title": "Number field",
       "description": "A labelled number with − and + inside the field's end: steps by the arrow keys, a press or a hold, reads what is typed in the page's locale, keeps it between its bounds and on its step, and shows it formatted with Intl.NumberFormat.",
+      "dependencies": [
+        "motion"
+      ],
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json",
-        "https://littmd.vercel.app/r/icons.json"
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2274,8 +2281,8 @@
       ],
       "docs": "Import SlideConfirm from components/litt/slide-confirm. Give it a label that says what happens (\"Slide to delete Atelier Nord\"), a confirmedLabel and onConfirm, which runs once. Remount it with a new key to ask again. Use it for what cannot be undone, on touch screens; anything that can be undone should just happen, with Undo in a toast.",
       "meta": {
-        "version": "2026.10.21",
-        "released": "2026-10-21",
+        "version": "2026.10.22",
+        "released": "2026-10-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2295,12 +2302,13 @@
         "@radix-ui/react-slider"
       ],
       "registryDependencies": [
-        "https://littmd.vercel.app/r/litt.json"
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.22",
+        "released": "2026-10-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2437,12 +2445,13 @@
         "@radix-ui/react-switch"
       ],
       "registryDependencies": [
-        "https://littmd.vercel.app/r/litt.json"
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.22",
+        "released": "2026-10-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2521,8 +2530,8 @@
       ],
       "docs": "Import Tabs, TabsList, TabsTrigger, TabsPanels and TabsPanel from components/litt/tabs.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2617,6 +2626,32 @@
       ]
     },
     {
+      "name": "time-scrubber",
+      "type": "registry:ui",
+      "title": "Time scrubber",
+      "description": "A moment in a run that already happened, found by dragging a ruler of its time under a fixed needle: ticks every step, labelled times, and what happened along the run marked in its status color. The ruler follows the pointer one to one and settles on the nearest step or an event, Page Up and Page Down go from event to event, and in fun mode it can be thrown.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Import TimeScrubber from components/litt/time-scrubber. Give it a label, max (and min), the run's events as marks ({ at, label, tone }) and a formatValue for the units (\"+12s\", \"09:30\"). Hold the value in state and show what it replays beside it, such as a LogView with the lines up to the needle. A setting that stays is a Slider.",
+      "meta": {
+        "version": "2026.10.23",
+        "released": "2026-10-23",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/time-scrubber.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/time-scrubber.tsx"
+        }
+      ]
+    },
+    {
       "name": "timeline",
       "type": "registry:ui",
       "title": "Timeline",
@@ -2658,8 +2693,8 @@
       ],
       "docs": "Import Toaster, toast and useToast from components/litt/toast. Mount Toaster once, then call toast() anywhere.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2960,8 +2995,8 @@
       ],
       "docs": "Import SeatsDemo from components/litt/examples/number-field-demo, or read it for how @litt/number-field is used. Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/number-field"
       },
@@ -3060,8 +3095,8 @@
       ],
       "docs": "Import BrandColorDemo from components/litt/examples/color-picker-demo, or read it for how @litt/color-picker is used. Import ColorPicker and ColorPanel from components/litt/color-picker, plus parseHex, describeColor, getContrastInk, hexToHsv and hsvToHex. Values are six-digit lowercase hex strings with the hash. ColorPicker needs a label; hold the value in state with value and onValueChange (null for none), pass name for a form, and swatches as { label, value }. Save with onValueCommit, which fires on release. Use getContrastInk for text drawn on the picked color.",
       "meta": {
-        "version": "2026.10.21",
-        "released": "2026-10-21",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/color-picker"
       },
@@ -3110,8 +3145,8 @@
       ],
       "docs": "Import DeleteProjectDemo from components/litt/examples/slide-confirm-demo, or read it for how @litt/slide-confirm is used. Import SlideConfirm from components/litt/slide-confirm. Give it a label that says what happens (\"Slide to delete Atelier Nord\"), a confirmedLabel and onConfirm, which runs once. Remount it with a new key to ask again. Use it for what cannot be undone, on touch screens; anything that can be undone should just happen, with Undo in a toast.",
       "meta": {
-        "version": "2026.10.21",
-        "released": "2026-10-21",
+        "version": "2026.10.22",
+        "released": "2026-10-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slide-confirm"
       },
@@ -3135,8 +3170,8 @@
       ],
       "docs": "Import SpeedDemo from components/litt/examples/slider-demo, or read it for how @litt/slider is used. Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.22",
+        "released": "2026-10-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slider"
       },
@@ -3159,8 +3194,8 @@
       ],
       "docs": "Import SettingsListDemo from components/litt/examples/switch-demo, or read it for how @litt/switch is used. Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.22",
+        "released": "2026-10-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/switch"
       },
@@ -3169,6 +3204,30 @@
           "path": "registry/litt/examples/switch-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/switch-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "time-scrubber-demo",
+      "type": "registry:example",
+      "title": "Time scrubber example",
+      "description": "A working time scrubber: ReplayDemo, the first demo on its page (https://littmd.vercel.app/#time-scrubber). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/log-view.json",
+        "https://littmd.vercel.app/r/time-scrubber.json"
+      ],
+      "docs": "Import ReplayDemo from components/litt/examples/time-scrubber-demo, or read it for how @litt/time-scrubber is used. Import TimeScrubber from components/litt/time-scrubber. Give it a label, max (and min), the run's events as marks ({ at, label, tone }) and a formatValue for the units (\"+12s\", \"09:30\"). Hold the value in state and show what it replays beside it, such as a LogView with the lines up to the needle. A setting that stays is a Slider.",
+      "meta": {
+        "version": "2026.10.23",
+        "released": "2026-10-23",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/time-scrubber"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/time-scrubber-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/time-scrubber-demo.tsx"
         }
       ]
     },
@@ -3208,8 +3267,8 @@
       ],
       "docs": "Import ProjectTabs from components/litt/examples/tabs-demo, or read it for how @litt/tabs is used. Import Tabs, TabsList, TabsTrigger, TabsPanels and TabsPanel from components/litt/tabs.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tabs"
       },
@@ -3490,8 +3549,8 @@
       ],
       "docs": "Import SavedDemo from components/litt/examples/toast-demo, or read it for how @litt/toast is used. Import Toaster, toast and useToast from components/litt/toast. Mount Toaster once, then call toast() anywhere.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/toast"
       },
@@ -4049,8 +4108,8 @@
       ],
       "docs": "Import BuildDemo from components/litt/examples/log-view-demo, or read it for how @litt/log-view is used. Import LogView and LogLine from components/litt/log-view. Append lines ({ time, level, text }) as the run writes, and give it a height. Say how the run ended in your own status; lines are not read out one by one.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.23",
+        "released": "2026-10-23",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/log-view"
       },

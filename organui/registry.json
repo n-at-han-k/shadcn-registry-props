@@ -539,6 +539,21 @@
       "docs": "Liver docs: https://organui.com/docs/components/liver. The model is licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); keep the viewer's credit visible."
     },
     {
+      "name": "liver-lobule",
+      "type": "registry:component",
+      "title": "Liver lobule",
+      "description": "A classic liver lobule, from an original OrganUI schematic model: the central vein, hepatocyte plates in their three zones, sinusoids and the portal tracts at its corners. 11 selectable structures and 3 named views. Model licensed CC0 1.0.",
+      "registryDependencies": ["@organui/organ-viewer"],
+      "categories": ["tissue", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/liver-lobule/liver-lobule.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Liver lobule docs: https://organui.com/docs/components/liver-lobule. The model is licensed CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/); keep the viewer's credit visible."
+    },
+    {
       "name": "lungs",
       "type": "registry:component",
       "title": "Lungs",
@@ -912,6 +927,270 @@
         }
       ],
       "docs": "Vestibular system docs: https://organui.com/docs/components/vestibular. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
+    },
+    {
+      "name": "disease-viewer",
+      "type": "registry:component",
+      "title": "Disease viewer",
+      "description": "Shows a disease on organ models: the structures it affects or spares at each stage and scale, with a panel for its ICD-10 code, course, findings and key investigations. Every disease component is built on it.",
+      "categories": ["pathology"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "cn@^0.5.0"
+      ],
+      "registryDependencies": ["@organui/organ-viewer", "badge", "button"],
+      "files": [
+        {
+          "path": "registry/base-nova/disease-viewer/disease-viewer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/base-nova/disease-viewer/disease-model.ts",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Disease viewer docs: https://organui.com/docs/components/disease-viewer. Educational, not for diagnosis."
+    },
+    {
+      "name": "acute-angle-closure-glaucoma",
+      "type": "registry:component",
+      "title": "Acute angle-closure glaucoma",
+      "description": "Acute angle-closure glaucoma on the eye: pupil block bowing the iris over the drainage angle, the hazy cornea and the threatened optic nerve, then laser iridotomy or, if late, a cupped nerve, with eye pressure, acuity and gonioscopy at each stage. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/eye"],
+      "categories": ["disease", "senses"],
+      "files": [
+        {
+          "path": "registry/base-nova/acute-angle-closure-glaucoma/acute-angle-closure-glaucoma.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Acute angle-closure glaucoma docs: https://organui.com/docs/components/acute-angle-closure-glaucoma. It reuses the eye model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "acute-appendicitis",
+      "type": "registry:component",
+      "title": "Acute appendicitis",
+      "description": "Acute appendicitis on the appendix and its neighbours, from early obstruction through suppuration to perforation, with the psoas sign, the scores and imaging at each stage. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/appendix"],
+      "categories": ["disease", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/acute-appendicitis/acute-appendicitis.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Acute appendicitis docs: https://organui.com/docs/components/acute-appendicitis. It reuses the appendix model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "autoimmune-hepatitis",
+      "type": "registry:component",
+      "title": "Autoimmune hepatitis",
+      "description": "Autoimmune hepatitis at two scales: the whole liver, where it ends in cirrhosis and portal hypertension, and a liver lobule, with the portal infiltrate, interface hepatitis and periportal injury. Affected and spared structures each say what the disease does there. Models licensed CC BY 4.0 (liver) and CC0 1.0 (lobule).",
+      "registryDependencies": [
+        "@organui/disease-viewer",
+        "@organui/liver",
+        "@organui/liver-lobule"
+      ],
+      "categories": ["disease", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/autoimmune-hepatitis/autoimmune-hepatitis.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Autoimmune hepatitis docs: https://organui.com/docs/components/autoimmune-hepatitis. It reuses the liver model, licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html), and the liver lobule model, licensed CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/); keep the viewer's credit visible. An educational model, not for diagnosis."
+    },
+    {
+      "name": "benign-prostatic-hyperplasia",
+      "type": "registry:component",
+      "title": "Benign prostatic hyperplasia",
+      "description": "Benign prostatic hyperplasia on the prostate and the bladder: the gland narrowing the urethra, the bladder thickening to push past it, then chronic retention backing up to the kidneys or acute retention, with symptom scores, flow and residual volumes at each stage. Models licensed CC BY-SA 2.1 JP (prostate and bladder).",
+      "registryDependencies": [
+        "@organui/disease-viewer",
+        "@organui/prostate",
+        "@organui/bladder"
+      ],
+      "categories": ["disease", "reproductive"],
+      "files": [
+        {
+          "path": "registry/base-nova/benign-prostatic-hyperplasia/benign-prostatic-hyperplasia.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Benign prostatic hyperplasia docs: https://organui.com/docs/components/benign-prostatic-hyperplasia. It reuses the prostate model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en) and the bladder model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "ectopic-pregnancy",
+      "type": "registry:component",
+      "title": "Ectopic pregnancy",
+      "description": "A tubal ectopic pregnancy on the uterus and tubes: implantation in the ampulla with an empty uterus, then rupture bleeding from the mesosalpinx into the pelvis, with hCG, ultrasound and observations at each stage. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/uterus"],
+      "categories": ["disease", "reproductive"],
+      "files": [
+        {
+          "path": "registry/base-nova/ectopic-pregnancy/ectopic-pregnancy.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Ectopic pregnancy docs: https://organui.com/docs/components/ectopic-pregnancy. It reuses the uterus model, licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "gallstone-disease",
+      "type": "registry:component",
+      "title": "Gallstone disease",
+      "description": "Gallstone disease on the biliary tree: where the stone lodges decides the illness, from biliary colic in the cystic duct through cholecystitis to cholangitis in the common duct and pancreatitis at the ampulla, with the bloods and imaging for each. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": [
+        "@organui/disease-viewer",
+        "@organui/gallbladder"
+      ],
+      "categories": ["disease", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/gallstone-disease/gallstone-disease.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Gallstone disease docs: https://organui.com/docs/components/gallstone-disease. It reuses the gallbladder model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "graves-disease",
+      "type": "registry:component",
+      "title": "Graves' disease",
+      "description": "Graves' disease on the thyroid and the eye: a diffuse goitre, then thyroid eye disease swelling the extraocular muscles, through thyrotoxicosis, active eye disease and burnt-out fibrosis, with the thyroid function, antibodies and eye measurements at each stage. Models licensed CC BY-SA 2.1 JP (thyroid and eye).",
+      "registryDependencies": [
+        "@organui/disease-viewer",
+        "@organui/thyroid",
+        "@organui/eye"
+      ],
+      "categories": ["disease", "endocrine"],
+      "files": [
+        {
+          "path": "registry/base-nova/graves-disease/graves-disease.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Graves' disease docs: https://organui.com/docs/components/graves-disease. It reuses the thyroid model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en) and the eye model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "hodgkin-lymphoma",
+      "type": "registry:component",
+      "title": "Hodgkin lymphoma",
+      "description": "Classical Hodgkin lymphoma of the nodular sclerosis type on a lymph node: collagen bands from a thickened capsule, effaced follicles and Reed\u2013Sternberg cells in the paracortex, then remission after treatment, with biopsy, PET-CT staging and bloods at each stage. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/lymph"],
+      "categories": ["disease", "lymphatic"],
+      "files": [
+        {
+          "path": "registry/base-nova/hodgkin-lymphoma/hodgkin-lymphoma.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Hodgkin lymphoma docs: https://organui.com/docs/components/hodgkin-lymphoma. It reuses the lymph node model, licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "ischaemic-stroke",
+      "type": "registry:component",
+      "title": "Ischaemic stroke",
+      "description": "An ischaemic stroke of the left middle cerebral artery on the brain: the frontal, parietal and temporal lobes it supplies, with aphasia, weakness and field loss, from the hyperacute window through swelling to a healed cavity, with the scans and scores at each stage. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/brain"],
+      "categories": ["disease", "nervous"],
+      "files": [
+        {
+          "path": "registry/base-nova/ischaemic-stroke/ischaemic-stroke.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Ischaemic stroke docs: https://organui.com/docs/components/ischaemic-stroke. It reuses the brain model, licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "kidney-stones",
+      "type": "registry:component",
+      "title": "Kidney stones",
+      "description": "A stone in the left kidney on the kidneys and ureters, from a silent renal stone through renal colic with hydronephrosis to an infected obstructed kidney, with the urine, CT and bloods at each stage. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/kidneys"],
+      "categories": ["disease", "urinary"],
+      "files": [
+        {
+          "path": "registry/base-nova/kidney-stones/kidney-stones.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Kidney stones docs: https://organui.com/docs/components/kidney-stones. It reuses the kidneys model, licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "lobar-pneumonia",
+      "type": "registry:component",
+      "title": "Lobar pneumonia",
+      "description": "Lobar pneumonia of the right lower lobe on the lungs, through congestion, red and grey hepatisation to resolution, with the spared middle lobe's silhouette sign and the observations, bloods and X-ray at each stage. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/lungs"],
+      "categories": ["disease", "respiratory"],
+      "files": [
+        {
+          "path": "registry/base-nova/lobar-pneumonia/lobar-pneumonia.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Lobar pneumonia docs: https://organui.com/docs/components/lobar-pneumonia. It reuses the lungs model, licensed CC BY-SA 2.1 JP (https://lifesciencedb.jp/bp3d/info/index.html#License); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "melanoma",
+      "type": "registry:component",
+      "title": "Melanoma",
+      "description": "Melanoma on a section of skin, staged by how deep it grows: in situ in the epidermis, thin into the papillary dermis, thick into the reticular dermis and metastatic through fat and veins, with Breslow thickness, ulceration, sentinel node and staging at each. Model licensed CC0 1.0.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/skin"],
+      "categories": ["disease", "integumentary"],
+      "files": [
+        {
+          "path": "registry/base-nova/melanoma/melanoma.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Melanoma docs: https://organui.com/docs/components/melanoma. It reuses the skin model, licensed CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "myocardial-infarction",
+      "type": "registry:component",
+      "title": "Myocardial infarction",
+      "description": "An anterior ST-elevation myocardial infarction on the heart: the blocked left anterior descending artery and the wall it supplies, from occlusion through the acute phase to a healed scar, with the ECG, troponin and echo at each stage. Model licensed CC BY 4.0.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/heart"],
+      "categories": ["disease", "cardiovascular"],
+      "files": [
+        {
+          "path": "registry/base-nova/myocardial-infarction/myocardial-infarction.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Myocardial infarction docs: https://organui.com/docs/components/myocardial-infarction. It reuses the heart model, licensed CC BY 4.0 (https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "peptic-ulcer-disease",
+      "type": "registry:component",
+      "title": "Peptic ulcer disease",
+      "description": "A gastric ulcer on the stomach's lesser curve, from an uncomplicated ulcer to bleeding from the left gastric artery and perforation, with H. pylori testing, endoscopy, the bleeding score and imaging at each stage. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/stomach"],
+      "categories": ["disease", "digestive"],
+      "files": [
+        {
+          "path": "registry/base-nova/peptic-ulcer-disease/peptic-ulcer-disease.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Peptic ulcer disease docs: https://organui.com/docs/components/peptic-ulcer-disease. It reuses the stomach model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible. Educational, not for diagnosis."
+    },
+    {
+      "name": "pituitary-adenoma",
+      "type": "registry:component",
+      "title": "Pituitary adenoma",
+      "description": "A non-functioning pituitary adenoma on the pituitary and its surroundings, from an incidental microadenoma to a macroadenoma pressing on the optic chiasm and stalk, and apoplexy into the cavernous sinus, with visual fields, MRI and pituitary hormones at each stage. Model licensed CC BY-SA 2.1 JP.",
+      "registryDependencies": ["@organui/disease-viewer", "@organui/pituitary"],
+      "categories": ["disease", "endocrine"],
+      "files": [
+        {
+          "path": "registry/base-nova/pituitary-adenoma/pituitary-adenoma.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Pituitary adenoma docs: https://organui.com/docs/components/pituitary-adenoma. It reuses the pituitary model, licensed CC BY-SA 2.1 JP (https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en); keep the viewer's credit visible. Educational, not for diagnosis."
     },
     {
       "name": "ai-disclaimer",

@@ -9,11 +9,16 @@
       "title": "Text Shimmer",
       "description": "A light sweep that moves across text. CSS only — no dependencies.",
       "categories": ["text"],
+      "meta": { "added": "2026-09-15" },
       "files": [{ "path": "registry/mewo/ui/text-shimmer.tsx", "type": "registry:ui" }],
       "css": {
         "@keyframes mewo-shimmer": {
-          "from": { "background-position": "200% center" },
-          "to": { "background-position": "0% center" }
+          "from": { "transform": "translateX(-100%)" },
+          "to": { "transform": "translateX(300%)" }
+        },
+        "@keyframes mewo-shimmer-text": {
+          "from": { "transform": "translateX(50%)" },
+          "to": { "transform": "translateX(-150%)" }
         }
       }
     },
@@ -23,6 +28,7 @@
       "title": "Marquee",
       "description": "An infinite horizontal scroller with a seamless loop. CSS only — no dependencies.",
       "categories": ["layout"],
+      "meta": { "added": "2026-09-15" },
       "files": [{ "path": "registry/mewo/ui/marquee.tsx", "type": "registry:ui" }],
       "css": {
         "@keyframes mewo-marquee": {
@@ -35,10 +41,28 @@
       "name": "split-text",
       "type": "registry:ui",
       "title": "Split Text",
-      "description": "Characters or words stagger into view when scrolled to. Powered by GSAP and ScrollTrigger.",
+      "description": "Characters or words stagger into view when scrolled to. Powered by Motion.",
       "categories": ["text"],
-      "dependencies": ["gsap", "@gsap/react"],
-      "files": [{ "path": "registry/mewo/ui/split-text.tsx", "type": "registry:ui" }]
+      "meta": { "added": "2026-09-15" },
+      "dependencies": ["motion"],
+      "files": [{ "path": "registry/mewo/ui/split-text.tsx", "type": "registry:ui" }],
+      "css": {
+        "@media (scripting: none)": {
+          "[data-split-unit]": {
+            "opacity": "1 !important",
+            "transform": "none !important"
+          }
+        }
+      }
+    },
+    {
+      "name": "venom",
+      "type": "registry:ui",
+      "title": "Venom",
+      "description": "A living symbiote covers your text or SVG, crawls over it and sends writhing tendrils after the pointer. WebGL 2, no dependencies.",
+      "categories": ["text"],
+      "meta": { "added": "2026-10-23" },
+      "files": [{ "path": "registry/mewo/ui/venom.tsx", "type": "registry:ui" }]
     },
     {
       "name": "spotlight-card",
@@ -46,6 +70,7 @@
       "title": "Spotlight Card",
       "description": "A card with a radial glow that follows the pointer. Powered by Motion.",
       "categories": ["card"],
+      "meta": { "added": "2026-09-15" },
       "dependencies": ["motion"],
       "files": [{ "path": "registry/mewo/ui/spotlight-card.tsx", "type": "registry:ui" }]
     },
@@ -55,6 +80,7 @@
       "title": "Gradient Carousel",
       "description": "A looping 3D card carousel you turn by wheel, drag or arrow keys, over a blurred gradient drawn in the colours of the centre image. No dependencies.",
       "categories": ["card"],
+      "meta": { "added": "2026-10-01" },
       "files": [{ "path": "registry/mewo/ui/gradient-carousel.tsx", "type": "registry:ui" }]
     },
     {
@@ -63,6 +89,7 @@
       "title": "Scroll Reveal",
       "description": "Fades and slides its children in when they enter the viewport. Powered by Motion.",
       "categories": ["scroll"],
+      "meta": { "added": "2026-09-15" },
       "dependencies": ["motion"],
       "files": [{ "path": "registry/mewo/ui/scroll-reveal.tsx", "type": "registry:ui" }],
       "css": {
@@ -80,6 +107,7 @@
       "title": "Scroll Portal",
       "description": "Scroll flies the camera through nested frames, each opening onto the next scene. No dependencies.",
       "categories": ["scroll"],
+      "meta": { "added": "2026-10-01" },
       "files": [{ "path": "registry/mewo/ui/scroll-portal.tsx", "type": "registry:ui" }],
       "css": {
         "@media (scripting: none)": {
@@ -105,6 +133,7 @@
       "title": "Tile Reveal",
       "description": "A pinned image grid whose tiles fly in column by column on scroll, then zoom past the edges to reveal a headline and call to action. No dependencies.",
       "categories": ["scroll"],
+      "meta": { "added": "2026-10-01" },
       "files": [{ "path": "registry/mewo/ui/tile-reveal.tsx", "type": "registry:ui" }],
       "css": {
         "@media (scripting: none)": {
@@ -124,15 +153,15 @@
       "title": "Scroll Mask",
       "description": "Scroll opens a mask that reveals an image six ways: iris, wipe, curtain, slats, grid or a word. No dependencies.",
       "categories": ["scroll"],
+      "meta": { "added": "2026-10-01" },
       "files": [{ "path": "registry/mewo/ui/scroll-mask.tsx", "type": "registry:ui" }],
       "css": {
         "@media (scripting: none)": {
           "[data-slot=\"scroll-mask\"]": {
             "height": "100vh !important"
           },
-          "[data-slot=\"scroll-mask-layer\"]": {
-            "-webkit-mask-image": "none !important",
-            "mask-image": "none !important"
+          "[data-slot=\"scroll-mask-static\"]": {
+            "display": "block !important"
           },
           "[data-slot=\"scroll-mask-piece\"]": {
             "opacity": "1 !important",
@@ -150,6 +179,7 @@
       "title": "Text Scroll Highlight",
       "description": "Text whose words light up one by one with the scroll, either as it moves up the screen or pinned in place like a subtitle. No dependencies.",
       "categories": ["scroll"],
+      "meta": { "added": "2026-10-01" },
       "files": [{ "path": "registry/mewo/ui/text-scroll-highlight.tsx", "type": "registry:ui" }],
       "css": {
         "@media (scripting: none)": {
@@ -170,15 +200,12 @@
       "name": "aurora-background",
       "type": "registry:ui",
       "title": "Aurora Background",
-      "description": "A slowly drifting gradient backdrop with a fade-in for its content. CSS keyframes plus Motion.",
+      "description": "A slowly drifting gradient backdrop with a fade-in for its content. A WebGL 2 shader, with a static CSS gradient wherever WebGL is unavailable.",
       "categories": ["background"],
+      "meta": { "added": "2026-09-15" },
       "dependencies": ["motion"],
       "files": [{ "path": "registry/mewo/ui/aurora-background.tsx", "type": "registry:ui" }],
       "css": {
-        "@keyframes mewo-aurora": {
-          "from": { "background-position": "0% 50%" },
-          "to": { "background-position": "300% 50%" }
-        },
         "@media (scripting: none)": {
           "[data-slot=\"aurora-content\"]": {
             "opacity": "1 !important",
@@ -193,6 +220,7 @@
       "title": "Pattern Waves",
       "description": "A lit field of dots, squares, lines or glyphs rolling over silk, swell or ripple waves, with a cursor ripple. WebGL 2 through ogl.",
       "categories": ["background"],
+      "meta": { "added": "2026-10-21" },
       "dependencies": ["ogl"],
       "files": [{ "path": "registry/mewo/ui/pattern-waves.tsx", "type": "registry:ui" }]
     },
@@ -202,6 +230,7 @@
       "title": "Grainient",
       "description": "A flowing, film-grained gradient in up to eight colours that stirs under the pointer and swirls on click. Raw WebGL 2, no dependencies.",
       "categories": ["background"],
+      "meta": { "added": "2026-10-21" },
       "files": [{ "path": "registry/mewo/ui/grainient.tsx", "type": "registry:ui" }]
     },
     {
@@ -210,6 +239,7 @@
       "title": "Dot Grid",
       "description": "A grid of dots on springs: they scatter from the pointer, ripple out from a click and settle back. Raw WebGL 2, no dependencies.",
       "categories": ["background"],
+      "meta": { "added": "2026-10-21" },
       "files": [{ "path": "registry/mewo/ui/dot-grid.tsx", "type": "registry:ui" }]
     },
     {
@@ -218,6 +248,7 @@
       "title": "Hero — Aurora",
       "description": "A hero section: aurora backdrop, word-by-word headline, description and two call-to-action buttons.",
       "categories": ["sections", "hero"],
+      "meta": { "added": "2026-09-15" },
       "registryDependencies": ["button", "@mewo/aurora-background", "@mewo/split-text"],
       "files": [{ "path": "registry/mewo/blocks/hero-aurora.tsx", "type": "registry:component" }]
     },
@@ -227,6 +258,7 @@
       "title": "Features — Spotlight",
       "description": "A features section: shimmering eyebrow, heading, a scroll-revealed grid of spotlight cards and a logo marquee.",
       "categories": ["sections", "features"],
+      "meta": { "added": "2026-09-15" },
       "dependencies": ["lucide-react"],
       "registryDependencies": ["@mewo/text-shimmer", "@mewo/scroll-reveal", "@mewo/spotlight-card", "@mewo/marquee"],
       "files": [{ "path": "registry/mewo/blocks/features-spotlight.tsx", "type": "registry:component" }]
@@ -237,6 +269,7 @@
       "title": "Tabs",
       "description": "Drop-in replacement for shadcn's tabs. Adds an indicator that slides between tabs instead of jumping. Same exports, same props.",
       "categories": ["primitives"],
+      "meta": { "added": "2026-09-17" },
       "dependencies": ["motion", "@base-ui/react", "class-variance-authority"],
       "files": [{ "path": "registry/mewo/ui/tabs.tsx", "type": "registry:ui" }]
     },
@@ -246,6 +279,7 @@
       "title": "Collapsible",
       "description": "Drop-in replacement for shadcn's collapsible, which ships with no animation at all. Adds eased height and a content fade. Same exports, same props.",
       "categories": ["primitives"],
+      "meta": { "added": "2026-09-17" },
       "dependencies": ["motion", "@base-ui/react"],
       "files": [{ "path": "registry/mewo/ui/collapsible.tsx", "type": "registry:ui" }],
       "css": {
