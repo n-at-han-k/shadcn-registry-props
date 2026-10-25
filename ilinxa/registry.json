@@ -875,7 +875,7 @@
         }
       ],
       "meta": {
-        "version": "0.1.0",
+        "version": "0.2.0",
         "status": "alpha"
       }
     },
@@ -901,7 +901,7 @@
         }
       ],
       "meta": {
-        "version": "0.1.0",
+        "version": "0.2.0",
         "status": "alpha"
       }
     },
@@ -1642,10 +1642,15 @@
           "path": "src/registry/components/forms/category-cloud/parts/category-chip.tsx",
           "type": "registry:component",
           "target": "components/category-cloud/parts/category-chip.tsx"
+        },
+        {
+          "path": "src/registry/components/forms/category-cloud/lib/resolve-locale.ts",
+          "type": "registry:component",
+          "target": "components/category-cloud/lib/resolve-locale.ts"
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -1671,7 +1676,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -2252,7 +2257,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -2278,7 +2283,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -2742,7 +2747,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -2786,7 +2791,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -2844,7 +2849,7 @@
       "name": "expandable-text",
       "type": "registry:block",
       "title": "Expandable Text",
-      "description": "Truncating text block that only shows its toggle when text actually overflows — configurable line clamp, controlled or uncontrolled.",
+      "description": "Truncating text block — plain or rich children — that shows its toggle only when text overflows; configurable clamp, bidi-safe, controlled or uncontrolled.",
       "author": "ilinxa",
       "categories": [
         "data"
@@ -2874,7 +2879,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -2900,7 +2905,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -2909,7 +2914,7 @@
       "name": "video-player",
       "type": "registry:block",
       "title": "Video Player",
-      "description": "Video element wrapper — autoplay-friendly defaults, slot-based controls, carousel-coordinated pause, and double-tap gestures.",
+      "description": "Video player — seek bar, captions, fullscreen, buffering and error states with URL refresh, autoplay groups, composable controls, and double-tap gestures.",
       "author": "ilinxa",
       "categories": [
         "media"
@@ -2920,6 +2925,12 @@
       "dependencies": [
         "lucide-react@^1.11.0"
       ],
+      "cssVars": {
+        "theme": {
+          "color-media-overlay": "var(--media-overlay, oklch(0 0 0 / 0.55))",
+          "color-media-overlay-foreground": "var(--media-overlay-foreground, oklch(1 0 0))"
+        }
+      },
       "files": [
         {
           "path": "src/registry/components/media/video-player/video-player.tsx",
@@ -2955,10 +2966,80 @@
           "path": "src/registry/components/media/video-player/hooks/use-double-tap.ts",
           "type": "registry:component",
           "target": "components/video-player/hooks/use-double-tap.ts"
+        },
+        {
+          "path": "src/registry/components/media/video-player/hooks/use-autoplay-group.ts",
+          "type": "registry:component",
+          "target": "components/video-player/hooks/use-autoplay-group.ts"
+        },
+        {
+          "path": "src/registry/components/media/video-player/hooks/use-controls-visibility.ts",
+          "type": "registry:component",
+          "target": "components/video-player/hooks/use-controls-visibility.ts"
+        },
+        {
+          "path": "src/registry/components/media/video-player/hooks/use-direction.ts",
+          "type": "registry:component",
+          "target": "components/video-player/hooks/use-direction.ts"
+        },
+        {
+          "path": "src/registry/components/media/video-player/hooks/use-environment.ts",
+          "type": "registry:component",
+          "target": "components/video-player/hooks/use-environment.ts"
+        },
+        {
+          "path": "src/registry/components/media/video-player/hooks/use-fullscreen.ts",
+          "type": "registry:component",
+          "target": "components/video-player/hooks/use-fullscreen.ts"
+        },
+        {
+          "path": "src/registry/components/media/video-player/lib/format.ts",
+          "type": "registry:component",
+          "target": "components/video-player/lib/format.ts"
+        },
+        {
+          "path": "src/registry/components/media/video-player/parts/video-player-context.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/parts/video-player-context.tsx"
+        },
+        {
+          "path": "src/registry/components/media/video-player/parts/play-button.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/parts/play-button.tsx"
+        },
+        {
+          "path": "src/registry/components/media/video-player/parts/mute-button.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/parts/mute-button.tsx"
+        },
+        {
+          "path": "src/registry/components/media/video-player/parts/seek-bar.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/parts/seek-bar.tsx"
+        },
+        {
+          "path": "src/registry/components/media/video-player/parts/time.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/parts/time.tsx"
+        },
+        {
+          "path": "src/registry/components/media/video-player/parts/fullscreen-button.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/parts/fullscreen-button.tsx"
+        },
+        {
+          "path": "src/registry/components/media/video-player/parts/captions-button.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/parts/captions-button.tsx"
+        },
+        {
+          "path": "src/registry/components/media/video-player/parts/status.tsx",
+          "type": "registry:component",
+          "target": "components/video-player/parts/status.tsx"
         }
       ],
       "meta": {
-        "version": "0.2.2",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -2984,7 +3065,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.2",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -3052,10 +3133,35 @@
           "path": "src/registry/components/media/media-carousel/hooks/use-embla-with-state.ts",
           "type": "registry:component",
           "target": "components/media-carousel/hooks/use-embla-with-state.ts"
+        },
+        {
+          "path": "src/registry/components/media/media-carousel/hooks/use-direction.ts",
+          "type": "registry:component",
+          "target": "components/media-carousel/hooks/use-direction.ts"
+        },
+        {
+          "path": "src/registry/components/media/media-carousel/hooks/use-environment.ts",
+          "type": "registry:component",
+          "target": "components/media-carousel/hooks/use-environment.ts"
+        },
+        {
+          "path": "src/registry/components/media/media-carousel/hooks/use-media-recovery.ts",
+          "type": "registry:component",
+          "target": "components/media-carousel/hooks/use-media-recovery.ts"
+        },
+        {
+          "path": "src/registry/components/media/media-carousel/lib/aspect.ts",
+          "type": "registry:component",
+          "target": "components/media-carousel/lib/aspect.ts"
+        },
+        {
+          "path": "src/registry/components/media/media-carousel/lib/labels.ts",
+          "type": "registry:component",
+          "target": "components/media-carousel/lib/labels.ts"
         }
       ],
       "meta": {
-        "version": "0.2.1",
+        "version": "0.3.1",
         "status": "alpha"
       }
     },
@@ -3081,7 +3187,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.1",
+        "version": "0.3.1",
         "status": "alpha"
       }
     },
@@ -3856,7 +3962,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -3882,7 +3988,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -6859,9 +6965,19 @@
           "target": "components/account-switcher/hooks/use-controllable-state.ts"
         },
         {
+          "path": "src/registry/components/navigation/account-switcher/hooks/use-direction.ts",
+          "type": "registry:component",
+          "target": "components/account-switcher/hooks/use-direction.ts"
+        },
+        {
           "path": "src/registry/components/navigation/account-switcher/lib/enforce-unique-keys.ts",
           "type": "registry:component",
           "target": "components/account-switcher/lib/enforce-unique-keys.ts"
+        },
+        {
+          "path": "src/registry/components/navigation/account-switcher/lib/order-items.ts",
+          "type": "registry:component",
+          "target": "components/account-switcher/lib/order-items.ts"
         },
         {
           "path": "src/registry/components/navigation/account-switcher/lib/resolve-active-item.ts",
@@ -6884,13 +7000,18 @@
           "target": "components/account-switcher/parts/switcher-item-row.tsx"
         },
         {
+          "path": "src/registry/components/navigation/account-switcher/parts/switcher-list.tsx",
+          "type": "registry:component",
+          "target": "components/account-switcher/parts/switcher-list.tsx"
+        },
+        {
           "path": "src/registry/components/navigation/account-switcher/parts/switcher-trigger.tsx",
           "type": "registry:component",
           "target": "components/account-switcher/parts/switcher-trigger.tsx"
         }
       ],
       "meta": {
-        "version": "0.2.1",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -6917,7 +7038,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.1",
+        "version": "0.3.0",
         "status": "alpha"
       }
     },
@@ -7875,7 +7996,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.2",
+        "version": "0.2.3",
         "status": "alpha"
       }
     },
@@ -7901,7 +8022,7 @@
         }
       ],
       "meta": {
-        "version": "0.2.2",
+        "version": "0.2.3",
         "status": "alpha"
       }
     },

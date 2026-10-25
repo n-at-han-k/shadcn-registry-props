@@ -631,8 +631,8 @@
       ],
       "docs": "Import AppShell, SidebarNav and SidebarLink from components/litt/app-shell. Pass a wordmark, a nav and the page. Mark the current link with current. It needs no router: pass as={Link} to a SidebarLink to use yours.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -837,6 +837,39 @@
       ]
     },
     {
+      "name": "cart",
+      "type": "registry:ui",
+      "title": "Cart",
+      "description": "The cart as a sheet from the right (a bottom sheet on a phone): lines with a quantity and Remove undone from a toast, and a summary with a free-shipping meter, a rolling subtotal and Check out. Plus the header's cart button, Add to cart with its Added state, and useCartState, a cart in memory.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/chart.json",
+        "https://littmd.vercel.app/r/dialog.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/media.json",
+        "https://littmd.vercel.app/r/number-field.json",
+        "https://littmd.vercel.app/r/price.json",
+        "https://littmd.vercel.app/r/product-card.json",
+        "https://littmd.vercel.app/r/rolling-number.json",
+        "https://littmd.vercel.app/r/states.json",
+        "https://littmd.vercel.app/r/toast.json"
+      ],
+      "docs": "Import Cart, CartButton, AddToCart and useCartState from components/litt/cart. Mount the Toaster once near your root for Remove's Undo. useShopifyCart from the shopify item returns the same CartState, so the parts work with either.",
+      "meta": {
+        "version": "2026.10.24",
+        "released": "2026-10-24",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/cart.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/cart.tsx"
+        }
+      ]
+    },
+    {
       "name": "case-study",
       "type": "registry:block",
       "title": "Case study block",
@@ -985,6 +1018,35 @@
           "path": "registry/litt/ui/cohort-grid.tsx",
           "type": "registry:ui",
           "target": "components/litt/cohort-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "collection",
+      "type": "registry:block",
+      "title": "Collection block",
+      "description": "A store's products as a grid: the title and the count, a filter row with what to show and the order, product cards with no buy buttons (two across on a phone), an empty state for a filter with nothing in it, and the cart as a sheet.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/cart.json",
+        "https://littmd.vercel.app/r/price.json",
+        "https://littmd.vercel.app/r/product-card.json",
+        "https://littmd.vercel.app/r/segmented.json",
+        "https://littmd.vercel.app/r/select.json",
+        "https://littmd.vercel.app/r/states.json"
+      ],
+      "docs": "Import Collection from components/litt-blocks/collection and render it as a page's content. The products sit at the top of the file: replace them with yours, or with the ones the shopify item's toProduct maps from a collection. See it live at https://littmd.vercel.app/#collection.",
+      "meta": {
+        "version": "2026.10.24",
+        "released": "2026-10-24",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/components/litt-blocks/collection.tsx",
+          "type": "registry:component",
+          "target": "components/litt-blocks/collection.tsx"
         }
       ]
     },
@@ -1339,8 +1401,8 @@
       ],
       "docs": "Import FormSection, Fieldset, ErrorSummary and FormActions from components/litt/form. The fields themselves come from input, select, checkbox, switch and slider.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1537,14 +1599,14 @@
       "name": "icons",
       "type": "registry:ui",
       "title": "Icons",
-      "description": "98 icons and a status mark, drawn on one 16-unit grid with a 1.5px stroke and four keylines, in the text color.",
+      "description": "99 icons and a status mark, drawn on one 16-unit grid with a 1.5px stroke and four keylines, in the text color.",
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json"
       ],
       "docs": "Import the icons you need from components/litt/icons. They are decorative unless you label them. Draw a missing one on the same grid, never from another set.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1911,8 +1973,8 @@
       ],
       "docs": "Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1920,6 +1982,33 @@
           "path": "registry/litt/ui/number-field.tsx",
           "type": "registry:ui",
           "target": "components/litt/number-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "option-picker",
+      "type": "registry:ui",
+      "title": "Option picker",
+      "description": "One option of a product (a size, a frame, a color) as native radios with a visible legend that names the pick. Words take the segmented track, colors and images take chips with a check in black or white. A sold-out value stays pickable and says so in words.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Import OptionPicker from components/litt/option-picker. Pass the option's name and values; give values a swatch ({ color } or { image }) to show chips. optionsFor from product-card marks which values are sold out among the other picks.",
+      "meta": {
+        "version": "2026.10.24",
+        "released": "2026-10-24",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/option-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/option-picker.tsx"
         }
       ]
     },
@@ -2031,6 +2120,89 @@
       ]
     },
     {
+      "name": "price",
+      "type": "registry:ui",
+      "title": "Price",
+      "description": "One amount at the title weight with tabular figures, formatted from Shopify's MoneyV2 shape (an amount and a currency code) in the page's locale. A sale strikes the old price through with hidden words, and can add a neutral tag with the saving. Never red, never the accent.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/tag.json"
+      ],
+      "docs": "Import Price and formatMoney from components/litt/price. Pass price as { amount, currencyCode }; compareAt shows only when it is higher. multiplyMoney and sumMoney do a line's and a cart's sums.",
+      "meta": {
+        "version": "2026.10.24",
+        "released": "2026-10-24",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/price.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/price.tsx"
+        }
+      ]
+    },
+    {
+      "name": "product",
+      "type": "registry:block",
+      "title": "Product block",
+      "description": "One product's page for a store: the pictures beside the details (a carousel on a phone), the title, the price, the options with sold-out picks said in words, the quantity and Add to cart as the one accent fill, the rest in an accordion, and the cart as a sheet. Every picture opens a lightbox.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/accordion.json",
+        "https://littmd.vercel.app/r/breadcrumb.json",
+        "https://littmd.vercel.app/r/carousel.json",
+        "https://littmd.vercel.app/r/cart.json",
+        "https://littmd.vercel.app/r/lightbox.json",
+        "https://littmd.vercel.app/r/media.json",
+        "https://littmd.vercel.app/r/number-field.json",
+        "https://littmd.vercel.app/r/option-picker.json",
+        "https://littmd.vercel.app/r/price.json",
+        "https://littmd.vercel.app/r/product-card.json",
+        "https://littmd.vercel.app/r/toast.json"
+      ],
+      "docs": "Import ProductPage from components/litt-blocks/product and render it as a page's content. The product sits at the top of the file: replace it with yours, or with one the shopify item's toProduct maps from your store. Mount the Toaster once near your root. See it live at https://littmd.vercel.app/#product.",
+      "meta": {
+        "version": "2026.10.24",
+        "released": "2026-10-24",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/components/litt-blocks/product.tsx",
+          "type": "registry:component",
+          "target": "components/litt-blocks/product.tsx"
+        }
+      ]
+    },
+    {
+      "name": "product-card",
+      "type": "registry:ui",
+      "title": "Product card",
+      "description": "One product in a grid: an inset 4/5 cover, the name and its price (From when the variants differ), as one link to its page. No buy button and no accent. Also the Product type and priceRange, findVariant, defaultPicks and optionsFor for a product page.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/card.json",
+        "https://littmd.vercel.app/r/media.json",
+        "https://littmd.vercel.app/r/option-picker.json",
+        "https://littmd.vercel.app/r/price.json",
+        "https://littmd.vercel.app/r/tag.json"
+      ],
+      "docs": "Import ProductCard and ProductGrid from components/litt/product-card. A Product is plain data: the shopify item's toProduct makes one from the Storefront API, or write your own. Give every card in a grid one ratio.",
+      "meta": {
+        "version": "2026.10.24",
+        "released": "2026-10-24",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/product-card.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/product-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "progress",
       "type": "registry:ui",
       "title": "Progress",
@@ -2091,8 +2263,8 @@
       ],
       "docs": "Import ResizablePanelGroup, ResizablePanel and ResizableHandle from components/litt/resizable, as shadcn's resizable is written. Sizes are percents. On a phone, show one panel at a time instead.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2237,6 +2409,54 @@
           "path": "registry/litt/components/litt-blocks/settings.tsx",
           "type": "registry:component",
           "target": "components/litt-blocks/settings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shopify",
+      "type": "registry:lib",
+      "title": "Shopify",
+      "description": "litt's commerce parts on a Shopify store: a small Storefront API client pinned to one version, getProduct, getProducts and getCollection that return litt's Product, and toProduct for your own queries. No React in it, so it runs in a server component too.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/cart.json",
+        "https://littmd.vercel.app/r/option-picker.json",
+        "https://littmd.vercel.app/r/price.json",
+        "https://littmd.vercel.app/r/product-card.json"
+      ],
+      "docs": "Installed in lib/litt/shopify.ts. Make a client with createStorefront({ domain, token }) using the store's public Storefront token, and pass what getProduct returns to ProductCard, OptionPicker or the product block. For the cart, add shopify-cart.",
+      "meta": {
+        "version": "2026.10.24",
+        "released": "2026-10-24",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/lib/shopify.ts",
+          "type": "registry:lib",
+          "target": "lib/litt/shopify.ts"
+        }
+      ]
+    },
+    {
+      "name": "shopify-cart",
+      "type": "registry:lib",
+      "title": "Shopify cart",
+      "description": "A cart kept in Shopify: ShopifyCart near the root and useShopifyCart() anywhere under it, with the same CartState as useCartState, so Cart, CartButton and AddToCart work unchanged. The cart's id survives a reload, and Check out goes to Shopify's hosted checkout.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/cart.json",
+        "https://littmd.vercel.app/r/shopify.json"
+      ],
+      "docs": "Installed in lib/litt/shopify-cart.tsx. Wrap your app in <ShopifyCart storefront={storefront}> with a client from createStorefront, then pass useShopifyCart() to Cart as its cart.",
+      "meta": {
+        "version": "2026.10.24",
+        "released": "2026-10-24",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/lib/shopify-cart.tsx",
+          "type": "registry:lib",
+          "target": "lib/litt/shopify-cart.tsx"
         }
       ]
     },
@@ -2479,8 +2699,8 @@
       ],
       "docs": "Import Table, TableHeader, TableBody, TableRow, TableHead and TableCell from components/litt/table. Give the Table a label, and a max height such as max-h-96 if you want the header to stick. The entrance is off until you pass entrance.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2693,8 +2913,8 @@
       ],
       "docs": "Import Toaster, toast and useToast from components/litt/toast. Mount Toaster once, then call toast() anywhere.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2800,8 +3020,8 @@
       ],
       "docs": "Import Tree and TreeNode from components/litt/tree. Pass a label and items as data ({ id, label, detail, children }); an item with children is a branch. Hold expanded and selected in state, or leave them to the tree.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2995,8 +3215,8 @@
       ],
       "docs": "Import SeatsDemo from components/litt/examples/number-field-demo, or read it for how @litt/number-field is used. Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/number-field"
       },
@@ -3315,8 +3535,8 @@
       ],
       "docs": "Import KeylinesDemo from components/litt/examples/icons-demo, or read it for how @litt/icons is used. Import the icons you need from components/litt/icons. They are decorative unless you label them. Draw a missing one on the same grid, never from another set.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/icons"
       },
@@ -3549,8 +3769,8 @@
       ],
       "docs": "Import SavedDemo from components/litt/examples/toast-demo, or read it for how @litt/toast is used. Import Toaster, toast and useToast from components/litt/toast. Mount Toaster once, then call toast() anywhere.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/toast"
       },
@@ -3772,8 +3992,8 @@
       ],
       "docs": "Import SplitDemo from components/litt/examples/resizable-demo, or read it for how @litt/resizable is used. Import ResizablePanelGroup, ResizablePanel and ResizableHandle from components/litt/resizable, as shadcn's resizable is written. Sizes are percents. On a phone, show one panel at a time instead.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/resizable"
       },
@@ -3821,8 +4041,8 @@
       ],
       "docs": "Import FilesDemo from components/litt/examples/tree-demo, or read it for how @litt/tree is used. Import Tree and TreeNode from components/litt/tree. Pass a label and items as data ({ id, label, detail, children }); an item with children is a branch. Hold expanded and selected in state, or leave them to the tree.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tree"
       },
@@ -3845,8 +4065,8 @@
       ],
       "docs": "Import DeployHistoryDemo from components/litt/examples/table-demo, or read it for how @litt/table is used. Import Table, TableHeader, TableBody, TableRow, TableHead and TableCell from components/litt/table. Give the Table a label, and a max height such as max-h-96 if you want the header to stick. The entrance is off until you pass entrance.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/table"
       },
@@ -4205,8 +4425,8 @@
       ],
       "docs": "Import ShellDemo from components/litt/examples/app-shell-demo, or read it for how @litt/app-shell is used. Import AppShell, SidebarNav and SidebarLink from components/litt/app-shell. Pass a wordmark, a nav and the page. Mark the current link with current. It needs no router: pass as={Link} to a SidebarLink to use yours.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/app-shell"
       },
@@ -4255,8 +4475,8 @@
       ],
       "docs": "Import StartProjectDemo from components/litt/examples/form-demo, or read it for how @litt/form is used. Import FormSection, Fieldset, ErrorSummary and FormActions from components/litt/form. The fields themselves come from input, select, checkbox, switch and slider.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/form"
       },

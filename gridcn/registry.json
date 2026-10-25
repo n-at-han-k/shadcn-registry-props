@@ -138,6 +138,11 @@
           "target": "components/data-grid/clipboard/use-grid-clipboard.ts"
         },
         {
+          "path": "registry/default/blocks/data-grid/columns/column-groups.ts",
+          "type": "registry:component",
+          "target": "components/data-grid/columns/column-groups.ts"
+        },
+        {
           "path": "registry/default/blocks/data-grid/columns/column-format-helpers.ts",
           "type": "registry:component",
           "target": "components/data-grid/columns/column-format-helpers.ts"
@@ -171,6 +176,11 @@
           "path": "registry/default/blocks/data-grid/columns/column-border.ts",
           "type": "registry:component",
           "target": "components/data-grid/columns/column-border.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid/columns/group-header-cell.tsx",
+          "type": "registry:component",
+          "target": "components/data-grid/columns/group-header-cell.tsx"
         },
         {
           "path": "registry/default/blocks/data-grid/columns/pinned-inset-style.ts",
@@ -236,6 +246,11 @@
           "path": "registry/default/blocks/data-grid/interaction/use-async-validate.ts",
           "type": "registry:component",
           "target": "components/data-grid/interaction/use-async-validate.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid/interaction/touch-gestures.ts",
+          "type": "registry:component",
+          "target": "components/data-grid/interaction/touch-gestures.ts"
         },
         {
           "path": "registry/default/blocks/data-grid/interaction/safe-set-pointer-capture.ts",
@@ -388,6 +403,11 @@
           "target": "components/data-grid/rows/marker-width.ts"
         },
         {
+          "path": "registry/default/blocks/data-grid/rows/plan-row-moves.ts",
+          "type": "registry:component",
+          "target": "components/data-grid/rows/plan-row-moves.ts"
+        },
+        {
           "path": "registry/default/blocks/data-grid/rows/use-row-reorder.ts",
           "type": "registry:component",
           "target": "components/data-grid/rows/use-row-reorder.ts"
@@ -423,9 +443,9 @@
           "target": "components/data-grid/selection/rects.ts"
         },
         {
-          "path": "registry/default/blocks/data-grid/selection/reorder-selection-for-row.ts",
+          "path": "registry/default/blocks/data-grid/selection/remap-selection-rows.ts",
           "type": "registry:component",
-          "target": "components/data-grid/selection/reorder-selection-for-row.ts"
+          "target": "components/data-grid/selection/remap-selection-rows.ts"
         },
         {
           "path": "registry/default/blocks/data-grid/selection/select-all-progression.ts",
@@ -521,6 +541,11 @@
           "path": "registry/default/blocks/data-grid/store/internal-actions.ts",
           "type": "registry:component",
           "target": "components/data-grid/store/internal-actions.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid/store/hidden-checked-rows.ts",
+          "type": "registry:component",
+          "target": "components/data-grid/store/hidden-checked-rows.ts"
         },
         {
           "path": "registry/default/blocks/data-grid/store/row-index.ts",
@@ -821,7 +846,7 @@
       "name": "data-grid-toolbar",
       "type": "registry:block",
       "title": "Data Grid Toolbar",
-      "description": "Toolbar add-on for the gridcn data grid: quick-search with match navigation, a per-column filter menu (aligned rows, join column, drag-to-reorder via @dnd-kit/react), and a column visibility/pin menu.",
+      "description": "Toolbar add-on for the gridcn data grid: quick-search with match navigation, a per-column filter menu (aligned rows, join column, drag-to-reorder via @dnd-kit/react), a header set filter (searchable distinct-values list with counts), and a column visibility/pin menu.",
       "author": "gridcn",
       "dependencies": [
         "@dnd-kit/dom@~0.5.0",
@@ -872,6 +897,26 @@
           "path": "registry/default/blocks/data-grid-toolbar/operators-for-column-type.ts",
           "type": "registry:component",
           "target": "components/data-grid-toolbar/operators-for-column-type.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-toolbar/header-filter.tsx",
+          "type": "registry:component",
+          "target": "components/data-grid-toolbar/header-filter.tsx"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-toolbar/set-filter-list.tsx",
+          "type": "registry:component",
+          "target": "components/data-grid-toolbar/set-filter-list.tsx"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-toolbar/apply-set-filter.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-toolbar/apply-set-filter.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-toolbar/distinct-values.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-toolbar/distinct-values.ts"
         }
       ],
       "categories": [
@@ -1002,7 +1047,7 @@
       "name": "data-grid-url-state",
       "type": "registry:block",
       "title": "Data Grid URL State",
-      "description": "Syncs the gridcn data grid's sort/filter/search state with the URL via nuqs (router-agnostic — requires a NuqsAdapter above it). Mount <DataGridUrlState prefix?> inside the provider; the prefix option namespaces the URL keys for multiple grids on one page.",
+      "description": "Syncs the gridcn data grid's sort/filter/search, pagination and column layout state with the URL via nuqs (router-agnostic — requires a NuqsAdapter above it). Mount <DataGridUrlState prefix?> inside the provider; the prefix option namespaces the URL keys for multiple grids on one page.",
       "author": "gridcn",
       "dependencies": [
         "nuqs@^2.10.1"
@@ -1031,6 +1076,11 @@
           "path": "registry/default/blocks/data-grid-url-state/join-param.ts",
           "type": "registry:component",
           "target": "components/data-grid-url-state/join-param.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-url-state/layout-param.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-url-state/layout-param.ts"
         },
         {
           "path": "registry/default/blocks/data-grid-url-state/page-param.ts",
@@ -1324,6 +1374,46 @@
           "path": "registry/default/blocks/data-grid-status-bar/compute-selection-stats.ts",
           "type": "registry:component",
           "target": "components/data-grid-status-bar/compute-selection-stats.ts"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "data-grid-find-replace",
+      "type": "registry:block",
+      "title": "Data Grid Find and Replace",
+      "description": "Find-and-replace add-on for the gridcn data grid: useDataGridFindReplace returns a plugin that adds a panel (Mod+F finds, Ctrl+H replaces) sharing the quick search, with match case and whole cell options. Replace and Replace all write through each column's text codec and validation as one undoable change; planReplace is the pure planner behind them. Strings live under labels.findReplace.",
+      "author": "gridcn",
+      "dependencies": [
+        "lucide-react@^1.46.0"
+      ],
+      "registryDependencies": [
+        "DammersCode/gridcn/data-grid",
+        "button",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/data-grid-find-replace/data-grid-find-replace.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-find-replace/data-grid-find-replace.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-find-replace/use-data-grid-find-replace.tsx",
+          "type": "registry:component",
+          "target": "components/data-grid-find-replace/use-data-grid-find-replace.tsx"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-find-replace/find-replace-panel.tsx",
+          "type": "registry:component",
+          "target": "components/data-grid-find-replace/find-replace-panel.tsx"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-find-replace/plan-replace.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-find-replace/plan-replace.ts"
         }
       ],
       "categories": [
@@ -1833,6 +1923,32 @@
       ]
     },
     {
+      "name": "data-grid-column-groups-demo",
+      "type": "registry:example",
+      "title": "Data Grid Column Groups Demo",
+      "description": "Column groups: Contact, Work with a nested History group, and Standing sit above their columns. Click a group header to select its columns, drag a group header to move the block, and use the columns menu to hide members.",
+      "author": "gridcn",
+      "registryDependencies": [
+        "DammersCode/gridcn/data-grid",
+        "DammersCode/gridcn/data-grid-toolbar"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/data-grid-column-groups-demo.tsx",
+          "type": "registry:example",
+          "target": "components/data-grid-column-groups-demo.tsx"
+        },
+        {
+          "path": "registry/default/examples/demo-data.ts",
+          "type": "registry:example",
+          "target": "components/demo-data.ts"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
       "name": "data-grid-column-layout-demo",
       "type": "registry:example",
       "title": "Data Grid Column Layout Demo",
@@ -2101,6 +2217,60 @@
           "path": "registry/default/examples/data-grid-sort-list-demo.tsx",
           "type": "registry:example",
           "target": "components/data-grid-sort-list-demo.tsx"
+        },
+        {
+          "path": "registry/default/examples/demo-data.ts",
+          "type": "registry:example",
+          "target": "components/demo-data.ts"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "data-grid-header-filter-demo",
+      "type": "registry:example",
+      "title": "Data Grid Header Filter Demo",
+      "description": "Header filter button on each column: search the distinct values, check the ones to keep, and apply.",
+      "author": "gridcn",
+      "registryDependencies": [
+        "DammersCode/gridcn/data-grid",
+        "DammersCode/gridcn/data-grid-toolbar"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/data-grid-header-filter-demo.tsx",
+          "type": "registry:example",
+          "target": "components/data-grid-header-filter-demo.tsx"
+        },
+        {
+          "path": "registry/default/examples/demo-data.ts",
+          "type": "registry:example",
+          "target": "components/demo-data.ts"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "data-grid-find-replace-demo",
+      "type": "registry:example",
+      "title": "Data Grid Find and Replace Demo",
+      "description": "Open the find-and-replace panel with Ctrl+H, replace one match or all of them, and undo the whole replace in one step.",
+      "author": "gridcn",
+      "registryDependencies": [
+        "DammersCode/gridcn/data-grid",
+        "DammersCode/gridcn/data-grid-find-replace",
+        "DammersCode/gridcn/data-grid-history",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/data-grid-find-replace-demo.tsx",
+          "type": "registry:example",
+          "target": "components/data-grid-find-replace-demo.tsx"
         },
         {
           "path": "registry/default/examples/demo-data.ts",
