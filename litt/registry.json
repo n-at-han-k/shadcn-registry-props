@@ -14,6 +14,8 @@
           "color-litt-surface-1": "var(--litt-surface-1)",
           "color-litt-surface-2": "var(--litt-surface-2)",
           "color-litt-surface-3": "var(--litt-surface-3)",
+          "color-litt-tray": "var(--litt-tray)",
+          "color-litt-block": "var(--litt-block)",
           "color-litt-line": "var(--litt-line)",
           "color-litt-line-strong": "var(--litt-line-strong)",
           "color-litt-line-control": "var(--litt-line-control)",
@@ -252,7 +254,14 @@
           "--litt-shadow-modal": "0 0 40px rgba(17, 15, 13, 0.10), 0 0 72px rgba(17, 15, 13, 0.06), 0 0 0 1px rgba(17, 15, 13, 0.06)",
           "--litt-light-strength": "12%",
           "--litt-glow-strength": "28%",
-          "--litt-grain-opacity": "0.02"
+          "--litt-grain-opacity": "0.02",
+          "--litt-tray": "#ece9e6",
+          "--litt-tray-shade": "inset 0 0 0 1px rgba(17, 15, 13, 0.18), inset 0 1px 2px rgba(17, 15, 13, 0.2)",
+          "--litt-block": "#ffffff",
+          "--litt-block-lift": "0 0.5px 1px rgba(17, 15, 13, 0.22), 0 0.5px 3px rgba(17, 15, 13, 0.16)",
+          "--litt-block-press": "0 0.5px 1px rgba(17, 15, 13, 0.22), 0 0 1.5px rgba(17, 15, 13, 0.12)",
+          "--litt-block-round": "inset 0 1px 1.5px rgba(17, 15, 13, 0.06), inset 0 -1px 1.5px rgba(17, 15, 13, 0.07)",
+          "--litt-block-roll": "rgba(17, 15, 13, 0.6)"
         },
         "[data-theme=\"dark\"], .dark": {
           "--litt-canvas": "#0a0908",
@@ -295,7 +304,14 @@
           "--litt-shadow-modal": "0 0 40px rgba(0, 0, 0, 0.5), 0 0 72px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.5)",
           "--litt-light-strength": "22%",
           "--litt-glow-strength": "40%",
-          "--litt-grain-opacity": "0.04"
+          "--litt-grain-opacity": "0.04",
+          "--litt-tray": "#070606",
+          "--litt-tray-shade": "inset 0 0 0 1px rgba(255, 255, 255, 0.07), inset 0 1px 2px rgba(0, 0, 0, 0.8)",
+          "--litt-block": "#2a2725",
+          "--litt-block-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0.5px 3px rgba(0, 0, 0, 0.55)",
+          "--litt-block-press": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0 1.5px rgba(0, 0, 0, 0.5)",
+          "--litt-block-round": "inset 0 1px 1.5px rgba(0, 0, 0, 0.2), inset 0 -1px 1.5px rgba(0, 0, 0, 0.3)",
+          "--litt-block-roll": "rgba(0, 0, 0, 0.7)"
         },
         "@media (prefers-color-scheme: dark)": {
           ":root:not([data-theme=\"light\"], .light)": {
@@ -339,7 +355,14 @@
             "--litt-shadow-modal": "0 0 40px rgba(0, 0, 0, 0.5), 0 0 72px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.5)",
             "--litt-light-strength": "22%",
             "--litt-glow-strength": "40%",
-            "--litt-grain-opacity": "0.04"
+            "--litt-grain-opacity": "0.04",
+            "--litt-tray": "#070606",
+            "--litt-tray-shade": "inset 0 0 0 1px rgba(255, 255, 255, 0.07), inset 0 1px 2px rgba(0, 0, 0, 0.8)",
+            "--litt-block": "#2a2725",
+            "--litt-block-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0.5px 3px rgba(0, 0, 0, 0.55)",
+            "--litt-block-press": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0 1.5px rgba(0, 0, 0, 0.5)",
+            "--litt-block-round": "inset 0 1px 1.5px rgba(0, 0, 0, 0.2), inset 0 -1px 1.5px rgba(0, 0, 0, 0.3)",
+            "--litt-block-roll": "rgba(0, 0, 0, 0.7)"
           }
         },
         ":root, [data-theme], .dark, .light": {
@@ -438,8 +461,8 @@
       },
       "docs": "Added to your global CSS: --litt-* variables, Tailwind names such as bg-litt-surface-1 and rounded-litt-control, and the litt-glass class and its siblings. Nothing of yours is changed. Dark follows .dark, [data-theme=\"dark\"] or the system setting.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       }
     },
@@ -2522,13 +2545,12 @@
         "@radix-ui/react-slider"
       ],
       "registryDependencies": [
-        "https://littmd.vercel.app/r/litt.json",
-        "https://littmd.vercel.app/r/motion.json"
+        "https://littmd.vercel.app/r/litt.json"
       ],
       "docs": "Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2670,8 +2692,8 @@
       ],
       "docs": "Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3390,8 +3412,8 @@
       ],
       "docs": "Import SpeedDemo from components/litt/examples/slider-demo, or read it for how @litt/slider is used. Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slider"
       },
@@ -3414,8 +3436,8 @@
       ],
       "docs": "Import SettingsListDemo from components/litt/examples/switch-demo, or read it for how @litt/switch is used. Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.24",
+        "released": "2026-10-24",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/switch"
       },

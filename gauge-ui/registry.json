@@ -7,7 +7,7 @@
       "name": "gauge",
       "type": "registry:ui",
       "title": "Gauge",
-      "description": "Composable SVG gauge primitives: track, arc, zones, ticks, tick fills, labels, needle, hub, dot, tooltip and value text, with optional spring or tween animation and nested gauges. No runtime dependencies.",
+      "description": "Composable SVG gauge primitives: track, arc, zones, ticks, tick fills, labels, needle, hub, dot, tooltip and value text, with optional spring or tween animation and nested gauges, as round dials or horizontal and vertical bars. No runtime dependencies.",
       "author": "Thordur <https://github.com/thordursk>",
       "categories": ["data-display", "charts"],
       "registryDependencies": ["utils"],
@@ -21,6 +21,11 @@
           "path": "components/gauge/gauge.tsx",
           "type": "registry:ui",
           "target": "@components/gauge/gauge.tsx"
+        },
+        {
+          "path": "components/gauge/linear.tsx",
+          "type": "registry:ui",
+          "target": "@components/gauge/linear.tsx"
         },
         {
           "path": "components/gauge/inset.tsx",
@@ -68,6 +73,11 @@
           "target": "@components/gauge/control.tsx"
         },
         {
+          "path": "components/gauge/scale.ts",
+          "type": "registry:ui",
+          "target": "@components/gauge/scale.ts"
+        },
+        {
           "path": "components/gauge/math.ts",
           "type": "registry:ui",
           "target": "@components/gauge/math.ts"
@@ -88,7 +98,7 @@
           "target": "@components/gauge/use-animated-value.ts"
         }
       ],
-      "docs": "Import everything from \"@/components/gauge\". Compose <Gauge value min max startAngle endAngle> with GaugeTrack, GaugeArc, GaugeZones, GaugeTicks, GaugeMarks, GaugeTickLabels, GaugeNeedle, GaugeHub, GaugeValue and GaugeText. Nest a whole gauge inside another with <GaugeInset x y scale value min max>, for a fuel dial under a speedometer or a second ring inside the first. Add transition to <Gauge> to animate value changes: true for the default spring, or { type: \"spring\", visualDuration, bounce } / { type: \"tween\", duration, ease }. Design one visually at the studio and copy the generated code."
+      "docs": "Import everything from \"@/components/gauge\". Compose <Gauge value min max startAngle endAngle> with GaugeTrack, GaugeArc, GaugeZones, GaugeTicks, GaugeMarks, GaugeTickLabels, GaugeNeedle, GaugeHub, GaugeValue and GaugeText. Nest a whole gauge inside another with <GaugeInset x y scale value min max>, for a fuel dial under a speedometer or a second ring inside the first. For a straight bar use <LinearGauge value orientation length padding> in place of <Gauge>: every part but GaugeNeedle works inside it, <LinearGaugeInset> nests one in another gauge, and <GaugeControl orientation> makes it a slider. Add transition to <Gauge> to animate value changes: true for the default spring, or { type: \"spring\", visualDuration, bounce } / { type: \"tween\", duration, ease }. Design one visually at the studio and copy the generated code."
     }
   ]
 }
