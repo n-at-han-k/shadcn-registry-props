@@ -15,7 +15,15 @@
           "color-litt-surface-2": "var(--litt-surface-2)",
           "color-litt-surface-3": "var(--litt-surface-3)",
           "color-litt-tray": "var(--litt-tray)",
+          "color-litt-cut": "var(--litt-cut)",
           "color-litt-block": "var(--litt-block)",
+          "color-litt-slot": "var(--litt-slot)",
+          "color-litt-slot-fill": "var(--litt-slot-fill)",
+          "color-litt-cap": "var(--litt-cap)",
+          "color-litt-cap-held": "var(--litt-cap-held)",
+          "color-litt-cap-grip": "var(--litt-cap-grip)",
+          "color-litt-notch": "var(--litt-notch)",
+          "color-litt-notch-home": "var(--litt-notch-home)",
           "color-litt-line": "var(--litt-line)",
           "color-litt-line-strong": "var(--litt-line-strong)",
           "color-litt-line-control": "var(--litt-line-control)",
@@ -32,6 +40,7 @@
           "color-litt-success": "var(--litt-success)",
           "color-litt-warning": "var(--litt-warning)",
           "color-litt-danger": "var(--litt-danger)",
+          "color-litt-danger-fg": "var(--litt-danger-fg)",
           "color-litt-data-blue": "var(--litt-data-blue)",
           "color-litt-data-blue-text": "var(--litt-data-blue-text)",
           "color-litt-data-blue-tint": "var(--litt-data-blue-tint)",
@@ -183,6 +192,7 @@
           "--litt-dur-instant": "100ms",
           "--litt-ease-out": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
           "--litt-press-scale": "0.98",
+          "--litt-press-depth": "0.5px",
           "--litt-spring-responsive": "200ms 0",
           "--litt-dur-responsive": "425ms",
           "--litt-ease-responsive": "linear(0, 0.0609, 0.1306, 0.2509, 0.3322, 0.4472, 0.5167, 0.6085, 0.6615, 0.7293, 0.7846, 0.8154, 0.854, 0.8753, 0.9017, 0.9163, 0.9342, 0.944, 0.956, 0.9626, 0.9707, 0.977, 0.9805, 0.9847, 0.987, 0.9898, 0.9914, 0.9932, 0.9943, 0.9955, 0.9965, 0.997, 0.9977, 0.998, 0.9984, 0.9987, 0.999, 0.9991, 0.9993, 0.9994, 1)",
@@ -225,15 +235,16 @@
           "--litt-fg-muted": "#6d6661",
           "--litt-fg-subtle": "#6d6661",
           "--litt-fg-disabled": "#a49c96",
-          "--litt-accent": "#264bd1",
-          "--litt-accent-hover": "#1c3cb2",
+          "--litt-accent": "#0957fd",
+          "--litt-accent-hover": "#0e4ada",
           "--litt-accent-fg": "#ffffff",
-          "--litt-accent-text": "#264bd1",
-          "--litt-accent-tint": "#e8eeff",
-          "--litt-focus": "#264bd1",
+          "--litt-accent-text": "#104dfd",
+          "--litt-accent-tint": "#e7f0ff",
+          "--litt-focus": "#0957fd",
           "--litt-success": "#007c3b",
           "--litt-warning": "#9c5a00",
           "--litt-danger": "#be2e31",
+          "--litt-danger-fg": "#ffffff",
           "--litt-data-blue": "#2d90e9",
           "--litt-data-blue-text": "#006ebe",
           "--litt-data-amber": "#c47d04",
@@ -257,11 +268,24 @@
           "--litt-grain-opacity": "0.02",
           "--litt-tray": "#ece9e6",
           "--litt-tray-shade": "inset 0 0 0 1px rgba(17, 15, 13, 0.18), inset 0 1px 2px rgba(17, 15, 13, 0.2)",
+          "--litt-cut": "#ffffff",
+          "--litt-cut-shade": "inset 0 1px 2px rgba(17, 15, 13, 0.12)",
           "--litt-block": "#ffffff",
           "--litt-block-lift": "0 0.5px 1px rgba(17, 15, 13, 0.22), 0 0.5px 3px rgba(17, 15, 13, 0.16)",
           "--litt-block-press": "0 0.5px 1px rgba(17, 15, 13, 0.22), 0 0 1.5px rgba(17, 15, 13, 0.12)",
-          "--litt-block-round": "inset 0 1px 1.5px rgba(17, 15, 13, 0.06), inset 0 -1px 1.5px rgba(17, 15, 13, 0.07)",
-          "--litt-block-roll": "rgba(17, 15, 13, 0.6)"
+          "--litt-key-lift": "0 0.5px 1px rgba(17, 15, 13, 0.22), 0 0.5px 3px rgba(17, 15, 13, 0.16), inset 0 -1px 0 rgba(17, 15, 13, 0.12)",
+          "--litt-slot": "#e6e2de",
+          "--litt-slot-shade": "inset 0 1px 2px rgba(17, 15, 13, 0.28), inset 0 0 0 1px rgba(17, 15, 13, 0.1), inset 0 -1px 0 rgba(255, 255, 255, 0.8)",
+          "--litt-slot-fill": "#cdc7c2",
+          "--litt-slot-fill-shade": "inset 0 1px 1.5px rgba(17, 15, 13, 0.22)",
+          "--litt-plate-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 1px rgba(17, 15, 13, 0.07), 0 1px 1px rgba(17, 15, 13, 0.08), 0 3px 6px -2px rgba(17, 15, 13, 0.16)",
+          "--litt-cap": "#ffffff",
+          "--litt-cap-held": "#f4f2f0",
+          "--litt-cap-lift": "inset 0 1px 0 rgba(255, 255, 255, 1), inset 0 -1px 0 rgba(17, 15, 13, 0.08), 0 0 0 0.5px rgba(17, 15, 13, 0.24), 0 1px 1px rgba(17, 15, 13, 0.2), 0 3px 5px -1px rgba(17, 15, 13, 0.24)",
+          "--litt-cap-press": "inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 rgba(17, 15, 13, 0.06), 0 0 0 0.5px rgba(17, 15, 13, 0.28), 0 0.5px 1px rgba(17, 15, 13, 0.24), 0 1px 2px rgba(17, 15, 13, 0.14)",
+          "--litt-cap-grip": "rgba(17, 15, 13, 0.24)",
+          "--litt-notch": "rgba(17, 15, 13, 0.28)",
+          "--litt-notch-home": "rgba(17, 15, 13, 0.6)"
         },
         "[data-theme=\"dark\"], .dark": {
           "--litt-canvas": "#0a0908",
@@ -275,15 +299,16 @@
           "--litt-fg-muted": "#cec4bd",
           "--litt-fg-subtle": "#cec4bd",
           "--litt-fg-disabled": "#6b645f",
-          "--litt-accent": "#2d57e5",
-          "--litt-accent-hover": "#3864eb",
+          "--litt-accent": "#0957fd",
+          "--litt-accent-hover": "#1e64fe",
           "--litt-accent-fg": "#ffffff",
-          "--litt-accent-text": "#507afd",
-          "--litt-accent-tint": "#13234f",
-          "--litt-focus": "#507afd",
+          "--litt-accent-text": "#5e78fe",
+          "--litt-accent-tint": "#0e1a31",
+          "--litt-focus": "#5e78fe",
           "--litt-success": "#4bc680",
           "--litt-warning": "#e19b1b",
           "--litt-danger": "#ff756f",
+          "--litt-danger-fg": "#0a0908",
           "--litt-data-blue": "#2c90e8",
           "--litt-data-blue-text": "#5aa8f4",
           "--litt-data-amber": "#c07b03",
@@ -307,11 +332,24 @@
           "--litt-grain-opacity": "0.04",
           "--litt-tray": "#070606",
           "--litt-tray-shade": "inset 0 0 0 1px rgba(255, 255, 255, 0.07), inset 0 1px 2px rgba(0, 0, 0, 0.8)",
+          "--litt-cut": "#0d0c0b",
+          "--litt-cut-shade": "inset 0 1px 2px rgba(0, 0, 0, 0.8)",
           "--litt-block": "#2a2725",
           "--litt-block-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0.5px 3px rgba(0, 0, 0, 0.55)",
           "--litt-block-press": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0 1.5px rgba(0, 0, 0, 0.5)",
-          "--litt-block-round": "inset 0 1px 1.5px rgba(0, 0, 0, 0.2), inset 0 -1px 1.5px rgba(0, 0, 0, 0.3)",
-          "--litt-block-roll": "rgba(0, 0, 0, 0.7)"
+          "--litt-key-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0.5px 3px rgba(0, 0, 0, 0.55), inset 0 -1px 0 rgba(0, 0, 0, 0.35)",
+          "--litt-slot": "#0b0a09",
+          "--litt-slot-shade": "inset 0 1px 2px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(255, 255, 255, 0.07)",
+          "--litt-slot-fill": "#3a3633",
+          "--litt-slot-fill-shade": "inset 0 1px 1.5px rgba(0, 0, 0, 0.55)",
+          "--litt-plate-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.55), 0 1px 1px rgba(0, 0, 0, 0.6), 0 3px 6px -2px rgba(0, 0, 0, 0.7)",
+          "--litt-cap": "#45403c",
+          "--litt-cap-held": "#3b3734",
+          "--litt-cap-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 0 0.5px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(0, 0, 0, 0.7), 0 3px 5px -1px rgba(0, 0, 0, 0.7)",
+          "--litt-cap-press": "inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 0.5px rgba(0, 0, 0, 0.75), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5)",
+          "--litt-cap-grip": "rgba(0, 0, 0, 0.5)",
+          "--litt-notch": "rgba(255, 255, 255, 0.2)",
+          "--litt-notch-home": "rgba(255, 255, 255, 0.5)"
         },
         "@media (prefers-color-scheme: dark)": {
           ":root:not([data-theme=\"light\"], .light)": {
@@ -326,15 +364,16 @@
             "--litt-fg-muted": "#cec4bd",
             "--litt-fg-subtle": "#cec4bd",
             "--litt-fg-disabled": "#6b645f",
-            "--litt-accent": "#2d57e5",
-            "--litt-accent-hover": "#3864eb",
+            "--litt-accent": "#0957fd",
+            "--litt-accent-hover": "#1e64fe",
             "--litt-accent-fg": "#ffffff",
-            "--litt-accent-text": "#507afd",
-            "--litt-accent-tint": "#13234f",
-            "--litt-focus": "#507afd",
+            "--litt-accent-text": "#5e78fe",
+            "--litt-accent-tint": "#0e1a31",
+            "--litt-focus": "#5e78fe",
             "--litt-success": "#4bc680",
             "--litt-warning": "#e19b1b",
             "--litt-danger": "#ff756f",
+            "--litt-danger-fg": "#0a0908",
             "--litt-data-blue": "#2c90e8",
             "--litt-data-blue-text": "#5aa8f4",
             "--litt-data-amber": "#c07b03",
@@ -358,11 +397,24 @@
             "--litt-grain-opacity": "0.04",
             "--litt-tray": "#070606",
             "--litt-tray-shade": "inset 0 0 0 1px rgba(255, 255, 255, 0.07), inset 0 1px 2px rgba(0, 0, 0, 0.8)",
+            "--litt-cut": "#0d0c0b",
+            "--litt-cut-shade": "inset 0 1px 2px rgba(0, 0, 0, 0.8)",
             "--litt-block": "#2a2725",
             "--litt-block-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0.5px 3px rgba(0, 0, 0, 0.55)",
             "--litt-block-press": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0 1.5px rgba(0, 0, 0, 0.5)",
-            "--litt-block-round": "inset 0 1px 1.5px rgba(0, 0, 0, 0.2), inset 0 -1px 1.5px rgba(0, 0, 0, 0.3)",
-            "--litt-block-roll": "rgba(0, 0, 0, 0.7)"
+            "--litt-key-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 0.5px 3px rgba(0, 0, 0, 0.55), inset 0 -1px 0 rgba(0, 0, 0, 0.35)",
+            "--litt-slot": "#0b0a09",
+            "--litt-slot-shade": "inset 0 1px 2px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(255, 255, 255, 0.07)",
+            "--litt-slot-fill": "#3a3633",
+            "--litt-slot-fill-shade": "inset 0 1px 1.5px rgba(0, 0, 0, 0.55)",
+            "--litt-plate-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.55), 0 1px 1px rgba(0, 0, 0, 0.6), 0 3px 6px -2px rgba(0, 0, 0, 0.7)",
+            "--litt-cap": "#45403c",
+            "--litt-cap-held": "#3b3734",
+            "--litt-cap-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 0 0.5px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(0, 0, 0, 0.7), 0 3px 5px -1px rgba(0, 0, 0, 0.7)",
+            "--litt-cap-press": "inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 0.5px rgba(0, 0, 0, 0.75), 0 0.5px 1px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5)",
+            "--litt-cap-grip": "rgba(0, 0, 0, 0.5)",
+            "--litt-notch": "rgba(255, 255, 255, 0.2)",
+            "--litt-notch-home": "rgba(255, 255, 255, 0.5)"
           }
         },
         ":root, [data-theme], .dark, .light": {
@@ -386,6 +438,17 @@
             "--litt-data-rose-tint": "var(--litt-surface-2)"
           }
         },
+        ":root[data-accent=\"mono\"], [data-accent=\"mono\"]": {
+          "--litt-accent": "var(--litt-fg)",
+          "--litt-accent-hover": "color-mix(in oklab, var(--litt-fg), var(--litt-canvas) 18%)",
+          "--litt-accent-fg": "var(--litt-canvas)",
+          "--litt-accent-text": "var(--litt-fg)",
+          "--litt-accent-tint": "color-mix(in oklab, var(--litt-fg) 7%, var(--litt-canvas))",
+          "--litt-focus": "var(--litt-fg)",
+          "--litt-light": "none",
+          "--litt-glow": "var(--litt-block-lift)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-fg)"
+        },
         "@media (prefers-reduced-motion: reduce)": {
           ":root": {
             "--litt-dur-instant": "0ms",
@@ -395,7 +458,8 @@
             "--litt-dur-exit-expressive": "0ms",
             "--litt-stagger": "0ms",
             "--litt-travel": "0px",
-            "--litt-press-scale": "1"
+            "--litt-press-scale": "1",
+            "--litt-press-depth": "0px"
           }
         },
         "@layer components": {
@@ -461,8 +525,8 @@
       },
       "docs": "Added to your global CSS: --litt-* variables, Tailwind names such as bg-litt-surface-1 and rounded-litt-control, and the litt-glass class and its siblings. Nothing of yours is changed. Dark follows .dark, [data-theme=\"dark\"] or the system setting.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       }
     },
@@ -568,8 +632,8 @@
       ],
       "docs": "Import ActionBar from components/litt/action-bar and place it after the list, inside the same scrolling area. Pass the count, a noun and onClear, and sm Buttons as children. Never an accent fill.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -595,8 +659,8 @@
       ],
       "docs": "Import Activity from components/litt-blocks/activity and render it inside your app's shell. The sample days sit at the top of the file, newest first; Show earlier is where your next page loads. See it live at https://littmd.vercel.app/#activity.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -654,8 +718,8 @@
       ],
       "docs": "Import AppShell, SidebarNav and SidebarLink from components/litt/app-shell. Pass a wordmark, a nav and the page. Mark the current link with current. It needs no router: pass as={Link} to a SidebarLink to use yours.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -676,8 +740,8 @@
       ],
       "docs": "Import Avatar and AvatarGroup from components/litt/avatar. Pass a name: the initials and the hue come from it unless you set a hue. Set decorative when the name is written beside the avatar. Give AvatarGroup a label, the first few avatars and a total, and match its ring to the surface it sits on.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -702,8 +766,8 @@
       ],
       "docs": "Import BarList from components/litt/bar-list. Pass a label and items of { label, value }, plus a unit for screen readers. A row with an href is a link, and with onSelect the others are buttons.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -750,8 +814,8 @@
       ],
       "docs": "Import Breakdown from components/litt/breakdown. Pass a label, the parts as { label, value } largest first, and the total when there is free space. Past five parts the rest fold into Other. Pin a hue on a part to keep a kind's color across a page.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -773,8 +837,8 @@
       ],
       "docs": "Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -797,8 +861,8 @@
       ],
       "docs": "Import Callout from components/litt/callout. Pass a title, a description and a tone, and an action (an sm Button or a Kbd) or onDismiss when there is something to do. Set live for a callout that appears after an action. It fills the width of its container, so give the container a width.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -819,8 +883,8 @@
       ],
       "docs": "Import Card, CardCover, CardBody, CardTitle, CardDescription and CardLink from components/litt/card. Put CardLink around the title to make the card a link. Anything else you can press inside it needs relative.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -847,8 +911,8 @@
       ],
       "docs": "Import Carousel, CarouselContent, CarouselItem and CarouselControls from components/litt/carousel, as shadcn's carousel is written. Give Carousel a label and perView; never add autoplay.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -880,8 +944,8 @@
       ],
       "docs": "Import Cart, CartButton, AddToCart and useCartState from components/litt/cart. Mount the Toaster once near your root for Remove's Undo. useShopifyCart from the shopify item returns the same CartState, so the parts work with either.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -908,8 +972,8 @@
       ],
       "docs": "Import CaseStudy from components/litt-blocks/case-study and render it as a page's content. The project, its words and its images sit at the top of the file: replace the drawn stand-ins with your images and give each its width and height. See it live at https://littmd.vercel.app/#case-study.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -934,8 +998,8 @@
       ],
       "docs": "Import BarChart, LineChart, StackedBarChart and Meter from components/litt/chart. Pass a label, the category labels and series of { name, values }, with an optional hue per series or hues on the chart. The chart measures its container, so give it a width. Every chart ships a hidden table and a summary for screen readers.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -961,8 +1025,8 @@
       ],
       "docs": "Import Checkbox, CheckboxGroup, Radio and RadioGroup from components/litt/checkbox. They are native inputs, so name and value work in a form. Pass appearance=\"native\" for the browser's own 16px box.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -988,8 +1052,8 @@
       ],
       "docs": "Import CodeBlock from components/litt/code-block. Pass the code, a lang (tsx, ts, jsx, js, diff, shell or text) and a filename for the header. The label names the scroll area and defaults to the file name. lineNumbers adds a gutter, wrap wraps long lines, and maxHeight (a number or a CSS length) makes a tall block scroll. A diff reads each line's first character as its sign. The syntax colors are declared on the block itself, so it needs no stylesheet. It imports sugar-high.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1010,8 +1074,8 @@
       ],
       "docs": "Import CodeInput from components/litt/code-input. Give it a label and check the code in onComplete; show what was wrong in error.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1032,8 +1096,8 @@
       ],
       "docs": "Import CohortGrid from components/litt/cohort-grid. Pass a label and cohorts as { label, size, values }, oldest first. Each value is the share still active (0 to 100), or a count with valueType=\"count\", and a missing or null value is a period the cohort has not reached. Set periodLabel=\"Month\" or pass periods for other headers. Add average for an All cohorts row and pick a hue.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1061,8 +1125,8 @@
       ],
       "docs": "Import Collection from components/litt-blocks/collection and render it as a page's content. The products sit at the top of the file: replace them with yours, or with the ones the shopify item's toProduct maps from a collection. See it live at https://littmd.vercel.app/#collection.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1087,8 +1151,8 @@
       ],
       "docs": "Import ColorPicker and ColorPanel from components/litt/color-picker, plus parseHex, describeColor, getContrastInk, hexToHsv and hsvToHex. Values are six-digit lowercase hex strings with the hash. ColorPicker needs a label; hold the value in state with value and onValueChange (null for none), pass name for a form, and swatches as { label, value }. Save with onValueCommit, which fires on release. Use getContrastInk for text drawn on the picked color.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1117,8 +1181,8 @@
       ],
       "docs": "Import Combobox from components/litt/combobox. Give it a label and options as { value, label, disabled?, group? } or groups of { label, options }, and hold the value in state with value and onValueChange: a string (\"\" for none), or an array with multiple. Add hint, error and placeholder as on a field, and name to post the value with a form.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1148,8 +1212,8 @@
       ],
       "docs": "Import CommandMenu and useCommandShortcut from components/litt/command-menu. Give it groups of items and an onSelect.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1176,8 +1240,8 @@
       ],
       "docs": "Import Composer (and FileChip) from components/litt/composer. Hold the files yourself and pass onSend, streaming and onStop: the field clears after a send, and Send becomes Stop while streaming is true. Pass onFiles to show Attach and take pastes and drops, files and onRemoveFile to draw the chips, tools for a model Select at sm, suggestions for an empty chat, hint for a line under the box, and maxLength for the count. On a touch screen Return adds a line and Send sends by itself (enterSends overrides it); keep the composer above the keyboard with useVisibleScreen.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1260,8 +1324,8 @@
       ],
       "docs": "Import DatePicker and Calendar from components/litt/date-picker, plus getToday, addDays and getWeekday for date math on YYYY-MM-DD strings. Values are YYYY-MM-DD strings, or { start, end } with mode=\"range\". DatePicker needs a label; hold the value in state with value and onValueChange, and pass name for a form (a range sends name-start and name-end). min, max and isDisabled rule days out; presets take { label, value }.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1295,8 +1359,8 @@
       ],
       "docs": "Import Deployment from components/litt-blocks/deployment and render it inside your app's shell. The deploy, its files and diffs and the build script sit at the top of the file; replace useBuild with your build's stream. See it live at https://littmd.vercel.app/#deployment.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1320,8 +1384,8 @@
       ],
       "docs": "Import Details, DetailsItem and DetailsLink from components/litt/details. Give Details a title and one DetailsItem per fact, with copy on the values people paste. Use layout=\"grid\" for a few short facts, and bare inside a dialog or a panel.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1349,8 +1413,8 @@
       ],
       "docs": "Import Dialog, DialogTrigger, DialogContent and DialogClose from components/litt/dialog. Pair a form's submit with a Cancel, both at size md.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1375,8 +1439,8 @@
       ],
       "docs": "Import DotPlot from components/litt/dot-plot. Pass a label, the values, a scale (log for durations) and a formatValue. Add a goal to split the dots, markers to name outliers. It measures its container, so give it a width. Each non-empty column is reachable with the arrow keys.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1401,8 +1465,8 @@
       ],
       "docs": "Import FileDrop, FileList and FileRow from components/litt/file-drop. FileDrop hands the files that passed to onFiles; you upload them and render a FileRow for each.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1424,8 +1488,8 @@
       ],
       "docs": "Import FormSection, Fieldset, ErrorSummary and FormActions from components/litt/form. The fields themselves come from input, select, checkbox, switch and slider.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1446,8 +1510,8 @@
       ],
       "docs": "Import Funnel from components/litt/funnel. Pass a label and the steps as { label, value } in the order people go through them. Every rail is measured against the first step. hue picks the one data hue (blue by default), unit or formatValue writes the numbers, overallText replaces \"4.1% overall\", and formatStep(value, previous) rewrites the line between steps.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1472,8 +1536,8 @@
       ],
       "docs": "Import Gauge from components/litt/gauge. Pass a label, a value, a max and a value text (what a screen reader hears); add a figure, a caption or a hue. It scales down to its container.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1528,8 +1592,8 @@
       ],
       "docs": "Import Growth from components/litt-blocks/growth. The sample weeks and sources sit at the top of the file: give each of your sources its own hue and keep it when the legend hides one. See it live at https://littmd.vercel.app/#growth.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1553,8 +1617,8 @@
       ],
       "docs": "Import Header from components/litt/header. Pass a wordmark, links with a current flag and your actions. It needs no router and no provider; pass renderLink and onNavigate to use yours.",
       "meta": {
-        "version": "2026.10.21",
-        "released": "2026-10-21",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1579,8 +1643,8 @@
       ],
       "docs": "Import Heatmap from components/litt/heatmap. Pass a label, rows of { label, values, total? } and columns that name each column, and pick a hue. Use null for a day with no data. The dots are a grid you can arrow through.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1622,14 +1686,14 @@
       "name": "icons",
       "type": "registry:ui",
       "title": "Icons",
-      "description": "99 icons and a status mark, drawn on one 16-unit grid with a 1.5px stroke and four keylines, in the text color.",
+      "description": "99 solid icons and a status mark on one 16-unit grid: filled shapes with their details cut out, lines at 1.5, four keylines, in the text color.",
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json"
       ],
       "docs": "Import the icons you need from components/litt/icons. They are decorative unless you label them. Draw a missing one on the same grid, never from another set.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1650,8 +1714,8 @@
       ],
       "docs": "Import TextField, Input and Textarea from components/litt/input. TextField wires the label, hint and error for you, and a bare Input needs an aria-label. Text is 16px on touch screens.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1687,8 +1751,8 @@
       ],
       "docs": "Import Insights from components/litt-blocks/insights, or copy the panels you need: each is its own function in the file, with its sample data above it. See it live at https://littmd.vercel.app/#insights.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1709,8 +1773,8 @@
       ],
       "docs": "Import Kbd from components/litt/kbd. Use it for real shortcuts only.",
       "meta": {
-        "version": "2026.10.15",
-        "released": "2026-10-15",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1731,8 +1795,8 @@
       ],
       "docs": "Import Legend and legendHues from components/litt/legend. Pass a label and the items as { name, hue?, value? } in the chart's order, five at most. Control it with hidden and onHiddenChange, or start it with defaultHidden. Pass the chart only the shown series, each with hue: legendHues(items)[name], so a series keeps its color when another is hidden, and turn the chart's own legend off with legend={false}. Alt with a click or Enter shows only that series.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1761,8 +1825,8 @@
       ],
       "docs": "Import Lightbox from components/litt/lightbox and hold the open index in state: set it from each Media's onOpen and pass setIndex as onIndexChange. Give each item its width and height.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1791,8 +1855,8 @@
       ],
       "docs": "Import ProjectList, ProjectGrid, ProjectFilters and ProjectsEmpty from components/litt/list.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1813,8 +1877,8 @@
       ],
       "docs": "Import ProjectCover from components/litt/list-cover.",
       "meta": {
-        "version": "2026.10.12",
-        "released": "2026-10-12",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1838,8 +1902,8 @@
       ],
       "docs": "Import LogView and LogLine from components/litt/log-view. Append lines ({ time, level, text }) as the run writes, and give it a height. Say how the run ended in your own status; lines are not read out one by one.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1890,8 +1954,8 @@
       ],
       "docs": "Import Menu and MenuItem from components/litt/menu. Its submenus are solid, never glass on glass.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1919,8 +1983,8 @@
       ],
       "docs": "Import Conversation, Message, MessageText and MessageActions from components/litt/message. Give the Conversation a label and a height, and mark it busy while the agent answers. Inside it put a Message with from=\"user\" for the person's turn, and a Message for the agent's, holding a MessageText (your markdown renderer's output goes inside it) and actions={<MessageActions copyText onRetry />}. Pass streaming while the text arrives, and error with onRetry for a turn that stopped.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1996,8 +2060,8 @@
       ],
       "docs": "Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2023,8 +2087,8 @@
       ],
       "docs": "Import OptionPicker from components/litt/option-picker. Pass the option's name and values; give values a swatch ({ color } or { image }) to show chips. optionsFor from product-card marks which values are sold out among the other picks.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2049,8 +2113,8 @@
       ],
       "docs": "Import Pad from components/litt/pad. Give it a label, an x and a y axis ({ label, min, max, step, minLabel, maxLabel }), and hold the value in state with value and onValueChange. Pass defaultMark to show the default and formatValue to say the value in words. Each axis is a range input for the keyboard and screen readers, and the arrow keys move it.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2072,8 +2136,8 @@
       ],
       "docs": "Import Pagination from components/litt/pagination. Hold the page in state and pass page, pageSize, total and onPageChange. Give it a label that says what is paged.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2099,8 +2163,8 @@
       ],
       "docs": "Import Plan from components/litt/plan. Pass a label and steps of { id, label, status, detail? }, with status one of pending, running, done, failed or skipped. Hold the steps in state and change a status in place as the agent works, and give every step a stable id so only a step you add later fades in. The count is the done steps over all steps, and failed and skipped steps do not count. It fills its container and has no card, so put it in a turn or in a panel you draw.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2186,8 +2250,8 @@
       ],
       "docs": "Import ProductPage from components/litt-blocks/product and render it as a page's content. The product sits at the top of the file: replace it with yours, or with one the shopify item's toProduct maps from your store. Mount the Toaster once near your root. See it live at https://littmd.vercel.app/#product.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2213,8 +2277,8 @@
       ],
       "docs": "Import ProductCard and ProductGrid from components/litt/product-card. A Product is plain data: the shopify item's toProduct makes one from the Storefront API, or write your own. Give every card in a grid one ratio.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2235,8 +2299,8 @@
       ],
       "docs": "Import Progress from components/litt/progress. Pass a label, a value and a max, and status=\"done\" or \"failed\" when it ends. A quantity that does not move while you watch is a Meter.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2337,8 +2401,8 @@
       ],
       "docs": "Import ScrollArea from components/litt/scroll-area. Pass a label and give it a height (or a max height) in className; set orientation to \"horizontal\" or \"both\" to scroll sideways. Pass viewportRef to read or set the scroll position.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2363,8 +2427,8 @@
       ],
       "docs": "Import Segmented from components/litt/segmented. Give it a legend, a value, onValueChange and options. In a form, pass showLegend and block.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2392,8 +2456,8 @@
       ],
       "docs": "Import Select or SelectField from components/litt/select. Pass options as { value, label } and a label, because a placeholder is not a label.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2497,8 +2561,8 @@
       ],
       "docs": "Import SignIn from components/litt-blocks/sign-in and render it as a whole page. signIn at the top of the file stands in for your auth call; return your server's message the same way, and point the links at your routes. See it live at https://littmd.vercel.app/#sign-in.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2524,8 +2588,8 @@
       ],
       "docs": "Import SlideConfirm from components/litt/slide-confirm. Give it a label that says what happens (\"Slide to delete Atelier Nord\"), a confirmedLabel and onConfirm, which runs once. Remount it with a new key to ask again. Use it for what cannot be undone, on touch screens; anything that can be undone should just happen, with Undo in a toast.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2549,8 +2613,8 @@
       ],
       "docs": "Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2575,8 +2639,8 @@
       ],
       "docs": "Import Sparkline from components/litt/sparkline. Pass a label and the values, oldest first. It fills its container's width, so give a table cell a wrapper with a width, and fix min and max so rows compare. Put the exact figure beside it. Stat takes one in its trend prop.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2597,8 +2661,8 @@
       ],
       "docs": "Import Spread from components/litt/spread. Pass a label and items of { label, values } or { label, min, p25, median, p75, max }, and a formatValue that includes the unit. Rows share one scale (linear or log, with an optional domain and ticks) and an optional goal. It fills its container's width, so give the container a width.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2620,8 +2684,8 @@
       ],
       "docs": "Import Stat and StatGroup from components/litt/stat. Say the direction in the delta's words, and set tone to good, bad or neutral for whether it is news. Put the tiles in a StatGroup: two across, four across from 40rem.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2666,8 +2730,8 @@
       ],
       "docs": "Import Steps from components/litt/steps. Pass the steps and the current index; onStepSelect lets done steps go back.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2692,8 +2756,8 @@
       ],
       "docs": "Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2721,8 +2785,8 @@
       ],
       "docs": "Import Table, TableHeader, TableBody, TableRow, TableHead and TableCell from components/litt/table. Give the Table a label, and a max height such as max-h-96 if you want the header to stick. The entrance is off until you pass entrance.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2745,8 +2809,8 @@
       ],
       "docs": "Import TableFilter from components/litt/table-filter and pass it as a TableHead's filter. Hold the values on in state ([] is no filter) and filter your rows with them; count each value against the other filters. To keep them in the page address, so the view can be shared or reloaded, hold them with useUrlFilter (and a search or sort with useUrlParam) instead of useState.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2772,8 +2836,8 @@
       ],
       "docs": "Import Tabs, TabsList, TabsTrigger, TabsPanels and TabsPanel from components/litt/tabs.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2794,8 +2858,8 @@
       ],
       "docs": "Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2855,8 +2919,8 @@
       ],
       "docs": "Import Thinking from components/litt/thinking. Pass active while the agent thinks and the reasoning as children: the clock counts from when active turned true. For a thought loaded from history leave active off and pass duration in seconds. open, defaultOpen and onOpenChange control it, and label replaces the words.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2881,8 +2945,8 @@
       ],
       "docs": "Import TimeScrubber from components/litt/time-scrubber. Give it a label, max (and min), the run's events as marks ({ at, label, tone }) and a formatValue for the units (\"+12s\", \"09:30\"). Hold the value in state and show what it replays beside it, such as a LogView with the lines up to the needle. A setting that stays is a Slider.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2907,8 +2971,8 @@
       ],
       "docs": "Import Timeline, TimelinePhase, TimelineStep, TimelineResult and TimelineBar from components/litt/timeline. Put steps in phases, give each step an at, a label, a status and its seconds, and close with a TimelineResult. Feed TimelineBar the same data as the list, and keep it beside the list.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2962,8 +3026,8 @@
       ],
       "docs": "Import TokenInput from components/litt/token-input. Give it a label and hold the values in state with value and onValueChange, or pass a defaultValue. Add validate to reject a value with a message, max to cap the list, collapseAfter to fold it, and name to post every value with a form.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2991,8 +3055,8 @@
       ],
       "docs": "Import ToolCall, ToolCallGroup and ToolApproval from components/litt/tool-call. Give a call a status, an action and a target, plus an input or an output to make it open. Pass running to a group, and hold decision in state for an approval, setting it in onAllow and onDeny. Keep an approval outside a group, and disable your Send while it waits so the view holds one accent fill.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3019,8 +3083,8 @@
       ],
       "docs": "Import Tooltip from components/litt/tooltip. Mount TooltipProvider once near the root so tooltips share one skip window.",
       "meta": {
-        "version": "2026.10.15",
-        "released": "2026-10-15",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3042,8 +3106,8 @@
       ],
       "docs": "Import Tree and TreeNode from components/litt/tree. Pass a label and items as data ({ id, label, detail, children }); an item with children is a branch. Hold expanded and selected in state, or leave them to the tree.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3070,8 +3134,8 @@
       ],
       "docs": "Import Usage from components/litt-blocks/usage. The sample data sits at the top of the file: keep one hue per kind of thing across the screen when you replace it. See it live at https://littmd.vercel.app/#usage.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3092,8 +3156,8 @@
       ],
       "docs": "Import VariantsDemo from components/litt/examples/button-demo, or read it for how @litt/button is used. Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/button"
       },
@@ -3117,8 +3181,8 @@
       ],
       "docs": "Import VerifyDemo from components/litt/examples/code-input-demo, or read it for how @litt/code-input is used. Import CodeInput from components/litt/code-input. Give it a label and check the code in onComplete; show what was wrong in error.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/code-input"
       },
@@ -3143,8 +3207,8 @@
       ],
       "docs": "Import NewProjectDemo from components/litt/examples/combobox-demo, or read it for how @litt/combobox is used. Import Combobox from components/litt/combobox. Give it a label and options as { value, label, disabled?, group? } or groups of { label, options }, and hold the value in state with value and onValueChange: a string (\"\" for none), or an array with multiple. Add hint, error and placeholder as on a field, and name to post the value with a form.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/combobox"
       },
@@ -3168,8 +3232,8 @@
       ],
       "docs": "Import LaunchDateDemo from components/litt/examples/date-picker-demo, or read it for how @litt/date-picker is used. Import DatePicker and Calendar from components/litt/date-picker, plus getToday, addDays and getWeekday for date math on YYYY-MM-DD strings. Values are YYYY-MM-DD strings, or { start, end } with mode=\"range\". DatePicker needs a label; hold the value in state with value and onValueChange, and pass name for a form (a range sends name-start and name-end). min, max and isDisabled rule days out; presets take { label, value }.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/date-picker"
       },
@@ -3191,8 +3255,8 @@
       ],
       "docs": "Import UploadDemo from components/litt/examples/file-drop-demo, or read it for how @litt/file-drop is used. Import FileDrop, FileList and FileRow from components/litt/file-drop. FileDrop hands the files that passed to onFiles; you upload them and render a FileRow for each.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/file-drop"
       },
@@ -3214,8 +3278,8 @@
       ],
       "docs": "Import StatesDemo from components/litt/examples/input-demo, or read it for how @litt/input is used. Import TextField, Input and Textarea from components/litt/input. TextField wires the label, hint and error for you, and a bare Input needs an aria-label. Text is 16px on touch screens.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/input"
       },
@@ -3237,8 +3301,8 @@
       ],
       "docs": "Import SeatsDemo from components/litt/examples/number-field-demo, or read it for how @litt/number-field is used. Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/number-field"
       },
@@ -3263,8 +3327,8 @@
       ],
       "docs": "Import AccountFormDemo from components/litt/examples/select-demo, or read it for how @litt/select is used. Import Select or SelectField from components/litt/select. Pass options as { value, label } and a label, because a placeholder is not a label.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/select"
       },
@@ -3289,8 +3353,8 @@
       ],
       "docs": "Import SendersDemo from components/litt/examples/token-input-demo, or read it for how @litt/token-input is used. Import TokenInput from components/litt/token-input. Give it a label and hold the values in state with value and onValueChange, or pass a defaultValue. Add validate to reject a value with a message, max to cap the list, collapseAfter to fold it, and name to post every value with a form.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/token-input"
       },
@@ -3312,8 +3376,8 @@
       ],
       "docs": "Import StatesDemo from components/litt/examples/checkbox-demo, or read it for how @litt/checkbox is used. Import Checkbox, CheckboxGroup, Radio and RadioGroup from components/litt/checkbox. They are native inputs, so name and value work in a form. Pass appearance=\"native\" for the browser's own 16px box.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/checkbox"
       },
@@ -3337,8 +3401,8 @@
       ],
       "docs": "Import BrandColorDemo from components/litt/examples/color-picker-demo, or read it for how @litt/color-picker is used. Import ColorPicker and ColorPanel from components/litt/color-picker, plus parseHex, describeColor, getContrastInk, hexToHsv and hsvToHex. Values are six-digit lowercase hex strings with the hash. ColorPicker needs a label; hold the value in state with value and onValueChange (null for none), pass name for a form, and swatches as { label, value }. Save with onValueCommit, which fires on release. Use getContrastInk for text drawn on the picked color.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/color-picker"
       },
@@ -3362,8 +3426,8 @@
       ],
       "docs": "Import VoiceDemo from components/litt/examples/pad-demo, or read it for how @litt/pad is used. Import Pad from components/litt/pad. Give it a label, an x and a y axis ({ label, min, max, step, minLabel, maxLabel }), and hold the value in state with value and onValueChange. Pass defaultMark to show the default and formatValue to say the value in words. Each axis is a range input for the keyboard and screen readers, and the arrow keys move it.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/pad"
       },
@@ -3387,8 +3451,8 @@
       ],
       "docs": "Import DeleteProjectDemo from components/litt/examples/slide-confirm-demo, or read it for how @litt/slide-confirm is used. Import SlideConfirm from components/litt/slide-confirm. Give it a label that says what happens (\"Slide to delete Atelier Nord\"), a confirmedLabel and onConfirm, which runs once. Remount it with a new key to ask again. Use it for what cannot be undone, on touch screens; anything that can be undone should just happen, with Undo in a toast.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slide-confirm"
       },
@@ -3412,8 +3476,8 @@
       ],
       "docs": "Import SpeedDemo from components/litt/examples/slider-demo, or read it for how @litt/slider is used. Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slider"
       },
@@ -3436,8 +3500,8 @@
       ],
       "docs": "Import SettingsListDemo from components/litt/examples/switch-demo, or read it for how @litt/switch is used. Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/switch"
       },
@@ -3460,8 +3524,8 @@
       ],
       "docs": "Import ReplayDemo from components/litt/examples/time-scrubber-demo, or read it for how @litt/time-scrubber is used. Import TimeScrubber from components/litt/time-scrubber. Give it a label, max (and min), the run's events as marks ({ at, label, tone }) and a formatValue for the units (\"+12s\", \"09:30\"). Hold the value in state and show what it replays beside it, such as a LogView with the lines up to the needle. A setting that stays is a Slider.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/time-scrubber"
       },
@@ -3484,8 +3548,8 @@
       ],
       "docs": "Import ThemeDemo from components/litt/examples/segmented-demo, or read it for how @litt/segmented is used. Import Segmented from components/litt/segmented. Give it a legend, a value, onValueChange and options. In a form, pass showLegend and block.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/segmented"
       },
@@ -3509,8 +3573,8 @@
       ],
       "docs": "Import ProjectTabs from components/litt/examples/tabs-demo, or read it for how @litt/tabs is used. Import Tabs, TabsList, TabsTrigger, TabsPanels and TabsPanel from components/litt/tabs.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tabs"
       },
@@ -3533,8 +3597,8 @@
       ],
       "docs": "Import LabelsDemo from components/litt/examples/tag-demo, or read it for how @litt/tag is used. Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tag"
       },
@@ -3557,8 +3621,8 @@
       ],
       "docs": "Import KeylinesDemo from components/litt/examples/icons-demo, or read it for how @litt/icons is used. Import the icons you need from components/litt/icons. They are decorative unless you label them. Draw a missing one on the same grid, never from another set.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/icons"
       },
@@ -3581,8 +3645,8 @@
       ],
       "docs": "Import KeysDemo from components/litt/examples/kbd-demo, or read it for how @litt/kbd is used. Import Kbd from components/litt/kbd. Use it for real shortcuts only.",
       "meta": {
-        "version": "2026.10.15",
-        "released": "2026-10-15",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/kbd"
       },
@@ -3607,8 +3671,8 @@
       ],
       "docs": "Import Toolbar from components/litt/examples/tooltip-demo, or read it for how @litt/tooltip is used. Import Tooltip from components/litt/tooltip. Mount TooltipProvider once near the root so tooltips share one skip window.",
       "meta": {
-        "version": "2026.10.15",
-        "released": "2026-10-15",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tooltip"
       },
@@ -3714,8 +3778,8 @@
       ],
       "docs": "Import ProjectMenu from components/litt/examples/menu-demo, or read it for how @litt/menu is used. Import Menu and MenuItem from components/litt/menu. Its submenus are solid, never glass on glass.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/menu"
       },
@@ -3741,8 +3805,8 @@
       ],
       "docs": "Import OpenDemo from components/litt/examples/command-menu-demo, or read it for how @litt/command-menu is used. Import CommandMenu and useCommandShortcut from components/litt/command-menu. Give it groups of items and an onSelect.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/command-menu"
       },
@@ -3766,8 +3830,8 @@
       ],
       "docs": "Import PublishDemo from components/litt/examples/dialog-demo, or read it for how @litt/dialog is used. Import Dialog, DialogTrigger, DialogContent and DialogClose from components/litt/dialog. Pair a form's submit with a Cancel, both at size md.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/dialog"
       },
@@ -3841,8 +3905,8 @@
       ],
       "docs": "Import DesktopDemo from components/litt/examples/header-demo, or read it for how @litt/header is used. Import Header from components/litt/header. Pass a wordmark, links with a current flag and your actions. It needs no router and no provider; pass renderLink and onNavigate to use yours.",
       "meta": {
-        "version": "2026.10.21",
-        "released": "2026-10-21",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/header"
       },
@@ -3866,8 +3930,8 @@
       ],
       "docs": "Import SetupDemo from components/litt/examples/steps-demo, or read it for how @litt/steps is used. Import Steps from components/litt/steps. Pass the steps and the current index; onStepSelect lets done steps go back.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/steps"
       },
@@ -3913,8 +3977,8 @@
       ],
       "docs": "Import InboxDemo from components/litt/examples/avatar-demo, or read it for how @litt/avatar is used. Import Avatar and AvatarGroup from components/litt/avatar. Pass a name: the initials and the hue come from it unless you set a hue. Set decorative when the name is written beside the avatar. Give AvatarGroup a label, the first few avatars and a total, and match its ring to the surface it sits on.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/avatar"
       },
@@ -3938,8 +4002,8 @@
       ],
       "docs": "Import TipDemo from components/litt/examples/callout-demo, or read it for how @litt/callout is used. Import Callout from components/litt/callout. Pass a title, a description and a tone, and an action (an sm Button or a Kbd) or onDismiss when there is something to do. Set live for a callout that appears after an action. It fills the width of its container, so give the container a width.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/callout"
       },
@@ -3965,8 +4029,8 @@
       ],
       "docs": "Import ClientCardsDemo from components/litt/examples/card-demo, or read it for how @litt/card is used. Import Card, CardCover, CardBody, CardTitle, CardDescription and CardLink from components/litt/card. Put CardLink around the title to make the card a link. Anything else you can press inside it needs relative.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/card"
       },
@@ -3989,8 +4053,8 @@
       ],
       "docs": "Import UploadDemo from components/litt/examples/progress-demo, or read it for how @litt/progress is used. Import Progress from components/litt/progress. Pass a label, a value and a max, and status=\"done\" or \"failed\" when it ends. A quantity that does not move while you watch is a Meter.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/progress"
       },
@@ -4039,8 +4103,8 @@
       ],
       "docs": "Import DeployLogDemo from components/litt/examples/scroll-area-demo, or read it for how @litt/scroll-area is used. Import ScrollArea from components/litt/scroll-area. Pass a label and give it a height (or a max height) in className; set orientation to \"horizontal\" or \"both\" to scroll sideways. Pass viewportRef to read or set the scroll position.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/scroll-area"
       },
@@ -4063,8 +4127,8 @@
       ],
       "docs": "Import FilesDemo from components/litt/examples/tree-demo, or read it for how @litt/tree is used. Import Tree and TreeNode from components/litt/tree. Pass a label and items as data ({ id, label, detail, children }); an item with children is a branch. Hold expanded and selected in state, or leave them to the tree.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tree"
       },
@@ -4087,8 +4151,8 @@
       ],
       "docs": "Import DeployHistoryDemo from components/litt/examples/table-demo, or read it for how @litt/table is used. Import Table, TableHeader, TableBody, TableRow, TableHead and TableCell from components/litt/table. Give the Table a label, and a max height such as max-h-96 if you want the header to stick. The entrance is off until you pass entrance.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/table"
       },
@@ -4113,8 +4177,8 @@
       ],
       "docs": "Import SelectDemo from components/litt/examples/action-bar-demo, or read it for how @litt/action-bar is used. Import ActionBar from components/litt/action-bar and place it after the list, inside the same scrolling area. Pass the count, a noun and onClear, and sm Buttons as children. Never an accent fill.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/action-bar"
       },
@@ -4137,8 +4201,8 @@
       ],
       "docs": "Import ShortcutsDemo from components/litt/examples/bar-list-demo, or read it for how @litt/bar-list is used. Import BarList from components/litt/bar-list. Pass a label and items of { label, value }, plus a unit for screen readers. A row with an href is a link, and with onSelect the others are buttons.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/bar-list"
       },
@@ -4160,8 +4224,8 @@
       ],
       "docs": "Import StorageDemo from components/litt/examples/breakdown-demo, or read it for how @litt/breakdown is used. Import Breakdown from components/litt/breakdown. Pass a label, the parts as { label, value } largest first, and the total when there is free space. Past five parts the rest fold into Other. Pin a hue on a part to keep a kind's color across a page.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/breakdown"
       },
@@ -4183,8 +4247,8 @@
       ],
       "docs": "Import WeeklyDemo from components/litt/examples/cohort-grid-demo, or read it for how @litt/cohort-grid is used. Import CohortGrid from components/litt/cohort-grid. Pass a label and cohorts as { label, size, values }, oldest first. Each value is the share still active (0 to 100), or a count with valueType=\"count\", and a missing or null value is a period the cohort has not reached. Set periodLabel=\"Month\" or pass periods for other headers. Add average for an All cohorts row and pick a hue.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/cohort-grid"
       },
@@ -4209,8 +4273,8 @@
       ],
       "docs": "Import DeploymentDemo from components/litt/examples/details-demo, or read it for how @litt/details is used. Import Details, DetailsItem and DetailsLink from components/litt/details. Give Details a title and one DetailsItem per fact, with copy on the values people paste. Use layout=\"grid\" for a few short facts, and bare inside a dialog or a panel.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/details"
       },
@@ -4234,8 +4298,8 @@
       ],
       "docs": "Import ReplySpeedDemo from components/litt/examples/dot-plot-demo, or read it for how @litt/dot-plot is used. Import DotPlot from components/litt/dot-plot. Pass a label, the values, a scale (log for durations) and a formatValue. Add a goal to split the dots, markers to name outliers. It measures its container, so give it a width. Each non-empty column is reachable with the arrow keys.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/dot-plot"
       },
@@ -4257,8 +4321,8 @@
       ],
       "docs": "Import StoreDemo from components/litt/examples/funnel-demo, or read it for how @litt/funnel is used. Import Funnel from components/litt/funnel. Pass a label and the steps as { label, value } in the order people go through them. Every rail is measured against the first step. hue picks the one data hue (blue by default), unit or formatValue writes the numbers, overallText replaces \"4.1% overall\", and formatStep(value, previous) rewrites the line between steps.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/funnel"
       },
@@ -4280,8 +4344,8 @@
       ],
       "docs": "Import CreditsDemo from components/litt/examples/gauge-demo, or read it for how @litt/gauge is used. Import Gauge from components/litt/gauge. Pass a label, a value, a max and a value text (what a screen reader hears); add a figure, a caption or a hue. It scales down to its container.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/gauge"
       },
@@ -4303,8 +4367,8 @@
       ],
       "docs": "Import UsageDemo from components/litt/examples/heatmap-demo, or read it for how @litt/heatmap is used. Import Heatmap from components/litt/heatmap. Pass a label, rows of { label, values, total? } and columns that name each column, and pick a hue. Use null for a day with no data. The dots are a grid you can arrow through.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/heatmap"
       },
@@ -4327,8 +4391,8 @@
       ],
       "docs": "Import ChartDemo from components/litt/examples/legend-demo, or read it for how @litt/legend is used. Import Legend and legendHues from components/litt/legend. Pass a label and the items as { name, hue?, value? } in the chart's order, five at most. Control it with hidden and onHiddenChange, or start it with defaultHidden. Pass the chart only the shown series, each with hue: legendHues(items)[name], so a series keeps its color when another is hidden, and turn the chart's own legend off with legend={false}. Alt with a click or Enter shows only that series.",
       "meta": {
-        "version": "2026.10.20",
-        "released": "2026-10-20",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/legend"
       },
@@ -4350,8 +4414,8 @@
       ],
       "docs": "Import BuildDemo from components/litt/examples/log-view-demo, or read it for how @litt/log-view is used. Import LogView and LogLine from components/litt/log-view. Append lines ({ time, level, text }) as the run writes, and give it a height. Say how the run ended in your own status; lines are not read out one by one.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.25",
+        "released": "2026-10-25",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/log-view"
       },
@@ -4374,8 +4438,8 @@
       ],
       "docs": "Import BesideAFigureDemo from components/litt/examples/sparkline-demo, or read it for how @litt/sparkline is used. Import Sparkline from components/litt/sparkline. Pass a label and the values, oldest first. It fills its container's width, so give a table cell a wrapper with a width, and fix min and max so rows compare. Put the exact figure beside it. Stat takes one in its trend prop.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/sparkline"
       },
@@ -4397,8 +4461,8 @@
       ],
       "docs": "Import BuildTimesDemo from components/litt/examples/spread-demo, or read it for how @litt/spread is used. Import Spread from components/litt/spread. Pass a label and items of { label, values } or { label, min, p25, median, p75, max }, and a formatValue that includes the unit. Rows share one scale (linear or log, with an optional domain and ticks) and an optional goal. It fills its container's width, so give the container a width.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/spread"
       },
@@ -4421,8 +4485,8 @@
       ],
       "docs": "Import DeployDemo from components/litt/examples/timeline-demo, or read it for how @litt/timeline is used. Import Timeline, TimelinePhase, TimelineStep, TimelineResult and TimelineBar from components/litt/timeline. Put steps in phases, give each step an at, a label, a status and its seconds, and close with a TimelineResult. Feed TimelineBar the same data as the list, and keep it beside the list.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/timeline"
       },
@@ -4447,8 +4511,8 @@
       ],
       "docs": "Import ShellDemo from components/litt/examples/app-shell-demo, or read it for how @litt/app-shell is used. Import AppShell, SidebarNav and SidebarLink from components/litt/app-shell. Pass a wordmark, a nav and the page. Mark the current link with current. It needs no router: pass as={Link} to a SidebarLink to use yours.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/app-shell"
       },
@@ -4470,8 +4534,8 @@
       ],
       "docs": "Import DeploysDemo from components/litt/examples/chart-demo, or read it for how @litt/chart is used. Import BarChart, LineChart, StackedBarChart and Meter from components/litt/chart. Pass a label, the category labels and series of { name, values }, with an optional hue per series or hues on the chart. The chart measures its container, so give it a width. Every chart ships a hidden table and a summary for screen readers.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/chart"
       },
@@ -4497,8 +4561,8 @@
       ],
       "docs": "Import StartProjectDemo from components/litt/examples/form-demo, or read it for how @litt/form is used. Import FormSection, Fieldset, ErrorSummary and FormActions from components/litt/form. The fields themselves come from input, select, checkbox, switch and slider.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/form"
       },
@@ -4522,8 +4586,8 @@
       ],
       "docs": "Import DeploysDemo from components/litt/examples/pagination-demo, or read it for how @litt/pagination is used. Import Pagination from components/litt/pagination. Hold the page in state and pass page, pageSize, total and onPageChange. Give it a label that says what is paged.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/pagination"
       },
@@ -4571,8 +4635,8 @@
       ],
       "docs": "Import StudioStatsDemo from components/litt/examples/stat-demo, or read it for how @litt/stat is used. Import Stat and StatGroup from components/litt/stat. Say the direction in the delta's words, and set tone to good, bad or neutral for whether it is news. Put the tiles in a StatGroup: two across, four across from 40rem.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/stat"
       },
@@ -4621,8 +4685,8 @@
       ],
       "docs": "Import FilesDemo from components/litt/examples/code-block-demo, or read it for how @litt/code-block is used. Import CodeBlock from components/litt/code-block. Pass the code, a lang (tsx, ts, jsx, js, diff, shell or text) and a filename for the header. The label names the scroll area and defaults to the file name. lineNumbers adds a gutter, wrap wraps long lines, and maxHeight (a number or a CSS length) makes a tall block scroll. A diff reads each line's first character as its sign. The syntax colors are declared on the block itself, so it needs no stylesheet. It imports sugar-high.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/code-block"
       },
@@ -4647,8 +4711,8 @@
       ],
       "docs": "Import StudioDemo from components/litt/examples/composer-demo, or read it for how @litt/composer is used. Import Composer (and FileChip) from components/litt/composer. Hold the files yourself and pass onSend, streaming and onStop: the field clears after a send, and Send becomes Stop while streaming is true. Pass onFiles to show Attach and take pastes and drops, files and onRemoveFile to draw the chips, tools for a model Select at sm, suggestions for an empty chat, hint for a line under the box, and maxLength for the count. On a touch screen Return adds a line and Send sends by itself (enterSends overrides it); keep the composer above the keyboard with useVisibleScreen.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/composer"
       },
@@ -4673,8 +4737,8 @@
       ],
       "docs": "Import ThreadDemo from components/litt/examples/message-demo, or read it for how @litt/message is used. Import Conversation, Message, MessageText and MessageActions from components/litt/message. Give the Conversation a label and a height, and mark it busy while the agent answers. Inside it put a Message with from=\"user\" for the person's turn, and a Message for the agent's, holding a MessageText (your markdown renderer's output goes inside it) and actions={<MessageActions copyText onRetry />}. Pass streaming while the text arrives, and error with onRetry for a turn that stopped.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/message"
       },
@@ -4696,8 +4760,8 @@
       ],
       "docs": "Import MoveDemo from components/litt/examples/plan-demo, or read it for how @litt/plan is used. Import Plan from components/litt/plan. Pass a label and steps of { id, label, status, detail? }, with status one of pending, running, done, failed or skipped. Hold the steps in state and change a status in place as the agent works, and give every step a stable id so only a step you add later fades in. The count is the done steps over all steps, and failed and skipped steps do not count. It fills its container and has no card, so put it in a turn or in a panel you draw.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/plan"
       },
@@ -4720,8 +4784,8 @@
       ],
       "docs": "Import LiveDemo from components/litt/examples/thinking-demo, or read it for how @litt/thinking is used. Import Thinking from components/litt/thinking. Pass active while the agent thinks and the reasoning as children: the clock counts from when active turned true. For a thought loaded from history leave active off and pass duration in seconds. open, defaultOpen and onOpenChange control it, and label replaces the words.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/thinking"
       },
@@ -4744,8 +4808,8 @@
       ],
       "docs": "Import RunDemo from components/litt/examples/tool-call-demo, or read it for how @litt/tool-call is used. Import ToolCall, ToolCallGroup and ToolApproval from components/litt/tool-call. Give a call a status, an action and a target, plus an input or an output to make it open. Pass running to a group, and hold decision in state for an approval, setting it in onAllow and onDeny. Keep an approval outside a group, and disable your Send while it waits so the view holds one accent fill.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.10.26",
+        "released": "2026-10-26",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tool-call"
       },

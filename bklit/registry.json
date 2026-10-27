@@ -228,10 +228,7 @@
       "name": "chart-parent-size",
       "type": "registry:component",
       "title": "Chart Parent Size",
-      "description": "Responsive size wrapper for charts (visx useParentSize without overflow clipping).",
-      "dependencies": [
-        "@visx/responsive@4.0.0"
-      ],
+      "description": "Responsive size wrapper for charts: measures before first paint, then tracks resizes (no overflow clipping).",
       "files": [
         {
           "path": "src/charts/chart-parent-size.tsx",
@@ -756,6 +753,11 @@
           "path": "src/charts/tooltip/tooltip-box.tsx",
           "type": "registry:component",
           "target": "components/charts/tooltip/tooltip-box.tsx"
+        },
+        {
+          "path": "src/charts/tooltip/cursor-tooltip-box.tsx",
+          "type": "registry:component",
+          "target": "components/charts/tooltip/cursor-tooltip-box.tsx"
         },
         {
           "path": "src/charts/tooltip/tooltip-content.tsx",
@@ -1370,13 +1372,13 @@
         "@bklit/grid",
         "@bklit/x-axis",
         "@bklit/chart-tooltip",
-        "@bklit/utils"
+        "@bklit/utils",
+        "@bklit/chart-parent-size"
       ],
       "dependencies": [
         "d3-array",
         "d3-scale",
-        "motion",
-        "react-use-measure"
+        "motion"
       ],
       "files": [
         {
@@ -2586,8 +2588,7 @@
         "badge"
       ],
       "dependencies": [
-        "@number-flow/react",
-        "@central-icons-react/all"
+        "@number-flow/react"
       ],
       "files": [
         {
@@ -2631,8 +2632,7 @@
         "@bklit/stat-card-area-01"
       ],
       "dependencies": [
-        "@number-flow/react",
-        "@central-icons-react/all"
+        "@number-flow/react"
       ],
       "files": [
         {
@@ -2659,8 +2659,7 @@
         "badge"
       ],
       "dependencies": [
-        "@number-flow/react",
-        "@central-icons-react/all"
+        "@number-flow/react"
       ],
       "files": [
         {
@@ -2704,8 +2703,7 @@
         "@bklit/stat-card-line-01"
       ],
       "dependencies": [
-        "@number-flow/react",
-        "@central-icons-react/all"
+        "@number-flow/react"
       ],
       "files": [
         {
@@ -2735,7 +2733,6 @@
         "@number-flow/react",
         "@types/geojson",
         "@types/topojson-specification",
-        "@central-icons-react/all",
         "topojson-client"
       ],
       "files": [
@@ -2788,7 +2785,6 @@
         "@number-flow/react",
         "@types/geojson",
         "@types/topojson-specification",
-        "@central-icons-react/all",
         "topojson-client"
       ],
       "files": [
