@@ -241,6 +241,11 @@
           "--litt-accent-text": "#104dfd",
           "--litt-accent-tint": "#e7f0ff",
           "--litt-focus": "#0957fd",
+          "--litt-accent-pink": "#c0007e",
+          "--litt-accent-pink-hover": "#a8006e",
+          "--litt-accent-pink-text": "#90005d",
+          "--litt-accent-pink-tint": "#feeaf2",
+          "--litt-focus-pink": "#c0007e",
           "--litt-success": "#007c3b",
           "--litt-warning": "#9c5a00",
           "--litt-danger": "#be2e31",
@@ -305,6 +310,11 @@
           "--litt-accent-text": "#5e78fe",
           "--litt-accent-tint": "#0e1a31",
           "--litt-focus": "#5e78fe",
+          "--litt-accent-pink": "#c0007e",
+          "--litt-accent-pink-hover": "#cd1c89",
+          "--litt-accent-pink-text": "#feb9db",
+          "--litt-accent-pink-tint": "#2b0d1d",
+          "--litt-focus-pink": "#feb9db",
           "--litt-success": "#4bc680",
           "--litt-warning": "#e19b1b",
           "--litt-danger": "#ff756f",
@@ -370,6 +380,11 @@
             "--litt-accent-text": "#5e78fe",
             "--litt-accent-tint": "#0e1a31",
             "--litt-focus": "#5e78fe",
+            "--litt-accent-pink": "#c0007e",
+            "--litt-accent-pink-hover": "#cd1c89",
+            "--litt-accent-pink-text": "#feb9db",
+            "--litt-accent-pink-tint": "#2b0d1d",
+            "--litt-focus-pink": "#feb9db",
             "--litt-success": "#4bc680",
             "--litt-warning": "#e19b1b",
             "--litt-danger": "#ff756f",
@@ -427,6 +442,16 @@
           "--litt-data-violet-tint": "color-mix(in oklab, var(--litt-data-violet) var(--litt-tint-strength), var(--litt-surface-1))",
           "--litt-data-rose-tint": "color-mix(in oklab, var(--litt-data-rose) var(--litt-tint-strength), var(--litt-surface-1))"
         },
+        ":root[data-accent=\"pink\"], [data-accent=\"pink\"]": {
+          "--litt-accent": "var(--litt-accent-pink)",
+          "--litt-accent-hover": "var(--litt-accent-pink-hover)",
+          "--litt-accent-text": "var(--litt-accent-pink-text)",
+          "--litt-accent-tint": "var(--litt-accent-pink-tint)",
+          "--litt-focus": "var(--litt-focus-pink)",
+          "--litt-light": "radial-gradient(120% 70% at 50% -10%, color-mix(in oklab, var(--litt-accent-pink) var(--litt-light-strength), transparent) 0%, transparent 65%)",
+          "--litt-glow": "0 0 0 1px color-mix(in oklab, var(--litt-accent-pink) 55%, transparent), 0 0 24px color-mix(in oklab, var(--litt-accent-pink) var(--litt-glow-strength), transparent)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus-pink)"
+        },
         "@supports not (color: color-mix(in oklab, red, blue))": {
           ":root, [data-theme], .dark, .light": {
             "--litt-light": "none",
@@ -436,6 +461,10 @@
             "--litt-data-teal-tint": "var(--litt-surface-2)",
             "--litt-data-violet-tint": "var(--litt-surface-2)",
             "--litt-data-rose-tint": "var(--litt-surface-2)"
+          },
+          ":root[data-accent=\"pink\"], [data-accent=\"pink\"]": {
+            "--litt-light": "none",
+            "--litt-glow": "0 0 0 1px var(--litt-accent-pink)"
           }
         },
         ":root[data-accent=\"mono\"], [data-accent=\"mono\"]": {
@@ -525,8 +554,8 @@
       },
       "docs": "Added to your global CSS: --litt-* variables, Tailwind names such as bg-litt-surface-1 and rounded-litt-control, and the litt-glass class and its siblings. Nothing of yours is changed. Dark follows .dark, [data-theme=\"dark\"] or the system setting.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md"
       }
     },
@@ -677,20 +706,24 @@
       "title": "Agent block",
       "description": "A chat with an agent as one screen, from the first word to the deploy: the conversation, the thinking, a plan, a run of tool calls, an approval, the answer with its code and the composer. A scripted run plays every state without a model and waits for you at the approval.",
       "registryDependencies": [
-        "https://littmd.vercel.app/r/code-block.json",
+        "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/composer.json",
+        "https://littmd.vercel.app/r/file-changes.json",
         "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/log-view.json",
         "https://littmd.vercel.app/r/message.json",
         "https://littmd.vercel.app/r/motion.json",
         "https://littmd.vercel.app/r/plan.json",
+        "https://littmd.vercel.app/r/run-list.json",
         "https://littmd.vercel.app/r/select.json",
+        "https://littmd.vercel.app/r/sources.json",
         "https://littmd.vercel.app/r/thinking.json",
         "https://littmd.vercel.app/r/tool-call.json"
       ],
       "docs": "Import AgentChat from components/litt-blocks/agent and give its box a height; the conversation scrolls inside it. The run is a script: to wire in your agent, keep LittTurn and the layout and replace useRun with your stream. See it live at https://littmd.vercel.app/#agent.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1181,8 +1214,8 @@
       ],
       "docs": "Import Combobox from components/litt/combobox. Give it a label and options as { value, label, disabled?, group? } or groups of { label, options }, and hold the value in state with value and onValueChange: a string (\"\" for none), or an array with multiple. Add hint, error and placeholder as on a field, and name to post the value with a form.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1276,6 +1309,34 @@
           "path": "registry/litt/ui/context-menu.tsx",
           "type": "registry:ui",
           "target": "components/litt/context-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curve-editor",
+      "type": "registry:ui",
+      "title": "Curve editor",
+      "description": "An easing shaped by hand, as a cubic Bézier: two round caps pull the curve from its start and its end, on a well that shows progress from -0.25 to 1.25. It writes the curve as CSS, says what it feels like in words, and a dot crosses a rail on it when you let go.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Import CurveEditor from components/litt/curve-editor. Give it a label and hold the curve ([x1, y1, x2, y2]) in state with value and onValueChange; toCubicBezier writes it as CSS. Pass defaultMark to show the default and duration for the preview. Each handle is one tab stop with two range inputs.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/curve-editor.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/curve-editor.tsx"
         }
       ]
     },
@@ -1448,6 +1509,37 @@
           "path": "registry/litt/ui/dot-plot.tsx",
           "type": "registry:ui",
           "target": "components/litt/dot-plot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "file-changes",
+      "type": "registry:ui",
+      "title": "File changes",
+      "description": "What an agent changed in a codebase, to review before keeping it: the files added, modified, deleted and renamed, each with its lines added and removed said in words and figures, each opening to its diff, each kept or undone on its row, and Keep all and Undo all for the rest. Send keeps the view's accent fill: Keep all is a raised block unless accent is set on a screen with no composer.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/code-block.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/rolling-number.json",
+        "https://littmd.vercel.app/r/tooltip.json"
+      ],
+      "docs": "Import FileChanges from components/litt/file-changes. Pass changes ({ id, path, kind, diff?, added?, removed?, from? for a rename, state? }) and onDecide(ids, decision), and set each change's state from it: the component holds no decision of its own. Use one change in an edit call's details and every change at the end of the turn.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/file-changes.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/file-changes.tsx"
         }
       ]
     },
@@ -1764,6 +1856,36 @@
       ]
     },
     {
+      "name": "inspector",
+      "type": "registry:ui",
+      "title": "Inspector",
+      "description": "A floating glass panel for tuning one thing live, built from litt's own controls: groups that fold, versions you save and go back to, a check against your rules with a Fits or Change row each, and Copy tokens.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/select.json",
+        "https://littmd.vercel.app/r/tag.json"
+      ],
+      "docs": "Import Inspector and InspectorGroup from components/litt/inspector. Hold every value in one object and pass it as value with onValueChange, then put a Slider, a Switch, a Spring editor or a Curve editor in each InspectorGroup. Add defaultValue for Reset, presets and storageKey for versions, checks for the rules and tokens for Copy tokens.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/inspector.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/inspector.tsx"
+        }
+      ]
+    },
+    {
       "name": "kbd",
       "type": "registry:ui",
       "title": "Kbd",
@@ -2008,8 +2130,8 @@
       ],
       "docs": "Installed in lib/litt/motion. The components use it for you, and it needs no provider.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2029,6 +2151,11 @@
           "target": "lib/litt/motion/tokens.ts"
         },
         {
+          "path": "registry/litt/lib/motion/rules.ts",
+          "type": "registry:lib",
+          "target": "lib/litt/motion/rules.ts"
+        },
+        {
           "path": "registry/litt/lib/motion/device.ts",
           "type": "registry:lib",
           "target": "lib/litt/motion/device.ts"
@@ -2037,6 +2164,11 @@
           "path": "registry/litt/lib/motion/drag.ts",
           "type": "registry:lib",
           "target": "lib/litt/motion/drag.ts"
+        },
+        {
+          "path": "registry/litt/lib/motion/hand.ts",
+          "type": "registry:lib",
+          "target": "lib/litt/motion/hand.ts"
         },
         {
           "path": "registry/litt/lib/motion/fun.tsx",
@@ -2163,8 +2295,8 @@
       ],
       "docs": "Import Plan from components/litt/plan. Pass a label and steps of { id, label, status, detail? }, with status one of pending, running, done, failed or skipped. Hold the steps in state and change a status in place as the agent works, and give every step a stable id so only a step you add later fades in. The count is the done steps over all steps, and failed and skipped steps do not count. It fills its container and has no card, so put it in a turn or in a panel you draw.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2341,6 +2473,34 @@
       ]
     },
     {
+      "name": "range-chart",
+      "type": "registry:ui",
+      "title": "Range chart",
+      "description": "One quantity over time as a barcode of thin bars, with labelled segments and their shares in a tray above, and a range you brush by hand: drag across the bars, drag either edge, or drag the whole span. The edges follow the pointer one to one and settle on a bar or a segment start; the segment that matches the range is raised. The total of what is brushed rolls as you go, its last group of digits in the quiet ink. In fun mode the span can be thrown and the bars it sweeps rise and settle.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/rolling-number.json"
+      ],
+      "docs": "Import RangeChart from components/litt/range-chart. Give it a label, bars as { label, value }, and optionally segments as { label, start }, axis ticks and a unit. Hold the range in state with value and onValueChange ([first, last], both inclusive), or load on onValueCommit, which fires once the edges have settled. The figure is a sum, so the values must add up. A single moment in a run is a TimeScrubber; a value that stays is a Slider.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/range-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/range-chart.tsx"
+        }
+      ]
+    },
+    {
       "name": "resizable",
       "type": "registry:ui",
       "title": "Resizable",
@@ -2384,6 +2544,101 @@
           "path": "registry/litt/ui/rolling-number.tsx",
           "type": "registry:ui",
           "target": "components/litt/rolling-number.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rule-builder",
+      "type": "registry:ui",
+      "title": "Rule builder",
+      "description": "Conditions built from rows: a field, an operator and a value, joined by And or Or, grouped and nested, added, removed and reordered by a handle. A row picked up by its handle rises into a raised block and the others make room; the new order is committed once it has settled. Space lifts a row for the arrow keys.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/combobox.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/input.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/number-field.json",
+        "https://littmd.vercel.app/r/segmented.json",
+        "https://littmd.vercel.app/r/select.json"
+      ],
+      "docs": "Import RuleBuilder from components/litt/rule-builder. Give it a label and fields ({ id, label, type: text, number or choice, options, operators }) and hold the tree in state with value and onValueChange, or pass name and defaultValue in a form (it posts one JSON string). newCondition, newGroup and isGroup build and read the tree. errors by condition id says a problem under its row. A filter on one table column is a TableFilter.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/rule-builder.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/rule-builder.tsx"
+        }
+      ]
+    },
+    {
+      "name": "run-card",
+      "type": "registry:ui",
+      "title": "Run card",
+      "description": "An agent's run as a card: what it is making, how far it has got in words (Step 2 of 3) and in a ring, and its steps. Hide folds it into a raised block you press to open again; the ring travels between the two while the words glide, and the height snaps. A polite status keeps saying the step while the card is folded.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/plan.json",
+        "https://littmd.vercel.app/r/rolling-number.json"
+      ],
+      "docs": "Import RunCard from components/litt/run-card. Give it a title and the run's steps as Plan takes them (label, status, an id), and optionally progress from 0 to 1, a preview, actions such as a Stop button, and open with onOpenChange. Update steps in place as the agent works. A plan with no run behind it is a Plan.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/run-card.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/run-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "run-list",
+      "type": "registry:ui",
+      "title": "Run list",
+      "description": "An agent's runs for a sidebar or an inbox: each run's title, its status in words and a mark (running, needs you, done, failed, stopped), where it has got and when it last changed, the runs that need you first, the selected run as a raised block that glides from row to row, a filter by status with counts, and Stop or Archive on a row.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/glide.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/select.json",
+        "https://littmd.vercel.app/r/states.json",
+        "https://littmd.vercel.app/r/tooltip.json"
+      ],
+      "docs": "Import RunList from components/litt/run-list. Pass runs ({ id, title, status, detail?, progress?, updated, href? }) in your order, selectedId and onSelect, and onStop and onArchive for the row actions. updated is words you give (\"2m ago\"): the list reads no clock.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/run-list.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/run-list.tsx"
         }
       ]
     },
@@ -2626,6 +2881,34 @@
       ]
     },
     {
+      "name": "sources",
+      "type": "registry:ui",
+      "title": "Sources",
+      "description": "Where an answer came from: Sources holds a turn's sources and numbers them once, Citation is a quiet numbered chip in the running text that opens its source and previews it in a hover card (the site, the title, the passage, when it was read), and SourceList lists them under the answer or as what a search call found. Resting on a citation lights its row, and resting on a row lights its citations. A source the model gives a url that is not http or https shows as text.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/hover-card.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Import Sources, Citation and SourceList from components/litt/sources. Wrap the turn's parts in Sources with the sources ({ id, title, url, site?, passage?, readAt?, kind? }); a source's number is its place in that list. Have your markdown renderer turn a #cite-<id> link into <Citation source=\"<id>\" /> (citationId reads the href, unlinkCitations cleans text for Copy). Put a SourceList after the answer, and a SourceList with the search's own sources in a ToolCall's details.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/sources.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/sources.tsx"
+        }
+      ]
+    },
+    {
       "name": "sparkline",
       "type": "registry:ui",
       "title": "Sparkline",
@@ -2670,6 +2953,35 @@
           "path": "registry/litt/ui/spread.tsx",
           "type": "registry:ui",
           "target": "components/litt/spread.tsx"
+        }
+      ]
+    },
+    {
+      "name": "spring-editor",
+      "type": "registry:ui",
+      "title": "Spring editor",
+      "description": "A spring shaped by hand, as time and bounce (Motion's visualDuration and bounce, Framer's Time and Bounce). The Pad's well with the spring's curve on its floor: drag the cap right for a slower spring and up for more bounce. It says what the spring does in words, a dot crosses a rail on it when you let go, and tier draws litt's limits with a Fits or Change row per rule.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/tag.json"
+      ],
+      "docs": "Import SpringEditor from components/litt/spring-editor. Give it a label and hold the spring ({ time, bounce }) in state with value and onValueChange. Pass tier=\"expressive\" or \"responsive\" to check it against litt's motion rules, and defaultMark for the default. Time and Bounce are range inputs for the keyboard and screen readers.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/spring-editor.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/spring-editor.tsx"
         }
       ]
     },
@@ -2785,8 +3097,8 @@
       ],
       "docs": "Import Table, TableHeader, TableBody, TableRow, TableHead and TableCell from components/litt/table. Give the Table a label, and a max height such as max-h-96 if you want the header to stick. The entrance is off until you pass entrance.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3042,7 +3354,7 @@
       "name": "tool-call",
       "type": "registry:ui",
       "title": "Tool call",
-      "description": "What an agent did, one row per call: a status mark (a still half circle while it runs, never a spinner), the action in words, the target in mono cut at the end, and the time. A call with an input or an output opens them under it. A group folds a run of calls and closes itself when they finish, and an approval asks first on a raised panel with Allow as the accent fill and Deny beside it, then becomes a row that says what was chosen.",
+      "description": "What an agent did, one row per call: a status mark (a still half circle while it runs, never a spinner), the action in words, the target in mono cut at the end, what it found (\"5 sources\", \"+2 −2\") and the time. A call with an input or an output opens them under it, in a mono well; a part with its own surface (a log, a diff, a list of sources) opens as given in details. A group folds a run of calls and closes itself when they finish, and an approval asks first on a raised panel with Allow as the accent fill and Deny beside it, then becomes a row that says what was chosen.",
       "dependencies": [
         "motion"
       ],
@@ -3053,10 +3365,10 @@
         "https://littmd.vercel.app/r/icons.json",
         "https://littmd.vercel.app/r/motion.json"
       ],
-      "docs": "Import ToolCall, ToolCallGroup and ToolApproval from components/litt/tool-call. Give a call a status, an action and a target, plus an input or an output to make it open. Pass running to a group, and hold decision in state for an approval, setting it in onAllow and onDeny. Keep an approval outside a group, and disable your Send while it waits so the view holds one accent fill.",
+      "docs": "Import ToolCall, ToolCallGroup and ToolApproval from components/litt/tool-call. Give a call a status, an action and a target, plus an input or an output to make it open. Put a LogView, a SourceList or a FileChanges in details, never in output, and say what the call found in result. Pass running to a group, and hold decision in state for an approval, setting it in onAllow and onDeny. Keep an approval outside a group, and disable your Send while it waits so the view holds one accent fill.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3207,8 +3519,8 @@
       ],
       "docs": "Import NewProjectDemo from components/litt/examples/combobox-demo, or read it for how @litt/combobox is used. Import Combobox from components/litt/combobox. Give it a label and options as { value, label, disabled?, group? } or groups of { label, options }, and hold the value in state with value and onValueChange: a string (\"\" for none), or an array with multiple. Add hint, error and placeholder as on a field, and name to post the value with a form.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/combobox"
       },
@@ -3415,6 +3727,30 @@
       ]
     },
     {
+      "name": "curve-editor-demo",
+      "type": "registry:example",
+      "title": "Curve editor example",
+      "description": "A working curve editor: ExitDemo, the first demo on its page (https://littmd.vercel.app/#curve-editor). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/curve-editor.json",
+        "https://littmd.vercel.app/r/segmented.json"
+      ],
+      "docs": "Import ExitDemo from components/litt/examples/curve-editor-demo, or read it for how @litt/curve-editor is used. Import CurveEditor from components/litt/curve-editor. Give it a label and hold the curve ([x1, y1, x2, y2]) in state with value and onValueChange; toCubicBezier writes it as CSS. Pass defaultMark to show the default and duration for the preview. Each handle is one tab stop with two range inputs.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/curve-editor"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/curve-editor-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/curve-editor-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "pad-demo",
       "type": "registry:example",
       "title": "Pad example",
@@ -3490,6 +3826,36 @@
       ]
     },
     {
+      "name": "spring-editor-demo",
+      "type": "registry:example",
+      "title": "Spring editor example",
+      "description": "A working spring editor: ToastSpringDemo, the first demo on its page (https://littmd.vercel.app/#spring-editor). It installs the components it uses.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/spring-editor.json"
+      ],
+      "docs": "Import ToastSpringDemo from components/litt/examples/spring-editor-demo, or read it for how @litt/spring-editor is used. Import SpringEditor from components/litt/spring-editor. Give it a label and hold the spring ({ time, bounce }) in state with value and onValueChange. Pass tier=\"expressive\" or \"responsive\" to check it against litt's motion rules, and defaultMark for the default. Time and Bounce are range inputs for the keyboard and screen readers.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/spring-editor"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/spring-editor-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/spring-editor-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "switch-demo",
       "type": "registry:example",
       "title": "Switch example",
@@ -3534,6 +3900,64 @@
           "path": "registry/litt/examples/time-scrubber-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/time-scrubber-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "inspector-demo",
+      "type": "registry:example",
+      "title": "Inspector example",
+      "description": "A working inspector: ToastInspectorDemo, the first demo on its page (https://littmd.vercel.app/#inspector). It installs the components it uses.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/curve-editor.json",
+        "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/inspector.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/slider.json",
+        "https://littmd.vercel.app/r/spring-editor.json",
+        "https://littmd.vercel.app/r/switch.json"
+      ],
+      "docs": "Import ToastInspectorDemo from components/litt/examples/inspector-demo, or read it for how @litt/inspector is used. Import Inspector and InspectorGroup from components/litt/inspector. Hold every value in one object and pass it as value with onValueChange, then put a Slider, a Switch, a Spring editor or a Curve editor in each InspectorGroup. Add defaultValue for Reset, presets and storageKey for versions, checks for the rules and tokens for Copy tokens.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/inspector"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/inspector-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/inspector-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rule-builder-demo",
+      "type": "registry:example",
+      "title": "Rule builder example",
+      "description": "A working rule builder: ExpensePolicyDemo, the first demo on its page (https://littmd.vercel.app/#rule-builder). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/rule-builder.json"
+      ],
+      "docs": "Import ExpensePolicyDemo from components/litt/examples/rule-builder-demo, or read it for how @litt/rule-builder is used. Import RuleBuilder from components/litt/rule-builder. Give it a label and fields ({ id, label, type: text, number or choice, options, operators }) and hold the tree in state with value and onValueChange, or pass name and defaultValue in a form (it posts one JSON string). newCondition, newGroup and isGroup build and read the tree. errors by condition id says a problem under its row. A filter on one table column is a TableFilter.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/rule-builder"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/rule-builder-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/rule-builder-demo.tsx"
         }
       ]
     },
@@ -4151,8 +4575,8 @@
       ],
       "docs": "Import DeployHistoryDemo from components/litt/examples/table-demo, or read it for how @litt/table is used. Import Table, TableHeader, TableBody, TableRow, TableHead and TableCell from components/litt/table. Give the Table a label, and a max height such as max-h-96 if you want the header to stick. The entrance is off until you pass entrance.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/table"
       },
@@ -4424,6 +4848,29 @@
           "path": "registry/litt/examples/log-view-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/log-view-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "range-chart-demo",
+      "type": "registry:example",
+      "title": "Range chart example",
+      "description": "A working range chart: VisitorsDemo, the first demo on its page (https://littmd.vercel.app/#range-chart). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/range-chart.json"
+      ],
+      "docs": "Import VisitorsDemo from components/litt/examples/range-chart-demo, or read it for how @litt/range-chart is used. Import RangeChart from components/litt/range-chart. Give it a label, bars as { label, value }, and optionally segments as { label, start }, axis ticks and a unit. Hold the range in state with value and onValueChange ([first, last], both inclusive), or load on onValueCommit, which fires once the edges have settled. The figure is a sum, so the values must add up. A single moment in a run is a TimeScrubber; a value that stays is a Slider.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/range-chart"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/range-chart-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/range-chart-demo.tsx"
         }
       ]
     },
@@ -4725,6 +5172,31 @@
       ]
     },
     {
+      "name": "file-changes-demo",
+      "type": "registry:example",
+      "title": "File changes example",
+      "description": "A working file changes: TurnDemo, the first demo on its page (https://littmd.vercel.app/#file-changes). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/composer.json",
+        "https://littmd.vercel.app/r/file-changes.json"
+      ],
+      "docs": "Import TurnDemo from components/litt/examples/file-changes-demo, or read it for how @litt/file-changes is used. Import FileChanges from components/litt/file-changes. Pass changes ({ id, path, kind, diff?, added?, removed?, from? for a rename, state? }) and onDecide(ids, decision), and set each change's state from it: the component holds no decision of its own. Use one change in an edit call's details and every change at the end of the turn.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/file-changes"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/file-changes-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/file-changes-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "message-demo",
       "type": "registry:example",
       "title": "Message example",
@@ -4760,8 +5232,8 @@
       ],
       "docs": "Import MoveDemo from components/litt/examples/plan-demo, or read it for how @litt/plan is used. Import Plan from components/litt/plan. Pass a label and steps of { id, label, status, detail? }, with status one of pending, running, done, failed or skipped. Hold the steps in state and change a status in place as the agent works, and give every step a stable id so only a step you add later fades in. The count is the done steps over all steps, and failed and skipped steps do not count. It fills its container and has no card, so put it in a turn or in a panel you draw.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/plan"
       },
@@ -4770,6 +5242,56 @@
           "path": "registry/litt/examples/plan-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/plan-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "run-card-demo",
+      "type": "registry:example",
+      "title": "Run card example",
+      "description": "A working run card: WorldDemo, the first demo on its page (https://littmd.vercel.app/#run-card). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/plan.json",
+        "https://littmd.vercel.app/r/run-card.json"
+      ],
+      "docs": "Import WorldDemo from components/litt/examples/run-card-demo, or read it for how @litt/run-card is used. Import RunCard from components/litt/run-card. Give it a title and the run's steps as Plan takes them (label, status, an id), and optionally progress from 0 to 1, a preview, actions such as a Stop button, and open with onOpenChange. Update steps in place as the agent works. A plan with no run behind it is a Plan.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/run-card"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/run-card-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/run-card-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "run-list-demo",
+      "type": "registry:example",
+      "title": "Run list example",
+      "description": "A working run list: SidebarDemo, the first demo on its page (https://littmd.vercel.app/#run-list). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/run-list.json"
+      ],
+      "docs": "Import SidebarDemo from components/litt/examples/run-list-demo, or read it for how @litt/run-list is used. Import RunList from components/litt/run-list. Pass runs ({ id, title, status, detail?, progress?, updated, href? }) in your order, selectedId and onSelect, and onStop and onArchive for the row actions. updated is words you give (\"2m ago\"): the list reads no clock.",
+      "meta": {
+        "version": "2026.10.27",
+        "released": "2026-10-27",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/run-list"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/run-list-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/run-list-demo.tsx"
         }
       ]
     },
@@ -4806,10 +5328,10 @@
         "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/tool-call.json"
       ],
-      "docs": "Import RunDemo from components/litt/examples/tool-call-demo, or read it for how @litt/tool-call is used. Import ToolCall, ToolCallGroup and ToolApproval from components/litt/tool-call. Give a call a status, an action and a target, plus an input or an output to make it open. Pass running to a group, and hold decision in state for an approval, setting it in onAllow and onDeny. Keep an approval outside a group, and disable your Send while it waits so the view holds one accent fill.",
+      "docs": "Import RunDemo from components/litt/examples/tool-call-demo, or read it for how @litt/tool-call is used. Import ToolCall, ToolCallGroup and ToolApproval from components/litt/tool-call. Give a call a status, an action and a target, plus an input or an output to make it open. Put a LogView, a SourceList or a FileChanges in details, never in output, and say what the call found in result. Pass running to a group, and hold decision in state for an approval, setting it in onAllow and onDeny. Keep an approval outside a group, and disable your Send while it waits so the view holds one accent fill.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.10.27",
+        "released": "2026-10-27",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tool-call"
       },
