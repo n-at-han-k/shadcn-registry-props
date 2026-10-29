@@ -993,10 +993,10 @@
       "docs": "Vestibular system docs: https://organui.com/docs/components/vestibular. The model is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); keep the viewer's credit visible."
     },
     {
-      "name": "disease-viewer",
+      "name": "condition-viewer",
       "type": "registry:component",
-      "title": "Disease viewer",
-      "description": "Shows a disease on organ models: the structures it affects or spares at each stage and scale, with a panel for its ICD-10 code, course, findings and key investigations. Every disease component is built on it.",
+      "title": "Condition viewer",
+      "description": "Shows a condition on organ models: the structures it affects or spares at each stage and scale, with a panel for its ICD-10 code, course, findings and key investigations. Every condition component is built on it.",
       "categories": ["pathology"],
       "dependencies": [
         "@base-ui/react@^1.8.0",
@@ -1006,23 +1006,23 @@
       "registryDependencies": ["@organui/organ-viewer", "badge", "button"],
       "files": [
         {
-          "path": "registry/base-nova/disease-viewer/disease-viewer.tsx",
+          "path": "registry/base-nova/condition-viewer/condition-viewer.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/base-nova/disease-viewer/disease-model.ts",
+          "path": "registry/base-nova/condition-viewer/condition-model.ts",
           "type": "registry:component"
         }
       ],
-      "docs": "Disease viewer docs: https://organui.com/docs/components/disease-viewer. Educational, not for diagnosis."
+      "docs": "Condition viewer docs: https://organui.com/docs/components/condition-viewer. Educational, not for diagnosis."
     },
     {
       "name": "abdominal-aortic-aneurysm",
       "type": "registry:component",
       "title": "Abdominal aortic aneurysm",
       "description": "An infrarenal abdominal aortic aneurysm on the blood vessels, from a small aneurysm under surveillance to one large enough to repair, or rupture into the retroperitoneum, with the renal arteries, iliac arteries and inferior mesenteric artery that shape the repair, and ultrasound, CT and observations at each stage. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/vessels"],
-      "categories": ["disease", "cardiovascular"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/vessels"],
+      "categories": ["condition", "cardiovascular"],
       "files": [
         {
           "path": "registry/base-nova/abdominal-aortic-aneurysm/abdominal-aortic-aneurysm.tsx",
@@ -1036,8 +1036,8 @@
       "type": "registry:component",
       "title": "ACL rupture",
       "description": "An anterior cruciate ligament rupture with the medial collateral ligament and medial meniscus, the unhappy triad, on the knees of the joints model: the acute injury, then reconstruction or an unstable knee heading for osteoarthritis, with the examination and imaging at each stage. Model licensed CC BY-SA 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/joints"],
-      "categories": ["disease", "musculoskeletal"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/joints"],
+      "categories": ["condition", "musculoskeletal"],
       "files": [
         {
           "path": "registry/base-nova/acl-rupture/acl-rupture.tsx",
@@ -1051,8 +1051,8 @@
       "type": "registry:component",
       "title": "Acute angle-closure glaucoma",
       "description": "Acute angle-closure glaucoma on the eye: pupil block bowing the iris over the drainage angle, the hazy cornea and the threatened optic nerve, then laser iridotomy or, if late, a cupped nerve, with eye pressure, acuity and gonioscopy at each stage. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/eye"],
-      "categories": ["disease", "senses"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/eye"],
+      "categories": ["condition", "senses"],
       "files": [
         {
           "path": "registry/base-nova/acute-angle-closure-glaucoma/acute-angle-closure-glaucoma.tsx",
@@ -1066,8 +1066,11 @@
       "type": "registry:component",
       "title": "Acute appendicitis",
       "description": "Acute appendicitis on the appendix and its neighbours, from early obstruction through suppuration to perforation, with the psoas sign, the scores and imaging at each stage. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/appendix"],
-      "categories": ["disease", "digestive"],
+      "registryDependencies": [
+        "@organui/condition-viewer",
+        "@organui/appendix"
+      ],
+      "categories": ["condition", "digestive"],
       "files": [
         {
           "path": "registry/base-nova/acute-appendicitis/acute-appendicitis.tsx",
@@ -1081,8 +1084,8 @@
       "type": "registry:component",
       "title": "Acute otitis media",
       "description": "Acute otitis media on the ear: a red, bulging eardrum and blocked auditory tube in a young child, then glue ear as fluid lingers or, as the alternative course, a perforated drum, with otoscopy, tympanometry and hearing at each stage. Model licensed CC BY-SA 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/ear"],
-      "categories": ["disease", "senses"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/ear"],
+      "categories": ["condition", "senses"],
       "files": [
         {
           "path": "registry/base-nova/acute-otitis-media/acute-otitis-media.tsx",
@@ -1096,8 +1099,11 @@
       "type": "registry:component",
       "title": "Addison's disease",
       "description": "Autoimmune Addison's disease on the adrenals: both adrenal cortices destroyed, with low sodium, high potassium, low cortisol and high ACTH, then lifelong replacement or, as the alternative course, an adrenal crisis. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/adrenals"],
-      "categories": ["disease", "endocrine"],
+      "registryDependencies": [
+        "@organui/condition-viewer",
+        "@organui/adrenals"
+      ],
+      "categories": ["condition", "endocrine"],
       "files": [
         {
           "path": "registry/base-nova/addisons-disease/addisons-disease.tsx",
@@ -1112,11 +1118,11 @@
       "title": "Autoimmune hepatitis",
       "description": "Autoimmune hepatitis at two scales: the whole liver, where it ends in cirrhosis and portal hypertension, and a liver lobule, with the portal infiltrate, interface hepatitis and periportal injury. Affected and spared structures each say what the disease does there. Models licensed CC BY 4.0 (liver) and CC0 1.0 (lobule).",
       "registryDependencies": [
-        "@organui/disease-viewer",
+        "@organui/condition-viewer",
         "@organui/liver",
         "@organui/liver-lobule"
       ],
-      "categories": ["disease", "digestive"],
+      "categories": ["condition", "digestive"],
       "files": [
         {
           "path": "registry/base-nova/autoimmune-hepatitis/autoimmune-hepatitis.tsx",
@@ -1131,11 +1137,11 @@
       "title": "Benign prostatic hyperplasia",
       "description": "Benign prostatic hyperplasia on the prostate and the bladder: the gland narrowing the urethra, the bladder thickening to push past it, then chronic retention backing up to the kidneys or acute retention, with symptom scores, flow and residual volumes at each stage. Models licensed CC BY-SA 2.1 JP (prostate and bladder).",
       "registryDependencies": [
-        "@organui/disease-viewer",
+        "@organui/condition-viewer",
         "@organui/prostate",
         "@organui/bladder"
       ],
-      "categories": ["disease", "reproductive"],
+      "categories": ["condition", "reproductive"],
       "files": [
         {
           "path": "registry/base-nova/benign-prostatic-hyperplasia/benign-prostatic-hyperplasia.tsx",
@@ -1149,8 +1155,8 @@
       "type": "registry:component",
       "title": "Breast cancer",
       "description": "Breast cancer in the upper outer quadrant of the left breast, from screen-detected ductal carcinoma in situ through an early invasive cancer to locally advanced disease that tethers the skin and retracts the nipple, with mammography, biopsy and receptor status at each stage. Model licensed CC BY 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/breast"],
-      "categories": ["disease", "reproductive"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/breast"],
+      "categories": ["condition", "reproductive"],
       "files": [
         {
           "path": "registry/base-nova/breast-cancer/breast-cancer.tsx",
@@ -1165,10 +1171,10 @@
       "title": "Crohn's disease",
       "description": "Crohn's disease of the terminal ileum and right colon on the intestines: transmural, patchy inflammation with skip lesions and rectal sparing, then either a fibrotic stricture or a fistula and abscess, with calprotectin, imaging and bloods at each stage. Model licensed CC BY-SA 2.1 JP.",
       "registryDependencies": [
-        "@organui/disease-viewer",
+        "@organui/condition-viewer",
         "@organui/intestines"
       ],
-      "categories": ["disease", "digestive"],
+      "categories": ["condition", "digestive"],
       "files": [
         {
           "path": "registry/base-nova/crohns-disease/crohns-disease.tsx",
@@ -1182,8 +1188,8 @@
       "type": "registry:component",
       "title": "Ectopic pregnancy",
       "description": "A tubal ectopic pregnancy on the uterus and tubes: implantation in the ampulla with an empty uterus, then rupture bleeding from the mesosalpinx into the peritoneal cavity, with hCG, ultrasound and observations at each stage. Model licensed CC BY 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/uterus"],
-      "categories": ["disease", "reproductive"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/uterus"],
+      "categories": ["condition", "reproductive"],
       "files": [
         {
           "path": "registry/base-nova/ectopic-pregnancy/ectopic-pregnancy.tsx",
@@ -1198,10 +1204,10 @@
       "title": "Gallstone disease",
       "description": "Gallstone disease on the biliary tree: where the stone lodges decides the illness, from biliary colic in the cystic duct through cholecystitis to cholangitis in the common duct and pancreatitis at the ampulla, with the bloods and imaging for each. Model licensed CC BY-SA 2.1 JP.",
       "registryDependencies": [
-        "@organui/disease-viewer",
+        "@organui/condition-viewer",
         "@organui/gallbladder"
       ],
-      "categories": ["disease", "digestive"],
+      "categories": ["condition", "digestive"],
       "files": [
         {
           "path": "registry/base-nova/gallstone-disease/gallstone-disease.tsx",
@@ -1216,11 +1222,11 @@
       "title": "Graves' disease",
       "description": "Graves' disease on the thyroid and the eye: a diffuse goitre, then thyroid eye disease swelling the extraocular muscles, through thyrotoxicosis, active eye disease and burnt-out fibrosis, with the thyroid function, antibodies and eye measurements at each stage. Models licensed CC BY-SA 2.1 JP (thyroid and eye).",
       "registryDependencies": [
-        "@organui/disease-viewer",
+        "@organui/condition-viewer",
         "@organui/thyroid",
         "@organui/eye"
       ],
-      "categories": ["disease", "endocrine"],
+      "categories": ["condition", "endocrine"],
       "files": [
         {
           "path": "registry/base-nova/graves-disease/graves-disease.tsx",
@@ -1234,8 +1240,8 @@
       "type": "registry:component",
       "title": "Hodgkin lymphoma",
       "description": "Classical Hodgkin lymphoma of the nodular sclerosis type on a lymph node: collagen bands from a thickened capsule, effaced follicles and Reed\u2013Sternberg cells in the paracortex, then remission after treatment, with biopsy, PET-CT staging and bloods at each stage. Model licensed CC BY 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/lymph"],
-      "categories": ["disease", "lymphatic"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/lymph"],
+      "categories": ["condition", "lymphatic"],
       "files": [
         {
           "path": "registry/base-nova/hodgkin-lymphoma/hodgkin-lymphoma.tsx",
@@ -1249,8 +1255,8 @@
       "type": "registry:component",
       "title": "Ischaemic stroke",
       "description": "An ischaemic stroke of the left middle cerebral artery on the brain: the frontal, parietal and temporal lobes it supplies, with aphasia, weakness and field loss, from the hyperacute window through swelling to a healed cavity, with the scans and scores at each stage. Model licensed CC BY 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/brain"],
-      "categories": ["disease", "nervous"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/brain"],
+      "categories": ["condition", "nervous"],
       "files": [
         {
           "path": "registry/base-nova/ischaemic-stroke/ischaemic-stroke.tsx",
@@ -1264,8 +1270,8 @@
       "type": "registry:component",
       "title": "Kidney stones",
       "description": "A stone in the left kidney on the kidneys and ureters, from a silent renal stone through renal colic with hydronephrosis to an infected obstructed kidney, with the urine, CT and bloods at each stage. Model licensed CC BY 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/kidneys"],
-      "categories": ["disease", "urinary"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/kidneys"],
+      "categories": ["condition", "urinary"],
       "files": [
         {
           "path": "registry/base-nova/kidney-stones/kidney-stones.tsx",
@@ -1279,8 +1285,8 @@
       "type": "registry:component",
       "title": "Laryngeal cancer",
       "description": "Squamous cell carcinoma of the left vocal cord on the larynx: an early cancer causing hoarseness, then a fixed cord as it invades the muscle, then erosion through the thyroid cartilage, with nasendoscopy, CT and biopsy at each stage. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/larynx"],
-      "categories": ["disease", "respiratory"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/larynx"],
+      "categories": ["condition", "respiratory"],
       "files": [
         {
           "path": "registry/base-nova/laryngeal-cancer/laryngeal-cancer.tsx",
@@ -1294,8 +1300,8 @@
       "type": "registry:component",
       "title": "Lobar pneumonia",
       "description": "Lobar pneumonia of the right lower lobe on the lungs, through congestion, red and grey hepatisation to resolution, with the spared middle lobe's silhouette sign and the observations, bloods and X-ray at each stage. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/lungs"],
-      "categories": ["disease", "respiratory"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/lungs"],
+      "categories": ["condition", "respiratory"],
       "files": [
         {
           "path": "registry/base-nova/lobar-pneumonia/lobar-pneumonia.tsx",
@@ -1310,10 +1316,10 @@
       "title": "Lumbar disc herniation",
       "description": "A posterolateral L5\u2013S1 disc herniation on the spine, compressing the S1 root of the cauda equina, from sciatica to recovery as the herniation regresses, or a massive central herniation causing cauda equina syndrome, with the neurological signs at each stage. Model licensed CC BY-SA 2.1 JP.",
       "registryDependencies": [
-        "@organui/disease-viewer",
+        "@organui/condition-viewer",
         "@organui/spinal-cord"
       ],
-      "categories": ["disease", "nervous"],
+      "categories": ["condition", "nervous"],
       "files": [
         {
           "path": "registry/base-nova/lumbar-disc-herniation/lumbar-disc-herniation.tsx",
@@ -1327,8 +1333,8 @@
       "type": "registry:component",
       "title": "Melanoma",
       "description": "Melanoma on a section of skin, staged by how deep it grows: in situ in the epidermis, thin into the papillary dermis, thick into the reticular dermis and metastatic through fat and veins, with Breslow thickness, ulceration, sentinel node and staging at each. Model licensed CC0 1.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/skin"],
-      "categories": ["disease", "integumentary"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/skin"],
+      "categories": ["condition", "integumentary"],
       "files": [
         {
           "path": "registry/base-nova/melanoma/melanoma.tsx",
@@ -1343,11 +1349,11 @@
       "title": "Myasthenia gravis",
       "description": "Myasthenia gravis with a thymoma on the eye and the thymus: fatigable ptosis and double vision with normal pupils, a thymoma in the left lobe, then generalised weakness or, as the alternative course, a myasthenic crisis. Model licensed CC BY-SA 2.1 JP.",
       "registryDependencies": [
-        "@organui/disease-viewer",
+        "@organui/condition-viewer",
         "@organui/eye",
         "@organui/thymus"
       ],
-      "categories": ["disease", "senses"],
+      "categories": ["condition", "senses"],
       "files": [
         {
           "path": "registry/base-nova/myasthenia-gravis/myasthenia-gravis.tsx",
@@ -1361,8 +1367,8 @@
       "type": "registry:component",
       "title": "Myocardial infarction",
       "description": "An anterior ST-elevation myocardial infarction on the heart: the blocked left anterior descending artery and the wall it supplies, from occlusion through the acute phase to a healed scar, with the ECG, troponin and echo at each stage. Model licensed CC BY 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/heart"],
-      "categories": ["disease", "cardiovascular"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/heart"],
+      "categories": ["condition", "cardiovascular"],
       "files": [
         {
           "path": "registry/base-nova/myocardial-infarction/myocardial-infarction.tsx",
@@ -1376,8 +1382,11 @@
       "type": "registry:component",
       "title": "Oesophageal cancer",
       "description": "Adenocarcinoma of the lower oesophagus on the oesophagus: Barrett's oesophagus after years of reflux, an early cancer found at surveillance, or a locally advanced one found late that reaches the stomach and the nodes along the left gastric artery. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/esophagus"],
-      "categories": ["disease", "digestive"],
+      "registryDependencies": [
+        "@organui/condition-viewer",
+        "@organui/esophagus"
+      ],
+      "categories": ["condition", "digestive"],
       "files": [
         {
           "path": "registry/base-nova/oesophageal-cancer/oesophageal-cancer.tsx",
@@ -1391,8 +1400,11 @@
       "type": "registry:component",
       "title": "Pancreatic cancer",
       "description": "Adenocarcinoma of the head of the pancreas: the blocked bile and pancreatic ducts behind painless jaundice, and the mesenteric vessels that decide whether it can be removed, from a resectable tumour through local encasement of the superior mesenteric artery to metastatic disease, with CT, CA 19-9 and bloods at each stage. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/pancreas"],
-      "categories": ["disease", "digestive"],
+      "registryDependencies": [
+        "@organui/condition-viewer",
+        "@organui/pancreas"
+      ],
+      "categories": ["condition", "digestive"],
       "files": [
         {
           "path": "registry/base-nova/pancreatic-cancer/pancreatic-cancer.tsx",
@@ -1406,8 +1418,8 @@
       "type": "registry:component",
       "title": "Peptic ulcer disease",
       "description": "A gastric ulcer on the stomach's lesser curve, from an uncomplicated ulcer to bleeding from the left gastric artery and perforation, with H. pylori testing, endoscopy, the bleeding score and imaging at each stage. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/stomach"],
-      "categories": ["disease", "digestive"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/stomach"],
+      "categories": ["condition", "digestive"],
       "files": [
         {
           "path": "registry/base-nova/peptic-ulcer-disease/peptic-ulcer-disease.tsx",
@@ -1421,8 +1433,11 @@
       "type": "registry:component",
       "title": "Pituitary adenoma",
       "description": "A non-functioning pituitary adenoma on the pituitary and its surroundings, from an incidental microadenoma to a macroadenoma pressing on the optic chiasm and stalk, and apoplexy into the cavernous sinus, with visual fields, MRI and pituitary hormones at each stage. Model licensed CC BY-SA 2.1 JP.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/pituitary"],
-      "categories": ["disease", "endocrine"],
+      "registryDependencies": [
+        "@organui/condition-viewer",
+        "@organui/pituitary"
+      ],
+      "categories": ["condition", "endocrine"],
       "files": [
         {
           "path": "registry/base-nova/pituitary-adenoma/pituitary-adenoma.tsx",
@@ -1437,10 +1452,10 @@
       "title": "Primary hyperparathyroidism",
       "description": "Primary hyperparathyroidism on the parathyroids: an adenoma of the right inferior gland with the other three suppressed, found on a blood test, then cured by parathyroidectomy or, untreated, thinning bone and forming kidney stones. Model licensed CC BY-SA 2.1 JP.",
       "registryDependencies": [
-        "@organui/disease-viewer",
+        "@organui/condition-viewer",
         "@organui/parathyroid"
       ],
-      "categories": ["disease", "endocrine"],
+      "categories": ["condition", "endocrine"],
       "files": [
         {
           "path": "registry/base-nova/primary-hyperparathyroidism/primary-hyperparathyroidism.tsx",
@@ -1454,8 +1469,8 @@
       "type": "registry:component",
       "title": "Rheumatoid arthritis",
       "description": "Seropositive rheumatoid arthritis on the joints: symmetrical synovitis of the knuckle, middle finger, wrist and toe joints with the end finger joints spared, then remission when treated to target or deformity and erosions when it is not, with antibodies, DAS28 and X-rays at each stage. Model licensed CC BY-SA 4.0.",
-      "registryDependencies": ["@organui/disease-viewer", "@organui/joints"],
-      "categories": ["disease", "musculoskeletal"],
+      "registryDependencies": ["@organui/condition-viewer", "@organui/joints"],
+      "categories": ["condition", "musculoskeletal"],
       "files": [
         {
           "path": "registry/base-nova/rheumatoid-arthritis/rheumatoid-arthritis.tsx",

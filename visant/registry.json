@@ -1521,6 +1521,89 @@
       }
     },
     {
+      "name": "tempo-clock",
+      "type": "registry:lib",
+      "title": "Tempo Clock",
+      "description": "Relógio de BPM sem interface: passo na divisão, envelope de bumbo, tap tempo e troca de BPM sem pular o compasso.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "files": [
+        {
+          "path": "registry/visant/lib/tempo-clock.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "base",
+        "bpm",
+        "ritmo",
+        "musica",
+        "tempo",
+        "vanilla"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Visual, animação ou sequenciador que precisa andar no tempo de uma música, inclusive em export quadro a quadro",
+          "evite": "Sincronizar com áudio real tocando: aí a batida vem de um analisador de áudio, não de um relógio"
+        }
+      }
+    },
+    {
+      "name": "fader",
+      "type": "registry:lib",
+      "title": "Fader",
+      "description": "Slider de console em web component, sem framework: marca a cada 10%, tampa quadrada, arrastar o nome muda o valor e duplo clique volta pro padrão.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "files": [
+        {
+          "path": "registry/visant/lib/fader.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "controles",
+        "slider",
+        "vanilla",
+        "web-component",
+        "gesto"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Coluna de parâmetros numa ferramenta (efeito, edição, áudio), em projeto vanilla ou React",
+          "evite": "Valor pro público geral em landing: elastic-slider ou slosh-slider"
+        }
+      }
+    },
+    {
+      "name": "tempo-bar",
+      "type": "registry:lib",
+      "title": "Tempo Bar",
+      "description": "Controle de BPM em web component, sem framework: LED na batida, número que se arrasta, luzes de compasso, divisão e tap.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "registryDependencies": [
+        "@visant/tempo-clock"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/lib/tempo-bar.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "controles",
+        "bpm",
+        "ritmo",
+        "musica",
+        "vanilla",
+        "web-component"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Ferramenta ou visual de festa em que o tempo da música manda: VJ, gerador de efeito, sequenciador",
+          "evite": "Player de música comum: o BPM ali é informação, não controle"
+        }
+      }
+    },
+    {
       "name": "grid-dots",
       "type": "registry:ui",
       "title": "Grid Dots",
@@ -3626,6 +3709,44 @@
         "uso": {
           "quando": "Mostrar produto de revolução, como frasco, vela ou pote, em 3D que gira e orbita no arrasto",
           "evite": "Livro ou catálogo: book-3d; produto com foto real, plate ou tilt-card"
+        }
+      }
+    },
+    {
+      "name": "lathe-riso",
+      "type": "registry:ui",
+      "title": "Lathe Riso",
+      "description": "A peça 3D de revolução do lathe-object impressa ao vivo em duas tintas de risografia: gira, orbita no arrasto e sai do registro onde o cursor passa.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "three@^0.170.0"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/lathe-object",
+        "@visant/shader-riso"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/lathe-riso.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@^0.170.0"
+      ],
+      "categories": [
+        "3d",
+        "webgl",
+        "shader",
+        "riso",
+        "produto",
+        "impressao"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Hero com objeto 3D (fruta, frasco, pote) que precisa de cara de impresso, em duas tintas, arrastável",
+          "evite": "Foto estática em riso: shader-riso; produto em 3D sem efeito: lathe-object"
         }
       }
     },

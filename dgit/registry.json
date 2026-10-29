@@ -179,10 +179,28 @@
       "name": "auth-page",
       "type": "registry:block",
       "title": "Sign-in page",
-      "description": "Centered 384px column, 30px title, stacked 40px pill choices, code field, 'Signing in to <app>'.",
+      "description": "Centered 384px column, 30px title, stacked 40px pill choices, code field and code boxes, 'Signing in to <app>'.",
       "files": [
         {
           "path": "registry/dgit/blocks/auth-page.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "auth-flow",
+      "type": "registry:block",
+      "title": "Sign-in flow",
+      "description": "Neotax's sign-in, monochrome: email, then a lookup picks the step (6-digit code, password, passkey, Google-only, create account, two-step, forgot password). Server calls are props; Korean or English strings.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@dgit/auth-page"
+      ],
+      "files": [
+        {
+          "path": "registry/dgit/blocks/auth-flow.tsx",
           "type": "registry:component"
         }
       ]

@@ -89,6 +89,41 @@
             "translate": "0 2px"
           }
         },
+        "@keyframes skeleton-shimmer": {
+          "from": {
+            "translate": "-100% 0"
+          },
+          "75%, to": {
+            "translate": "100% 0"
+          }
+        },
+        "@utility animate-skeleton-shimmer": {
+          "&::after": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "0",
+            "translate": "-100% 0",
+            "background": "linear-gradient(100deg, transparent 30%, var(--skeleton-shine) 50%, transparent 70%)",
+            "animation": "skeleton-shimmer 2s ease-in-out infinite"
+          }
+        },
+        "@keyframes progress-indeterminate": {
+          "from": {
+            "translate": "-105% 0"
+          },
+          "to": {
+            "translate": "285% 0"
+          }
+        },
+        "@keyframes progress-pulse": {
+          "50%": {
+            "opacity": "0.14"
+          }
+        },
+        "@utility animate-progress-indeterminate": {
+          "width": "36%",
+          "animation": "progress-indeterminate 1.4s var(--ease-in-out) infinite"
+        },
         "@keyframes chart-shimmer": {
           "from": {
             "translate": "-100% 0"
@@ -97,9 +132,249 @@
             "translate": "100% 0"
           }
         },
+        "html[data-theme-transition]::view-transition-old(root)": {
+          "animation": "none"
+        },
+        "html[data-theme-transition]::view-transition-new(root)": {
+          "animation": "480ms var(--ease-reveal) both",
+          "mix-blend-mode": "normal"
+        },
+        "html[data-theme-transition=\"reveal\"]::view-transition-new(root)": {
+          "animation-name": "theme-reveal"
+        },
+        "html[data-theme-transition=\"eclipse\"]::view-transition-new(root)": {
+          "animation-name": "theme-eclipse",
+          "animation-duration": "560ms",
+          "animation-timing-function": "var(--ease-out)"
+        },
+        "html[data-theme-transition=\"split\"]::view-transition-new(root)": {
+          "animation-name": "theme-split",
+          "animation-timing-function": "var(--ease-drawer)"
+        },
+        "html[data-theme-transition=\"rise\"]::view-transition-new(root)": {
+          "animation-name": "theme-rise",
+          "animation-timing-function": "var(--ease-drawer)"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          "html[data-theme-transition]::view-transition-new(root)": {
+            "animation-duration": "0.01ms"
+          }
+        },
+        "@keyframes theme-reveal": {
+          "from": {
+            "clip-path": "circle(0 at var(--theme-x, 50%) var(--theme-y, 50%))"
+          },
+          "to": {
+            "clip-path": "circle(var(--theme-r, 150%) at var(--theme-x, 50%) var(--theme-y, 50%))"
+          }
+        },
+        "@keyframes theme-eclipse": {
+          "from": {
+            "clip-path": "circle(60% at 150% 50%)"
+          },
+          "to": {
+            "clip-path": "circle(120% at 50% 50%)"
+          }
+        },
+        "@keyframes theme-split": {
+          "from": {
+            "clip-path": "inset(0 50%)"
+          },
+          "to": {
+            "clip-path": "inset(0)"
+          }
+        },
+        "@keyframes theme-rise": {
+          "from": {
+            "clip-path": "ellipse(160% 0% at 50% 100%)"
+          },
+          "to": {
+            "clip-path": "ellipse(160% 160% at 50% 100%)"
+          }
+        },
         "@utility animate-panel-enter": {
           "animation": "panel-enter 360ms var(--ease-out) both",
           "animation-delay": "calc(60ms * var(--stagger, 0))"
+        },
+        "@keyframes spinner-spin": {
+          "to": {
+            "rotate": "1turn"
+          }
+        },
+        "@keyframes spinner-fade": {
+          "from": {
+            "opacity": "1"
+          },
+          "to": {
+            "opacity": "0.15"
+          }
+        },
+        "@keyframes spinner-pulse": {
+          "0%, 80%, 100%": {
+            "scale": "0.5",
+            "opacity": "0.35"
+          },
+          "40%": {
+            "scale": "1",
+            "opacity": "1"
+          }
+        },
+        "@keyframes spinner-bounce": {
+          "0%, 60%, 100%": {
+            "translate": "0 3px"
+          },
+          "30%": {
+            "translate": "0 -5px"
+          }
+        },
+        "@keyframes spinner-grid": {
+          "0%, 70%, 100%": {
+            "scale": "1",
+            "opacity": "1"
+          },
+          "35%": {
+            "scale": "0.25",
+            "opacity": "0.3"
+          }
+        },
+        "@keyframes spinner-bars": {
+          "0%, 100%": {
+            "scale": "1 0.35",
+            "opacity": "0.5"
+          },
+          "50%": {
+            "scale": "1 1",
+            "opacity": "1"
+          }
+        },
+        "@keyframes spinner-wave": {
+          "0%, 100%": {
+            "scale": "1 0.2"
+          },
+          "50%": {
+            "scale": "1 1"
+          }
+        },
+        "@keyframes spinner-ripple": {
+          "from": {
+            "scale": "0.1",
+            "opacity": "1"
+          },
+          "to": {
+            "scale": "1",
+            "opacity": "0"
+          }
+        },
+        "@keyframes spinner-ping": {
+          "75%, 100%": {
+            "scale": "2.6",
+            "opacity": "0"
+          }
+        },
+        "@keyframes spinner-trail": {
+          "to": {
+            "stroke-dashoffset": "-100"
+          }
+        },
+        "@keyframes spinner-morph": {
+          "0%, 100%": {
+            "clip-path": "inset(10% round 50% 50% 50% 50%)",
+            "rotate": "0deg"
+          },
+          "20%": {
+            "clip-path": "inset(16% round 30% 30% 30% 30%)",
+            "rotate": "90deg"
+          },
+          "40%": {
+            "clip-path": "inset(12% round 50% 12% 50% 12%)",
+            "rotate": "180deg"
+          },
+          "60%": {
+            "clip-path": "inset(20% round 18% 18% 18% 18%)",
+            "rotate": "270deg"
+          },
+          "80%": {
+            "clip-path": "inset(14% round 50% 50% 22% 22%)",
+            "rotate": "360deg"
+          }
+        },
+        "@keyframes spinner-swing-start": {
+          "0%, 50%, 100%": {
+            "rotate": "0deg"
+          },
+          "25%": {
+            "rotate": "25deg"
+          }
+        },
+        "@keyframes spinner-swing-end": {
+          "0%, 50%, 100%": {
+            "rotate": "0deg"
+          },
+          "75%": {
+            "rotate": "-25deg"
+          }
+        },
+        "@utility animate-spinner-spin": {
+          "animation": "spinner-spin calc(1s * var(--spinner-speed, 1)) linear infinite"
+        },
+        "@utility animate-spinner-dual": {
+          "animation": "spinner-spin calc(1.1s * var(--spinner-speed, 1)) cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite"
+        },
+        "@utility animate-spinner-fade": {
+          "animation": "spinner-fade calc(800ms * var(--spinner-speed, 1)) linear infinite",
+          "animation-delay": "calc((var(--i, 0) - 8) * 100ms * var(--spinner-speed, 1))"
+        },
+        "@utility animate-spinner-pulse": {
+          "transform-box": "fill-box",
+          "transform-origin": "center",
+          "animation": "spinner-pulse calc(1s * var(--spinner-speed, 1)) ease-in-out infinite",
+          "animation-delay": "calc(var(--i, 0) * 160ms * var(--spinner-speed, 1))"
+        },
+        "@utility animate-spinner-bounce": {
+          "animation": "spinner-bounce calc(900ms * var(--spinner-speed, 1)) cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          "animation-delay": "calc(var(--i, 0) * 120ms * var(--spinner-speed, 1))"
+        },
+        "@utility animate-spinner-grid": {
+          "transform-box": "fill-box",
+          "transform-origin": "center",
+          "animation": "spinner-grid calc(1.2s * var(--spinner-speed, 1)) ease-in-out infinite",
+          "animation-delay": "calc(var(--i, 0) * 100ms * var(--spinner-speed, 1))"
+        },
+        "@utility animate-spinner-bars": {
+          "transform-box": "fill-box",
+          "transform-origin": "center",
+          "animation": "spinner-bars calc(900ms * var(--spinner-speed, 1)) ease-in-out infinite",
+          "animation-delay": "calc(var(--i, 0) * 150ms * var(--spinner-speed, 1))"
+        },
+        "@utility animate-spinner-wave": {
+          "transform-box": "fill-box",
+          "transform-origin": "center",
+          "animation": "spinner-wave calc(1s * var(--spinner-speed, 1)) ease-in-out infinite",
+          "animation-delay": "calc(var(--i, 0) * -130ms * var(--spinner-speed, 1))"
+        },
+        "@utility animate-spinner-ripple": {
+          "transform-box": "fill-box",
+          "transform-origin": "center",
+          "opacity": "0",
+          "animation": "spinner-ripple calc(1.2s * var(--spinner-speed, 1)) cubic-bezier(0, 0.2, 0.8, 1) infinite",
+          "animation-delay": "calc(var(--i, 0) * -600ms * var(--spinner-speed, 1))"
+        },
+        "@utility animate-spinner-ping": {
+          "transform-box": "fill-box",
+          "transform-origin": "center",
+          "animation": "spinner-ping calc(1.2s * var(--spinner-speed, 1)) cubic-bezier(0, 0, 0.2, 1) infinite"
+        },
+        "@utility animate-spinner-trail": {
+          "animation": "spinner-trail calc(1.5s * var(--spinner-speed, 1)) linear infinite"
+        },
+        "@utility animate-spinner-morph": {
+          "animation": "spinner-morph calc(2.6s * var(--spinner-speed, 1)) cubic-bezier(0.65, 0, 0.35, 1) infinite"
+        },
+        "@utility animate-spinner-swing-start": {
+          "animation": "spinner-swing-start calc(1.1s * var(--spinner-speed, 1)) ease-in-out infinite"
+        },
+        "@utility animate-spinner-swing-end": {
+          "animation": "spinner-swing-end calc(1.1s * var(--spinner-speed, 1)) ease-in-out infinite"
         },
         "@layer components": {
           "[data-anim]": {
@@ -142,8 +417,127 @@
             },
             ".animate-panel-enter": {
               "animation": "none"
+            },
+            "[data-slot=\"spinner\"]": {
+              "--spinner-speed": "2.5"
+            },
+            ".animate-skeleton-shimmer::after": {
+              "display": "none"
+            },
+            ".animate-progress-indeterminate": {
+              "width": "100%",
+              "translate": "none",
+              "opacity": "0.35",
+              "animation": "progress-pulse 2.4s ease-in-out infinite"
             }
           }
+        },
+        ".light": {
+          "--radius": "0.5rem",
+          "--background": "oklch(0.985 0 0)",
+          "--foreground": "oklch(0.175 0 0)",
+          "--card": "oklch(1 0 0)",
+          "--card-foreground": "oklch(0.175 0 0)",
+          "--popover": "oklch(1 0 0)",
+          "--popover-foreground": "oklch(0.175 0 0)",
+          "--island": "oklch(0.205 0 0)",
+          "--island-foreground": "oklch(0.985 0 0)",
+          "--primary": "oklch(0.205 0 0)",
+          "--primary-foreground": "oklch(0.985 0 0)",
+          "--primary-subtle": "oklch(0.96 0 0)",
+          "--primary-subtle-foreground": "oklch(0.205 0 0)",
+          "--secondary": "oklch(0.965 0 0)",
+          "--secondary-foreground": "oklch(0.205 0 0)",
+          "--muted": "oklch(0.97 0 0)",
+          "--muted-foreground": "oklch(0.52 0 0)",
+          "--accent": "oklch(0.965 0 0)",
+          "--accent-foreground": "oklch(0.205 0 0)",
+          "--destructive": "oklch(0.577 0.215 27.3)",
+          "--destructive-foreground": "oklch(0.985 0 0)",
+          "--border": "oklch(0.925 0 0)",
+          "--border-strong": "oklch(0.875 0 0)",
+          "--input": "oklch(0.885 0 0)",
+          "--ring": "oklch(0.62 0.19 259.8)",
+          "--icon": "oklch(0.58 0 0)",
+          "--tint-surface": "oklch(1 0 0 / 0.72)",
+          "--tint-surface-hover": "oklch(1 0 0 / 0.42)",
+          "--shade-1": "rgb(0 0 0 / 0.05)",
+          "--shade-2": "rgb(0 0 0 / 0.08)",
+          "--shade-3": "rgb(0 0 0 / 0.14)",
+          "--shade-border": "rgb(0 0 0 / 0.07)",
+          "--shade-border-strong": "rgb(0 0 0 / 0.11)",
+          "--neutral": "oklch(0.205 0 0)",
+          "--neutral-foreground": "oklch(0.985 0 0)",
+          "--neutral-subtle": "oklch(0.955 0 0)",
+          "--neutral-subtle-foreground": "oklch(0.32 0 0)",
+          "--neutral-border": "oklch(0.885 0 0)",
+          "--blue": "oklch(0.546 0.215 262.9)",
+          "--blue-foreground": "oklch(0.985 0 0)",
+          "--blue-subtle": "oklch(0.966 0.018 254.6)",
+          "--blue-subtle-foreground": "oklch(0.488 0.2 264.4)",
+          "--blue-border": "oklch(0.89 0.05 254.1)",
+          "--violet": "oklch(0.541 0.24 293)",
+          "--violet-foreground": "oklch(0.985 0 0)",
+          "--violet-subtle": "oklch(0.966 0.018 293.8)",
+          "--violet-subtle-foreground": "oklch(0.491 0.23 292.6)",
+          "--violet-border": "oklch(0.9 0.05 293.3)",
+          "--green": "oklch(0.53 0.13 163.2)",
+          "--green-foreground": "oklch(0.985 0 0)",
+          "--green-subtle": "oklch(0.973 0.025 166.1)",
+          "--green-subtle-foreground": "oklch(0.48 0.11 165.6)",
+          "--green-border": "oklch(0.9 0.07 164.2)",
+          "--lime": "oklch(0.86 0.2 127)",
+          "--lime-foreground": "oklch(0.27 0.07 132)",
+          "--lime-subtle": "oklch(0.975 0.045 122)",
+          "--lime-subtle-foreground": "oklch(0.45 0.12 131)",
+          "--lime-border": "oklch(0.9 0.13 124)",
+          "--amber": "oklch(0.78 0.16 72)",
+          "--amber-foreground": "oklch(0.28 0.07 45.6)",
+          "--amber-subtle": "oklch(0.982 0.03 92)",
+          "--amber-subtle-foreground": "oklch(0.48 0.13 46.2)",
+          "--amber-border": "oklch(0.91 0.1 92)",
+          "--red": "oklch(0.577 0.215 27.3)",
+          "--red-foreground": "oklch(0.985 0 0)",
+          "--red-subtle": "oklch(0.971 0.014 17.4)",
+          "--red-subtle-foreground": "oklch(0.505 0.19 27.5)",
+          "--red-border": "oklch(0.9 0.05 18.3)",
+          "--info": "var(--blue)",
+          "--info-foreground": "var(--blue-foreground)",
+          "--info-subtle": "var(--blue-subtle)",
+          "--info-subtle-foreground": "var(--blue-subtle-foreground)",
+          "--info-border": "var(--blue-border)",
+          "--success": "var(--green)",
+          "--success-foreground": "var(--green-foreground)",
+          "--success-subtle": "var(--green-subtle)",
+          "--success-subtle-foreground": "var(--green-subtle-foreground)",
+          "--success-border": "var(--green-border)",
+          "--warning": "var(--amber)",
+          "--warning-foreground": "var(--amber-foreground)",
+          "--warning-subtle": "var(--amber-subtle)",
+          "--warning-subtle-foreground": "var(--amber-subtle-foreground)",
+          "--warning-border": "var(--amber-border)",
+          "--danger": "var(--red)",
+          "--danger-foreground": "var(--red-foreground)",
+          "--danger-subtle": "var(--red-subtle)",
+          "--danger-subtle-foreground": "var(--red-subtle-foreground)",
+          "--danger-border": "var(--red-border)",
+          "--chart-ink": "oklch(0.205 0 0)",
+          "--chart-1": "#2867e4",
+          "--chart-2": "#dd6f23",
+          "--chart-3": "#008e89",
+          "--chart-4": "#8047e1",
+          "--chart-5": "#6b9e1f",
+          "--chart-6": "#d13d91",
+          "--sidebar": "oklch(0.985 0 0)",
+          "--sidebar-foreground": "oklch(0.175 0 0)",
+          "--sidebar-primary": "oklch(0.205 0 0)",
+          "--sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "--sidebar-accent": "oklch(0.955 0 0)",
+          "--sidebar-accent-foreground": "oklch(0.175 0 0)",
+          "--sidebar-border": "oklch(0.925 0 0)",
+          "--sidebar-ring": "oklch(0.62 0.19 259.8)",
+          "--skeleton": "oklch(0.93 0 0)",
+          "--skeleton-shine": "oklch(1 0 0 / 0.9)"
         }
       },
       "cssVars": {
@@ -157,6 +551,8 @@
           "color-card-foreground": "var(--card-foreground)",
           "color-popover": "var(--popover)",
           "color-popover-foreground": "var(--popover-foreground)",
+          "color-island": "var(--island)",
+          "color-island-foreground": "var(--island-foreground)",
           "color-primary": "var(--primary)",
           "color-primary-foreground": "var(--primary-foreground)",
           "color-primary-subtle": "var(--primary-subtle)",
@@ -164,6 +560,7 @@
           "color-secondary": "var(--secondary)",
           "color-secondary-foreground": "var(--secondary-foreground)",
           "color-muted": "var(--muted)",
+          "color-skeleton": "var(--skeleton)",
           "color-muted-foreground": "var(--muted-foreground)",
           "color-accent": "var(--accent)",
           "color-accent-foreground": "var(--accent-foreground)",
@@ -276,6 +673,8 @@
           "card-foreground": "oklch(0.175 0 0)",
           "popover": "oklch(1 0 0)",
           "popover-foreground": "oklch(0.175 0 0)",
+          "island": "oklch(0.205 0 0)",
+          "island-foreground": "oklch(0.985 0 0)",
           "primary": "oklch(0.205 0 0)",
           "primary-foreground": "oklch(0.985 0 0)",
           "primary-subtle": "oklch(0.96 0 0)",
@@ -369,7 +768,9 @@
           "sidebar-accent": "oklch(0.955 0 0)",
           "sidebar-accent-foreground": "oklch(0.175 0 0)",
           "sidebar-border": "oklch(0.925 0 0)",
-          "sidebar-ring": "oklch(0.62 0.19 259.8)"
+          "sidebar-ring": "oklch(0.62 0.19 259.8)",
+          "skeleton": "oklch(0.93 0 0)",
+          "skeleton-shine": "oklch(1 0 0 / 0.9)"
         },
         "dark": {
           "background": "oklch(0.155 0 0)",
@@ -378,6 +779,8 @@
           "card-foreground": "oklch(0.96 0 0)",
           "popover": "oklch(0.215 0 0)",
           "popover-foreground": "oklch(0.96 0 0)",
+          "island": "oklch(0.12 0 0)",
+          "island-foreground": "oklch(0.96 0 0)",
           "primary": "oklch(0.96 0 0)",
           "primary-foreground": "oklch(0.175 0 0)",
           "primary-subtle": "oklch(0.26 0 0)",
@@ -471,7 +874,9 @@
           "sidebar-accent": "oklch(0.25 0 0)",
           "sidebar-accent-foreground": "oklch(0.96 0 0)",
           "sidebar-border": "oklch(1 0 0 / 0.08)",
-          "sidebar-ring": "oklch(0.68 0.16 259.8)"
+          "sidebar-ring": "oklch(0.68 0.16 259.8)",
+          "skeleton": "oklch(0.25 0 0)",
+          "skeleton-shine": "oklch(1 0 0 / 0.06)"
         }
       }
     },
@@ -649,6 +1054,30 @@
       "files": [
         {
           "path": "registry/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Trail of links to the current page; one separator prop restyles the whole trail.",
+      "categories": [
+        "primitives",
+        "navigation"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/breadcrumb",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/breadcrumb.tsx",
           "type": "registry:ui"
         }
       ]
@@ -966,6 +1395,36 @@
       ]
     },
     {
+      "name": "island-toast",
+      "type": "registry:ui",
+      "title": "Island Toast",
+      "description": "Dynamic-island toast stack: pills that open, fold behind each other and swipe away.",
+      "categories": [
+        "feedback",
+        "motion"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/toast",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-check",
+        "@ikas/button",
+        "@ikas/motion",
+        "@ikas/spinner",
+        "@ikas/status",
+        "@ikas/theme",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/island-toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "kbd",
       "type": "registry:ui",
       "title": "Kbd",
@@ -1178,13 +1637,14 @@
       "name": "skeleton",
       "type": "registry:ui",
       "title": "Skeleton",
-      "description": "Pulsing placeholder block shown while content loads.",
+      "description": "Placeholder block or wrapper for loading content; pulses or shimmers, set app-wide by a provider.",
       "categories": [
         "primitives",
         "feedback"
       ],
       "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
       "registryDependencies": [
+        "@ikas/theme",
         "@ikas/utils"
       ],
       "files": [
@@ -1226,16 +1686,14 @@
       "name": "spinner",
       "type": "registry:ui",
       "title": "Spinner",
-      "description": "Animated loading indicator for buttons and pending sections.",
+      "description": "Loading indicator for buttons and pending sections; rotating, dots, bars, pulse and shape variants.",
       "categories": [
         "primitives",
         "feedback"
       ],
       "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
-      "dependencies": [
-        "lucide-react"
-      ],
       "registryDependencies": [
+        "@ikas/theme",
         "@ikas/utils"
       ],
       "files": [
@@ -1336,7 +1794,7 @@
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",
-      "description": "Short hint shown on hover or keyboard focus of an element.",
+      "description": "Hint on hover or keyboard focus, with an optional shortcut; neighbours open instantly.",
       "categories": [
         "primitives",
         "overlays"
@@ -1346,6 +1804,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
+        "@ikas/kbd",
         "@ikas/utils"
       ],
       "files": [
@@ -1396,6 +1855,36 @@
           "path": "registry/ikas/action-bar.tsx",
           "type": "registry:component",
           "target": "@components/ikas/action-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-badge",
+      "type": "registry:component",
+      "title": "Animated Badge",
+      "description": "Badge whose icon, label and width animate on status change; loading spin and live pulse.",
+      "categories": [
+        "motion",
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/animated-badge",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-check",
+        "@ikas/badge",
+        "@ikas/motion",
+        "@ikas/spinner",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/animated-badge.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/animated-badge.tsx"
         }
       ]
     },
@@ -1467,6 +1956,7 @@
       "registryDependencies": [
         "@ikas/chart",
         "@ikas/chart-kit",
+        "@ikas/theme",
         "@ikas/utils"
       ],
       "files": [
@@ -1521,6 +2011,7 @@
         "@ikas/chart",
         "@ikas/chart-kit",
         "@ikas/motion",
+        "@ikas/theme",
         "@ikas/utils"
       ],
       "files": [
@@ -1601,6 +2092,8 @@
       ],
       "registryDependencies": [
         "@ikas/motion",
+        "@ikas/skeleton",
+        "@ikas/theme",
         "@ikas/utils"
       ],
       "files": [
@@ -1632,6 +2125,37 @@
           "path": "registry/ikas/collapse.tsx",
           "type": "registry:component",
           "target": "@components/ikas/collapse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:component",
+      "title": "Color Picker",
+      "description": "Color field with saturation area, hue and opacity sliders, formats, eyedropper and saved swatches.",
+      "categories": [
+        "forms"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/color-picker",
+      "dependencies": [
+        "lucide-react",
+        "motion",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "@ikas/animated-check",
+        "@ikas/badge",
+        "@ikas/button",
+        "@ikas/input-group",
+        "@ikas/motion",
+        "@ikas/theme",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/color-picker.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/color-picker.tsx"
         }
       ]
     },
@@ -1839,6 +2363,34 @@
       ]
     },
     {
+      "name": "feature-gate",
+      "type": "registry:component",
+      "title": "Feature Gate",
+      "description": "Locks a feature outside the plan with a plan badge, preview and upgrade action.",
+      "categories": [
+        "feedback"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/feature-gate",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/badge",
+        "@ikas/button",
+        "@ikas/motion",
+        "@ikas/popover",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/feature-gate.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/feature-gate.tsx"
+        }
+      ]
+    },
+    {
       "name": "launchpad",
       "type": "registry:component",
       "title": "Launchpad",
@@ -1853,9 +2405,13 @@
         "motion"
       ],
       "registryDependencies": [
+        "@ikas/animated-number",
         "@ikas/button",
         "@ikas/collapse",
         "@ikas/motion",
+        "@ikas/progress-bar",
+        "@ikas/step-kit",
+        "@ikas/swap-text",
         "@ikas/utils"
       ],
       "files": [
@@ -1908,6 +2464,7 @@
         "@ikas/chart-kit",
         "@ikas/motion",
         "@ikas/status",
+        "@ikas/swap-text",
         "@ikas/utils"
       ],
       "files": [
@@ -1944,6 +2501,31 @@
       ]
     },
     {
+      "name": "page-nav",
+      "type": "registry:component",
+      "title": "Page Nav",
+      "description": "Second-level section bar under the panel's top bar; links or tabs with sliding underline.",
+      "categories": [
+        "navigation",
+        "layout"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/page-nav",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/page-nav.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/page-nav.tsx"
+        }
+      ]
+    },
+    {
       "name": "page",
       "type": "registry:component",
       "title": "Page",
@@ -1965,6 +2547,34 @@
           "path": "registry/ikas/page.tsx",
           "type": "registry:component",
           "target": "@components/ikas/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress-bar",
+      "type": "registry:component",
+      "title": "Progress Bar",
+      "description": "Progress of a known-size task as a bar or segments, with indeterminate start and status.",
+      "categories": [
+        "feedback",
+        "motion"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/progress-bar",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/step-kit",
+        "@ikas/swap-text",
+        "@ikas/theme",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/progress-bar.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/progress-bar.tsx"
         }
       ]
     },
@@ -2071,6 +2681,33 @@
       ]
     },
     {
+      "name": "sortable-stack",
+      "type": "registry:component",
+      "title": "Sortable Stack",
+      "description": "Vertical list reordered by drag handle or keyboard, with spring motion and undo.",
+      "categories": [
+        "motion",
+        "data-display"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/sortable-stack",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/sortable-stack.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/sortable-stack.tsx"
+        }
+      ]
+    },
+    {
       "name": "sparkline",
       "type": "registry:component",
       "title": "Sparkline",
@@ -2119,6 +2756,106 @@
       ]
     },
     {
+      "name": "step-kit",
+      "type": "registry:component",
+      "title": "Step Kit",
+      "description": "Shared step parts: marker shapes, connectors, drawn check and travel timing for steppers.",
+      "categories": [
+        "motion",
+        "utilities"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/step-kit",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/step-kit.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/step-kit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "registry:component",
+      "title": "Steps",
+      "description": "Where the user is in an ordered flow: horizontal, vertical or compact, with errors.",
+      "categories": [
+        "navigation",
+        "motion"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/steps",
+      "registryDependencies": [
+        "@ikas/collapse",
+        "@ikas/step-kit",
+        "@ikas/swap-text",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/steps.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "swap-text",
+      "type": "registry:component",
+      "title": "Swap Text",
+      "description": "Text that changes in place: the new line rises out of a soft blur.",
+      "categories": [
+        "motion"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/swap-text",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/motion",
+        "@ikas/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/swap-text.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/swap-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme-switch",
+      "type": "registry:component",
+      "title": "Theme Switch",
+      "description": "Light and dark toggle with sun-moon icon swap and four page transitions.",
+      "categories": [
+        "motion",
+        "theme"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/theme-switch",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@ikas/button",
+        "@ikas/motion",
+        "@ikas/theme"
+      ],
+      "files": [
+        {
+          "path": "registry/ikas/theme-switch.tsx",
+          "type": "registry:component",
+          "target": "@components/ikas/theme-switch.tsx"
+        }
+      ]
+    },
+    {
       "name": "toggle-section",
       "type": "registry:component",
       "title": "Toggle Section",
@@ -2160,6 +2897,24 @@
           "path": "registry/ikas/unsaved-bar.tsx",
           "type": "registry:component",
           "target": "@components/ikas/unsaved-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-delayed-loading",
+      "type": "registry:hook",
+      "title": "Use Delayed Loading",
+      "description": "Delays a loading flag and holds it briefly so quick loads never flash.",
+      "categories": [
+        "feedback",
+        "utilities"
+      ],
+      "docs": "https://builders.ikas.com/tr/docs/app-development/ui-kit/components/primitives",
+      "files": [
+        {
+          "path": "registry/hooks/use-delayed-loading.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-delayed-loading.ts"
         }
       ]
     },

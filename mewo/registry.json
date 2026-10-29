@@ -27,7 +27,7 @@
       "type": "registry:ui",
       "title": "Marquee",
       "description": "An infinite horizontal scroller with a seamless loop. CSS only — no dependencies.",
-      "categories": ["layout"],
+      "categories": ["text"],
       "meta": { "added": "2026-09-15" },
       "files": [{ "path": "registry/mewo/ui/marquee.tsx", "type": "registry:ui" }],
       "css": {
@@ -82,24 +82,6 @@
       "categories": ["card"],
       "meta": { "added": "2026-10-01" },
       "files": [{ "path": "registry/mewo/ui/gradient-carousel.tsx", "type": "registry:ui" }]
-    },
-    {
-      "name": "scroll-reveal",
-      "type": "registry:ui",
-      "title": "Scroll Reveal",
-      "description": "Fades and slides its children in when they enter the viewport. Powered by Motion.",
-      "categories": ["scroll"],
-      "meta": { "added": "2026-09-15" },
-      "dependencies": ["motion"],
-      "files": [{ "path": "registry/mewo/ui/scroll-reveal.tsx", "type": "registry:ui" }],
-      "css": {
-        "@media (scripting: none)": {
-          "[data-slot=\"scroll-reveal\"]": {
-            "opacity": "1 !important",
-            "transform": "none !important"
-          }
-        }
-      }
     },
     {
       "name": "scroll-portal",
@@ -174,47 +156,6 @@
       }
     },
     {
-      "name": "text-scroll-highlight",
-      "type": "registry:ui",
-      "title": "Text Scroll Highlight",
-      "description": "Text whose words light up one by one with the scroll, either as it moves up the screen or pinned in place like a subtitle. No dependencies.",
-      "categories": ["scroll"],
-      "meta": { "added": "2026-10-01" },
-      "files": [{ "path": "registry/mewo/ui/text-scroll-highlight.tsx", "type": "registry:ui" }],
-      "css": {
-        "@media (scripting: none)": {
-          "[data-slot=\"text-scroll-highlight-word\"]": {
-            "opacity": "1 !important"
-          },
-          "[data-slot=\"text-scroll-highlight-pin\"]": {
-            "height": "auto !important"
-          },
-          "[data-slot=\"text-scroll-highlight-stage\"]": {
-            "position": "static !important",
-            "height": "auto !important"
-          }
-        }
-      }
-    },
-    {
-      "name": "aurora-background",
-      "type": "registry:ui",
-      "title": "Aurora Background",
-      "description": "A slowly drifting gradient backdrop with a fade-in for its content. A WebGL 2 shader, with a static CSS gradient wherever WebGL is unavailable.",
-      "categories": ["background"],
-      "meta": { "added": "2026-09-15" },
-      "dependencies": ["motion"],
-      "files": [{ "path": "registry/mewo/ui/aurora-background.tsx", "type": "registry:ui" }],
-      "css": {
-        "@media (scripting: none)": {
-          "[data-slot=\"aurora-content\"]": {
-            "opacity": "1 !important",
-            "transform": "none !important"
-          }
-        }
-      }
-    },
-    {
       "name": "pattern-waves",
       "type": "registry:ui",
       "title": "Pattern Waves",
@@ -241,54 +182,6 @@
       "categories": ["background"],
       "meta": { "added": "2026-10-21" },
       "files": [{ "path": "registry/mewo/ui/dot-grid.tsx", "type": "registry:ui" }]
-    },
-    {
-      "name": "hero-aurora",
-      "type": "registry:block",
-      "title": "Hero — Aurora",
-      "description": "A hero section: aurora backdrop, word-by-word headline, description and two call-to-action buttons.",
-      "categories": ["sections", "hero"],
-      "meta": { "added": "2026-09-15" },
-      "registryDependencies": ["button", "@mewo/aurora-background", "@mewo/split-text"],
-      "files": [{ "path": "registry/mewo/blocks/hero-aurora.tsx", "type": "registry:component" }]
-    },
-    {
-      "name": "features-spotlight",
-      "type": "registry:block",
-      "title": "Features — Spotlight",
-      "description": "A features section: shimmering eyebrow, heading, a scroll-revealed grid of spotlight cards and a logo marquee.",
-      "categories": ["sections", "features"],
-      "meta": { "added": "2026-09-15" },
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["@mewo/text-shimmer", "@mewo/scroll-reveal", "@mewo/spotlight-card", "@mewo/marquee"],
-      "files": [{ "path": "registry/mewo/blocks/features-spotlight.tsx", "type": "registry:component" }]
-    },
-    {
-      "name": "tabs",
-      "type": "registry:ui",
-      "title": "Tabs",
-      "description": "Drop-in replacement for shadcn's tabs. Adds an indicator that slides between tabs instead of jumping. Same exports, same props.",
-      "categories": ["primitives"],
-      "meta": { "added": "2026-09-17" },
-      "dependencies": ["motion", "@base-ui/react", "class-variance-authority"],
-      "files": [{ "path": "registry/mewo/ui/tabs.tsx", "type": "registry:ui" }]
-    },
-    {
-      "name": "collapsible",
-      "type": "registry:ui",
-      "title": "Collapsible",
-      "description": "Drop-in replacement for shadcn's collapsible, which ships with no animation at all. Adds eased height and a content fade. Same exports, same props.",
-      "categories": ["primitives"],
-      "meta": { "added": "2026-09-17" },
-      "dependencies": ["motion", "@base-ui/react"],
-      "files": [{ "path": "registry/mewo/ui/collapsible.tsx", "type": "registry:ui" }],
-      "css": {
-        "@media (scripting: none)": {
-          "[data-slot=\"collapsible-content-fade\"]": {
-            "opacity": "1 !important"
-          }
-        }
-      }
     },
     {
       "name": "album-rail",
@@ -403,7 +296,7 @@
       "type": "registry:ui",
       "title": "Glass Panel",
       "description": "A glass panel that grows out of the button that opens it, its content dropping into place in turn. Parts like shadcn's dialog (GlassPanel, GlassPanelTrigger, GlassPanelContent, GlassPanelTitle, GlassPanelFooter, GlassPanelClose) on a non-modal Base UI dialog: Escape and a press outside close it, focus moves in and back.",
-      "categories": ["layout", "overlay"],
+      "categories": ["card", "overlay"],
       "meta": { "added": "2026-10-27" },
       "dependencies": ["@base-ui/react"],
       "files": [{ "path": "registry/mewo/ui/glass-panel.tsx", "type": "registry:ui" }]
@@ -500,6 +393,79 @@
       "meta": { "added": "2026-10-27" },
       "registryDependencies": ["@mewo/picture-credit", "@mewo/picture-figure", "@mewo/rich-text"],
       "files": [{ "path": "registry/mewo/blocks/portrait-pair.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "concave-carousel",
+      "type": "registry:ui",
+      "title": "Concave Carousel",
+      "description": "A gallery wall that curves around the viewer in CSS 3D, with a slow drift, spring snapping, drag and flick, the wheel, captions and a floor reflection. No dependencies.",
+      "categories": ["card"],
+      "meta": { "added": "2026-10-28" },
+      "files": [{ "path": "registry/mewo/ui/concave-carousel.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "parallax-carousel",
+      "type": "registry:ui",
+      "title": "Parallax Carousel",
+      "description": "A strip of image planes you drag, scroll or step through with the arrow keys, each picture sliding inside its frame as it moves away from the centre, with an optional autoplay drift. No dependencies.",
+      "categories": ["card"],
+      "meta": { "added": "2026-10-28" },
+      "files": [{ "path": "registry/mewo/ui/parallax-carousel.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "depth-card",
+      "type": "registry:ui",
+      "title": "Depth Card",
+      "description": "A card that tilts toward the pointer in 3D while its image layers shift in depth under a soft spotlight, and its text rises in on hover. No dependencies.",
+      "categories": ["card"],
+      "meta": { "added": "2026-10-28" },
+      "files": [{ "path": "registry/mewo/ui/depth-card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "depth-image",
+      "type": "registry:ui",
+      "title": "Depth Image",
+      "description": "A photo relit by a light that follows the pointer or drifts on a slow orbit, with depth, surface detail and soft self-shadows estimated from the image. Raw WebGL 2, no dependencies.",
+      "categories": ["background"],
+      "meta": { "added": "2026-10-28" },
+      "files": [{ "path": "registry/mewo/ui/depth-image.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "tilted-tiles",
+      "type": "registry:ui",
+      "title": "Tilted Tiles",
+      "description": "A wall of image columns on a tilted 3D plane, scrolling in a seamless loop under a soft fade while the pointer steers the tilt. No dependencies.",
+      "categories": ["background"],
+      "meta": { "added": "2026-10-28" },
+      "files": [{ "path": "registry/mewo/ui/tilted-tiles.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "skewed-carousel",
+      "type": "registry:ui",
+      "title": "Skewed Carousel",
+      "description": "A carousel of cards that turn away in 3D as they slide, with spring motion, swipe, dots and arrow keys. No dependencies.",
+      "categories": ["card"],
+      "meta": { "added": "2026-10-28" },
+      "files": [{ "path": "registry/mewo/ui/skewed-carousel.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "prism-carousel",
+      "type": "registry:ui",
+      "title": "Prism Carousel",
+      "description": "A coverflow of rounded images that sweeps a band of spectrum and colour into each new one and splits into a spectrum while it moves, with drag, wheel, keys, autoplay and captions. Raw WebGL 2, no dependencies.",
+      "categories": ["card"],
+      "meta": { "added": "2026-10-28" },
+      "files": [{ "path": "registry/mewo/ui/prism-carousel.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "dream-cat",
+      "type": "registry:ui",
+      "title": "Dream Cat",
+      "description": "The mewo cat in a dream, its outline fraying into a slowly drifting fog: its round hand reaches for the pointer wherever it is, the arm stretching as far as it must, and stirs the fog as it goes; its eyes follow and its body leans in. Drawn with WebGL 2 on ogl; the drift can be stopped, and then it is idle while the pointer rests.",
+      "categories": ["background"],
+      "meta": { "added": "2026-10-28", "downloads": ["models/mewo.glb"] },
+      "dependencies": ["ogl"],
+      "files": [{ "path": "registry/mewo/ui/dream-cat.tsx", "type": "registry:ui" }]
     }
   ]
 }

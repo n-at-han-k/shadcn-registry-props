@@ -5,6 +5,209 @@
   "description": "Ultra modern monospace component library",
   "items": [
     {
+      "name": "flow-01",
+      "type": "registry:component",
+      "title": "Agent Workflow",
+      "description": "A three-step agent workflow, caught mid-run: one step done, one spinning, one still pending. Each row dims as a whole rather than muting its label, icon and badge separately: a pending step is one thing that has not happened yet, not three greyed pieces. Every surface is a theme token, the spinner drops out under prefers-reduced-motion, and the only dependency is lucide-react.",
+      "author": "D2 Studio",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/flow-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "illustration",
+        "blocks"
+      ]
+    },
+    {
+      "name": "visualization-01",
+      "type": "registry:component",
+      "title": "Usage Split",
+      "description": "Token usage split three ways across one shared track. The segments sit in a single rail rather than three of their own, because the point of the picture is that they add up to a budget. The largest share carries a blue to sky gradient, held in hex rather than tokens because it is the one lit thing in the picture and a token that reskins with the page would take the highlight with it; the other two are the host's own token at two depths, so the chart stays legible in whatever palette the host is running and a second hue never reads as a second measurement. One component and one stylesheet, no dependencies and no client hooks.",
+      "author": "D2 Studio",
+      "files": [
+        {
+          "path": "registry/default/components/visualization-01.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/components/visualization-01/visualization-01.css",
+          "type": "registry:file",
+          "target": "components/visualization-01/visualization-01.css"
+        }
+      ],
+      "categories": [
+        "illustration",
+        "blocks"
+      ]
+    },
+    {
+      "name": "document-01",
+      "type": "registry:component",
+      "title": "File Upload",
+      "description": "A single upload row mid-flight: a PDF badge, the filename, a thin progress rail and the byte count under it. The bar is a plain width rather than an animated one: an illustration is a still of a moment, and a bar that replayed to 24% every time the card scrolled into view would be telling a story it does not have. The rail carries real progressbar semantics so a screen reader gets the number. Theme tokens throughout.",
+      "author": "D2 Studio",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/document-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "illustration",
+        "blocks"
+      ]
+    },
+    {
+      "name": "logo-marquee",
+      "type": "registry:component",
+      "title": "Logo Marquee",
+      "description": "A logo rail that never stops, and one the main thread never touches. The travel is a Web Animations API transform rather than a per-frame write from JavaScript, so the browser owns the interpolation on the compositor and a busy page cannot make the rail stutter, which matters most on a landing page, where the frame the visitor is scrolling is the busiest one there is. The children are rendered twice, each copy carrying the gap as trailing padding, so the track is exactly two copies wide and a translate of half of it lands the second copy where the first one started: the seam is the reset, and it is invisible because the two halves are identical there. Hovering slows it rather than stopping it, through playbackRate rather than a new duration, so the pace changes from wherever the rail currently is instead of jumping to wherever new timing says it should have been; it is off on touch, where a tap would fire the enter and never the leave. The rail pauses itself while it is off screen and retimes without moving when a web font settles its width. Both edges are cut back into the page by gradients of the page's own background, so logos arrive and leave instead of being clipped, and the marks paint in currentColor through muted-foreground so they follow the host's theme rather than being inverted into it. Stops under prefers-reduced-motion.",
+      "author": "D2 Studio",
+      "registryDependencies": [
+        "https://ui.d2studio.dev/r/brand-showcase.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/logo-marquee.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "logos",
+        "blocks"
+      ]
+    },
+    {
+      "name": "button-beam",
+      "type": "registry:component",
+      "title": "Beam Button",
+      "description": "A glass pill with a beam travelling along its lower edge. The chip under it is deliberately quiet, one tinted plate and a hairline border with the ink coming up to full under the cursor, because a louder face would compete with the light rather than carry it. The plate, the border and the top sheen are tokens, and the beam is told to follow the host theme with them, so the pill reads on a white page and on a black one without a second set of colours. Four palettes, the shadcn size scale with the padding opened a step for the round corners, and the beam takes a switch so the still version is the same chip with the light off. Renders an anchor when handed an href, a button otherwise.",
+      "author": "D2 Studio",
+      "dependencies": [
+        "border-beam",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/button-beam.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "button",
+        "blocks"
+      ]
+    },
+    {
+      "name": "diagram-grid",
+      "type": "registry:component",
+      "title": "Diagram Grid",
+      "description": "A bento scaffold rather than a finished bento: nine slots in the scattered arrangement an integration diagram wants, with one emphasised centre, and a `slots` prop keyed 1 to 9 for what goes in them. Anything left out draws itself as a dashed placeholder over a dots or hatch texture, so the layout is legible before there is any content, which is the point of shipping the frame apart from what fills it. A filled slot is a card and an empty one is the outline of where a card will go, so only the empty state is dashed and translucent. The grid flows dense, so a slot spanning two columns does not leave the hole before it empty, since the scatter is the layout rather than a side effect of it. Both textures are painted in `--border` rather than a fixed grey, so they track the same token as the dashed edge around them and invert with the host instead of smearing light grey across a dark card. The grid itself is headless, with no section, no heading and no background, so it drops straight into a hero. No dependencies and no client hooks.",
+      "author": "D2 Studio",
+      "files": [
+        {
+          "path": "registry/default/components/diagram-grid.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "bento",
+        "blocks"
+      ]
+    },
+    {
+      "name": "cta-04",
+      "type": "registry:component",
+      "title": "Panel CTA",
+      "description": "One inverted panel, centred copy and two actions, the plain one. Two blurred lobes bleed in from opposite corners and are clipped by the panel, so what shows is the falloff rather than a circle with an edge. Built entirely on theme tokens with no dark: twin, and no dependencies at all.",
+      "author": "D2 Studio",
+      "files": [
+        {
+          "path": "registry/default/components/cta-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "landing"
+      ]
+    },
+    {
+      "name": "logo-cascade",
+      "type": "registry:component",
+      "title": "Cascade Wall",
+      "description": "brand-showcase's rolling wall with the blur put back. The frame never moves and only the marks do: each cell is a window over a column holding every mark that cell will ever show, and a page change translates that column by exactly one cell height, which is transitions.dev's text-states-swap geometry, old mark leaving upward and new mark arriving from below, written as one transform on one element. The difference is where the blur sits. On the sharp version there is none, because two marks physically travelling do not need bridging the way a crossfade does; here it is per mark rather than per page, so the arriving mark sharpens as it lands and the leaving one dissolves as it goes, and two wordmarks passing through one window read as a single thing changing rather than as two objects. It costs no state and no keyframe: every mark already knows whether it is the active one, so the blur is a plain A-to-B transition riding the same curve and the same per-cell delay as the roll, interruptible, with nothing to keep in sync with the transform. The stagger is what makes it read as a wall repainting rather than a slide changing: 45ms per cell, so the change crosses the row as a wave, since six cells turning at once is a cut. Every mark is exactly one cell tall by grid row sizing rather than a measured pixel offset, so nothing has to be recomputed on resize. Pages are always full, wrapping back to the start rather than leaving a short last row, so any number of logos fills a six-column grid. No rules between the cells: the marks sit on the page's own ground, so the only thing bounding a logo is the space around it, and the window each column rolls through is still there, just no longer drawn. The marks are brand-showcase's, inlined and painted in currentColor, because a logo cloud that waits on a dozen network round trips shows twelve empty cells first. Reduced motion stops the rotation outright, read in JS rather than guarded in CSS, because a stopped transition on a running timer would still change the logo and only make it a hard cut.",
+      "author": "D2 Studio",
+      "registryDependencies": [
+        "https://ui.d2studio.dev/r/brand-showcase.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/logo-cascade.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "logos",
+        "blocks"
+      ]
+    },
+    {
+      "name": "logo-rack",
+      "type": "registry:component",
+      "title": "Logo Rack",
+      "description": "The logo row with nothing moving in it: marks sitting still in ruled cells, which is the same shape a rack of machines comes in. A rail that travels says there are many of us; a rack that sits says these are the ones we run, so it is the right row under a fold about infrastructure rather than under one about reach. Every rule is the gap showing through a filled parent rather than a border on a cell, so a cell that wraps to a new line cannot double a rule up with its neighbour's and the hairline stays exactly one pixel at any column count. Two columns on a phone, four on a tablet, eight on a desktop, and the label sits over the rack rather than beside it because a rack has a top edge to hang from where a moving track does not. The marks are brand-showcase's, painted in currentColor through muted-foreground, so they follow the host's theme instead of being inverted into it, and a cell lifts to full ink on hover. Lifted out of hero-04 as a copy rather than an import: a section that had to pull in a whole hero to draw eight logos would install the plane, the nav and the copy with it. No dependencies and no client boundary.",
+      "author": "D2 Studio",
+      "registryDependencies": [
+        "https://ui.d2studio.dev/r/brand-showcase.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/components/logo-rack.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "logos",
+        "blocks"
+      ]
+    },
+    {
+      "name": "brand-showcase",
+      "type": "registry:component",
+      "title": "Brand Showcase",
+      "description": "A logo wall that rotates instead of scrolling. A marquee asks the eye to track a moving target; this holds a page of six still long enough to read, then crossfades the next one in behind a hair of blur and scale, so every logo gets the same three seconds rather than the same two inches of travel. Every page stays mounted and stacked, which is what lets the incoming one be laid out before it fades and what makes the section as tall as its tallest page rather than a number written into it. Pages are always full, wrapping back to the start rather than leaving a short last row, so any number of logos fills a six-column grid. No rules between the cells: the marks sit on the page's own ground, so the only thing bounding a logo is the space around it. Twelve wordmarks ship inlined and painted in currentColor, because a logo cloud that waits on a dozen network round trips shows twelve empty cells first. Reduced motion stops the rotation outright. No dependencies.",
+      "author": "D2 Studio",
+      "files": [
+        {
+          "path": "registry/default/components/brand-showcase.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/components/brand-showcase/brand-icons.tsx",
+          "type": "registry:component",
+          "target": "components/brand-showcase/brand-icons.tsx"
+        },
+        {
+          "path": "registry/default/components/brand-showcase/brand-logos.ts",
+          "type": "registry:component",
+          "target": "components/brand-showcase/brand-logos.ts"
+        }
+      ],
+      "categories": [
+        "logos",
+        "blocks"
+      ]
+    },
+    {
       "name": "ai-block",
       "type": "registry:ui",
       "title": "AI Block",
@@ -204,6 +407,32 @@
         {
           "path": "registry/default/ui/hero-01.tsx",
           "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "hero"
+      ]
+    },
+    {
+      "name": "hero-container",
+      "type": "registry:component",
+      "title": "Container Hero",
+      "description": "A one-screen hero on a plain background: a 20ft shipping container built as a real box in CSS 3D, three quarters on, hangs from a crane hook on four slings over its soft shadow. It swings on its cable with a little wind and takes a shove from a passing pointer; the loop runs only while the hero is on screen, and under reduced motion the crate hangs still. No dependencies; it scales to the stage, so it fits a phone, a short landscape screen or a desktop alike. Theme-aware.",
+      "author": "D2 Studio",
+      "files": [
+        {
+          "path": "registry/default/components/hero-container.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/components/hero-container/crate.css",
+          "type": "registry:file",
+          "target": "components/hero-container/crate.css"
+        },
+        {
+          "path": "registry/default/components/hero-container/crate.tsx",
+          "type": "registry:component",
+          "target": "components/hero-container/crate.tsx"
         }
       ],
       "categories": [
@@ -736,6 +965,25 @@
       "categories": [
         "button",
         "blocks"
+      ]
+    },
+    {
+      "name": "id-card",
+      "type": "registry:ui",
+      "title": "ID Card",
+      "description": "An event badge on a D2 strap: a portrait, name, role and a short about, with contact links at the foot. The strap is a rope under gravity, so drag the card and it swings; click it and it turns over to a printed back. The faces are painted on a canvas from the card's own palette and repainted when the theme flips, and the links stay real links, with a keyboard plate under the card for screen readers. Give its parent a height.",
+      "author": "D2 Studio",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/id-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "data-display"
       ]
     },
     {
