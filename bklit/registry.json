@@ -72,11 +72,10 @@
         "@bklit/chart-utils"
       ],
       "dependencies": [
-        "@visx/event@4.0.0",
-        "@visx/responsive@4.0.0",
-        "@visx/scale@4.0.0",
         "d3-array",
-        "motion"
+        "motion",
+        "d3-scale",
+        "d3-shape"
       ],
       "cssVars": {
         "theme": {
@@ -178,6 +177,16 @@
           "target": "components/charts/use-chart-interaction.ts"
         },
         {
+          "path": "src/charts/line-path.tsx",
+          "type": "registry:component",
+          "target": "components/charts/line-path.tsx"
+        },
+        {
+          "path": "src/charts/local-point.ts",
+          "type": "registry:component",
+          "target": "components/charts/local-point.ts"
+        },
+        {
           "path": "src/charts/y-axis-scales.ts",
           "type": "registry:lib",
           "target": "components/charts/y-axis-scales.ts"
@@ -238,6 +247,19 @@
       ]
     },
     {
+      "name": "gradients",
+      "type": "registry:component",
+      "title": "Chart Gradients",
+      "description": "LinearGradient, RadialGradient and gradient presets for chart fills (SVG defs).",
+      "files": [
+        {
+          "path": "src/charts/gradients.tsx",
+          "type": "registry:component",
+          "target": "components/charts/gradients.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-animation",
       "type": "registry:component",
       "title": "Chart Animation",
@@ -294,7 +316,6 @@
         "@bklit/chart-tooltip"
       ],
       "dependencies": [
-        "@visx/shape@4.0.0",
         "d3-shape",
         "motion"
       ],
@@ -385,13 +406,18 @@
         "@bklit/chart-context"
       ],
       "dependencies": [
-        "@visx/grid@4.0.0"
+        "d3-scale"
       ],
       "files": [
         {
           "path": "src/charts/grid.tsx",
           "type": "registry:component",
           "target": "components/charts/grid.tsx"
+        },
+        {
+          "path": "src/charts/grid-lines.tsx",
+          "type": "registry:component",
+          "target": "components/charts/grid-lines.tsx"
         },
         {
           "path": "src/charts/use-grid-shimmer.ts",
@@ -440,8 +466,8 @@
         "@bklit/line-chart"
       ],
       "dependencies": [
-        "@visx/shape@4.0.0",
-        "motion"
+        "motion",
+        "d3-shape"
       ],
       "files": [
         {
@@ -477,7 +503,6 @@
         "@bklit/background"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
         "d3-shape",
         "motion"
       ],
@@ -696,6 +721,9 @@
           "type": "registry:component",
           "target": "components/charts/responsive-chart-label-count.ts"
         }
+      ],
+      "dependencies": [
+        "d3-scale"
       ]
     },
     {
@@ -704,7 +732,8 @@
       "title": "Y Axis",
       "description": "Y-axis component for value labels in line and area charts",
       "dependencies": [
-        "motion"
+        "motion",
+        "d3-scale"
       ],
       "registryDependencies": [
         "@bklit/chart-context",
@@ -734,7 +763,8 @@
       ],
       "dependencies": [
         "@number-flow/react",
-        "motion"
+        "motion",
+        "d3-scale"
       ],
       "files": [
         {
@@ -892,6 +922,9 @@
           "type": "registry:component",
           "target": "components/charts/markers/index.ts"
         }
+      ],
+      "dependencies": [
+        "d3-scale"
       ]
     },
     {
@@ -908,13 +941,12 @@
         "@bklit/chart-tooltip",
         "@bklit/shimmering-text",
         "@bklit/utils",
-        "@bklit/chart-parent-size"
+        "@bklit/chart-parent-size",
+        "@bklit/gradients"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/gradient@4.0.0",
-        "@visx/shape@4.0.0",
-        "motion"
+        "motion",
+        "d3-shape"
       ],
       "files": [
         {
@@ -1021,10 +1053,6 @@
         "@bklit/chart-parent-size"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/scale@4.0.0",
-        "@visx/shape@4.0.0",
-        "@visx/responsive@4.0.0",
         "d3-array",
         "motion"
       ],
@@ -1088,11 +1116,10 @@
         "@bklit/chart-tooltip",
         "@bklit/utils",
         "@bklit/patterns",
-        "@bklit/chart-parent-size"
+        "@bklit/chart-parent-size",
+        "@bklit/gradients"
       ],
       "dependencies": [
-        "@visx/gradient@4.0.0",
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -1188,11 +1215,10 @@
         "@bklit/shimmering-text",
         "@bklit/utils",
         "@bklit/chart-parent-size",
-        "@bklit/background"
+        "@bklit/background",
+        "@bklit/gradients"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/shape@4.0.0",
         "d3-shape",
         "motion"
       ],
@@ -1323,8 +1349,7 @@
         "@bklit/utils"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/shape@4.0.0"
+        "d3-shape"
       ],
       "files": [
         {
@@ -1468,13 +1493,10 @@
         "@bklit/chart-parent-size"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/scale@4.0.0",
-        "@visx/shape@4.0.0",
-        "@visx/responsive@4.0.0",
-        "@visx/event@4.0.0",
         "d3-array",
-        "motion"
+        "motion",
+        "d3-shape",
+        "d3-scale"
       ],
       "files": [
         {
@@ -1520,10 +1542,9 @@
         "@bklit/chart-parent-size"
       ],
       "dependencies": [
-        "@visx/scale@4.0.0",
-        "@visx/responsive@4.0.0",
         "d3-array",
-        "motion"
+        "motion",
+        "d3-scale"
       ],
       "files": [
         {
@@ -1560,9 +1581,6 @@
       ],
       "dependencies": [
         "@number-flow/react",
-        "@visx/group@4.0.0",
-        "@visx/responsive@4.0.0",
-        "@visx/shape@4.0.0",
         "d3-shape",
         "motion"
       ],
@@ -1581,6 +1599,11 @@
           "path": "src/charts/pie-slice.tsx",
           "type": "registry:component",
           "target": "components/charts/pie-slice.tsx"
+        },
+        {
+          "path": "src/charts/arc-path.ts",
+          "type": "registry:component",
+          "target": "components/charts/arc-path.ts"
         },
         {
           "path": "src/charts/chart-stat-flow.tsx",
@@ -1615,10 +1638,7 @@
         "@bklit/chart-parent-size"
       ],
       "dependencies": [
-        "@visx/group@4.0.0",
-        "@visx/responsive@4.0.0",
-        "@visx/scale@4.0.0",
-        "@visx/shape@4.0.0",
+        "d3-scale",
         "d3-shape",
         "motion"
       ],
@@ -1666,11 +1686,9 @@
         "@bklit/chart-parent-size"
       ],
       "dependencies": [
-        "@visx/group@4.0.0",
-        "@visx/responsive@4.0.0",
-        "@visx/shape@4.0.0",
         "@number-flow/react",
-        "motion"
+        "motion",
+        "d3-shape"
       ],
       "files": [
         {
@@ -1687,6 +1705,11 @@
           "path": "src/charts/ring.tsx",
           "type": "registry:component",
           "target": "components/charts/ring.tsx"
+        },
+        {
+          "path": "src/charts/arc-path.ts",
+          "type": "registry:component",
+          "target": "components/charts/arc-path.ts"
         },
         {
           "path": "src/charts/chart-stat-flow.tsx",
@@ -1840,7 +1863,6 @@
         "@bklit/chart-parent-size"
       ],
       "dependencies": [
-        "@visx/responsive@4.0.0",
         "@number-flow/react",
         "motion",
         "d3-shape"
@@ -1900,14 +1922,12 @@
         "@bklit/chart-utils",
         "@bklit/chart-tooltip",
         "@bklit/background",
-        "@bklit/shimmering-text"
+        "@bklit/shimmering-text",
+        "@bklit/chart-parent-size"
       ],
       "dependencies": [
-        "@visx/group@4.0.0",
-        "@visx/heatmap@4.0.0",
-        "@visx/responsive@4.0.0",
-        "@visx/scale@4.0.0",
-        "motion"
+        "motion",
+        "d3-scale"
       ],
       "files": [
         {
@@ -1924,6 +1944,11 @@
           "path": "src/charts/heatmap/heatmap-cells.tsx",
           "type": "registry:component",
           "target": "components/charts/heatmap/heatmap-cells.tsx"
+        },
+        {
+          "path": "src/charts/heatmap/heatmap-rect-cells.ts",
+          "type": "registry:component",
+          "target": "components/charts/heatmap/heatmap-rect-cells.ts"
         },
         {
           "path": "src/charts/heatmap/heatmap-x-axis.tsx",
@@ -2031,18 +2056,31 @@
       ],
       "dependencies": [
         "@types/geojson",
-        "@visx/geo@4.0.0",
-        "@visx/responsive@4.0.0",
-        "@visx/zoom@4.0.0",
         "d3-geo",
         "topojson-client",
-        "motion"
+        "motion",
+        "d3-scale"
       ],
       "files": [
         {
           "path": "src/charts/choropleth/choropleth-chart.tsx",
           "type": "registry:component",
           "target": "components/charts/choropleth/choropleth-chart.tsx"
+        },
+        {
+          "path": "src/charts/choropleth/choropleth-projection.ts",
+          "type": "registry:component",
+          "target": "components/charts/choropleth/choropleth-projection.ts"
+        },
+        {
+          "path": "src/charts/choropleth/choropleth-zoom-matrix.ts",
+          "type": "registry:component",
+          "target": "components/charts/choropleth/choropleth-zoom-matrix.ts"
+        },
+        {
+          "path": "src/charts/choropleth/use-choropleth-zoom-state.ts",
+          "type": "registry:component",
+          "target": "components/charts/choropleth/use-choropleth-zoom-state.ts"
         },
         {
           "path": "src/charts/choropleth/choropleth-context.tsx",
@@ -2110,18 +2148,20 @@
         "@bklit/chart-parent-size"
       ],
       "dependencies": [
-        "@visx/event@4.0.0",
-        "@visx/gradient@4.0.0",
-        "@visx/responsive@4.0.0",
-        "@visx/sankey@4.0.0",
         "d3-sankey",
-        "motion"
+        "motion",
+        "d3-scale"
       ],
       "files": [
         {
           "path": "src/charts/sankey/sankey-chart.tsx",
           "type": "registry:component",
           "target": "components/charts/sankey/sankey-chart.tsx"
+        },
+        {
+          "path": "src/charts/local-point.ts",
+          "type": "registry:component",
+          "target": "components/charts/local-point.ts"
         },
         {
           "path": "src/charts/sankey/sankey-context.tsx",
@@ -2249,8 +2289,7 @@
         "@bklit/chart-tooltip"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/shape@4.0.0",
+        "d3-shape",
         "motion"
       ],
       "files": [
@@ -2277,8 +2316,6 @@
         "@bklit/chart-tooltip"
       ],
       "dependencies": [
-        "@visx/gradient@4.0.0",
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2306,8 +2343,7 @@
         "@bklit/chart-tooltip"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/shape@4.0.0",
+        "d3-shape",
         "motion"
       ],
       "files": [
@@ -2362,7 +2398,6 @@
         "@bklit/pie-chart"
       ],
       "dependencies": [
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2387,7 +2422,6 @@
         "@bklit/gauge-chart"
       ],
       "dependencies": [
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2412,8 +2446,6 @@
         "@bklit/heatmap-chart"
       ],
       "dependencies": [
-        "@visx/heatmap@4.0.0",
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2438,7 +2470,6 @@
         "@bklit/ring-chart"
       ],
       "dependencies": [
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2463,7 +2494,6 @@
         "@bklit/radar-chart"
       ],
       "dependencies": [
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2517,8 +2547,7 @@
         "@bklit/chart-tooltip"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/shape@4.0.0",
+        "d3-shape",
         "motion"
       ],
       "files": [
@@ -2543,7 +2572,6 @@
         "@bklit/funnel-chart"
       ],
       "dependencies": [
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2568,8 +2596,6 @@
         "@bklit/sankey-chart"
       ],
       "dependencies": [
-        "@visx/sankey@4.0.0",
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2622,7 +2648,6 @@
         "@bklit/chart-tooltip"
       ],
       "dependencies": [
-        "@visx/shape@4.0.0",
         "motion"
       ],
       "files": [
@@ -2647,7 +2672,6 @@
         "@bklit/choropleth-chart"
       ],
       "dependencies": [
-        "@visx/geo@4.0.0",
         "d3-geo",
         "topojson-client"
       ],
@@ -2674,8 +2698,7 @@
         "@bklit/chart-tooltip"
       ],
       "dependencies": [
-        "@visx/curve@4.0.0",
-        "@visx/shape@4.0.0",
+        "d3-shape",
         "motion"
       ],
       "files": [
