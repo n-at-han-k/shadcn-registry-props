@@ -1,0 +1,350 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "stickies",
+  "homepage": "https://stickies.live",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stickies-format",
+      "type": "registry:lib",
+      "title": "Stickies format",
+      "description": "The Stickies format in TypeScript: types, palette, documents, validation, and the clipboard's HTML and plain text.",
+      "files": [
+        {
+          "path": "registry/stickies/lib/stickies-format.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#stickies-format for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stickies-theme",
+      "type": "registry:item",
+      "title": "Stickies theme",
+      "description": "The six sticky-note colours, light and dark, as CSS variables and Tailwind tokens, and the sticky-shadow utility.",
+      "cssVars": {
+        "theme": {
+          "color-sticky-paper": "var(--sticky-paper)",
+          "color-sticky-header": "var(--sticky-header)",
+          "color-sticky-edge": "var(--sticky-edge)",
+          "color-sticky-ink": "var(--sticky-ink)",
+          "color-sticky-meta": "var(--sticky-meta)"
+        }
+      },
+      "css": {
+        "@layer base": {
+          "[data-sticky-color]": {
+            "--sticky-paper": "#fdf6c8",
+            "--sticky-header": "#f6e9a6",
+            "--sticky-edge": "#e8d995",
+            "--sticky-ink": "#3b3214",
+            "--sticky-meta": "#9a8d5c"
+          },
+          "[data-sticky-color=\"blue\"]": {
+            "--sticky-paper": "#ddedfb",
+            "--sticky-header": "#c7dff6",
+            "--sticky-edge": "#abc9ea",
+            "--sticky-ink": "#1d3049",
+            "--sticky-meta": "#6c86a5"
+          },
+          "[data-sticky-color=\"green\"]": {
+            "--sticky-paper": "#def3d7",
+            "--sticky-header": "#c8e9bd",
+            "--sticky-edge": "#a9d69c",
+            "--sticky-ink": "#22391c",
+            "--sticky-meta": "#6e8e65"
+          },
+          "[data-sticky-color=\"pink\"]": {
+            "--sticky-paper": "#fbe1ed",
+            "--sticky-header": "#f5c9dd",
+            "--sticky-edge": "#e7abc6",
+            "--sticky-ink": "#4a1f31",
+            "--sticky-meta": "#a06e85"
+          },
+          "[data-sticky-color=\"purple\"]": {
+            "--sticky-paper": "#ede3fb",
+            "--sticky-header": "#ddcdf6",
+            "--sticky-edge": "#c5aee9",
+            "--sticky-ink": "#33204d",
+            "--sticky-meta": "#8973a7"
+          },
+          "[data-sticky-color=\"grey\"]": {
+            "--sticky-paper": "#f2f2f1",
+            "--sticky-header": "#e3e3e1",
+            "--sticky-edge": "#cfcfcc",
+            "--sticky-ink": "#2b2b2a",
+            "--sticky-meta": "#8a8a87"
+          },
+          ".dark [data-sticky-color]": {
+            "--sticky-paper": "#48421f",
+            "--sticky-header": "#575027",
+            "--sticky-edge": "#665d2f",
+            "--sticky-ink": "#f7f0cb",
+            "--sticky-meta": "#b9ad7a"
+          },
+          ".dark [data-sticky-color=\"blue\"]": {
+            "--sticky-paper": "#1f3249",
+            "--sticky-header": "#273d57",
+            "--sticky-edge": "#324b68",
+            "--sticky-ink": "#dcebfb",
+            "--sticky-meta": "#8ea8c7"
+          },
+          ".dark [data-sticky-color=\"green\"]": {
+            "--sticky-paper": "#223a20",
+            "--sticky-header": "#2a4727",
+            "--sticky-edge": "#355630",
+            "--sticky-ink": "#ddf2d6",
+            "--sticky-meta": "#90b087"
+          },
+          ".dark [data-sticky-color=\"pink\"]": {
+            "--sticky-paper": "#48222f",
+            "--sticky-header": "#572a39",
+            "--sticky-edge": "#683446",
+            "--sticky-ink": "#fbe0ec",
+            "--sticky-meta": "#c493a8"
+          },
+          ".dark [data-sticky-color=\"purple\"]": {
+            "--sticky-paper": "#34234d",
+            "--sticky-header": "#3f2b5c",
+            "--sticky-edge": "#4c366d",
+            "--sticky-ink": "#ece2fb",
+            "--sticky-meta": "#a996c6"
+          },
+          ".dark [data-sticky-color=\"grey\"]": {
+            "--sticky-paper": "#2d2d2c",
+            "--sticky-header": "#363635",
+            "--sticky-edge": "#434341",
+            "--sticky-ink": "#f0f0ee",
+            "--sticky-meta": "#9d9d9a"
+          }
+        },
+        "@utility sticky-shadow": {
+          "--sticky-shade": "color-mix(in oklch, var(--sticky-ink) 55%, black)",
+          "box-shadow": "inset 0 1px 0 color-mix(in oklch, white 50%, transparent), 0 0 0 0.5px color-mix(in oklch, var(--sticky-shade) 6%, transparent), 0 1px 1px color-mix(in oklch, var(--sticky-shade) 8%, transparent), 0 3px 6px -2px color-mix(in oklch, var(--sticky-shade) 8%, transparent), 0 10px 20px -8px color-mix(in oklch, var(--sticky-shade) 12%, transparent), 0 24px 44px -20px color-mix(in oklch, var(--sticky-shade) 16%, transparent)",
+          "transition": "box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1), translate 200ms cubic-bezier(0.23, 1, 0.32, 1)",
+          "&[data-lifted]": {
+            "translate": "0 -2px",
+            "box-shadow": "inset 0 1px 0 color-mix(in oklch, white 50%, transparent), 0 0 0 0.5px color-mix(in oklch, var(--sticky-shade) 6%, transparent), 0 2px 3px color-mix(in oklch, var(--sticky-shade) 6%, transparent), 0 8px 14px -4px color-mix(in oklch, var(--sticky-shade) 10%, transparent), 0 22px 36px -10px color-mix(in oklch, var(--sticky-shade) 16%, transparent), 0 44px 72px -24px color-mix(in oklch, var(--sticky-shade) 20%, transparent)"
+          },
+          ".dark &": {
+            "box-shadow": "inset 0 1px 0 color-mix(in oklch, white 10%, transparent), 0 0 0 0.5px color-mix(in oklch, black 40%, transparent), 0 1px 2px color-mix(in oklch, black 30%, transparent), 0 6px 12px -4px color-mix(in oklch, black 35%, transparent), 0 20px 40px -16px color-mix(in oklch, black 45%, transparent)"
+          },
+          ".dark &[data-lifted]": {
+            "box-shadow": "inset 0 1px 0 color-mix(in oklch, white 10%, transparent), 0 0 0 0.5px color-mix(in oklch, black 40%, transparent), 0 3px 6px color-mix(in oklch, black 30%, transparent), 0 14px 28px -8px color-mix(in oklch, black 40%, transparent), 0 40px 72px -24px color-mix(in oklch, black 55%, transparent)"
+          }
+        }
+      },
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#stickies-theme for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-pointer-drag",
+      "type": "registry:hook",
+      "title": "usePointerDrag",
+      "description": "Dragging with the pointer, for moving or resizing anything, with pointer capture and zoom.",
+      "files": [
+        {
+          "path": "registry/stickies/hooks/use-pointer-drag.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#use-pointer-drag for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-list-formatting",
+      "type": "registry:hook",
+      "title": "useListFormatting",
+      "description": "Bullets and numbered lists in a plain textarea: '- ' starts a bullet and Return continues the list.",
+      "files": [
+        {
+          "path": "registry/stickies/hooks/use-list-formatting.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#use-list-formatting for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-canvas-pan",
+      "type": "registry:hook",
+      "title": "useCanvasPan",
+      "description": "Dragging a surface to look around it.",
+      "files": [
+        {
+          "path": "registry/stickies/hooks/use-canvas-pan.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#use-canvas-pan for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-sticky-notes",
+      "type": "registry:hook",
+      "title": "useStickyNotes",
+      "description": "A board of notes: add, change, remove, stack and select them, saved to localStorage by default.",
+      "registryDependencies": [
+        "https://stickies.live/r/stickies-format.json"
+      ],
+      "files": [
+        {
+          "path": "registry/stickies/hooks/use-sticky-notes.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#use-sticky-notes for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "use-stickies-clipboard",
+      "type": "registry:hook",
+      "title": "useStickiesClipboard",
+      "description": "Copy, cut and paste notes in the Stickies format, so they paste into any app and come back whole.",
+      "registryDependencies": [
+        "https://stickies.live/r/stickies-format.json"
+      ],
+      "files": [
+        {
+          "path": "registry/stickies/hooks/use-stickies-clipboard.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#use-stickies-clipboard for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sticky-note",
+      "type": "registry:ui",
+      "title": "Sticky note",
+      "description": "A composable sticky note: header to drag, colours or states, words with lists, footer, and a corner to resize.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://stickies.live/r/stickies-format.json",
+        "https://stickies.live/r/stickies-theme.json",
+        "https://stickies.live/r/use-pointer-drag.json",
+        "https://stickies.live/r/use-list-formatting.json"
+      ],
+      "files": [
+        {
+          "path": "registry/stickies/ui/sticky-note.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#sticky-note for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sticky-board",
+      "type": "registry:block",
+      "title": "Sticky board",
+      "description": "A full canvas of sticky notes: drag, resize, pan, double-click to add, select, copy and paste, saved to the browser.",
+      "registryDependencies": [
+        "https://stickies.live/r/sticky-note.json",
+        "https://stickies.live/r/use-sticky-notes.json",
+        "https://stickies.live/r/use-canvas-pan.json",
+        "https://stickies.live/r/use-stickies-clipboard.json"
+      ],
+      "files": [
+        {
+          "path": "registry/stickies/blocks/sticky-board/sticky-board.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#sticky-board for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stickies-tldraw",
+      "type": "registry:lib",
+      "title": "Stickies for tldraw",
+      "description": "Copy and paste tldraw's sticky notes in the Stickies format: options for <Tldraw> that write notes as Stickies and turn pasted Stickies into notes.",
+      "dependencies": [
+        "tldraw"
+      ],
+      "registryDependencies": [
+        "https://stickies.live/r/stickies-format.json"
+      ],
+      "files": [
+        {
+          "path": "registry/stickies/integrations/tldraw/stickies-tldraw.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#stickies-tldraw for usage.",
+      "categories": [
+        "stickies"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stickies-skill",
+      "type": "registry:item",
+      "title": "Stickies skill",
+      "description": "An Agent Skill for Claude Code: make sticky notes, check them, and put them on the clipboard to paste into any app.",
+      "files": [
+        {
+          "path": "../../skills/stickies/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/stickies/SKILL.md"
+        },
+        {
+          "path": "../../skills/stickies/references/format.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/stickies/references/format.md"
+        },
+        {
+          "path": "../../skills/stickies/scripts/stickies.mjs",
+          "type": "registry:file",
+          "target": "~/.claude/skills/stickies/scripts/stickies.mjs"
+        }
+      ],
+      "author": "Stickies <https://stickies.live>",
+      "docs": "See https://stickies.live/docs#stickies-skill for usage.",
+      "categories": [
+        "stickies"
+      ]
+    }
+  ]
+}

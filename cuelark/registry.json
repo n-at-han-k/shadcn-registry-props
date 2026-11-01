@@ -1,0 +1,5922 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cuelark",
+  "homepage": "https://ui.cuelark.com",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Cuelark theme",
+      "description": "Design tokens and utilities every Cuelark component uses: colors, density, shadows, crop marks, dashed rules, labels and kbd.",
+      "devDependencies": [
+        "tw-animate-css"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-success": "var(--success)",
+          "color-success-foreground": "var(--success-foreground)",
+          "color-warning": "var(--warning)",
+          "color-warning-foreground": "var(--warning-foreground)",
+          "color-mark": "var(--cl-mark)",
+          "color-signal": "var(--signal)",
+          "color-signal-foreground": "var(--signal-foreground)",
+          "spacing-ctl-xs": "calc(var(--cl-density) * 1.5rem)",
+          "spacing-ctl-sm": "calc(var(--cl-density) * 1.75rem)",
+          "spacing-ctl-md": "calc(var(--cl-density) * 2rem)",
+          "spacing-ctl-lg": "calc(var(--cl-density) * 2.5rem)",
+          "spacing-card": "calc(var(--cl-density) * 1.5rem)",
+          "shadow-control": "0 1px 2px var(--cl-shade)",
+          "shadow-raised": "0 1px 2px var(--cl-shade), 0 8px 24px -12px var(--cl-shade)",
+          "shadow-overlay": "0 1px 2px var(--cl-shade), 0 16px 40px -12px var(--cl-shade), 0 32px 64px -24px var(--cl-shade)",
+          "shadow-pressed": "inset 0 1px 2px var(--cl-shade)",
+          "shadow-well": "inset 0 1px 1px var(--cl-shade)",
+          "ease-cue": "cubic-bezier(0.23, 1, 0.32, 1)"
+        },
+        "light": {
+          "cl-highlight": "oklch(1 0 0 / 0.16)",
+          "cl-shade": "rgb(0 0 0 / 0.07)",
+          "background": "#f9f8f9",
+          "foreground": "#282a30",
+          "card": "#ffffff",
+          "card-foreground": "#282a30",
+          "popover": "#ffffff",
+          "popover-foreground": "#282a30",
+          "primary": "#5e6ad2",
+          "primary-foreground": "#ffffff",
+          "secondary": "#f1f0f2",
+          "secondary-foreground": "#282a30",
+          "muted": "#f1f0f2",
+          "muted-foreground": "#6f6e77",
+          "accent": "#eeedef",
+          "accent-foreground": "#282a30",
+          "border": "#e9e8ea",
+          "input": "#dcdbdd",
+          "ring": "#7170ff",
+          "signal": "#5e6ad2",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#d4d4d6",
+          "radius": "0.5rem",
+          "cl-density": "1",
+          "cl-marks": "0",
+          "cl-motion": "1",
+          "font-weight-medium": "510",
+          "font-weight-semibold": "590",
+          "destructive": "oklch(0.577 0.215 27)",
+          "success": "oklch(0.56 0.14 150)",
+          "success-foreground": "oklch(0.985 0.004 85)",
+          "warning": "oklch(0.66 0.15 65)",
+          "warning-foreground": "oklch(0.2 0.012 75)"
+        },
+        "dark": {
+          "cl-highlight": "oklch(1 0 0 / 0.1)",
+          "cl-shade": "rgb(0 0 0 / 0.5)",
+          "background": "#08090a",
+          "foreground": "#f7f8f8",
+          "card": "#0f1011",
+          "card-foreground": "#f7f8f8",
+          "popover": "#141516",
+          "popover-foreground": "#f7f8f8",
+          "primary": "#5e6ad2",
+          "primary-foreground": "#ffffff",
+          "secondary": "#1c1c1f",
+          "secondary-foreground": "#f7f8f8",
+          "muted": "#1c1c1f",
+          "muted-foreground": "#8a8f98",
+          "accent": "#232326",
+          "accent-foreground": "#f7f8f8",
+          "border": "#23252a",
+          "input": "#34343a",
+          "ring": "#7170ff",
+          "signal": "#7170ff",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#3e3e44",
+          "destructive": "oklch(0.7 0.19 22)",
+          "success": "oklch(0.74 0.15 150)",
+          "success-foreground": "oklch(0.18 0.03 150)",
+          "warning": "oklch(0.8 0.14 80)",
+          "warning-foreground": "oklch(0.2 0.04 70)"
+        }
+      },
+      "css": {
+        "@utility cue-marks": {
+          "&::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "calc(calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px)) * -1)",
+            "pointer-events": "none",
+            "opacity": "var(--cl-marks)",
+            "background-image": "linear-gradient(var(--cl-mark), var(--cl-mark)), linear-gradient(var(--cl-mark), var(--cl-mark)), linear-gradient(var(--cl-mark), var(--cl-mark)), linear-gradient(var(--cl-mark), var(--cl-mark)), linear-gradient(var(--cl-mark), var(--cl-mark)), linear-gradient(var(--cl-mark), var(--cl-mark)), linear-gradient(var(--cl-mark), var(--cl-mark)), linear-gradient(var(--cl-mark), var(--cl-mark))",
+            "background-repeat": "no-repeat",
+            "background-size": "var(--cl-mark-len, 7px) 1px, 1px var(--cl-mark-len, 7px), var(--cl-mark-len, 7px) 1px, 1px var(--cl-mark-len, 7px), var(--cl-mark-len, 7px) 1px, 1px var(--cl-mark-len, 7px), var(--cl-mark-len, 7px) 1px, 1px var(--cl-mark-len, 7px)",
+            "background-position": "left 0 top calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px) - 1px), left calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px) - 1px) top 0, right 0 top calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px) - 1px), right calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px) - 1px) top 0, left 0 bottom calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px) - 1px), left calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px) - 1px) bottom 0, right 0 bottom calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px) - 1px), right calc(var(--cl-mark-len, 7px) + var(--cl-mark-gap, 4px) - 1px) bottom 0"
+          }
+        },
+        "@utility cue-dash-t": {
+          "background-image": "linear-gradient(to right, var(--border) 55%, transparent 0)",
+          "background-size": "7px 1px",
+          "background-repeat": "repeat-x",
+          "background-position": "top"
+        },
+        "@utility cue-dash-b": {
+          "background-image": "linear-gradient(to right, var(--border) 55%, transparent 0)",
+          "background-size": "7px 1px",
+          "background-repeat": "repeat-x",
+          "background-position": "bottom"
+        },
+        "@utility cue-label": {
+          "font-family": "var(--font-mono)",
+          "font-size": "0.6875rem",
+          "line-height": "1rem",
+          "font-weight": "500",
+          "letter-spacing": "0.08em",
+          "text-transform": "uppercase",
+          "color": "var(--muted-foreground)"
+        },
+        "@utility cue-digits": {
+          "&::before": {
+            "content": "\"0\\A 1\\A 2\\A 3\\A 4\\A 5\\A 6\\A 7\\A 8\\A 9\"",
+            "white-space": "pre"
+          }
+        },
+        "@keyframes cue-text-shimmer": {
+          "0%": {
+            "background-position": "100% 0"
+          },
+          "100%": {
+            "background-position": "-100% 0"
+          }
+        },
+        "@keyframes cue-indeterminate": {
+          "0%": {
+            "transform": "translateX(-100%) scaleX(0.4)"
+          },
+          "50%": {
+            "transform": "translateX(30%) scaleX(0.6)"
+          },
+          "100%": {
+            "transform": "translateX(100%) scaleX(0.4)"
+          }
+        },
+        "@keyframes cue-shimmer": {
+          "0%": {
+            "transform": "translateX(-100%)"
+          },
+          "100%": {
+            "transform": "translateX(100%)"
+          }
+        },
+        "@utility cue-kbd": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "justify-content": "center",
+          "gap": "0.125rem",
+          "min-width": "1.25rem",
+          "height": "1.25rem",
+          "padding": "0 0.3125rem",
+          "border-radius": "calc(var(--radius) * 0.5)",
+          "border": "1px solid var(--border)",
+          "box-shadow": "inset 0 -1px 0 var(--border)",
+          "background": "var(--background)",
+          "color": "var(--muted-foreground)",
+          "font-family": "var(--font-mono)",
+          "font-size": "0.6875rem",
+          "font-weight": "500",
+          "line-height": "1",
+          "white-space": "nowrap"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-linear",
+      "type": "registry:theme",
+      "title": "Linear theme",
+      "description": "Hairline borders, quiet greys, one indigo accent. The default. Light and dark mode. Font: Inter, the face Linear uses, at weights 510 and 590.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "#f9f8f9",
+          "foreground": "#282a30",
+          "card": "#ffffff",
+          "card-foreground": "#282a30",
+          "popover": "#ffffff",
+          "popover-foreground": "#282a30",
+          "primary": "#5e6ad2",
+          "primary-foreground": "#ffffff",
+          "secondary": "#f1f0f2",
+          "secondary-foreground": "#282a30",
+          "muted": "#f1f0f2",
+          "muted-foreground": "#6f6e77",
+          "accent": "#eeedef",
+          "accent-foreground": "#282a30",
+          "border": "#e9e8ea",
+          "input": "#dcdbdd",
+          "ring": "#7170ff",
+          "signal": "#5e6ad2",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#d4d4d6",
+          "cl-shade": "rgb(0 0 0 / 0.07)",
+          "radius": "0.5rem",
+          "cl-density": "1",
+          "cl-marks": "0",
+          "cl-motion": "1",
+          "font-weight-medium": "510",
+          "font-weight-semibold": "590"
+        },
+        "dark": {
+          "background": "#08090a",
+          "foreground": "#f7f8f8",
+          "card": "#0f1011",
+          "card-foreground": "#f7f8f8",
+          "popover": "#141516",
+          "popover-foreground": "#f7f8f8",
+          "primary": "#5e6ad2",
+          "primary-foreground": "#ffffff",
+          "secondary": "#1c1c1f",
+          "secondary-foreground": "#f7f8f8",
+          "muted": "#1c1c1f",
+          "muted-foreground": "#8a8f98",
+          "accent": "#232326",
+          "accent-foreground": "#f7f8f8",
+          "border": "#23252a",
+          "input": "#34343a",
+          "ring": "#7170ff",
+          "signal": "#7170ff",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#3e3e44",
+          "cl-shade": "rgb(0 0 0 / 0.5)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-stripe",
+      "type": "registry:theme",
+      "title": "Stripe theme",
+      "description": "Navy ink on cool white, blurple buttons, soft blue shadows. Light and dark mode. Font: Instrument Sans. Stripe uses Söhne, a commercial face; Instrument Sans is the closest open alternative.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "#f6f9fc",
+          "foreground": "#0a2540",
+          "card": "#ffffff",
+          "card-foreground": "#0a2540",
+          "popover": "#ffffff",
+          "popover-foreground": "#0a2540",
+          "primary": "#635bff",
+          "primary-foreground": "#ffffff",
+          "secondary": "#eef2f7",
+          "secondary-foreground": "#0a2540",
+          "muted": "#eef2f7",
+          "muted-foreground": "#425466",
+          "accent": "#e6ebf1",
+          "accent-foreground": "#0a2540",
+          "border": "#e3e8ee",
+          "input": "#d5dbe4",
+          "ring": "#635bff",
+          "signal": "#635bff",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#c1c9d2",
+          "cl-shade": "rgb(50 50 93 / 0.12)",
+          "radius": "0.5rem",
+          "cl-density": "1",
+          "cl-marks": "0",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "#0a1628",
+          "foreground": "#f6f9fc",
+          "card": "#10213a",
+          "card-foreground": "#f6f9fc",
+          "popover": "#142847",
+          "popover-foreground": "#f6f9fc",
+          "primary": "#7a73ff",
+          "primary-foreground": "#ffffff",
+          "secondary": "#1a2f4d",
+          "secondary-foreground": "#f6f9fc",
+          "muted": "#1a2f4d",
+          "muted-foreground": "#a3b1c6",
+          "accent": "#1f3657",
+          "accent-foreground": "#f6f9fc",
+          "border": "#24395a",
+          "input": "#2c4468",
+          "ring": "#7a73ff",
+          "signal": "#7a73ff",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#3a5175",
+          "cl-shade": "rgb(0 0 0 / 0.45)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-vercel",
+      "type": "registry:theme",
+      "title": "Vercel theme",
+      "description": "Black and white, Geist, tight corners, blue only for focus. Light and dark mode. Font: Geist, Vercel's own open-source face.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "#fafafa",
+          "foreground": "#171717",
+          "card": "#ffffff",
+          "card-foreground": "#171717",
+          "popover": "#ffffff",
+          "popover-foreground": "#171717",
+          "primary": "#171717",
+          "primary-foreground": "#ffffff",
+          "secondary": "#f2f2f2",
+          "secondary-foreground": "#171717",
+          "muted": "#f2f2f2",
+          "muted-foreground": "#666666",
+          "accent": "#ebebeb",
+          "accent-foreground": "#171717",
+          "border": "#ebebeb",
+          "input": "#e0e0e0",
+          "ring": "#006bff",
+          "signal": "#006bff",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#c9c9c9",
+          "cl-shade": "rgb(0 0 0 / 0.08)",
+          "radius": "0.375rem",
+          "cl-density": "1",
+          "cl-marks": "0",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "#0a0a0a",
+          "foreground": "#ededed",
+          "card": "#111111",
+          "card-foreground": "#ededed",
+          "popover": "#1a1a1a",
+          "popover-foreground": "#ededed",
+          "primary": "#ededed",
+          "primary-foreground": "#0a0a0a",
+          "secondary": "#1f1f1f",
+          "secondary-foreground": "#ededed",
+          "muted": "#1a1a1a",
+          "muted-foreground": "#a1a1a1",
+          "accent": "#232323",
+          "accent-foreground": "#ededed",
+          "border": "#2e2e2e",
+          "input": "#3d3d3d",
+          "ring": "#47a8ff",
+          "signal": "#47a8ff",
+          "signal-foreground": "#0a0a0a",
+          "cl-mark": "#454545",
+          "cl-shade": "rgb(0 0 0 / 0.5)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-supabase",
+      "type": "registry:theme",
+      "title": "Supabase theme",
+      "description": "Neutral greys with Supabase green buttons. Light and dark mode. Font: Inter. Supabase uses Circular, a commercial face; Inter is a close, neutral open alternative.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "#fcfcfc",
+          "foreground": "#171717",
+          "card": "#ffffff",
+          "card-foreground": "#171717",
+          "popover": "#ffffff",
+          "popover-foreground": "#171717",
+          "primary": "#3ecf8e",
+          "primary-foreground": "#0b2a1d",
+          "secondary": "#f3f3f3",
+          "secondary-foreground": "#171717",
+          "muted": "#f3f3f3",
+          "muted-foreground": "#707070",
+          "accent": "#ededed",
+          "accent-foreground": "#171717",
+          "border": "#e6e6e6",
+          "input": "#dfdfdf",
+          "ring": "#3ecf8e",
+          "signal": "#1f9d62",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#d0d0d0",
+          "cl-shade": "rgb(0 0 0 / 0.07)",
+          "radius": "0.375rem",
+          "cl-density": "1",
+          "cl-marks": "0",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "#121212",
+          "foreground": "#ededed",
+          "card": "#171717",
+          "card-foreground": "#ededed",
+          "popover": "#1c1c1c",
+          "popover-foreground": "#ededed",
+          "primary": "#3ecf8e",
+          "primary-foreground": "#08251a",
+          "secondary": "#242424",
+          "secondary-foreground": "#ededed",
+          "muted": "#1f1f1f",
+          "muted-foreground": "#a0a0a0",
+          "accent": "#2a2a2a",
+          "accent-foreground": "#ededed",
+          "border": "#2e2e2e",
+          "input": "#363636",
+          "ring": "#3ecf8e",
+          "signal": "#3ecf8e",
+          "signal-foreground": "#08251a",
+          "cl-mark": "#3e3e3e",
+          "cl-shade": "rgb(0 0 0 / 0.5)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-notion",
+      "type": "registry:theme",
+      "title": "Notion theme",
+      "description": "Warm ink on white, Notion blue, calm and readable. Light and dark mode. Font: IBM Plex Sans. Notion uses the system UI face; Plex keeps the same calm, readable feel everywhere.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "#ffffff",
+          "foreground": "#37352f",
+          "card": "#ffffff",
+          "card-foreground": "#37352f",
+          "popover": "#ffffff",
+          "popover-foreground": "#37352f",
+          "primary": "#2383e2",
+          "primary-foreground": "#ffffff",
+          "secondary": "#f1f1ef",
+          "secondary-foreground": "#37352f",
+          "muted": "#f7f6f3",
+          "muted-foreground": "#787774",
+          "accent": "#efeeec",
+          "accent-foreground": "#37352f",
+          "border": "#e9e9e7",
+          "input": "#dfdfdc",
+          "ring": "#2383e2",
+          "signal": "#2383e2",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#d3d1cb",
+          "cl-shade": "rgb(15 15 15 / 0.08)",
+          "radius": "0.375rem",
+          "cl-density": "1",
+          "cl-marks": "0",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "#191919",
+          "foreground": "#e6e6e5",
+          "card": "#202020",
+          "card-foreground": "#e6e6e5",
+          "popover": "#252525",
+          "popover-foreground": "#e6e6e5",
+          "primary": "#2383e2",
+          "primary-foreground": "#ffffff",
+          "secondary": "#2c2c2c",
+          "secondary-foreground": "#e6e6e5",
+          "muted": "#252525",
+          "muted-foreground": "#9b9b9b",
+          "accent": "#2f2f2f",
+          "accent-foreground": "#e6e6e5",
+          "border": "#2f2f2f",
+          "input": "#3a3a3a",
+          "ring": "#529cca",
+          "signal": "#529cca",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#474747",
+          "cl-shade": "rgb(0 0 0 / 0.5)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-claude",
+      "type": "registry:theme",
+      "title": "Claude theme",
+      "description": "Warm paper, clay buttons, generous corners. Light and dark mode. Font: Instrument Sans. Claude's interface uses a commercial face; Instrument Sans is the closest open alternative.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "#faf9f5",
+          "foreground": "#141413",
+          "card": "#fdfcf8",
+          "card-foreground": "#141413",
+          "popover": "#ffffff",
+          "popover-foreground": "#141413",
+          "primary": "#c96442",
+          "primary-foreground": "#ffffff",
+          "secondary": "#f0eee6",
+          "secondary-foreground": "#141413",
+          "muted": "#f0eee6",
+          "muted-foreground": "#73726c",
+          "accent": "#e8e6dc",
+          "accent-foreground": "#141413",
+          "border": "#e5e2d9",
+          "input": "#dad7cc",
+          "ring": "#d97757",
+          "signal": "#c96442",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#cfcbbf",
+          "cl-shade": "rgb(70 50 20 / 0.08)",
+          "radius": "0.75rem",
+          "cl-density": "1",
+          "cl-marks": "0",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "#262624",
+          "foreground": "#faf9f5",
+          "card": "#30302e",
+          "card-foreground": "#faf9f5",
+          "popover": "#363633",
+          "popover-foreground": "#faf9f5",
+          "primary": "#d97757",
+          "primary-foreground": "#ffffff",
+          "secondary": "#3a3a37",
+          "secondary-foreground": "#faf9f5",
+          "muted": "#30302e",
+          "muted-foreground": "#b7b5a9",
+          "accent": "#3d3d3a",
+          "accent-foreground": "#faf9f5",
+          "border": "#3e3e3a",
+          "input": "#4a4a45",
+          "ring": "#d97757",
+          "signal": "#d97757",
+          "signal-foreground": "#ffffff",
+          "cl-mark": "#55554f",
+          "cl-shade": "rgb(0 0 0 / 0.45)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-cuelark",
+      "type": "registry:theme",
+      "title": "Cuelark theme",
+      "description": "Cool mist, vivid cobalt buttons, crop marks. Light and dark mode. Font: Inter.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "oklch(0.985 0.007 255)",
+          "foreground": "oklch(0.18 0.021 255)",
+          "card": "oklch(0.997 0.004 255)",
+          "card-foreground": "oklch(0.18 0.021 255)",
+          "popover": "oklch(0.997 0.004 255)",
+          "popover-foreground": "oklch(0.18 0.021 255)",
+          "primary": "oklch(0.55 0.23 264)",
+          "primary-foreground": "oklch(0.99 0 0)",
+          "secondary": "oklch(0.955 0.011 255)",
+          "secondary-foreground": "oklch(0.2 0.021 255)",
+          "muted": "oklch(0.955 0.011 255)",
+          "muted-foreground": "oklch(0.52 0.021 255)",
+          "accent": "oklch(0.945 0.014 255)",
+          "accent-foreground": "oklch(0.2 0.021 255)",
+          "border": "oklch(0.905 0.014 255)",
+          "input": "oklch(0.885 0.014 255)",
+          "ring": "oklch(0.55 0.23 264)",
+          "signal": "oklch(0.55 0.23 264)",
+          "signal-foreground": "oklch(0.99 0 0)",
+          "cl-mark": "oklch(0.68 0.014 255)",
+          "radius": "0.75rem",
+          "cl-density": "1",
+          "cl-marks": "1",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "oklch(0.155 0.014 255)",
+          "foreground": "oklch(0.965 0.011 255)",
+          "card": "oklch(0.185 0.014 255)",
+          "card-foreground": "oklch(0.965 0.011 255)",
+          "popover": "oklch(0.205 0.014 255)",
+          "popover-foreground": "oklch(0.965 0.011 255)",
+          "primary": "oklch(0.64 0.23 264)",
+          "primary-foreground": "oklch(0.99 0 0)",
+          "secondary": "oklch(0.25 0.014 255)",
+          "secondary-foreground": "oklch(0.965 0.011 255)",
+          "muted": "oklch(0.25 0.014 255)",
+          "muted-foreground": "oklch(0.7 0.018 255)",
+          "accent": "oklch(0.265 0.014 255)",
+          "accent-foreground": "oklch(0.965 0.011 255)",
+          "border": "oklch(1 0 0 / 0.09)",
+          "input": "oklch(1 0 0 / 0.14)",
+          "ring": "oklch(0.64 0.23 264)",
+          "signal": "oklch(0.64 0.23 264)",
+          "signal-foreground": "oklch(0.99 0 0)",
+          "cl-mark": "oklch(0.55 0.014 255)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-paper",
+      "type": "registry:theme",
+      "title": "Paper theme",
+      "description": "Warm paper, ink buttons and a chartreuse signal. Light and dark mode. Font: Inter.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "oklch(0.985 0.004 80)",
+          "foreground": "oklch(0.18 0.012 80)",
+          "card": "oklch(0.997 0.002 80)",
+          "card-foreground": "oklch(0.18 0.012 80)",
+          "popover": "oklch(0.997 0.002 80)",
+          "popover-foreground": "oklch(0.18 0.012 80)",
+          "primary": "oklch(0.2 0.012 80)",
+          "primary-foreground": "oklch(0.985 0.004 80)",
+          "secondary": "oklch(0.955 0.006 80)",
+          "secondary-foreground": "oklch(0.2 0.012 80)",
+          "muted": "oklch(0.955 0.006 80)",
+          "muted-foreground": "oklch(0.52 0.012 80)",
+          "accent": "oklch(0.945 0.008 80)",
+          "accent-foreground": "oklch(0.2 0.012 80)",
+          "border": "oklch(0.905 0.008 80)",
+          "input": "oklch(0.885 0.008 80)",
+          "ring": "oklch(0.65 0.2 127)",
+          "signal": "oklch(0.88 0.2 127)",
+          "signal-foreground": "oklch(0.22 0.05 127)",
+          "cl-mark": "oklch(0.68 0.008 80)",
+          "radius": "0.625rem",
+          "cl-density": "1",
+          "cl-marks": "1",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "oklch(0.155 0.008 80)",
+          "foreground": "oklch(0.965 0.006 80)",
+          "card": "oklch(0.185 0.008 80)",
+          "card-foreground": "oklch(0.965 0.006 80)",
+          "popover": "oklch(0.205 0.008 80)",
+          "popover-foreground": "oklch(0.965 0.006 80)",
+          "primary": "oklch(0.955 0.006 80)",
+          "primary-foreground": "oklch(0.18 0.012 80)",
+          "secondary": "oklch(0.25 0.008 80)",
+          "secondary-foreground": "oklch(0.965 0.006 80)",
+          "muted": "oklch(0.25 0.008 80)",
+          "muted-foreground": "oklch(0.7 0.01 80)",
+          "accent": "oklch(0.265 0.008 80)",
+          "accent-foreground": "oklch(0.965 0.006 80)",
+          "border": "oklch(1 0 0 / 0.09)",
+          "input": "oklch(1 0 0 / 0.14)",
+          "ring": "oklch(0.88 0.2 127)",
+          "signal": "oklch(0.88 0.2 127)",
+          "signal-foreground": "oklch(0.2 0.05 127)",
+          "cl-mark": "oklch(0.55 0.008 80)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-mono",
+      "type": "registry:theme",
+      "title": "Mono theme",
+      "description": "Pure neutral, ink accents, Geist. Quiet and exact. Light and dark mode. Font: Geist.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "oklch(0.985 0 0)",
+          "foreground": "oklch(0.18 0 0)",
+          "card": "oklch(0.997 0 0)",
+          "card-foreground": "oklch(0.18 0 0)",
+          "popover": "oklch(0.997 0 0)",
+          "popover-foreground": "oklch(0.18 0 0)",
+          "primary": "oklch(0.2 0 0)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "secondary": "oklch(0.955 0 0)",
+          "secondary-foreground": "oklch(0.2 0 0)",
+          "muted": "oklch(0.955 0 0)",
+          "muted-foreground": "oklch(0.52 0 0)",
+          "accent": "oklch(0.945 0 0)",
+          "accent-foreground": "oklch(0.2 0 0)",
+          "border": "oklch(0.905 0 0)",
+          "input": "oklch(0.885 0 0)",
+          "ring": "oklch(0.55 0 0)",
+          "signal": "oklch(0.2 0 0)",
+          "signal-foreground": "oklch(0.985 0 0)",
+          "cl-mark": "oklch(0.68 0 0)",
+          "radius": "0.5rem",
+          "cl-density": "1",
+          "cl-marks": "0",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "oklch(0.155 0 0)",
+          "foreground": "oklch(0.965 0 0)",
+          "card": "oklch(0.185 0 0)",
+          "card-foreground": "oklch(0.965 0 0)",
+          "popover": "oklch(0.205 0 0)",
+          "popover-foreground": "oklch(0.965 0 0)",
+          "primary": "oklch(0.955 0 0)",
+          "primary-foreground": "oklch(0.18 0 0)",
+          "secondary": "oklch(0.25 0 0)",
+          "secondary-foreground": "oklch(0.965 0 0)",
+          "muted": "oklch(0.25 0 0)",
+          "muted-foreground": "oklch(0.7 0 0)",
+          "accent": "oklch(0.265 0 0)",
+          "accent-foreground": "oklch(0.965 0 0)",
+          "border": "oklch(1 0 0 / 0.09)",
+          "input": "oklch(1 0 0 / 0.14)",
+          "ring": "oklch(0.955 0 0)",
+          "signal": "oklch(0.955 0 0)",
+          "signal-foreground": "oklch(0.18 0 0)",
+          "cl-mark": "oklch(0.55 0 0)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-atelier",
+      "type": "registry:theme",
+      "title": "Atelier theme",
+      "description": "Paper with violet, editorial type, generous corners. Light and dark mode. Font: Instrument Sans.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "oklch(0.985 0.004 80)",
+          "foreground": "oklch(0.18 0.012 80)",
+          "card": "oklch(0.997 0.002 80)",
+          "card-foreground": "oklch(0.18 0.012 80)",
+          "popover": "oklch(0.997 0.002 80)",
+          "popover-foreground": "oklch(0.18 0.012 80)",
+          "primary": "oklch(0.64 0.22 295)",
+          "primary-foreground": "oklch(0.99 0 0)",
+          "secondary": "oklch(0.955 0.006 80)",
+          "secondary-foreground": "oklch(0.2 0.012 80)",
+          "muted": "oklch(0.955 0.006 80)",
+          "muted-foreground": "oklch(0.52 0.012 80)",
+          "accent": "oklch(0.945 0.008 80)",
+          "accent-foreground": "oklch(0.2 0.012 80)",
+          "border": "oklch(0.905 0.008 80)",
+          "input": "oklch(0.885 0.008 80)",
+          "ring": "oklch(0.64 0.22 295)",
+          "signal": "oklch(0.64 0.22 295)",
+          "signal-foreground": "oklch(0.99 0 0)",
+          "cl-mark": "oklch(0.68 0.008 80)",
+          "radius": "1rem",
+          "cl-density": "1",
+          "cl-marks": "1",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "oklch(0.155 0.008 80)",
+          "foreground": "oklch(0.965 0.006 80)",
+          "card": "oklch(0.185 0.008 80)",
+          "card-foreground": "oklch(0.965 0.006 80)",
+          "popover": "oklch(0.205 0.008 80)",
+          "popover-foreground": "oklch(0.965 0.006 80)",
+          "primary": "oklch(0.64 0.22 295)",
+          "primary-foreground": "oklch(0.99 0 0)",
+          "secondary": "oklch(0.25 0.008 80)",
+          "secondary-foreground": "oklch(0.965 0.006 80)",
+          "muted": "oklch(0.25 0.008 80)",
+          "muted-foreground": "oklch(0.7 0.01 80)",
+          "accent": "oklch(0.265 0.008 80)",
+          "accent-foreground": "oklch(0.965 0.006 80)",
+          "border": "oklch(1 0 0 / 0.09)",
+          "input": "oklch(1 0 0 / 0.14)",
+          "ring": "oklch(0.64 0.22 295)",
+          "signal": "oklch(0.64 0.22 295)",
+          "signal-foreground": "oklch(0.99 0 0)",
+          "cl-mark": "oklch(0.55 0.008 80)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-terminal",
+      "type": "registry:theme",
+      "title": "Terminal theme",
+      "description": "Square corners, compact, mint signal, Space Grotesk. Light and dark mode. Font: Space Grotesk.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "oklch(0.985 0.003 286)",
+          "foreground": "oklch(0.18 0.009 286)",
+          "card": "oklch(0.997 0.002 286)",
+          "card-foreground": "oklch(0.18 0.009 286)",
+          "popover": "oklch(0.997 0.002 286)",
+          "popover-foreground": "oklch(0.18 0.009 286)",
+          "primary": "oklch(0.2 0.009 286)",
+          "primary-foreground": "oklch(0.985 0.003 286)",
+          "secondary": "oklch(0.955 0.005 286)",
+          "secondary-foreground": "oklch(0.2 0.009 286)",
+          "muted": "oklch(0.955 0.005 286)",
+          "muted-foreground": "oklch(0.52 0.009 286)",
+          "accent": "oklch(0.945 0.006 286)",
+          "accent-foreground": "oklch(0.2 0.009 286)",
+          "border": "oklch(0.905 0.006 286)",
+          "input": "oklch(0.885 0.006 286)",
+          "ring": "oklch(0.65 0.14 168)",
+          "signal": "oklch(0.84 0.14 168)",
+          "signal-foreground": "oklch(0.22 0.05 168)",
+          "cl-mark": "oklch(0.68 0.006 286)",
+          "radius": "0rem",
+          "cl-density": "0.875",
+          "cl-marks": "1",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "oklch(0.155 0.006 286)",
+          "foreground": "oklch(0.965 0.005 286)",
+          "card": "oklch(0.185 0.006 286)",
+          "card-foreground": "oklch(0.965 0.005 286)",
+          "popover": "oklch(0.205 0.006 286)",
+          "popover-foreground": "oklch(0.965 0.005 286)",
+          "primary": "oklch(0.955 0.005 286)",
+          "primary-foreground": "oklch(0.18 0.009 286)",
+          "secondary": "oklch(0.25 0.006 286)",
+          "secondary-foreground": "oklch(0.965 0.005 286)",
+          "muted": "oklch(0.25 0.006 286)",
+          "muted-foreground": "oklch(0.7 0.007 286)",
+          "accent": "oklch(0.265 0.006 286)",
+          "accent-foreground": "oklch(0.965 0.005 286)",
+          "border": "oklch(1 0 0 / 0.09)",
+          "input": "oklch(1 0 0 / 0.14)",
+          "ring": "oklch(0.84 0.14 168)",
+          "signal": "oklch(0.84 0.14 168)",
+          "signal-foreground": "oklch(0.2 0.05 168)",
+          "cl-mark": "oklch(0.55 0.006 286)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "theme-studio",
+      "type": "registry:theme",
+      "title": "Studio theme",
+      "description": "Zinc, coral buttons, soft SaaS type, roomy. Light and dark mode. Font: Plus Jakarta Sans.",
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "cssVars": {
+        "light": {
+          "background": "oklch(0.985 0.003 286)",
+          "foreground": "oklch(0.18 0.009 286)",
+          "card": "oklch(0.997 0.002 286)",
+          "card-foreground": "oklch(0.18 0.009 286)",
+          "popover": "oklch(0.997 0.002 286)",
+          "popover-foreground": "oklch(0.18 0.009 286)",
+          "primary": "oklch(0.7 0.18 32)",
+          "primary-foreground": "oklch(0.99 0 0)",
+          "secondary": "oklch(0.955 0.005 286)",
+          "secondary-foreground": "oklch(0.2 0.009 286)",
+          "muted": "oklch(0.955 0.005 286)",
+          "muted-foreground": "oklch(0.52 0.009 286)",
+          "accent": "oklch(0.945 0.006 286)",
+          "accent-foreground": "oklch(0.2 0.009 286)",
+          "border": "oklch(0.905 0.006 286)",
+          "input": "oklch(0.885 0.006 286)",
+          "ring": "oklch(0.65 0.18 32)",
+          "signal": "oklch(0.7 0.18 32)",
+          "signal-foreground": "oklch(0.99 0 0)",
+          "cl-mark": "oklch(0.68 0.006 286)",
+          "radius": "0.875rem",
+          "cl-density": "1.125",
+          "cl-marks": "1",
+          "cl-motion": "1"
+        },
+        "dark": {
+          "background": "oklch(0.155 0.006 286)",
+          "foreground": "oklch(0.965 0.005 286)",
+          "card": "oklch(0.185 0.006 286)",
+          "card-foreground": "oklch(0.965 0.005 286)",
+          "popover": "oklch(0.205 0.006 286)",
+          "popover-foreground": "oklch(0.965 0.005 286)",
+          "primary": "oklch(0.7 0.18 32)",
+          "primary-foreground": "oklch(0.99 0 0)",
+          "secondary": "oklch(0.25 0.006 286)",
+          "secondary-foreground": "oklch(0.965 0.005 286)",
+          "muted": "oklch(0.25 0.006 286)",
+          "muted-foreground": "oklch(0.7 0.007 286)",
+          "accent": "oklch(0.265 0.006 286)",
+          "accent-foreground": "oklch(0.965 0.005 286)",
+          "border": "oklch(1 0 0 / 0.09)",
+          "input": "oklch(1 0 0 / 0.14)",
+          "ring": "oklch(0.7 0.18 32)",
+          "signal": "oklch(0.7 0.18 32)",
+          "signal-foreground": "oklch(0.99 0 0)",
+          "cl-mark": "oklch(0.55 0.006 286)"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Cuelark motion",
+      "description": "The GSAP layer behind every animated component: the cue easing curves, the --cl-motion amplitude knob, reduced-motion handling, the press ping and overlay entrances.",
+      "dependencies": [
+        "@gsap/react",
+        "gsap"
+      ],
+      "files": [
+        {
+          "path": "src/lib/motion.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Stacked disclosure sections with numbered, dashed and separated styles.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "layout"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/accordion"
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Callouts with a colored rail, tone icons and fold-away dismiss.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/alert"
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Confirmation dialogs for destructive or irreversible actions.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/alert-dialog"
+    },
+    {
+      "name": "animated-icon",
+      "type": "registry:ui",
+      "title": "Animated Icon",
+      "description": "Any icon, animated with a motion that fits it: bells ring, arrows nudge, gears turn.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/animated-icon.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/animated-icon"
+    },
+    {
+      "name": "animated-list",
+      "type": "registry:ui",
+      "title": "Animated List",
+      "description": "A live feed where items arrive and push the rest down.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/animated-list.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/animated-list"
+    },
+    {
+      "name": "artifact",
+      "type": "registry:ui",
+      "title": "Artifact",
+      "description": "Something the agent made, in its own panel with actions.",
+      "dependencies": [
+        "lucide-react",
+        "react-dom"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/artifact.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/artifact"
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "Keep media at a fixed ratio so layout never shifts.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "layout"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/aspect-ratio"
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Avatars with tinted initials, presence dots and fanning groups.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/avatar"
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Compact status and category labels with status dots and a mono style.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/badge"
+    },
+    {
+      "name": "border-beam",
+      "type": "registry:ui",
+      "title": "Border Beam",
+      "description": "A light that travels around a card's border.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/border-beam.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/border-beam"
+    },
+    {
+      "name": "branch",
+      "type": "registry:ui",
+      "title": "Branch",
+      "description": "Flip between regenerated versions of a reply.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/branch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/branch"
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Breadcrumb trails with mono slash separators and an ellipsis.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/breadcrumb"
+    },
+    {
+      "name": "burst",
+      "type": "registry:ui",
+      "title": "Burst",
+      "description": "Confetti that sprays from any button on click.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/burst.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/burst"
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Tactile buttons with loading state, keyboard hints and six variants.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "actions"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/button"
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Join buttons into one control: split buttons, toolbars, steppers.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "actions"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/button-group"
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Surfaces with crop marks, raised and inset styles, and a divided footer tray.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "layout"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/card"
+    },
+    {
+      "name": "chain-of-thought",
+      "type": "registry:ui",
+      "title": "Chain of Thought",
+      "description": "The steps an agent took, on a rail with live status.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/collapsible.json",
+        "https://ui.cuelark.com/r/motion.json",
+        "https://ui.cuelark.com/r/text-shimmer.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/chain-of-thought.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/chain-of-thought"
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkboxes with a self-drawing check mark and an indeterminate state.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/checkbox"
+    },
+    {
+      "name": "checkpoint",
+      "type": "registry:ui",
+      "title": "Checkpoint",
+      "description": "A restore point in a conversation.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/checkpoint.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/checkpoint"
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "Code in a reply: filename, line numbers, highlights, wrap and copy.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/code-block"
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Show and hide a region with a measured height animation.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "layout"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/collapsible"
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Searchable select with fuzzy filtering and a gliding highlight.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/command.json",
+        "https://ui.cuelark.com/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/combobox"
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "⌘K command palette with fuzzy search and a gliding highlight.",
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/dialog.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/command"
+    },
+    {
+      "name": "compare-slider",
+      "type": "registry:ui",
+      "title": "Compare Slider",
+      "description": "Before/after comparison slider for images, themes and redesigns.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/compare-slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/compare-slider"
+    },
+    {
+      "name": "confirmation",
+      "type": "registry:ui",
+      "title": "Confirmation",
+      "description": "An agent asking permission, with press-and-hold for risky actions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/hold-to-confirm.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/confirmation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/confirmation"
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Right-click menus that spring out from the pointer.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/context-menu"
+    },
+    {
+      "name": "context-meter",
+      "type": "registry:ui",
+      "title": "Context Meter",
+      "description": "How full the context window is, with tokens and cost on hover.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/hover-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/context-meter.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/context-meter"
+    },
+    {
+      "name": "conversation",
+      "type": "registry:ui",
+      "title": "Conversation",
+      "description": "A transcript that sticks to the bottom while streaming and lets go when you scroll.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/conversation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/conversation"
+    },
+    {
+      "name": "cookie-consent",
+      "type": "registry:ui",
+      "title": "Cookie Consent",
+      "description": "GDPR-friendly cookie banner with equal choices and per-category toggles.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json",
+        "https://ui.cuelark.com/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/cookie-consent.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/cookie-consent"
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Copy-to-clipboard button whose icon twists into a check.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "actions"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/copy-button"
+    },
+    {
+      "name": "countdown",
+      "type": "registry:ui",
+      "title": "Countdown",
+      "description": "Launch and sale countdown timer with flipping digits.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/countdown.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/countdown"
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal dialogs with crop marks, an Esc hint and a footer tray.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/dialog"
+    },
+    {
+      "name": "dock",
+      "type": "registry:ui",
+      "title": "Dock",
+      "description": "macOS-style dock with magnifying icons and labels.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/dock.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/dock"
+    },
+    {
+      "name": "dot-field",
+      "type": "registry:ui",
+      "title": "Dot Field",
+      "description": "An interactive dot-grid background that reacts to the cursor.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/dot-field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/dot-field"
+    },
+    {
+      "name": "draw-path",
+      "type": "registry:ui",
+      "title": "Draw Path",
+      "description": "Draws SVG strokes as if by hand: signatures, underlines, diagrams.",
+      "dependencies": [
+        "gsap"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/draw-path.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/draw-path"
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Action menus with keycap shortcuts, submenus and checkable items.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/dropdown-menu"
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Empty states with a framed icon, guidance and actions.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/empty"
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Label, control, description and error wired with the right aria.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/field"
+    },
+    {
+      "name": "file-diff",
+      "type": "registry:ui",
+      "title": "File Diff",
+      "description": "A change an agent proposes to a file, with accept and reject.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/file-diff.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/file-diff"
+    },
+    {
+      "name": "file-dropzone",
+      "type": "registry:ui",
+      "title": "File Dropzone",
+      "description": "Drag-and-drop file upload with size checks and a file list.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/file-dropzone.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/file-dropzone"
+    },
+    {
+      "name": "file-tree",
+      "type": "registry:ui",
+      "title": "File Tree",
+      "description": "The files an agent touched, with added, modified and deleted marks.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/file-tree.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/file-tree"
+    },
+    {
+      "name": "flip-grid",
+      "type": "registry:ui",
+      "title": "Flip Grid",
+      "description": "A grid whose items glide to new places when filtered or sorted.",
+      "dependencies": [
+        "gsap"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/flip-grid.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/flip-grid"
+    },
+    {
+      "name": "gradient-text",
+      "type": "registry:ui",
+      "title": "Gradient Text",
+      "description": "Text with a living highlight: a drifting shimmer or a pointer spotlight.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/gradient-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/gradient-text"
+    },
+    {
+      "name": "hold-to-confirm",
+      "type": "registry:ui",
+      "title": "Hold to Confirm",
+      "description": "Press-and-hold button for destructive actions, with a timed fill.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/hold-to-confirm.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "actions"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/hold-to-confirm"
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "Preview cards for links and mentions, opened on hover.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/hover-card"
+    },
+    {
+      "name": "inline-citation",
+      "type": "registry:ui",
+      "title": "Inline Citation",
+      "description": "Numbered citations inside a sentence, with a preview on hover.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/hover-card.json",
+        "https://ui.cuelark.com/r/sources.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/inline-citation.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/inline-citation"
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Recessed text inputs with leading and trailing add-ons.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/input"
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "One-time-code input with slots that spring as digits land.",
+      "dependencies": [
+        "input-otp"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/input-otp"
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "A flexible row: media, title, description and actions.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/item"
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Keycaps and key combinations.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/kbd"
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Accessible form labels with required and optional markers.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/label"
+    },
+    {
+      "name": "magnetic",
+      "type": "registry:ui",
+      "title": "Magnetic",
+      "description": "Magnetic hover: elements lean toward the cursor and spring back.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/magnetic.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/magnetic"
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "Seamless infinite scrolling loop that eases to a stop on hover.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/marquee.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/marquee"
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "One conversation turn: user bubble or assistant document, with hover actions.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json",
+        "https://ui.cuelark.com/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/message"
+    },
+    {
+      "name": "model-selector",
+      "type": "registry:ui",
+      "title": "Model Selector",
+      "description": "Pick the model: grouped by provider, searchable, with context and tags.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/command.json",
+        "https://ui.cuelark.com/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/model-selector.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/model-selector"
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "title": "Native Select",
+      "description": "A styled native select: platform pickers, autofill, zero JavaScript.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/native-select"
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "title": "Number Field",
+      "description": "Numeric stepper with hold-to-repeat, keyboard steps and locale formatting.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/number-field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/number-field"
+    },
+    {
+      "name": "number-ticker",
+      "type": "registry:ui",
+      "title": "Number Ticker",
+      "description": "Odometer-style animated counter with Intl formatting.",
+      "dependencies": [
+        "gsap"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/number-ticker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/number-ticker"
+    },
+    {
+      "name": "orbit",
+      "type": "registry:ui",
+      "title": "Orbit",
+      "description": "Icons orbiting a center on dashed tracks.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/orbit.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/orbit"
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Crawlable pagination links with a page-range helper.",
+      "dependencies": [
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/pagination"
+    },
+    {
+      "name": "password-input",
+      "type": "registry:ui",
+      "title": "Password Input",
+      "description": "Password field with show/hide and a live strength meter.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/password-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/password-input"
+    },
+    {
+      "name": "plan",
+      "type": "registry:ui",
+      "title": "Plan",
+      "description": "A plan an agent asks to run, with approve, reject and auto-run countdown.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/plan.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/plan"
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Anchored panels that spring open, with optional crop marks.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/popover"
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Progress bars: eased, segmented and indeterminate.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/progress"
+    },
+    {
+      "name": "prompt-input",
+      "type": "registry:ui",
+      "title": "Prompt Input",
+      "description": "The composer for prompting an agent: autosize, attachments, model picker, stop.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/prompt-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/prompt-input"
+    },
+    {
+      "name": "queue",
+      "type": "registry:ui",
+      "title": "Queue",
+      "description": "Messages queued while the agent is busy, reorderable.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/queue.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/queue"
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Radio buttons and selectable cards with springing dots and crop marks.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/radio-group"
+    },
+    {
+      "name": "rating",
+      "type": "registry:ui",
+      "title": "Rating",
+      "description": "Star rating input with hover preview and a pop cascade.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/rating.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/rating"
+    },
+    {
+      "name": "reasoning",
+      "type": "registry:ui",
+      "title": "Reasoning",
+      "description": "A model's thinking, streamed live, then folded to \"Thought for 6s\".",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/collapsible.json",
+        "https://ui.cuelark.com/r/spinner.json",
+        "https://ui.cuelark.com/r/text-shimmer.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/reasoning.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/reasoning"
+    },
+    {
+      "name": "reveal",
+      "type": "registry:ui",
+      "title": "Reveal",
+      "description": "Scroll-triggered reveals that never flash above the fold.",
+      "dependencies": [
+        "gsap",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/reveal.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/reveal"
+    },
+    {
+      "name": "rotating-text",
+      "type": "registry:ui",
+      "title": "Rotating Text",
+      "description": "Cycling words that roll letter by letter, with width easing.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/rotating-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/rotating-text"
+    },
+    {
+      "name": "scramble-text",
+      "type": "registry:ui",
+      "title": "Scramble Text",
+      "description": "Decoding text effect with GSAP ScrambleText.",
+      "dependencies": [
+        "gsap"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/scramble-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/scramble-text"
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Thin custom scrollbars with edge fades.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/scroll-area"
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "title": "Scroll Progress",
+      "description": "Reading progress bar scrubbed to scroll.",
+      "dependencies": [
+        "gsap"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/scroll-progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/scroll-progress"
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Dropdown select with grouped options and a cascading open.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/select"
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Solid and dashed rules, with an optional label.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/separator"
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Side panels and drawers that slide in, with a footer tray.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/sheet"
+    },
+    {
+      "name": "shimmer-button",
+      "type": "registry:ui",
+      "title": "Shimmer Button",
+      "description": "A pill CTA whose surface catches a sweeping band of light.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/shimmer-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/shimmer-button"
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Loading placeholders with a slow light sweep.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/skeleton"
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Range sliders with value bubbles, ticks and multiple thumbs.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/slider"
+    },
+    {
+      "name": "sources",
+      "type": "registry:ui",
+      "title": "Sources",
+      "description": "\"Used N sources\" with stacked tiles, expanding into the list.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/collapsible.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/sources.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/sources"
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Loaders, including the signature crop-mark spinner.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/spinner"
+    },
+    {
+      "name": "stack-trace",
+      "type": "registry:ui",
+      "title": "Stack Trace",
+      "description": "Readable errors: your frames highlighted, library frames folded.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/stack-trace.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/stack-trace"
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Multi-step progress with an ink-filling connector.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/stepper"
+    },
+    {
+      "name": "streaming-text",
+      "type": "registry:ui",
+      "title": "Streaming Text",
+      "description": "A reply arriving token by token, without the jitter.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/streaming-text.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/streaming-text"
+    },
+    {
+      "name": "subagent",
+      "type": "registry:ui",
+      "title": "Subagent",
+      "description": "Work delegated to a sub-agent, nested with its live activity.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/collapsible.json",
+        "https://ui.cuelark.com/r/motion.json",
+        "https://ui.cuelark.com/r/spinner.json",
+        "https://ui.cuelark.com/r/text-shimmer.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/subagent.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/subagent"
+    },
+    {
+      "name": "suggestions",
+      "type": "registry:ui",
+      "title": "Suggestions",
+      "description": "Follow-up prompt chips that scroll sideways on small screens.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/suggestions.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/suggestions"
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Toggle switches in three sizes with a stretch-on-press thumb.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/switch"
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Semantic tables with mono numerals, zebra rows and a sticky header.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/table"
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Segmented and underline tabs with a gliding active indicator.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/tabs"
+    },
+    {
+      "name": "tag-input",
+      "type": "registry:ui",
+      "title": "Tag Input",
+      "description": "Type tags into one field, with suggestions, paste and keyboard removal.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/tag-input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/tag-input"
+    },
+    {
+      "name": "task",
+      "type": "registry:ui",
+      "title": "Task",
+      "description": "A to-do list the agent works through, with progress.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/collapsible.json",
+        "https://ui.cuelark.com/r/motion.json",
+        "https://ui.cuelark.com/r/progress.json",
+        "https://ui.cuelark.com/r/text-shimmer.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/task.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/task"
+    },
+    {
+      "name": "terminal",
+      "type": "registry:ui",
+      "title": "Terminal",
+      "description": "Streaming command output in a dark console.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/terminal.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/terminal"
+    },
+    {
+      "name": "test-results",
+      "type": "registry:ui",
+      "title": "Test Results",
+      "description": "Pass/fail summary with failing assertions inline.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/test-results.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/test-results"
+    },
+    {
+      "name": "text-reveal",
+      "type": "registry:ui",
+      "title": "Text Reveal",
+      "description": "GSAP SplitText reveals by character, word or line.",
+      "dependencies": [
+        "gsap"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/text-reveal.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/text-reveal"
+    },
+    {
+      "name": "text-shimmer",
+      "type": "registry:ui",
+      "title": "Text Shimmer",
+      "description": "A light sweeping through muted text: the \"working\" status.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/text-shimmer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/text-shimmer"
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multi-line input that auto-grows, with a live character counter.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/textarea"
+    },
+    {
+      "name": "tilt-card",
+      "type": "registry:ui",
+      "title": "Tilt Card",
+      "description": "A 3D card that tilts toward the pointer with a moving glare.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/tilt-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/tilt-card"
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Timelines whose rail draws itself as you scroll.",
+      "dependencies": [
+        "gsap"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/timeline.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "display"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/timeline"
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Toast notifications with a pausable countdown and promise states.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/toast"
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Two-state buttons that sink in when on and ping on press.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/toggle"
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "Segmented controls with a gliding chip, plus outline and ghost groups.",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/toggle-group"
+    },
+    {
+      "name": "tool",
+      "type": "registry:ui",
+      "title": "Tool",
+      "description": "A tool call: name, live status, timing, parameters and result.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/collapsible.json",
+        "https://ui.cuelark.com/r/motion.json",
+        "https://ui.cuelark.com/r/spinner.json",
+        "https://ui.cuelark.com/r/text-shimmer.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/tool.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/tool"
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Inverted tooltips with keyboard shortcut hints and arrows.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "overlays"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/tooltip"
+    },
+    {
+      "name": "trace-waterfall",
+      "type": "registry:ui",
+      "title": "Trace Waterfall",
+      "description": "An agent run on one timeline: agents, model calls and tools.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/trace-waterfall.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/trace-waterfall"
+    },
+    {
+      "name": "typewriter",
+      "type": "registry:ui",
+      "title": "Typewriter",
+      "description": "Text that types itself out, cycling through phrases.",
+      "dependencies": [
+        "gsap"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json",
+        "https://ui.cuelark.com/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/typewriter.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/typewriter"
+    },
+    {
+      "name": "web-preview",
+      "type": "registry:ui",
+      "title": "Web Preview",
+      "description": "A small browser for what the agent built, with device widths.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://ui.cuelark.com/r/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/ui/web-preview.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agents"
+      ],
+      "docs": "Docs and examples: https://ui.cuelark.com/components/web-preview"
+    },
+    {
+      "name": "accordion-demo",
+      "type": "registry:component",
+      "title": "Accordion: Numbered FAQ",
+      "description": "A single-open FAQ with mono index numbers.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/accordion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/accordion-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "accordion",
+        "example"
+      ]
+    },
+    {
+      "name": "accordion-separated",
+      "type": "registry:component",
+      "title": "Accordion: Separated and dashed",
+      "description": "Card-like items, and dashed rules between items.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/accordion.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/accordion-separated.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "accordion",
+        "example"
+      ]
+    },
+    {
+      "name": "alert-demo",
+      "type": "registry:component",
+      "title": "Alert: Tones",
+      "description": "Info, success (dismissible), warning and destructive.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/alert.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/alert-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "alert",
+        "example"
+      ]
+    },
+    {
+      "name": "alert-dialog-demo",
+      "type": "registry:component",
+      "title": "Alert Dialog: Revoke a key",
+      "description": "A destructive confirmation.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/alert-dialog.json",
+        "https://ui.cuelark.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/alert-dialog-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "alert-dialog",
+        "example"
+      ]
+    },
+    {
+      "name": "animated-icon-demo",
+      "type": "registry:component",
+      "title": "Animated Icon: Smart motion",
+      "description": "Ten icons, each with its own animation.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/animated-icon.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/animated-icon-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "animated-icon",
+        "example"
+      ]
+    },
+    {
+      "name": "animated-list-demo",
+      "type": "registry:component",
+      "title": "Animated List: Activity feed",
+      "description": "Payments, members, merges and comments.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/animated-list.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/animated-list-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "animated-list",
+        "example"
+      ]
+    },
+    {
+      "name": "artifact-demo",
+      "type": "registry:component",
+      "title": "Artifact: Example",
+      "description": "A generated document.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/artifact.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/artifact-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "artifact",
+        "example"
+      ]
+    },
+    {
+      "name": "aspect-ratio-demo",
+      "type": "registry:component",
+      "title": "Aspect Ratio: 16:9 frame",
+      "description": "A responsive frame.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/aspect-ratio.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/aspect-ratio-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "aspect-ratio",
+        "example"
+      ]
+    },
+    {
+      "name": "avatar-demo",
+      "type": "registry:component",
+      "title": "Avatar: Sizes, status and group",
+      "description": "Presence dots and a group of seven.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/avatar.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/avatar-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "avatar",
+        "example"
+      ]
+    },
+    {
+      "name": "badge-demo",
+      "type": "registry:component",
+      "title": "Badge: Variants",
+      "description": "Seven tones from neutral to solid.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/badge-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "badge",
+        "example"
+      ]
+    },
+    {
+      "name": "badge-status",
+      "type": "registry:component",
+      "title": "Badge: Status and mono",
+      "description": "Status dots, a live pulse, mono tags and a badge link.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/badge-status.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "badge",
+        "example"
+      ]
+    },
+    {
+      "name": "border-beam-demo",
+      "type": "registry:component",
+      "title": "Border Beam: Highlighted plan",
+      "description": "A pricing card with a beam.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/border-beam.json",
+        "https://ui.cuelark.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/border-beam-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "border-beam",
+        "example"
+      ]
+    },
+    {
+      "name": "branch-demo",
+      "type": "registry:component",
+      "title": "Branch: Example",
+      "description": "Three versions of a reply.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/branch.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/branch-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "branch",
+        "example"
+      ]
+    },
+    {
+      "name": "breadcrumb-demo",
+      "type": "registry:component",
+      "title": "Breadcrumb: Collapsed trail",
+      "description": "A trail with an ellipsis for skipped levels.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/breadcrumb.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/breadcrumb-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "breadcrumb",
+        "example"
+      ]
+    },
+    {
+      "name": "burst-demo",
+      "type": "registry:component",
+      "title": "Burst: Celebrate",
+      "description": "Click for confetti.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/burst.json",
+        "https://ui.cuelark.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/burst-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "burst",
+        "example"
+      ]
+    },
+    {
+      "name": "button-demo",
+      "type": "registry:component",
+      "title": "Button: Variants",
+      "description": "Primary, secondary, outline, ghost, destructive and link.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/button-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "button",
+        "example"
+      ]
+    },
+    {
+      "name": "button-states",
+      "type": "registry:component",
+      "title": "Button: Sizes, loading and shortcuts",
+      "description": "Keyboard hints, the loading state, icon buttons and every size.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/button-states.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "button",
+        "example"
+      ]
+    },
+    {
+      "name": "button-group-demo",
+      "type": "registry:component",
+      "title": "Button Group: Groups and split button",
+      "description": "Outline group, split publish button, prev/next.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/button-group.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/button-group-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "button-group",
+        "example"
+      ]
+    },
+    {
+      "name": "card-demo",
+      "type": "registry:component",
+      "title": "Card: Pricing card",
+      "description": "Raised card with crop marks, a label, an action and a footer tray.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/badge.json",
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/card.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/card-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "card",
+        "example"
+      ]
+    },
+    {
+      "name": "card-variants",
+      "type": "registry:component",
+      "title": "Card: Interactive variants",
+      "description": "Outline, raised and inset cards whose whole surface is a link.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/card.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/card-variants.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "card",
+        "example"
+      ]
+    },
+    {
+      "name": "chain-of-thought-demo",
+      "type": "registry:component",
+      "title": "Chain of Thought: Example",
+      "description": "Four steps with search results.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/chain-of-thought.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/chain-of-thought-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "chain-of-thought",
+        "example"
+      ]
+    },
+    {
+      "name": "checkbox-demo",
+      "type": "registry:component",
+      "title": "Checkbox: With labels",
+      "description": "Labels, descriptions and the disabled state.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/checkbox.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/checkbox-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "checkbox",
+        "example"
+      ]
+    },
+    {
+      "name": "checkbox-select-all",
+      "type": "registry:component",
+      "title": "Checkbox: Select all",
+      "description": "A parent checkbox that turns indeterminate.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/checkbox.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/checkbox-select-all.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "checkbox",
+        "example"
+      ]
+    },
+    {
+      "name": "checkpoint-demo",
+      "type": "registry:component",
+      "title": "Checkpoint: Example",
+      "description": "A labelled checkpoint.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/checkpoint.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/checkpoint-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "checkpoint",
+        "example"
+      ]
+    },
+    {
+      "name": "code-block-demo",
+      "type": "registry:component",
+      "title": "Code Block: Example",
+      "description": "Two highlighted lines.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/code-block.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/code-block-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "code-block",
+        "example"
+      ]
+    },
+    {
+      "name": "collapsible-demo",
+      "type": "registry:component",
+      "title": "Collapsible: Changed files",
+      "description": "Reveal the rest of a list.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/collapsible.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/collapsible-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "collapsible",
+        "example"
+      ]
+    },
+    {
+      "name": "combobox-demo",
+      "type": "registry:component",
+      "title": "Combobox: Framework picker",
+      "description": "Search with keywords.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/combobox.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/combobox-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "combobox",
+        "example"
+      ]
+    },
+    {
+      "name": "command-demo",
+      "type": "registry:component",
+      "title": "Command: Inline and ⌘J dialog",
+      "description": "An inline palette and a dialog opened with ⌘J.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/command.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/command-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "command",
+        "example"
+      ]
+    },
+    {
+      "name": "compare-slider-demo",
+      "type": "registry:component",
+      "title": "Compare Slider: Light vs dark",
+      "description": "The same UI in both themes.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/compare-slider.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/compare-slider-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "compare-slider",
+        "example"
+      ]
+    },
+    {
+      "name": "confirmation-demo",
+      "type": "registry:component",
+      "title": "Confirmation: Example",
+      "description": "A low-risk and a high-risk request.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/confirmation.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/confirmation-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "confirmation",
+        "example"
+      ]
+    },
+    {
+      "name": "context-menu-demo",
+      "type": "registry:component",
+      "title": "Context Menu: Layer menu",
+      "description": "Shortcuts, a submenu and a destructive item.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/context-menu.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/context-menu-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "context-menu",
+        "example"
+      ]
+    },
+    {
+      "name": "context-meter-demo",
+      "type": "registry:component",
+      "title": "Context Meter: Example",
+      "description": "Low, high and almost full.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/context-meter.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/context-meter-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "context-meter",
+        "example"
+      ]
+    },
+    {
+      "name": "conversation-demo",
+      "type": "registry:component",
+      "title": "Conversation: Example",
+      "description": "Scroll up mid-conversation to see the Latest pill.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/conversation.json",
+        "https://ui.cuelark.com/r/message.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/conversation-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "conversation",
+        "example"
+      ]
+    },
+    {
+      "name": "cookie-consent-demo",
+      "type": "registry:component",
+      "title": "Cookie Consent: Banner",
+      "description": "Inline preview with customize.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/cookie-consent.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/cookie-consent-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "cookie-consent",
+        "example"
+      ]
+    },
+    {
+      "name": "copy-button-demo",
+      "type": "registry:component",
+      "title": "Copy Button: Command and labelled",
+      "description": "An inline command and a labelled button.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/copy-button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/copy-button-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "copy-button",
+        "example"
+      ]
+    },
+    {
+      "name": "countdown-demo",
+      "type": "registry:component",
+      "title": "Countdown: Launch timer",
+      "description": "Days to seconds.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/countdown.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/countdown-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "countdown",
+        "example"
+      ]
+    },
+    {
+      "name": "dialog-demo",
+      "type": "registry:component",
+      "title": "Dialog: Form dialog",
+      "description": "A small form with a divided footer tray.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/dialog.json",
+        "https://ui.cuelark.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/dialog-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dialog",
+        "example"
+      ]
+    },
+    {
+      "name": "dialog-confirm",
+      "type": "registry:component",
+      "title": "Dialog: Confirm a destructive action",
+      "description": "A plain confirmation without crop marks.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/dialog-confirm.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dialog",
+        "example"
+      ]
+    },
+    {
+      "name": "dock-demo",
+      "type": "registry:component",
+      "title": "Dock: App dock",
+      "description": "Seven apps with a separator and active dots.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/dock.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/dock-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dock",
+        "example"
+      ]
+    },
+    {
+      "name": "dot-field-demo",
+      "type": "registry:component",
+      "title": "Dot Field: Hero background",
+      "description": "Move and click.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/dot-field.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/dot-field-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dot-field",
+        "example"
+      ]
+    },
+    {
+      "name": "draw-path-demo",
+      "type": "registry:component",
+      "title": "Draw Path: Signature",
+      "description": "A scribble with a signal underline.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/draw-path.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/draw-path-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "draw-path",
+        "example"
+      ]
+    },
+    {
+      "name": "dropdown-menu-demo",
+      "type": "registry:component",
+      "title": "Dropdown Menu: Account menu",
+      "description": "Groups, shortcuts, a submenu and a destructive item.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/dropdown-menu.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/dropdown-menu-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "dropdown-menu",
+        "example"
+      ]
+    },
+    {
+      "name": "empty-demo",
+      "type": "registry:component",
+      "title": "Empty: Inbox",
+      "description": "Title, guidance and two actions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/empty.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/empty-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "empty",
+        "example"
+      ]
+    },
+    {
+      "name": "field-demo",
+      "type": "registry:component",
+      "title": "Field: Validated username",
+      "description": "Type a space to see the error.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/field.json",
+        "https://ui.cuelark.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/field-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "field",
+        "example"
+      ]
+    },
+    {
+      "name": "file-diff-demo",
+      "type": "registry:component",
+      "title": "File Diff: Example",
+      "description": "A small refactor.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/file-diff.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/file-diff-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "file-diff",
+        "example"
+      ]
+    },
+    {
+      "name": "file-dropzone-demo",
+      "type": "registry:component",
+      "title": "File Dropzone: Upload area",
+      "description": "Drop or browse; files list below.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/file-dropzone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/file-dropzone-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "file-dropzone",
+        "example"
+      ]
+    },
+    {
+      "name": "file-tree-demo",
+      "type": "registry:component",
+      "title": "File Tree: Example",
+      "description": "A change touching four files.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/file-tree.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/file-tree-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "file-tree",
+        "example"
+      ]
+    },
+    {
+      "name": "flip-grid-demo",
+      "type": "registry:component",
+      "title": "Flip Grid: Filterable grid",
+      "description": "Filter with a segmented control.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/flip-grid.json",
+        "https://ui.cuelark.com/r/toggle-group.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/flip-grid-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "flip-grid",
+        "example"
+      ]
+    },
+    {
+      "name": "gradient-text-demo",
+      "type": "registry:component",
+      "title": "Gradient Text: Drift and spotlight",
+      "description": "A headline accent and a line you light with the pointer.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/gradient-text.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/gradient-text-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "gradient-text",
+        "example"
+      ]
+    },
+    {
+      "name": "hold-to-confirm-demo",
+      "type": "registry:component",
+      "title": "Hold to Confirm: Delete workspace",
+      "description": "Hold to delete; release early to cancel.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/hold-to-confirm.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/hold-to-confirm-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "hold-to-confirm",
+        "example"
+      ]
+    },
+    {
+      "name": "hover-card-demo",
+      "type": "registry:component",
+      "title": "Hover Card: Profile preview",
+      "description": "A mention that previews a profile.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/avatar.json",
+        "https://ui.cuelark.com/r/hover-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/hover-card-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "hover-card",
+        "example"
+      ]
+    },
+    {
+      "name": "inline-citation-demo",
+      "type": "registry:component",
+      "title": "Inline Citation: Example",
+      "description": "Two citations in a paragraph.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/inline-citation.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/inline-citation-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "inline-citation",
+        "example"
+      ]
+    },
+    {
+      "name": "input-demo",
+      "type": "registry:component",
+      "title": "Input: Labeled field",
+      "description": "A label, an input and a helper text wired with aria-describedby.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/input-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "input",
+        "example"
+      ]
+    },
+    {
+      "name": "input-addons",
+      "type": "registry:component",
+      "title": "Input: Add-ons and states",
+      "description": "Icons, a URL prefix, a keyboard hint, invalid and disabled.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/input-addons.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "input",
+        "example"
+      ]
+    },
+    {
+      "name": "input-otp-demo",
+      "type": "registry:component",
+      "title": "Input OTP: Six-digit code",
+      "description": "Two groups of three with a separator.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/input-otp.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/input-otp-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "input-otp",
+        "example"
+      ]
+    },
+    {
+      "name": "item-demo",
+      "type": "registry:component",
+      "title": "Item: Settings rows",
+      "description": "With a switch, and as a link.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/badge.json",
+        "https://ui.cuelark.com/r/item.json",
+        "https://ui.cuelark.com/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/item-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "item",
+        "example"
+      ]
+    },
+    {
+      "name": "kbd-demo",
+      "type": "registry:component",
+      "title": "Kbd: Keys and combos",
+      "description": "Single keys and combinations.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/kbd.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/kbd-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "kbd",
+        "example"
+      ]
+    },
+    {
+      "name": "label-demo",
+      "type": "registry:component",
+      "title": "Label: Required and optional",
+      "description": "Markers for required and optional fields.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/input.json",
+        "https://ui.cuelark.com/r/label.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/label-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "label",
+        "example"
+      ]
+    },
+    {
+      "name": "magnetic-demo",
+      "type": "registry:component",
+      "title": "Magnetic: CTA and icon",
+      "description": "A primary button and an icon button.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/magnetic.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/magnetic-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "magnetic",
+        "example"
+      ]
+    },
+    {
+      "name": "marquee-demo",
+      "type": "registry:component",
+      "title": "Marquee: Two rows",
+      "description": "Labels and pills in opposite directions.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/marquee.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/marquee-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "marquee",
+        "example"
+      ]
+    },
+    {
+      "name": "message-demo",
+      "type": "registry:component",
+      "title": "Message: Example",
+      "description": "A question and an answer with actions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/message.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/message-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "message",
+        "example"
+      ]
+    },
+    {
+      "name": "model-selector-demo",
+      "type": "registry:component",
+      "title": "Model Selector: Example",
+      "description": "Five models across three providers.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/model-selector.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/model-selector-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "model-selector",
+        "example"
+      ]
+    },
+    {
+      "name": "native-select-demo",
+      "type": "registry:component",
+      "title": "Native Select: Country",
+      "description": "A labelled native select.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/label.json",
+        "https://ui.cuelark.com/r/native-select.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/native-select-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "native-select",
+        "example"
+      ]
+    },
+    {
+      "name": "number-field-demo",
+      "type": "registry:component",
+      "title": "Number Field: Seats and budget",
+      "description": "A bounded integer and a currency amount.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/label.json",
+        "https://ui.cuelark.com/r/number-field.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/number-field-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "number-field",
+        "example"
+      ]
+    },
+    {
+      "name": "number-ticker-demo",
+      "type": "registry:component",
+      "title": "Number Ticker: Stats",
+      "description": "Currency, decimal and integer counters.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/number-ticker.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/number-ticker-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "number-ticker",
+        "example"
+      ]
+    },
+    {
+      "name": "orbit-demo",
+      "type": "registry:component",
+      "title": "Orbit: Integrations",
+      "description": "Two rings in opposite directions.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/orbit.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/orbit-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "orbit",
+        "example"
+      ]
+    },
+    {
+      "name": "pagination-demo",
+      "type": "registry:component",
+      "title": "Pagination: With page range",
+      "description": "Twenty pages, siblings and ellipses.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/pagination.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/pagination-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "pagination",
+        "example"
+      ]
+    },
+    {
+      "name": "password-input-demo",
+      "type": "registry:component",
+      "title": "Password Input: Sign-up password",
+      "description": "Type to see the meter and checklist.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/label.json",
+        "https://ui.cuelark.com/r/password-input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/password-input-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "password-input",
+        "example"
+      ]
+    },
+    {
+      "name": "plan-demo",
+      "type": "registry:component",
+      "title": "Plan: Example",
+      "description": "Six steps with an 8-second auto-run.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/plan.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/plan-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "plan",
+        "example"
+      ]
+    },
+    {
+      "name": "popover-demo",
+      "type": "registry:component",
+      "title": "Popover: Dimensions panel",
+      "description": "A small form with crop marks.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/input.json",
+        "https://ui.cuelark.com/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/popover-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "popover",
+        "example"
+      ]
+    },
+    {
+      "name": "progress-demo",
+      "type": "registry:component",
+      "title": "Progress: Bar, segments and indeterminate",
+      "description": "All three styles driven by one value.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/progress.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/progress-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "progress",
+        "example"
+      ]
+    },
+    {
+      "name": "prompt-input-demo",
+      "type": "registry:component",
+      "title": "Prompt Input: Example",
+      "description": "With a model selector and context meter in the toolbar.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/context-meter.json",
+        "https://ui.cuelark.com/r/model-selector.json",
+        "https://ui.cuelark.com/r/prompt-input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/prompt-input-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "prompt-input",
+        "example"
+      ]
+    },
+    {
+      "name": "queue-demo",
+      "type": "registry:component",
+      "title": "Queue: Example",
+      "description": "Three queued follow-ups.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/queue.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/queue-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "queue",
+        "example"
+      ]
+    },
+    {
+      "name": "radio-group-demo",
+      "type": "registry:component",
+      "title": "Radio Group: Plan cards and inline radios",
+      "description": "Selectable pricing cards and a compact inline group.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/radio-group.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/radio-group-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "radio-group",
+        "example"
+      ]
+    },
+    {
+      "name": "rating-demo",
+      "type": "registry:component",
+      "title": "Rating: Input and read-only",
+      "description": "An interactive rating and an average.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/rating.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/rating-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "rating",
+        "example"
+      ]
+    },
+    {
+      "name": "reasoning-demo",
+      "type": "registry:component",
+      "title": "Reasoning: Example",
+      "description": "Thoughts stream in, then it folds away.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/reasoning.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/reasoning-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "reasoning",
+        "example"
+      ]
+    },
+    {
+      "name": "reveal-demo",
+      "type": "registry:component",
+      "title": "Reveal: Four effects in a scroll panel",
+      "description": "Scroll the panel: rise, wipe, blur and scale, each staggered.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/reveal.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/reveal-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "reveal",
+        "example"
+      ]
+    },
+    {
+      "name": "rotating-text-demo",
+      "type": "registry:component",
+      "title": "Rotating Text: Hero line",
+      "description": "Four words cycling in a heading.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/rotating-text.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/rotating-text-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "rotating-text",
+        "example"
+      ]
+    },
+    {
+      "name": "scramble-text-demo",
+      "type": "registry:component",
+      "title": "Scramble Text: Mount and hover",
+      "description": "A decoding headline and a hover link.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/scramble-text.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/scramble-text-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "scramble-text",
+        "example"
+      ]
+    },
+    {
+      "name": "scroll-area-demo",
+      "type": "registry:component",
+      "title": "Scroll Area: Release list",
+      "description": "A faded list of tags.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/scroll-area.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/scroll-area-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "scroll-area",
+        "example"
+      ]
+    },
+    {
+      "name": "scroll-progress-demo",
+      "type": "registry:component",
+      "title": "Scroll Progress: Article progress",
+      "description": "Tracks a scrolling article.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/scroll-progress.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/scroll-progress-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "scroll-progress",
+        "example"
+      ]
+    },
+    {
+      "name": "select-demo",
+      "type": "registry:component",
+      "title": "Select: Grouped options",
+      "description": "Timezones in labelled groups.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/select-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "select",
+        "example"
+      ]
+    },
+    {
+      "name": "separator-demo",
+      "type": "registry:component",
+      "title": "Separator: Labelled, dashed and vertical",
+      "description": "All three uses.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/separator-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "separator",
+        "example"
+      ]
+    },
+    {
+      "name": "sheet-demo",
+      "type": "registry:component",
+      "title": "Sheet: Settings panel",
+      "description": "Header, scrollable body and footer tray.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/input.json",
+        "https://ui.cuelark.com/r/label.json",
+        "https://ui.cuelark.com/r/sheet.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/sheet-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "sheet",
+        "example"
+      ]
+    },
+    {
+      "name": "shimmer-button-demo",
+      "type": "registry:component",
+      "title": "Shimmer Button: Hero CTA",
+      "description": "A pill button with an icon.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/shimmer-button.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/shimmer-button-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "shimmer-button",
+        "example"
+      ]
+    },
+    {
+      "name": "skeleton-demo",
+      "type": "registry:component",
+      "title": "Skeleton: Profile card",
+      "description": "Avatar, heading and paragraph placeholders.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/skeleton.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/skeleton-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "skeleton",
+        "example"
+      ]
+    },
+    {
+      "name": "slider-demo",
+      "type": "registry:component",
+      "title": "Slider: Value bubble and range",
+      "description": "A single value and a price range with ticks.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/slider.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/slider-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "slider",
+        "example"
+      ]
+    },
+    {
+      "name": "sources-demo",
+      "type": "registry:component",
+      "title": "Sources: Example",
+      "description": "Five sources.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/sources.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/sources-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "sources",
+        "example"
+      ]
+    },
+    {
+      "name": "spinner-demo",
+      "type": "registry:component",
+      "title": "Spinner: Variants",
+      "description": "Marks, ring and dots.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/spinner.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/spinner-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "spinner",
+        "example"
+      ]
+    },
+    {
+      "name": "stack-trace-demo",
+      "type": "registry:component",
+      "title": "Stack Trace: Example",
+      "description": "A TypeError with library frames folded.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/stack-trace.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/stack-trace-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "stack-trace",
+        "example"
+      ]
+    },
+    {
+      "name": "stepper-demo",
+      "type": "registry:component",
+      "title": "Stepper: Onboarding flow",
+      "description": "Four steps with back and continue.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/stepper.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/stepper-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "stepper",
+        "example"
+      ]
+    },
+    {
+      "name": "streaming-text-demo",
+      "type": "registry:component",
+      "title": "Streaming Text: Example",
+      "description": "A reply streaming in.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/streaming-text.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/streaming-text-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "streaming-text",
+        "example"
+      ]
+    },
+    {
+      "name": "subagent-demo",
+      "type": "registry:component",
+      "title": "Subagent: Example",
+      "description": "One running, one finished with tool calls inside.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/subagent.json",
+        "https://ui.cuelark.com/r/tool.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/subagent-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "subagent",
+        "example"
+      ]
+    },
+    {
+      "name": "suggestions-demo",
+      "type": "registry:component",
+      "title": "Suggestions: Example",
+      "description": "Five follow-ups.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/suggestions.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/suggestions-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "suggestions",
+        "example"
+      ]
+    },
+    {
+      "name": "switch-demo",
+      "type": "registry:component",
+      "title": "Switch: Sizes",
+      "description": "Small, medium, large and disabled.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/switch-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "switch",
+        "example"
+      ]
+    },
+    {
+      "name": "switch-settings",
+      "type": "registry:component",
+      "title": "Switch: Settings list",
+      "description": "Labeled settings separated by dashed rules.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/switch-settings.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "switch",
+        "example"
+      ]
+    },
+    {
+      "name": "table-demo",
+      "type": "registry:component",
+      "title": "Table: Invoices",
+      "description": "Status badges, numeric columns and a footer total.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/badge.json",
+        "https://ui.cuelark.com/r/table.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/table-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "table",
+        "example"
+      ]
+    },
+    {
+      "name": "tabs-demo",
+      "type": "registry:component",
+      "title": "Tabs: Segmented",
+      "description": "A full-width segmented control.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/tabs.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/tabs-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "tabs",
+        "example"
+      ]
+    },
+    {
+      "name": "tabs-underline",
+      "type": "registry:component",
+      "title": "Tabs: Underline with icons",
+      "description": "An underline indicator that follows the label width.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/tabs.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/tabs-underline.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "tabs",
+        "example"
+      ]
+    },
+    {
+      "name": "tag-input-demo",
+      "type": "registry:component",
+      "title": "Tag Input: Skills",
+      "description": "Suggestions, paste and keyboard removal.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/label.json",
+        "https://ui.cuelark.com/r/tag-input.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/tag-input-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "tag-input",
+        "example"
+      ]
+    },
+    {
+      "name": "task-demo",
+      "type": "registry:component",
+      "title": "Task: Example",
+      "description": "Four items, one in progress.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/task.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/task-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "task",
+        "example"
+      ]
+    },
+    {
+      "name": "terminal-demo",
+      "type": "registry:component",
+      "title": "Terminal: Example",
+      "description": "A test run streaming.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/terminal.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/terminal-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "terminal",
+        "example"
+      ]
+    },
+    {
+      "name": "test-results-demo",
+      "type": "registry:component",
+      "title": "Test Results: Example",
+      "description": "Two suites with one failure.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/test-results.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/test-results-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "test-results",
+        "example"
+      ]
+    },
+    {
+      "name": "text-reveal-demo",
+      "type": "registry:component",
+      "title": "Text Reveal: Heading and paragraph",
+      "description": "Chars rising and words blurring in.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/text-reveal.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/text-reveal-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "text-reveal",
+        "example"
+      ]
+    },
+    {
+      "name": "text-shimmer-demo",
+      "type": "registry:component",
+      "title": "Text Shimmer: Example",
+      "description": "Two status lines.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/text-shimmer.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/text-shimmer-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "text-shimmer",
+        "example"
+      ]
+    },
+    {
+      "name": "textarea-demo",
+      "type": "registry:component",
+      "title": "Textarea: Auto-grow with counter",
+      "description": "Grows with the text and counts toward a limit.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/label.json",
+        "https://ui.cuelark.com/r/textarea.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/textarea-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "textarea",
+        "example"
+      ]
+    },
+    {
+      "name": "tilt-card-demo",
+      "type": "registry:component",
+      "title": "Tilt Card: Member card",
+      "description": "A card with a glare.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/tilt-card.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/tilt-card-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "tilt-card",
+        "example"
+      ]
+    },
+    {
+      "name": "timeline-demo",
+      "type": "registry:component",
+      "title": "Timeline: Changelog",
+      "description": "Releases with version badges.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/badge.json",
+        "https://ui.cuelark.com/r/timeline.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/timeline-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "timeline",
+        "example"
+      ]
+    },
+    {
+      "name": "toast-demo",
+      "type": "registry:component",
+      "title": "Toast: Tones and promise",
+      "description": "Default, success, error and a promise toast.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/toast.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/toast-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "toast",
+        "example"
+      ]
+    },
+    {
+      "name": "toggle-demo",
+      "type": "registry:component",
+      "title": "Toggle: Ghost and outline",
+      "description": "Icon toggles and a labelled outline toggle.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/toggle.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/toggle-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "toggle",
+        "example"
+      ]
+    },
+    {
+      "name": "toggle-group-demo",
+      "type": "registry:component",
+      "title": "Toggle Group: Segmented, outline and ghost",
+      "description": "A range picker, alignment and formatting groups.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/toggle-group.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/toggle-group-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "toggle-group",
+        "example"
+      ]
+    },
+    {
+      "name": "tool-demo",
+      "type": "registry:component",
+      "title": "Tool: Example",
+      "description": "Success, running and error states.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/tool.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/tool-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "tool",
+        "example"
+      ]
+    },
+    {
+      "name": "tooltip-demo",
+      "type": "registry:component",
+      "title": "Tooltip: Toolbar with shortcuts",
+      "description": "Icon buttons whose tooltips show shortcuts.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/tooltip-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "tooltip",
+        "example"
+      ]
+    },
+    {
+      "name": "tooltip-sides",
+      "type": "registry:component",
+      "title": "Tooltip: Placement",
+      "description": "Tooltips on all four sides.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/button.json",
+        "https://ui.cuelark.com/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/tooltip-sides.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "tooltip",
+        "example"
+      ]
+    },
+    {
+      "name": "trace-waterfall-demo",
+      "type": "registry:component",
+      "title": "Trace Waterfall: Example",
+      "description": "A support agent with a sub-agent and a retried tool.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/trace-waterfall.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/trace-waterfall-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "trace-waterfall",
+        "example"
+      ]
+    },
+    {
+      "name": "typewriter-demo",
+      "type": "registry:component",
+      "title": "Typewriter: Cycling phrases",
+      "description": "Four phrases in a heading.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/typewriter.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/typewriter-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "typewriter",
+        "example"
+      ]
+    },
+    {
+      "name": "web-preview-demo",
+      "type": "registry:component",
+      "title": "Web Preview: Example",
+      "description": "A preview with custom content.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://ui.cuelark.com/r/web-preview.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cuelark/examples/web-preview-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "web-preview",
+        "example"
+      ]
+    }
+  ]
+}

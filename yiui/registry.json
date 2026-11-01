@@ -1,0 +1,2172 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "yiui",
+  "homepage": "https://yiui.dev",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "grid-layout",
+      "title": "线条网格布局",
+      "description": "带全宽横线、竖线容器、刻度尺等多种纹路分隔带和交点十字的响应式布局原语。",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/grid-layout/grid-layout.tsx",
+          "type": "registry:ui",
+          "target": "@ui/grid-layout/grid-layout.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "css": {
+        "@utility screen-line-top": {
+          "position": "relative",
+          "&::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "top": "0",
+            "left": "-100vw",
+            "width": "200vw",
+            "height": "1px",
+            "background-color": "var(--edge)",
+            "pointer-events": "none"
+          }
+        },
+        "@utility screen-line-bottom": {
+          "position": "relative",
+          "&::after": {
+            "content": "\"\"",
+            "position": "absolute",
+            "bottom": "0",
+            "left": "-100vw",
+            "width": "200vw",
+            "height": "1px",
+            "background-color": "var(--edge)",
+            "pointer-events": "none"
+          }
+        },
+        "@utility pattern-ruler": {
+          "background-color": "color-mix(in oklab, var(--foreground) 34%, transparent)",
+          "mask-image": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='31' shape-rendering='crispEdges'%3E%3Crect x='0' y='19' width='1' height='12'/%3E%3Crect x='0' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='8' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='8' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='16' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='16' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='24' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='24' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='32' y='24' width='1' height='7' fill-opacity='.8'/%3E%3Crect x='32' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='40' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='40' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='48' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='48' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='56' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='56' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='64' y='24' width='1' height='7' fill-opacity='.8'/%3E%3Crect x='64' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='72' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='72' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='80' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='80' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='88' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='88' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='96' y='24' width='1' height='7' fill-opacity='.8'/%3E%3Crect x='96' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='104' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='104' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='112' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='112' y='0' width='1' height='3' fill-opacity='.45'/%3E%3Crect x='120' y='27' width='1' height='4' fill-opacity='.55'/%3E%3Crect x='120' y='0' width='1' height='3' fill-opacity='.45'/%3E%3C/svg%3E\")",
+          "mask-size": "128px 31px",
+          "mask-repeat": "repeat-x",
+          "mask-position": "0 0"
+        },
+        "@utility pattern-hatch": {
+          "background-color": "color-mix(in oklab, var(--foreground) 34%, transparent)",
+          "mask-image": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M-1-1L9 9M7-1L9 1M-1 7L1 9' fill='none' stroke='black'/%3E%3C/svg%3E\")",
+          "mask-size": "8px 8px",
+          "mask-repeat": "repeat",
+          "mask-position": "0 0"
+        },
+        "@utility pattern-dots": {
+          "background-color": "color-mix(in oklab, var(--foreground) 34%, transparent)",
+          "mask-image": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='31' shape-rendering='crispEdges'%3E%3Crect x='4' y='7' width='1' height='1'/%3E%3Crect x='4' y='15' width='1' height='1'/%3E%3Crect x='4' y='23' width='1' height='1'/%3E%3C/svg%3E\")",
+          "mask-size": "8px 31px",
+          "mask-repeat": "repeat-x",
+          "mask-position": "0 0"
+        },
+        "@utility pattern-grid": {
+          "background-color": "color-mix(in oklab, var(--foreground) 14%, transparent)",
+          "mask-image": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='31' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='1' height='31'/%3E%3Crect x='1' y='7' width='7' height='1'/%3E%3Crect x='1' y='15' width='7' height='1'/%3E%3Crect x='1' y='23' width='7' height='1'/%3E%3C/svg%3E\")",
+          "mask-size": "8px 31px",
+          "mask-repeat": "repeat-x",
+          "mask-position": "0 0"
+        },
+        "@utility pattern-plus": {
+          "background-color": "color-mix(in oklab, var(--foreground) 34%, transparent)",
+          "mask-image": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='31' shape-rendering='crispEdges'%3E%3Crect x='6' y='7' width='5' height='1'/%3E%3Crect x='8' y='5' width='1' height='2'/%3E%3Crect x='8' y='8' width='1' height='2'/%3E%3Crect x='6' y='23' width='5' height='1'/%3E%3Crect x='8' y='21' width='1' height='2'/%3E%3Crect x='8' y='24' width='1' height='2'/%3E%3C/svg%3E\")",
+          "mask-size": "16px 31px",
+          "mask-repeat": "repeat-x",
+          "mask-position": "0 0"
+        },
+        "@utility pattern-wave": {
+          "background-color": "color-mix(in oklab, var(--foreground) 34%, transparent)",
+          "mask-image": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='31'%3E%3Cpath d='M0 15.5C5.33 10.5 10.67 10.5 16 15.5S26.67 20.5 32 15.5' fill='none' stroke='black'/%3E%3C/svg%3E\")",
+          "mask-size": "32px 31px",
+          "mask-repeat": "repeat-x",
+          "mask-position": "0 0"
+        },
+        "@utility bg-hatch": {
+          "background-image": "repeating-linear-gradient(\n    45deg,\n    var(--edge) 0 1px,\n    transparent 0 50%\n  )",
+          "background-size": "8px 8px"
+        },
+        "@utility bg-dots": {
+          "background-image": "conic-gradient(\n    at 1px 1px,\n    transparent 75%,\n    color-mix(in oklab, var(--foreground) 34%, transparent) 0\n  )",
+          "background-size": "8px 8px",
+          "background-position": "4px 4px"
+        },
+        "@utility bg-grid": {
+          "background-image": "linear-gradient(var(--edge) 1px, transparent 1px),\n    linear-gradient(90deg, var(--edge) 1px, transparent 1px)",
+          "background-size": "16px 16px"
+        },
+        "@layer base": {
+          "html, body": {
+            "overflow-x": "clip"
+          }
+        }
+      },
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "local-time",
+      "title": "实时当地时间",
+      "description": "按指定 IANA 时区显示实时时间：行内时间可带 UTC 偏移、昼夜图标与同访客的时差；另提供世界时钟（列表 / 卡片）和平滑转动的 SVG 模拟表盘。",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/local-time/local-time.tsx",
+          "type": "registry:ui",
+          "target": "@ui/local-time/local-time.tsx"
+        },
+        {
+          "path": "src/registry/ui/local-time/world-clock.tsx",
+          "type": "registry:ui",
+          "target": "@ui/local-time/world-clock.tsx"
+        },
+        {
+          "path": "src/registry/ui/local-time/analog-clock.tsx",
+          "type": "registry:ui",
+          "target": "@ui/local-time/analog-clock.tsx"
+        },
+        {
+          "path": "src/registry/ui/local-time/time-parts.tsx",
+          "type": "registry:ui",
+          "target": "@ui/local-time/time-parts.tsx"
+        },
+        {
+          "path": "src/registry/ui/local-time/zone.ts",
+          "type": "registry:ui",
+          "target": "@ui/local-time/zone.ts"
+        },
+        {
+          "path": "src/registry/ui/local-time/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/local-time/config.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-now.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-now.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "greeting",
+      "title": "时段问候",
+      "description": "按访客本地时间问候：时段图标与色调、可配置的分段时间与称呼；附带四时段指示条和会轮换副标题的问候卡片，首屏用静态文案避免水合差异。",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/greeting/greeting.tsx",
+          "type": "registry:ui",
+          "target": "@ui/greeting/greeting.tsx"
+        },
+        {
+          "path": "src/registry/ui/greeting/use-greeting-period.ts",
+          "type": "registry:ui",
+          "target": "@ui/greeting/use-greeting-period.ts"
+        },
+        {
+          "path": "src/registry/ui/greeting/period.ts",
+          "type": "registry:ui",
+          "target": "@ui/greeting/period.ts"
+        },
+        {
+          "path": "src/registry/ui/greeting/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/greeting/config.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-now.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-now.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "flow-blue": "oklch(0.56 0.2 258)",
+          "flow-green": "oklch(0.62 0.16 150)",
+          "flow-amber": "oklch(0.7 0.16 70)",
+          "flow-rose": "oklch(0.62 0.21 5)",
+          "flow-violet": "oklch(0.56 0.22 292)",
+          "flow-cyan": "oklch(0.66 0.12 215)",
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "flow-blue": "oklch(0.72 0.15 255)",
+          "flow-green": "oklch(0.77 0.17 152)",
+          "flow-amber": "oklch(0.82 0.15 82)",
+          "flow-rose": "oklch(0.74 0.16 8)",
+          "flow-violet": "oklch(0.74 0.15 295)",
+          "flow-cyan": "oklch(0.82 0.11 208)",
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "auth-01",
+      "title": "分屏登录页",
+      "description": "左侧品牌面板 + 右侧表单的分屏登录页：登录（密码 / 验证码）、注册（带强度条）、找回密码，zod 校验。",
+      "dependencies": [
+        "motion",
+        "zod",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "label",
+        "checkbox",
+        "https://yiui.dev/r/ripple.json",
+        "https://yiui.dev/r/glyph-field.json",
+        "https://yiui.dev/r/text-animate.json",
+        "https://yiui.dev/r/segmented-control.json",
+        "https://yiui.dev/r/toggle-switch.json",
+        "https://yiui.dev/r/phone-input.json",
+        "https://yiui.dev/r/bar-field.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/auth-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/login/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/auth-01.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/auth-01.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/config.ts",
+          "type": "registry:component",
+          "target": "@components/auth-01/config.ts"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/brand.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/brand.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/brand-panel.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/brand-panel.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/sign-in-form.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/sign-in-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/sign-up-form.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/sign-up-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/forgot-password-form.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/forgot-password-form.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/form-parts.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/form-parts.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/password-strength.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/password-strength.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/schemas.ts",
+          "type": "registry:component",
+          "target": "@components/auth-01/schemas.ts"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/social-buttons.tsx",
+          "type": "registry:component",
+          "target": "@components/auth-01/social-buttons.tsx"
+        },
+        {
+          "path": "src/registry/blocks/auth-01/use-auth-form.ts",
+          "type": "registry:component",
+          "target": "@components/auth-01/use-auth-form.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px"
+      },
+      "type": "registry:block"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "settings-01",
+      "title": "设置页",
+      "description": "用方条控件拼成的完整设置页：分区导航、实时预览、已修改计数、恢复默认与异步保存。",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://yiui.dev/r/value-slider.json",
+        "https://yiui.dev/r/segmented-control.json",
+        "https://yiui.dev/r/toggle-switch.json",
+        "https://yiui.dev/r/tone-picker.json",
+        "https://yiui.dev/r/control-panel.json",
+        "https://yiui.dev/r/flow-tone.json",
+        "item",
+        "popover",
+        "sheet"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/settings-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/settings/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/settings-01.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/settings-01.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/config.ts",
+          "type": "registry:component",
+          "target": "@components/settings-01/config.ts"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/types.ts",
+          "type": "registry:component",
+          "target": "@components/settings-01/types.ts"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/utils.ts",
+          "type": "registry:component",
+          "target": "@components/settings-01/utils.ts"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/section-layout.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/section-layout.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/section-nav.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/section-nav.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/previews.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/previews.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/appearance-section.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/appearance-section.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/notifications-section.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/notifications-section.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/sound-section.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/sound-section.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/editor-section.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/editor-section.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/privacy-section.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/privacy-section.tsx"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/use-save-action.ts",
+          "type": "registry:component",
+          "target": "@components/settings-01/use-save-action.ts"
+        },
+        {
+          "path": "src/registry/blocks/settings-01/changes.tsx",
+          "type": "registry:component",
+          "target": "@components/settings-01/changes.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "860px"
+      },
+      "type": "registry:block"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "agent-chat-01",
+      "title": "AI 助手面板",
+      "description": "从企业监控平台提炼的 AI 助手：嵌入与浮动布局切换，Trace 展示分析摘要、工具调用与来源，内置流式演示。",
+      "dependencies": [
+        "ai",
+        "@ai-sdk/react",
+        "motion",
+        "lucide-react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "bubble",
+        "message",
+        "code-block",
+        "collapsible",
+        "button",
+        "textarea",
+        "avatar",
+        "sheet",
+        "https://yiui.dev/r/glyph-field.json",
+        "https://yiui.dev/r/text-animate.json",
+        "https://yiui.dev/r/segmented-control.json",
+        "trace",
+        "https://yiui.dev/r/chart-card.json",
+        "https://yiui.dev/r/mini-chart.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/agent-chat-01/agent-chat.tsx",
+          "type": "registry:component",
+          "target": "@components/agent-chat/agent-chat.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/agent/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/agent-chat-body.tsx",
+          "type": "registry:component",
+          "target": "@components/agent-chat/agent-chat-body.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/use-agent-chat-position.ts",
+          "type": "registry:component",
+          "target": "@components/agent-chat/use-agent-chat-position.ts"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/agent-chat-context.tsx",
+          "type": "registry:component",
+          "target": "@components/agent-chat/agent-chat-context.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/chat-message.tsx",
+          "type": "registry:component",
+          "target": "@components/agent-chat/chat-message.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/chat-charts.tsx",
+          "type": "registry:component",
+          "target": "@components/agent-chat/chat-charts.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/chat-markdown.tsx",
+          "type": "registry:component",
+          "target": "@components/agent-chat/chat-markdown.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/mock-transport.ts",
+          "type": "registry:component",
+          "target": "@components/agent-chat/mock-transport.ts"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/scripts.ts",
+          "type": "registry:component",
+          "target": "@components/agent-chat/scripts.ts"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/config.ts",
+          "type": "registry:component",
+          "target": "@components/agent-chat/config.ts"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/types.ts",
+          "type": "registry:component",
+          "target": "@components/agent-chat/types.ts"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/demo-data.ts",
+          "type": "registry:component",
+          "target": "@components/agent-chat/demo-data.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "meta": {
+        "iframeHeight": "760px"
+      },
+      "type": "registry:block"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "app-shell-01",
+      "title": "企业控制台布局",
+      "description": "提炼自企业监控平台的控制台外壳：固定顶栏、可折叠一级导航、二级工作区侧栏、独立滚动主区域，窄屏变抽屉，并预留右侧 aside 插槽（可放 AI 助手面板）。",
+      "dependencies": [
+        "lucide-react",
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "button",
+        "avatar",
+        "breadcrumb",
+        "dropdown-menu",
+        "popover",
+        "sheet",
+        "tooltip",
+        "https://yiui.dev/r/stat-card.json",
+        "https://yiui.dev/r/mini-chart.json",
+        "https://yiui.dev/r/chart-card.json",
+        "https://yiui.dev/r/segmented-control.json",
+        "https://yiui.dev/r/data-table-01.json",
+        "https://yiui.dev/r/bar-select.json",
+        "https://yiui.dev/r/grid-toolbar.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/pages/app-shell-01/layout.tsx",
+          "type": "registry:page",
+          "target": "app/(app)/layout.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/(app)/dashboard/page.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/sections/page.tsx",
+          "type": "registry:page",
+          "target": "app/(app)/dashboard/[...slug]/page.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/app-shell.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/app-shell.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/app-header.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/app-header.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/app-shell-script.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/app-shell-script.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/primary-nav.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/primary-nav.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/workspace-sidebar.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/workspace-sidebar.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/page-header.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/page-header.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/header-status.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/header-status.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/user-menu.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/user-menu.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/theme-toggle.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/theme-toggle.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/nav-link.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/nav-link.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/nav-types.ts",
+          "type": "registry:component",
+          "target": "@components/app-shell/nav-types.ts"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/nav-config.ts",
+          "type": "registry:component",
+          "target": "@components/app-shell/nav-config.ts"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/use-stored-flag.ts",
+          "type": "registry:component",
+          "target": "@components/app-shell/use-stored-flag.ts"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/dashboard-overview.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/dashboard-overview.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/page-summaries.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/page-summaries.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/distribution-card.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/distribution-card.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/overview-charts.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/overview-charts.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/list-page.tsx",
+          "type": "registry:component",
+          "target": "@components/app-shell/list-page.tsx"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/sample-data.ts",
+          "type": "registry:component",
+          "target": "@components/app-shell/sample-data.ts"
+        },
+        {
+          "path": "src/registry/pages/app-shell-01/config.ts",
+          "type": "registry:component",
+          "target": "@components/app-shell/config.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "800px"
+      },
+      "type": "registry:page"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "isometric-mark",
+      "title": "等轴测标志",
+      "description": "把任意平面多边形挤出成等轴测线条 3D，带斜纹顶面、跟随鼠标的线条高光与点击按下效果。",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/isometric-mark/isometric-mark.tsx",
+          "type": "registry:ui",
+          "target": "@ui/isometric-mark/isometric-mark.tsx"
+        },
+        {
+          "path": "src/registry/ui/isometric-mark/geometry.ts",
+          "type": "registry:ui",
+          "target": "@ui/isometric-mark/geometry.ts"
+        },
+        {
+          "path": "src/registry/ui/isometric-mark/sound.ts",
+          "type": "registry:ui",
+          "target": "@ui/isometric-mark/sound.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "flow-tone",
+      "title": "色调变量",
+      "description": "全站带颜色的组件共用的色调：primary、blue、green 等内置名或任意 CSS 颜色，统一换成 --flow-tone 变量；附带六种多彩色调的亮 / 暗取值，在全局样式里改写即可换成品牌色。",
+      "files": [
+        {
+          "path": "src/registry/lib/flow-tone.ts",
+          "type": "registry:lib",
+          "target": "lib/flow-tone.ts"
+        }
+      ],
+      "cssVars": {
+        "light": {
+          "flow-blue": "oklch(0.56 0.2 258)",
+          "flow-green": "oklch(0.62 0.16 150)",
+          "flow-amber": "oklch(0.7 0.16 70)",
+          "flow-rose": "oklch(0.62 0.21 5)",
+          "flow-violet": "oklch(0.56 0.22 292)",
+          "flow-cyan": "oklch(0.66 0.12 215)"
+        },
+        "dark": {
+          "flow-blue": "oklch(0.72 0.15 255)",
+          "flow-green": "oklch(0.77 0.17 152)",
+          "flow-amber": "oklch(0.82 0.15 82)",
+          "flow-rose": "oklch(0.74 0.16 8)",
+          "flow-violet": "oklch(0.74 0.15 295)",
+          "flow-cyan": "oklch(0.82 0.11 208)"
+        }
+      },
+      "type": "registry:lib"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "flow-diagram",
+      "title": "流程动画图示",
+      "description": "节点、细线与流动光点组成的循环动画流程图：统一时间轴、进入视口才播放、减少动态效果时停在静帧；色调与底纹可配置，附带光点路径、逐字输入、加载圈与状态点等原语。",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/grid-layout.json",
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/flow-diagram/flow-diagram.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow-diagram/flow-diagram.tsx"
+        },
+        {
+          "path": "src/registry/ui/flow-diagram/elements.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow-diagram/elements.tsx"
+        },
+        {
+          "path": "src/registry/ui/flow-diagram/beam.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow-diagram/beam.tsx"
+        },
+        {
+          "path": "src/registry/ui/flow-diagram/route.ts",
+          "type": "registry:ui",
+          "target": "@ui/flow-diagram/route.ts"
+        },
+        {
+          "path": "src/registry/ui/flow-diagram/flow-clock.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow-diagram/flow-clock.tsx"
+        },
+        {
+          "path": "src/registry/ui/flow-diagram/background.ts",
+          "type": "registry:ui",
+          "target": "@ui/flow-diagram/background.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stat-card",
+      "title": "统计卡片",
+      "description": "一组可组合的统计卡片原语：KPI 数字与涨跌幅（绿涨红跌 / 红涨绿跌可切换）、目标状态行、配额进度条、分格计量条、延迟分区表、占比分布条与图例，数字默认按万 / 亿压缩。",
+      "dependencies": [
+        "lucide-react",
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/stat-card/stat-card.tsx",
+          "type": "registry:ui",
+          "target": "@ui/stat-card/stat-card.tsx"
+        },
+        {
+          "path": "src/registry/ui/stat-card/stat-status.tsx",
+          "type": "registry:ui",
+          "target": "@ui/stat-card/stat-status.tsx"
+        },
+        {
+          "path": "src/registry/ui/stat-card/stat-bars.tsx",
+          "type": "registry:ui",
+          "target": "@ui/stat-card/stat-bars.tsx"
+        },
+        {
+          "path": "src/registry/ui/stat-card/stat-zones.tsx",
+          "type": "registry:ui",
+          "target": "@ui/stat-card/stat-zones.tsx"
+        },
+        {
+          "path": "src/registry/ui/stat-card/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/stat-card/config.ts"
+        },
+        {
+          "path": "src/registry/lib/data-display.ts",
+          "type": "registry:lib",
+          "target": "lib/data-display.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "flow-blue": "oklch(0.56 0.2 258)",
+          "flow-green": "oklch(0.62 0.16 150)",
+          "flow-amber": "oklch(0.7 0.16 70)",
+          "flow-rose": "oklch(0.62 0.21 5)",
+          "flow-violet": "oklch(0.56 0.22 292)",
+          "flow-cyan": "oklch(0.66 0.12 215)",
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "flow-blue": "oklch(0.72 0.15 255)",
+          "flow-green": "oklch(0.77 0.17 152)",
+          "flow-amber": "oklch(0.82 0.15 82)",
+          "flow-rose": "oklch(0.74 0.16 8)",
+          "flow-violet": "oklch(0.74 0.15 295)",
+          "flow-cyan": "oklch(0.82 0.11 208)",
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "mini-chart",
+      "title": "迷你图",
+      "description": "放进卡片的极简图表：柱、折线、面积、阶梯线、进度环与环形图。无网格无纵轴，可选 11px 横轴，涨跌色随配色约定变化，尊重「减少动态效果」。",
+      "dependencies": [
+        "recharts",
+        "motion"
+      ],
+      "registryDependencies": [
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/mini-chart/mini-chart.tsx",
+          "type": "registry:ui",
+          "target": "@ui/mini-chart/mini-chart.tsx"
+        },
+        {
+          "path": "src/registry/ui/mini-chart/mini-ring.tsx",
+          "type": "registry:ui",
+          "target": "@ui/mini-chart/mini-ring.tsx"
+        },
+        {
+          "path": "src/registry/ui/mini-chart/mini-donut.tsx",
+          "type": "registry:ui",
+          "target": "@ui/mini-chart/mini-donut.tsx"
+        },
+        {
+          "path": "src/registry/lib/data-display.ts",
+          "type": "registry:lib",
+          "target": "lib/data-display.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "flow-blue": "oklch(0.56 0.2 258)",
+          "flow-green": "oklch(0.62 0.16 150)",
+          "flow-amber": "oklch(0.7 0.16 70)",
+          "flow-rose": "oklch(0.62 0.21 5)",
+          "flow-violet": "oklch(0.56 0.22 292)",
+          "flow-cyan": "oklch(0.66 0.12 215)",
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "flow-blue": "oklch(0.72 0.15 255)",
+          "flow-green": "oklch(0.77 0.17 152)",
+          "flow-amber": "oklch(0.82 0.15 82)",
+          "flow-rose": "oklch(0.74 0.16 8)",
+          "flow-violet": "oklch(0.74 0.15 295)",
+          "flow-cyan": "oklch(0.82 0.11 208)",
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chart-card",
+      "title": "图表卡片",
+      "description": "图表卡片布局（标题、指标行、图例、明细表）加三个图表：刻度式环形仪表、多序列折线 / 柱 / 面积图（支持堆叠与正负对比）、横向排名条。基于 shadcn chart，颜色全部取自主题变量。",
+      "dependencies": [
+        "recharts",
+        "motion"
+      ],
+      "registryDependencies": [
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/chart-card/chart-card.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart-card/chart-card.tsx"
+        },
+        {
+          "path": "src/registry/ui/chart-card/chart-gauge.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart-card/chart-gauge.tsx"
+        },
+        {
+          "path": "src/registry/ui/chart-card/chart-series.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart-card/chart-series.tsx"
+        },
+        {
+          "path": "src/registry/ui/chart-card/chart-ranking.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart-card/chart-ranking.tsx"
+        },
+        {
+          "path": "src/registry/ui/chart-card/chart-legend.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart-card/chart-legend.tsx"
+        },
+        {
+          "path": "src/registry/ui/chart-card/chart-parts.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart-card/chart-parts.tsx"
+        },
+        {
+          "path": "src/registry/lib/data-display.ts",
+          "type": "registry:lib",
+          "target": "lib/data-display.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "flow-blue": "oklch(0.56 0.2 258)",
+          "flow-green": "oklch(0.62 0.16 150)",
+          "flow-amber": "oklch(0.7 0.16 70)",
+          "flow-rose": "oklch(0.62 0.21 5)",
+          "flow-violet": "oklch(0.56 0.22 292)",
+          "flow-cyan": "oklch(0.66 0.12 215)",
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "flow-blue": "oklch(0.72 0.15 255)",
+          "flow-green": "oklch(0.77 0.17 152)",
+          "flow-amber": "oklch(0.82 0.15 82)",
+          "flow-rose": "oklch(0.74 0.16 8)",
+          "flow-violet": "oklch(0.74 0.15 295)",
+          "flow-cyan": "oklch(0.82 0.11 208)",
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "orbit",
+      "title": "轨道环绕",
+      "description": "可组合的同心轨道与正向节点，支持半弧、反向运行与离屏暂停。",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-diagram.json",
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/orbit/orbit.tsx",
+          "type": "registry:ui",
+          "target": "@ui/orbit/orbit.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "ripple",
+      "title": "波纹脉冲",
+      "description": "同心波纹与径向标记，支持扩散脉冲、覆盖范围与离屏暂停。",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-diagram.json",
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/ripple/ripple.tsx",
+          "type": "registry:ui",
+          "target": "@ui/ripple/ripple.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "value-slider",
+      "title": "数值滑块",
+      "description": "带标签与读数的数值滑块，支持区间、缓冲进度、刻度磁吸、数值格式化与拖出两端的弹性过冲。",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/value-slider/value-slider.tsx",
+          "type": "registry:ui",
+          "target": "@ui/value-slider/value-slider.tsx"
+        },
+        {
+          "path": "src/registry/ui/value-slider/value-slider-parts.tsx",
+          "type": "registry:ui",
+          "target": "@ui/value-slider/value-slider-parts.tsx"
+        },
+        {
+          "path": "src/registry/ui/value-slider/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/value-slider/types.ts"
+        },
+        {
+          "path": "src/registry/ui/value-slider/utils.ts",
+          "type": "registry:ui",
+          "target": "@ui/value-slider/utils.ts"
+        },
+        {
+          "path": "src/registry/ui/value-slider/sound.ts",
+          "type": "registry:ui",
+          "target": "@ui/value-slider/sound.ts"
+        },
+        {
+          "path": "src/registry/ui/value-slider/use-elastic-pull.ts",
+          "type": "registry:ui",
+          "target": "@ui/value-slider/use-elastic-pull.ts"
+        },
+        {
+          "path": "src/registry/ui/value-slider/use-touch-intent.ts",
+          "type": "registry:ui",
+          "target": "@ui/value-slider/use-touch-intent.ts"
+        },
+        {
+          "path": "src/registry/ui/value-slider/use-handle-dodge.ts",
+          "type": "registry:ui",
+          "target": "@ui/value-slider/use-handle-dodge.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chinese-number",
+      "title": "中文数字",
+      "description": "人民币大写（按财务规范，万亿级、零的省略、分以下四舍五入）与整数中文读法的纯函数工具，无依赖，服务端可用。",
+      "files": [
+        {
+          "path": "src/registry/lib/chinese-number.ts",
+          "type": "registry:lib",
+          "target": "lib/chinese-number.ts"
+        }
+      ],
+      "type": "registry:lib"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "china-regions",
+      "title": "全国行政区划",
+      "description": "全国省、市、区县三级行政区划数据，取自国家地名信息库：6 位国标代码、官方全称和校对过的地名拼音，直辖市照官方为两级。纯数据，可替换为自己的版本。",
+      "files": [
+        {
+          "path": "src/registry/lib/china-regions.ts",
+          "type": "registry:lib",
+          "target": "lib/china-regions.ts"
+        }
+      ],
+      "type": "registry:lib"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "amount-input",
+      "title": "金额输入",
+      "description": "付款、报销、订单金额用的输入框：实时千分位且光标不乱跳，限制小数位与范围，粘贴自动规范化，下方同步显示人民币大写与「约 1.2亿」估读。",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/chinese-number.json",
+        "https://yiui.dev/r/bar-field.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/amount-input/amount-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/amount-input/amount-input.tsx"
+        },
+        {
+          "path": "src/registry/ui/amount-input/amount-input-parts.tsx",
+          "type": "registry:ui",
+          "target": "@ui/amount-input/amount-input-parts.tsx"
+        },
+        {
+          "path": "src/registry/ui/amount-input/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/amount-input/types.ts"
+        },
+        {
+          "path": "src/registry/ui/amount-input/utils.ts",
+          "type": "registry:ui",
+          "target": "@ui/amount-input/utils.ts"
+        },
+        {
+          "path": "src/registry/ui/amount-input/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/amount-input/config.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        },
+        {
+          "path": "src/registry/lib/data-display.ts",
+          "type": "registry:lib",
+          "target": "lib/data-display.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-caret-restore.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-caret-restore.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "phone-input",
+      "title": "手机号输入",
+      "description": "中国大陆手机号输入：边输边按 3-4-4 分隔且光标不乱跳，粘贴、自动填充带 +86 或横线的号码自动整理，失焦校验号段；条内可放带倒计时的「获取验证码」。值是 11 位纯数字。",
+      "registryDependencies": [
+        "button",
+        "https://yiui.dev/r/bar-field.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/phone-input/phone-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/phone-input/phone-input.tsx"
+        },
+        {
+          "path": "src/registry/ui/phone-input/phone-input-parts.tsx",
+          "type": "registry:ui",
+          "target": "@ui/phone-input/phone-input-parts.tsx"
+        },
+        {
+          "path": "src/registry/ui/phone-input/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/phone-input/types.ts"
+        },
+        {
+          "path": "src/registry/ui/phone-input/utils.ts",
+          "type": "registry:ui",
+          "target": "@ui/phone-input/utils.ts"
+        },
+        {
+          "path": "src/registry/ui/phone-input/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/phone-input/config.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-caret-restore.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-caret-restore.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "id-number-input",
+      "title": "证件号输入",
+      "description": "身份证号、银行卡号与统一社会信用代码输入：自动整理与分组、保持光标、失焦校验，支持打码显示和原始值提交。",
+      "registryDependencies": [
+        "https://yiui.dev/r/bar-field.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/id-number-input/id-number-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/id-number-input/id-number-input.tsx"
+        },
+        {
+          "path": "src/registry/ui/id-number-input/id-number-input-variants.ts",
+          "type": "registry:ui",
+          "target": "@ui/id-number-input/id-number-input-variants.ts"
+        },
+        {
+          "path": "src/registry/ui/id-number-input/use-id-number-input-state.ts",
+          "type": "registry:ui",
+          "target": "@ui/id-number-input/use-id-number-input-state.ts"
+        },
+        {
+          "path": "src/registry/ui/id-number-input/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/id-number-input/types.ts"
+        },
+        {
+          "path": "src/registry/ui/id-number-input/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/id-number-input/config.ts"
+        },
+        {
+          "path": "src/registry/ui/id-number-input/utils.ts",
+          "type": "registry:ui",
+          "target": "@ui/id-number-input/utils.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-caret-restore.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-caret-restore.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "number-stepper",
+      "title": "数量选择",
+      "description": "方条数量选择：− 数字 +，支持长按步进、范围约束和异步提交，保存失败自动回滚。",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/number-stepper/number-stepper.tsx",
+          "type": "registry:ui",
+          "target": "@ui/number-stepper/number-stepper.tsx"
+        },
+        {
+          "path": "src/registry/ui/number-stepper/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/number-stepper/types.ts"
+        },
+        {
+          "path": "src/registry/ui/number-stepper/use-number-stepper.ts",
+          "type": "registry:ui",
+          "target": "@ui/number-stepper/use-number-stepper.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "steps",
+      "title": "步骤条",
+      "description": "多步流程的进度与回退导航，支持横排、竖排、错误状态和随容器宽度切换的紧凑形态。",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/steps/steps.tsx",
+          "type": "registry:ui",
+          "target": "@ui/steps/steps.tsx"
+        },
+        {
+          "path": "src/registry/ui/steps/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/steps/types.ts"
+        },
+        {
+          "path": "src/registry/ui/steps/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/steps/config.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "region-picker",
+      "title": "省市区选择",
+      "description": "分步选择省 / 市 / 区：步骤条清楚显示第几步、可点回上一步，长列表按拼音首字母分组，支持汉字、全拼、首字母搜索；手机上从底部弹出面板。值只存最末一级的代码，数据由 props 传入、可惰性加载。",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "popover",
+        "sheet"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/region-picker/region-picker.tsx",
+          "type": "registry:ui",
+          "target": "@ui/region-picker/region-picker.tsx"
+        },
+        {
+          "path": "src/registry/ui/region-picker/region-picker-panel.tsx",
+          "type": "registry:ui",
+          "target": "@ui/region-picker/region-picker-panel.tsx"
+        },
+        {
+          "path": "src/registry/ui/region-picker/region-picker-parts.tsx",
+          "type": "registry:ui",
+          "target": "@ui/region-picker/region-picker-parts.tsx"
+        },
+        {
+          "path": "src/registry/ui/region-picker/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/region-picker/types.ts"
+        },
+        {
+          "path": "src/registry/ui/region-picker/utils.ts",
+          "type": "registry:ui",
+          "target": "@ui/region-picker/utils.ts"
+        },
+        {
+          "path": "src/registry/ui/region-picker/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/region-picker/config.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "segmented-control",
+      "title": "分段选择",
+      "description": "方条样式的互斥选项组，选中块在选项间滑动，可带图标或小样，与数值滑块同一套高度。",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "motion"
+      ],
+      "registryDependencies": [
+        "tooltip",
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/segmented-control/segmented-control.tsx",
+          "type": "registry:ui",
+          "target": "@ui/segmented-control/segmented-control.tsx"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "toggle-switch",
+      "title": "方条开关",
+      "description": "整条可点的开关，打开时铺上淡色、圆形手柄滑到右端，与数值滑块同一套高度。",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/toggle-switch/toggle-switch.tsx",
+          "type": "registry:ui",
+          "target": "@ui/toggle-switch/toggle-switch.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "tone-picker",
+      "title": "色调选择",
+      "description": "方条左侧标签、右侧一排色点的单选组，色点取主题变量，跟随亮暗与颜色主题。",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/tone-picker/tone-picker.tsx",
+          "type": "registry:ui",
+          "target": "@ui/tone-picker/tone-picker.tsx"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "angle-dial",
+      "title": "角度刻度尺",
+      "description": "方条样式的角度输入：左右拖动刻度、中间竖线指针读数，满一圈首尾相接，与数值滑块同一套高度。",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/angle-dial/angle-dial.tsx",
+          "type": "registry:ui",
+          "target": "@ui/angle-dial/angle-dial.tsx"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "xy-pad",
+      "title": "二维拖拽板",
+      "description": "一块带网格的区域，拖动手柄同时调两个值，十字线与淡色填充标出位置，键盘左右 / 上下分别调两条轴。",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/xy-pad/xy-pad.tsx",
+          "type": "registry:ui",
+          "target": "@ui/xy-pad/xy-pad.tsx"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "control-panel",
+      "title": "控制面板",
+      "description": "承载方条控件的面板容器：标题栏、分组网格、恢复按钮，以及把当前参数复制为 JSX 的按钮。",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/control-panel/control-panel.tsx",
+          "type": "registry:ui",
+          "target": "@ui/control-panel/control-panel.tsx"
+        },
+        {
+          "path": "src/registry/ui/control-panel/format-jsx.ts",
+          "type": "registry:ui",
+          "target": "@ui/control-panel/format-jsx.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "timeline",
+      "title": "时间线",
+      "description": "可组合的时间线原语，支持经历、活动流、项目进度、水平路线图与交替更新日志。",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/timeline/timeline.tsx",
+          "type": "registry:ui",
+          "target": "@ui/timeline/timeline.tsx"
+        },
+        {
+          "path": "src/registry/ui/timeline/timeline.css",
+          "type": "registry:ui",
+          "target": "@ui/timeline/timeline.css"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "card-stack",
+      "title": "卡片堆叠",
+      "description": "细边框卡片的层叠轮播，支持自动轮换、拖拽、键盘切换与减少动态效果。",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/card-stack/card-stack.tsx",
+          "type": "registry:ui",
+          "target": "@ui/card-stack/card-stack.tsx"
+        },
+        {
+          "path": "src/registry/ui/card-stack/card-stack-layer.tsx",
+          "type": "registry:ui",
+          "target": "@ui/card-stack/card-stack-layer.tsx"
+        },
+        {
+          "path": "src/registry/ui/card-stack/context.ts",
+          "type": "registry:ui",
+          "target": "@ui/card-stack/context.ts"
+        },
+        {
+          "path": "src/registry/ui/card-stack/controls.tsx",
+          "type": "registry:ui",
+          "target": "@ui/card-stack/controls.tsx"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "globe",
+      "title": "点阵地球",
+      "description": "用点阵绘制的 WebGL 地球，颜色跟随主题，支持城市标记、标签、弧线、拖拽旋转与离屏暂停。",
+      "dependencies": [
+        "cobe",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/globe/globe.tsx",
+          "type": "registry:ui",
+          "target": "@ui/globe/globe.tsx"
+        },
+        {
+          "path": "src/registry/ui/globe/use-globe.ts",
+          "type": "registry:ui",
+          "target": "@ui/globe/use-globe.ts"
+        },
+        {
+          "path": "src/registry/ui/globe/color.ts",
+          "type": "registry:ui",
+          "target": "@ui/globe/color.ts"
+        },
+        {
+          "path": "src/registry/ui/globe/projection.ts",
+          "type": "registry:ui",
+          "target": "@ui/globe/projection.ts"
+        },
+        {
+          "path": "src/registry/ui/globe/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/globe/types.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "checklist",
+      "title": "手写清单",
+      "description": "勾选时文字被手写感划线划掉的清单，支持受控与非受控、进度汇总、自动播放与紧凑尺寸。",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/checklist/checklist.tsx",
+          "type": "registry:ui",
+          "target": "@ui/checklist/checklist.tsx"
+        },
+        {
+          "path": "src/registry/ui/checklist/scribble.tsx",
+          "type": "registry:ui",
+          "target": "@ui/checklist/scribble.tsx"
+        },
+        {
+          "path": "src/registry/ui/checklist/context.ts",
+          "type": "registry:ui",
+          "target": "@ui/checklist/context.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "shuffle-grid",
+      "title": "动态格",
+      "description": "方格里的内容随机出现、换位、点亮，支持分类胶囊切换、首字母头像、纯色像素块与离屏暂停。",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "button",
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/shuffle-grid/shuffle-grid.tsx",
+          "type": "registry:ui",
+          "target": "@ui/shuffle-grid/shuffle-grid.tsx"
+        },
+        {
+          "path": "src/registry/ui/shuffle-grid/engine.ts",
+          "type": "registry:ui",
+          "target": "@ui/shuffle-grid/engine.ts"
+        },
+        {
+          "path": "src/registry/ui/shuffle-grid/pills.tsx",
+          "type": "registry:ui",
+          "target": "@ui/shuffle-grid/pills.tsx"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "marquee",
+      "title": "跑马灯",
+      "description": "纯 CSS 无缝跑马灯，支持四向滚动、恒定速度、渐隐与斜向丝带。",
+      "files": [
+        {
+          "path": "src/registry/ui/marquee/marquee.tsx",
+          "type": "registry:ui",
+          "target": "@ui/marquee/marquee.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "text-animate",
+      "title": "文字动效",
+      "description": "关键词轮换、分字显现、乱码解码与高亮扫过，支持中文与渐进增强。",
+      "dependencies": [
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/text-animate/text-animate.tsx",
+          "type": "registry:ui",
+          "target": "@ui/text-animate/text-animate.tsx"
+        },
+        {
+          "path": "src/registry/ui/text-animate/text-scramble.tsx",
+          "type": "registry:ui",
+          "target": "@ui/text-animate/text-scramble.tsx"
+        },
+        {
+          "path": "src/registry/ui/text-animate/shared.ts",
+          "type": "registry:ui",
+          "target": "@ui/text-animate/shared.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "glyph-field",
+      "title": "字符矩阵",
+      "description": "由主题色字符组成的自适应画布背景，支持混合色调、渐隐遮罩、中心内容与离屏暂停。",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/glyph-field/glyph-field.tsx",
+          "type": "registry:ui",
+          "target": "@ui/glyph-field/glyph-field.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "code-stack",
+      "title": "代码文件堆叠",
+      "description": "带行号与语法骨架的代码文件卡，支持扇形、级联、网格排列与悬停散开。",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://yiui.dev/r/flow-tone.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/code-stack/code-stack.tsx",
+          "type": "registry:ui",
+          "target": "@ui/code-stack/code-stack.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "file-upload",
+      "title": "文件上传",
+      "description": "多文件选择与证件槽位，支持拖放、拍照、格式大小校验与受控上传状态，组件不发送请求。",
+      "dependencies": [
+        "lucide-react",
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "attachment",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/file-upload/file-upload.tsx",
+          "type": "registry:ui",
+          "target": "@ui/file-upload/file-upload.tsx"
+        },
+        {
+          "path": "src/registry/ui/file-upload/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/file-upload/config.ts"
+        },
+        {
+          "path": "src/registry/ui/file-upload/file-upload-parts.tsx",
+          "type": "registry:ui",
+          "target": "@ui/file-upload/file-upload-parts.tsx"
+        },
+        {
+          "path": "src/registry/ui/file-upload/file-upload-slot.tsx",
+          "type": "registry:ui",
+          "target": "@ui/file-upload/file-upload-slot.tsx"
+        },
+        {
+          "path": "src/registry/ui/file-upload/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/file-upload/types.ts"
+        },
+        {
+          "path": "src/registry/ui/file-upload/use-file-selection.ts",
+          "type": "registry:ui",
+          "target": "@ui/file-upload/use-file-selection.ts"
+        },
+        {
+          "path": "src/registry/ui/file-upload/utils.ts",
+          "type": "registry:ui",
+          "target": "@ui/file-upload/utils.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        },
+        {
+          "path": "src/registry/ui/file-upload/file-upload-camera.tsx",
+          "type": "registry:ui",
+          "target": "@ui/file-upload/file-upload-camera.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "checkout-01",
+      "title": "订单结算",
+      "description": "地址、配送、发票与支付方式组成的订单结算区块。",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "radio-group",
+        "dialog",
+        "separator",
+        "https://yiui.dev/r/region-picker.json",
+        "https://yiui.dev/r/phone-input.json",
+        "https://yiui.dev/r/id-number-input.json",
+        "https://yiui.dev/r/segmented-control.json",
+        "https://yiui.dev/r/timeline.json",
+        "https://yiui.dev/r/chinese-number.json",
+        "https://yiui.dev/r/bar-field.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/checkout-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/checkout/page.tsx"
+        },
+        {
+          "path": "src/registry/blocks/checkout-01/checkout-01.tsx",
+          "type": "registry:component",
+          "target": "@components/checkout-01/checkout-01.tsx"
+        },
+        {
+          "path": "src/registry/blocks/checkout-01/types.ts",
+          "type": "registry:component",
+          "target": "@components/checkout-01/types.ts"
+        },
+        {
+          "path": "src/registry/blocks/checkout-01/config.ts",
+          "type": "registry:component",
+          "target": "@components/checkout-01/config.ts"
+        },
+        {
+          "path": "src/registry/blocks/checkout-01/form-parts.tsx",
+          "type": "registry:component",
+          "target": "@components/checkout-01/form-parts.tsx"
+        },
+        {
+          "path": "src/registry/blocks/checkout-01/completion.tsx",
+          "type": "registry:component",
+          "target": "@components/checkout-01/completion.tsx"
+        }
+      ],
+      "meta": {
+        "iframeHeight": "1000px"
+      },
+      "type": "registry:block"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "data-table-01",
+      "title": "数据表格",
+      "description": "支持筛选、选择、编辑与虚拟滚动的数据集表格。",
+      "dependencies": [
+        "@tanstack/react-table@^8.21.3",
+        "@tanstack/react-virtual@^3.14.24",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "checkbox",
+        "skeleton",
+        "empty",
+        "sheet",
+        "dropdown-menu",
+        "tooltip",
+        "https://yiui.dev/r/grid-layout.json",
+        "https://yiui.dev/r/bar-field.json",
+        "https://yiui.dev/r/grid-pagination.json",
+        "https://yiui.dev/r/grid-toolbar.json",
+        "https://yiui.dev/r/segmented-control.json",
+        "alert-dialog",
+        "https://yiui.dev/r/bar-select.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/data-table-01/data-table.tsx",
+          "type": "registry:component",
+          "target": "@components/data-table-01/data-table.tsx"
+        },
+        {
+          "path": "src/registry/blocks/data-table-01/data-table-toolbar.tsx",
+          "type": "registry:component",
+          "target": "@components/data-table-01/data-table-toolbar.tsx"
+        },
+        {
+          "path": "src/registry/blocks/data-table-01/data-table-pagination.tsx",
+          "type": "registry:component",
+          "target": "@components/data-table-01/data-table-pagination.tsx"
+        },
+        {
+          "path": "src/registry/blocks/data-table-01/data-table-cell.tsx",
+          "type": "registry:component",
+          "target": "@components/data-table-01/data-table-cell.tsx"
+        },
+        {
+          "path": "src/registry/blocks/data-table-01/types.ts",
+          "type": "registry:component",
+          "target": "@components/data-table-01/types.ts"
+        },
+        {
+          "path": "src/registry/blocks/data-table-01/config.ts",
+          "type": "registry:component",
+          "target": "@components/data-table-01/config.ts"
+        },
+        {
+          "path": "src/registry/blocks/data-table-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/data-table/page.tsx"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-controllable-state.ts"
+        },
+        {
+          "path": "src/registry/blocks/data-table-01/data-table-row-actions.tsx",
+          "type": "registry:component",
+          "target": "@components/data-table-01/data-table-row-actions.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {},
+        "light": {
+          "flow-green": "oklch(0.62 0.16 150)",
+          "flow-amber": "oklch(0.7 0.16 70)"
+        },
+        "dark": {
+          "flow-green": "oklch(0.77 0.17 152)",
+          "flow-amber": "oklch(0.82 0.15 82)"
+        }
+      },
+      "meta": {
+        "iframeHeight": "820px"
+      },
+      "type": "registry:block"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "bar-field",
+      "title": "方条文本框",
+      "description": "方条系列基础文本框，支持标签、图标、后缀和错误提示。",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/bar-field/bar-field.tsx",
+          "type": "registry:ui",
+          "target": "@ui/bar-field/bar-field.tsx"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "grid-pagination",
+      "title": "网格分页",
+      "description": "整条是一行格子的分页：信息、每页条数、首尾页、页码与跳页各占一格，可单独使用，也可贴在表格底部。",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "button",
+        "pagination",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/grid-pagination/grid-pagination.tsx",
+          "type": "registry:ui",
+          "target": "@ui/grid-pagination/grid-pagination.tsx"
+        },
+        {
+          "path": "src/registry/lib/pagination-slots.ts",
+          "type": "registry:lib",
+          "target": "lib/pagination-slots.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "grid-toolbar",
+      "title": "网格工具栏",
+      "description": "一行格子组成的工具栏，格子之间虚线分隔、窄容器自动换行；方条输入、分段选择、方条下拉放进来会自动去掉外框铺满整格。",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/grid-toolbar/grid-toolbar.tsx",
+          "type": "registry:ui",
+          "target": "@ui/grid-toolbar/grid-toolbar.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "bar-select",
+      "title": "方条下拉选择",
+      "description": "方条下拉选择，支持搜索、多选、分组与触屏底部面板。",
+      "dependencies": [
+        "lucide-react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "combobox",
+        "input-group",
+        "sheet",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/bar-select/bar-select.tsx",
+          "type": "registry:ui",
+          "target": "@ui/bar-select/bar-select.tsx"
+        },
+        {
+          "path": "src/registry/ui/bar-select/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/bar-select/types.ts"
+        },
+        {
+          "path": "src/registry/ui/bar-select/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/bar-select/config.ts"
+        },
+        {
+          "path": "src/registry/hooks/use-controllable-state.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-controllable-state.ts"
+        }
+      ],
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -2405,6 +2405,12 @@
                 "backdrop-filter": "none"
               }
             },
+            ":is([data-slot='input'], [data-slot='textarea']):not(.dark)": {
+              "--ring": "var(--input)"
+            },
+            ":is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger']):not(.dark):focus": {
+              "background-image": "linear-gradient(color-mix(in oklab, var(--glassy-src-background) calc(var(--glassy-field) + 28%), transparent), color-mix(in oklab, var(--glassy-src-background) calc(var(--glassy-field) + 28%), transparent))"
+            },
             ":is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger']):not(.dark)": {
               "--input": "transparent",
               "--tw-inset-shadow": "inset 0 1px 2px rgb(var(--glassy-shadow) / calc(var(--glassy-shade) * 0.5)), inset 0 0 0 1px rgb(var(--glassy-shadow) / calc(var(--glassy-shade) * 0.55)), inset 0 0 0 1px rgb(255 255 255 / calc(var(--glassy-rim) * 0.35)), inset 0 -1px 0 rgb(255 255 255 / calc(var(--glassy-rim) * 0.6))",
@@ -2916,12 +2922,16 @@
               "opacity": "0.72"
             },
             ":is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger']):focus": {
-              "border-color": "rgb(var(--glassy-focus))",
-              "background": "rgb(var(--glassy-glass) / var(--glassy-control-hover-alpha))",
-              "box-shadow": "0 0 0 1px rgb(var(--glassy-focus))"
+              "background": "rgb(var(--glassy-glass) / var(--glassy-control-hover-alpha))"
             },
-            ":is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger']):focus-visible": {
+            "[data-slot='select-trigger']:focus-visible": {
               "outline-color": "rgb(var(--glassy-focus))"
+            },
+            "@media (prefers-contrast: more), (forced-colors: active)": {
+              ":is([data-slot='input'], [data-slot='textarea']):focus": {
+                "outline": "2px solid rgb(var(--glassy-focus)) !important",
+                "outline-offset": "2px !important"
+              }
             },
             ":is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger'])[aria-invalid='true']": {
               "border-color": "var(--destructive)"
@@ -3535,12 +3545,16 @@
               "opacity": "0.72"
             },
             ":is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger']):focus": {
-              "border-color": "rgb(var(--glassy-focus))",
-              "background": "rgb(var(--glassy-glass) / var(--glassy-control-hover-alpha))",
-              "box-shadow": "0 0 0 1px rgb(var(--glassy-focus))"
+              "background": "rgb(var(--glassy-glass) / var(--glassy-control-hover-alpha))"
             },
-            ":is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger']):focus-visible": {
+            "[data-slot='select-trigger']:focus-visible": {
               "outline-color": "rgb(var(--glassy-focus))"
+            },
+            "@media (prefers-contrast: more), (forced-colors: active)": {
+              ":is([data-slot='input'], [data-slot='textarea']):focus": {
+                "outline": "2px solid rgb(var(--glassy-focus)) !important",
+                "outline-offset": "2px !important"
+              }
             },
             ":is([data-slot='input'], [data-slot='textarea'], [data-slot='select-trigger'])[aria-invalid='true']": {
               "border-color": "var(--destructive)"

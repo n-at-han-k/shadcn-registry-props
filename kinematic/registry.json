@@ -1,0 +1,133 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "kinematic",
+  "homepage": "https://kinematic.design",
+  "items": [
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Motion",
+      "description": "Shared spring presets that respect reduced motion.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "src/registry/kinematic/lib/motion.tsx",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-controllable-state",
+      "type": "registry:hook",
+      "title": "useControllableState",
+      "description": "Controlled or uncontrolled state with a single API.",
+      "files": [
+        {
+          "path": "src/registry/kinematic/hooks/use-controllable-state.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "type": "registry:ui",
+      "title": "Activity",
+      "description": "A live surface for anything that takes time or keeps going. Compact when you glance, expanded when you look, with elements that keep their identity across the morph.",
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [
+        "https://kinematic.design/r/motion.json",
+        "https://kinematic.design/r/use-controllable-state.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/kinematic/ui/activity.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/registry/kinematic/ui/activity-surface.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/registry/kinematic/ui/activity-task.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/registry/kinematic/lib/activity-store.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/registry/kinematic/lib/activity-audio.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-activity": "var(--activity-background, var(--popover))",
+          "color-activity-foreground": "var(--activity-foreground, var(--popover-foreground))",
+          "color-activity-muted": "var(--activity-muted, var(--muted))",
+          "color-activity-muted-foreground": "var(--activity-muted-foreground, var(--muted-foreground))",
+          "color-activity-border": "var(--activity-border, var(--border))"
+        }
+      }
+    },
+    {
+      "name": "activity-player",
+      "type": "registry:ui",
+      "title": "Activity Player",
+      "description": "A now-playing activity: cover art, a waveform from the real audio, live levels, and controls that grow out of the pill.",
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["https://kinematic.design/r/activity.json"],
+      "files": [
+        {
+          "path": "src/registry/kinematic/ui/activity-player.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "activity-timer",
+      "type": "registry:ui",
+      "title": "Activity Timer",
+      "description": "A focus timer activity: a ring that empties in the pill and digits that roll when you open it.",
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["https://kinematic.design/r/activity.json"],
+      "files": [
+        {
+          "path": "src/registry/kinematic/ui/activity-timer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gradient-orb",
+      "type": "registry:ui",
+      "title": "Gradient Orb",
+      "description": "A mesh gradient orb generated from any string. The same string always gives the same orb.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/registry/kinematic/ui/gradient-orb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "activity-call",
+      "type": "registry:ui",
+      "title": "Activity Call",
+      "description": "A voice call activity: live levels from a microphone or your voice SDK, and a transcript that streams in word by word.",
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [
+        "https://kinematic.design/r/activity.json",
+        "https://kinematic.design/r/gradient-orb.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/kinematic/ui/activity-call.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
