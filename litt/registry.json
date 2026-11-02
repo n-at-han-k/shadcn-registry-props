@@ -929,6 +929,32 @@
       ]
     },
     {
+      "name": "card-picker",
+      "type": "registry:ui",
+      "title": "Card picker",
+      "description": "One choice shown as cards: tiles of a picture over a word in one tray, or cards with a title, a line and a detail such as a price, in a row when they fit and stacked when they do not. Native radios; the picked card is the raised block, gliding to the pick.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Import CardPicker from components/litt/card-picker. Give it a legend, options ({ value, label, description, detail, picture, disabled }), and value with onValueChange. size=\"sm\" draws tiles; name and required make it a form field.",
+      "meta": {
+        "version": "2026.11.01",
+        "released": "2026-11-01",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/card-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/card-picker.tsx"
+        }
+      ]
+    },
+    {
       "name": "carousel",
       "type": "registry:ui",
       "title": "Carousel",
@@ -2130,8 +2156,8 @@
       ],
       "docs": "Installed in lib/litt/motion. The components use it for you, and it needs no provider. Fun mode, a trial, is a <FunMode> around the app: springier motion, the same at rest.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.01",
+        "released": "2026-11-01",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3431,6 +3457,40 @@
       ]
     },
     {
+      "name": "tune",
+      "type": "registry:ui",
+      "title": "Tune",
+      "description": "One line that tunes a component: useTune(name, (t) => ({ … })) returns typed live values and builds a litt Inspector for them. Every corner, space and spring is checked against litt's rules as you drag, values sit on litt's tokens once they fit, takes are saved as versions, and Copy tokens writes litt's own names. The panels show only in development unless you turn them on.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/curve-editor.json",
+        "https://littmd.vercel.app/r/inspector.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/segmented.json",
+        "https://littmd.vercel.app/r/select.json",
+        "https://littmd.vercel.app/r/slider.json",
+        "https://littmd.vercel.app/r/spring-editor.json",
+        "https://littmd.vercel.app/r/switch.json"
+      ],
+      "docs": "Import useTune and TuneRoot from components/litt/tune. Wrap the app in TuneRoot once, then call useTune with a name and fields from t (radius, space, spring, easing, toggle, choice, number, action). Pass enabled to show the panels in a production build, and inline to draw them after the children instead of floating. The code ships wherever tune is imported, hidden or not, so paste the copied tokens and remove the call once the values fit.",
+      "meta": {
+        "version": "2026.11.01",
+        "released": "2026-11-01",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/tune.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/tune.tsx"
+        }
+      ]
+    },
+    {
       "name": "usage",
       "type": "registry:block",
       "title": "Usage block",
@@ -3904,6 +3964,30 @@
       ]
     },
     {
+      "name": "card-picker-demo",
+      "type": "registry:example",
+      "title": "Card picker example",
+      "description": "A working card picker: PlanDemo, the first demo on its page (https://littmd.vercel.app/#card-picker). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/card-picker.json"
+      ],
+      "docs": "Import PlanDemo from components/litt/examples/card-picker-demo, or read it for how @litt/card-picker is used. Import CardPicker from components/litt/card-picker. Give it a legend, options ({ value, label, description, detail, picture, disabled }), and value with onValueChange. size=\"sm\" draws tiles; name and required make it a form field.",
+      "meta": {
+        "version": "2026.11.01",
+        "released": "2026-11-01",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/card-picker"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/card-picker-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/card-picker-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "inspector-demo",
       "type": "registry:example",
       "title": "Inspector example",
@@ -3982,6 +4066,37 @@
           "path": "registry/litt/examples/segmented-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/segmented-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tune-demo",
+      "type": "registry:example",
+      "title": "Tune example",
+      "description": "A working tune: PlanCardDemo, the first demo on its page (https://littmd.vercel.app/#tune). It installs the components it uses.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/switch.json",
+        "https://littmd.vercel.app/r/tag.json",
+        "https://littmd.vercel.app/r/tune.json"
+      ],
+      "docs": "Import PlanCardDemo from components/litt/examples/tune-demo, or read it for how @litt/tune is used. Import useTune and TuneRoot from components/litt/tune. Wrap the app in TuneRoot once, then call useTune with a name and fields from t (radius, space, spring, easing, toggle, choice, number, action). Pass enabled to show the panels in a production build, and inline to draw them after the children instead of floating. The code ships wherever tune is imported, hidden or not, so paste the copied tokens and remove the call once the values fit.",
+      "meta": {
+        "version": "2026.11.01",
+        "released": "2026-11-01",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/tune"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/tune-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/tune-demo.tsx"
         }
       ]
     },
