@@ -235,6 +235,17 @@
           "--litt-fg-muted": "#6d6661",
           "--litt-fg-subtle": "#6d6661",
           "--litt-fg-disabled": "#a49c96",
+          "--litt-flat-canvas": "#fbfbfb",
+          "--litt-flat-surface-1": "#ffffff",
+          "--litt-flat-surface-2": "#f5f5f5",
+          "--litt-flat-surface-3": "#ededed",
+          "--litt-flat-line": "#e5e5e5",
+          "--litt-flat-line-strong": "#d2d2d2",
+          "--litt-flat-line-control": "#868686",
+          "--litt-flat-fg": "#0f0f0f",
+          "--litt-flat-fg-muted": "#676767",
+          "--litt-flat-fg-subtle": "#676767",
+          "--litt-flat-fg-disabled": "#9e9e9e",
           "--litt-accent": "#0957fd",
           "--litt-accent-hover": "#0e4ada",
           "--litt-accent-fg": "#ffffff",
@@ -304,6 +315,17 @@
           "--litt-fg-muted": "#cec4bd",
           "--litt-fg-subtle": "#cec4bd",
           "--litt-fg-disabled": "#6b645f",
+          "--litt-flat-canvas": "#090909",
+          "--litt-flat-surface-1": "#101010",
+          "--litt-flat-surface-2": "#171717",
+          "--litt-flat-surface-3": "#1e1e1e",
+          "--litt-flat-line": "#252525",
+          "--litt-flat-line-strong": "#343434",
+          "--litt-flat-line-control": "#686868",
+          "--litt-flat-fg": "#f8f8f8",
+          "--litt-flat-fg-muted": "#c6c6c6",
+          "--litt-flat-fg-subtle": "#c6c6c6",
+          "--litt-flat-fg-disabled": "#656565",
           "--litt-accent": "#0957fd",
           "--litt-accent-hover": "#1e64fe",
           "--litt-accent-fg": "#ffffff",
@@ -374,6 +396,17 @@
             "--litt-fg-muted": "#cec4bd",
             "--litt-fg-subtle": "#cec4bd",
             "--litt-fg-disabled": "#6b645f",
+            "--litt-flat-canvas": "#090909",
+            "--litt-flat-surface-1": "#101010",
+            "--litt-flat-surface-2": "#171717",
+            "--litt-flat-surface-3": "#1e1e1e",
+            "--litt-flat-line": "#252525",
+            "--litt-flat-line-strong": "#343434",
+            "--litt-flat-line-control": "#686868",
+            "--litt-flat-fg": "#f8f8f8",
+            "--litt-flat-fg-muted": "#c6c6c6",
+            "--litt-flat-fg-subtle": "#c6c6c6",
+            "--litt-flat-fg-disabled": "#656565",
             "--litt-accent": "#0957fd",
             "--litt-accent-hover": "#1e64fe",
             "--litt-accent-fg": "#ffffff",
@@ -436,6 +469,7 @@
           "--litt-light": "radial-gradient(120% 70% at 50% -10%, color-mix(in oklab, var(--litt-accent) var(--litt-light-strength), transparent) 0%, transparent 65%)",
           "--litt-glow": "0 0 0 1px color-mix(in oklab, var(--litt-accent) 55%, transparent), 0 0 24px color-mix(in oklab, var(--litt-accent) var(--litt-glow-strength), transparent)",
           "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus)",
+          "--litt-block-hover": "color-mix(in oklab, var(--litt-block), var(--litt-fg) 4%)",
           "--litt-data-blue-tint": "color-mix(in oklab, var(--litt-data-blue) var(--litt-tint-strength), var(--litt-surface-1))",
           "--litt-data-amber-tint": "color-mix(in oklab, var(--litt-data-amber) var(--litt-tint-strength), var(--litt-surface-1))",
           "--litt-data-teal-tint": "color-mix(in oklab, var(--litt-data-teal) var(--litt-tint-strength), var(--litt-surface-1))",
@@ -452,21 +486,6 @@
           "--litt-glow": "0 0 0 1px color-mix(in oklab, var(--litt-accent-pink) 55%, transparent), 0 0 24px color-mix(in oklab, var(--litt-accent-pink) var(--litt-glow-strength), transparent)",
           "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus-pink)"
         },
-        "@supports not (color: color-mix(in oklab, red, blue))": {
-          ":root, [data-theme], .dark, .light": {
-            "--litt-light": "none",
-            "--litt-glow": "0 0 0 1px var(--litt-accent)",
-            "--litt-data-blue-tint": "var(--litt-surface-2)",
-            "--litt-data-amber-tint": "var(--litt-surface-2)",
-            "--litt-data-teal-tint": "var(--litt-surface-2)",
-            "--litt-data-violet-tint": "var(--litt-surface-2)",
-            "--litt-data-rose-tint": "var(--litt-surface-2)"
-          },
-          ":root[data-accent=\"pink\"], [data-accent=\"pink\"]": {
-            "--litt-light": "none",
-            "--litt-glow": "0 0 0 1px var(--litt-accent-pink)"
-          }
-        },
         ":root[data-accent=\"mono\"], [data-accent=\"mono\"]": {
           "--litt-accent": "var(--litt-fg)",
           "--litt-accent-hover": "color-mix(in oklab, var(--litt-fg), var(--litt-canvas) 18%)",
@@ -477,6 +496,73 @@
           "--litt-light": "none",
           "--litt-glow": "var(--litt-block-lift)",
           "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-fg)"
+        },
+        ":root[data-material=\"flat\"], [data-material=\"flat\"]": {
+          "--litt-canvas": "var(--litt-flat-canvas)",
+          "--litt-surface-1": "var(--litt-flat-surface-1)",
+          "--litt-surface-2": "var(--litt-flat-surface-2)",
+          "--litt-surface-3": "var(--litt-flat-surface-3)",
+          "--litt-line": "var(--litt-flat-line)",
+          "--litt-line-strong": "var(--litt-flat-line-strong)",
+          "--litt-line-control": "var(--litt-flat-line-control)",
+          "--litt-fg": "var(--litt-flat-fg)",
+          "--litt-fg-muted": "var(--litt-flat-fg-muted)",
+          "--litt-fg-subtle": "var(--litt-flat-fg-subtle)",
+          "--litt-fg-disabled": "var(--litt-flat-fg-disabled)",
+          "--litt-highlight": "inset 0 0 0 0 transparent",
+          "--litt-tray": "transparent",
+          "--litt-tray-shade": "inset 0 0 0 1px var(--litt-line-strong)",
+          "--litt-cut": "var(--litt-surface-1)",
+          "--litt-cut-shade": "inset 0 0 0 0 transparent",
+          "--litt-block": "var(--litt-surface-3)",
+          "--litt-block-lift": "0 0 0 0 transparent",
+          "--litt-block-press": "0 0 0 0 transparent",
+          "--litt-key-lift": "0 0 0 0 transparent",
+          "--litt-slot": "var(--litt-surface-3)",
+          "--litt-slot-shade": "inset 0 0 0 0 transparent",
+          "--litt-slot-fill": "color-mix(in oklab, var(--litt-surface-3), var(--litt-fg) 14%)",
+          "--litt-slot-fill-shade": "inset 0 0 0 0 transparent",
+          "--litt-plate-lift": "0 0 0 0 transparent",
+          "--litt-cap": "color-mix(in oklab, var(--litt-surface-3), var(--litt-fg) 45%)",
+          "--litt-cap-held": "color-mix(in oklab, var(--litt-surface-3), var(--litt-fg) 55%)",
+          "--litt-cap-lift": "0 0 0 0 transparent",
+          "--litt-cap-press": "0 0 0 0 transparent",
+          "--litt-cap-grip": "var(--litt-surface-3)",
+          "--litt-press-depth": "0px",
+          "--litt-block-hover": "color-mix(in oklab, var(--litt-block), var(--litt-fg) 2.5%)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus)",
+          "--litt-data-blue-tint": "color-mix(in oklab, var(--litt-data-blue) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-amber-tint": "color-mix(in oklab, var(--litt-data-amber) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-teal-tint": "color-mix(in oklab, var(--litt-data-teal) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-violet-tint": "color-mix(in oklab, var(--litt-data-violet) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-rose-tint": "color-mix(in oklab, var(--litt-data-rose) var(--litt-tint-strength), var(--litt-surface-1))"
+        },
+        "@supports not (color: color-mix(in oklab, red, blue))": {
+          ":root, [data-theme], .dark, .light": {
+            "--litt-light": "none",
+            "--litt-glow": "0 0 0 1px var(--litt-accent)",
+            "--litt-block-hover": "var(--litt-surface-2)",
+            "--litt-data-blue-tint": "var(--litt-surface-2)",
+            "--litt-data-amber-tint": "var(--litt-surface-2)",
+            "--litt-data-teal-tint": "var(--litt-surface-2)",
+            "--litt-data-violet-tint": "var(--litt-surface-2)",
+            "--litt-data-rose-tint": "var(--litt-surface-2)"
+          },
+          ":root[data-accent=\"pink\"], [data-accent=\"pink\"]": {
+            "--litt-light": "none",
+            "--litt-glow": "0 0 0 1px var(--litt-accent-pink)"
+          },
+          ":root[data-material=\"flat\"], [data-material=\"flat\"]": {
+            "--litt-slot-fill": "var(--litt-line-strong)",
+            "--litt-block-hover": "var(--litt-surface-2)",
+            "--litt-cap": "var(--litt-line-control)",
+            "--litt-cap-held": "var(--litt-fg-muted)",
+            "--litt-data-blue-tint": "var(--litt-surface-2)",
+            "--litt-data-amber-tint": "var(--litt-surface-2)",
+            "--litt-data-teal-tint": "var(--litt-surface-2)",
+            "--litt-data-violet-tint": "var(--litt-surface-2)",
+            "--litt-data-rose-tint": "var(--litt-surface-2)"
+          }
         },
         "@media (prefers-reduced-motion: reduce)": {
           ":root": {
@@ -552,10 +638,10 @@
           }
         }
       },
-      "docs": "Added to your global CSS: --litt-* variables, Tailwind names such as bg-litt-surface-1 and rounded-litt-control, and the litt-glass class and its siblings. Nothing of yours is changed. Dark follows .dark, [data-theme=\"dark\"] or the system setting. For Monochrome or Pink instead of Blue 4, set data-accent=\"mono\" or \"pink\" on <html>.",
+      "docs": "Added to your global CSS: --litt-* variables, Tailwind names such as bg-litt-surface-1 and rounded-litt-control, and the litt-glass class and its siblings. Nothing of yours is changed. Dark follows .dark, [data-theme=\"dark\"] or the system setting. For Monochrome or Pink instead of Blue 4, set data-accent=\"mono\" or \"pink\" on <html>. For Flat instead of the press material, set data-material=\"flat\" on <html>.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       }
     },
@@ -870,8 +956,8 @@
       ],
       "docs": "Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1084,8 +1170,8 @@
       ],
       "docs": "Import Checkbox, CheckboxGroup, Radio and RadioGroup from components/litt/checkbox. They are native inputs, so name and value work in a form. Pass appearance=\"native\" for the browser's own 16px box.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1210,8 +1296,8 @@
       ],
       "docs": "Import ColorPicker and ColorPanel from components/litt/color-picker, plus parseHex, describeColor, getContrastInk, hexToHsv and hsvToHex. Values are six-digit lowercase hex strings with the hash. ColorPicker needs a label; hold the value in state with value and onValueChange (null for none), pass name for a form, and swatches as { label, value }. Save with onValueCommit, which fires on release. Use getContrastInk for text drawn on the picked color.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1411,8 +1497,8 @@
       ],
       "docs": "Import DatePicker and Calendar from components/litt/date-picker, plus getToday, addDays and getWeekday for date math on YYYY-MM-DD strings. Values are YYYY-MM-DD strings, or { start, end } with mode=\"range\". DatePicker needs a label; hold the value in state with value and onValueChange, and pass name for a form (a range sends name-start and name-end). min, max and isDisabled rule days out; presets take { label, value }.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2218,8 +2304,8 @@
       ],
       "docs": "Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2624,8 +2710,8 @@
       ],
       "docs": "Import RunCard from components/litt/run-card. Give it a title and the run's steps as Plan takes them (label, status, an id), and optionally progress from 0 to 1, a preview, actions such as a Stop button, and open with onOpenChange. Update steps in place as the agent works. A plan with no run behind it is a Plan.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2737,8 +2823,8 @@
       ],
       "docs": "Import Select or SelectField from components/litt/select. Pass options as { value, label } and a label, because a placeholder is not a label.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3528,8 +3614,8 @@
       ],
       "docs": "Import VariantsDemo from components/litt/examples/button-demo, or read it for how @litt/button is used. Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/button"
       },
@@ -3604,8 +3690,8 @@
       ],
       "docs": "Import LaunchDateDemo from components/litt/examples/date-picker-demo, or read it for how @litt/date-picker is used. Import DatePicker and Calendar from components/litt/date-picker, plus getToday, addDays and getWeekday for date math on YYYY-MM-DD strings. Values are YYYY-MM-DD strings, or { start, end } with mode=\"range\". DatePicker needs a label; hold the value in state with value and onValueChange, and pass name for a form (a range sends name-start and name-end). min, max and isDisabled rule days out; presets take { label, value }.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/date-picker"
       },
@@ -3673,8 +3759,8 @@
       ],
       "docs": "Import SeatsDemo from components/litt/examples/number-field-demo, or read it for how @litt/number-field is used. Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/number-field"
       },
@@ -3699,8 +3785,8 @@
       ],
       "docs": "Import AccountFormDemo from components/litt/examples/select-demo, or read it for how @litt/select is used. Import Select or SelectField from components/litt/select. Pass options as { value, label } and a label, because a placeholder is not a label.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/select"
       },
@@ -3748,8 +3834,8 @@
       ],
       "docs": "Import StatesDemo from components/litt/examples/checkbox-demo, or read it for how @litt/checkbox is used. Import Checkbox, CheckboxGroup, Radio and RadioGroup from components/litt/checkbox. They are native inputs, so name and value work in a form. Pass appearance=\"native\" for the browser's own 16px box.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/checkbox"
       },
@@ -3773,8 +3859,8 @@
       ],
       "docs": "Import BrandColorDemo from components/litt/examples/color-picker-demo, or read it for how @litt/color-picker is used. Import ColorPicker and ColorPanel from components/litt/color-picker, plus parseHex, describeColor, getContrastInk, hexToHsv and hsvToHex. Values are six-digit lowercase hex strings with the hash. ColorPicker needs a label; hold the value in state with value and onValueChange (null for none), pass name for a form, and swatches as { label, value }. Save with onValueCommit, which fires on release. Use getContrastInk for text drawn on the picked color.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/color-picker"
       },
@@ -5373,8 +5459,8 @@
       ],
       "docs": "Import WorldDemo from components/litt/examples/run-card-demo, or read it for how @litt/run-card is used. Import RunCard from components/litt/run-card. Give it a title and the run's steps as Plan takes them (label, status, an id), and optionally progress from 0 to 1, a preview, actions such as a Stop button, and open with onOpenChange. Update steps in place as the agent works. A plan with no run behind it is a Plan.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/run-card"
       },

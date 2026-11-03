@@ -1,0 +1,2597 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "afterglow",
+  "homepage": "https://github.com/Piyushrathoree/afterglow-ui",
+  "items": [
+    {
+      "name": "afterglow-theme",
+      "type": "registry:theme",
+      "title": "Afterglow Theme",
+      "description": "The full afterglow palette: dusk-toned surfaces with an ember, rose and violet glow.",
+      "cssVars": {
+        "theme": {
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-card": "var(--card)",
+          "color-card-foreground": "var(--card-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-border": "var(--border)",
+          "color-ring": "var(--ring)",
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)",
+          "radius-sm": "calc(var(--radius) - 4px)",
+          "radius-md": "calc(var(--radius) - 2px)",
+          "radius-lg": "var(--radius)",
+          "radius-xl": "calc(var(--radius) + 4px)"
+        },
+        "light": {
+          "background": "oklch(0.985 0.005 80)",
+          "foreground": "oklch(0.22 0.02 285)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.22 0.02 285)",
+          "muted": "oklch(0.955 0.008 285)",
+          "muted-foreground": "oklch(0.5 0.02 285)",
+          "border": "oklch(0.22 0.02 285 / 11%)",
+          "ring": "oklch(0.68 0.19 40)",
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "radius": "0.875rem",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "background": "#000000",
+          "foreground": "oklch(0.96 0.008 80)",
+          "card": "#171717",
+          "card-foreground": "oklch(0.96 0.008 80)",
+          "muted": "oklch(0.21 0 0)",
+          "muted-foreground": "oklch(0.7 0 0)",
+          "border": "oklch(1 0 0 / 9%)",
+          "ring": "oklch(0.8 0.16 55)",
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "border-beam",
+      "type": "registry:ui",
+      "title": "Border Beam",
+      "description": "A beam of light that circles a border while work runs and fades out slowly when you turn it off, spun on the GPU.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/border-beam.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "A copy button whose icon morphs into a check, with an optional Copied bubble.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@animate-ui/icons-check",
+        "@animate-ui/icons-copy"
+      ],
+      "files": [
+        {
+          "path": "components/ui/copy-button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "trail-tabs",
+      "type": "registry:ui",
+      "title": "Trail Tabs",
+      "description": "Tabs that fold down to their icons; the picked tab opens to show its name, its icon moves, and panels slide in.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/trail-tabs.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "accent-picker",
+      "type": "registry:ui",
+      "title": "Accent Picker",
+      "description": "A bar of solid swatches that turns the page's glow and focus ring one steady color, in light and dark, and remembers the choice.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/accent-picker.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "flame-field",
+      "type": "registry:ui",
+      "title": "Flame Field",
+      "description": "A slow field of flame drawn on the GPU in the page's accent color, soft, cheap, and still under reduced motion.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/flame-field.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "rail-nav",
+      "type": "registry:ui",
+      "title": "Side Navigation",
+      "description": "A sidebar on a dashed rail: a solid line hooks into the current page and a quieter one reaches out to the row under your pointer.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/rail-nav.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/rail-path.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "reading-rail",
+      "type": "registry:ui",
+      "title": "Table of Contents",
+      "description": "A spacious table of contents with a rail that bends around nested sections.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/reading-rail.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/rail-path.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "scroll-rail",
+      "type": "registry:ui",
+      "title": "Scroll Rail",
+      "description": "A quiet document minimap with equal short dashes that expand near the pointer and follow the active content block.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/scroll-rail.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "glass-sidebar",
+      "type": "registry:ui",
+      "title": "Glass Sidebar",
+      "description": "A workspace sidebar with a continuous contour that opens around hovered links and flows back to your selection.",
+      "dependencies": [
+        "motion",
+        "tailwindcss-concentric"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@animate-ui/icons-chevron-right",
+        "@animate-ui/icons-search",
+        "@animate-ui/icons-x"
+      ],
+      "files": [
+        {
+          "path": "components/ui/glass-sidebar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-search.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      },
+      "css": {
+        "@import \"tailwindcss-concentric\"": {}
+      }
+    },
+    {
+      "name": "liquid-search",
+      "type": "registry:ui",
+      "title": "Liquid Search",
+      "description": "A frosted search capsule with a glass icon lens, accent focus, and one-click clearing.",
+      "dependencies": [
+        "motion",
+        "tailwindcss-concentric"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@animate-ui/icons-search",
+        "@animate-ui/icons-x"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-search.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      },
+      "css": {
+        "@import \"tailwindcss-concentric\"": {}
+      }
+    },
+    {
+      "name": "magnetic-dock",
+      "type": "registry:ui",
+      "title": "Magnetic Dock",
+      "description": "A frosted dock of glossy app tiles that grow toward your pointer and bounce as they open.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/magnetic-dock.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "gloss-button",
+      "type": "registry:ui",
+      "title": "Gloss Button",
+      "description": "A glossy button with a sheen, a pointer hotspot, and a press that squishes.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/gloss-button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "fan-cards",
+      "type": "registry:ui",
+      "title": "Fan Cards",
+      "description": "Overlapping liquid-glass cards with frosted depth, rounded refraction, and a smooth lift on hover or keyboard focus.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/fan-cards.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "glass-switch",
+      "type": "registry:ui",
+      "title": "Glass Switch",
+      "description": "A toggle whose bead stretches like a drop of liquid as it travels.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/glass-switch.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "glass-slider",
+      "type": "registry:ui",
+      "title": "Glass Slider",
+      "description": "A slider that's hottest at the thumb and stretches at the ends.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/glass-slider.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "glass-toaster",
+      "type": "registry:ui",
+      "title": "Glass Toaster",
+      "description": "Frosted toasts that stack, fan out, swipe away, and burn down like an ember.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@animate-ui/icons-x"
+      ],
+      "files": [
+        {
+          "path": "components/ui/glass-toaster.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-glass",
+      "type": "registry:ui",
+      "title": "Liquid Glass",
+      "description": "A clear pane with a curved rim that bends whatever is behind it, like Apple's Liquid Glass.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-button",
+      "type": "registry:ui",
+      "title": "Liquid Button",
+      "description": "Liquid glass buttons that swell when pressed.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-switch",
+      "type": "registry:ui",
+      "title": "Liquid Switch",
+      "description": "A switch whose knob turns into a glass lens while you hold it.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-switch.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-slider",
+      "type": "registry:ui",
+      "title": "Liquid Slider",
+      "description": "A slider whose thumb turns into a magnifying lens while you drag it.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-slider.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-tabs",
+      "type": "registry:ui",
+      "title": "Liquid Tabs",
+      "description": "A glass tab bar whose selection becomes a magnifying lens as it moves.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-tabs.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-card",
+      "type": "registry:ui",
+      "title": "Liquid Card",
+      "description": "A thick-rimmed glass card or widget that swells a touch under the pointer.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-card.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-segmented",
+      "type": "registry:ui",
+      "title": "Liquid Segmented",
+      "description": "A segmented control with a draggable glass thumb that stretches as it moves.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-segmented.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-toolbar",
+      "type": "registry:ui",
+      "title": "Liquid Toolbar",
+      "description": "Grouped glass toolbar buttons with a sliding hover highlight.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-toolbar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-menu",
+      "type": "registry:ui",
+      "title": "Liquid Menu",
+      "description": "A glass button that morphs into a menu, with full keyboard support.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-menu.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "liquid-metal",
+      "type": "registry:ui",
+      "title": "Liquid Metal",
+      "description": "Flowing chrome or brushed satin from one small WebGL shader, plus a hairline chrome rim. Every piece shares one GPU context.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/liquid-metal.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "metal-button",
+      "type": "registry:ui",
+      "title": "Metal Button",
+      "description": "Dark buttons ringed in moving chrome, or solid brushed silver.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/metal-button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-metal.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "metal-card",
+      "type": "registry:ui",
+      "title": "Metal Card",
+      "description": "A dark card edged in a hairline of chrome.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/metal-card.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-metal.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "metal-text",
+      "type": "registry:ui",
+      "title": "Metal Text",
+      "description": "Polished lettering, bright above and dim below, with a glint now and then.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/metal-text.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "auth-silk",
+      "type": "registry:block",
+      "title": "Auth: Silk",
+      "description": "Black, with satin drapes of liquid metal. A magic-link form with a chrome-ringed button.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@animate-ui/icons-arrow-left",
+        "@animate-ui/icons-fingerprint",
+        "@animate-ui/icons-loader-circle"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/auth-silk.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/auth-silk.tsx"
+        },
+        {
+          "path": "components/ui/metal-button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-metal.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/auth-parts.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "auth-glass",
+      "type": "registry:block",
+      "title": "Auth: Liquid Glass",
+      "description": "A clear glass pane over dusk waves, with the sun setting behind its rim.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@animate-ui/icons-check",
+        "@animate-ui/icons-fingerprint",
+        "@animate-ui/icons-loader-circle"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/auth-glass.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/auth-glass.tsx"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/auth-parts.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "auth-split",
+      "type": "registry:block",
+      "title": "Auth: Split",
+      "description": "Email first on the left; customer stories in glass over graphite silk on the right.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@animate-ui/icons-arrow-left",
+        "@animate-ui/icons-fingerprint",
+        "@animate-ui/icons-loader-circle"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/auth-split.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/auth-split.tsx"
+        },
+        {
+          "path": "components/ui/liquid-metal.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/auth-parts.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "auth-steps",
+      "type": "registry:block",
+      "title": "Auth: One Question",
+      "description": "One question per screen, with keyboard hints and Escape to step back.",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@animate-ui/icons-arrow-left",
+        "@animate-ui/icons-fingerprint",
+        "@animate-ui/icons-loader-circle"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/auth-steps.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/auth-steps.tsx"
+        },
+        {
+          "path": "components/ui/auth-parts.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/afterglow.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-foreground": "var(--glow-foreground)",
+          "color-glow-2": "var(--glow-2)",
+          "color-glow-3": "var(--glow-3)",
+          "color-glass": "var(--glass)",
+          "color-gloss-highlight": "var(--gloss-highlight)",
+          "shadow-gloss": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -1px 0 0 var(--gloss-shade), 0 0 0 1px var(--gloss-edge), 0 1px 2px 0 var(--gloss-depth), 0 4px 12px -4px var(--gloss-depth)",
+          "shadow-glass": "inset 0 1px 0 0 var(--gloss-highlight), inset 0 -10px 24px -18px var(--gloss-shade), inset 0 0 0 1px var(--gloss-edge), 0 2px 6px -1px var(--gloss-depth), 0 18px 40px -12px var(--gloss-depth)",
+          "shadow-well": "inset 0 1px 3px 0 var(--gloss-depth), inset 0 0 0 1px var(--gloss-edge), 0 1px 0 0 var(--gloss-highlight)"
+        },
+        "light": {
+          "glow": "oklch(0.7 0.19 45)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.64 0.22 12)",
+          "glow-3": "oklch(0.56 0.21 300)",
+          "glass": "oklch(1 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 95%)",
+          "gloss-shade": "oklch(0.3 0.03 285 / 10%)",
+          "gloss-depth": "oklch(0.32 0.03 285 / 20%)",
+          "gloss-edge": "oklch(0.22 0.02 285 / 10%)",
+          "liquid-tint": "oklch(1 0 0 / 18%)",
+          "liquid-fallback": "oklch(1 0 0 / 55%)",
+          "liquid-rim": "oklch(1 0 0 / 95%)",
+          "liquid-edge": "oklch(0.2 0.02 285 / 10%)",
+          "liquid-shadow": "oklch(0.22 0.02 285 / 26%)",
+          "liquid-glow": "oklch(1 0 0 / 55%)",
+          "liquid-shade": "oklch(0.25 0.03 285 / 14%)"
+        },
+        "dark": {
+          "glow": "oklch(0.8 0.16 55)",
+          "glow-foreground": "oklch(0.22 0.05 40)",
+          "glow-2": "oklch(0.7 0.2 15)",
+          "glow-3": "oklch(0.65 0.2 300)",
+          "glass": "oklch(0.19 0 0 / 55%)",
+          "gloss-highlight": "oklch(1 0 0 / 16%)",
+          "gloss-shade": "oklch(0 0 0 / 30%)",
+          "gloss-depth": "oklch(0.04 0 0 / 60%)",
+          "gloss-edge": "oklch(1 0 0 / 9%)",
+          "liquid-tint": "oklch(0.2 0 0 / 22%)",
+          "liquid-fallback": "oklch(0.2 0 0 / 45%)",
+          "liquid-rim": "oklch(1 0 0 / 60%)",
+          "liquid-edge": "oklch(1 0 0 / 10%)",
+          "liquid-shadow": "oklch(0 0 0 / 50%)",
+          "liquid-glow": "oklch(1 0 0 / 24%)",
+          "liquid-shade": "oklch(0 0 0 / 28%)"
+        }
+      }
+    },
+    {
+      "name": "glow-avatar",
+      "type": "registry:ui",
+      "title": "Glow Avatar",
+      "description": "An expressive assistant that looks around, follows the pointer, and changes shape, mood, and motion.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "components/ui/glow-avatar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/glow-avatar-engine.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "components/ui/glow-avatar.module.css",
+          "type": "registry:file",
+          "target": "components/ui/glow-avatar.module.css"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-glow": "var(--glow)",
+          "color-glow-2": "var(--glow-2)"
+        }
+      }
+    }
+  ]
+}

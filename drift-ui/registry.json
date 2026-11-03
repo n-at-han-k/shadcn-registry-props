@@ -1,0 +1,881 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "drift-ui",
+  "homepage": "https://drift-ui.dev",
+  "items": [
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "An image with a fallback for when it fails to load.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "Stacked avatars with presence dots and a +N overflow that lists the rest.",
+      "registryDependencies": ["utils", "avatar", "popover"],
+      "files": [
+        {
+          "path": "registry/default/ui/avatar-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A small status label.",
+      "dependencies": ["radix-ui", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bulk-action-bar",
+      "type": "registry:ui",
+      "title": "Bulk Action Bar",
+      "description": "A floating toolbar for acting on selected rows. Escape clears the selection.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "motion",
+        "class-variance-authority"
+      ],
+      "registryDependencies": ["utils", "button"],
+      "files": [
+        {
+          "path": "registry/default/ui/bulk-action-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button with six variants and four sizes.",
+      "dependencies": ["radix-ui", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A container with header, content, and footer slots.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:ui",
+      "title": "Color Picker",
+      "description": "Saturation area, hue and alpha sliders, eyedropper, hex input and an oklch readout.",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "popover",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/color-picker.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/ui/color-picker-controls.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/color.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "date-time-range",
+      "type": "registry:ui",
+      "title": "Date-Time Range",
+      "description": "A date range picker with start and end times, presets, and min and max limits.",
+      "dependencies": ["lucide-react", "react-day-picker"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "calendar",
+        "popover",
+        "@drift-ui/time-field",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/date-time-range.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/date-time-range.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "description-list",
+      "type": "registry:ui",
+      "title": "Description List",
+      "description": "Key and value rows for detail pages, with copy buttons and inline editing.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "@drift-ui/inline-edit",
+        "@drift-ui/use-copy-to-clipboard"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/description-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal window that traps focus and closes on Escape.",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "diff-viewer",
+      "type": "registry:ui",
+      "title": "Diff Viewer",
+      "description": "Side-by-side or unified text diff with word-level highlights and collapsed unchanged regions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/diff-viewer.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/diff.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "duration-input",
+      "type": "registry:ui",
+      "title": "Duration Input",
+      "description": "Segmented duration editor with typed shorthand, unit navigation and milliseconds storage.",
+      "dependencies": [],
+      "registryDependencies": ["utils", "@drift-ui/use-controllable-state"],
+      "files": [
+        {
+          "path": "registry/default/ui/duration-input.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/duration-input.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "emoji-picker",
+      "type": "registry:ui",
+      "title": "Emoji Picker",
+      "description": "Searchable emoji grid with categories, skin tones, recently used emoji and arrow-key navigation. Emoji data loads on demand.",
+      "dependencies": ["emojibase-data", "lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "input",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/emoji-picker.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/emoji-picker.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "file-dropzone",
+      "type": "registry:ui",
+      "title": "File Dropzone",
+      "description": "Drag and drop upload with validation, progress and rejection states.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/file-dropzone.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "filter-builder",
+      "type": "registry:ui",
+      "title": "Filter Builder",
+      "description": "Field, operator and value filter chips with a matchesFilter helper for your rows.",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "popover",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/filter-builder.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/ui/filter-chip.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/ui/filter-menu.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/filter.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "image-cropper",
+      "type": "registry:ui",
+      "title": "Image Cropper",
+      "description": "Pan, zoom, and rotate images with fixed or free aspect ratio and blob output.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/image-cropper.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/image-cropper.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "inline-edit",
+      "type": "registry:ui",
+      "title": "Inline Edit",
+      "description": "Click to edit text in place. Enter saves, Escape cancels, async saves supported.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/inline-edit.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A text input with focus and invalid states.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "json-viewer",
+      "type": "registry:ui",
+      "title": "JSON Viewer",
+      "description": "Collapsible, searchable JSON with typed colors, copy value or path, and chunked large arrays.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "input",
+        "@drift-ui/tree-view",
+        "@drift-ui/use-copy-to-clipboard"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/json-viewer.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/json-viewer.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "An accessible label for form controls.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "masked-input",
+      "type": "registry:ui",
+      "title": "Masked Input",
+      "description": "Pattern-masked inputs and localized currency formatting with stable caret positioning.",
+      "dependencies": [],
+      "registryDependencies": ["utils", "@drift-ui/use-controllable-state"],
+      "files": [
+        {
+          "path": "registry/default/ui/masked-input.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/masked-input.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "mention-textarea",
+      "type": "registry:ui",
+      "title": "Mention Textarea",
+      "description": "A textarea that suggests people, channels or anything else after a trigger character.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": [
+        "utils",
+        "popover",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/mention-textarea.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/mention.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "multi-select",
+      "type": "registry:ui",
+      "title": "Multi Select",
+      "description": "Pick several values from a fixed list, with search, groups, chips and a selection limit.",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "badge",
+        "popover",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/multi-select.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/multi-select.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "number-input",
+      "type": "registry:ui",
+      "title": "Number Input",
+      "description": "A spinbutton with min, max, step and locale formatting.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/number-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "password-input",
+      "type": "registry:ui",
+      "title": "Password Input",
+      "description": "A password field with a reveal toggle and a strength meter.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "input"],
+      "files": [
+        {
+          "path": "registry/default/ui/password-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "phone-input",
+      "type": "registry:ui",
+      "title": "Phone Input",
+      "description": "Phone number field with a searchable country picker, formatting as you type and E.164 output.",
+      "dependencies": ["libphonenumber-js", "lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "popover",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/phone-input.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/phone-input.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Floating content anchored to a trigger.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rating",
+      "type": "registry:ui",
+      "title": "Rating",
+      "description": "Pick a score with stars or any icon, in whole or half steps, from the keyboard or pointer.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "@drift-ui/use-controllable-state"],
+      "files": [
+        {
+          "path": "registry/default/ui/rating.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "recurrence-editor",
+      "type": "registry:ui",
+      "title": "Recurrence Editor",
+      "description": "Edit an RRULE repeat rule with a plain-language summary and the next occurrences.",
+      "registryDependencies": [
+        "utils",
+        "input",
+        "label",
+        "@drift-ui/number-input",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/recurrence-editor.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/recurrence.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "saved-views",
+      "type": "registry:ui",
+      "title": "Saved Views",
+      "description": "Switch, create, rename, duplicate, and save table and list view configurations.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "badge",
+        "popover",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/saved-views.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/saved-views.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "shortcut-cheatsheet",
+      "type": "registry:ui",
+      "title": "Shortcut Cheatsheet",
+      "description": "A searchable overlay that lists keyboard shortcuts by section, opened with a key.",
+      "registryDependencies": [
+        "dialog",
+        "input",
+        "utils",
+        "@drift-ui/shortcut-recorder",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/shortcut-cheatsheet.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/shortcut-cheatsheet.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "shortcut-recorder",
+      "type": "registry:ui",
+      "title": "Shortcut Recorder",
+      "description": "Records a key combination and renders it with platform symbols.",
+      "registryDependencies": ["utils", "@drift-ui/use-controllable-state"],
+      "files": [
+        {
+          "path": "registry/default/ui/shortcut-recorder.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/shortcut.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "signature-pad",
+      "type": "registry:ui",
+      "title": "Signature Pad",
+      "description": "Capture a drawn or typed signature and export it as SVG or a PNG data URL.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/signature-pad.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/signature-pad.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "sortable-list",
+      "type": "registry:ui",
+      "title": "Sortable List",
+      "description": "Reorderable list with drag-and-drop and full keyboard accessibility.",
+      "dependencies": ["lucide-react", "motion"],
+      "registryDependencies": ["utils", "@drift-ui/use-controllable-state"],
+      "files": [
+        {
+          "path": "registry/default/ui/sortable-list.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/sortable-list.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Multi-step flows with linear or free navigation.",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tags-input",
+      "type": "registry:ui",
+      "title": "Tags Input",
+      "description": "Type, paste or remove tags with full keyboard support.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "badge"],
+      "files": [
+        {
+          "path": "registry/default/ui/tags-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Theme",
+      "description": "Neutral color tokens for light and dark mode, with AA contrast for secondary text.",
+      "cssVars": {
+        "theme": {
+          "radius": "0.625rem"
+        },
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.145 0 0)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.145 0 0)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.145 0 0)",
+          "primary": "oklch(0.205 0 0)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "secondary": "oklch(0.97 0 0)",
+          "secondary-foreground": "oklch(0.205 0 0)",
+          "muted": "oklch(0.97 0 0)",
+          "muted-foreground": "oklch(0.46 0 0)",
+          "accent": "oklch(0.97 0 0)",
+          "accent-foreground": "oklch(0.205 0 0)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.9 0 0)",
+          "input": "oklch(0.9 0 0)",
+          "ring": "oklch(0.708 0 0)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)"
+        },
+        "dark": {
+          "background": "oklch(0.145 0 0)",
+          "foreground": "oklch(0.985 0 0)",
+          "card": "oklch(0.205 0 0)",
+          "card-foreground": "oklch(0.985 0 0)",
+          "popover": "oklch(0.205 0 0)",
+          "popover-foreground": "oklch(0.985 0 0)",
+          "primary": "oklch(0.922 0 0)",
+          "primary-foreground": "oklch(0.205 0 0)",
+          "secondary": "oklch(0.269 0 0)",
+          "secondary-foreground": "oklch(0.985 0 0)",
+          "muted": "oklch(0.269 0 0)",
+          "muted-foreground": "oklch(0.708 0 0)",
+          "accent": "oklch(0.269 0 0)",
+          "accent-foreground": "oklch(0.985 0 0)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.556 0 0)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)"
+        }
+      }
+    },
+    {
+      "name": "time-field",
+      "type": "registry:ui",
+      "title": "Time Field",
+      "description": "Segmented hour, minute and AM/PM spinbuttons with typeahead.",
+      "registryDependencies": ["utils", "@drift-ui/use-controllable-state"],
+      "files": [
+        {
+          "path": "registry/default/ui/time-field.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/time-segments.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Activity feeds and changelogs with status indicators.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/timeline.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tour",
+      "type": "registry:ui",
+      "title": "Tour",
+      "description": "A step-by-step product tour that spotlights real elements on the page.",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "popover",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/tour.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/ui/tour-spotlight.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "transfer-list",
+      "type": "registry:ui",
+      "title": "Transfer List",
+      "description": "Move items between available and selected lists with search and multi-selection.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "input",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/transfer-list.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/transfer-list.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "tree-view",
+      "type": "registry:ui",
+      "title": "Tree View",
+      "description": "An ARIA tree with arrow keys, typeahead, single or checkbox selection, lazy children with retry, and virtualized rows.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["utils", "@drift-ui/use-controllable-state"],
+      "files": [
+        {
+          "path": "registry/default/ui/tree-view.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/tree-view.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/lib/virtual-list.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-controllable-state",
+      "type": "registry:hook",
+      "title": "useControllableState",
+      "description": "State that works controlled or uncontrolled, with a change callback.",
+      "files": [
+        {
+          "path": "registry/default/hooks/use-controllable-state.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-copy-to-clipboard",
+      "type": "registry:hook",
+      "title": "useCopyToClipboard",
+      "description": "Copy text to the clipboard and remember what was copied for a moment.",
+      "files": [
+        {
+          "path": "registry/default/hooks/use-copy-to-clipboard.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "The cn() class merging helper.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "registry/default/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "virtual-list",
+      "type": "registry:ui",
+      "title": "Virtual List",
+      "description": "Renders only the visible rows of a long list, with variable row heights and keyboard focus that survives scrolling.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "registry/default/ui/virtual-list.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/virtual-list.ts",
+          "type": "registry:lib"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "layout-kit",
+  "homepage": "https://layout.csikie.com",
+  "items": [
+    {
+      "name": "layout-spacing",
+      "type": "registry:lib",
+      "title": "Layout spacing",
+      "description": "Shared layout vocabulary: gap, align, and justify scales, breakpoints, and the Responsive<T> helper.",
+      "files": [
+        {
+          "path": "lib/spacing.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "stack",
+      "type": "registry:ui",
+      "title": "Stack",
+      "description": "Vertical flex container with responsive gap, align, and justify.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "@layout-kit/layout-spacing"
+      ],
+      "files": [
+        {
+          "path": "components/ui/stack.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "row",
+      "type": "registry:ui",
+      "title": "Row",
+      "description": "Horizontal flex container with responsive gap, align, and justify, plus wrapping.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "@layout-kit/layout-spacing"
+      ],
+      "files": [
+        {
+          "path": "components/ui/row.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "col",
+      "type": "registry:ui",
+      "title": "Col",
+      "description": "Flex child with explicit grow, shrink, and self-alignment.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/col.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "grid",
+      "type": "registry:ui",
+      "title": "Grid",
+      "description": "CSS grid with responsive column count, gap, and alignment.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "@layout-kit/layout-spacing"
+      ],
+      "files": [
+        {
+          "path": "components/ui/grid.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "grid-item",
+      "type": "registry:ui",
+      "title": "GridItem",
+      "description": "Responsive column span inside a Grid.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "@layout-kit/layout-spacing"
+      ],
+      "files": [
+        {
+          "path": "components/ui/grid-item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "page",
+      "type": "registry:ui",
+      "title": "Page",
+      "description": "Page frame with header, actions, body, and an optional aside on either side.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/page.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "type": "registry:ui",
+      "title": "Layout Kit",
+      "description": "Every layout primitive: Stack, Row, Col, Grid, GridItem, and Page.",
+      "registryDependencies": [
+        "@layout-kit/stack",
+        "@layout-kit/row",
+        "@layout-kit/col",
+        "@layout-kit/grid",
+        "@layout-kit/grid-item",
+        "@layout-kit/page"
+      ],
+      "files": []
+    }
+  ]
+}
