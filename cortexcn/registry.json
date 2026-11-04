@@ -1,0 +1,2373 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cortexcn",
+  "homepage": "https://ui.cortexcn.dev",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utilities",
+      "description": "Utility functions for className merging with clsx and tailwind-merge",
+      "dependencies": [
+        "clsx@2",
+        "tailwind-merge@3"
+      ],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "7ccf01be494e"
+      }
+    },
+    {
+      "name": "design-system-recipes",
+      "type": "registry:item",
+      "title": "Design system recipes",
+      "description": "Theme utilities (rounded-button, h-input, shadow-menu, and more) that let a DESIGN.md design system restyle Cortexcn components. Each one falls back to the component's own default.",
+      "cssVars": {
+        "theme": {
+          "color-primary-hover": "var(--ds-primary-hover, color-mix(in oklab, var(--primary) 80%, transparent))",
+          "color-secondary-hover": "color-mix(in oklch, var(--secondary), var(--foreground) 5%)",
+          "color-success": "var(--ds-success, oklch(0.696 0.17 162.48))",
+          "color-warning": "var(--ds-warning, oklch(0.769 0.188 70.08))",
+          "color-overlay": "var(--ds-overlay, oklch(0 0 0 / 0.1))",
+          "color-control-thumb": "var(--ds-control-thumb, oklch(1 0 0))",
+          "color-system-canvas": "Canvas",
+          "color-system-canvas-text": "CanvasText",
+          "radius-button": "var(--ds-button-radius, calc(var(--radius) * 0.8))",
+          "radius-button-sm": "var(--ds-button-radius, min(calc(var(--radius) * 0.8), 10px))",
+          "radius-button-xs": "var(--ds-button-radius, min(calc(var(--radius) * 0.8), 8px))",
+          "spacing-button-xs": "var(--ds-button-h-xs, 1.5rem)",
+          "spacing-button-sm": "var(--ds-button-h-sm, 2rem)",
+          "spacing-button": "var(--ds-button-h-md, 2.25rem)",
+          "spacing-button-lg": "var(--ds-button-h-lg, 2.5rem)",
+          "spacing-button-x": "var(--ds-button-px, 0.625rem)",
+          "spacing-button-x-xs": "calc(var(--ds-button-px, 0.625rem) * 0.8)",
+          "font-weight-button": "var(--ds-button-weight, 500)",
+          "shadow-button": "var(--ds-button-shadow, 0 0 #0000)",
+          "radius-input": "var(--ds-input-radius, calc(var(--radius) * 0.8))",
+          "spacing-input": "var(--ds-input-h, 2.25rem)",
+          "spacing-input-x": "var(--ds-input-px, 0.625rem)",
+          "radius-input-inner": "calc(var(--ds-input-radius, calc(var(--radius) * 0.8)) - 3px)",
+          "color-input-fill": "var(--ds-input-bg, transparent)",
+          "color-input-fill-dark": "var(--ds-input-bg, color-mix(in oklab, var(--input) 30%, transparent))",
+          "radius-card": "var(--ds-card-radius, calc(var(--radius) * 1.4))",
+          "color-card-fill": "var(--ds-card-bg, var(--card))",
+          "shadow-card": "var(--ds-card-shadow, 0 0 #0000)",
+          "radius-badge": "var(--ds-badge-radius, calc(var(--radius) * 2.6))",
+          "spacing-badge-x": "var(--ds-badge-px, 0.5rem)",
+          "font-weight-badge": "var(--ds-badge-weight, 500)",
+          "radius-tabs": "var(--ds-tabs-radius, var(--radius))",
+          "radius-tabs-trigger": "var(--ds-tabs-radius, calc(var(--radius) * 0.8))",
+          "color-tabs-list": "var(--ds-tabs-list-bg, var(--muted))",
+          "color-tabs-active": "var(--ds-tabs-active-bg, var(--background))",
+          "color-tabs-active-dark": "var(--ds-tabs-active-bg, color-mix(in oklab, var(--input) 30%, transparent))",
+          "color-tabs-active-border": "var(--ds-tabs-active-border, var(--input))",
+          "spacing-accordion": "var(--ds-accordion-py, 0.625rem)",
+          "font-weight-accordion": "var(--ds-accordion-weight, 500)",
+          "radius-dialog": "var(--ds-dialog-radius, calc(var(--radius) * 1.4))",
+          "spacing-dialog": "var(--ds-dialog-padding, 1.5rem)",
+          "shadow-dialog": "var(--ds-dialog-shadow, 0 0 #0000)",
+          "radius-menu": "var(--ds-menu-radius, calc(var(--radius) * 0.8))",
+          "radius-menu-lg": "var(--ds-menu-radius, var(--radius))",
+          "radius-menu-xl": "var(--ds-menu-radius, calc(var(--radius) * 1.4))",
+          "radius-menu-item": "var(--ds-menu-item-radius, calc(var(--radius) * 0.6))",
+          "radius-menu-item-md": "var(--ds-menu-item-radius, calc(var(--radius) * 0.8))",
+          "radius-menu-item-lg": "var(--ds-menu-item-radius, var(--radius))",
+          "shadow-input": "var(--ds-input-shadow, 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05)))",
+          "shadow-tabs": "var(--ds-tabs-active-shadow, 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)))",
+          "shadow-menu": "var(--ds-menu-shadow, 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1)))",
+          "shadow-menu-lg": "var(--ds-menu-shadow, 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1)))",
+          "radius-inherit": "inherit",
+          "radius-app-icon": "22%",
+          "shadow-sidebar-border": "0 0 0 1px var(--sidebar-border)",
+          "shadow-sidebar-accent": "0 0 0 1px var(--sidebar-accent)",
+          "radius-command": "var(--ds-menu-radius, 14px)",
+          "shadow-command": "var(--ds-menu-shadow, 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 0 0 1px rgb(10 10 10 / 0.05))",
+          "shadow-command-dark": "var(--ds-menu-shadow, 0 1px 3px 0 rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.12))",
+          "drop-shadow-command": "0 4px 14.2px rgb(108 108 108 / 0.25)",
+          "radius-faq": "var(--ds-card-radius, 26px)",
+          "radius-faq-inner": "var(--ds-radius-lg, 18px)",
+          "shadow-faq": "var(--ds-shadow-2, 0 0 0 1px rgb(10 10 10 / 0.05), 0 2px 4px 0 rgb(0 0 0 / 0.1))",
+          "shadow-faq-dark": "var(--ds-shadow-2, 0 0 0 1px rgb(255 255 255 / 0.12), 0 2px 4px 0 rgb(0 0 0 / 0.5))",
+          "radius-lanyard": "var(--ds-radius-xl, 20px)",
+          "shadow-lanyard": "var(--ds-shadow-3, 0 24px 50px -20px rgb(0 0 0 / 0.45))",
+          "shadow-lanyard-slot": "inset 0 1px 2px rgb(0 0 0 / 0.25)",
+          "color-sheen": "oklch(1 0 0 / 0.28)",
+          "color-live": "oklch(0.685 0.169 237.323)",
+          "color-shadow-ink": "oklch(0.145 0 0)",
+          "color-light-speed": "oklch(0.128 0.011 259.6)",
+          "radius-control": "var(--ds-control-radius, 4px)",
+          "radius-tooltip": "var(--ds-tooltip-radius, calc(var(--radius) * 0.8))",
+          "radius-tooltip-arrow": "min(var(--ds-tooltip-radius, 2px), 2px)",
+          "radius-alert": "var(--ds-alert-radius, var(--radius))"
+        }
+      },
+      "css": {
+        "@utility button-case": {
+          "text-transform": "var(--ds-button-transform)",
+          "letter-spacing": "var(--ds-button-tracking)"
+        },
+        "@utility badge-case": {
+          "text-transform": "var(--ds-badge-transform)"
+        },
+        "@utility accordion-divider": {
+          "border-bottom-width": "var(--ds-accordion-divider-width, 1px)"
+        },
+        "@utility card-ring": {
+          "--tw-ring-shadow": "var(--tw-ring-inset,) 0 0 0 calc(var(--ds-card-border-width, 1px) + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor)",
+          "box-shadow": "var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)"
+        },
+        "@utility duration-fast": {
+          "--tw-duration": "var(--ds-duration-fast, 100ms)",
+          "transition-duration": "var(--ds-duration-fast, 100ms)"
+        },
+        "@utility duration-base": {
+          "--tw-duration": "var(--ds-duration-base, 200ms)",
+          "transition-duration": "var(--ds-duration-base, 200ms)"
+        },
+        "@utility duration-slow": {
+          "--tw-duration": "var(--ds-duration-slow, 300ms)",
+          "transition-duration": "var(--ds-duration-slow, 300ms)"
+        },
+        "@utility duration-accordion": {
+          "--tw-duration": "var(--ds-accordion-duration, 200ms)",
+          "transition-duration": "var(--ds-accordion-duration, 200ms)"
+        },
+        "@utility ease-ds": {
+          "--tw-ease": "var(--ds-ease, cubic-bezier(0.4, 0, 0.2, 1))",
+          "transition-timing-function": "var(--ds-ease, cubic-bezier(0.4, 0, 0.2, 1))"
+        },
+        "@utility accordion-chevron-turn": {
+          "rotate": "var(--ds-accordion-chevron-rotate, 180deg)"
+        }
+      },
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "dea3a7cc6dea"
+      }
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "A vertically stacked set of headings that each reveal a section of content.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/accordion.tsx",
+          "type": "registry:component",
+          "target": "components/accordion.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "8f86ab05a439"
+      }
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "Displays a card with a header, content, and footer.",
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/card.tsx",
+          "type": "registry:component",
+          "target": "components/card.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "c988904bec69"
+      }
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "Use Mobile",
+      "description": "A hook that reports whether the viewport is below the mobile breakpoint.",
+      "files": [
+        {
+          "path": "src/hooks/use-mobile.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-mobile.ts"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "0dead4de631b"
+      }
+    },
+    {
+      "name": "alert",
+      "type": "registry:component",
+      "title": "Alert",
+      "description": "Displays a callout for user attention.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/alert.tsx",
+          "type": "registry:component",
+          "target": "components/alert.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "edb894464486"
+      }
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "A modal dialog that interrupts the user with important content and expects a response.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/alert-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/alert-dialog.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "c9f62b5b3449"
+      }
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:component",
+      "title": "Aspect Ratio",
+      "description": "Displays content within a desired ratio.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/aspect-ratio.tsx",
+          "type": "registry:component",
+          "target": "components/aspect-ratio.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "169da0f0f55f"
+      }
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "An image element with a fallback for representing the user.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/avatar.tsx",
+          "type": "registry:component",
+          "target": "components/avatar.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "5fb4f3a65ce6"
+      }
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "Displays a badge or a component that looks like a badge.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/badge.tsx",
+          "type": "registry:component",
+          "target": "components/badge.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "7f9a81e6805d"
+      }
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:component",
+      "title": "Breadcrumb",
+      "description": "Displays the path to the current resource using a hierarchy of links.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/breadcrumb.tsx",
+          "type": "registry:component",
+          "target": "components/breadcrumb.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "a3a8e7a2953a"
+      }
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "Displays a button or a component that looks like a button.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/button.tsx",
+          "type": "registry:component",
+          "target": "components/button.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "a107dd16d74b"
+      }
+    },
+    {
+      "name": "button-group",
+      "type": "registry:component",
+      "title": "Button Group",
+      "description": "A container that groups related buttons together with consistent styling.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/button-group.tsx",
+          "type": "registry:component",
+          "target": "components/button-group.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "add2adc44337"
+      }
+    },
+    {
+      "name": "calendar",
+      "type": "registry:component",
+      "title": "Calendar",
+      "description": "A date field component that allows users to enter and edit dates.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "react-day-picker@10"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/calendar.tsx",
+          "type": "registry:component",
+          "target": "components/calendar.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "e0850b59a70d"
+      }
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "A carousel with motion and swipe built using Embla.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "embla-carousel-react@8",
+        "lucide-react@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/carousel.tsx",
+          "type": "registry:component",
+          "target": "components/carousel.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "6645a3413e39"
+      }
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "A control that allows the user to toggle between checked and not checked.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/checkbox.tsx",
+          "type": "registry:component",
+          "target": "components/checkbox.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "c01fa5cf924d"
+      }
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:component",
+      "title": "Collapsible",
+      "description": "An interactive component which expands and collapses a panel.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/collapsible.tsx",
+          "type": "registry:component",
+          "target": "components/collapsible.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "ad65cb52c66f"
+      }
+    },
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "An input with a list of suggestions that filters as you type.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "@base-ui/react@1",
+        "lucide-react@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json",
+        "https://ui.cortexcn.dev/r/input-group.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/combobox.tsx",
+          "type": "registry:component",
+          "target": "components/combobox.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "d59447f6b345"
+      }
+    },
+    {
+      "name": "command",
+      "type": "registry:component",
+      "title": "Command",
+      "description": "A fast, composable command menu for React.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "cmdk@1",
+        "lucide-react@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/dialog.json",
+        "https://ui.cortexcn.dev/r/input-group.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/command.tsx",
+          "type": "registry:component",
+          "target": "components/command.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "b9273d5d9682"
+      }
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:component",
+      "title": "Context Menu",
+      "description": "Displays a menu of actions triggered by a right click.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/context-menu.tsx",
+          "type": "registry:component",
+          "target": "components/context-menu.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "e2694838d225"
+      }
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "A window overlaid on the page that renders the content underneath inert.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dialog.tsx",
+          "type": "registry:component",
+          "target": "components/dialog.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "bcca7de1e3ea"
+      }
+    },
+    {
+      "name": "drawer",
+      "type": "registry:component",
+      "title": "Drawer",
+      "description": "A drawer component for React, built on Vaul.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "vaul@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/drawer.tsx",
+          "type": "registry:component",
+          "target": "components/drawer.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "996cb9f6152a"
+      }
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "Displays a menu of actions or functions, triggered by a button.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/dropdown-menu.tsx",
+          "type": "registry:component",
+          "target": "components/dropdown-menu.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "baaac19bf3a2"
+      }
+    },
+    {
+      "name": "empty",
+      "type": "registry:component",
+      "title": "Empty",
+      "description": "Displays an empty state, with media, a title, a description, and actions.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/empty.tsx",
+          "type": "registry:component",
+          "target": "components/empty.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "9bafbb991d28"
+      }
+    },
+    {
+      "name": "field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "Combines labels, controls, and help text into accessible form fields.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/label.json",
+        "https://ui.cortexcn.dev/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/field.tsx",
+          "type": "registry:component",
+          "target": "components/field.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "650acd83e709"
+      }
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "For sighted users to preview content available behind a link.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/hover-card.tsx",
+          "type": "registry:component",
+          "target": "components/hover-card.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "89f921bed4fb"
+      }
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "Displays a form input field or a component that looks like an input field.",
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/input.tsx",
+          "type": "registry:component",
+          "target": "components/input.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "a95b5462286d"
+      }
+    },
+    {
+      "name": "input-group",
+      "type": "registry:component",
+      "title": "Input Group",
+      "description": "Adds addons, buttons, and helper content to inputs.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json",
+        "https://ui.cortexcn.dev/r/input.json",
+        "https://ui.cortexcn.dev/r/textarea.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/input-group.tsx",
+          "type": "registry:component",
+          "target": "components/input-group.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "cac4fcdd2972"
+      }
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:component",
+      "title": "Input OTP",
+      "description": "An accessible one-time password input with copy and paste support.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "input-otp@1",
+        "lucide-react@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/input-otp.tsx",
+          "type": "registry:component",
+          "target": "components/input-otp.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "1a2cf64f2ad6"
+      }
+    },
+    {
+      "name": "item",
+      "type": "registry:component",
+      "title": "Item",
+      "description": "A versatile row for displaying media, a title, a description, and actions.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/separator.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/item.tsx",
+          "type": "registry:component",
+          "target": "components/item.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "57de3d162f50"
+      }
+    },
+    {
+      "name": "kbd",
+      "type": "registry:component",
+      "title": "Kbd",
+      "description": "Displays textual user input from a keyboard, such as a shortcut.",
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/kbd.tsx",
+          "type": "registry:component",
+          "target": "components/kbd.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "ae732be9e639"
+      }
+    },
+    {
+      "name": "label",
+      "type": "registry:component",
+      "title": "Label",
+      "description": "Renders an accessible label associated with controls.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/label.tsx",
+          "type": "registry:component",
+          "target": "components/label.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "56cb53ea1db0"
+      }
+    },
+    {
+      "name": "menubar",
+      "type": "registry:component",
+      "title": "Menubar",
+      "description": "A persistent menu, common in desktop apps, with quick access to a set of commands.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/menubar.tsx",
+          "type": "registry:component",
+          "target": "components/menubar.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "cbb4d90864d4"
+      }
+    },
+    {
+      "name": "native-select",
+      "type": "registry:component",
+      "title": "Native Select",
+      "description": "A styled native HTML select element.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/native-select.tsx",
+          "type": "registry:component",
+          "target": "components/native-select.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "015e494ba08b"
+      }
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:component",
+      "title": "Navigation Menu",
+      "description": "A collection of links for navigating websites.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/navigation-menu.tsx",
+          "type": "registry:component",
+          "target": "components/navigation-menu.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "cf6f1784e700"
+      }
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Page navigation with next and previous links.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/pagination.tsx",
+          "type": "registry:component",
+          "target": "components/pagination.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "c172fd31f947"
+      }
+    },
+    {
+      "name": "popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "Displays rich content in a portal, triggered by a button.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/popover.tsx",
+          "type": "registry:component",
+          "target": "components/popover.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "16ea68df1fe1"
+      }
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "Displays an indicator showing the completion progress of a task.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/progress.tsx",
+          "type": "registry:component",
+          "target": "components/progress.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "6bd662cce8d4"
+      }
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "A set of checkable buttons where no more than one can be checked at a time.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/radio-group.tsx",
+          "type": "registry:component",
+          "target": "components/radio-group.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "7d35ba963a18"
+      }
+    },
+    {
+      "name": "resizable",
+      "type": "registry:component",
+      "title": "Resizable",
+      "description": "Accessible resizable panel groups and layouts with keyboard support.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "react-resizable-panels@4"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/resizable.tsx",
+          "type": "registry:component",
+          "target": "components/resizable.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "5eefcc0513f5"
+      }
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:component",
+      "title": "Scroll Area",
+      "description": "Augments native scroll functionality for custom, cross-browser styling.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/scroll-area.tsx",
+          "type": "registry:component",
+          "target": "components/scroll-area.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "244078238570"
+      }
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "Displays a list of options for the user to pick from, triggered by a button.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/select.tsx",
+          "type": "registry:component",
+          "target": "components/select.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "9294d8b68c2c"
+      }
+    },
+    {
+      "name": "separator",
+      "type": "registry:component",
+      "title": "Separator",
+      "description": "Visually or semantically separates content.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/separator.tsx",
+          "type": "registry:component",
+          "target": "components/separator.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "67ea7b5f37a1"
+      }
+    },
+    {
+      "name": "sheet",
+      "type": "registry:component",
+      "title": "Sheet",
+      "description": "Extends the dialog to show content that complements the main content of the screen.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/sheet.tsx",
+          "type": "registry:component",
+          "target": "components/sheet.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "864979b1bb43"
+      }
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "A composable, themeable, and customizable sidebar.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react@1",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/button.json",
+        "https://ui.cortexcn.dev/r/input.json",
+        "https://ui.cortexcn.dev/r/separator.json",
+        "https://ui.cortexcn.dev/r/sheet.json",
+        "https://ui.cortexcn.dev/r/skeleton.json",
+        "https://ui.cortexcn.dev/r/tooltip.json",
+        "https://ui.cortexcn.dev/r/use-mobile.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/sidebar.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "a3a6faa4f9bf"
+      }
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Shows a placeholder while content is loading.",
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/skeleton.tsx",
+          "type": "registry:component",
+          "target": "components/skeleton.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "55b741fe50df"
+      }
+    },
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "An input where the user selects a value from within a given range.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/slider.tsx",
+          "type": "registry:component",
+          "target": "components/slider.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "b1e975715c54"
+      }
+    },
+    {
+      "name": "sonner",
+      "type": "registry:component",
+      "title": "Sonner",
+      "description": "An opinionated toast component for React.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1",
+        "next-themes",
+        "sonner@2"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/sonner.tsx",
+          "type": "registry:component",
+          "target": "components/sonner.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "6bed25bfd975"
+      }
+    },
+    {
+      "name": "spinner",
+      "type": "registry:component",
+      "title": "Spinner",
+      "description": "An indicator that shows a loading state.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "lucide-react@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/spinner.tsx",
+          "type": "registry:component",
+          "target": "components/spinner.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "1c36293d60e0"
+      }
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "A control that allows the user to toggle between on and off.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/switch.tsx",
+          "type": "registry:component",
+          "target": "components/switch.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "e98e6f959608"
+      }
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "A responsive table component.",
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/table.tsx",
+          "type": "registry:component",
+          "target": "components/table.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "a1cf079ee355"
+      }
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "A set of layered sections of content, shown one at a time.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/tabs.tsx",
+          "type": "registry:component",
+          "target": "components/tabs.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "1645056fd07e"
+      }
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "Displays a form textarea or a component that looks like a textarea.",
+      "categories": [
+        "components"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/textarea.tsx",
+          "type": "registry:component",
+          "target": "components/textarea.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "f39fdb6206c3"
+      }
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "title": "Toggle",
+      "description": "A two-state button that can be either on or off.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/toggle.tsx",
+          "type": "registry:component",
+          "target": "components/toggle.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "9aa244a813fc"
+      }
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:component",
+      "title": "Toggle Group",
+      "description": "A set of two-state buttons that can be toggled on or off.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/toggle.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/toggle-group.tsx",
+          "type": "registry:component",
+          "target": "components/toggle-group.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "4576b7212a3e"
+      }
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "A popup that shows information about an element on hover or keyboard focus.",
+      "categories": [
+        "components"
+      ],
+      "dependencies": [
+        "radix-ui@1"
+      ],
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "https://ui.cortexcn.dev/r/design-system-recipes.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/tooltip.tsx",
+          "type": "registry:component",
+          "target": "components/tooltip.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "6960d7527874"
+      }
+    },
+    {
+      "name": "design-md",
+      "type": "registry:item",
+      "title": "DESIGN.md",
+      "description": "Cortexcn's design system as a DESIGN.md file for coding agents: the colors, type, rounded corners, spacing, motion, and component rules, generated from the theme tokens.",
+      "categories": [
+        "agents"
+      ],
+      "files": [
+        {
+          "path": "src/agents/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "89fbb7526fbf"
+      }
+    },
+    {
+      "name": "agent-skills",
+      "type": "registry:item",
+      "title": "Agent skills",
+      "description": "The cortexcn and cortexcn-design agent skills, for Claude Code (.claude/skills) and for Codex, Cursor, and GitHub Copilot (.agents/skills).",
+      "categories": [
+        "agents"
+      ],
+      "files": [
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn-design/SKILL.md"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "910b24e5c5e8"
+      }
+    },
+    {
+      "name": "agent-kit",
+      "type": "registry:item",
+      "title": "Agent kit",
+      "description": "Everything for coding agents in one install: both Cortexcn agent skills and DESIGN.md.",
+      "categories": [
+        "agents"
+      ],
+      "files": [
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.claude/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/skills/cortexcn-design/SKILL.md",
+          "type": "registry:file",
+          "target": "~/.agents/skills/cortexcn-design/SKILL.md"
+        },
+        {
+          "path": "src/agents/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "7a03c4af4d3b"
+      }
+    },
+    {
+      "name": "feature-spotlight-grid-01",
+      "type": "registry:block",
+      "title": "Feature Spotlight Grid",
+      "description": "Six icon cards under a centered intro, with one soft highlight that glides to the card you point at",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "dependencies": [
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/feature-spotlight-grid-01/components/feature-spotlight-grid.tsx",
+          "type": "registry:component",
+          "target": "components/feature-spotlight-grid.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "8d557dddbbbd"
+      }
+    },
+    {
+      "name": "feature-spotlight-grid-01-example",
+      "type": "registry:example",
+      "title": "Feature Spotlight Grid Example",
+      "description": "Six icon cards under a centered intro, with one soft highlight that glides to the card you point at — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/feature-spotlight-grid-01.json"
+      ],
+      "dependencies": [
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/feature-spotlight-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "17f2afb43e47"
+      }
+    },
+    {
+      "name": "feature-studio-grid-01",
+      "type": "registry:block",
+      "title": "Feature Studio Grid",
+      "description": "Heading and one action over two compact cards and a large feature tile, for posts, case studies, or launches",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-studio-grid-01/components/feature-studio-grid.tsx",
+          "type": "registry:component",
+          "target": "components/feature-studio-grid.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "6f5d56b972cf"
+      }
+    },
+    {
+      "name": "feature-studio-grid-01-example",
+      "type": "registry:example",
+      "title": "Feature Studio Grid Example",
+      "description": "Heading and one action over two compact cards and a large feature tile, for posts, case studies, or launches — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/feature-studio-grid-01.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-studio-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "e04659267f0e"
+      }
+    },
+    {
+      "name": "feature-bento-grid-01",
+      "type": "registry:block",
+      "title": "Feature Bento Grid",
+      "description": "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-bento-grid-01/components/feature-bento-grid.tsx",
+          "type": "registry:component",
+          "target": "components/feature-bento-grid.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "3604419d69ba"
+      }
+    },
+    {
+      "name": "feature-bento-grid-01-example",
+      "type": "registry:example",
+      "title": "Feature Bento Grid Example",
+      "description": "A bento of photo tiles, logo tiles, and stat cards on a twelve-column grid, with one call to action — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/feature-bento-grid-01.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-bento-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "657c6fc484ac"
+      }
+    },
+    {
+      "name": "feature-mixed-bento-01",
+      "type": "registry:block",
+      "title": "Feature Mixed Bento",
+      "description": "A mono label over four cards on a five-column grid, each setting its title, copy, and image a different way, over soft blurred glows and a faint plus pattern",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "card"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-mixed-bento-01/components/feature-mixed-bento.tsx",
+          "type": "registry:component",
+          "target": "components/feature-mixed-bento.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "a75065bea0de"
+      }
+    },
+    {
+      "name": "feature-mixed-bento-01-example",
+      "type": "registry:example",
+      "title": "Feature Mixed Bento Example",
+      "description": "A mono label over four cards on a five-column grid, each setting its title, copy, and image a different way, over soft blurred glows and a faint plus pattern — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/feature-mixed-bento-01.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-mixed-bento-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "80949b8029ba"
+      }
+    },
+    {
+      "name": "feature-mockup-grid-01",
+      "type": "registry:block",
+      "title": "Feature Mockup Grid",
+      "description": "A centered label and heading over five cards, two on top and three below, each with a small product mockup drawn in theme colors",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/feature-mockup-grid-01/components/feature-mockup-grid.tsx",
+          "type": "registry:component",
+          "target": "components/feature-mockup-grid.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "36f4edb4b416"
+      }
+    },
+    {
+      "name": "feature-mockup-grid-01-example",
+      "type": "registry:example",
+      "title": "Feature Mockup Grid Example",
+      "description": "A centered label and heading over five cards, two on top and three below, each with a small product mockup drawn in theme colors — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/feature-mockup-grid-01.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/feature-mockup-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "ffdfad389d8a"
+      }
+    },
+    {
+      "name": "services-image-grid-01",
+      "type": "registry:block",
+      "title": "Services Image Grid",
+      "description": "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "button",
+        "card"
+      ],
+      "dependencies": [
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/services-image-grid-01/components/services-image-grid.tsx",
+          "type": "registry:component",
+          "target": "components/services-image-grid.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "11ba78f5975e"
+      }
+    },
+    {
+      "name": "services-image-grid-01-example",
+      "type": "registry:example",
+      "title": "Services Image Grid Example",
+      "description": "An intro with a heading, a short pitch, and one outline action beside five image cards that fade when you point at them — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/services-image-grid-01.json"
+      ],
+      "dependencies": [
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/services-image-grid-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "74c723e75602"
+      }
+    },
+    {
+      "name": "services-preview-list-01",
+      "type": "registry:block",
+      "title": "Services Preview List",
+      "description": "A large numbered list of services beside a panel that stays in view and wipes in the image and description of the one you point at",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "button"
+      ],
+      "dependencies": [
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/services-preview-list-01/components/services-preview-list.tsx",
+          "type": "registry:component",
+          "target": "components/services-preview-list.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "9a7b97d16c03"
+      }
+    },
+    {
+      "name": "services-preview-list-01-example",
+      "type": "registry:example",
+      "title": "Services Preview List Example",
+      "description": "A large numbered list of services beside a panel that stays in view and wipes in the image and description of the one you point at — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/services-preview-list-01.json"
+      ],
+      "dependencies": [
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/services-preview-list-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "918017c575fb"
+      }
+    },
+    {
+      "name": "hero-dashboard-01",
+      "type": "registry:block",
+      "title": "Hero Dashboard Preview",
+      "description": "A serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "separator"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react@1",
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero-dashboard-01/components/hero-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/hero-dashboard.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-dashboard-01/components/hero-dashboard-demo.tsx",
+          "type": "registry:component",
+          "target": "components/hero-dashboard-demo.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-dashboard-01/components/hero-cta.tsx",
+          "type": "registry:component",
+          "target": "components/hero-cta.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "27fff60c5fe5"
+      }
+    },
+    {
+      "name": "hero-dashboard-01-example",
+      "type": "registry:example",
+      "title": "Hero Dashboard Preview Example",
+      "description": "A serif headline, a short pitch, and one call to action over a framed product dashboard on a soft photo wash — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/hero-dashboard-01.json"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react@1",
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/hero-dashboard-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "7c33955a63e5"
+      }
+    },
+    {
+      "name": "hero-studio-01",
+      "type": "registry:block",
+      "title": "Hero Studio",
+      "description": "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "button"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero-studio-01/components/hero-studio.tsx",
+          "type": "registry:component",
+          "target": "components/hero-studio.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-studio-01/components/hero-cta.tsx",
+          "type": "registry:component",
+          "target": "components/hero-cta.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "6ff401680917"
+      }
+    },
+    {
+      "name": "hero-studio-01-example",
+      "type": "registry:example",
+      "title": "Hero Studio Example",
+      "description": "A short tagline beside a serif headline and pitch, over a wide landscape photo that fades into the page — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/hero-studio-01.json"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/hero-studio-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "43ac3514e6e4"
+      }
+    },
+    {
+      "name": "hero-cover-01",
+      "type": "registry:block",
+      "title": "Hero Cover Photo",
+      "description": "A full-bleed photo with the title, a small label, a short description, and one call to action along its bottom edge",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "button"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero-cover-01/components/hero-cover.tsx",
+          "type": "registry:component",
+          "target": "components/hero-cover.tsx"
+        },
+        {
+          "path": "registry/blocks/hero-cover-01/components/hero-cta.tsx",
+          "type": "registry:component",
+          "target": "components/hero-cta.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "912eb1a56a04"
+      }
+    },
+    {
+      "name": "hero-cover-01-example",
+      "type": "registry:example",
+      "title": "Hero Cover Photo Example",
+      "description": "A full-bleed photo with the title, a small label, a short description, and one call to action along its bottom edge — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/hero-cover-01.json"
+      ],
+      "dependencies": [
+        "class-variance-authority",
+        "motion@13"
+      ],
+      "files": [
+        {
+          "path": "registry/examples/hero-cover-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "23fb0ef7d066"
+      }
+    },
+    {
+      "name": "loader-dot-matrix-01",
+      "type": "registry:block",
+      "title": "Loader Dot Matrix",
+      "description": "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/loader-dot-matrix-01/components/loader-dot-matrix-demo.tsx",
+          "type": "registry:component",
+          "target": "components/loader-dot-matrix-demo.tsx"
+        },
+        {
+          "path": "registry/blocks/loader-dot-matrix-01/components/loader-dot-matrix.tsx",
+          "type": "registry:component",
+          "target": "components/loader-dot-matrix.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "8ec39664178b"
+      }
+    },
+    {
+      "name": "loader-dot-matrix-01-example",
+      "type": "registry:example",
+      "title": "Loader Dot Matrix Example",
+      "description": "A grid of dots that pulses in a ripple, wave, or rain pattern, shown four ways including inside a button — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/loader-dot-matrix-01.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/loader-dot-matrix-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "aa6868679bdb"
+      }
+    },
+    {
+      "name": "loader-glitch-text-01",
+      "type": "registry:block",
+      "title": "Loader Glitch Text",
+      "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/utils.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/blocks/loader-glitch-text-01/components/loader-glitch-text-demo.tsx",
+          "type": "registry:component",
+          "target": "components/loader-glitch-text-demo.tsx"
+        },
+        {
+          "path": "registry/blocks/loader-glitch-text-01/components/loader-glitch-text.tsx",
+          "type": "registry:component",
+          "target": "components/loader-glitch-text.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "d36f60404a2f"
+      }
+    },
+    {
+      "name": "loader-glitch-text-01-example",
+      "type": "registry:example",
+      "title": "Loader Glitch Text Example",
+      "description": "Loading text that scrambles and splits into color channels, at three intensities and as a heading — demo for Open in v0",
+      "registryDependencies": [
+        "https://ui.cortexcn.dev/r/loader-glitch-text-01.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/examples/loader-glitch-text-01.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ],
+      "author": "Cortexcn (https://ui.cortexcn.dev)",
+      "meta": {
+        "license": "MIT",
+        "revision": "17be8c973535"
+      }
+    }
+  ]
+}

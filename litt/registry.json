@@ -128,31 +128,31 @@
           "--litt-weight-title": "500",
           "--litt-weight-label": "600",
           "--litt-type-display-size": "1.125rem",
-          "--litt-type-display-leading": "28px",
+          "--litt-type-display-leading": "1.75rem",
           "--litt-type-display-tracking": "-0.015em",
           "--litt-type-h1-size": "1.125rem",
-          "--litt-type-h1-leading": "28px",
+          "--litt-type-h1-leading": "1.75rem",
           "--litt-type-h1-tracking": "-0.015em",
           "--litt-type-h2-size": "0.875rem",
-          "--litt-type-h2-leading": "22px",
+          "--litt-type-h2-leading": "1.375rem",
           "--litt-type-h2-tracking": "-0.006em",
           "--litt-type-h3-size": "0.875rem",
-          "--litt-type-h3-leading": "22px",
+          "--litt-type-h3-leading": "1.375rem",
           "--litt-type-h3-tracking": "-0.006em",
           "--litt-type-h4-size": "0.875rem",
-          "--litt-type-h4-leading": "22px",
+          "--litt-type-h4-leading": "1.375rem",
           "--litt-type-h4-tracking": "-0.006em",
           "--litt-type-reading-size": "0.875rem",
-          "--litt-type-reading-leading": "22px",
+          "--litt-type-reading-leading": "1.375rem",
           "--litt-type-reading-tracking": "-0.006em",
           "--litt-type-body-size": "0.875rem",
-          "--litt-type-body-leading": "22px",
+          "--litt-type-body-leading": "1.375rem",
           "--litt-type-body-tracking": "-0.006em",
           "--litt-type-small-size": "0.8125rem",
-          "--litt-type-small-leading": "20px",
+          "--litt-type-small-leading": "1.25rem",
           "--litt-type-small-tracking": "-0.004em",
           "--litt-type-caption-size": "0.75rem",
-          "--litt-type-caption-leading": "16px",
+          "--litt-type-caption-leading": "1rem",
           "--litt-type-caption-tracking": "-0.005em",
           "--litt-measure": "65ch",
           "--litt-space-1": "4px",
@@ -167,7 +167,7 @@
           "--litt-space-32": "128px",
           "--litt-space-40": "160px",
           "--litt-section-y": "64px",
-          "--litt-gutter": "16px",
+          "--litt-gutter": "max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px))",
           "--litt-grid-gap": "16px",
           "--litt-container-reading": "40rem",
           "--litt-container-content": "67.5rem",
@@ -213,14 +213,14 @@
         "@media (min-width: 40rem)": {
           ":root": {
             "--litt-section-y": "96px",
-            "--litt-gutter": "24px",
+            "--litt-gutter": "max(24px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px))",
             "--litt-grid-gap": "24px"
           }
         },
         "@media (min-width: 64rem)": {
           ":root": {
             "--litt-section-y": "128px",
-            "--litt-gutter": "32px"
+            "--litt-gutter": "max(32px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px))"
           }
         },
         ":root, [data-theme=\"light\"], .light": {
@@ -577,6 +577,15 @@
             "--litt-press-depth": "0px"
           }
         },
+        "@media (prefers-contrast: more)": {
+          ":root, :root:not([data-theme=\"light\"], .light), [data-theme], .dark, .light, :root[data-material=\"flat\"], [data-material=\"flat\"]": {
+            "--litt-fg-muted": "var(--litt-fg)",
+            "--litt-fg-subtle": "var(--litt-fg)",
+            "--litt-line": "var(--litt-line-control)",
+            "--litt-line-strong": "var(--litt-line-control)",
+            "--litt-glass-bg": "var(--litt-glass-bg-solid)"
+          }
+        },
         "@layer components": {
           ".litt-glass": {
             "position": "relative",
@@ -768,14 +777,15 @@
         "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/avatar.json",
         "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/segmented.json",
         "https://littmd.vercel.app/r/states.json",
         "https://littmd.vercel.app/r/tag.json"
       ],
       "docs": "Import Activity from components/litt-blocks/activity and render it inside your app's shell. The sample days sit at the top of the file, newest first; Show earlier is where your next page loads. See it live at https://littmd.vercel.app/#activity.",
       "meta": {
-        "version": "2026.10.25",
-        "released": "2026-10-25",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -808,8 +818,8 @@
       ],
       "docs": "Import AgentChat from components/litt-blocks/agent and give its box a height; the conversation scrolls inside it. The run is a script: to wire in your agent, keep LittTurn and the layout and replace useRun with your stream. See it live at https://littmd.vercel.app/#agent.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -832,13 +842,14 @@
         "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/button.json",
         "https://littmd.vercel.app/r/dialog.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/icons.json",
         "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import AppShell, SidebarNav and SidebarLink from components/litt/app-shell. Pass a wordmark, a nav and the page. Mark the current link with current. It needs no router: pass as={Link} to a SidebarLink to use yours.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1111,14 +1122,15 @@
         "https://littmd.vercel.app/r/breadcrumb.json",
         "https://littmd.vercel.app/r/card.json",
         "https://littmd.vercel.app/r/carousel.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/lightbox.json",
         "https://littmd.vercel.app/r/list-cover.json",
         "https://littmd.vercel.app/r/media.json"
       ],
       "docs": "Import CaseStudy from components/litt-blocks/case-study and render it as a page's content. The project, its words and its images sit at the top of the file: replace the drawn stand-ins with your images and give each its width and height. See it live at https://littmd.vercel.app/#case-study.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1143,8 +1155,8 @@
       ],
       "docs": "Import BarChart, LineChart, StackedBarChart and Meter from components/litt/chart. Pass a label, the category labels and series of { name, values }, with an optional hue per series or hues on the chart. The chart measures its container, so give it a width. Every chart ships a hidden table and a summary for screen readers.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1219,8 +1231,8 @@
       ],
       "docs": "Import CodeInput from components/litt/code-input. Give it a label and check the code in onComplete; show what was wrong in error.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1262,6 +1274,7 @@
         "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/button.json",
         "https://littmd.vercel.app/r/cart.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/price.json",
         "https://littmd.vercel.app/r/product-card.json",
         "https://littmd.vercel.app/r/segmented.json",
@@ -1270,8 +1283,8 @@
       ],
       "docs": "Import Collection from components/litt-blocks/collection and render it as a page's content. The products sit at the top of the file: replace them with yours, or with the ones the shopify item's toProduct maps from a collection. See it live at https://littmd.vercel.app/#collection.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1326,8 +1339,8 @@
       ],
       "docs": "Import Combobox from components/litt/combobox. Give it a label and options as { value, label, disabled?, group? } or groups of { label, options }, and hold the value in state with value and onValueChange: a string (\"\" for none), or an array with multiple. Add hint, error and placeholder as on a field, and name to post the value with a form.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1357,8 +1370,8 @@
       ],
       "docs": "Import CommandMenu and useCommandShortcut from components/litt/command-menu. Give it groups of items and an onSelect.",
       "meta": {
-        "version": "2026.10.25",
-        "released": "2026-10-25",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1461,6 +1474,7 @@
         "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/app-shell.json",
         "https://littmd.vercel.app/r/chart.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/pagination.json",
         "https://littmd.vercel.app/r/stat.json",
         "https://littmd.vercel.app/r/table.json",
@@ -1468,8 +1482,8 @@
       ],
       "docs": "Import Dashboard from components/litt-blocks/dashboard and render it as a whole page. The sample deploys and the sidebar links sit at the top of the file: replace them with your data and your routes. See it live at https://littmd.vercel.app/#dashboard.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1497,8 +1511,8 @@
       ],
       "docs": "Import DatePicker and Calendar from components/litt/date-picker, plus getToday, addDays and getWeekday for date math on YYYY-MM-DD strings. Values are YYYY-MM-DD strings, or { start, end } with mode=\"range\". DatePicker needs a label; hold the value in state with value and onValueChange, and pass name for a form (a range sends name-start and name-end). min, max and isDisabled rule days out; presets take { label, value }.",
       "meta": {
-        "version": "2026.11.02",
-        "released": "2026-11-02",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1520,6 +1534,7 @@
         "https://littmd.vercel.app/r/breadcrumb.json",
         "https://littmd.vercel.app/r/button.json",
         "https://littmd.vercel.app/r/code-block.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/hover-card.json",
         "https://littmd.vercel.app/r/icons.json",
         "https://littmd.vercel.app/r/log-view.json",
@@ -1532,8 +1547,8 @@
       ],
       "docs": "Import Deployment from components/litt-blocks/deployment and render it inside your app's shell. The deploy, its files and diffs and the build script sit at the top of the file; replace useBuild with your build's stream. See it live at https://littmd.vercel.app/#deployment.",
       "meta": {
-        "version": "2026.10.25",
-        "released": "2026-10-25",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1612,8 +1627,8 @@
       ],
       "docs": "Import DotPlot from components/litt/dot-plot. Pass a label, the values, a scale (log for durations) and a formatValue. Add a goal to split the dots, markers to name outliers. It measures its container, so give it a width. Each non-empty column is reachable with the arrow keys.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1705,6 +1720,25 @@
       ]
     },
     {
+      "name": "framed",
+      "type": "registry:ui",
+      "title": "Framed",
+      "description": "Whether a whole screen stands alone or sits inside a page that has its own main landmark and h1. Inside Framed, a block's Main is a div and its headings drop one level, so the page keeps one main, one h1 and an outline that never skips.",
+      "docs": "Import Framed from components/litt/framed and wrap a block's preview in it, such as a screen shown in a docs page. A block rendered as your page needs nothing.",
+      "meta": {
+        "version": "2026.11.03",
+        "released": "2026-11-03",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/framed.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/framed.tsx"
+        }
+      ]
+    },
+    {
       "name": "funnel",
       "type": "registry:ui",
       "title": "Funnel",
@@ -1766,8 +1800,8 @@
       ],
       "docs": "Installed in lib/litt/glide.tsx. Menu and Command menu use it for you.",
       "meta": {
-        "version": "2026.10.23",
-        "released": "2026-10-23",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1821,8 +1855,8 @@
       ],
       "docs": "Import Header from components/litt/header. Pass a wordmark, links with a current flag and your actions. It needs no router and no provider; pass renderLink and onNavigate to use yours.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1874,8 +1908,8 @@
       ],
       "docs": "Import HoverCard, HoverCardTrigger and HoverCardContent from components/litt/hover-card, as shadcn's hover card is written. The trigger must be a real link to the same information: never put anything only in the card.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2029,8 +2063,8 @@
       ],
       "docs": "Import Legend and legendHues from components/litt/legend. Pass a label and the items as { name, hue?, value? } in the chart's order, five at most. Control it with hidden and onHiddenChange, or start it with defaultHidden. Pass the chart only the shown series, each with hue: legendHues(items)[name], so a series keeps its color when another is hidden, and turn the chart's own legend off with legend={false}. Alt with a click or Enter shows only that series.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2059,8 +2093,8 @@
       ],
       "docs": "Import Lightbox from components/litt/lightbox and hold the open index in state: set it from each Media's onOpen and pass setIndex as onIndexChange. Give each item its width and height.",
       "meta": {
-        "version": "2026.10.25",
-        "released": "2026-10-25",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2188,8 +2222,8 @@
       ],
       "docs": "Import Menu and MenuItem from components/litt/menu. Its submenus are solid, never glass on glass.",
       "meta": {
-        "version": "2026.10.25",
-        "released": "2026-10-25",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2217,8 +2251,8 @@
       ],
       "docs": "Import Conversation, Message, MessageText and MessageActions from components/litt/message. Give the Conversation a label and a height, and mark it busy while the agent answers. Inside it put a Message with from=\"user\" for the person's turn, and a Message for the agent's, holding a MessageText (your markdown renderer's output goes inside it) and actions={<MessageActions copyText onRetry />}. Pass streaming while the text arrives, and error with onRetry for a turn that stopped.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2484,6 +2518,7 @@
         "https://littmd.vercel.app/r/breadcrumb.json",
         "https://littmd.vercel.app/r/carousel.json",
         "https://littmd.vercel.app/r/cart.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/lightbox.json",
         "https://littmd.vercel.app/r/media.json",
         "https://littmd.vercel.app/r/number-field.json",
@@ -2494,8 +2529,8 @@
       ],
       "docs": "Import ProductPage from components/litt-blocks/product and render it as a page's content. The product sits at the top of the file: replace it with yours, or with one the shopify item's toProduct maps from your store. Mount the Toaster once near your root. See it live at https://littmd.vercel.app/#product.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2564,6 +2599,7 @@
         "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/action-bar.json",
         "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/icons.json",
         "https://littmd.vercel.app/r/input.json",
         "https://littmd.vercel.app/r/list.json",
@@ -2572,8 +2608,8 @@
       ],
       "docs": "Import Projects from components/litt-blocks/projects and render it inside your app's shell. The sample projects sit at the top of the file in the list's Project shape; give each one an href to make its row a link. See it live at https://littmd.vercel.app/#projects.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2742,8 +2778,8 @@
       ],
       "docs": "Import RunList from components/litt/run-list. Pass runs ({ id, title, status, detail?, progress?, updated, href? }) in your order, selectedId and onSelect, and onStop and onArchive for the row actions. updated is words you give (\"2m ago\"): the list reads no clock.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2844,6 +2880,7 @@
         "https://littmd.vercel.app/r/litt.json",
         "https://littmd.vercel.app/r/button.json",
         "https://littmd.vercel.app/r/form.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/input.json",
         "https://littmd.vercel.app/r/segmented.json",
         "https://littmd.vercel.app/r/select.json",
@@ -2854,8 +2891,8 @@
       ],
       "docs": "Import Settings from components/litt-blocks/settings and render it inside your app's shell, with the Toaster mounted once near your root. The saved values sit at the top of the file, and useSave stands in for your request. See it live at https://littmd.vercel.app/#settings.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2924,12 +2961,13 @@
         "https://littmd.vercel.app/r/button.json",
         "https://littmd.vercel.app/r/callout.json",
         "https://littmd.vercel.app/r/form.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/input.json"
       ],
       "docs": "Import SignIn from components/litt-blocks/sign-in and render it as a whole page. signIn at the top of the file stands in for your auth call; return your server's message the same way, and point the links at your routes. See it live at https://littmd.vercel.app/#sign-in.",
       "meta": {
-        "version": "2026.10.25",
-        "released": "2026-10-25",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2950,13 +2988,15 @@
       ],
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
         "https://littmd.vercel.app/r/icons.json",
+        "https://littmd.vercel.app/r/input.json",
         "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import SlideConfirm from components/litt/slide-confirm. Give it a label that says what happens (\"Slide to delete Atelier Nord\"), a confirmedLabel and onConfirm, which runs once. Remount it with a new key to ask again. Use it for what cannot be undone, on touch screens; anything that can be undone should just happen, with Undo in a toast.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3131,8 +3171,8 @@
       ],
       "docs": "Import Empty, Skeleton, Loading and ErrorState from components/litt/states. Wrap Skeleton blocks in Loading, so a screen reader hears what is loading once.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3233,8 +3273,8 @@
       ],
       "docs": "Import TableFilter from components/litt/table-filter and pass it as a TableHead's filter. Hold the values on in state ([] is no filter) and filter your rows with them; count each value against the other filters. To keep them in the page address, so the view can be shared or reloaded, hold them with useUrlFilter (and a search or sort with useUrlParam) instead of useState.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3260,8 +3300,8 @@
       ],
       "docs": "Import Tabs, TabsList, TabsTrigger, TabsPanels and TabsPanel from components/litt/tabs.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3282,8 +3322,8 @@
       ],
       "docs": "Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3305,6 +3345,7 @@
         "https://littmd.vercel.app/r/button.json",
         "https://littmd.vercel.app/r/chart.json",
         "https://littmd.vercel.app/r/dialog.json",
+        "https://littmd.vercel.app/r/framed.json",
         "https://littmd.vercel.app/r/icons.json",
         "https://littmd.vercel.app/r/menu.json",
         "https://littmd.vercel.app/r/segmented.json",
@@ -3316,8 +3357,8 @@
       ],
       "docs": "Import Team from components/litt-blocks/team and render it inside your app's shell, with the Toaster mounted once near your root. The members and the seat count sit at the top of the file; setRole, remove and invite are where your requests go. See it live at https://littmd.vercel.app/#team.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3343,8 +3384,8 @@
       ],
       "docs": "Import Thinking from components/litt/thinking. Pass active while the agent thinks and the reasoning as children: the clock counts from when active turned true. For a thought loaded from history leave active off and pass duration in seconds. open, defaultOpen and onOpenChange control it, and label replaces the words.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3369,8 +3410,8 @@
       ],
       "docs": "Import TimeScrubber from components/litt/time-scrubber. Give it a label, max (and min), the run's events as marks ({ at, label, tone }) and a formatValue for the units (\"+12s\", \"09:30\"). Hold the value in state and show what it replays beside it, such as a LogView with the lines up to the needle. A setting that stays is a Slider.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3423,8 +3464,8 @@
       ],
       "docs": "Import Toaster, toast and useToast from components/litt/toast. Mount Toaster once, then call toast() anywhere.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3450,8 +3491,8 @@
       ],
       "docs": "Import TokenInput from components/litt/token-input. Give it a label and hold the values in state with value and onValueChange, or pass a defaultValue. Add validate to reject a value with a message, max to cap the list, collapseAfter to fold it, and name to post every value with a form.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3639,8 +3680,8 @@
       ],
       "docs": "Import VerifyDemo from components/litt/examples/code-input-demo, or read it for how @litt/code-input is used. Import CodeInput from components/litt/code-input. Give it a label and check the code in onComplete; show what was wrong in error.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/code-input"
       },
@@ -3665,8 +3706,8 @@
       ],
       "docs": "Import NewProjectDemo from components/litt/examples/combobox-demo, or read it for how @litt/combobox is used. Import Combobox from components/litt/combobox. Give it a label and options as { value, label, disabled?, group? } or groups of { label, options }, and hold the value in state with value and onValueChange: a string (\"\" for none), or an array with multiple. Add hint, error and placeholder as on a field, and name to post the value with a form.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/combobox"
       },
@@ -3690,8 +3731,8 @@
       ],
       "docs": "Import LaunchDateDemo from components/litt/examples/date-picker-demo, or read it for how @litt/date-picker is used. Import DatePicker and Calendar from components/litt/date-picker, plus getToday, addDays and getWeekday for date math on YYYY-MM-DD strings. Values are YYYY-MM-DD strings, or { start, end } with mode=\"range\". DatePicker needs a label; hold the value in state with value and onValueChange, and pass name for a form (a range sends name-start and name-end). min, max and isDisabled rule days out; presets take { label, value }.",
       "meta": {
-        "version": "2026.11.02",
-        "released": "2026-11-02",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/date-picker"
       },
@@ -3811,8 +3852,8 @@
       ],
       "docs": "Import SendersDemo from components/litt/examples/token-input-demo, or read it for how @litt/token-input is used. Import TokenInput from components/litt/token-input. Give it a label and hold the values in state with value and onValueChange, or pass a defaultValue. Add validate to reject a value with a message, max to cap the list, collapseAfter to fold it, and name to post every value with a form.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/token-input"
       },
@@ -3933,8 +3974,8 @@
       ],
       "docs": "Import DeleteProjectDemo from components/litt/examples/slide-confirm-demo, or read it for how @litt/slide-confirm is used. Import SlideConfirm from components/litt/slide-confirm. Give it a label that says what happens (\"Slide to delete Atelier Nord\"), a confirmedLabel and onConfirm, which runs once. Remount it with a new key to ask again. Use it for what cannot be undone, on touch screens; anything that can be undone should just happen, with Undo in a toast.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slide-confirm"
       },
@@ -4036,8 +4077,8 @@
       ],
       "docs": "Import ReplayDemo from components/litt/examples/time-scrubber-demo, or read it for how @litt/time-scrubber is used. Import TimeScrubber from components/litt/time-scrubber. Give it a label, max (and min), the run's events as marks ({ at, label, tone }) and a formatValue for the units (\"+12s\", \"09:30\"). Hold the value in state and show what it replays beside it, such as a LogView with the lines up to the needle. A setting that stays is a Slider.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/time-scrubber"
       },
@@ -4198,8 +4239,8 @@
       ],
       "docs": "Import ProjectTabs from components/litt/examples/tabs-demo, or read it for how @litt/tabs is used. Import Tabs, TabsList, TabsTrigger, TabsPanels and TabsPanel from components/litt/tabs.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tabs"
       },
@@ -4222,8 +4263,8 @@
       ],
       "docs": "Import LabelsDemo from components/litt/examples/tag-demo, or read it for how @litt/tag is used. Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tag"
       },
@@ -4321,8 +4362,8 @@
       ],
       "docs": "Import PersonDemo from components/litt/examples/hover-card-demo, or read it for how @litt/hover-card is used. Import HoverCard, HoverCardTrigger and HoverCardContent from components/litt/hover-card, as shadcn's hover card is written. The trigger must be a real link to the same information: never put anything only in the card.",
       "meta": {
-        "version": "2026.10.22",
-        "released": "2026-10-22",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/hover-card"
       },
@@ -4403,8 +4444,8 @@
       ],
       "docs": "Import ProjectMenu from components/litt/examples/menu-demo, or read it for how @litt/menu is used. Import Menu and MenuItem from components/litt/menu. Its submenus are solid, never glass on glass.",
       "meta": {
-        "version": "2026.10.25",
-        "released": "2026-10-25",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/menu"
       },
@@ -4430,8 +4471,8 @@
       ],
       "docs": "Import OpenDemo from components/litt/examples/command-menu-demo, or read it for how @litt/command-menu is used. Import CommandMenu and useCommandShortcut from components/litt/command-menu. Give it groups of items and an onSelect.",
       "meta": {
-        "version": "2026.10.25",
-        "released": "2026-10-25",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/command-menu"
       },
@@ -4480,8 +4521,8 @@
       ],
       "docs": "Import SavedDemo from components/litt/examples/toast-demo, or read it for how @litt/toast is used. Import Toaster, toast and useToast from components/litt/toast. Mount Toaster once, then call toast() anywhere.",
       "meta": {
-        "version": "2026.10.24",
-        "released": "2026-10-24",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/toast"
       },
@@ -4530,8 +4571,8 @@
       ],
       "docs": "Import DesktopDemo from components/litt/examples/header-demo, or read it for how @litt/header is used. Import Header from components/litt/header. Pass a wordmark, links with a current flag and your actions. It needs no router and no provider; pass renderLink and onNavigate to use yours.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/header"
       },
@@ -4923,8 +4964,8 @@
       ],
       "docs": "Import ReplySpeedDemo from components/litt/examples/dot-plot-demo, or read it for how @litt/dot-plot is used. Import DotPlot from components/litt/dot-plot. Pass a label, the values, a scale (log for durations) and a formatValue. Add a goal to split the dots, markers to name outliers. It measures its container, so give it a width. Each non-empty column is reachable with the arrow keys.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/dot-plot"
       },
@@ -5016,8 +5057,8 @@
       ],
       "docs": "Import ChartDemo from components/litt/examples/legend-demo, or read it for how @litt/legend is used. Import Legend and legendHues from components/litt/legend. Pass a label and the items as { name, hue?, value? } in the chart's order, five at most. Control it with hidden and onHiddenChange, or start it with defaultHidden. Pass the chart only the shown series, each with hue: legendHues(items)[name], so a series keeps its color when another is hidden, and turn the chart's own legend off with legend={false}. Alt with a click or Enter shows only that series.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/legend"
       },
@@ -5159,8 +5200,8 @@
       ],
       "docs": "Import ShellDemo from components/litt/examples/app-shell-demo, or read it for how @litt/app-shell is used. Import AppShell, SidebarNav and SidebarLink from components/litt/app-shell. Pass a wordmark, a nav and the page. Mark the current link with current. It needs no router: pass as={Link} to a SidebarLink to use yours.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/app-shell"
       },
@@ -5182,8 +5223,8 @@
       ],
       "docs": "Import DeploysDemo from components/litt/examples/chart-demo, or read it for how @litt/chart is used. Import BarChart, LineChart, StackedBarChart and Meter from components/litt/chart. Pass a label, the category labels and series of { name, values }, with an optional hue per series or hues on the chart. The chart measures its container, so give it a width. Every chart ships a hidden table and a summary for screen readers.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/chart"
       },
@@ -5310,8 +5351,8 @@
       ],
       "docs": "Import EmptyDemo from components/litt/examples/states-demo, or read it for how @litt/states is used. Import Empty, Skeleton, Loading and ErrorState from components/litt/states. Wrap Skeleton blocks in Loading, so a screen reader hears what is loading once.",
       "meta": {
-        "version": "2026.10.19",
-        "released": "2026-10-19",
+        "version": "2026.11.03",
+        "released": "2026-11-03",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/states"
       },
@@ -5410,8 +5451,8 @@
       ],
       "docs": "Import ThreadDemo from components/litt/examples/message-demo, or read it for how @litt/message is used. Import Conversation, Message, MessageText and MessageActions from components/litt/message. Give the Conversation a label and a height, and mark it busy while the agent answers. Inside it put a Message with from=\"user\" for the person's turn, and a Message for the agent's, holding a MessageText (your markdown renderer's output goes inside it) and actions={<MessageActions copyText onRetry />}. Pass streaming while the text arrives, and error with onRetry for a turn that stopped.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/message"
       },
@@ -5483,8 +5524,8 @@
       ],
       "docs": "Import SidebarDemo from components/litt/examples/run-list-demo, or read it for how @litt/run-list is used. Import RunList from components/litt/run-list. Pass runs ({ id, title, status, detail?, progress?, updated, href? }) in your order, selectedId and onSelect, and onStop and onArchive for the row actions. updated is words you give (\"2m ago\"): the list reads no clock.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/run-list"
       },
@@ -5507,8 +5548,8 @@
       ],
       "docs": "Import LiveDemo from components/litt/examples/thinking-demo, or read it for how @litt/thinking is used. Import Thinking from components/litt/thinking. Pass active while the agent thinks and the reasoning as children: the clock counts from when active turned true. For a thought loaded from history leave active off and pass duration in seconds. open, defaultOpen and onOpenChange control it, and label replaces the words.",
       "meta": {
-        "version": "2026.10.26",
-        "released": "2026-10-26",
+        "version": "2026.11.02",
+        "released": "2026-11-02",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/thinking"
       },

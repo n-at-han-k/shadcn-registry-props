@@ -119,6 +119,30 @@
       ]
     },
     {
+      "name": "comment-thread",
+      "type": "registry:ui",
+      "title": "Comment Thread",
+      "description": "Threaded review comments with replies, @mentions, edit and delete, reactions and resolve.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "avatar",
+        "button",
+        "@drift-ui/mention-textarea",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/comment-thread.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/comment-thread.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "date-time-range",
       "type": "registry:ui",
       "title": "Date-Time Range",
@@ -251,11 +275,12 @@
       "name": "filter-builder",
       "type": "registry:ui",
       "title": "Filter Builder",
-      "description": "Field, operator and value filter chips with a matchesFilter helper for your rows.",
-      "dependencies": ["radix-ui", "lucide-react"],
+      "description": "Field, operator and value filter chips with AND/OR groups, date ranges, multi-select, and URL serialization.",
+      "dependencies": ["radix-ui", "lucide-react", "react-day-picker"],
       "registryDependencies": [
         "utils",
         "button",
+        "calendar",
         "input",
         "popover",
         "@drift-ui/use-controllable-state"
@@ -457,6 +482,29 @@
       ]
     },
     {
+      "name": "permission-matrix",
+      "type": "registry:ui",
+      "title": "Permission Matrix",
+      "description": "Role and access management grid of roles against permissions, with tri-state group toggles, sticky headers, and inherited permissions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "badge",
+        "input",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/permission-matrix.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/permission-matrix.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "phone-input",
       "type": "registry:ui",
       "title": "Phone Input",
@@ -550,6 +598,28 @@
         },
         {
           "path": "registry/default/lib/saved-views.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "secret-field",
+      "type": "registry:ui",
+      "title": "Secret Field",
+      "description": "A read-only masked value, such as an API key, with reveal and copy buttons.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "@drift-ui/use-controllable-state",
+        "@drift-ui/use-copy-to-clipboard"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/secret-field.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/secret-field.ts",
           "type": "registry:lib"
         }
       ]
@@ -756,6 +826,28 @@
       ]
     },
     {
+      "name": "timezone-picker",
+      "type": "registry:ui",
+      "title": "Timezone Picker",
+      "description": "Searchable IANA time zone select showing each zone's UTC offset and current local time.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "popover",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/timezone-picker.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/timezone-picker.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "tour",
       "type": "registry:ui",
       "title": "Tour",
@@ -819,6 +911,29 @@
         },
         {
           "path": "registry/default/lib/virtual-list.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "uptime-bar",
+      "type": "registry:ui",
+      "title": "Uptime Bar",
+      "description": "Daily service health segments with uptime percentage, accessible labels and popover details.",
+      "dependencies": [],
+      "registryDependencies": [
+        "badge",
+        "popover",
+        "utils",
+        "@drift-ui/use-controllable-state"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/uptime-bar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/uptime-bar.ts",
           "type": "registry:lib"
         }
       ]

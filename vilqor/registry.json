@@ -1,0 +1,598 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "vilqor",
+  "homepage": "https://midnight-lite.vilqor.com",
+  "items": [
+    {
+      "name": "midnight-theme",
+      "type": "registry:theme",
+      "title": "Midnight theme",
+      "description": "The Midnight theme: night-blue surfaces, ink text, a champagne accent, font variables for Fraunces and Geist, and the type, surface and glint styles the blocks use. Dark only.",
+      "author": "Vilqor <https://vilqor.com>",
+      "categories": [
+        "theme"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-paper": "var(--paper)",
+          "color-surface": "var(--surface)",
+          "color-surface-2": "var(--surface-2)",
+          "color-line": "var(--line)",
+          "color-line-strong": "var(--line-strong)",
+          "color-ink": "var(--ink)",
+          "color-ink-2": "var(--ink-2)",
+          "color-ink-3": "var(--ink-3)",
+          "color-positive": "var(--positive)",
+          "color-brand": "var(--brand)",
+          "color-brand-ink": "var(--brand-ink)",
+          "color-brand-on-ink": "var(--brand-on-ink)",
+          "color-brand-soft": "var(--brand-soft)",
+          "color-brand-glint": "var(--brand-glint)",
+          "color-night-ink": "var(--night-ink)",
+          "font-sans": "var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif",
+          "font-serif": "var(--font-fraunces), ui-serif, Georgia, serif",
+          "font-heading": "var(--font-fraunces), ui-serif, Georgia, serif",
+          "font-mono": "var(--font-geist-mono), ui-monospace, monospace",
+          "ease-out-soft": "cubic-bezier(0.2, 0.7, 0.2, 1)"
+        },
+        "light": {
+          "paper": "#0b1020",
+          "surface": "#111731",
+          "surface-2": "#182039",
+          "line": "#242c4b",
+          "line-strong": "#343d63",
+          "ink": "#ece9e1",
+          "ink-2": "#a9afc4",
+          "ink-3": "#8f96ad",
+          "positive": "#7cc49b",
+          "brand": "#d9b77e",
+          "brand-ink": "#e3c592",
+          "night-ink": "#ece9e1",
+          "background": "#0b1020",
+          "foreground": "#ece9e1",
+          "card": "#111731",
+          "card-foreground": "#ece9e1",
+          "popover": "#111731",
+          "popover-foreground": "#ece9e1",
+          "primary": "#d9b77e",
+          "primary-foreground": "#0b1020",
+          "secondary": "#182039",
+          "secondary-foreground": "#ece9e1",
+          "muted": "#182039",
+          "muted-foreground": "#a9afc4",
+          "accent": "#182039",
+          "accent-foreground": "#ece9e1",
+          "border": "#242c4b",
+          "input": "#343d63",
+          "ring": "#d9b77e",
+          "radius": "0.75rem"
+        },
+        "dark": {
+          "paper": "#0b1020",
+          "surface": "#111731",
+          "surface-2": "#182039",
+          "line": "#242c4b",
+          "line-strong": "#343d63",
+          "ink": "#ece9e1",
+          "ink-2": "#a9afc4",
+          "ink-3": "#8f96ad",
+          "positive": "#7cc49b",
+          "brand": "#d9b77e",
+          "brand-ink": "#e3c592",
+          "night-ink": "#ece9e1",
+          "background": "#0b1020",
+          "foreground": "#ece9e1",
+          "card": "#111731",
+          "card-foreground": "#ece9e1",
+          "popover": "#111731",
+          "popover-foreground": "#ece9e1",
+          "primary": "#d9b77e",
+          "primary-foreground": "#0b1020",
+          "secondary": "#182039",
+          "secondary-foreground": "#ece9e1",
+          "muted": "#182039",
+          "muted-foreground": "#a9afc4",
+          "accent": "#182039",
+          "accent-foreground": "#ece9e1",
+          "border": "#242c4b",
+          "input": "#343d63",
+          "ring": "#d9b77e",
+          "radius": "0.75rem"
+        }
+      },
+      "css": {
+        "@layer base": {
+          ":root, .dark": {
+            "--brand-on-ink": "var(--brand)",
+            "--brand-soft": "color-mix(in oklab, var(--brand) 16%, var(--surface))",
+            "--brand-glint": "color-mix(in oklab, var(--brand) 35%, white)",
+            "--tile-bg": "linear-gradient(180deg, color-mix(in oklab, var(--surface) 80%, var(--paper)), color-mix(in oklab, var(--surface) 62%, var(--paper)))",
+            "--card-edge": "inset 0 1px 0 0 rgb(255 255 255 / 0.09), inset 0 0 0 1px rgb(255 255 255 / 0.045)",
+            "--card-shadow": "0 1px 1px rgb(0 0 0 / 0.25), 0 14px 28px -18px rgb(0 0 0 / 0.55)"
+          },
+          "html": {
+            "scroll-behavior": "smooth",
+            "scroll-padding-top": "88px",
+            "-webkit-tap-highlight-color": "transparent"
+          },
+          "body": {
+            "-webkit-font-smoothing": "antialiased",
+            "-moz-osx-font-smoothing": "grayscale",
+            "font-feature-settings": "\"ss01\", \"cv11\""
+          },
+          "::selection": {
+            "background": "var(--brand-soft)",
+            "color": "var(--ink)"
+          },
+          "button:not(:disabled), [role=\"button\"]:not(:disabled)": {
+            "cursor": "pointer"
+          }
+        },
+        "@utility container-x": {
+          "margin-inline": "auto",
+          "width": "100%",
+          "max-width": "1200px",
+          "padding-inline": "24px"
+        },
+        "@utility display": {
+          "font-family": "var(--font-serif)",
+          "font-weight": "340",
+          "font-variation-settings": "\"SOFT\" 60, \"opsz\" 144",
+          "font-size": "clamp(52px, 7.2vw, 104px)",
+          "line-height": "0.98",
+          "letter-spacing": "-0.03em",
+          "text-wrap": "balance"
+        },
+        "@utility h2": {
+          "font-family": "var(--font-serif)",
+          "font-weight": "350",
+          "font-variation-settings": "\"SOFT\" 50",
+          "font-size": "clamp(38px, 4.6vw, 64px)",
+          "line-height": "1.02",
+          "letter-spacing": "-0.02em",
+          "text-wrap": "balance"
+        },
+        "@utility lead": {
+          "font-size": "17px",
+          "line-height": "28px",
+          "color": "var(--ink-2)",
+          "text-wrap": "pretty"
+        },
+        "@utility eyebrow-star": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "gap": "0.5rem",
+          "font-family": "var(--font-mono)",
+          "font-size": "12px",
+          "line-height": "16px",
+          "letter-spacing": "0.16em",
+          "color": "var(--brand-ink)",
+          "text-transform": "uppercase"
+        },
+        "@utility num": {
+          "font-family": "var(--font-mono)",
+          "font-variant-numeric": "tabular-nums"
+        },
+        "@utility tile": {
+          "border-radius": "32px",
+          "background": "var(--tile-bg)",
+          "box-shadow": "var(--card-edge), var(--card-shadow)"
+        },
+        "@utility glass": {
+          "position": "relative",
+          "background": "color-mix(in oklab, var(--surface) 72%, transparent)",
+          "-webkit-backdrop-filter": "blur(24px) saturate(1.5)",
+          "backdrop-filter": "blur(24px) saturate(1.5)",
+          "box-shadow": "inset 0 1px 0 0 rgb(255 255 255 / 0.05), 0 2px 6px -2px rgb(0 0 0 / 0.45), 0 16px 36px -14px rgb(0 0 0 / 0.75)",
+          "&::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "0",
+            "border-radius": "inherit",
+            "padding": "1px",
+            "pointer-events": "none",
+            "background": "linear-gradient(180deg, rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.04) 55%, color-mix(in oklab, var(--brand) 22%, transparent))",
+            "-webkit-mask": "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+            "-webkit-mask-composite": "xor",
+            "mask": "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+            "mask-composite": "exclude"
+          }
+        },
+        "@utility glint": {
+          "background": "linear-gradient(100deg, var(--brand) 0 38%, var(--brand-glint) 50%, var(--brand) 62% 100%)",
+          "background-size": "250% 100%",
+          "background-position": "100% 0",
+          "-webkit-background-clip": "text",
+          "background-clip": "text",
+          "color": "transparent",
+          "padding-right": "0.1em",
+          "margin-right": "-0.1em",
+          "-webkit-box-decoration-break": "clone",
+          "box-decoration-break": "clone"
+        },
+        "@utility shine": {
+          "position": "relative",
+          "overflow": "hidden",
+          "isolation": "isolate",
+          "&::after": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "0",
+            "z-index": "-1",
+            "pointer-events": "none",
+            "background": "linear-gradient(110deg, transparent 35%, rgb(255 255 255 / 0.45) 50%, transparent 65%)",
+            "transform": "translateX(-120%)"
+          }
+        },
+        "@utility nav-lit": {
+          "background": "radial-gradient(70% 110% at 50% 125%, color-mix(in oklab, var(--brand) 30%, transparent), transparent 72%), rgb(255 255 255 / 0.05)",
+          "box-shadow": "inset 0 1px 0 0 rgb(255 255 255 / 0.1)"
+        },
+        "@utility glow-center": {
+          "pointer-events": "none",
+          "background": "radial-gradient(circle closest-side at 50% 50%, color-mix(in oklab, var(--brand) 6.5%, transparent) 0%, color-mix(in oklab, var(--brand) 5%, transparent) 22%, color-mix(in oklab, var(--brand) 3.2%, transparent) 42%, color-mix(in oklab, var(--brand) 1.6%, transparent) 62%, color-mix(in oklab, var(--brand) 0.5%, transparent) 82%, transparent 100%)"
+        },
+        "@utility meteor": {
+          "position": "absolute",
+          "width": "2px",
+          "height": "2px",
+          "border-radius": "9999px",
+          "background": "var(--brand-glint)",
+          "box-shadow": "0 0 6px 1px color-mix(in oklab, var(--brand) 60%, transparent)",
+          "rotate": "215deg",
+          "opacity": "0",
+          "pointer-events": "none",
+          "&::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "top": "50%",
+            "left": "1px",
+            "width": "150px",
+            "height": "1px",
+            "translate": "0 -50%",
+            "background": "linear-gradient(90deg, var(--brand-glint), transparent)"
+          }
+        },
+        "@utility glint-run": {
+          "stroke-dasharray": "2.5 97.5",
+          "stroke-dashoffset": "0",
+          "opacity": "0",
+          "filter": "drop-shadow(0 0 2px var(--brand))"
+        },
+        "@media (width >= 48rem)": {
+          ".container-x": {
+            "padding-inline": "40px"
+          },
+          ".lead": {
+            "font-size": "19px",
+            "line-height": "30px"
+          }
+        },
+        "@media (max-width: 380px)": {
+          ".container-x": {
+            "padding-inline": "20px"
+          }
+        },
+        "@media (prefers-reduced-motion: no-preference)": {
+          ".ornament-in": {
+            "animation": "ornament-in 0.9s ease-out both"
+          },
+          ".glint": {
+            "animation": "glint 7s ease-in-out infinite 1s"
+          },
+          ".shine::after": {
+            "animation": "shine 5.5s ease-in-out infinite 1.5s"
+          },
+          ".twinkle": {
+            "animation": "twinkle 4.5s ease-in-out infinite"
+          },
+          ".glint-run": {
+            "animation": "glint-run 14s linear infinite"
+          },
+          ".glint-run-slow": {
+            "animation-duration": "30s"
+          },
+          ".meteor": {
+            "animation": "meteor 13s linear infinite"
+          }
+        },
+        "@media (width < 48rem)": {
+          ".twinkle, .glint-run, .meteor": {
+            "animation": "none !important"
+          }
+        },
+        "@keyframes ornament-in": {
+          "from": {
+            "opacity": "0"
+          }
+        },
+        "@keyframes glint": {
+          "0%": {
+            "background-position": "100% 0"
+          },
+          "40%, 100%": {
+            "background-position": "0% 0"
+          }
+        },
+        "@keyframes shine": {
+          "0%": {
+            "transform": "translateX(-120%)"
+          },
+          "35%, 100%": {
+            "transform": "translateX(120%)"
+          }
+        },
+        "@keyframes twinkle": {
+          "0%, 100%": {
+            "opacity": "1"
+          },
+          "50%": {
+            "opacity": "0.2"
+          }
+        },
+        "@keyframes meteor": {
+          "0%": {
+            "opacity": "0",
+            "transform": "translateX(0)"
+          },
+          "1%": {
+            "opacity": "1"
+          },
+          "11%": {
+            "opacity": "0",
+            "transform": "translateX(-680px)"
+          },
+          "100%": {
+            "opacity": "0",
+            "transform": "translateX(-680px)"
+          }
+        },
+        "@keyframes glint-run": {
+          "0%": {
+            "stroke-dashoffset": "0",
+            "opacity": "0"
+          },
+          "6%, 90%": {
+            "opacity": "1"
+          },
+          "100%": {
+            "stroke-dashoffset": "-100",
+            "opacity": "0"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          "html": {
+            "scroll-behavior": "auto"
+          }
+        }
+      },
+      "docs": "Midnight is dark only: the palette is set for both :root and .dark. Load Fraunces (normal and italic, axes SOFT and opsz), Geist and Geist Mono with next/font/google, with the variables --font-fraunces, --font-geist-sans and --font-geist-mono, and put the three variable classes on <html>. To change the accent, set --brand, --brand-ink, --primary and --ring."
+    },
+    {
+      "name": "midnight-night-sky",
+      "type": "registry:component",
+      "title": "Night sky",
+      "description": "A seeded star field with twinkling stars and rare shooting stars, drawn in the browser after load; the motion stops for people who ask for reduced motion.",
+      "author": "Vilqor <https://vilqor.com>",
+      "categories": [
+        "background"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://midnight-lite.vilqor.com/r/midnight-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/site/night-sky.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/night-sky.tsx"
+        },
+        {
+          "path": "src/lib/seeded.ts",
+          "type": "registry:lib",
+          "target": "@lib/seeded.ts"
+        },
+        {
+          "path": "src/hooks/use-mounted.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-mounted.ts"
+        }
+      ]
+    },
+    {
+      "name": "midnight-guilloche",
+      "type": "registry:component",
+      "title": "Guilloche rosette",
+      "description": "An engraved guilloche rosette drawn as fine SVG lines, with sparks of light running along them, for a quiet background ornament.",
+      "author": "Vilqor <https://vilqor.com>",
+      "categories": [
+        "background"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://midnight-lite.vilqor.com/r/midnight-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/site/guilloche.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/guilloche.tsx"
+        },
+        {
+          "path": "src/components/site/guilloche-paths.ts",
+          "type": "registry:component",
+          "target": "@components/midnight/guilloche-paths.ts"
+        },
+        {
+          "path": "src/hooks/use-mounted.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-mounted.ts"
+        }
+      ]
+    },
+    {
+      "name": "midnight-header",
+      "type": "registry:block",
+      "title": "Midnight header",
+      "description": "A header that is open at the top of the page and turns into a glass bar on scroll, with a wordmark, section links that follow the section you read, and one button.",
+      "author": "Vilqor <https://vilqor.com>",
+      "categories": [
+        "header"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils",
+        "https://midnight-lite.vilqor.com/r/midnight-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/site/header.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/header.tsx"
+        },
+        {
+          "path": "src/components/site/logo.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/logo.tsx"
+        },
+        {
+          "path": "src/lib/fill.ts",
+          "type": "registry:lib",
+          "target": "@lib/fill.ts"
+        }
+      ],
+      "docs": "The block takes its words as props; the types sit at the top of the file. Name the theme in the same command, for example: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json https://midnight-lite.vilqor.com/r/midnight-header.json. A theme that only comes in as a dependency adds its colours but keeps your existing --background, --primary and fonts. If the page is not night-blue, run: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json. Works with the Radix and the Base UI styles of shadcn/ui; React Aria (aria-nova) is not supported yet.\nThe full Midnight template, with seven more sections, forms and analytics: https://templates.vilqor.com/midnight?ref=shadcn"
+    },
+    {
+      "name": "midnight-hero",
+      "type": "registry:block",
+      "title": "Midnight hero",
+      "description": "A dark hero with a serif display title and a gold accent line, a lead and two buttons over a star field and a guilloche rosette, set from the left on phones.",
+      "author": "Vilqor <https://vilqor.com>",
+      "categories": [
+        "hero"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils",
+        "https://midnight-lite.vilqor.com/r/midnight-theme.json",
+        "https://midnight-lite.vilqor.com/r/midnight-night-sky.json",
+        "https://midnight-lite.vilqor.com/r/midnight-guilloche.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/site/hero.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/hero.tsx"
+        },
+        {
+          "path": "src/components/site/section-head.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/section-head.tsx"
+        }
+      ],
+      "docs": "The block takes its words as props; the types sit at the top of the file. Name the theme in the same command, for example: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json https://midnight-lite.vilqor.com/r/midnight-hero.json. A theme that only comes in as a dependency adds its colours but keeps your existing --background, --primary and fonts. If the page is not night-blue, run: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json. Works with the Radix and the Base UI styles of shadcn/ui; React Aria (aria-nova) is not supported yet.\nThe full Midnight template, with seven more sections, forms and analytics: https://templates.vilqor.com/midnight?ref=shadcn"
+    },
+    {
+      "name": "midnight-features",
+      "type": "registry:block",
+      "title": "Midnight product tiles",
+      "description": "A product section built from interface fragments instead of icons: a research list, a sentence with numbered sources in tooltips, and three facts shown as a schedule, a switch and language codes.",
+      "author": "Vilqor <https://vilqor.com>",
+      "categories": [
+        "features"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "tooltip",
+        "utils",
+        "https://midnight-lite.vilqor.com/r/midnight-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/site/features.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/features.tsx"
+        },
+        {
+          "path": "src/components/site/section-head.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/section-head.tsx"
+        },
+        {
+          "path": "src/components/site/cite.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/cite.tsx"
+        },
+        {
+          "path": "src/lib/fill.ts",
+          "type": "registry:lib",
+          "target": "@lib/fill.ts"
+        }
+      ],
+      "docs": "The block takes its words as props; the types sit at the top of the file. Name the theme in the same command, for example: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json https://midnight-lite.vilqor.com/r/midnight-features.json. A theme that only comes in as a dependency adds its colours but keeps your existing --background, --primary and fonts. If the page is not night-blue, run: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json. Works with the Radix and the Base UI styles of shadcn/ui; React Aria (aria-nova) is not supported yet. No TooltipProvider needed: each source badge brings its own.\nThe full Midnight template, with seven more sections, forms and analytics: https://templates.vilqor.com/midnight?ref=shadcn"
+    },
+    {
+      "name": "midnight-cta",
+      "type": "registry:block",
+      "title": "Midnight call to action",
+      "description": "A closing call to action with a large serif title, an accent word and one button under a field of stars.",
+      "author": "Vilqor <https://vilqor.com>",
+      "categories": [
+        "cta"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "utils",
+        "https://midnight-lite.vilqor.com/r/midnight-theme.json",
+        "https://midnight-lite.vilqor.com/r/midnight-night-sky.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/site/final-cta.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/final-cta.tsx"
+        }
+      ],
+      "docs": "The block takes its words as props; the types sit at the top of the file. Name the theme in the same command, for example: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json https://midnight-lite.vilqor.com/r/midnight-cta.json. A theme that only comes in as a dependency adds its colours but keeps your existing --background, --primary and fonts. If the page is not night-blue, run: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json. Works with the Radix and the Base UI styles of shadcn/ui; React Aria (aria-nova) is not supported yet.\nThe full Midnight template, with seven more sections, forms and analytics: https://templates.vilqor.com/midnight?ref=shadcn"
+    },
+    {
+      "name": "midnight-footer",
+      "type": "registry:block",
+      "title": "Midnight footer",
+      "description": "A footer with a short description, link columns that fold on phones, and the product name set large and fading out.",
+      "author": "Vilqor <https://vilqor.com>",
+      "categories": [
+        "footer"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "https://midnight-lite.vilqor.com/r/midnight-theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/site/footer.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/footer.tsx"
+        },
+        {
+          "path": "src/components/site/logo.tsx",
+          "type": "registry:component",
+          "target": "@components/midnight/logo.tsx"
+        }
+      ],
+      "docs": "The block takes its words as props; the types sit at the top of the file. Name the theme in the same command, for example: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json https://midnight-lite.vilqor.com/r/midnight-footer.json. A theme that only comes in as a dependency adds its colours but keeps your existing --background, --primary and fonts. If the page is not night-blue, run: npx shadcn@latest add https://midnight-lite.vilqor.com/r/midnight-theme.json. Pass year as a number, such as 2026: new Date() breaks next build when cacheComponents is on. Works with the Radix and the Base UI styles of shadcn/ui; React Aria (aria-nova) is not supported yet.\nThe full Midnight template, with seven more sections, forms and analytics: https://templates.vilqor.com/midnight?ref=shadcn"
+    }
+  ]
+}
