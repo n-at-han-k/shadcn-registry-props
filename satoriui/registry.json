@@ -4,24 +4,11 @@
   "homepage": "https://satoriui.site",
   "items": [
     {
-      "name": "dotted-modern",
-      "type": "registry:component",
-      "title": "Dotted Modern",
-      "description": "Modern dotted background hero component with animated open-source badge.",
-      "dependencies": ["motion"],
-      "files": [
-        {
-          "path": "packages/dotted-modern/dotted-modern.tsx",
-          "type": "registry:component",
-          "target": "components/satori-ui/dotted-modern.tsx"
-        }
-      ]
-    },
-    {
       "name": "keyboard",
       "type": "registry:component",
       "title": "Keyboard UI",
-      "description": "Sleek, minimalistic & interactive keyboard UI.",
+      "description": "An interactive keyboard that lights up as you type and can type out your text on a loop. A hero visual for developer tools.",
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "packages/keyboard/keyboard.tsx",
@@ -31,23 +18,10 @@
       ]
     },
     {
-      "name": "security-card",
-      "type": "registry:component",
-      "title": "Security Card",
-      "description": "A sleek security card component with 3D shield visualization.",
-      "files": [
-        {
-          "path": "packages/security-card/security-card.tsx",
-          "type": "registry:component",
-          "target": "components/satori-ui/security-card.tsx"
-        }
-      ]
-    },
-    {
       "name": "scroll-tracker",
       "type": "registry:component",
       "title": "Scroll Tracker",
-      "description": "Track scroll progress with a visual indicator.",
+      "description": "A reading-progress bar that tracks scroll position across the page or inside any scroll container.",
       "dependencies": ["motion"],
       "files": [
         {
@@ -61,7 +35,8 @@
       "name": "pro-button",
       "type": "registry:component",
       "title": "Pro Button",
-      "description": "A high-impact call-to-action with a signature pixel icon and premium finish.",
+      "description": "A call-to-action button with an animated pixel arrow, in three sizes and several colours.",
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "packages/pro-button/pro-button.tsx",
@@ -74,7 +49,7 @@
       "name": "typewriter-loop",
       "type": "registry:component",
       "title": "Typewriter Loop",
-      "description": "A looping typewriter CTA with a gradient support, premium touch.",
+      "description": "A headline that cycles through words with a typewriter wipe, a coloured cursor and optional gradient text.",
       "dependencies": ["motion"],
       "files": [
         {
@@ -88,7 +63,7 @@
       "name": "cyberpunk-button",
       "type": "registry:component",
       "title": "Cyberpunk Button",
-      "description": "Futuristic, minimalistic button with smooth animations.",
+      "description": "A futuristic button whose pixel panel sweeps across it on hover and keyboard focus.",
       "dependencies": ["motion"],
       "files": [
         {
@@ -101,9 +76,9 @@
     {
       "name": "flip-clock",
       "type": "registry:component",
-      "title": "Cyberpunk Button",
-      "description": "Neat and clean functional clock ui with buttery smooth flip animations.",
-      "dependencies": ["motion"],
+      "title": "Flip Clock",
+      "description": "A split-flap clock and countdown timer with smooth flip animations, in four sizes and several variants.",
+      "dependencies": ["motion", "class-variance-authority"],
       "files": [
         {
           "path": "packages/flip-clock/flip-clock.tsx",
@@ -116,7 +91,7 @@
       "name": "encoded-reveal",
       "type": "registry:component",
       "title": "Encoded Reveal",
-      "description": "Matrix like animation, reveals text with random characters.",
+      "description": "Text that decrypts into place: random characters scramble, then resolve letter by letter.",
       "dependencies": ["motion"],
       "files": [
         {
@@ -130,7 +105,7 @@
       "name": "slide-up-reveal",
       "type": "registry:component",
       "title": "Slide Up Reveal",
-      "description": "Buttery smooth text reveal with slide up reveal animation.",
+      "description": "A text reveal that slides characters, words or lines up into view, with stagger and scroll triggers.",
       "dependencies": ["motion"],
       "files": [
         {
@@ -144,7 +119,7 @@
       "name": "blur-reveal",
       "type": "registry:component",
       "title": "Blur Reveal",
-      "description": "Mysterious blur reveal animation, just feels awesome.",
+      "description": "Text that comes into focus from a blur, letter by letter, on mount or when scrolled into view.",
       "dependencies": ["motion"],
       "files": [
         {
@@ -158,7 +133,7 @@
       "name": "shimmer-text",
       "type": "registry:component",
       "title": "Shimmer Text",
-      "description": "Smooth shimmer animation for premium touch.",
+      "description": "A light sweep that glides across text, for loading states and premium labels.",
       "dependencies": ["motion"],
       "files": [
         {
@@ -172,7 +147,8 @@
       "name": "kinetic-grid",
       "type": "registry:component",
       "title": "Kinetic Grid",
-      "description": "Kinetic grid animation.",
+      "description": "An interactive grid background whose lines and nodes ripple outward wherever you click.",
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "packages/kinetic-grid/kinetic-grid.tsx",
@@ -182,10 +158,166 @@
       ]
     },
     {
+      "name": "repelling-grid",
+      "type": "registry:component",
+      "title": "Repelling Grid",
+      "description": "An interactive dot-grid background whose dots move away from the cursor.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "packages/repelling-grid/repelling-grid.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/repelling-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fluid-shader",
+      "type": "registry:component",
+      "title": "Fluid Shader",
+      "description": "A flowing, glossy WebGL fluid background with configurable colours, speed and complexity.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "packages/fluid-shader/fluid-shader.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/fluid-shader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sphere-shader",
+      "type": "registry:component",
+      "title": "Sphere Shader",
+      "description": "A glowing 3D sphere rendered with Three.js and a bloom pass, for hero sections.",
+      "dependencies": [
+        "motion",
+        "three",
+        "three-stdlib",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "devDependencies": ["@types/three"],
+      "files": [
+        {
+          "path": "packages/sphere-shader/sphere-shader.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/sphere-shader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cueit",
+      "type": "registry:block",
+      "title": "Cueit design system",
+      "description": "An Apple-inspired design system: a scoped stylesheet that re-skins the shadcn/ui foundation, plus a KPI tile, a segmented control and a page header.",
+      "registryDependencies": [
+        "button",
+        "badge",
+        "card",
+        "input",
+        "label",
+        "textarea",
+        "checkbox",
+        "switch",
+        "radio-group",
+        "select",
+        "tabs",
+        "separator",
+        "table",
+        "avatar",
+        "dialog",
+        "tooltip",
+        "dropdown-menu",
+        "skeleton",
+        "progress",
+        "alert",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "design-systems/cueit/cueit.css",
+          "type": "registry:file",
+          "target": "~/styles/cueit.css"
+        },
+        {
+          "path": "design-systems/cueit/stat-tile.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/cueit/stat-tile.tsx"
+        },
+        {
+          "path": "design-systems/cueit/segmented-control.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/cueit/segmented-control.tsx"
+        },
+        {
+          "path": "design-systems/cueit/page-header.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/cueit/page-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skita",
+      "type": "registry:block",
+      "title": "Skita design system",
+      "description": "A dense, monospaced workspace system: a scoped stylesheet that re-skins the shadcn/ui foundation in Geist Mono, zinc and one green, plus a KPI tile, an inset grouped list, a cascade loader and a page header.",
+      "registryDependencies": [
+        "button",
+        "badge",
+        "card",
+        "input",
+        "label",
+        "textarea",
+        "checkbox",
+        "switch",
+        "radio-group",
+        "select",
+        "tabs",
+        "separator",
+        "table",
+        "avatar",
+        "dialog",
+        "tooltip",
+        "dropdown-menu",
+        "skeleton",
+        "progress",
+        "alert",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "design-systems/skita/skita.css",
+          "type": "registry:file",
+          "target": "~/styles/skita.css"
+        },
+        {
+          "path": "design-systems/skita/stat-tile.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/skita/stat-tile.tsx"
+        },
+        {
+          "path": "design-systems/skita/list-group.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/skita/list-group.tsx"
+        },
+        {
+          "path": "design-systems/skita/cascade-loader.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/skita/cascade-loader.tsx"
+        },
+        {
+          "path": "design-systems/skita/page-header.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/skita/page-header.tsx"
+        }
+      ]
+    },
+    {
       "name": "beacon-badge",
       "type": "registry:component",
       "title": "Beacon Badge",
-      "description": "A status badge with a customizable beacon (ping) animation and blur reveal text.",
+      "description": "A status badge with a pulsing beacon dot and a blur-in label, for live, new and alert states.",
       "dependencies": [
         "motion"
       ],
@@ -198,18 +330,215 @@
       ]
     },
     {
-      "name": "pulse-button",
-      "type": "registry:component",
-      "title": "Pulse Button",
-      "description": "A high-impact, beautifully animated button with pulsing dot patterns and smooth interactions.",
-      "dependencies": [
-        "motion"
+      "name": "folio",
+      "type": "registry:block",
+      "title": "Folio design system",
+      "description": "An editorial design system: a scoped stylesheet that re-skins the shadcn/ui foundation in paper, ink and one vermilion, plus a masthead and a report-style figure.",
+      "registryDependencies": [
+        "button",
+        "badge",
+        "card",
+        "input",
+        "label",
+        "textarea",
+        "checkbox",
+        "switch",
+        "radio-group",
+        "select",
+        "tabs",
+        "separator",
+        "table",
+        "avatar",
+        "dialog",
+        "tooltip",
+        "dropdown-menu",
+        "skeleton",
+        "progress",
+        "alert",
+        "kbd"
       ],
       "files": [
         {
-          "path": "packages/pulse-button/pulse-button.tsx",
+          "path": "design-systems/folio/folio.css",
+          "type": "registry:file",
+          "target": "~/styles/folio.css"
+        },
+        {
+          "path": "design-systems/folio/masthead.tsx",
           "type": "registry:component",
-          "target": "components/satori-ui/pulse-button.tsx"
+          "target": "components/satori-ui/folio/masthead.tsx"
+        },
+        {
+          "path": "design-systems/folio/figure.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/folio/figure.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-01",
+      "type": "registry:block",
+      "title": "Dashboard",
+      "description": "An overview screen in an app shell: four KPIs with one emphasised, recent invoices with status tints, and plan usage. Renders in any Satori UI design system (cueit, skita, folio or a generated one): install a system first.",
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "input",
+        "progress",
+        "table"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "design-systems/blocks/dashboard-01.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/blocks/dashboard-01.tsx"
+        },
+        {
+          "path": "design-systems/blocks/app-shell.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/blocks/app-shell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "data-table-01",
+      "type": "registry:block",
+      "title": "Data table",
+      "description": "A customers table with status filter tabs, search, row selection with select-all and paging. Works on any rows you pass. Renders in any Satori UI design system (cueit, skita, folio or a generated one): install a system first.",
+      "registryDependencies": [
+        "avatar",
+        "badge",
+        "button",
+        "card",
+        "checkbox",
+        "input",
+        "table",
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "design-systems/blocks/data-table-01.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/blocks/data-table-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "settings-01",
+      "type": "registry:block",
+      "title": "Settings",
+      "description": "An account settings page: a section list beside profile, notification switches, density radio cards and a danger zone. Renders in any Satori UI design system (cueit, skita, folio or a generated one): install a system first.",
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "input",
+        "label",
+        "radio-group",
+        "separator",
+        "switch",
+        "textarea"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "design-systems/blocks/settings-01.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/blocks/settings-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "form-01",
+      "type": "registry:block",
+      "title": "Create form",
+      "description": "A new-project form with a URL derived from the name, visibility as radio cards, and validation that replaces a hint with its error. Renders in any Satori UI design system (cueit, skita, folio or a generated one): install a system first.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "checkbox",
+        "input",
+        "label",
+        "radio-group",
+        "textarea"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "design-systems/blocks/form-01.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/blocks/form-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "auth-01",
+      "type": "registry:block",
+      "title": "Sign in",
+      "description": "A split sign-in page: email, password and Google on one side, a customer quote on the emphasised surface on the other. Renders in any Satori UI design system (cueit, skita, folio or a generated one): install a system first.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "design-systems/blocks/auth-01.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/blocks/auth-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-01",
+      "type": "registry:block",
+      "title": "Pricing",
+      "description": "Three plans with a monthly and yearly switch. The recommended plan takes the one emphasised surface a view gets. Renders in any Satori UI design system (cueit, skita, folio or a generated one): install a system first.",
+      "registryDependencies": [
+        "badge",
+        "button",
+        "tabs"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "design-systems/blocks/pricing-01.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/blocks/pricing-01.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state-01",
+      "type": "registry:block",
+      "title": "Empty states",
+      "description": "A reusable EmptyState and the three a product needs: first run, no search results and a failed load. Renders in any Satori UI design system (cueit, skita, folio or a generated one): install a system first.",
+      "registryDependencies": [
+        "button"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "design-systems/blocks/empty-state-01.tsx",
+          "type": "registry:component",
+          "target": "components/satori-ui/blocks/empty-state-01.tsx"
         }
       ]
     }

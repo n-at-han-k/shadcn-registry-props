@@ -7,7 +7,7 @@
       "name": "vintage-theme",
       "type": "registry:theme",
       "title": "Vintage Theme",
-      "description": "O tema do kit de áudio, o contraponto escuro aos temas de marca.",
+      "description": "O tema do kit de áudio, em claro e escuro: as chapas saem dos tokens do projeto e a luz sai da marca.",
       "author": "Visant Labs <visantsupply@gmail.com>",
       "cssVars": {
         "theme": {
@@ -16,78 +16,141 @@
           "font-vintage-body": "'Helvetica Neue', Helvetica, sans-serif"
         },
         "light": {
-          "vintage-surface-1": "#0f0f0f",
-          "vintage-surface-2": "#1a1a1a",
-          "vintage-surface-3": "#2a2a2a",
-          "vintage-surface-3a": "#3a3a3a",
-          "vintage-surface-4": "#4a4a4a",
-          "vintage-border": "#333333",
-          "vintage-label": "#f0e68c",
-          "vintage-value": "#ffd700",
-          "vintage-accent": "#ff6b35",
-          "vintage-accent-deep": "#ff4500",
-          "vintage-accent-glow": "rgba(255, 107, 53, 0.6)",
-          "vintage-needle": "#ff0000",
-          "vintage-needle-glow": "rgba(255, 0, 0, 0.5)",
-          "vintage-text-muted": "#888888",
-          "vintage-text-dim": "#5c5c5c",
           "vintage-meter-green": "#22c55e",
           "vintage-meter-yellow": "#eab308",
           "vintage-meter-orange": "#f97316",
           "vintage-meter-red": "#ef4444",
-          "vintage-metal-light": "#6a6a6a",
-          "vintage-metal-dark": "#3a3a3a",
-          "vintage-metal-mid": "#9ba0a6",
-          "vintage-metal-channel-light": "#bebebe",
-          "vintage-metal-channel-dark": "#a9a9a9",
-          "vintage-toggle-track": "#403f3f",
-          "vintage-grid": "#bbbaba",
-          "background": "#0f0f0f",
-          "foreground": "#e8e8e8",
-          "card": "#1a1a1a",
-          "card-foreground": "#e8e8e8",
-          "primary": "#ffd700",
-          "primary-foreground": "#0f0f0f",
-          "secondary": "#2a2a2a",
-          "secondary-foreground": "#e8e8e8",
-          "muted": "#2a2a2a",
-          "muted-foreground": "#888888",
-          "accent": "#ff6b35",
-          "accent-foreground": "#ffffff",
-          "destructive": "#ef4444",
+          "vintage-needle": "#ef2b2b",
+          "vintage-needle-glow": "color-mix(in srgb, var(--vintage-needle) 50%, transparent)",
+          "vintage-accent": "var(--vintage-light)",
+          "vintage-accent-deep": "color-mix(in oklab, var(--vintage-light) 82%, var(--foreground))",
+          "vintage-accent-glow": "color-mix(in srgb, var(--vintage-light) 60%, transparent)",
+          "vintage-label": "var(--foreground)",
+          "vintage-value": "var(--foreground)",
+          "vintage-tube": "#0c0e0b",
+          "vintage-tube-hi": "#1e201d",
+          "vintage-face-ink": "#2a2014",
+          "vintage-light": "var(--brand, #ffd700)",
+          "vintage-brushed": "conic-gradient(from 90deg, #969aa0 0deg, #5d636c 9deg, #555b69 22deg, #dfdfdf 41deg, #71798a 63deg, #a9abb3 83deg, #cbd2d6 120deg, #ffffff 149deg, #5e646a 186deg, #8e959d 219deg, #ffffff 245deg, #7e8691 269deg, #575d6b 284deg, #6c747f 301deg, #f1f1f3 337deg, #979aa3 349deg, #b1b3b9 356deg, #969aa0 360deg)",
+          "vintage-surface-1": "color-mix(in oklab, var(--foreground) 14%, var(--background))",
+          "vintage-surface-2": "color-mix(in oklab, var(--foreground) 8%, var(--background))",
+          "vintage-surface-3": "color-mix(in oklab, var(--foreground) 4%, var(--background))",
+          "vintage-surface-3a": "color-mix(in oklab, var(--foreground) 2%, var(--background))",
+          "vintage-surface-4": "var(--background)",
+          "vintage-border": "color-mix(in oklab, var(--foreground) 18%, var(--background))",
+          "vintage-text-muted": "color-mix(in oklab, var(--foreground) 62%, var(--background))",
+          "vintage-text-dim": "color-mix(in oklab, var(--foreground) 44%, var(--background))",
+          "vintage-metal-light": "color-mix(in oklab, var(--foreground) 24%, var(--background))",
+          "vintage-metal-dark": "color-mix(in oklab, var(--foreground) 46%, var(--background))",
+          "vintage-metal-mid": "color-mix(in oklab, var(--foreground) 34%, var(--background))",
+          "vintage-metal-channel-light": "color-mix(in oklab, var(--foreground) 10%, var(--background))",
+          "vintage-metal-channel-dark": "color-mix(in oklab, var(--foreground) 20%, var(--background))",
+          "vintage-toggle-track": "color-mix(in oklab, var(--foreground) 24%, var(--background))",
+          "vintage-grid": "color-mix(in oklab, var(--foreground) 70%, var(--background))",
+          "vintage-cap-hi": "color-mix(in oklab, var(--foreground) 2%, var(--background))",
+          "vintage-cap-lo": "color-mix(in oklab, var(--foreground) 20%, var(--background))",
+          "vintage-base-hi": "color-mix(in oklab, var(--foreground) 12%, var(--background))",
+          "vintage-base-lo": "color-mix(in oklab, var(--foreground) 36%, var(--background))",
+          "vintage-depth-edge": "color-mix(in oklab, var(--foreground) 38%, var(--background))",
+          "vintage-depth-mid": "color-mix(in oklab, var(--foreground) 20%, var(--background))",
+          "vintage-depth-core": "color-mix(in oklab, var(--foreground) 8%, var(--background))",
+          "vintage-ring-hi": "var(--background)",
+          "vintage-ring-lo": "color-mix(in oklab, var(--foreground) 40%, var(--background))",
+          "vintage-face-hi": "color-mix(in oklab, var(--vintage-light) 12%, #fdf6e0)",
+          "vintage-face-mid": "color-mix(in oklab, var(--vintage-light) 14%, #f3e3b4)",
+          "vintage-face-lo": "color-mix(in oklab, var(--vintage-light) 16%, #d9b970)",
+          "vintage-panel-shadow": "inset 0 1px 0 rgb(255 255 255 / 0.7), 0 1px 1px rgb(0 0 0 / 0.12), 0 10px 24px -8px rgb(0 0 0 / 0.2)",
+          "vintage-well-shadow": "inset 0 2px 5px rgb(0 0 0 / 0.22), inset 0 0 0 1px rgb(0 0 0 / 0.14), 0 1px 0 rgb(255 255 255 / 0.7)",
+          "vintage-engrave": "0 1px 0 rgb(255 255 255 / 0.7)",
+          "vintage-edge": "rgb(0 0 0 / 0.2)",
+          "vintage-lip": "rgb(255 255 255 / 0.7)",
+          "vintage-tv-body-hi": "#c6beb6",
+          "vintage-tv-body-lo": "#8c8782",
+          "vintage-tv-console": "#cdc4bb",
+          "vintage-tv-edge": "#4d4946",
+          "vintage-tv-foot-hi": "#ccc3bb",
+          "vintage-tv-foot-lo": "#9a938d",
+          "vintage-tv-bezel": "#bfb7ab",
+          "vintage-tv-dial-hi": "#ccc4b7",
+          "vintage-tv-dial-lo": "#736d68",
+          "vintage-tv-ink": "#4a4540",
+          "background": "#f4f2ee",
+          "foreground": "#1a1a1a",
+          "card": "#fbfaf7",
+          "card-foreground": "#1a1a1a",
+          "primary": "#1a1a1a",
+          "primary-foreground": "#f4f2ee",
+          "secondary": "#e6e3dc",
+          "secondary-foreground": "#1a1a1a",
+          "muted": "#e6e3dc",
+          "muted-foreground": "#66635d",
+          "accent": "#e6e3dc",
+          "accent-foreground": "#1a1a1a",
+          "destructive": "#d92d20",
           "destructive-foreground": "#ffffff",
-          "border": "#333333",
-          "input": "#2a2a2a",
-          "ring": "#ffd700",
-          "vintage-light": "var(--brand, #ffd700)"
+          "border": "#cfccc4",
+          "input": "#cfccc4",
+          "ring": "#1a1a1a"
         },
         "dark": {
-          "vintage-surface-1": "#0f0f0f",
-          "vintage-surface-2": "#1a1a1a",
-          "vintage-surface-3": "#2a2a2a",
-          "vintage-surface-3a": "#3a3a3a",
-          "vintage-surface-4": "#4a4a4a",
-          "vintage-border": "#333333",
-          "vintage-label": "#f0e68c",
-          "vintage-value": "#ffd700",
-          "vintage-accent": "#ff6b35",
-          "vintage-accent-deep": "#ff4500",
-          "vintage-accent-glow": "rgba(255, 107, 53, 0.6)",
-          "vintage-needle": "#ff0000",
-          "vintage-needle-glow": "rgba(255, 0, 0, 0.5)",
-          "vintage-text-muted": "#888888",
-          "vintage-text-dim": "#5c5c5c",
           "vintage-meter-green": "#22c55e",
           "vintage-meter-yellow": "#eab308",
           "vintage-meter-orange": "#f97316",
           "vintage-meter-red": "#ef4444",
-          "vintage-metal-light": "#6a6a6a",
-          "vintage-metal-dark": "#3a3a3a",
-          "vintage-metal-mid": "#9ba0a6",
-          "vintage-metal-channel-light": "#bebebe",
-          "vintage-metal-channel-dark": "#a9a9a9",
-          "vintage-toggle-track": "#403f3f",
-          "vintage-grid": "#bbbaba",
+          "vintage-needle": "#ef2b2b",
+          "vintage-needle-glow": "color-mix(in srgb, var(--vintage-needle) 50%, transparent)",
+          "vintage-accent": "var(--vintage-light)",
+          "vintage-accent-deep": "color-mix(in oklab, var(--vintage-light) 82%, var(--foreground))",
+          "vintage-accent-glow": "color-mix(in srgb, var(--vintage-light) 60%, transparent)",
+          "vintage-label": "var(--foreground)",
+          "vintage-value": "var(--foreground)",
+          "vintage-tube": "#0c0e0b",
+          "vintage-tube-hi": "#1e201d",
+          "vintage-face-ink": "#2a2014",
+          "vintage-light": "var(--brand, #ffd700)",
+          "vintage-brushed": "conic-gradient(from 90deg, #969aa0 0deg, #5d636c 9deg, #555b69 22deg, #dfdfdf 41deg, #71798a 63deg, #a9abb3 83deg, #cbd2d6 120deg, #ffffff 149deg, #5e646a 186deg, #8e959d 219deg, #ffffff 245deg, #7e8691 269deg, #575d6b 284deg, #6c747f 301deg, #f1f1f3 337deg, #979aa3 349deg, #b1b3b9 356deg, #969aa0 360deg)",
+          "vintage-surface-1": "color-mix(in oklab, var(--background) 55%, black)",
+          "vintage-surface-2": "var(--background)",
+          "vintage-surface-3": "color-mix(in oklab, var(--foreground) 8%, var(--background))",
+          "vintage-surface-3a": "color-mix(in oklab, var(--foreground) 14%, var(--background))",
+          "vintage-surface-4": "color-mix(in oklab, var(--foreground) 20%, var(--background))",
+          "vintage-border": "color-mix(in oklab, var(--foreground) 14%, var(--background))",
+          "vintage-text-muted": "color-mix(in oklab, var(--foreground) 55%, var(--background))",
+          "vintage-text-dim": "color-mix(in oklab, var(--foreground) 34%, var(--background))",
+          "vintage-metal-light": "color-mix(in oklab, var(--foreground) 38%, var(--background))",
+          "vintage-metal-dark": "color-mix(in oklab, var(--foreground) 16%, var(--background))",
+          "vintage-metal-mid": "color-mix(in oklab, var(--foreground) 60%, var(--background))",
+          "vintage-metal-channel-light": "color-mix(in oklab, var(--foreground) 72%, var(--background))",
+          "vintage-metal-channel-dark": "color-mix(in oklab, var(--foreground) 62%, var(--background))",
+          "vintage-toggle-track": "color-mix(in oklab, var(--foreground) 20%, var(--background))",
+          "vintage-grid": "color-mix(in oklab, var(--foreground) 72%, var(--background))",
+          "vintage-cap-hi": "color-mix(in oklab, var(--foreground) 50%, var(--background))",
+          "vintage-cap-lo": "color-mix(in oklab, var(--foreground) 14%, var(--background))",
+          "vintage-base-hi": "color-mix(in oklab, var(--foreground) 22%, var(--background))",
+          "vintage-base-lo": "color-mix(in oklab, var(--background) 55%, black)",
+          "vintage-depth-edge": "color-mix(in oklab, var(--foreground) 8%, var(--background))",
+          "vintage-depth-mid": "color-mix(in oklab, var(--foreground) 26%, var(--background))",
+          "vintage-depth-core": "color-mix(in oklab, var(--foreground) 38%, var(--background))",
+          "vintage-ring-hi": "color-mix(in oklab, var(--foreground) 90%, var(--background))",
+          "vintage-ring-lo": "color-mix(in oklab, var(--foreground) 18%, var(--background))",
+          "vintage-face-hi": "color-mix(in oklab, var(--vintage-light) 14%, #f7e2a4)",
+          "vintage-face-mid": "color-mix(in oklab, var(--vintage-light) 16%, #ecc86f)",
+          "vintage-face-lo": "color-mix(in oklab, var(--vintage-light) 18%, #b98a33)",
+          "vintage-panel-shadow": "inset 0 1px 0 rgb(255 255 255 / 0.07), 0 1px 1px rgb(0 0 0 / 0.5), 0 10px 24px -8px rgb(0 0 0 / 0.6)",
+          "vintage-well-shadow": "inset 0 2px 6px rgb(0 0 0 / 0.75), inset 0 0 0 1px rgb(0 0 0 / 0.6), 0 1px 0 rgb(255 255 255 / 0.06)",
+          "vintage-engrave": "0 -1px 0 rgb(0 0 0 / 0.55), 0 1px 0 rgb(255 255 255 / 0.06)",
+          "vintage-edge": "rgb(0 0 0 / 0.6)",
+          "vintage-lip": "rgb(255 255 255 / 0.06)",
+          "vintage-tv-body-hi": "color-mix(in oklab, var(--foreground) 24%, var(--background))",
+          "vintage-tv-body-lo": "color-mix(in oklab, var(--foreground) 8%, var(--background))",
+          "vintage-tv-console": "color-mix(in oklab, var(--foreground) 18%, var(--background))",
+          "vintage-tv-edge": "color-mix(in oklab, var(--background) 55%, black)",
+          "vintage-tv-foot-hi": "color-mix(in oklab, var(--foreground) 26%, var(--background))",
+          "vintage-tv-foot-lo": "color-mix(in oklab, var(--foreground) 12%, var(--background))",
+          "vintage-tv-bezel": "color-mix(in oklab, var(--foreground) 16%, var(--background))",
+          "vintage-tv-dial-hi": "color-mix(in oklab, var(--foreground) 52%, var(--background))",
+          "vintage-tv-dial-lo": "color-mix(in oklab, var(--foreground) 20%, var(--background))",
+          "vintage-tv-ink": "color-mix(in oklab, var(--foreground) 72%, var(--background))",
           "background": "#0f0f0f",
           "foreground": "#e8e8e8",
           "card": "#1a1a1a",
@@ -104,8 +167,7 @@
           "destructive-foreground": "#ffffff",
           "border": "#333333",
           "input": "#2a2a2a",
-          "ring": "#ffd700",
-          "vintage-light": "var(--brand, #ffd700)"
+          "ring": "#ffd700"
         }
       },
       "categories": [
@@ -117,6 +179,20 @@
         "uso": {
           "quando": "Montar app ou ferramenta de áudio com o kit vintage: é o tema escuro de painel que as peças vintage-* pressupõem",
           "evite": "Projeto de marca de cliente: use o tema da marca via brand-theme e deixe o kit vintage de fora"
+        }
+      },
+      "css": {
+        "@supports (color: oklch(from red l c h))": {
+          ":root": {
+            "--vintage-light": "oklch(from var(--brand, #b8860b) min(l, 0.62) max(c, 0.06) h)",
+            "--vintage-label": "oklch(from var(--brand, #b8860b) min(l, 0.38) min(c, 0.1) h)",
+            "--vintage-value": "oklch(from var(--brand, #b8860b) min(l, 0.42) c h)"
+          },
+          ".dark": {
+            "--vintage-light": "oklch(from var(--brand, #ffd700) max(l, 0.72) c h)",
+            "--vintage-label": "oklch(from var(--brand, #ffd700) max(l, 0.86) min(c, 0.12) h)",
+            "--vintage-value": "oklch(from var(--brand, #ffd700) max(l, 0.86) c h)"
+          }
         }
       }
     },
@@ -892,7 +968,8 @@
       "description": "Escolher por medida e receber a recomendação. A faixa traduz o número em produto.",
       "author": "Visant Labs <visantsupply@gmail.com>",
       "registryDependencies": [
-        "utils"
+        "utils",
+        "@visant/sfx-bus"
       ],
       "files": [
         {
@@ -1010,7 +1087,8 @@
         "@dnd-kit/sortable",
         "@dnd-kit/utilities",
         "@air/react-drag-to-select",
-        "framer-motion"
+        "framer-motion",
+        "motion"
       ],
       "files": [
         {
@@ -1712,7 +1790,7 @@
       "name": "brand-selector",
       "type": "registry:ui",
       "title": "Brand Selector",
-      "description": "Seletor de marca com prévia ao percorrer: paleta, par tipográfico e completude do vault na linha. Aplica o tema da marca escolhida ao app inteiro.",
+      "description": "Escolha uma marca e o produto inteiro veste: cor, fonte e logo. Passar o mouse pela lista já mostra como fica.",
       "author": "Visant Labs <visantsupply@gmail.com>",
       "registryDependencies": [
         "utils",
@@ -5127,7 +5205,7 @@
       "name": "page-curl",
       "type": "registry:ui",
       "title": "Page Curl",
-      "description": "Uma revistinha que você folheia puxando o canto da página, com a dobra, o verso do papel e a próxima página aparecendo por baixo.",
+      "description": "Uma revistinha que você folheia puxando o canto: a capa abre, o livro fica com duas páginas e a folha vira com dobra, espessura e verso.",
       "dependencies": [
         "motion",
         "lucide-react"
@@ -5335,7 +5413,7 @@
       "name": "streamgraph",
       "type": "registry:ui",
       "title": "Streamgraph",
-      "description": "Gráfico de fluxo empilhado que mostra como a mistura de várias partes muda no tempo, com camadas que ligam e desligam.",
+      "description": "Gráfico de várias partes no tempo em sete estilos: fluxo, empilhado, 100%, cristas, linhas, barras e centrado, com camadas que ligam e desligam.",
       "dependencies": [
         "motion"
       ],
@@ -6085,12 +6163,14 @@
       "name": "filter-bar",
       "type": "registry:ui",
       "title": "Filter Bar",
-      "description": "Esqueleto da barra de filtro: controles por slot, chips aplicados embaixo, e a contagem que some quando nada foi filtrado.",
+      "description": "Busca e filtro numa peça só: campo, menu de facetas, chips aplicados e a contagem que some quando nada foi filtrado.",
       "author": "Visant Labs <visantsupply@gmail.com>",
       "registryDependencies": [
         "utils",
         "@visant/chip",
-        "@visant/motion"
+        "@visant/motion",
+        "@visant/search-field",
+        "@visant/filter-menu"
       ],
       "files": [
         {
@@ -7018,6 +7098,1501 @@
         "uso": {
           "quando": "Fundo de hero com um campo de pilares em pseudo-3D que sobem perto do cursor, em landing tech ou de arquitetura",
           "evite": "Cena 3D de verdade com objeto: uma peça da família 3d; ladrilhos de foto, textura-tiles"
+        }
+      }
+    },
+    {
+      "name": "liquid-glass",
+      "type": "registry:ui",
+      "title": "Liquid Glass",
+      "description": "A superfície que refrata o fundo de verdade, com franja cromática nas bordas. É a base de todas as peças de vidro.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/visant/ui/liquid-glass.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "efeitos",
+        "vidro",
+        "refracao",
+        "backdrop-filter",
+        "primitiva"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Superfície própria que precise refratar o fundo, como barra flutuante ou lente",
+          "evite": "Painel grande com conteúdo: glass-panel; controle pronto: glass-button ou glass-slider"
+        }
+      }
+    },
+    {
+      "name": "glass-panel",
+      "type": "registry:ui",
+      "title": "Glass Panel",
+      "description": "Vidro fosco com borda em degradê, acesa nos cantos, e grão opcional. O cartão pra pôr sobre foto ou fundo com forma.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/glass-panel.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "conteudo",
+        "vidro",
+        "fosco",
+        "superficie",
+        "card"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Cartão ou painel sobre foto, vídeo ou gradiente, em landing ou tela de produto",
+          "evite": "Fundo liso, onde o fosco não tem o que borrar: um card comum; lista de dados densa"
+        }
+      },
+      "css": {
+        ".glass-panel": {
+          "position": "relative",
+          "isolation": "isolate",
+          "border-radius": "var(--glass-panel-radius, var(--r-surface, 1rem))",
+          "color": "white",
+          "background": "var(--glass-panel-fill, linear-gradient(180deg, color-mix(in srgb, black 34%, transparent), color-mix(in srgb, white 5%, transparent)))",
+          "-webkit-backdrop-filter": "var(--glass-panel-filter, blur(20px) saturate(1.1))",
+          "backdrop-filter": "var(--glass-panel-filter, blur(20px) saturate(1.1))",
+          "box-shadow": "0 30px 60px -28px black"
+        },
+        ".glass-panel-luz": {
+          "position": "absolute",
+          "inset": "0",
+          "z-index": "-1",
+          "border-radius": "inherit",
+          "pointer-events": "none",
+          "opacity": "0.55",
+          "background": "radial-gradient(60% 80% at var(--glass-panel-x, 22%) var(--glass-panel-y, 0%), color-mix(in srgb, white 16%, transparent), transparent 72%)",
+          "transition": "opacity var(--dur-slow, 300ms) var(--ease-out)"
+        },
+        ".glass-panel:hover .glass-panel-luz": {
+          "opacity": "1"
+        },
+        ".glass-panel::after": {
+          "content": "\"\"",
+          "position": "absolute",
+          "inset": "0",
+          "z-index": "2",
+          "border-radius": "inherit",
+          "padding": "1px",
+          "pointer-events": "none",
+          "background": "linear-gradient(135deg, color-mix(in srgb, white 62%, transparent), color-mix(in srgb, white 10%, transparent) 38%, color-mix(in srgb, white 8%, transparent) 66%, color-mix(in srgb, white 42%, transparent))",
+          "-webkit-mask": "linear-gradient(black 0 0) content-box exclude, linear-gradient(black 0 0)",
+          "mask": "linear-gradient(black 0 0) content-box exclude, linear-gradient(black 0 0)"
+        },
+        ".glass-panel[data-grain]::before": {
+          "content": "\"\"",
+          "position": "absolute",
+          "inset": "0",
+          "z-index": "-1",
+          "border-radius": "inherit",
+          "pointer-events": "none",
+          "opacity": "0.22",
+          "mix-blend-mode": "overlay",
+          "background-image": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E\")"
+        }
+      }
+    },
+    {
+      "name": "glass-button",
+      "type": "registry:ui",
+      "title": "Glass Button",
+      "description": "Botão de vidro, em pílula ou círculo, que refrata o fundo. Com aria-pressed vira alternância.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "@visant/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/glass-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "vidro",
+        "botao",
+        "icone",
+        "alternancia"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Ação sobre foto ou vídeo, como player, câmera ou barra flutuante",
+          "evite": "Ação principal em fundo claro ou liso: button; a ação que define a dobra, cta-surface"
+        }
+      },
+      "css": {
+        ".glass-button": {
+          "position": "relative",
+          "display": "inline-grid",
+          "place-items": "center",
+          "min-height": "2.75rem",
+          "padding": "0 1.25rem",
+          "border": "0",
+          "border-radius": "999px",
+          "background": "none",
+          "color": "white",
+          "font": "600 0.875rem/1 var(--font-sans, system-ui)",
+          "cursor": "pointer",
+          "transition": "transform var(--dur-press, 120ms) var(--ease-out)"
+        },
+        ".glass-button[data-shape=\"circle\"]": {
+          "width": "3.5rem",
+          "height": "3.5rem",
+          "padding": "0"
+        },
+        ".glass-button:active": {
+          "transform": "scale(0.97)"
+        },
+        ".glass-button:disabled": {
+          "opacity": "0.5",
+          "cursor": "default"
+        },
+        ".glass-button:focus-visible": {
+          "outline": "2px solid white",
+          "outline-offset": "2px"
+        },
+        ".glass-button-vidro": {
+          "position": "absolute",
+          "inset": "0",
+          "border-radius": "inherit",
+          "background": "color-mix(in srgb, white 12%, transparent)",
+          "box-shadow": "inset 0 0 0 1px color-mix(in srgb, white 26%, transparent), inset 0 1.5px 0 color-mix(in srgb, white 30%, transparent)"
+        },
+        ".glass-button-miolo": {
+          "position": "relative",
+          "display": "inline-flex",
+          "align-items": "center",
+          "gap": "0.5rem"
+        },
+        ".glass-button[data-shape=\"circle\"] .glass-button-miolo": {
+          "width": "60%",
+          "height": "60%",
+          "justify-content": "center",
+          "border-radius": "50%",
+          "background": "color-mix(in srgb, white 12%, transparent)",
+          "transition": "background-color var(--dur-fast, 160ms) var(--ease-out), color var(--dur-fast, 160ms) var(--ease-out)"
+        },
+        ".glass-button[data-shape=\"circle\"] svg": {
+          "width": "55%",
+          "height": "55%"
+        },
+        ".glass-button[aria-pressed=\"true\"] .glass-button-miolo": {
+          "background": "white",
+          "color": "black"
+        },
+        ".glass-button[data-shape=\"pill\"][aria-pressed=\"true\"] .glass-button-miolo": {
+          "background": "none",
+          "color": "inherit"
+        },
+        ".glass-button[data-shape=\"pill\"][aria-pressed=\"true\"] .glass-button-vidro": {
+          "background": "color-mix(in srgb, white 34%, transparent)"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".glass-button, .glass-button-miolo": {
+            "transition": "none !important"
+          }
+        }
+      }
+    },
+    {
+      "name": "glass-slider",
+      "type": "registry:ui",
+      "title": "Glass Slider",
+      "description": "Slider cuja lente de vidro refrata o fundo enquanto anda. Volume, brilho ou qualquer nível sobre imagem.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "@visant/liquid-glass"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/glass-slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "vidro",
+        "slider",
+        "volume",
+        "brilho",
+        "lente"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Nível contínuo sobre foto ou vídeo, como volume ou brilho em player e painel de casa",
+          "evite": "Slider em formulário comum: elastic-slider; projeção com conta, sim-slider"
+        }
+      },
+      "css": {
+        ".glass-slider": {
+          "--u": "calc(100cqw / 1425)",
+          "--folga": "calc(30 * var(--u))",
+          "--largura": "calc(1365 * var(--u))",
+          "position": "relative",
+          "width": "100%",
+          "aspect-ratio": "1425 / 413",
+          "container-type": "inline-size",
+          "border-radius": "999px",
+          "color": "white",
+          "cursor": "grab",
+          "touch-action": "pan-y",
+          "user-select": "none",
+          "-webkit-user-select": "none"
+        },
+        ".glass-slider:active": {
+          "cursor": "grabbing"
+        },
+        ".glass-slider-trilho": {
+          "position": "absolute",
+          "inset": "0",
+          "border-radius": "inherit",
+          "background": "linear-gradient(170deg, color-mix(in srgb, white 9%, transparent), color-mix(in srgb, white 15%, transparent))",
+          "box-shadow": "inset 0 0 0 1px color-mix(in srgb, white 26%, transparent), inset 0 1.5px 0 color-mix(in srgb, white 34%, transparent)"
+        },
+        ".glass-slider-lente": {
+          "--h": "calc(353 * var(--u))",
+          "position": "absolute",
+          "top": "var(--folga)",
+          "bottom": "var(--folga)",
+          "left": "var(--folga)",
+          "width": "var(--largura)",
+          "border-radius": "999px",
+          "background": "color-mix(in srgb, black 12%, transparent)",
+          "transform": "translateX(calc((var(--p) - 1) * var(--largura)))",
+          "-webkit-mask-image": "radial-gradient(circle closest-side, black calc(100% - 0.5px), transparent), radial-gradient(circle closest-side, black calc(100% - 0.5px), transparent), linear-gradient(black 0 0)",
+          "mask-image": "radial-gradient(circle closest-side, black calc(100% - 0.5px), transparent), radial-gradient(circle closest-side, black calc(100% - 0.5px), transparent), linear-gradient(black 0 0)",
+          "-webkit-mask-repeat": "no-repeat",
+          "mask-repeat": "no-repeat",
+          "-webkit-mask-size": "var(--h) var(--h), var(--h) var(--h), calc(var(--p) * var(--largura) - var(--h)) 100%",
+          "mask-size": "var(--h) var(--h), var(--h) var(--h), calc(var(--p) * var(--largura) - var(--h)) 100%",
+          "-webkit-mask-position": "calc((1 - var(--p)) * var(--largura)) 0, 100% 0, calc(calc((1 - var(--p)) * var(--largura)) + var(--h) / 2) 0",
+          "mask-position": "calc((1 - var(--p)) * var(--largura)) 0, 100% 0, calc(calc((1 - var(--p)) * var(--largura)) + var(--h) / 2) 0"
+        },
+        ".glass-slider-anel": {
+          "position": "absolute",
+          "top": "var(--folga)",
+          "bottom": "var(--folga)",
+          "left": "var(--folga)",
+          "width": "calc(var(--p) * var(--largura))",
+          "border-radius": "999px",
+          "padding": "1.5px",
+          "pointer-events": "none",
+          "background": "linear-gradient(100deg, color-mix(in srgb, white 34%, transparent) 0%, color-mix(in srgb, white 52%, transparent) 62%, color-mix(in srgb, white 80%, transparent) 100%)",
+          "-webkit-mask": "linear-gradient(black 0 0) content-box exclude, linear-gradient(black 0 0)",
+          "mask": "linear-gradient(black 0 0) content-box exclude, linear-gradient(black 0 0)"
+        },
+        ".glass-slider-leitura": {
+          "position": "absolute",
+          "left": "calc(132 * var(--u))",
+          "top": "50%",
+          "translate": "0 -50%",
+          "display": "flex",
+          "align-items": "center",
+          "gap": "calc(36 * var(--u))",
+          "opacity": "0.84",
+          "pointer-events": "none",
+          "font": "700 calc(62 * var(--u))/1 var(--font-sans, system-ui)",
+          "font-variant-numeric": "tabular-nums"
+        },
+        ".glass-slider-leitura svg": {
+          "width": "calc(102 * var(--u))",
+          "height": "calc(102 * var(--u))"
+        },
+        ".glass-slider input": {
+          "position": "absolute",
+          "inset": "0",
+          "width": "100%",
+          "height": "100%",
+          "margin": "0",
+          "opacity": "0",
+          "pointer-events": "none"
+        },
+        ".glass-slider:has(input:focus-visible)": {
+          "outline": "2px solid white",
+          "outline-offset": "3px"
+        }
+      }
+    },
+    {
+      "name": "glass-tabs",
+      "type": "registry:ui",
+      "title": "Glass Tabs",
+      "description": "Abas em que a seleção é uma lente de vidro andando sobre o trilho, com setas, Home e End.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "@visant/liquid-glass",
+        "@visant/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/glass-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "vidro",
+        "abas",
+        "segmentado",
+        "navegacao",
+        "lente"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Alternar de 2 a 5 opções sobre foto ou vídeo, como barra flutuante ou seletor de modo",
+          "evite": "Fundo liso ou claro: segmented-control; muitas opções, morph-select"
+        }
+      },
+      "css": {
+        ".glass-tabs": {
+          "--folga": "4px",
+          "position": "relative",
+          "display": "inline-grid",
+          "grid-auto-flow": "column",
+          "grid-auto-columns": "1fr",
+          "padding": "var(--folga)",
+          "border-radius": "999px",
+          "color": "white",
+          "font": "500 0.875rem/1 var(--font-sans, system-ui)"
+        },
+        ".glass-tabs-trilho": {
+          "position": "absolute",
+          "inset": "0",
+          "border-radius": "inherit",
+          "background": "color-mix(in srgb, white 10%, transparent)",
+          "box-shadow": "inset 0 0 0 1px color-mix(in srgb, white 24%, transparent), inset 0 1.5px 0 color-mix(in srgb, white 28%, transparent)"
+        },
+        ".glass-tabs-lente": {
+          "position": "absolute",
+          "top": "var(--folga)",
+          "bottom": "var(--folga)",
+          "left": "var(--folga)",
+          "width": "calc((100% - 2 * var(--folga)) / var(--n))",
+          "border-radius": "999px",
+          "background": "color-mix(in srgb, white 16%, transparent)",
+          "box-shadow": "inset 0 0 0 1px color-mix(in srgb, white 40%, transparent)",
+          "transform": "translateX(calc(var(--i) * 100%))",
+          "transition": "transform 460ms cubic-bezier(0.3, 1.15, 0.4, 1)",
+          "will-change": "transform"
+        },
+        ".glass-tabs button": {
+          "position": "relative",
+          "display": "inline-flex",
+          "align-items": "center",
+          "justify-content": "center",
+          "gap": "0.5rem",
+          "min-height": "2.75rem",
+          "padding": "0 1.25rem",
+          "border": "0",
+          "border-radius": "999px",
+          "background": "none",
+          "color": "color-mix(in srgb, white 72%, transparent)",
+          "font": "inherit",
+          "white-space": "nowrap",
+          "cursor": "pointer",
+          "transition": "color var(--dur-base, 200ms) var(--ease-out)"
+        },
+        ".glass-tabs button[aria-selected=\"true\"]": {
+          "color": "white"
+        },
+        ".glass-tabs button:focus-visible": {
+          "outline": "2px solid white",
+          "outline-offset": "-2px"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".glass-tabs-lente, .glass-tabs button": {
+            "transition": "none"
+          }
+        }
+      }
+    },
+    {
+      "name": "glass-switch",
+      "type": "registry:ui",
+      "title": "Glass Switch",
+      "description": "Interruptor com polegar de vidro: o ligado aparece refratado através dele, em --brand.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils",
+        "@visant/liquid-glass",
+        "@visant/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/glass-switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "vidro",
+        "switch",
+        "toggle",
+        "formulario"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Liga e desliga sobre foto ou vídeo, em painel flutuante ou tela de produto",
+          "evite": "Sem vidro, com a bolinha escorrendo como gota: liquid-toggle; formulário comum, switch"
+        }
+      },
+      "css": {
+        ".glass-switch": {
+          "position": "relative",
+          "display": "inline-block",
+          "flex": "none",
+          "width": "5rem",
+          "height": "2.75rem",
+          "padding": "0",
+          "border": "0",
+          "border-radius": "999px",
+          "background": "color-mix(in srgb, white 10%, transparent)",
+          "box-shadow": "inset 0 0 0 1px color-mix(in srgb, white 24%, transparent), inset 0 1.5px 0 color-mix(in srgb, white 28%, transparent)",
+          "cursor": "pointer"
+        },
+        ".glass-switch:focus-visible": {
+          "outline": "2px solid white",
+          "outline-offset": "2px"
+        },
+        ".glass-switch:disabled": {
+          "opacity": "0.5",
+          "cursor": "default"
+        },
+        ".glass-switch-fundo": {
+          "position": "absolute",
+          "inset": "0",
+          "border-radius": "inherit",
+          "background": "var(--brand)",
+          "opacity": "0",
+          "transition": "opacity var(--dur-slow, 300ms) var(--ease-out)"
+        },
+        ".glass-switch[aria-checked=\"true\"] .glass-switch-fundo": {
+          "opacity": "1"
+        },
+        ".glass-switch-polegar": {
+          "position": "absolute",
+          "top": "3px",
+          "bottom": "3px",
+          "left": "3px",
+          "width": "3rem",
+          "border-radius": "999px",
+          "background": "color-mix(in srgb, white 22%, transparent)",
+          "box-shadow": "inset 0 0 0 1px color-mix(in srgb, white 50%, transparent), 0 3px 10px color-mix(in srgb, black 35%, transparent)",
+          "transition": "transform 440ms cubic-bezier(0.34, 1.4, 0.64, 1), scale var(--dur-press, 120ms) var(--ease-out)"
+        },
+        ".glass-switch[aria-checked=\"true\"] .glass-switch-polegar": {
+          "transform": "translateX(calc(5rem - 3rem - 6px))"
+        },
+        ".glass-switch:active:not(:disabled) .glass-switch-polegar": {
+          "scale": "1.14 0.9"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".glass-switch-fundo, .glass-switch-polegar": {
+            "transition": "none"
+          }
+        }
+      }
+    },
+    {
+      "name": "glass-board",
+      "type": "registry:ui",
+      "title": "Glass Board",
+      "description": "Quadro em vidro fosco sobre foto, com busca e cartões que arrastam entre colunas. A roupa de vidro do kanban.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/glass-panel",
+        "@visant/kanban"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/glass-board.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "conteudo",
+        "vidro",
+        "fosco",
+        "kanban",
+        "board",
+        "dnd"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Pipeline ou board de tarefas com a foto da marca atrás, em produto com visual próprio",
+          "evite": "Ferramenta interna densa, com seleção múltipla: kanban; lista pra ordenar e editar, data-table"
+        }
+      },
+      "css": {
+        ".glass-board": {
+          "--glass-panel-radius": "14px",
+          "--glass-panel-filter": "blur(24px) saturate(0.72)",
+          "--glass-panel-fill": "linear-gradient(180deg, color-mix(in srgb, black 40%, transparent), color-mix(in srgb, black 30%, transparent))",
+          "display": "flex",
+          "overflow": "hidden",
+          "color": "color-mix(in srgb, white 92%, transparent)",
+          "font": "500 12px/1.3 var(--font-sans, system-ui)"
+        },
+        ".glass-board button": {
+          "font": "inherit",
+          "color": "inherit",
+          "cursor": "pointer",
+          "border": "0",
+          "background": "none"
+        },
+        ".glass-board :focus-visible": {
+          "outline": "2px solid white",
+          "outline-offset": "2px"
+        },
+        ".glass-board-lateral": {
+          "flex": "none",
+          "width": "56px",
+          "display": "flex",
+          "flex-direction": "column",
+          "align-items": "center",
+          "gap": "22px",
+          "padding": "12px 0 16px",
+          "border-right": "1px solid color-mix(in srgb, white 8%, transparent)"
+        },
+        ".glass-board-corpo": {
+          "position": "relative",
+          "flex": "1",
+          "min-width": "0",
+          "display": "flex",
+          "flex-direction": "column",
+          "padding": "12px 12px 0 16px"
+        },
+        ".glass-board-topo": {
+          "display": "flex",
+          "align-items": "center",
+          "gap": "10px"
+        },
+        ".glass-board-busca": {
+          "display": "flex",
+          "align-items": "center",
+          "gap": "8px",
+          "flex": "0 1 212px",
+          "min-width": "0",
+          "height": "32px",
+          "padding": "0 9px",
+          "margin-right": "auto",
+          "border-radius": "7px",
+          "color": "color-mix(in srgb, white 60%, transparent)",
+          "box-shadow": "inset 0 0 0 1px color-mix(in srgb, white 10%, transparent)",
+          "background": "color-mix(in srgb, white 3%, transparent)"
+        },
+        ".glass-board-busca input": {
+          "flex": "1",
+          "min-width": "0",
+          "height": "100%",
+          "border": "0",
+          "outline": "0",
+          "background": "none",
+          "color": "white",
+          "font": "400 11px var(--font-sans, system-ui)"
+        },
+        ".glass-board-busca input::placeholder": {
+          "color": "color-mix(in srgb, white 56%, transparent)"
+        },
+        ".glass-board-titulo": {
+          "margin": "13px 0 10px",
+          "font": "600 16px var(--font-sans, system-ui)"
+        },
+        ".glass-board-rolagem": {
+          "flex": "1",
+          "min-height": "0",
+          "margin-top": "10px",
+          "overflow": "auto hidden",
+          "padding-bottom": "12px"
+        },
+        ".glass-board-titulo + .glass-board-rolagem": {
+          "margin-top": "0"
+        },
+        ".glass-board .kanban-root": {
+          "--kanban-gap": "12px",
+          "--kanban-col-min": "132px",
+          "--kanban-col-max": "none",
+          "--kanban-card-gap": "8px",
+          "--kanban-card-radius": "7px",
+          "--kanban-column-min-h": "0",
+          "--kanban-accent": "white",
+          "width": "100%",
+          "align-items": "flex-start"
+        },
+        ".glass-board .kanban-column": {
+          "flex": "1 1 0",
+          "padding": "8px",
+          "border-radius": "12px",
+          "background": "color-mix(in srgb, white 11%, transparent)",
+          "min-width": "132px"
+        },
+        ".glass-board .kanban-column-body": {
+          "max-height": "none",
+          "overflow": "visible"
+        },
+        ".glass-board-coluna": {
+          "display": "flex",
+          "align-items": "center",
+          "gap": "7px",
+          "height": "28px",
+          "margin": "0 -4px 5px 11px"
+        },
+        ".glass-board-coluna h2": {
+          "margin": "0",
+          "font": "500 12.5px var(--font-sans, system-ui)"
+        },
+        ".glass-board-coluna span": {
+          "display": "grid",
+          "place-items": "center",
+          "min-width": "16px",
+          "height": "16px",
+          "border-radius": "999px",
+          "font-size": "10px",
+          "background": "color-mix(in srgb, black 34%, transparent)"
+        },
+        ".glass-board-coluna button": {
+          "margin-left": "auto",
+          "display": "grid",
+          "place-items": "center",
+          "width": "28px",
+          "height": "28px",
+          "color": "color-mix(in srgb, white 42%, transparent)"
+        },
+        ".glass-board-coluna button:disabled": {
+          "opacity": "0.5",
+          "cursor": "default"
+        },
+        ".glass-board-coluna button:not(:focus-visible)": {
+          "opacity": "0",
+          "transition": "opacity var(--dur-fast, 160ms) var(--ease-out)"
+        },
+        ".glass-board .kanban-column:hover .glass-board-coluna button": {
+          "opacity": "1"
+        },
+        "@media (hover: none)": {
+          ".glass-board-coluna button": {
+            "opacity": "1 !important"
+          }
+        },
+        ".glass-board-cartao": {
+          "position": "relative",
+          "display": "block",
+          "padding": "10px 11px 9px",
+          "border-radius": "7px",
+          "background": "color-mix(in srgb, black 32%, transparent)",
+          "color": "color-mix(in srgb, white 92%, transparent)",
+          "font": "500 10.5px/1.45 var(--font-sans, system-ui)"
+        },
+        ".glass-board-cartao header": {
+          "position": "relative",
+          "display": "flex",
+          "align-items": "center",
+          "gap": "6px",
+          "margin-bottom": "8px"
+        },
+        ".glass-board-cartao i": {
+          "display": "grid",
+          "place-items": "center",
+          "width": "16px",
+          "height": "16px",
+          "border-radius": "50%",
+          "font": "600 7px var(--font-sans, system-ui)",
+          "background": "color-mix(in srgb, white 16%, transparent)"
+        },
+        ".glass-board-cartao b": {
+          "font-weight": "600",
+          "font-size": "10px"
+        },
+        ".glass-board-cartao time": {
+          "margin-left": "auto",
+          "font-size": "10px",
+          "color": "color-mix(in srgb, white 62%, transparent)"
+        },
+        ".glass-board-cartao em": {
+          "position": "absolute",
+          "top": "-5px",
+          "right": "-6px",
+          "width": "5px",
+          "height": "5px",
+          "border-radius": "50%",
+          "background": "var(--destructive)"
+        },
+        ".glass-board-cartao p": {
+          "margin": "0"
+        },
+        ".glass-board-cartao small": {
+          "font-size": "10.5px",
+          "color": "color-mix(in srgb, white 62%, transparent)"
+        },
+        ".glass-board-cartao[data-no-ar]": {
+          "rotate": "-4.5deg",
+          "background": "color-mix(in srgb, black 78%, transparent)",
+          "color": "white",
+          "box-shadow": "0 16px 28px -8px color-mix(in srgb, black 55%, transparent)"
+        },
+        ".glass-board-adicionar": {
+          "display": "flex",
+          "align-items": "center",
+          "gap": "9px",
+          "width": "100%",
+          "height": "34px",
+          "padding": "0 12px",
+          "font-size": "11.5px !important",
+          "font-weight": "600 !important",
+          "border-radius": "7px"
+        },
+        ".kanban-card:has(> .glass-board-adicionar)": {
+          "cursor": "default"
+        },
+        ".glass-board-canto": {
+          "position": "absolute",
+          "right": "12px",
+          "bottom": "12px",
+          "z-index": "2"
+        },
+        "@media (max-width: 639px)": {
+          ".glass-board-lateral": {
+            "display": "none"
+          },
+          ".glass-board-corpo": {
+            "padding-left": "12px"
+          }
+        }
+      }
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:ui",
+      "title": "Color Picker",
+      "description": "Seletor de cor de editor: arraste no campo e na matiz, digite o valor exato, pegue uma cor da tela ou use as amostras da marca.",
+      "dependencies": [
+        "react-colorful",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/color-picker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "cor",
+        "seletor",
+        "hex",
+        "conta-gotas",
+        "paleta",
+        "editor"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Escolher uma cor livre num editor, tema ou painel de marca",
+          "evite": "Escolher entre poucas cores fixas: chip; ajustar um número: scrub-input"
+        }
+      }
+    },
+    {
+      "name": "sensor-dial",
+      "type": "registry:ui",
+      "title": "Sensor Dial",
+      "description": "Mira de pareamento: gire o feixe até o alvo, e o disco cresce conforme chega perto. Em repouso, o feixe procura sozinho.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/sensor-dial.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "mostrador",
+        "pareamento",
+        "mira",
+        "sensor",
+        "camera"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Passo de parear ou alinhar um dispositivo, em app de IoT ou de câmera",
+          "evite": "Escolher uma hora: time-dial; mostrar um nível sem interação, gauge"
+        }
+      },
+      "css": {
+        ".sensor-dial": {
+          "--folha": "var(--sensor-sheet, var(--brand))",
+          "--tinta": "var(--sensor-ink, color-mix(in srgb, black 88%, navy))",
+          "position": "relative",
+          "display": "flex",
+          "flex-direction": "column",
+          "align-items": "center",
+          "width": "100%",
+          "height": "100%",
+          "min-height": "26rem",
+          "overflow": "hidden",
+          "container-type": "inline-size",
+          "border-radius": "inherit",
+          "font-family": "var(--font-sans, system-ui)",
+          "background": "radial-gradient(64cqw 84cqw at 50% 74cqw, var(--tinta) 58%, color-mix(in srgb, var(--tinta) 62%, var(--folha)) 78%, var(--folha) 100%)"
+        },
+        ".sensor-dial-titulo": {
+          "margin": "6.5cqw 0 0",
+          "color": "var(--sensor-title, var(--brand-foreground))",
+          "font-size": "5.2cqw",
+          "font-weight": "400",
+          "line-height": "1.2",
+          "text-align": "center",
+          "white-space": "pre-line"
+        },
+        ".sensor-dial-mostrador": {
+          "flex": "none",
+          "width": "92cqw",
+          "aspect-ratio": "1",
+          "margin-top": "1cqw",
+          "border-radius": "50%",
+          "cursor": "grab",
+          "outline": "0",
+          "touch-action": "none"
+        },
+        ".sensor-dial-mostrador:active": {
+          "cursor": "grabbing"
+        },
+        ".sensor-dial-mostrador:focus-visible": {
+          "outline": "2px solid white",
+          "outline-offset": "-6px"
+        },
+        ".sensor-dial-marca": {
+          "stroke": "white",
+          "stroke-width": "1.8",
+          "stroke-linecap": "round"
+        },
+        ".sensor-dial-eixo": {
+          "stroke": "color-mix(in srgb, white 72%, transparent)",
+          "stroke-width": "1",
+          "stroke-dasharray": "2 3"
+        },
+        ".sensor-dial-orbita": {
+          "fill": "none",
+          "stroke": "color-mix(in srgb, white 48%, transparent)",
+          "stroke-width": "1.2"
+        },
+        ".sensor-dial-feixe": {
+          "stroke": "color-mix(in srgb, white 76%, transparent)",
+          "stroke-width": "1.5"
+        },
+        ".sensor-dial-alvo": {
+          "stroke": "var(--sensor-hit, var(--brand))",
+          "stroke-width": "2.2"
+        },
+        ".sensor-dial-disco": {
+          "fill": "white",
+          "filter": "drop-shadow(0 3px 7px color-mix(in srgb, black 60%, transparent))"
+        },
+        ".sensor-dial-aro": {
+          "fill": "none",
+          "stroke": "color-mix(in srgb, white 82%, black)",
+          "stroke-width": "1.5"
+        },
+        ".sensor-dial-lente": {
+          "fill": "color-mix(in srgb, white 65%, black)"
+        },
+        ".sensor-dial-guia": {
+          "position": "absolute",
+          "left": "13cqw",
+          "bottom": "-2cqw",
+          "width": "74cqw",
+          "height": "auto",
+          "overflow": "visible",
+          "fill": "none",
+          "stroke": "color-mix(in srgb, white 62%, transparent)",
+          "stroke-width": "1.1",
+          "pointer-events": "none"
+        },
+        ".sensor-dial-guia circle": {
+          "fill": "white",
+          "stroke": "none"
+        },
+        ".sensor-dial-acao": {
+          "position": "absolute",
+          "bottom": "8cqw",
+          "left": "50%",
+          "translate": "-50% 0",
+          "display": "flex",
+          "align-items": "center",
+          "justify-content": "space-between",
+          "width": "62cqw",
+          "min-height": "2.75rem",
+          "height": "14.5cqw",
+          "padding": "0 2cqw 0 7cqw",
+          "border": "0",
+          "border-radius": "4.5cqw",
+          "color": "white",
+          "font": "400 max(0.8125rem, 4.3cqw) var(--font-sans, system-ui)",
+          "cursor": "pointer",
+          "background": "color-mix(in srgb, black 44%, transparent)",
+          "-webkit-backdrop-filter": "blur(10px)",
+          "backdrop-filter": "blur(10px)"
+        },
+        ".sensor-dial-acao i": {
+          "display": "grid",
+          "place-items": "center",
+          "width": "10.5cqw",
+          "height": "10.5cqw",
+          "border-radius": "50%",
+          "color": "black",
+          "background": "white",
+          "transition": "transform var(--dur-fast, 160ms) var(--ease-out)"
+        },
+        ".sensor-dial-acao:active i": {
+          "transform": "scale(0.94)"
+        },
+        ".sensor-dial-acao:focus-visible": {
+          "outline": "2px solid white",
+          "outline-offset": "2px"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".sensor-dial-acao i": {
+            "transition": "none"
+          }
+        }
+      }
+    },
+    {
+      "name": "device-frame",
+      "type": "registry:ui",
+      "title": "Device Frame",
+      "description": "Aparelho em CSS 3D com a tela viva dentro: celular, tablet ou notebook, cinco poses, entrada animada e balanço por ponteiro, flutuação ou rolagem.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/device-frame.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "conteudo",
+        "mockup",
+        "celular",
+        "aparelho",
+        "3d",
+        "tela"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Mostrar uma tela de app funcionando em hero ou página de produto",
+          "evite": "Giro de 360° ou objeto de verdade: lathe-object; só uma foto de tela, photo-frame"
+        }
+      },
+      "css": {
+        ".device-frame": {
+          "--device-body": "color-mix(in srgb, white 14%, black)",
+          "--device-edge": "color-mix(in srgb, white 28%, black)",
+          "position": "relative",
+          "width": "100%",
+          "aspect-ratio": "1 / 2.05",
+          "container-type": "inline-size",
+          "perspective": "var(--device-perspective, 1400px)"
+        },
+        ".device-frame[data-finish=\"silver\"]": {
+          "--device-body": "color-mix(in srgb, white 78%, black)",
+          "--device-edge": "color-mix(in srgb, white 92%, black)"
+        },
+        ".device-frame-corpo": {
+          "position": "absolute",
+          "inset": "0",
+          "transform-style": "preserve-3d",
+          "border-radius": "15cqw",
+          "will-change": "transform"
+        },
+        ".device-frame-camada": {
+          "position": "absolute",
+          "inset": "0",
+          "border-radius": "inherit",
+          "background": "var(--device-edge)",
+          "transform": "translateZ(calc(var(--c) * var(--device-step, -0.45cqw)))"
+        },
+        ".device-frame-botao": {
+          "position": "absolute",
+          "top": "var(--t)",
+          "height": "var(--a)",
+          "width": "1cqw",
+          "border-radius": "1cqw",
+          "background": "var(--device-edge)",
+          "transform": "translateZ(-2.2cqw)"
+        },
+        ".device-frame-botao[data-lado=\"e\"]": {
+          "left": "-0.7cqw"
+        },
+        ".device-frame-botao[data-lado=\"d\"]": {
+          "right": "-0.7cqw"
+        },
+        ".device-frame-frente": {
+          "position": "absolute",
+          "inset": "0",
+          "padding": "3.5cqw",
+          "border-radius": "inherit",
+          "background": "var(--device-body)",
+          "box-shadow": "inset 0 0 0 1px var(--device-edge), inset 0 0 0 0.9cqw black"
+        },
+        ".device-frame-tela": {
+          "position": "relative",
+          "width": "100%",
+          "height": "100%",
+          "overflow": "hidden",
+          "border-radius": "11.5cqw",
+          "background": "black"
+        },
+        ".device-frame-ilha": {
+          "position": "absolute",
+          "top": "2.6cqw",
+          "left": "50%",
+          "translate": "-50% 0",
+          "width": "26cqw",
+          "height": "7cqw",
+          "border-radius": "999px",
+          "background": "black",
+          "pointer-events": "none"
+        },
+        ".device-frame-brilho": {
+          "position": "absolute",
+          "inset": "0 -30%",
+          "pointer-events": "none",
+          "background": "linear-gradient(112deg, transparent 38%, color-mix(in srgb, white var(--device-glare, 7%), transparent) 48%, transparent 58%)"
+        },
+        ".device-frame[data-device=\"tablet\"]": {
+          "--device-step": "-0.13cqw",
+          "aspect-ratio": "4 / 3"
+        },
+        ".device-frame[data-device=\"tablet\"] .device-frame-corpo": {
+          "border-radius": "3.6cqw"
+        },
+        ".device-frame[data-device=\"tablet\"] .device-frame-frente": {
+          "padding": "2.4cqw",
+          "background": "color-mix(in srgb, white 4%, black)",
+          "box-shadow": "inset 0 0 0 0.3cqw var(--device-edge)"
+        },
+        ".device-frame[data-device=\"tablet\"] .device-frame-tela": {
+          "border-radius": "1.4cqw"
+        },
+        ".device-frame-camera": {
+          "position": "absolute",
+          "top": "0.85cqw",
+          "left": "50%",
+          "translate": "-50% 0",
+          "width": "0.7cqw",
+          "height": "0.7cqw",
+          "border-radius": "50%",
+          "background": "color-mix(in srgb, white 14%, black)"
+        },
+        ".device-frame-botao[data-lado=\"t\"]": {
+          "top": "-0.35cqw",
+          "left": "var(--t)",
+          "width": "var(--a)",
+          "height": "0.5cqw",
+          "border-radius": "0.5cqw",
+          "transform": "translateZ(-0.7cqw)"
+        },
+        ".device-frame[data-device=\"laptop\"]": {
+          "--device-step": "-0.05cqw",
+          "aspect-ratio": "16 / 10"
+        },
+        ".device-frame[data-device=\"laptop\"] .device-frame-corpo": {
+          "border-radius": "1.9cqw"
+        },
+        ".device-frame[data-device=\"laptop\"] .device-frame-frente": {
+          "padding": "1.1cqw",
+          "background": "color-mix(in srgb, white 3%, black)",
+          "box-shadow": "inset 0 0 0 0.22cqw var(--device-edge)"
+        },
+        ".device-frame[data-device=\"laptop\"] .device-frame-tela": {
+          "border-radius": "0.8cqw"
+        },
+        ".device-frame[data-device=\"laptop\"] .device-frame-ilha": {
+          "top": "0",
+          "width": "11cqw",
+          "height": "1.5cqw",
+          "border-radius": "0 0 0.7cqw 0.7cqw"
+        },
+        ".device-frame-base": {
+          "--device-step": "-0.16cqw",
+          "position": "absolute",
+          "top": "100%",
+          "left": "-1cqw",
+          "right": "-1cqw",
+          "height": "68cqw",
+          "border-radius": "0.6cqw 0.6cqw 2cqw 2cqw",
+          "transform-origin": "50% 0",
+          "transform": "rotateX(70deg)",
+          "transform-style": "preserve-3d"
+        },
+        ".device-frame-deck": {
+          "position": "absolute",
+          "inset": "0",
+          "border-radius": "inherit",
+          "background": "var(--device-body)",
+          "box-shadow": "inset 0 0 0 0.2cqw var(--device-edge)"
+        },
+        ".device-frame-teclado": {
+          "position": "absolute",
+          "top": "4%",
+          "left": "5%",
+          "right": "5%",
+          "height": "52%",
+          "border-radius": "0.6cqw",
+          "background-color": "color-mix(in srgb, black 62%, var(--device-body))",
+          "background-image": "repeating-linear-gradient(90deg, var(--device-body) 0 0.24cqw, transparent 0.24cqw 6.55cqw), repeating-linear-gradient(0deg, var(--device-body) 0 0.24cqw, transparent 0.24cqw 5.9cqw)"
+        },
+        ".device-frame-trackpad": {
+          "position": "absolute",
+          "top": "60%",
+          "left": "50%",
+          "translate": "-50% 0",
+          "width": "38cqw",
+          "height": "34%",
+          "border-radius": "1cqw",
+          "background": "color-mix(in srgb, white 5%, var(--device-body))",
+          "box-shadow": "inset 0 0 0 0.12cqw var(--device-edge)"
+        }
+      }
+    },
+    {
+      "name": "use-idle",
+      "type": "registry:hook",
+      "title": "useIdle",
+      "description": "Chama uma função enquanto a peça está na tela e ninguém mexe nela, e cala com movimento reduzido. Vem com useInView.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/hooks/use-idle.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-idle.ts"
+        }
+      ],
+      "categories": [
+        "fundacao",
+        "hook",
+        "gesto",
+        "toque"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Peça com gesto que precisa parecer viva no celular, onde não existe hover",
+          "evite": "Animação contínua: requestAnimationFrame no próprio componente"
+        }
+      }
+    },
+    {
+      "name": "use-tilt",
+      "type": "registry:hook",
+      "title": "useTilt",
+      "description": "A inclinação lateral do celular, com o pedido de permissão do iOS dentro do gesto. Sem sensor, nada acontece.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "react"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/hooks/use-tilt.ts",
+          "type": "registry:hook",
+          "target": "@hooks/use-tilt.ts"
+        }
+      ],
+      "categories": [
+        "fundacao",
+        "hook",
+        "giroscopio",
+        "toque"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Deixar a inclinação do aparelho pilotar uma peça que já funciona por arrasto",
+          "evite": "Como única entrada: boa parte dos aparelhos não concede o sensor"
+        }
+      }
+    },
+    {
+      "name": "compass",
+      "type": "registry:ui",
+      "title": "Compass",
+      "description": "Bússola em camadas: a agulha vai até o ponteiro, passa e volta, e o mostrador inclina em direção à mão.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/use-idle"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/compass.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "bussola",
+        "mostrador",
+        "3d",
+        "mola",
+        "direcao"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Mostrar ou escolher uma direção, ou dar um objeto vivo a uma página que fala de rumo",
+          "evite": "Alinhar com um alvo: sensor-dial; escolher uma hora: time-dial"
+        }
+      }
+    },
+    {
+      "name": "drip-word",
+      "type": "registry:ui",
+      "title": "Drip Word",
+      "description": "Uma palavra de tinta viscosa em shader: dos pés das letras descem fios que soltam a gota, e arrastar de lado inclina a gravidade.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/css-color",
+        "@visant/use-tilt"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/drip-word.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "texto",
+        "shader",
+        "webgl",
+        "liquido",
+        "gota",
+        "palavra",
+        "tipografia"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Uma palavra de abertura com presença, em dobra de marca ou tela de entrada",
+          "evite": "Texto que derrete sob o cursor: heat-word; texto corrido ou título longo: line-reveal"
+        }
+      }
+    },
+    {
+      "name": "ratchet",
+      "type": "registry:ui",
+      "title": "Ratchet",
+      "description": "Catraca de aço: o gesto dá corda numa roda que só gira para um lado, com a lingueta caindo a cada dente.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/use-idle"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/ratchet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "catraca",
+        "engrenagem",
+        "metal",
+        "gesto",
+        "clique"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Um gesto de dar corda: contar passos para a frente, avançar sem poder voltar",
+          "evite": "Ajustar um número nos dois sentidos: scrub-input; girar para os dois lados: vintage-knob"
+        }
+      }
+    },
+    {
+      "name": "raking-light",
+      "type": "registry:ui",
+      "title": "Raking Light",
+      "description": "Relevo seco em papel com fibra: a palavra só existe na sombra e no brilho de uma lâmpada baixa.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/use-idle"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/raking-light.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "texto",
+        "relevo",
+        "papel",
+        "luz",
+        "textura",
+        "grao",
+        "tipografia"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Uma palavra ou nome com tato de papel, em abertura de marca ou capa",
+          "evite": "Palavra que precisa ser lida de imediato ou em texto pequeno: line-reveal"
+        }
+      }
+    },
+    {
+      "name": "word-dial",
+      "type": "registry:ui",
+      "title": "Word Dial",
+      "description": "Um anel que reordena as letras de uma palavra em linha, onda, anel, escada e espelho, com paradas como um tambor de caleidoscópio.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/use-idle"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/word-dial.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "texto",
+        "palavra",
+        "tipografia",
+        "marca",
+        "anel",
+        "arranjo"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Mostrar uma marca ou palavra-chave que muda de arranjo sem deixar de ser ela",
+          "evite": "Trocar uma palavra por outra: text-morph; escolher entre opções de verdade: segmented-control"
+        }
+      }
+    },
+    {
+      "name": "detent-slider",
+      "type": "registry:ui",
+      "title": "Detent Slider",
+      "description": "Slider com paradas que agarram e a consequência em letra grande, com dígitos que rolam antes de confirmar.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/detent-slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "slider",
+        "paradas",
+        "percentual",
+        "formulario",
+        "digitos"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Escolher quanto de algo, vendo o resultado antes de confirmar: fechar parte, dividir, repartir",
+          "evite": "Simular um cenário com vários valores: sim-slider; ajustar sem consequência a mostrar: elastic-slider"
+        }
+      }
+    },
+    {
+      "name": "route-profile",
+      "type": "registry:ui",
+      "title": "Route Profile",
+      "description": "Perfil de terreno que se lê arrastando: a altitude e a rampa sob o cursor, e um clinômetro cuja agulha balança com a inclinação.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/use-idle",
+        "@visant/use-tilt"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/route-profile.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "conteudo",
+        "rota",
+        "grafico",
+        "altitude",
+        "terreno",
+        "clinometro"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Mostrar uma rota, trilha ou prova pelo relevo, com leitura ponto a ponto",
+          "evite": "Uma série de números sem terreno: streamgraph; só um nível, sem percurso: gauge"
         }
       }
     }
