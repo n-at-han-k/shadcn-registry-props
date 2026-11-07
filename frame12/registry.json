@@ -1,0 +1,878 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "frame12",
+  "homepage": "https://github.com/lbrodie11/frame12",
+  "items": [
+    {
+      "name": "frame12-styles",
+      "type": "registry:ui",
+      "title": "FRAME/12 Styles & Tokens",
+      "description": "FRAME/12 CSS custom properties, panel grammar, screentone fills, and motion on twos.",
+      "files": [
+        {
+          "path": "styles/frame12.css",
+          "type": "registry:file",
+          "target": "styles/frame12.css"
+        },
+        {
+          "path": "styles/frame12-tailwind.css",
+          "type": "registry:file",
+          "target": "styles/frame12-tailwind.css"
+        }
+      ]
+    },
+    {
+      "name": "use-on-twos",
+      "type": "registry:hook",
+      "title": "useOnTwos & Motion Hooks",
+      "description": "12fps stepped motion hook (83.33ms poses), count-up tween, ResizeObserver size hook, and reduced-motion detection.",
+      "files": [
+        {
+          "path": "hooks/use-on-twos.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-on-twos.ts"
+        }
+      ]
+    },
+    {
+      "name": "font-dela-gothic-one",
+      "type": "registry:font",
+      "title": "Dela Gothic One (FRAME/12 Display Font)",
+      "description": "Display typeface (--font-dela-gothic-one -> --font-f-display) for FRAME/12 storyboard titles and establishing KPI numerals.",
+      "font": {
+        "family": "'Dela Gothic One', 'f12DisplayFallback', 'f12DisplayFallbackDejaVu', sans-serif",
+        "provider": "google",
+        "import": "Dela_Gothic_One",
+        "variable": "--font-dela-gothic-one",
+        "weight": ["400"],
+        "subsets": ["latin"]
+      }
+    },
+    {
+      "name": "font-zen-kaku-gothic-new",
+      "type": "registry:font",
+      "title": "Zen Kaku Gothic New (FRAME/12 Body Font)",
+      "description": "Body typeface (--font-zen-kaku-gothic-new -> --font-f-body) for FRAME/12 interface copy and controls.",
+      "font": {
+        "family": "'Zen Kaku Gothic New', 'f12BodyFallback', 'f12BodyFallbackDejaVu', sans-serif",
+        "provider": "google",
+        "import": "Zen_Kaku_Gothic_New",
+        "variable": "--font-zen-kaku-gothic-new",
+        "weight": ["400", "500", "700"],
+        "subsets": ["latin"]
+      }
+    },
+    {
+      "name": "font-m-plus-1-code",
+      "type": "registry:font",
+      "title": "M PLUS 1 Code (FRAME/12 Monospace Font)",
+      "description": "Monospace typeface (--font-m-plus-1-code -> --font-f-mono) for FRAME/12 cut labels, eyebrows, tabular metrics, and code.",
+      "font": {
+        "family": "'M PLUS 1 Code', 'f12MonoFallbackConsolas', 'f12MonoFallback', ui-monospace, monospace",
+        "provider": "google",
+        "import": "M_PLUS_1_Code",
+        "variable": "--font-m-plus-1-code",
+        "weight": ["400", "500", "700"],
+        "subsets": ["latin"]
+      }
+    },
+    {
+      "name": "frame12-base",
+      "type": "registry:base",
+      "title": "FRAME/12 Base Configuration",
+      "description": "Base configuration, CSS tokens, motion hooks, and typography setup for FRAME/12.",
+      "config": {
+        "rsc": true,
+        "tsx": true,
+        "tailwind": {
+          "baseColor": "neutral",
+          "cssVariables": true
+        },
+        "registries": {
+          "@frame12": "https://frame12.dev/r/{name}.json"
+        }
+      },
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/font-dela-gothic-one.json",
+        "https://frame12.dev/r/font-zen-kaku-gothic-new.json",
+        "https://frame12.dev/r/font-m-plus-1-code.json"
+      ],
+      "files": [
+        {
+          "path": "styles/frame12.css",
+          "type": "registry:file",
+          "target": "styles/frame12.css"
+        },
+        {
+          "path": "styles/frame12-tailwind.css",
+          "type": "registry:file",
+          "target": "styles/frame12-tailwind.css"
+        },
+        {
+          "path": "hooks/use-on-twos.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-on-twos.ts"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Top-level FRAME/12 storyboard sheet with registration pegs, optional CSS-counter autoCut, theme scope, and motion grammar.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json"
+      ],
+      "files": [
+        {
+          "path": "ui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/sheet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scene",
+      "type": "registry:ui",
+      "title": "Scene",
+      "description": "Panel grammar layout container enforcing 12px (pair), 20px (scene), and 32px (change) gutters.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/scene.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/scene.tsx"
+        }
+      ]
+    },
+    {
+      "name": "panel",
+      "type": "registry:ui",
+      "title": "Panel",
+      "description": "Ink-framed panel with SVG mitered polygon border, optional slanted gutter edge, and automatic or explicit cut number in reading order.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json"
+      ],
+      "files": [
+        {
+          "path": "ui/panel.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "panel-pair",
+      "type": "registry:ui",
+      "title": "PanelPair",
+      "description": "Pairs two related panels across a shared 12px slanted gutter (slant-bottom over slant-top).",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/panel.json"
+      ],
+      "files": [
+        {
+          "path": "ui/panel-pair.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/panel-pair.tsx"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "SegmentedControl",
+      "description": "Exposure-sheet cell selector with mix-blend-mode: difference indicator and stepped 12fps motion.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/segmented-control.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/segmented-control.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Ink-framed button with primary, secondary, and marker-yellow variants.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Shared form field coordinator for label, hint, marker-flagged error alert, required indicator, density, and aria-describedby/aria-invalid context.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Ink-framed text input with accessible label, hint, and marker-flagged error message.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/field.json"
+      ],
+      "files": [
+        {
+          "path": "ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Ink-framed multi-line text input with accessible label, hint, marker-flagged error message, and Field context support.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/field.json"
+      ],
+      "files": [
+        {
+          "path": "ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/textarea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Native ink-framed checkbox with SVG checkmark and indeterminate mixed-state line, label, hint, error, and Field context support.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/field.json"
+      ],
+      "files": [
+        {
+          "path": "ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "RadioGroup",
+      "description": "Accessible fieldset/legend radio group built on native radio inputs with vertical/horizontal orientation and Field context support.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/field.json"
+      ],
+      "files": [
+        {
+          "path": "ui/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/radio-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Exposure-sheet toggle switch built on native checkbox role=switch with configurable ON/OFF glyph, logical RTL-ready thumb, and stepped 12fps motion.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/field.json"
+      ],
+      "files": [
+        {
+          "path": "ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "WAI-ARIA tablist, tab, and tabpanel primitives with roving focus, automatic or manual keyboard activation, and default quiet panel context.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/panel.json"
+      ],
+      "files": [
+        {
+          "path": "ui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Marker-yellow badge with ink text and optional two-frame SVG impact burst.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/tag.json"
+      ],
+      "files": [
+        {
+          "path": "ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "title": "Tag",
+      "description": "Flat marker-yellow tag with ink text.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/tag.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tag.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert & Notice",
+      "description": "Non-color semantic status notice (neutral, info, success, warning, danger) with glyph stamp, deduplicated screen-reader prefix, and restrained ARIA live-region defaults.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/tag.json"
+      ],
+      "files": [
+        {
+          "path": "ui/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/alert.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Transient notification queue with bounded visible stack, queued count indicator, hover/focus timer pause, Escape dismissal, and stepped 12fps entrance.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/tag.json"
+      ],
+      "files": [
+        {
+          "path": "ui/toast.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/toast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Zero-CLS loading placeholder using screentone dot fill and stepped 12fps cadence across block, line, circle, metric, and panel variants.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "EmptyState",
+      "description": "No-data and zero-results panel state with registration glyph, monospace code, editorial title, description, and action slots.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/empty-state.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/empty-state.tsx"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Hierarchical navigation trail (<nav aria-label=\"Breadcrumb\"> + <ol>) with aria-current=\"page\", presentation separators, ellipsis, and asChild link composition.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/breadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "ink-framed page navigation (<nav aria-label=\"Pagination\">) with deterministic ellipsis range builder, tabular summary, and aria-current=\"page\" ink inversion.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "metric",
+      "type": "registry:ui",
+      "title": "Metric & Delta",
+      "description": "Display KPI with count-up on twos, directional marker delta badge, note, and optional ToneSpark.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json"
+      ],
+      "files": [
+        {
+          "path": "ui/metric.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/metric.tsx"
+        }
+      ]
+    },
+    {
+      "name": "balloon",
+      "type": "registry:ui",
+      "title": "Balloon",
+      "description": "Speech-balloon callout annotation with mitered tail and marker target dot.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/balloon.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/balloon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tone-area-chart",
+      "type": "registry:ui",
+      "title": "ToneAreaChart",
+      "description": "Area chart with rotated SVG screentone halftone bands, speech-balloon peak callout, keyboard navigation, and accessible data table.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json"
+      ],
+      "files": [
+        {
+          "path": "ui/tone-area-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tone-area-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tone-bar-list",
+      "type": "registry:ui",
+      "title": "ToneBarList",
+      "description": "Interactive ranked list with screentone progress bars, share percentages, and impact-burst leader badge.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "ui/tone-bar-list.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tone-bar-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tone-spark",
+      "type": "registry:ui",
+      "title": "ToneSpark",
+      "description": "Compact daily bar sparkline filled with 45-degree SVG screentone dots.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json"
+      ],
+      "files": [
+        {
+          "path": "ui/tone-spark.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tone-spark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog (FRAME/12 Adapter)",
+      "description": "FRAME/12 skin for modal dialogs using native <dialog>, ink frame, cut number, and screentone backdrop.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "ui/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select (FRAME/12 Adapter)",
+      "description": "FRAME/12 skin for accessible select menus built on @radix-ui/react-select with ink frame and marker-yellow caret.",
+      "dependencies": ["@radix-ui/react-select"],
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/field.json"
+      ],
+      "files": [
+        {
+          "path": "ui/select.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip (FRAME/12 Adapter)",
+      "description": "FRAME/12 skin for accessible tooltips with hard ink shadow.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "DropdownMenu (FRAME/12 Adapter)",
+      "description": "FRAME/12 skin for accessible action menus built on @radix-ui/react-dropdown-menu with ink inversion on focus and hover.",
+      "dependencies": ["@radix-ui/react-dropdown-menu"],
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "ui/dropdown-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/dropdown-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table (FRAME/12 Adapter)",
+      "description": "FRAME/12 skin for semantic data tables with monospace headers, tabular numerals, and heavy ink rules.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/table.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "frame12",
+      "type": "registry:block",
+      "title": "FRAME/12 Complete Kit",
+      "description": "All FRAME/12 styles, hooks, components, and primitive adapters.",
+      "dependencies": ["@radix-ui/react-select", "@radix-ui/react-dropdown-menu"],
+      "files": [
+        {
+          "path": "styles/frame12.css",
+          "type": "registry:file",
+          "target": "styles/frame12.css"
+        },
+        {
+          "path": "styles/frame12-tailwind.css",
+          "type": "registry:file",
+          "target": "styles/frame12-tailwind.css"
+        },
+        {
+          "path": "hooks/use-on-twos.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-on-twos.ts"
+        },
+        {
+          "path": "ui/index.ts",
+          "type": "registry:ui",
+          "target": "components/frame12/index.ts"
+        },
+        {
+          "path": "ui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/sheet.tsx"
+        },
+        {
+          "path": "ui/scene.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/scene.tsx"
+        },
+        {
+          "path": "ui/panel.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/panel.tsx"
+        },
+        {
+          "path": "ui/panel-pair.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/panel-pair.tsx"
+        },
+        {
+          "path": "ui/segmented-control.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/segmented-control.tsx"
+        },
+        {
+          "path": "ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/button.tsx"
+        },
+        {
+          "path": "ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/field.tsx"
+        },
+        {
+          "path": "ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/input.tsx"
+        },
+        {
+          "path": "ui/textarea.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/textarea.tsx"
+        },
+        {
+          "path": "ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/checkbox.tsx"
+        },
+        {
+          "path": "ui/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/radio-group.tsx"
+        },
+        {
+          "path": "ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/switch.tsx"
+        },
+        {
+          "path": "ui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tabs.tsx"
+        },
+        {
+          "path": "ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/badge.tsx"
+        },
+        {
+          "path": "ui/tag.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tag.tsx"
+        },
+        {
+          "path": "ui/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/alert.tsx"
+        },
+        {
+          "path": "ui/toast.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/toast.tsx"
+        },
+        {
+          "path": "ui/skeleton.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/skeleton.tsx"
+        },
+        {
+          "path": "ui/empty-state.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/empty-state.tsx"
+        },
+        {
+          "path": "ui/breadcrumb.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/breadcrumb.tsx"
+        },
+        {
+          "path": "ui/pagination.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/pagination.tsx"
+        },
+        {
+          "path": "ui/metric.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/metric.tsx"
+        },
+        {
+          "path": "ui/balloon.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/balloon.tsx"
+        },
+        {
+          "path": "ui/tone-area-chart.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tone-area-chart.tsx"
+        },
+        {
+          "path": "ui/tone-bar-list.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tone-bar-list.tsx"
+        },
+        {
+          "path": "ui/tone-spark.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tone-spark.tsx"
+        },
+        {
+          "path": "ui/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/dialog.tsx"
+        },
+        {
+          "path": "ui/select.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/select.tsx"
+        },
+        {
+          "path": "ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tooltip.tsx"
+        },
+        {
+          "path": "ui/dropdown-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/dropdown-menu.tsx"
+        },
+        {
+          "path": "ui/table.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "developer-console",
+      "type": "registry:block",
+      "title": "Developer Console Flagship Block",
+      "description": "Complete FRAME/12 API & webhook control-plane Developer Console combining Expressive hero telemetry and charts with Quiet operational views for services, masked fictional API keys, and searchable/paginated request logs.",
+      "dependencies": ["@radix-ui/react-select"],
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/frame12.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/developer-console.tsx",
+          "type": "registry:block",
+          "target": "components/frame12/blocks/developer-console.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workspace-settings",
+      "type": "registry:block",
+      "title": "Workspace Settings Operational Block",
+      "description": "Complete FRAME/12 Quiet-first operational settings experience covering profile, workspace preferences, notification routing, appearance, motion grammar, team RBAC directory, and danger zone lifecycle actions with unsaved-change detection, validation, and navigation protection.",
+      "dependencies": ["@radix-ui/react-select"],
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/frame12.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/workspace-settings.tsx",
+          "type": "registry:block",
+          "target": "components/frame12/blocks/workspace-settings.tsx"
+        }
+      ]
+    },
+    {
+      "name": "analytics-dashboard",
+      "type": "registry:block",
+      "title": "Revenue Recovery Analytics Block",
+      "description": "Complete FRAME/12 e-commerce revenue recovery analytics block extracted from the flagship storyboard and backed by an authoritative mulberry32(1207) fixture model where KPI overview, time-series analysis, period comparison, checkout segment breakdown, ranked interventions, and filterable daily ledgers reconcile 100%.",
+      "dependencies": ["@radix-ui/react-select"],
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/frame12.json"
+      ],
+      "files": [
+        {
+          "path": "blocks/analytics-dashboard.tsx",
+          "type": "registry:block",
+          "target": "components/frame12/blocks/analytics-dashboard.tsx"
+        }
+      ]
+    }
+  ]
+}
