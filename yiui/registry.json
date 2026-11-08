@@ -1150,7 +1150,8 @@
         "https://yiui.dev/r/segmented-control.json",
         "trace",
         "https://yiui.dev/r/chart-card.json",
-        "https://yiui.dev/r/mini-chart.json"
+        "https://yiui.dev/r/mini-chart.json",
+        "https://yiui.dev/r/change-summary.json"
       ],
       "files": [
         {
@@ -1182,6 +1183,26 @@
           "path": "src/registry/blocks/agent-chat-01/chat-message.tsx",
           "type": "registry:component",
           "target": "@components/agent-chat/chat-message.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/chat-tools.tsx",
+          "type": "registry:component",
+          "target": "@components/agent-chat/chat-tools.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/chat-code.tsx",
+          "type": "registry:component",
+          "target": "@components/agent-chat/chat-code.tsx"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/tool-clock.ts",
+          "type": "registry:component",
+          "target": "@components/agent-chat/tool-clock.ts"
+        },
+        {
+          "path": "src/registry/blocks/agent-chat-01/tool-announcement.ts",
+          "type": "registry:component",
+          "target": "@components/agent-chat/tool-announcement.ts"
         },
         {
           "path": "src/registry/blocks/agent-chat-01/chat-charts.tsx",
@@ -1624,6 +1645,56 @@
           "path": "src/registry/ui/mini-chart/mini-donut.tsx",
           "type": "registry:ui",
           "target": "@ui/mini-chart/mini-donut.tsx"
+        },
+        {
+          "path": "src/registry/lib/data-display.ts",
+          "type": "registry:ui",
+          "target": "lib/data-display.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-edge": "var(--edge)"
+        },
+        "light": {
+          "flow-blue": "oklch(0.56 0.2 258)",
+          "flow-green": "oklch(0.62 0.16 150)",
+          "flow-amber": "oklch(0.7 0.16 70)",
+          "flow-rose": "oklch(0.62 0.21 5)",
+          "flow-violet": "oklch(0.56 0.22 292)",
+          "flow-cyan": "oklch(0.66 0.12 215)",
+          "edge": "color-mix(in oklch, var(--foreground) 12%, transparent)"
+        },
+        "dark": {
+          "flow-blue": "oklch(0.72 0.15 255)",
+          "flow-green": "oklch(0.77 0.17 152)",
+          "flow-amber": "oklch(0.82 0.15 82)",
+          "flow-rose": "oklch(0.74 0.16 8)",
+          "flow-violet": "oklch(0.74 0.15 295)",
+          "flow-cyan": "oklch(0.82 0.11 208)",
+          "edge": "color-mix(in oklch, var(--foreground) 18%, transparent)"
+        }
+      },
+      "type": "registry:ui"
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "change-summary",
+      "title": "改动摘要",
+      "description": "一张卡片逐行列出指标的变化：指标名、一句话变化和趋势标记。好坏（绿 / 红 / 灰）与方向（上 / 下 / 平）分开设置，读屏会念出两者；数据是纯 JSON，入场依次淡入并尊重「减少动态效果」。",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/registry/ui/change-summary/change-summary.tsx",
+          "type": "registry:ui",
+          "target": "@ui/change-summary/change-summary.tsx"
+        },
+        {
+          "path": "src/registry/ui/change-summary/config.ts",
+          "type": "registry:ui",
+          "target": "@ui/change-summary/config.ts"
         },
         {
           "path": "src/registry/lib/data-display.ts",

@@ -1412,6 +1412,7 @@
       "description": "A chat with an agent as one screen, from the first word to the deploy: the conversation, the thinking, a plan, a run of tool calls, an approval, the answer with its code and the composer. A scripted run plays every state without a model and waits for you at the approval.",
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/agent-indicator.json",
         "https://littmd.vercel.app/r/composer.json",
         "https://littmd.vercel.app/r/file-changes.json",
         "https://littmd.vercel.app/r/icons.json",
@@ -1427,8 +1428,8 @@
       ],
       "docs": "Import AgentChat from components/litt-blocks/agent and give its box a height; the conversation scrolls inside it. The run is a script: to wire in your agent, keep LittTurn and the layout and replace useRun with your stream. See it live at https://littmd.vercel.app/#agent.",
       "meta": {
-        "version": "2026.11.02",
-        "released": "2026-11-02",
+        "version": "2026.11.08",
+        "released": "2026-11-08",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1436,6 +1437,29 @@
           "path": "registry/litt/components/litt-blocks/agent.tsx",
           "type": "registry:component",
           "target": "components/litt-blocks/agent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-indicator",
+      "type": "registry:ui",
+      "title": "Agent indicator",
+      "description": "What an agent is doing, in hardware: a seven-segment chase for thinking, a tuner for searching, stereo meters for reading, a dot matrix for reasoning, step lights for running and tape reels for writing, each moving only while tokens arrive. A Device part.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"device\" on <html>. Pass the phase and it crossfades between mechanisms; pass paused to hold it. Under reduced motion each holds one frame. It says the phase in words for a screen reader.",
+      "meta": {
+        "version": "2026.11.08",
+        "released": "2026-11-08",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/agent-indicator.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/agent-indicator.tsx"
         }
       ]
     },
@@ -1738,8 +1762,8 @@
       ],
       "docs": "Import CaseStudy from components/litt-blocks/case-study and render it as a page's content. The project, its words and its images sit at the top of the file: replace the drawn stand-ins with your images and give each its width and height. See it live at https://littmd.vercel.app/#case-study.",
       "meta": {
-        "version": "2026.11.03",
-        "released": "2026-11-03",
+        "version": "2026.11.07",
+        "released": "2026-11-07",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1840,8 +1864,8 @@
       ],
       "docs": "Import CodeInput from components/litt/code-input. Give it a label and check the code in onComplete; show what was wrong in error.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.08",
+        "released": "2026-11-08",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2043,6 +2067,32 @@
           "path": "registry/litt/ui/context-menu.tsx",
           "type": "registry:ui",
           "target": "components/litt/context-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy button",
+      "description": "A key that copies a command shown on LCD glass: the key sinks its 2px, the check draws in, and the command's glyphs decode back in a wave. A Device part.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"device\" on <html>. Pass the text to copy; it says Copied for a moment and goes back. Under reduced motion the glyphs swap at once.",
+      "meta": {
+        "version": "2026.11.08",
+        "released": "2026-11-08",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/copy-button.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/copy-button.tsx"
         }
       ]
     },
@@ -3518,6 +3568,29 @@
       ]
     },
     {
+      "name": "seven-segment",
+      "type": "registry:ui",
+      "title": "Seven-segment readout",
+      "description": "A figure or a count on seven-segment digits behind LCD glass, each digit's segments lit from the ink and fading like phosphor when they change. A Device part.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"device\" on <html>. Pass a value and the digits; a change rolls the segments on the instant tier. Under reduced motion they switch at once.",
+      "meta": {
+        "version": "2026.11.08",
+        "released": "2026-11-08",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/seven-segment.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/seven-segment.tsx"
+        }
+      ]
+    },
+    {
       "name": "shopify",
       "type": "registry:lib",
       "title": "Shopify",
@@ -3949,6 +4022,29 @@
       ]
     },
     {
+      "name": "tape-progress",
+      "type": "registry:ui",
+      "title": "Tape progress",
+      "description": "Progress as two tape reels: the supply empties and the take-up fills, each turning at the speed the tape's constant pace gives its radius, with the value said in words. A Device part.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"device\" on <html>. The same props as Progress (label, value, max, status). Under reduced motion the reels jump to the value.",
+      "meta": {
+        "version": "2026.11.08",
+        "released": "2026-11-08",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/tape-progress.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/tape-progress.tsx"
+        }
+      ]
+    },
+    {
       "name": "team",
       "type": "registry:block",
       "title": "Team block",
@@ -3998,8 +4094,8 @@
       ],
       "docs": "Import Thinking from components/litt/thinking. Pass active while the agent thinks and the reasoning as children: the clock counts from when active turned true. For a thought loaded from history leave active off and pass duration in seconds. open, defaultOpen and onOpenChange control it, and label replaces the words.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.08",
+        "released": "2026-11-08",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4294,8 +4390,8 @@
       ],
       "docs": "Import VerifyDemo from components/litt/examples/code-input-demo, or read it for how @litt/code-input is used. Import CodeInput from components/litt/code-input. Give it a label and check the code in onComplete; show what was wrong in error.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.08",
+        "released": "2026-11-08",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/code-input"
       },
@@ -5397,6 +5493,31 @@
       ]
     },
     {
+      "name": "tape-progress-demo",
+      "type": "registry:example",
+      "title": "Tape progress example",
+      "description": "A working tape progress: ExportDemo, the first demo on its page (https://littmd.vercel.app/#tape-progress). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/tape-progress.json"
+      ],
+      "docs": "Import ExportDemo from components/litt/examples/tape-progress-demo, or read it for how @litt/tape-progress is used. Needs data-material=\"device\" on <html>. The same props as Progress (label, value, max, status). Under reduced motion the reels jump to the value.",
+      "meta": {
+        "version": "2026.11.08",
+        "released": "2026-11-08",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/tape-progress"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/tape-progress-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/tape-progress-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "tree-demo",
       "type": "registry:example",
       "title": "Tree example",
@@ -5929,6 +6050,30 @@
       ]
     },
     {
+      "name": "seven-segment-demo",
+      "type": "registry:example",
+      "title": "Seven-segment readout example",
+      "description": "A working seven-segment readout: CounterDemo, the first demo on its page (https://littmd.vercel.app/#seven-segment). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/seven-segment.json"
+      ],
+      "docs": "Import CounterDemo from components/litt/examples/seven-segment-demo, or read it for how @litt/seven-segment is used. Needs data-material=\"device\" on <html>. Pass a value and the digits; a change rolls the segments on the instant tier. Under reduced motion they switch at once.",
+      "meta": {
+        "version": "2026.11.08",
+        "released": "2026-11-08",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/seven-segment"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/seven-segment-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/seven-segment-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "stat-demo",
       "type": "registry:example",
       "title": "Stat example",
@@ -5975,6 +6120,30 @@
           "path": "registry/litt/examples/states-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/states-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-indicator-demo",
+      "type": "registry:example",
+      "title": "Agent indicator example",
+      "description": "A working agent indicator: SixDemo, the first demo on its page (https://littmd.vercel.app/#agent-indicator). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/agent-indicator.json"
+      ],
+      "docs": "Import SixDemo from components/litt/examples/agent-indicator-demo, or read it for how @litt/agent-indicator is used. Needs data-material=\"device\" on <html>. Pass the phase and it crossfades between mechanisms; pass paused to hold it. Under reduced motion each holds one frame. It says the phase in words for a screen reader.",
+      "meta": {
+        "version": "2026.11.08",
+        "released": "2026-11-08",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/agent-indicator"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/agent-indicator-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/agent-indicator-demo.tsx"
         }
       ]
     },
@@ -6162,8 +6331,8 @@
       ],
       "docs": "Import LiveDemo from components/litt/examples/thinking-demo, or read it for how @litt/thinking is used. Import Thinking from components/litt/thinking. Pass active while the agent thinks and the reasoning as children: the clock counts from when active turned true. For a thought loaded from history leave active off and pass duration in seconds. open, defaultOpen and onOpenChange control it, and label replaces the words.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.08",
+        "released": "2026-11-08",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/thinking"
       },
@@ -6196,6 +6365,29 @@
           "path": "registry/litt/examples/tool-call-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/tool-call-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "copy-button-demo",
+      "type": "registry:example",
+      "title": "Copy button example",
+      "description": "A working copy button: InstallDemo, the first demo on its page (https://littmd.vercel.app/#copy-button). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/copy-button.json"
+      ],
+      "docs": "Import InstallDemo from components/litt/examples/copy-button-demo, or read it for how @litt/copy-button is used. Needs data-material=\"device\" on <html>. Pass the text to copy; it says Copied for a moment and goes back. Under reduced motion the glyphs swap at once.",
+      "meta": {
+        "version": "2026.11.08",
+        "released": "2026-11-08",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/copy-button"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/copy-button-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/copy-button-demo.tsx"
         }
       ]
     }

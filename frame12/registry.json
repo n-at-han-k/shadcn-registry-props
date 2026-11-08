@@ -4,6 +4,19 @@
   "homepage": "https://github.com/lbrodie11/frame12",
   "items": [
     {
+      "name": "frame12-tokens",
+      "type": "registry:ui",
+      "title": "FRAME/12 Design Tokens",
+      "description": "Standalone FRAME/12 CSS custom properties for Paper Light and Flashback Dark colors, font stacks, 12/20/32px gutters, 2.5px ink stroke, and 12fps (83.33ms) pose timing.",
+      "files": [
+        {
+          "path": "styles/frame12-tokens.css",
+          "type": "registry:file",
+          "target": "styles/frame12-tokens.css"
+        }
+      ]
+    },
+    {
       "name": "frame12-styles",
       "type": "registry:ui",
       "title": "FRAME/12 Styles & Tokens",
@@ -44,8 +57,12 @@
         "provider": "google",
         "import": "Dela_Gothic_One",
         "variable": "--font-dela-gothic-one",
-        "weight": ["400"],
-        "subsets": ["latin"]
+        "weight": [
+          "400"
+        ],
+        "subsets": [
+          "latin"
+        ]
       }
     },
     {
@@ -58,8 +75,14 @@
         "provider": "google",
         "import": "Zen_Kaku_Gothic_New",
         "variable": "--font-zen-kaku-gothic-new",
-        "weight": ["400", "500", "700"],
-        "subsets": ["latin"]
+        "weight": [
+          "400",
+          "500",
+          "700"
+        ],
+        "subsets": [
+          "latin"
+        ]
       }
     },
     {
@@ -72,8 +95,14 @@
         "provider": "google",
         "import": "M_PLUS_1_Code",
         "variable": "--font-m-plus-1-code",
-        "weight": ["400", "500", "700"],
-        "subsets": ["latin"]
+        "weight": [
+          "400",
+          "500",
+          "700"
+        ],
+        "subsets": [
+          "latin"
+        ]
       }
     },
     {
@@ -157,7 +186,8 @@
       "description": "Ink-framed panel with SVG mitered polygon border, optional slanted gutter edge, and automatic or explicit cut number in reading order.",
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
-        "https://frame12.dev/r/use-on-twos.json"
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/scene.json"
       ],
       "files": [
         {
@@ -175,6 +205,7 @@
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/scene.json",
         "https://frame12.dev/r/panel.json"
       ],
       "files": [
@@ -500,6 +531,40 @@
       ]
     },
     {
+      "name": "ghost-wire",
+      "type": "registry:ui",
+      "title": "GhostWire",
+      "description": "Dashed co-change connector wire linking a solid changed endpoint chip to a dashed untouched endpoint chip, with stroke dash density mapped from strength and 12fps on-twos draw-on motion.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/tag.json"
+      ],
+      "files": [
+        {
+          "path": "ui/ghost-wire.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/ghost-wire.tsx"
+        }
+      ]
+    },
+    {
+      "name": "receipt",
+      "type": "registry:ui",
+      "title": "Receipt & ReceiptList",
+      "description": "Evidence chips and list container linking 7-character commit SHAs, wrapping repository file paths, or verified HTTP(S) links with WP3 non-color authorship origin indicators.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json"
+      ],
+      "files": [
+        {
+          "path": "ui/receipt.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/receipt.tsx"
+        }
+      ]
+    },
+    {
       "name": "tone-area-chart",
       "type": "registry:ui",
       "title": "ToneAreaChart",
@@ -573,7 +638,9 @@
       "type": "registry:ui",
       "title": "Select (FRAME/12 Adapter)",
       "description": "FRAME/12 skin for accessible select menus built on @radix-ui/react-select with ink frame and marker-yellow caret.",
-      "dependencies": ["@radix-ui/react-select"],
+      "dependencies": [
+        "@radix-ui/react-select"
+      ],
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/field.json"
@@ -607,7 +674,9 @@
       "type": "registry:ui",
       "title": "DropdownMenu (FRAME/12 Adapter)",
       "description": "FRAME/12 skin for accessible action menus built on @radix-ui/react-dropdown-menu with ink inversion on focus and hover.",
-      "dependencies": ["@radix-ui/react-dropdown-menu"],
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu"
+      ],
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/button.json"
@@ -641,7 +710,10 @@
       "type": "registry:block",
       "title": "FRAME/12 Complete Kit",
       "description": "All FRAME/12 styles, hooks, components, and primitive adapters.",
-      "dependencies": ["@radix-ui/react-select", "@radix-ui/react-dropdown-menu"],
+      "dependencies": [
+        "@radix-ui/react-select",
+        "@radix-ui/react-dropdown-menu"
+      ],
       "files": [
         {
           "path": "styles/frame12.css",
@@ -779,6 +851,16 @@
           "target": "components/frame12/balloon.tsx"
         },
         {
+          "path": "ui/ghost-wire.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/ghost-wire.tsx"
+        },
+        {
+          "path": "ui/receipt.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/receipt.tsx"
+        },
+        {
           "path": "ui/tone-area-chart.tsx",
           "type": "registry:ui",
           "target": "components/frame12/tone-area-chart.tsx"
@@ -825,7 +907,9 @@
       "type": "registry:block",
       "title": "Developer Console Flagship Block",
       "description": "Complete FRAME/12 API & webhook control-plane Developer Console combining Expressive hero telemetry and charts with Quiet operational views for services, masked fictional API keys, and searchable/paginated request logs.",
-      "dependencies": ["@radix-ui/react-select"],
+      "dependencies": [
+        "@radix-ui/react-select"
+      ],
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/frame12.json"
@@ -843,7 +927,9 @@
       "type": "registry:block",
       "title": "Workspace Settings Operational Block",
       "description": "Complete FRAME/12 Quiet-first operational settings experience covering profile, workspace preferences, notification routing, appearance, motion grammar, team RBAC directory, and danger zone lifecycle actions with unsaved-change detection, validation, and navigation protection.",
-      "dependencies": ["@radix-ui/react-select"],
+      "dependencies": [
+        "@radix-ui/react-select"
+      ],
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/frame12.json"
@@ -861,7 +947,9 @@
       "type": "registry:block",
       "title": "Revenue Recovery Analytics Block",
       "description": "Complete FRAME/12 e-commerce revenue recovery analytics block extracted from the flagship storyboard and backed by an authoritative mulberry32(1207) fixture model where KPI overview, time-series analysis, period comparison, checkout segment breakdown, ranked interventions, and filterable daily ledgers reconcile 100%.",
-      "dependencies": ["@radix-ui/react-select"],
+      "dependencies": [
+        "@radix-ui/react-select"
+      ],
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/frame12.json"

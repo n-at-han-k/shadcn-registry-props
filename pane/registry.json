@@ -20,22 +20,24 @@
       "cssVars": {
         "light": {
           "pane-fg": "var(--foreground)",
-          "pane-blur-blur": "12px",
-          "pane-blur-default": "5px",
-          "pane-blur-transparent": "0px",
+          "pane-blur-thick": "12px",
+          "pane-blur-regular": "5px",
+          "pane-blur-thin": "0px",
           "pane-saturation": "1.7",
-          "pane-tint-blur": "rgba(255, 255, 255, 0.26)",
-          "pane-tint-default": "rgba(255, 255, 255, 0.08)",
-          "pane-tint-transparent": "rgba(255, 255, 255, 0)",
+          "pane-tint-thick": "rgba(255, 255, 255, 0.26)",
+          "pane-tint-regular": "rgba(255, 255, 255, 0.08)",
+          "pane-tint-thin": "rgba(255, 255, 255, 0)",
           "pane-blur-overlay": "24px",
           "pane-tint-overlay": "rgba(255, 255, 255, 0.76)",
-          "pane-nested-blur": "rgba(255, 255, 255, 0.4)",
-          "pane-nested-default": "rgba(255, 255, 255, 0.2)",
-          "pane-nested-transparent": "rgba(255, 255, 255, 0)",
+          "pane-nested-thick": "rgba(255, 255, 255, 0.4)",
+          "pane-nested-regular": "rgba(255, 255, 255, 0.2)",
+          "pane-nested-thin": "rgba(255, 255, 255, 0)",
+          "pane-radius-scale": "1",
+          "pane-rim": "1",
           "pane-border-width": "0.5px",
-          "pane-border-blur": "rgba(255, 255, 255, 0.85)",
-          "pane-border-default": "rgba(255, 255, 255, 0.6)",
-          "pane-border-transparent": "rgba(255, 255, 255, 0.6)",
+          "pane-border-thick": "rgba(255, 255, 255, 0.85)",
+          "pane-border-regular": "rgba(255, 255, 255, 0.6)",
+          "pane-border-thin": "rgba(255, 255, 255, 0.6)",
           "pane-accent": "#34c759",
           "pane-accent-foreground": "#ffffff",
           "pane-accent-opacity": "82%",
@@ -49,16 +51,17 @@
           "pane-shadow": "rgba(0, 0, 0, 0.1)"
         },
         "dark": {
-          "pane-tint-blur": "rgba(28, 28, 32, 0.3)",
-          "pane-tint-default": "rgba(18, 18, 22, 0.12)",
-          "pane-tint-transparent": "rgba(18, 18, 22, 0)",
+          "pane-fg": "var(--foreground)",
+          "pane-tint-thick": "rgba(28, 28, 32, 0.3)",
+          "pane-tint-regular": "rgba(18, 18, 22, 0.12)",
+          "pane-tint-thin": "rgba(18, 18, 22, 0)",
           "pane-tint-overlay": "rgba(28, 28, 32, 0.76)",
-          "pane-nested-blur": "rgba(255, 255, 255, 0.12)",
-          "pane-nested-default": "rgba(255, 255, 255, 0.07)",
-          "pane-nested-transparent": "rgba(255, 255, 255, 0)",
-          "pane-border-blur": "rgba(255, 255, 255, 0.14)",
-          "pane-border-default": "rgba(255, 255, 255, 0.1)",
-          "pane-border-transparent": "rgba(255, 255, 255, 0.1)",
+          "pane-nested-thick": "rgba(255, 255, 255, 0.12)",
+          "pane-nested-regular": "rgba(255, 255, 255, 0.07)",
+          "pane-nested-thin": "rgba(255, 255, 255, 0)",
+          "pane-border-thick": "rgba(255, 255, 255, 0.14)",
+          "pane-border-regular": "rgba(255, 255, 255, 0.1)",
+          "pane-border-thin": "rgba(255, 255, 255, 0.1)",
           "pane-accent": "#30d158",
           "pane-accent-foreground": "#ffffff",
           "pane-accent-opacity": "75%",
@@ -99,9 +102,10 @@
       "name": "glass-core",
       "type": "registry:lib",
       "title": "Glass Core",
-      "description": "The glass engine behind every surface: the displacement-map generator that bends the backdrop at the rim, the SVG refraction filter, the tuning config for both variants, and the shared CVA variants.",
+      "description": "The glass engine behind every surface: the displacement-map generator that bends the backdrop at the rim, the SVG refraction filter, the WebGPU lens and GlassScene, the tuning config for every variant, and the shared CVA variants.",
       "author": "Deniz Isik (https://github.com/denizisikzero)",
       "dependencies": ["class-variance-authority"],
+      "devDependencies": ["@webgpu/types"],
       "files": [
         {
           "path": "registry/pane/lib/glass/types.ts",
@@ -126,6 +130,22 @@
         {
           "path": "registry/pane/lib/glass/variants.ts",
           "type": "registry:lib"
+        },
+        {
+          "path": "registry/pane/lib/glass/gpu/scene.tsx",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/pane/lib/glass/gpu/shaders.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/pane/lib/glass/gpu/glass-canvas.tsx",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/pane/lib/glass/gpu/webgpu.d.ts",
+          "type": "registry:lib"
         }
       ]
     },
@@ -133,7 +153,7 @@
       "name": "use-glass-pointer",
       "type": "registry:hook",
       "title": "Glass Pointer",
-      "description": "Tracks the pointer and the surface's position in the viewport, then writes the specular lighting inputs straight to the node as CSS custom properties — spring-smoothed, and without costing a React render.",
+      "description": "Tracks the pointer and the surface's position in the viewport, then writes the angle of the rim light straight to the node as a CSS custom property — spring-smoothed, and without costing a React render.",
       "author": "Deniz Isik (https://github.com/denizisikzero)",
       "dependencies": ["motion"],
       "registryDependencies": ["@pane/glass-core"],
@@ -162,7 +182,7 @@
       "name": "pane",
       "type": "registry:ui",
       "title": "Pane",
-      "description": "The glass primitive every other component is built on — a refracted rim, a tinted backdrop, and a specular highlight that follows the pointer. Ships default, blur and transparent variants, and flattens automatically when nested.",
+      "description": "The glass primitive every other component is built on — a refracted rim, a tinted backdrop, and rim light that turns toward the pointer. Ships regular, thick and thin glass, and flattens automatically when nested.",
       "author": "Deniz Isik (https://github.com/denizisikzero)",
       "categories": ["ui", "glass"],
       "docs": "Usage and props: https://pane.theui.company/docs/components/pane",
@@ -177,6 +197,22 @@
       "files": [
         {
           "path": "registry/pane/ui/pane.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "text",
+      "type": "registry:ui",
+      "title": "Text",
+      "description": "Type cut from glass: each letter blurs, saturates and — in Chromium — bends what's behind it, with light on its edge. For headlines over a photo, a video or a gradient.",
+      "author": "Deniz Isik (https://github.com/denizisikzero)",
+      "categories": ["ui", "display"],
+      "docs": "Usage and props: https://pane.theui.company/docs/components/text",
+      "registryDependencies": ["@pane/use-glass-support", "@pane/utils"],
+      "files": [
+        {
+          "path": "registry/pane/ui/text.tsx",
           "type": "registry:ui"
         }
       ]
@@ -336,7 +372,7 @@
       "name": "popover",
       "type": "registry:ui",
       "title": "Popover",
-      "description": "A Radix popover whose content is a blur glass pane, with trigger and anchor parts.",
+      "description": "A Radix popover whose content is a thick glass pane, with trigger and anchor parts.",
       "author": "Deniz Isik (https://github.com/denizisikzero)",
       "categories": ["ui", "overlay"],
       "docs": "Usage and props: https://pane.theui.company/docs/components/popover",
@@ -370,7 +406,7 @@
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "A Radix select with a glass trigger and a blur glass list that scrolls inside the pane.",
+      "description": "A Radix select with a glass trigger and a thick glass list that scrolls inside the pane.",
       "author": "Deniz Isik (https://github.com/denizisikzero)",
       "categories": ["ui", "form"],
       "docs": "Usage and props: https://pane.theui.company/docs/components/select",
@@ -488,7 +524,7 @@
       "name": "alert",
       "type": "registry:ui",
       "title": "Alert",
-      "description": "A callout on a blur glass panel with an optional icon, title and description, in default and destructive variants; a tinted destructive washes the glass in red.",
+      "description": "A callout on a thick glass panel with an optional icon, title and description, in default and destructive variants; a tinted destructive washes the glass in red.",
       "author": "Deniz Isik (https://github.com/denizisikzero)",
       "categories": ["ui", "display"],
       "docs": "Usage and props: https://pane.theui.company/docs/components/alert",
@@ -560,7 +596,7 @@
       "name": "command",
       "type": "registry:ui",
       "title": "Command",
-      "description": "A cmdk command menu on a blur glass panel, with search, groups, shortcuts, and a dialog variant that sits on the Dialog glass.",
+      "description": "A cmdk command menu on a thick glass panel, with search, groups, shortcuts, and a dialog variant that sits on the Dialog glass.",
       "author": "Deniz Isik (https://github.com/denizisikzero)",
       "categories": ["ui", "overlay"],
       "docs": "Usage and props: https://pane.theui.company/docs/components/command",
@@ -577,7 +613,7 @@
       "name": "navigation-menu",
       "type": "registry:ui",
       "title": "Navigation Menu",
-      "description": "A Radix navigation menu with pill triggers and a blur glass viewport that resizes to each open panel.",
+      "description": "A Radix navigation menu with pill triggers and a thick glass viewport that resizes to each open panel.",
       "author": "Deniz Isik (https://github.com/denizisikzero)",
       "categories": ["ui", "navigation"],
       "docs": "Usage and props: https://pane.theui.company/docs/components/navigation-menu",
@@ -611,6 +647,264 @@
         {
           "path": "registry/pane/ui/sidebar.tsx",
           "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "landing-01",
+      "type": "registry:block",
+      "title": "Acme",
+      "description": "The site of Acme, a made-up design studio, built with Pane: a glass navbar with a menu and ⌘K search, a headline cut from glass, work with captions on glass, services, pricing with a currency menu, a booking dialog and a project brief in a sheet.",
+      "author": "Deniz Isik (https://github.com/denizisikzero)",
+      "categories": ["marketing", "landing"],
+      "dependencies": ["lucide-react", "sonner"],
+      "registryDependencies": [
+        "@pane/accordion",
+        "@pane/avatar",
+        "@pane/badge",
+        "@pane/button",
+        "@pane/card",
+        "@pane/checkbox",
+        "@pane/command",
+        "@pane/dialog",
+        "@pane/dropdown-menu",
+        "@pane/input",
+        "@pane/navigation-menu",
+        "@pane/pane",
+        "@pane/popover",
+        "@pane/radio-group",
+        "@pane/select",
+        "@pane/sheet",
+        "@pane/slider",
+        "@pane/sonner",
+        "@pane/switch",
+        "@pane/tabs",
+        "@pane/text",
+        "@pane/textarea",
+        "@pane/toggle-group",
+        "@pane/tooltip",
+        "@pane/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/pane/blocks/landing-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "registry/pane/blocks/landing-01/components/studio-header.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/landing-01/components/work.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/landing-01/components/pricing.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/landing-01/components/book-call.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/landing-01/components/contact-form.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/landing-01/components/studio-data.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/landing-01/components/themed-image.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-01",
+      "type": "registry:block",
+      "title": "Dashboard",
+      "description": "A billing dashboard: a floating sidebar, KPI cards, a revenue chart and an orders table with filters, selection and row actions.",
+      "author": "Deniz Isik (https://github.com/denizisikzero)",
+      "categories": ["dashboard", "sidebar"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@pane/avatar",
+        "@pane/badge",
+        "@pane/button",
+        "@pane/card",
+        "@pane/checkbox",
+        "@pane/dropdown-menu",
+        "@pane/input",
+        "@pane/sidebar",
+        "@pane/tabs",
+        "@pane/toggle-group"
+      ],
+      "files": [
+        {
+          "path": "registry/pane/blocks/dashboard-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/dashboard/page.tsx"
+        },
+        {
+          "path": "registry/pane/blocks/dashboard-01/components/dashboard-data.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/dashboard-01/components/dashboard-sidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/dashboard-01/components/nav-user.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/dashboard-01/components/site-header.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/dashboard-01/components/section-cards.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/dashboard-01/components/chart-revenue.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/dashboard-01/components/orders-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mail-01",
+      "type": "registry:block",
+      "title": "Mail",
+      "description": "A mail client: folders and labels in a floating sidebar, a searchable list with unread filtering, and a reader with a reply box.",
+      "author": "Deniz Isik (https://github.com/denizisikzero)",
+      "categories": ["mail", "sidebar"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@pane/avatar",
+        "@pane/badge",
+        "@pane/button",
+        "@pane/card",
+        "@pane/dropdown-menu",
+        "@pane/input",
+        "@pane/sidebar",
+        "@pane/switch",
+        "@pane/tabs",
+        "@pane/textarea",
+        "@pane/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/pane/blocks/mail-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/mail/page.tsx"
+        },
+        {
+          "path": "registry/pane/blocks/mail-01/components/mail-data.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/mail-01/components/mail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/mail-01/components/mail-sidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/mail-01/components/mail-list.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/pane/blocks/mail-01/components/mail-view.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "login-01",
+      "type": "registry:block",
+      "title": "Login",
+      "description": "A two-column sign-in page: the form on one side, a testimonial on thin glass on the other.",
+      "author": "Deniz Isik (https://github.com/denizisikzero)",
+      "categories": ["authentication", "login"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@pane/button",
+        "@pane/card",
+        "@pane/checkbox",
+        "@pane/input",
+        "@pane/pane",
+        "@pane/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/pane/blocks/login-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/login/page.tsx"
+        },
+        {
+          "path": "registry/pane/blocks/login-01/components/sign-in-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "signup-01",
+      "type": "registry:block",
+      "title": "Signup",
+      "description": "A signup card with passkey and SSO options, a password strength meter and a terms checkbox.",
+      "author": "Deniz Isik (https://github.com/denizisikzero)",
+      "categories": ["authentication", "signup"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@pane/button",
+        "@pane/card",
+        "@pane/checkbox",
+        "@pane/input",
+        "@pane/utils"
+      ],
+      "files": [
+        {
+          "path": "registry/pane/blocks/signup-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/signup/page.tsx"
+        },
+        {
+          "path": "registry/pane/blocks/signup-01/components/signup-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "settings-01",
+      "type": "registry:block",
+      "title": "Settings",
+      "description": "A settings panel with switches, a theme picker, a language select and a volume slider.",
+      "author": "Deniz Isik (https://github.com/denizisikzero)",
+      "categories": ["settings"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@pane/card",
+        "@pane/select",
+        "@pane/slider",
+        "@pane/switch",
+        "@pane/toggle-group"
+      ],
+      "files": [
+        {
+          "path": "registry/pane/blocks/settings-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/settings/page.tsx"
+        },
+        {
+          "path": "registry/pane/blocks/settings-01/components/settings-panel.tsx",
+          "type": "registry:component"
         }
       ]
     }
