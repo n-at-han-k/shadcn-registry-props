@@ -93,7 +93,7 @@
         "light": {
           "chart-1": "oklch(0.585 0.233 277.117)",
           "chart-2": "oklch(0.852 0.199 91.936)",
-          "chart-3": "oklch(0.667 0.295 322.15)",
+          "chart-3": "oklch(0.459 0.156 302.679)",
           "chart-4": "oklch(0.56 0.021 213.5)",
           "chart-5": "oklch(0 0 0)",
           "chart-positive": "oklch(0.696 0.17 162.48)",
@@ -130,7 +130,7 @@
         "dark": {
           "chart-1": "oklch(0.585 0.233 277.117)",
           "chart-2": "oklch(0.852 0.199 91.936)",
-          "chart-3": "oklch(0.667 0.295 322.15)",
+          "chart-3": "oklch(0.459 0.156 302.679)",
           "chart-4": "oklch(0.56 0.021 213.5)",
           "chart-5": "oklch(1 0 0)",
           "chart-positive": "oklch(0.765 0.177 163.223)",
@@ -769,6 +769,34 @@
           "path": "src/charts/reference-area-geometry.ts",
           "type": "registry:lib",
           "target": "components/charts/reference-area-geometry.ts"
+        },
+        {
+          "path": "src/charts/crosshair-store.ts",
+          "type": "registry:lib",
+          "target": "components/charts/crosshair-store.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-crosshair",
+      "type": "registry:component",
+      "title": "Chart Crosshair",
+      "description": "Finance-style crosshair with a y-axis value pill that fades nearby YAxis ticks",
+      "dependencies": [
+        "@number-flow/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@bklit/chart-context",
+        "@bklit/chart-tooltip",
+        "@bklit/chart-stat-flow",
+        "@bklit/y-axis"
+      ],
+      "files": [
+        {
+          "path": "src/charts/chart-crosshair.tsx",
+          "type": "registry:component",
+          "target": "components/charts/chart-crosshair.tsx"
         }
       ]
     },
@@ -2089,13 +2117,14 @@
       "name": "choropleth-chart",
       "type": "registry:component",
       "title": "Choropleth Map",
-      "description": "A geographic map chart with zoom, pan, and data visualization",
+      "description": "A geographic map chart with click-to-zoom, 3D camera, dot grid, markers, zoom and pan",
       "registryDependencies": [
         "@bklit/chart-animation",
         "@bklit/utils",
         "@bklit/chart-utils",
         "@bklit/chart-tooltip",
-        "@bklit/chart-parent-size"
+        "@bklit/chart-parent-size",
+        "@bklit/background"
       ],
       "dependencies": [
         "@types/geojson",
@@ -2149,6 +2178,26 @@
           "path": "src/charts/choropleth/choropleth-tooltip.tsx",
           "type": "registry:component",
           "target": "components/charts/choropleth/choropleth-tooltip.tsx"
+        },
+        {
+          "path": "src/charts/choropleth/choropleth-camera.tsx",
+          "type": "registry:component",
+          "target": "components/charts/choropleth/choropleth-camera.tsx"
+        },
+        {
+          "path": "src/charts/choropleth/choropleth-background.tsx",
+          "type": "registry:component",
+          "target": "components/charts/choropleth/choropleth-background.tsx"
+        },
+        {
+          "path": "src/charts/choropleth/choropleth-dot-grid.tsx",
+          "type": "registry:component",
+          "target": "components/charts/choropleth/choropleth-dot-grid.tsx"
+        },
+        {
+          "path": "src/charts/choropleth/choropleth-marker.tsx",
+          "type": "registry:component",
+          "target": "components/charts/choropleth/choropleth-marker.tsx"
         },
         {
           "path": "src/charts/choropleth/index.ts",
