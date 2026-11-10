@@ -1721,8 +1721,8 @@
       ],
       "docs": "Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.11.08",
-        "released": "2026-11-08",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1799,12 +1799,13 @@
       ],
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/icons.json",
         "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import CardPicker from components/litt/card-picker. Give it a legend, options ({ value, label, description, detail, picture, disabled }), and value with onValueChange. size=\"sm\" draws tiles; name and required make it a form field.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1812,6 +1813,16 @@
           "path": "registry/litt/ui/card-picker.tsx",
           "type": "registry:ui",
           "target": "components/litt/card-picker.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/card-picker.device.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/card-picker.device.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/card-picker.flat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/card-picker.flat.tsx"
         }
       ]
     },
@@ -2183,8 +2194,8 @@
       ],
       "docs": "Import Composer (and FileChip) from components/litt/composer. Hold the files yourself and pass onSend, streaming and onStop: the field clears after a send, and Send becomes Stop while streaming is true. Pass onFiles to show Attach and take pastes and drops, files and onRemoveFile to draw the chips, tools for a model Select at sm, suggestions for an empty chat, hint for a line under the box, and maxLength for the count. On a touch screen Return adds a line and Send sends by itself (enterSends overrides it); keep the composer above the keyboard with useVisibleScreen.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2192,6 +2203,16 @@
           "path": "registry/litt/ui/composer.tsx",
           "type": "registry:ui",
           "target": "components/litt/composer.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/composer.device.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/composer.device.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/composer.flat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/composer.flat.tsx"
         }
       ]
     },
@@ -2495,8 +2516,8 @@
       ],
       "docs": "Import FileDrop, FileList and FileRow from components/litt/file-drop. FileDrop hands the files that passed to onFiles; you upload them and render a FileRow for each.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2504,6 +2525,16 @@
           "path": "registry/litt/ui/file-drop.tsx",
           "type": "registry:ui",
           "target": "components/litt/file-drop.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/file-drop.device.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/file-drop.device.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/file-drop.flat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/file-drop.flat.tsx"
         }
       ]
     },
@@ -2881,12 +2912,13 @@
       "title": "Legend",
       "description": "Toggles which series a chart shows: a wrapping row of buttons, each a 12 by 4px hued rail swatch, the name and an optional mono reading, pressed while its series shows. Hidden turns the swatch to the grey track and the name to the subtle ink. The last shown series cannot be hidden.",
       "registryDependencies": [
-        "https://littmd.vercel.app/r/litt.json"
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import Legend and legendHues from components/litt/legend. Pass a label and the items as { name, hue?, value? } in the chart's order, five at most. Control it with hidden and onHiddenChange, or start it with defaultHidden. Pass the chart only the shown series, each with hue: legendHues(items)[name], so a series keeps its color when another is hidden, and turn the chart's own legend off with legend={false}. Alt with a click or Enter shows only that series.",
       "meta": {
-        "version": "2026.11.03",
-        "released": "2026-11-03",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2894,6 +2926,16 @@
           "path": "registry/litt/ui/legend.tsx",
           "type": "registry:ui",
           "target": "components/litt/legend.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/legend.device.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/legend.device.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/legend.flat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/legend.flat.tsx"
         }
       ]
     },
@@ -3254,12 +3296,13 @@
       "description": "Previous and next for a table that shows one page of many. The range comes first, in words and mono, like 21 to 40 of 143. Page numbers show only when the row is wide enough, and the buttons at either end disable.",
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json",
-        "https://littmd.vercel.app/r/button.json"
+        "https://littmd.vercel.app/r/motion.json",
+        "https://littmd.vercel.app/r/seven-segment.json"
       ],
       "docs": "Import Pagination from components/litt/pagination. Hold the page in state and pass page, pageSize, total and onPageChange. Give it a label that says what is paged.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3267,6 +3310,16 @@
           "path": "registry/litt/ui/pagination.tsx",
           "type": "registry:ui",
           "target": "components/litt/pagination.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/pagination.device.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/pagination.device.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/pagination.flat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/pagination.flat.tsx"
         }
       ]
     },
@@ -3918,8 +3971,8 @@
       ],
       "docs": "Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.11.08",
-        "released": "2026-11-08",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4128,8 +4181,8 @@
       ],
       "docs": "Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.11.08",
-        "released": "2026-11-08",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4246,12 +4299,13 @@
       "title": "Tag",
       "description": "A small label at the control radius that names a thing or reports its state. A status tag colors its text, never the fill, and always says the status in words.",
       "registryDependencies": [
-        "https://littmd.vercel.app/r/litt.json"
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4259,6 +4313,16 @@
           "path": "registry/litt/ui/tag.tsx",
           "type": "registry:ui",
           "target": "components/litt/tag.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/tag.device.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/tag.device.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/tag.flat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/tag.flat.tsx"
         }
       ]
     },
@@ -4437,13 +4501,12 @@
       ],
       "registryDependencies": [
         "https://littmd.vercel.app/r/litt.json",
-        "https://littmd.vercel.app/r/motion.json",
-        "https://littmd.vercel.app/r/tag.json"
+        "https://littmd.vercel.app/r/motion.json"
       ],
       "docs": "Import TokenInput from components/litt/token-input. Give it a label and hold the values in state with value and onValueChange, or pass a defaultValue. Add validate to reject a value with a message, max to cap the list, collapseAfter to fold it, and name to post every value with a form.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4451,6 +4514,16 @@
           "path": "registry/litt/ui/token-input.tsx",
           "type": "registry:ui",
           "target": "components/litt/token-input.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/token-input.device.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/token-input.device.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/token-input.flat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/token-input.flat.tsx"
         }
       ]
     },
@@ -4606,8 +4679,8 @@
       ],
       "docs": "Import VariantsDemo from components/litt/examples/button-demo, or read it for how @litt/button is used. Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.11.08",
-        "released": "2026-11-08",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/button"
       },
@@ -4705,8 +4778,8 @@
       ],
       "docs": "Import UploadDemo from components/litt/examples/file-drop-demo, or read it for how @litt/file-drop is used. Import FileDrop, FileList and FileRow from components/litt/file-drop. FileDrop hands the files that passed to onFiles; you upload them and render a FileRow for each.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/file-drop"
       },
@@ -4803,8 +4876,8 @@
       ],
       "docs": "Import SendersDemo from components/litt/examples/token-input-demo, or read it for how @litt/token-input is used. Import TokenInput from components/litt/token-input. Give it a label and hold the values in state with value and onValueChange, or pass a defaultValue. Add validate to reject a value with a message, max to cap the list, collapseAfter to fold it, and name to post every value with a form.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/token-input"
       },
@@ -4950,8 +5023,8 @@
       ],
       "docs": "Import SpeedDemo from components/litt/examples/slider-demo, or read it for how @litt/slider is used. Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.11.08",
-        "released": "2026-11-08",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slider"
       },
@@ -5004,8 +5077,8 @@
       ],
       "docs": "Import SettingsListDemo from components/litt/examples/switch-demo, or read it for how @litt/switch is used. Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.11.08",
-        "released": "2026-11-08",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/switch"
       },
@@ -5052,8 +5125,8 @@
       ],
       "docs": "Import PlanDemo from components/litt/examples/card-picker-demo, or read it for how @litt/card-picker is used. Import CardPicker from components/litt/card-picker. Give it a legend, options ({ value, label, description, detail, picture, disabled }), and value with onValueChange. size=\"sm\" draws tiles; name and required make it a form field.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/card-picker"
       },
@@ -5214,8 +5287,8 @@
       ],
       "docs": "Import LabelsDemo from components/litt/examples/tag-demo, or read it for how @litt/tag is used. Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tag"
       },
@@ -6033,8 +6106,8 @@
       ],
       "docs": "Import ChartDemo from components/litt/examples/legend-demo, or read it for how @litt/legend is used. Import Legend and legendHues from components/litt/legend. Pass a label and the items as { name, hue?, value? } in the chart's order, five at most. Control it with hidden and onHiddenChange, or start it with defaultHidden. Pass the chart only the shown series, each with hue: legendHues(items)[name], so a series keeps its color when another is hidden, and turn the chart's own legend off with legend={false}. Alt with a click or Enter shows only that series.",
       "meta": {
-        "version": "2026.11.03",
-        "released": "2026-11-03",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/legend"
       },
@@ -6251,8 +6324,8 @@
       ],
       "docs": "Import DeploysDemo from components/litt/examples/pagination-demo, or read it for how @litt/pagination is used. Import Pagination from components/litt/pagination. Hold the page in state and pass page, pageSize, total and onPageChange. Give it a label that says what is paged.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/pagination"
       },
@@ -6424,8 +6497,8 @@
       ],
       "docs": "Import StudioDemo from components/litt/examples/composer-demo, or read it for how @litt/composer is used. Import Composer (and FileChip) from components/litt/composer. Hold the files yourself and pass onSend, streaming and onStop: the field clears after a send, and Send becomes Stop while streaming is true. Pass onFiles to show Attach and take pastes and drops, files and onRemoveFile to draw the chips, tools for a model Select at sm, suggestions for an empty chat, hint for a line under the box, and maxLength for the count. On a touch screen Return adds a line and Send sends by itself (enterSends overrides it); keep the composer above the keyboard with useVisibleScreen.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.09",
+        "released": "2026-11-09",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/composer"
       },

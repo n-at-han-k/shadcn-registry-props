@@ -35,10 +35,26 @@
       ]
     },
     {
+      "name": "use-tempo",
+      "type": "registry:hook",
+      "title": "useTempo & Motion Resolver",
+      "description": "Tempo context and the pure motion resolver (resolveMotion, useTempo, useResolvedMotion, useReducedMotion): one viewer preference (auto / 12 on twos / 60 smooth / 0 still) for every FRAME/12 animation, with OS reduced motion always winning.",
+      "files": [
+        {
+          "path": "hooks/use-tempo.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-tempo.ts"
+        }
+      ]
+    },
+    {
       "name": "use-on-twos",
       "type": "registry:hook",
       "title": "useOnTwos & Motion Hooks",
       "description": "12fps stepped motion hook (83.33ms poses), count-up tween, ResizeObserver size hook, and reduced-motion detection.",
+      "registryDependencies": [
+        "https://frame12.dev/r/use-tempo.json"
+      ],
       "files": [
         {
           "path": "hooks/use-on-twos.ts",
@@ -124,6 +140,7 @@
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json",
         "https://frame12.dev/r/font-dela-gothic-one.json",
         "https://frame12.dev/r/font-zen-kaku-gothic-new.json",
         "https://frame12.dev/r/font-m-plus-1-code.json"
@@ -143,6 +160,11 @@
           "path": "hooks/use-on-twos.ts",
           "type": "registry:hook",
           "target": "hooks/use-on-twos.ts"
+        },
+        {
+          "path": "hooks/use-tempo.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-tempo.ts"
         }
       ]
     },
@@ -153,7 +175,8 @@
       "description": "Top-level FRAME/12 storyboard sheet with registration pegs, optional CSS-counter autoCut, theme scope, and motion grammar.",
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
-        "https://frame12.dev/r/use-on-twos.json"
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json"
       ],
       "files": [
         {
@@ -187,6 +210,7 @@
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json",
         "https://frame12.dev/r/scene.json"
       ],
       "files": [
@@ -205,6 +229,7 @@
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json",
         "https://frame12.dev/r/scene.json",
         "https://frame12.dev/r/panel.json"
       ],
@@ -504,7 +529,8 @@
       "description": "Display KPI with count-up on twos, directional marker delta badge, note, and optional ToneSpark.",
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
-        "https://frame12.dev/r/use-on-twos.json"
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json"
       ],
       "files": [
         {
@@ -538,6 +564,7 @@
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json",
         "https://frame12.dev/r/tag.json"
       ],
       "files": [
@@ -571,7 +598,8 @@
       "description": "Area chart with rotated SVG screentone halftone bands, speech-balloon peak callout, keyboard navigation, and accessible data table.",
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
-        "https://frame12.dev/r/use-on-twos.json"
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json"
       ],
       "files": [
         {
@@ -589,6 +617,7 @@
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
         "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json",
         "https://frame12.dev/r/badge.json"
       ],
       "files": [
@@ -606,7 +635,8 @@
       "description": "Compact daily bar sparkline filled with 45-degree SVG screentone dots.",
       "registryDependencies": [
         "https://frame12.dev/r/frame12-styles.json",
-        "https://frame12.dev/r/use-on-twos.json"
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-tempo.json"
       ],
       "files": [
         {
@@ -706,6 +736,41 @@
       ]
     },
     {
+      "name": "tempo",
+      "type": "registry:ui",
+      "title": "TempoProvider",
+      "description": "Provides the viewer's animation tempo (auto, 12 on twos, 60 smooth, 0 still) to every FRAME/12 animation below it: controlled or persisted in localStorage, cross-tab, nested still always wins, layout-neutral (or asChild).",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-tempo.json"
+      ],
+      "files": [
+        {
+          "path": "ui/tempo.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tempo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tempo-control",
+      "type": "registry:ui",
+      "title": "TempoControl",
+      "description": "Animation tempo picker: a fieldset of four native radios (AUTO, 12, 60, 0) in the segmented appearance. Shows the OS reduced-motion override honestly; disabled without a TempoProvider.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-tempo.json",
+        "https://frame12.dev/r/tempo.json"
+      ],
+      "files": [
+        {
+          "path": "ui/tempo-control.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tempo-control.tsx"
+        }
+      ]
+    },
+    {
       "name": "frame12",
       "type": "registry:block",
       "title": "FRAME/12 Complete Kit",
@@ -729,6 +794,11 @@
           "path": "hooks/use-on-twos.ts",
           "type": "registry:hook",
           "target": "hooks/use-on-twos.ts"
+        },
+        {
+          "path": "hooks/use-tempo.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-tempo.ts"
         },
         {
           "path": "ui/index.ts",
@@ -899,6 +969,16 @@
           "path": "ui/table.tsx",
           "type": "registry:ui",
           "target": "components/frame12/table.tsx"
+        },
+        {
+          "path": "ui/tempo.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tempo.tsx"
+        },
+        {
+          "path": "ui/tempo-control.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/tempo-control.tsx"
         }
       ]
     },

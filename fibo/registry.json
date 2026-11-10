@@ -17,8 +17,7 @@
       "meta": {
         "tier": "base-components",
         "group": "Overlays",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-overlays-alert-dialog--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-overlays-alert-dialog--docs"
       },
       "dependencies": [
         "@base-ui/react",
@@ -123,6 +122,57 @@
           "success-icon": "var(--success)",
           "warning-icon": "var(--warning)",
           "info-icon": "var(--info)"
+        }
+      }
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui",
+      "title": "Attachment",
+      "description": "One added file as a chip or an image thumbnail, with its upload status and buttons to remove or retry.",
+      "categories": [
+        "base-components",
+        "forms"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-attachment--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Forms",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-attachment--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/attachment.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-popover-overlay": "var(--popover-overlay)",
+          "color-ring-subtle": "var(--ring-subtle)",
+          "text-color-destructive": "var(--destructive-text)",
+          "border-color-destructive": "var(--destructive-border)"
+        },
+        "light": {
+          "popover-overlay": "color-mix(in oklch, var(--color-white) 85%, transparent)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-400) 50%, transparent)",
+          "destructive-text": "var(--destructive)",
+          "destructive-border": "var(--destructive)"
+        },
+        "dark": {
+          "popover-overlay": "color-mix(in oklch, var(--color-neutral-900) 85%, transparent)",
+          "ring-subtle": "color-mix(in oklch, var(--color-neutral-500) 50%, transparent)",
+          "destructive-text": "var(--destructive)",
+          "destructive-border": "var(--destructive)"
         }
       }
     },
@@ -401,23 +451,28 @@
       "name": "chat-composer",
       "type": "registry:ui",
       "title": "Chat composer",
-      "description": "A message box built from parts around one draft, so each chat surface composes its own.",
+      "description": "A message box built from parts around one draft, with attachments, native emoji, dictation, suggested replies and slash commands in the Command menu.",
       "categories": [
-        "base-components",
+        "special-components",
         "forms"
       ],
       "author": "Tori Bryan",
-      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-chat-composer--docs",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/special-components-chat-composer--docs",
       "meta": {
-        "tier": "base-components",
+        "tier": "special-components",
         "group": "Forms",
-        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-chat-composer--docs"
+        "docs": "https://fibo.toribryan.com/?path=/docs/special-components-chat-composer--docs"
       },
       "dependencies": [
+        "@base-ui/react",
         "lucide-react"
       ],
       "registryDependencies": [
+        "https://fibo.toribryan.com/r/attachment.json",
         "https://fibo.toribryan.com/r/button.json",
+        "https://fibo.toribryan.com/r/command-menu.json",
+        "https://fibo.toribryan.com/r/drop-zone.json",
+        "https://fibo.toribryan.com/r/sheet.json",
         "https://fibo.toribryan.com/r/progress.json",
         "https://fibo.toribryan.com/r/tooltip.json",
         "utils"
@@ -746,6 +801,47 @@
         },
         "dark": {
           "backdrop": "color-mix(in oklch, var(--color-black) 60%, transparent)"
+        }
+      }
+    },
+    {
+      "name": "drop-zone",
+      "type": "registry:ui",
+      "title": "Drop zone",
+      "description": "Wraps an area people can drop files onto, with an overlay while they drag and files split by type.",
+      "categories": [
+        "base-components",
+        "forms"
+      ],
+      "author": "Tori Bryan",
+      "docs": "Docs and live examples: https://fibo.toribryan.com/?path=/docs/base-components-forms-drop-zone--docs",
+      "meta": {
+        "tier": "base-components",
+        "group": "Forms",
+        "docs": "https://fibo.toribryan.com/?path=/docs/base-components-forms-drop-zone--docs",
+        "status": "new"
+      },
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/drop-zone.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-popover-overlay": "var(--popover-overlay)"
+        },
+        "light": {
+          "popover-overlay": "color-mix(in oklch, var(--color-white) 85%, transparent)"
+        },
+        "dark": {
+          "popover-overlay": "color-mix(in oklch, var(--color-neutral-900) 85%, transparent)"
         }
       }
     },
@@ -2496,8 +2592,7 @@
       "meta": {
         "tier": "blocks",
         "group": "Pages",
-        "docs": "https://fibo.toribryan.com/?path=/docs/blocks-settings-page--docs",
-        "status": "new"
+        "docs": "https://fibo.toribryan.com/?path=/docs/blocks-settings-page--docs"
       },
       "dependencies": [],
       "registryDependencies": [
