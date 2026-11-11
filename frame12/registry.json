@@ -64,6 +64,23 @@
       ]
     },
     {
+      "name": "use-exposure",
+      "type": "registry:hook",
+      "title": "useExposure (exposure engine)",
+      "description": "Headless navigation and playback engine for discrete histories: id-based selection, data-change rules, one-setTimeout playback clock (even, elapsed, flipbook timing), keyboard map, settle detection and rate-limited announcements. The engine behind ExposureScrubber.",
+      "registryDependencies": [
+        "https://frame12.dev/r/use-tempo.json",
+        "https://frame12.dev/r/use-on-twos.json"
+      ],
+      "files": [
+        {
+          "path": "hooks/use-exposure.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-exposure.ts"
+        }
+      ]
+    },
+    {
       "name": "font-dela-gothic-one",
       "type": "registry:font",
       "title": "Dela Gothic One (FRAME/12 Display Font)",
@@ -771,6 +788,86 @@
       ]
     },
     {
+      "name": "ink-stroke",
+      "type": "registry:ui",
+      "title": "InkStroke (line art on twos)",
+      "description": "One SVG <path pathLength=\"1\"> inked on twos by CSS alone: stroke-dashoffset 1 → 0 in steps(poses) at 83.33ms per pose, finished and dash-free at rest, never on load. Includes the seeded inkPencil wobble helper.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-tempo.json"
+      ],
+      "files": [
+        {
+          "path": "ui/ink.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/ink.tsx"
+        },
+        {
+          "path": "ui/ink-pencil.ts",
+          "type": "registry:ui",
+          "target": "components/frame12/ink-pencil.ts"
+        }
+      ]
+    },
+    {
+      "name": "ink-reveal",
+      "type": "registry:ui",
+      "title": "InkReveal",
+      "description": "Inks a Panel or PanelPair frame (6 poses) before its cut number lands (1 pose) and its content appears in one cut. CSS only; the stroke starts in reading order (top-right under dir=\"rtl\").",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-tempo.json",
+        "https://frame12.dev/r/ink-stroke.json",
+        "https://frame12.dev/r/panel.json"
+      ],
+      "files": [
+        {
+          "path": "ui/ink-reveal.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/ink-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ink-sequence",
+      "type": "registry:ui",
+      "title": "InkSequence, InkBeat & InkLand",
+      "description": "One state machine (rest, playing, scrubbing, still) for multi-beat line art: beats chain by CSS animation-delay sums, an optional scroll driver uses animation-timeline: view(), and Stop always lands on the finished drawing.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-tempo.json",
+        "https://frame12.dev/r/ink-stroke.json"
+      ],
+      "files": [
+        {
+          "path": "ui/ink-sequence.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/ink-sequence.tsx"
+        }
+      ]
+    },
+    {
+      "name": "exposure-scrubber",
+      "type": "registry:ui",
+      "title": "ExposureScrubber",
+      "description": "Read any run like an animator's exposure sheet: a server-rendered X-sheet table (frame, action, timing, mark) with one marked moment, data-given causes, a detail panel and a native-range transport with even, elapsed and flipbook timing. Never autoplays; keyboard and touch AT complete.",
+      "registryDependencies": [
+        "https://frame12.dev/r/frame12-styles.json",
+        "https://frame12.dev/r/use-tempo.json",
+        "https://frame12.dev/r/use-on-twos.json",
+        "https://frame12.dev/r/use-exposure.json",
+        "https://frame12.dev/r/panel.json",
+        "https://frame12.dev/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "ui/exposure-scrubber.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/exposure-scrubber.tsx"
+        }
+      ]
+    },
+    {
       "name": "frame12",
       "type": "registry:block",
       "title": "FRAME/12 Complete Kit",
@@ -799,6 +896,11 @@
           "path": "hooks/use-tempo.ts",
           "type": "registry:hook",
           "target": "hooks/use-tempo.ts"
+        },
+        {
+          "path": "hooks/use-exposure.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-exposure.ts"
         },
         {
           "path": "ui/index.ts",
@@ -979,6 +1081,11 @@
           "path": "ui/tempo-control.tsx",
           "type": "registry:ui",
           "target": "components/frame12/tempo-control.tsx"
+        },
+        {
+          "path": "ui/exposure-scrubber.tsx",
+          "type": "registry:ui",
+          "target": "components/frame12/exposure-scrubber.tsx"
         }
       ]
     },
