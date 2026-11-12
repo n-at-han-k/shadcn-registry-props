@@ -8298,6 +8298,556 @@
       }
     },
     {
+      "name": "media-timeline",
+      "type": "registry:block",
+      "title": "Media Timeline",
+      "description": "Timeline de edição de mídia: arrastar, aparar, scrub, seleção por área, navalha, faixas e zoom em gesto. Dados por props.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "@xzdarcy/react-timeline-editor@^1.0.0",
+        "@xzdarcy/timeline-engine@^1.0.0",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/inline-edit"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/blocks/media-timeline/media-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/media-timeline.tsx"
+        },
+        {
+          "path": "registry/visant/blocks/media-timeline/use-media-timeline.ts",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/use-media-timeline.ts"
+        },
+        {
+          "path": "registry/visant/blocks/media-timeline/window.tsx",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/window.tsx"
+        },
+        {
+          "path": "registry/visant/blocks/media-timeline/overlay.tsx",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/overlay.tsx"
+        },
+        {
+          "path": "registry/visant/blocks/media-timeline/track-headers.tsx",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/track-headers.tsx"
+        },
+        {
+          "path": "registry/visant/blocks/media-timeline/ruler.tsx",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/ruler.tsx"
+        },
+        {
+          "path": "registry/visant/blocks/media-timeline/clock.tsx",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/clock.tsx"
+        },
+        {
+          "path": "registry/visant/blocks/media-timeline/filmstrip.tsx",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/filmstrip.tsx"
+        },
+        {
+          "path": "registry/visant/blocks/media-timeline/index.ts",
+          "type": "registry:component",
+          "target": "components/ui/media-timeline/index.ts"
+        }
+      ],
+      "categories": [
+        "controles",
+        "edicao",
+        "video",
+        "audio",
+        "timeline"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Editor de vídeo, som ou legenda no navegador: arrastar, aparar, cortar e selecionar clipes em faixas",
+          "evite": "Linha do tempo de conteúdo amarrada ao scroll (história, changelog): timeline"
+        }
+      },
+      "css": {
+        ".mt": {
+          "display": "flex",
+          "width": "100%",
+          "height": "100%",
+          "min-height": "0"
+        },
+        ".mt-viewport": {
+          "position": "relative",
+          "flex": "1",
+          "min-width": "0",
+          "height": "100%",
+          "user-select": "none",
+          "-webkit-user-select": "none"
+        },
+        ".mt-num": {
+          "font-variant-numeric": "tabular-nums"
+        },
+        ".mt .timeline-editor": {
+          "background": "var(--background)",
+          "color": "var(--muted-foreground)",
+          "font-family": "var(--font-sans)",
+          "font-size": "0.75rem"
+        },
+        ".mt .timeline-editor-edit-row": {
+          "background-image": "linear-gradient(var(--background), var(--background)),\n    linear-gradient(90deg, color-mix(in oklab, var(--border) 38%, transparent) 1px, transparent 0)",
+          "border-bottom": "1px solid color-mix(in oklab, var(--border) 35%, transparent)"
+        },
+        ".mt .timeline-editor-time-area": {
+          "border-bottom": "1px solid color-mix(in oklab, var(--border) 60%, transparent)",
+          "touch-action": "none"
+        },
+        ".mt .timeline-editor-time-area-interact": {
+          "cursor": "ew-resize"
+        },
+        ".mt .timeline-editor-time-unit": {
+          "border-right-color": "color-mix(in oklab, var(--foreground) 14%, transparent)"
+        },
+        ".mt .timeline-editor-time-unit-big": {
+          "border-right-color": "color-mix(in oklab, var(--foreground) 32%, transparent)"
+        },
+        ".mt .timeline-editor-time-unit-scale": {
+          "display": "none"
+        },
+        ".mt .timeline-editor-cursor": {
+          "border-color": "var(--brand)"
+        },
+        ".mt .timeline-editor-drag-line": {
+          "border-left": "1px solid color-mix(in oklab, var(--brand) 80%, transparent)"
+        },
+        ".mt .timeline-editor-edit-area .ReactVirtualized__Grid::-webkit-scrollbar-thumb": {
+          "background": "var(--border)"
+        },
+        ".mt .ReactVirtualized__Grid__innerScrollContainer": {
+          "pointer-events": "auto !important"
+        },
+        ".mt .timeline-editor-action": {
+          "background": "transparent",
+          "border-radius": "4px",
+          "overflow": "hidden",
+          "cursor": "grab"
+        },
+        ".mt .timeline-editor-action:active": {
+          "cursor": "grabbing"
+        },
+        ".mt .timeline-editor-action-left-stretch::after,\n.mt .timeline-editor-action-right-stretch::after": {
+          "border-left-color": "transparent",
+          "border-right-color": "transparent"
+        },
+        ".mt .timeline-editor-action-left-stretch,\n.mt .timeline-editor-action-right-stretch": {
+          "width": "5px",
+          "opacity": "0",
+          "cursor": "ew-resize",
+          "z-index": "2",
+          "transition": "opacity var(--dur-fast) var(--ease-out)"
+        },
+        ".mt .timeline-editor-action:hover .timeline-editor-action-left-stretch,\n.mt .timeline-editor-action:hover .timeline-editor-action-right-stretch": {
+          "opacity": "1",
+          "background": "color-mix(in oklab, var(--brand) 55%, transparent)"
+        },
+        ".mt-clip": {
+          "display": "contents"
+        },
+        ".mt-viewport.is-razor .timeline-editor-action,\n.mt-viewport.is-razor .timeline-editor-action:active": {
+          "cursor": "crosshair"
+        },
+        ".mt-viewport.is-razor .timeline-editor-action-left-stretch,\n.mt-viewport.is-razor .timeline-editor-action-right-stretch": {
+          "display": "none"
+        },
+        ".mt-overlay": {
+          "position": "absolute",
+          "inset": "0",
+          "z-index": "5",
+          "overflow": "hidden",
+          "pointer-events": "none"
+        },
+        ".mt-overlay-tracks": {
+          "position": "absolute",
+          "inset": "42px 0 0 0",
+          "overflow": "hidden"
+        },
+        ".mt-hover-track": {
+          "position": "absolute",
+          "top": "0",
+          "left": "0",
+          "right": "0",
+          "background": "color-mix(in oklab, var(--foreground) 3.5%, transparent)"
+        },
+        ".mt-ruler-labels": {
+          "position": "absolute",
+          "top": "0",
+          "left": "0",
+          "right": "0",
+          "height": "32px",
+          "overflow": "hidden"
+        },
+        ".mt-ruler-label, .mt-ruler-context": {
+          "position": "absolute",
+          "top": "5px",
+          "left": "0",
+          "font-size": "0.65625rem",
+          "line-height": "1",
+          "white-space": "nowrap",
+          "color": "var(--muted-foreground)"
+        },
+        ".mt-ruler-label.is-whole": {
+          "color": "var(--foreground)",
+          "font-weight": "500"
+        },
+        ".mt-ruler-context": {
+          "top": "0",
+          "height": "18px",
+          "padding": "5px 8px 0 4px",
+          "color": "var(--foreground)",
+          "font-weight": "500",
+          "background": "linear-gradient(90deg, var(--background) 70%, transparent)"
+        },
+        ".mt-ruler-frame": {
+          "color": "color-mix(in oklab, var(--muted-foreground) 70%, transparent)"
+        },
+        ".mt-playhead, .mt-ghost, .mt-razor": {
+          "position": "absolute",
+          "top": "0",
+          "left": "0",
+          "width": "0"
+        },
+        ".mt-playhead, .mt-ghost": {
+          "bottom": "0"
+        },
+        ".mt-playhead::before": {
+          "content": "\"\"",
+          "position": "absolute",
+          "top": "30px",
+          "bottom": "0",
+          "left": "-0.5px",
+          "width": "1px",
+          "background": "var(--brand)"
+        },
+        ".mt-playhead-head": {
+          "position": "absolute",
+          "top": "19px",
+          "left": "0",
+          "height": "13px",
+          "min-width": "9px",
+          "padding": "0",
+          "display": "grid",
+          "place-items": "center",
+          "transform": "translateX(-50%)",
+          "border-radius": "3px",
+          "background": "var(--brand)",
+          "color": "var(--brand-foreground)",
+          "font-size": "0.65625rem",
+          "font-weight": "600",
+          "line-height": "1",
+          "transition": "padding var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) ease"
+        },
+        ".mt-playhead.is-dragging .mt-playhead-head": {
+          "height": "18px",
+          "top": "3px",
+          "padding": "0 6px"
+        },
+        ".mt-playhead.is-dragging::before": {
+          "top": "21px"
+        },
+        ".mt-playhead.is-snapped .mt-playhead-head": {
+          "box-shadow": "0 0 0 3px color-mix(in oklab, var(--brand) 30%, transparent)"
+        },
+        ".mt-ghost::before": {
+          "content": "\"\"",
+          "position": "absolute",
+          "top": "22px",
+          "bottom": "0",
+          "left": "-0.5px",
+          "width": "1px",
+          "background": "color-mix(in oklab, var(--foreground) 22%, transparent)"
+        },
+        ".mt-ghost-time, .mt-razor-time": {
+          "position": "absolute",
+          "top": "4px",
+          "left": "0",
+          "transform": "translateX(-50%)",
+          "padding": "2px 5px",
+          "border-radius": "4px",
+          "white-space": "nowrap",
+          "font-size": "0.625rem",
+          "line-height": "1.2",
+          "color": "var(--foreground)",
+          "background": "color-mix(in oklab, var(--muted) 92%, var(--foreground) 4%)",
+          "animation": "mt-surge var(--dur-fast) var(--ease-out)"
+        },
+        ".mt-razor": {
+          "border-left": "1px dashed var(--foreground)",
+          "margin-left": "-0.5px"
+        },
+        ".mt-razor-time": {
+          "top": "-20px"
+        },
+        ".mt-marquee": {
+          "position": "absolute",
+          "top": "0",
+          "left": "0",
+          "z-index": "6",
+          "pointer-events": "none",
+          "border-radius": "2px",
+          "background": "color-mix(in oklab, var(--brand) 10%, transparent)",
+          "box-shadow": "inset 0 0 0 1px color-mix(in oklab, var(--brand) 70%, transparent)"
+        },
+        ".mt-hud": {
+          "position": "absolute",
+          "top": "0",
+          "left": "0",
+          "display": "inline-flex",
+          "align-items": "center",
+          "gap": "6px",
+          "height": "20px",
+          "padding": "0 7px",
+          "border-radius": "5px",
+          "white-space": "nowrap",
+          "font-size": "0.65625rem",
+          "font-weight": "500",
+          "color": "var(--background)",
+          "background": "var(--foreground)",
+          "box-shadow": "0 4px 12px -4px color-mix(in oklab, var(--shadow, var(--foreground)) 35%, transparent)",
+          "animation": "mt-surge var(--dur-fast) var(--ease-out)"
+        },
+        ".mt-hud > span:not(.mt-hud-delta):not(.mt-hud-sep)": {
+          "opacity": "0.72"
+        },
+        ".mt-hud-sep": {
+          "width": "1px",
+          "height": "9px",
+          "background": "currentColor",
+          "opacity": "0.25"
+        },
+        ".mt-hud-delta": {
+          "font-weight": "600"
+        },
+        ".mt-clip-tip": {
+          "position": "absolute",
+          "top": "0",
+          "left": "0",
+          "display": "inline-flex",
+          "flex-direction": "column",
+          "gap": "1px",
+          "translate": "-50% calc(-100% - 6px)",
+          "padding": "4px 8px",
+          "border-radius": "6px",
+          "white-space": "nowrap",
+          "font-size": "0.6875rem",
+          "line-height": "1.25",
+          "color": "var(--background)",
+          "background": "var(--foreground)",
+          "animation": "mt-surge var(--dur-fast) var(--ease-out)"
+        },
+        ".mt-clip-tip .mt-num": {
+          "opacity": "0.7",
+          "font-size": "0.625rem"
+        },
+        ".mt-clip-tip-name": {
+          "font-weight": "500",
+          "max-width": "16rem",
+          "overflow": "hidden",
+          "text-overflow": "ellipsis"
+        },
+        ".mt-empty-hint": {
+          "position": "absolute",
+          "top": "0",
+          "left": "16px",
+          "display": "flex",
+          "align-items": "center",
+          "font-size": "0.6875rem",
+          "color": "var(--muted-foreground)",
+          "opacity": "0.8",
+          "white-space": "nowrap"
+        },
+        "@keyframes mt-surge": {
+          "from": {
+            "opacity": "0"
+          }
+        },
+        ".mt-filmstrip": {
+          "position": "absolute",
+          "inset": "0",
+          "overflow": "hidden",
+          "border-radius": "inherit"
+        },
+        ".mt-filmstrip > span": {
+          "position": "absolute",
+          "top": "0",
+          "bottom": "0",
+          "background-repeat": "no-repeat"
+        },
+        ".mt-headers": {
+          "flex": "none",
+          "width": "9rem",
+          "height": "100%",
+          "overflow": "hidden",
+          "outline": "none",
+          "border-right": "1px solid var(--border)",
+          "font-size": "0.75rem",
+          "color": "var(--muted-foreground)"
+        },
+        ".mt-track-header": {
+          "--mt-bg": "var(--background)",
+          "background": "var(--mt-bg)",
+          "position": "relative",
+          "display": "flex",
+          "align-items": "center",
+          "gap": "6px",
+          "padding": "0 2px 0 10px",
+          "cursor": "default",
+          "outline": "none",
+          "transition": "background-color var(--dur-fast) ease, color var(--dur-fast) ease"
+        },
+        ".mt-track-header:hover, .mt-track-header[data-hover]": {
+          "--mt-bg": "color-mix(in oklab, var(--foreground) 4%, var(--background))",
+          "color": "var(--foreground)"
+        },
+        ".mt-track-header.is-nested": {
+          "padding-left": "20px"
+        },
+        ".mt-track-header.is-group": {
+          "padding-left": "4px",
+          "color": "var(--foreground)",
+          "font-weight": "500"
+        },
+        ".mt-track-header[aria-selected=\"true\"]": {
+          "--mt-bg": "color-mix(in oklab, var(--brand) 14%, var(--background))",
+          "color": "var(--foreground)"
+        },
+        ".mt-track-header:focus-visible": {
+          "box-shadow": "inset 0 0 0 1px var(--ring)"
+        },
+        ".mt-track-header.is-muted .mt-track-name": {
+          "opacity": "0.55"
+        },
+        ".mt-track-dot": {
+          "width": "7px",
+          "height": "7px",
+          "flex": "none",
+          "border-radius": "999px"
+        },
+        ".mt-track-name": {
+          "min-width": "0",
+          "flex": "1",
+          "overflow": "hidden",
+          "text-overflow": "ellipsis",
+          "white-space": "nowrap"
+        },
+        ".mt-track-count": {
+          "color": "var(--muted-foreground)",
+          "font-weight": "400"
+        },
+        ".mt-track-solo": {
+          "font-size": "10px",
+          "font-weight": "600"
+        },
+        ".mt-track-input": {
+          "width": "100%",
+          "height": "1.375rem",
+          "padding": "0 4px",
+          "border-radius": "4px",
+          "font": "inherit",
+          "color": "var(--foreground)",
+          "background": "var(--background)",
+          "box-shadow": "inset 0 0 0 1px var(--ring)",
+          "outline": "none"
+        },
+        ".mt-track-chevron": {
+          "display": "grid",
+          "place-items": "center",
+          "width": "16px",
+          "height": "16px",
+          "flex": "none",
+          "border-radius": "4px",
+          "color": "var(--muted-foreground)",
+          "outline": "none"
+        },
+        ".mt-track-chevron:hover, .mt-track-chevron:focus-visible": {
+          "color": "var(--foreground)",
+          "background": "var(--muted)"
+        },
+        ".mt-track-chevron svg": {
+          "width": "12px",
+          "height": "12px",
+          "transition": "transform var(--dur-fast) var(--ease-out)"
+        },
+        ".mt-track-actions": {
+          "position": "absolute",
+          "top": "0",
+          "right": "2px",
+          "bottom": "0",
+          "display": "flex",
+          "align-items": "center",
+          "padding-left": "12px"
+        },
+        ".mt-track-header:is(:hover, :focus-within, [data-hover]) .mt-track-actions, .mt-track-actions:has([aria-pressed=\"true\"])": {
+          "background": "linear-gradient(90deg, transparent, var(--mt-bg) 10px)"
+        },
+        ".mt-track-button": {
+          "display": "grid",
+          "place-items": "center",
+          "width": "20px",
+          "height": "20px",
+          "flex": "none",
+          "border-radius": "var(--r-control)",
+          "color": "var(--muted-foreground)",
+          "opacity": "0",
+          "outline": "none",
+          "transition": "opacity var(--dur-fast) ease, background-color var(--dur-fast) ease, color var(--dur-fast) ease"
+        },
+        ".mt-track-button[aria-pressed=\"false\"]": {
+          "display": "none"
+        },
+        ".mt-track-header:is(:hover, :focus-within, [data-hover]) .mt-track-button": {
+          "display": "grid",
+          "opacity": "0.7"
+        },
+        ".mt-track-button svg": {
+          "width": "13px",
+          "height": "13px"
+        },
+        ".mt-track-button:hover": {
+          "background": "var(--muted)",
+          "color": "var(--foreground)"
+        },
+        ".mt-track-button:focus-visible": {
+          "opacity": "1",
+          "box-shadow": "inset 0 0 0 1px var(--ring)"
+        },
+        ".mt-track-button[aria-pressed=\"true\"]": {
+          "opacity": "1",
+          "color": "var(--foreground)"
+        },
+        "@media (hover: none)": {
+          ".mt-track-button": {
+            "opacity": "0.7"
+          },
+          ".mt-track-button[aria-pressed=\"false\"]": {
+            "display": "grid"
+          },
+          ".mt-track-actions": {
+            "background": "linear-gradient(90deg, transparent, var(--mt-bg) 10px)"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".mt-hud, .mt-ghost-time, .mt-razor-time, .mt-clip-tip": {
+            "animation": "none"
+          },
+          ".mt-playhead-head, .mt-track-header, .mt-track-chevron svg, .mt-track-button, .mt .timeline-editor-action-left-stretch, .mt .timeline-editor-action-right-stretch": {
+            "transition": "none"
+          }
+        }
+      }
+    },
+    {
       "name": "use-idle",
       "type": "registry:hook",
       "title": "useIdle",
@@ -8593,6 +9143,1051 @@
         "uso": {
           "quando": "Mostrar uma rota, trilha ou prova pelo relevo, com leitura ponto a ponto",
           "evite": "Uma série de números sem terreno: streamgraph; só um nível, sem percurso: gauge"
+        }
+      }
+    },
+    {
+      "name": "louver",
+      "type": "registry:ui",
+      "title": "Louver",
+      "description": "Persiana em lâminas: rolar gira as lâminas em cinco paradas, e as faixas de luz na parede abrem e fecham junto.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/visant/ui/louver.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "persiana",
+        "luz",
+        "rolagem",
+        "paradas",
+        "laminas"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Escolher um nível em poucas paradas com um gesto de rolar: brilho, intensidade, privacidade",
+          "evite": "Valor contínuo e preciso: scrub-input; ligar e desligar: toggle-lever"
+        }
+      }
+    },
+    {
+      "name": "detent-tray",
+      "type": "registry:ui",
+      "title": "Detent Tray",
+      "description": "Bandeja com cinco covas e uma esfera de aço: inclinar segura a esfera na cova até passar da borda, e ela cai na seguinte com um clique.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@visant/use-media-query",
+        "@visant/use-idle",
+        "@visant/use-tilt"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/detent-tray.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "paradas",
+        "esfera",
+        "inclinacao",
+        "giroscopio",
+        "clique"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Escolher entre poucas posições com um gesto de inclinar, sentindo cada parada",
+          "evite": "Valor com consequência a mostrar: detent-slider; opções com nome: segmented-control"
+        }
+      }
+    },
+    {
+      "name": "toggle-lever",
+      "type": "registry:ui",
+      "title": "Toggle Lever",
+      "description": "Alavanca de painel sobre chapa escovada: empurrar contra a mola até passar do centro e ela estala para o outro lado, com a lente piloto acendendo.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/visant/ui/toggle-lever.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "alavanca",
+        "interruptor",
+        "ligar",
+        "metal",
+        "painel"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Ligar e desligar algo que pede um gesto firme: energia, modo, armar",
+          "evite": "Interruptor discreto numa lista de preferências: glass-switch; painel de aparelho antigo: vintage-toggle"
+        }
+      }
+    },
+    {
+      "name": "zone-reader",
+      "type": "registry:ui",
+      "title": "Zone Reader",
+      "description": "Escolher um fuso horário passando um filme sob a janela de um leitor de microficha, com hora e diferença ao vivo.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@visant/use-media-query",
+        "@visant/use-idle"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/zone-reader.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "texto",
+        "fuso",
+        "horario",
+        "lista",
+        "rolagem",
+        "cidade",
+        "relogio"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Escolher um fuso horário ou um item de uma lista densa e monoespaçada",
+          "evite": "Escolher uma hora: time-dial; poucas opções: segmented-control"
+        }
+      }
+    },
+    {
+      "name": "mode-keys",
+      "type": "registry:ui",
+      "title": "Mode Keys",
+      "description": "Teclas de rádio antigo que travam: apertar uma abaixa e solta a anterior, para escolher o modo de uma bateria com a reserva num número calmo.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/visant/ui/mode-keys.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "teclas",
+        "modo",
+        "energia",
+        "bateria",
+        "radio",
+        "escolha"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Escolher um modo entre três ou quatro, com o efeito resumido num número",
+          "evite": "Opções sem efeito a mostrar: segmented-control; ligar e desligar: toggle-lever"
+        }
+      }
+    },
+    {
+      "name": "folder-tabs",
+      "type": "registry:ui",
+      "title": "Folder Tabs",
+      "description": "Abas como pastas suspensas numa gaveta: arrastar folheia a pilha, e a pasta escolhida fica de pé e aberta.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/visant/ui/folder-tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "abas",
+        "pastas",
+        "navegacao",
+        "arquivo",
+        "gaveta"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Navegar entre seções de um arquivo, portfólio ou projeto com cara de objeto",
+          "evite": "Abas sobre foto ou vídeo: glass-tabs; poucas opções em linha: segmented-control"
+        }
+      }
+    },
+    {
+      "name": "ticket-stub",
+      "type": "registry:ui",
+      "title": "Ticket Stub",
+      "description": "Confirmar presença destacando o canhoto de um ingresso: arrastar pela picotagem rasga, e soltar antes da metade devolve.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/visant/ui/ticket-stub.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "categories": [
+        "controles",
+        "confirmar",
+        "ingresso",
+        "rasgar",
+        "arrastar",
+        "evento"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Confirmar presença, inscrição ou ingresso com um gesto deliberado",
+          "evite": "Confirmação destrutiva: hold-to-confirm; deslizar sem metáfora: slide-to-confirm"
+        }
+      }
+    },
+    {
+      "name": "use-catalog",
+      "type": "registry:lib",
+      "title": "useCatalog",
+      "description": "Busca, facetas, ordem e grupos de uma lista com o estado na URL, com ou sem router.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "react"
+      ],
+      "registryDependencies": [
+        "@visant/filter-bar",
+        "@visant/filter-menu",
+        "@visant/use-local-search"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/lib/use-catalog.tsx",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "fundacao",
+        "busca",
+        "filtro",
+        "ordem",
+        "agrupamento",
+        "url",
+        "catalogo"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Lista com busca, facetas, ordem e grupos, com o estado no link",
+          "evite": "Filtro no servidor: filter-bar direto; só busca: use-local-search"
+        }
+      }
+    },
+    {
+      "name": "prompt-composer",
+      "type": "registry:ui",
+      "title": "Prompt Composer",
+      "description": "Campo de agente: texto que cresce, anexos com prévia, ferramentas e Enviar/Parar.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/working-glyph"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/prompt-composer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        "@keyframes visant-composer-chip": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(4px) scale(0.97)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@layer components": {
+          ".visant-composer-chip": {
+            "animation": "visant-composer-chip var(--dur-fast, 160ms) var(--ease-out, ease-out) both"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".visant-composer-chip": {
+            "animation": "none"
+          }
+        }
+      },
+      "categories": [
+        "controles",
+        "chat",
+        "agente",
+        "ia",
+        "prompt",
+        "anexo"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Campo de chat ou agente de IA, com anexos, ferramentas e parar",
+          "evite": "Texto comum de formulário: textarea; comando curto: command-search"
+        }
+      }
+    },
+    {
+      "name": "frame-markup",
+      "type": "registry:ui",
+      "title": "Frame Markup",
+      "description": "Rabisco sobre um quadro de vídeo ou imagem que sai como PNG, com desfazer.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/signature-pad",
+        "@visant/css-color"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/frame-markup.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "controles",
+        "desenho",
+        "anotacao",
+        "video",
+        "revisao",
+        "feedback"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Apontar algo num quadro de vídeo ou imagem para revisão",
+          "evite": "Assinatura: signature-pad; desenho com camadas e formas"
+        }
+      }
+    },
+    {
+      "name": "device-kit",
+      "type": "registry:ui",
+      "title": "Device Kit",
+      "description": "Aparelho y2k industrial em peças: carcaça de alumínio, LCD na luz da marca, LED, encoder e chave.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/device-shell.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/visant/ui/device-lcd.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/visant/ui/device-led.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/visant/ui/device-key.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/visant/ui/device-encoder.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        "@layer base": {
+          ":root": {
+            "--dk-alu-hi": "oklch(0.955 0.003 250)",
+            "--dk-alu": "oklch(0.905 0.004 250)",
+            "--dk-alu-lo": "oklch(0.835 0.006 250)",
+            "--dk-edge": "oklch(0.72 0.006 250 / 0.55)",
+            "--dk-hl": "oklch(1 0 0 / 0.9)",
+            "--dk-shade": "oklch(0.25 0.01 250)",
+            "--dk-brush": "oklch(1 0 0 / 0.07)",
+            "--dk-brush-dark": "oklch(0.4 0.01 250 / 0.035)",
+            "--dk-engrave": "oklch(0.52 0.006 250)",
+            "--dk-engrave-hl": "oklch(1 0 0 / 0.75)",
+            "--dk-hole": "oklch(0.32 0.008 250)",
+            "--dk-lcd": "oklch(0.2 0.012 235)",
+            "--dk-lcd-deep": "oklch(0.15 0.012 235)",
+            "--dk-led-red": "oklch(0.64 0.235 27)",
+            "--dk-led-red-off": "oklch(0.47 0.12 27)",
+            "--dk-led-red-glow": "oklch(0.64 0.235 27 / 0.55)",
+            "--dk-lens-off": "oklch(0.62 0.01 250)"
+          },
+          ".dark": {
+            "--dk-alu-hi": "oklch(0.43 0.005 250)",
+            "--dk-alu": "oklch(0.355 0.005 250)",
+            "--dk-alu-lo": "oklch(0.285 0.005 250)",
+            "--dk-edge": "oklch(0.2 0.004 250 / 0.9)",
+            "--dk-hl": "oklch(1 0 0 / 0.22)",
+            "--dk-shade": "oklch(0 0 0)",
+            "--dk-brush": "oklch(1 0 0 / 0.035)",
+            "--dk-brush-dark": "oklch(0 0 0 / 0.06)",
+            "--dk-engrave": "oklch(0.7 0.005 250)",
+            "--dk-engrave-hl": "oklch(0 0 0 / 0.55)",
+            "--dk-hole": "oklch(0.13 0.004 250)",
+            "--dk-lcd": "oklch(0.14 0.01 235)",
+            "--dk-lcd-deep": "oklch(0.1 0.01 235)",
+            "--dk-led-red-off": "oklch(0.4 0.1 27)",
+            "--dk-lens-off": "oklch(0.24 0.006 250)"
+          }
+        },
+        "@layer components": {
+          ".dk-lcd, .dk-key, .dk-switch": {
+            "--dk-ink": "color-mix(in oklch, var(--brand) 88%, white)"
+          },
+          ".dk-shell": {
+            "--dk-shell-pad": "22px",
+            "--dk-shell-r": "36px",
+            "--dk-shell-depth": "0 1px 1px oklch(from var(--dk-shade) l c h / 0.12), 0 10px 24px -10px oklch(from var(--dk-shade) l c h / 0.32), 0 36px 64px -28px oklch(from var(--dk-shade) l c h / 0.4)",
+            "position": "relative",
+            "padding": "var(--dk-shell-pad)",
+            "border-radius": "var(--dk-shell-r)",
+            "outline": "none",
+            "background": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\"), repeating-linear-gradient(180deg, var(--dk-brush) 0 1px, transparent 1px 2px, var(--dk-brush-dark) 2px 3px, transparent 3px 5px), linear-gradient(165deg, var(--dk-alu-hi) 0%, var(--dk-alu) 48%, var(--dk-alu-lo) 100%)",
+            "box-shadow": "inset 0 1px 0 var(--dk-hl), inset 0 -1px 0 oklch(from var(--dk-shade) l c h / 0.18), inset 0 0 0 1px var(--dk-edge), var(--dk-shell-depth)"
+          },
+          ".dk-shell[data-size=\"sm\"]": {
+            "--dk-shell-pad": "8px 12px",
+            "--dk-shell-r": "12px",
+            "--dk-shell-depth": "0 1px 1px oklch(from var(--dk-shade) l c h / 0.12), 0 4px 10px -6px oklch(from var(--dk-shade) l c h / 0.32)"
+          },
+          ".dk-shell[data-size=\"lg\"]": {
+            "--dk-shell-pad": "28px",
+            "--dk-shell-r": "44px"
+          },
+          ".dk-shell:focus-visible": {
+            "outline": "2px solid var(--ring)",
+            "outline-offset": "4px"
+          },
+          ".dk-screw": {
+            "display": "inline-block",
+            "flex": "none",
+            "width": "8px",
+            "height": "8px",
+            "border-radius": "50%",
+            "background": "linear-gradient(135deg, transparent 44%, oklch(from var(--dk-shade) l c h / 0.45) 45% 55%, transparent 56%), radial-gradient(circle at 40% 35%, var(--dk-alu-hi), var(--dk-alu-lo))",
+            "box-shadow": "inset 0 0 0 1px var(--dk-edge), 0 1px 0 var(--dk-hl)"
+          },
+          ".dk-engrave": {
+            "font-size": "10px",
+            "font-weight": "700",
+            "letter-spacing": "0.22em",
+            "text-transform": "uppercase",
+            "color": "var(--dk-engrave)",
+            "text-shadow": "0 1px 0 var(--dk-engrave-hl)",
+            "user-select": "none"
+          },
+          ".dk-lcd": {
+            "--dk-lcd-r": "13px",
+            "padding": "5px",
+            "border-radius": "calc(var(--dk-lcd-r) + 5px)",
+            "background": "linear-gradient(180deg, oklch(from var(--dk-shade) l c h / 0.22), oklch(from var(--dk-shade) l c h / 0.04) 40%, var(--dk-hl))",
+            "box-shadow": "inset 0 1px 2px oklch(from var(--dk-shade) l c h / 0.25)"
+          },
+          ".dk-lcd[data-size=\"sm\"]": {
+            "--dk-lcd-r": "5px",
+            "padding": "3px"
+          },
+          ".dk-lcd-screen": {
+            "position": "relative",
+            "overflow": "hidden",
+            "padding": "10px 12px",
+            "border-radius": "var(--dk-lcd-r)",
+            "color": "var(--dk-ink)",
+            "background": "radial-gradient(120% 90% at 50% 0%, var(--dk-lcd), var(--dk-lcd-deep))",
+            "box-shadow": "inset 0 2px 6px oklch(0 0 0 / 0.55), inset 0 0 0 1px oklch(0 0 0 / 0.5)",
+            "display": "flex",
+            "flex-direction": "column",
+            "font-family": "var(--font-sans)",
+            "transition": "background var(--dur-slow) var(--ease-out)"
+          },
+          ".dk-lcd[data-size=\"sm\"] .dk-lcd-screen": {
+            "padding": "3px 7px",
+            "box-shadow": "inset 0 1px 3px oklch(0 0 0 / 0.55), inset 0 0 0 1px oklch(0 0 0 / 0.5)"
+          },
+          ".dk-lcd-screen::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "0",
+            "pointer-events": "none",
+            "z-index": "2",
+            "background": "linear-gradient(168deg, oklch(1 0 0 / 0.07) 0%, oklch(1 0 0 / 0.02) 34%, transparent 35%), repeating-linear-gradient(180deg, oklch(0 0 0 / 0.16) 0 1px, transparent 1px 3px)"
+          },
+          ".dk-lcd-in": {
+            "position": "relative",
+            "z-index": "1",
+            "display": "flex",
+            "flex-direction": "column",
+            "height": "100%",
+            "opacity": "0.58",
+            "transition": "opacity var(--dur-slow) var(--ease-out)"
+          },
+          ".dk-lcd[data-lit] .dk-lcd-in": {
+            "opacity": "1"
+          },
+          ".dk-lcd[data-lit] .dk-lcd-screen": {
+            "background": "radial-gradient(120% 90% at 50% 0%, color-mix(in oklch, var(--dk-lcd) 88%, var(--dk-ink)), var(--dk-lcd-deep))"
+          },
+          ".dk-readout": {
+            "font-size": "38px",
+            "font-weight": "500",
+            "line-height": "1",
+            "letter-spacing": "-0.03em",
+            "font-variant-numeric": "tabular-nums"
+          },
+          ".dk-readout[data-size=\"sm\"]": {
+            "font-size": "12px",
+            "font-weight": "600",
+            "letter-spacing": "0.04em"
+          },
+          ".dk-readout[data-size=\"md\"]": {
+            "font-size": "22px"
+          },
+          ".dk-readout[data-glow]": {
+            "text-shadow": "0 0 8px color-mix(in oklch, var(--dk-ink) 45%, transparent)"
+          },
+          ".dk-segments": {
+            "display": "inline-flex",
+            "gap": "2px"
+          },
+          ".dk-segments > i": {
+            "width": "4px",
+            "height": "9px",
+            "border-radius": "1px",
+            "background": "currentColor",
+            "opacity": "0.2"
+          },
+          ".dk-segments > i[data-on]": {
+            "opacity": "1"
+          },
+          ".dk-progress": {
+            "display": "flex",
+            "gap": "2px",
+            "width": "100%",
+            "height": "6px"
+          },
+          ".dk-progress > i": {
+            "flex": "1",
+            "border-radius": "1px",
+            "background": "currentColor",
+            "opacity": "0.2"
+          },
+          ".dk-progress > i[data-on]": {
+            "opacity": "1"
+          },
+          ".dk-led": {
+            "--dk-led-size": "10px",
+            "--dk-on": "var(--dk-led-red)",
+            "--dk-off": "var(--dk-led-red-off)",
+            "--dk-glow": "var(--dk-led-red-glow)",
+            "position": "relative",
+            "display": "inline-block",
+            "flex": "none",
+            "width": "var(--dk-led-size)",
+            "height": "var(--dk-led-size)",
+            "border-radius": "50%",
+            "background": "radial-gradient(circle at 40% 35%, color-mix(in oklch, var(--dk-off) 70%, white), var(--dk-off) 60%)",
+            "box-shadow": "inset 0 1px 2px oklch(0 0 0 / 0.35), 0 1px 0 var(--dk-hl)",
+            "transition": "background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out)"
+          },
+          ".dk-led[data-size=\"xs\"]": {
+            "--dk-led-size": "6px"
+          },
+          ".dk-led[data-size=\"md\"]": {
+            "--dk-led-size": "14px"
+          },
+          ".dk-led[data-size=\"lg\"]": {
+            "--dk-led-size": "26px"
+          },
+          ".dk-led[data-tone=\"brand\"]:not([data-state=\"error\"])": {
+            "--dk-on": "var(--brand)",
+            "--dk-off": "var(--dk-lens-off)",
+            "--dk-glow": "color-mix(in oklch, var(--brand) 55%, transparent)"
+          },
+          ".dk-led[data-tone=\"brand\"][data-state=\"off\"]": {
+            "background": "radial-gradient(circle at 40% 35%, color-mix(in oklch, var(--dk-off) 75%, white), var(--dk-off) 65%)"
+          },
+          ".dk-led::after": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "calc(var(--dk-led-size) * -0.35)",
+            "border-radius": "50%",
+            "pointer-events": "none",
+            "background": "radial-gradient(circle, var(--dk-glow), transparent 68%)",
+            "opacity": "0",
+            "transition": "opacity var(--dur-slow) var(--ease-out)"
+          },
+          ".dk-led:not([data-state=\"off\"])": {
+            "background": "radial-gradient(circle at 40% 35%, color-mix(in oklch, var(--dk-on) 55%, white), var(--dk-on) 62%)",
+            "box-shadow": "inset 0 -1px 2px oklch(0 0 0 / 0.25), 0 0 calc(var(--dk-led-size) * 0.25 + 3px) var(--dk-glow)"
+          },
+          ".dk-led[data-state=\"on\"]::after, .dk-led[data-state=\"error\"]::after": {
+            "opacity": "0.7"
+          },
+          ".dk-led[data-state=\"breathe\"]::after": {
+            "opacity": "1",
+            "animation": "dk-breathe 1.6s ease-in-out infinite"
+          },
+          ".dk-led[data-state=\"blink\"]": {
+            "animation": "dk-dim 1.2s steps(2, jump-none) infinite"
+          },
+          ".dk-key": {
+            "-webkit-tap-highlight-color": "transparent",
+            "position": "relative",
+            "border": "0",
+            "padding": "0",
+            "cursor": "pointer",
+            "color": "var(--dk-engrave)",
+            "outline": "none",
+            "display": "grid",
+            "place-items": "center",
+            "flex": "none",
+            "transition": "transform var(--dur-press) var(--ease-out), box-shadow var(--dur-press) var(--ease-out), opacity var(--dur-fast) var(--ease-out)"
+          },
+          ".dk-key:focus-visible": {
+            "outline": "2px solid var(--ring)",
+            "outline-offset": "3px"
+          },
+          ".dk-key:disabled": {
+            "cursor": "default"
+          },
+          ".dk-key:disabled > svg": {
+            "opacity": "0.35"
+          },
+          ".dk-key[data-shape=\"ring\"]": {
+            "--dk-key-size": "72px",
+            "width": "var(--dk-key-size)",
+            "height": "var(--dk-key-size)",
+            "border-radius": "50%",
+            "background": "repeating-radial-gradient(circle at 50% 50%, oklch(1 0 0 / 0.05) 0 1px, transparent 1px 2.5px), conic-gradient(from 210deg, var(--dk-alu-hi), var(--dk-alu-lo), var(--dk-alu-hi), var(--dk-alu-lo), var(--dk-alu-hi))",
+            "box-shadow": "inset 0 1px 0 var(--dk-hl), inset 0 -1px 1px oklch(from var(--dk-shade) l c h / 0.2), 0 0 0 5px oklch(from var(--dk-shade) l c h / 0.05), 0 0 0 6px var(--dk-hl), 0 3px 6px -1px oklch(from var(--dk-shade) l c h / 0.3), 0 10px 18px -8px oklch(from var(--dk-shade) l c h / 0.35)"
+          },
+          ".dk-key[data-shape=\"ring\"][data-size=\"sm\"]": {
+            "--dk-key-size": "52px"
+          },
+          ".dk-key[data-shape=\"ring\"][data-size=\"lg\"]": {
+            "--dk-key-size": "92px"
+          },
+          ".dk-key[data-shape=\"square\"]": {
+            "--dk-key-size": "40px",
+            "width": "var(--dk-key-size)",
+            "height": "var(--dk-key-size)",
+            "border-radius": "calc(var(--dk-key-size) / 3)",
+            "background": "linear-gradient(170deg, var(--dk-alu-hi), var(--dk-alu-lo))",
+            "box-shadow": "inset 0 1px 0 var(--dk-hl), inset 0 0 0 1px var(--dk-edge), 0 2px 4px -1px oklch(from var(--dk-shade) l c h / 0.25), 0 6px 12px -8px oklch(from var(--dk-shade) l c h / 0.4)"
+          },
+          ".dk-key[data-shape=\"square\"][data-size=\"sm\"]": {
+            "--dk-key-size": "30px"
+          },
+          ".dk-key[data-shape=\"square\"][data-size=\"lg\"]": {
+            "--dk-key-size": "48px"
+          },
+          ".dk-key[data-shape=\"square\"] > svg": {
+            "width": "14px",
+            "height": "14px",
+            "filter": "drop-shadow(0 1px 0 var(--dk-engrave-hl))"
+          },
+          ".dk-key[data-shape=\"square\"][data-size=\"sm\"] > svg": {
+            "width": "12px",
+            "height": "12px"
+          },
+          ".dk-key:active:not(:disabled), .dk-key[data-pressed]": {
+            "transform": "translateY(1.5px) scale(0.985)"
+          },
+          ".dk-key[data-shape=\"ring\"]:active, .dk-key[data-shape=\"ring\"][data-pressed], .dk-key[data-shape=\"ring\"][aria-pressed=\"true\"]": {
+            "box-shadow": "inset 0 2px 4px oklch(from var(--dk-shade) l c h / 0.22), inset 0 -1px 0 var(--dk-hl), 0 0 0 5px oklch(from var(--dk-shade) l c h / 0.07), 0 0 0 6px var(--dk-hl), 0 1px 2px oklch(from var(--dk-shade) l c h / 0.25)"
+          },
+          ".dk-key[data-shape=\"ring\"][aria-pressed=\"true\"]": {
+            "transform": "translateY(1.5px)"
+          },
+          ".dk-key[data-shape=\"square\"]:active:not(:disabled), .dk-key[data-shape=\"square\"][data-pressed], .dk-key[data-shape=\"square\"][aria-pressed=\"true\"]": {
+            "box-shadow": "inset 0 2px 3px oklch(from var(--dk-shade) l c h / 0.2), inset 0 0 0 1px var(--dk-edge), 0 1px 1px oklch(from var(--dk-shade) l c h / 0.15)"
+          },
+          ".dk-key[data-shape=\"square\"][aria-pressed=\"true\"]": {
+            "transform": "translateY(1px)",
+            "color": "var(--dk-ink)"
+          },
+          ".dk-key[data-shape=\"square\"][aria-pressed=\"true\"] > svg": {
+            "filter": "drop-shadow(0 0 4px color-mix(in oklch, var(--brand) 60%, transparent))",
+            "color": "color-mix(in oklch, var(--brand) 70%, var(--dk-engrave))"
+          },
+          ".dk-switch": {
+            "--dk-sw-w": "46px",
+            "--dk-sw-h": "22px",
+            "-webkit-tap-highlight-color": "transparent",
+            "position": "relative",
+            "flex": "none",
+            "border": "0",
+            "padding": "0",
+            "cursor": "pointer",
+            "outline": "none",
+            "width": "var(--dk-sw-w)",
+            "height": "var(--dk-sw-h)",
+            "border-radius": "6px",
+            "background": "linear-gradient(180deg, var(--dk-lcd-deep), var(--dk-lcd))",
+            "box-shadow": "inset 0 2px 3px oklch(0 0 0 / 0.5), inset 0 0 0 1px oklch(0 0 0 / 0.45), 0 1px 0 var(--dk-hl)"
+          },
+          ".dk-switch[data-size=\"sm\"]": {
+            "--dk-sw-w": "38px",
+            "--dk-sw-h": "18px",
+            "border-radius": "5px"
+          },
+          ".dk-switch:focus-visible": {
+            "outline": "2px solid var(--ring)",
+            "outline-offset": "3px"
+          },
+          ".dk-switch:disabled": {
+            "cursor": "default"
+          },
+          ".dk-switch[aria-busy=\"true\"]": {
+            "cursor": "progress"
+          },
+          ".dk-switch-lit": {
+            "position": "absolute",
+            "inset": "4px auto 4px 5px",
+            "width": "calc(var(--dk-sw-w) / 2 - 8px)",
+            "border-radius": "2px",
+            "pointer-events": "none",
+            "background": "var(--dk-ink)",
+            "opacity": "0",
+            "box-shadow": "0 0 6px color-mix(in oklch, var(--brand) 60%, transparent)",
+            "transition": "opacity var(--dur-base) var(--ease-out)"
+          },
+          ".dk-switch[aria-checked=\"true\"] .dk-switch-lit": {
+            "opacity": "0.9"
+          },
+          ".dk-switch-thumb": {
+            "position": "absolute",
+            "top": "2px",
+            "bottom": "2px",
+            "left": "2px",
+            "width": "calc(var(--dk-sw-w) / 2)",
+            "border-radius": "4px",
+            "pointer-events": "none",
+            "background": "repeating-linear-gradient(90deg, oklch(from var(--dk-shade) l c h / 0.22) 0 1px, var(--dk-hl) 1px 2px, transparent 2px 4px) center / 12px 60% no-repeat, linear-gradient(180deg, var(--dk-alu-hi), var(--dk-alu-lo))",
+            "box-shadow": "inset 0 1px 0 var(--dk-hl), inset 0 0 0 1px var(--dk-edge), 0 1px 2px oklch(from var(--dk-shade) l c h / 0.45)",
+            "transition": "transform var(--dur-base) var(--ease-out)"
+          },
+          ".dk-switch[aria-checked=\"true\"] .dk-switch-thumb": {
+            "transform": "translateX(calc(var(--dk-sw-w) / 2 - 4px))"
+          },
+          ".dk-switch:disabled:not([aria-busy=\"true\"]) .dk-switch-thumb": {
+            "opacity": "0.6"
+          },
+          ".dk-switch:active:not(:disabled) .dk-switch-thumb": {
+            "box-shadow": "inset 0 1px 0 var(--dk-hl), inset 0 0 0 1px var(--dk-edge), 0 0 1px oklch(from var(--dk-shade) l c h / 0.45)"
+          },
+          ".dk-encoder": {
+            "position": "relative",
+            "flex": "none",
+            "outline": "none",
+            "touch-action": "none",
+            "cursor": "ns-resize"
+          },
+          ".dk-encoder:focus-visible": {
+            "outline": "2px solid var(--ring)",
+            "outline-offset": "2px"
+          },
+          ".dk-encoder[data-dragging]": {
+            "cursor": "grabbing"
+          },
+          ".dk-encoder[aria-disabled=\"true\"]": {
+            "cursor": "default",
+            "opacity": "0.6"
+          },
+          ".dk-encoder[data-variant=\"wheel\"]": {
+            "width": "16px",
+            "height": "104px",
+            "border-radius": "7px",
+            "overflow": "hidden",
+            "background": "linear-gradient(90deg, var(--dk-alu-lo), var(--dk-alu-hi) 45%, var(--dk-alu-lo))",
+            "box-shadow": "inset 0 0 0 1px var(--dk-edge), 2px 2px 4px -1px oklch(from var(--dk-shade) l c h / 0.35)"
+          },
+          ".dk-encoder[data-variant=\"wheel\"]::after": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "0",
+            "pointer-events": "none",
+            "background": "linear-gradient(180deg, oklch(from var(--dk-shade) l c h / 0.45), transparent 26%, transparent 74%, oklch(from var(--dk-shade) l c h / 0.45))"
+          },
+          ".dk-knurl": {
+            "position": "absolute",
+            "left": "0",
+            "right": "0",
+            "top": "-12px",
+            "bottom": "-12px",
+            "background": "repeating-linear-gradient(180deg, oklch(from var(--dk-shade) l c h / 0.35) 0 1px, var(--dk-hl) 1px 2px, transparent 2px 4px)",
+            "transition": "transform var(--dur-press) var(--ease-out)"
+          },
+          ".dk-encoder[data-variant=\"knob\"]": {
+            "--dk-knob-size": "44px",
+            "width": "var(--dk-knob-size)",
+            "height": "var(--dk-knob-size)",
+            "border-radius": "50%",
+            "background": "repeating-conic-gradient(from 0deg, oklch(from var(--dk-shade) l c h / 0.28) 0 2deg, transparent 2deg 10deg)",
+            "box-shadow": "0 0 0 1px var(--dk-edge), 0 3px 6px -2px oklch(from var(--dk-shade) l c h / 0.4), 0 8px 14px -8px oklch(from var(--dk-shade) l c h / 0.35)"
+          },
+          ".dk-encoder[data-variant=\"knob\"][data-size=\"sm\"]": {
+            "--dk-knob-size": "32px"
+          },
+          ".dk-encoder[data-variant=\"knob\"][data-size=\"lg\"]": {
+            "--dk-knob-size": "64px"
+          },
+          ".dk-knob-cap": {
+            "position": "absolute",
+            "inset": "3px",
+            "border-radius": "50%",
+            "background": "repeating-radial-gradient(circle at 50% 50%, oklch(1 0 0 / 0.05) 0 1px, transparent 1px 2.5px), conic-gradient(from 210deg, var(--dk-alu-hi), var(--dk-alu-lo), var(--dk-alu-hi), var(--dk-alu-lo), var(--dk-alu-hi))",
+            "box-shadow": "inset 0 1px 0 var(--dk-hl), inset 0 -1px 1px oklch(from var(--dk-shade) l c h / 0.2)",
+            "transition": "transform var(--dur-press) var(--ease-out)"
+          },
+          ".dk-knob-cap::before": {
+            "content": "\"\"",
+            "position": "absolute",
+            "left": "50%",
+            "top": "12%",
+            "width": "2px",
+            "height": "26%",
+            "margin-left": "-1px",
+            "border-radius": "1px",
+            "background": "var(--dk-engrave)",
+            "box-shadow": "0 1px 0 var(--dk-engrave-hl)"
+          }
+        },
+        "@keyframes dk-breathe": {
+          "0%, 100%": {
+            "opacity": "0.55"
+          },
+          "50%": {
+            "opacity": "1"
+          }
+        },
+        "@keyframes dk-dim": {
+          "0%": {
+            "opacity": "1"
+          },
+          "100%": {
+            "opacity": "0.55"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".dk-key, .dk-knurl, .dk-knob-cap, .dk-led, .dk-lcd-in, .dk-lcd-screen, .dk-switch-thumb, .dk-switch-lit": {
+            "transition": "none"
+          },
+          ".dk-led[data-state=\"breathe\"]::after, .dk-led[data-state=\"blink\"]": {
+            "animation": "none"
+          },
+          ".dk-key:active:not(:disabled), .dk-key[data-pressed]": {
+            "transform": "none"
+          }
+        }
+      },
+      "categories": [
+        "controles",
+        "aparelho",
+        "hardware",
+        "led",
+        "encoder",
+        "knob",
+        "switch",
+        "lcd",
+        "rack"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Controle cujo gesto físico é a função: gravar, girar, acender, ligar",
+          "evite": "Lista, tabela, formulário e navegação; switch comum: liquid-toggle"
+        }
+      }
+    },
+    {
+      "name": "voice-recorder",
+      "type": "registry:ui",
+      "title": "Voice Recorder",
+      "description": "Gravador de voz de bolso feito com o Device Kit: REC que trava, timecode, onda e encoder.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "utils",
+        "@visant/device-kit"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/voice-recorder.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        ".vr-body": {
+          "width": "300px",
+          "flex-shrink": "0",
+          "padding": "22px 22px 26px"
+        },
+        ".vr-top": {
+          "display": "flex",
+          "align-items": "flex-start",
+          "justify-content": "space-between",
+          "height": "44px",
+          "margin-bottom": "18px"
+        },
+        ".vr-grille": {
+          "width": "63px",
+          "height": "35px",
+          "margin": "2px 0 0 2px",
+          "background": "radial-gradient(circle at 50% 42%, var(--dk-hole) 0 1.5px, transparent 2px) 0 0 / 7px 7px, radial-gradient(circle at 50% 62%, var(--dk-hl) 0 1.6px, transparent 2.1px) 0 0 / 7px 7px"
+        },
+        ".vr-mark": {
+          "padding-top": "2px"
+        },
+        ".vr-screen": {
+          "height": "148px",
+          "padding": "12px 14px 10px"
+        },
+        ".vr-body:focus-within .dk-lcd-in": {
+          "opacity": "1"
+        },
+        ".vr-row": {
+          "display": "flex",
+          "align-items": "center",
+          "justify-content": "space-between",
+          "gap": "8px",
+          "height": "14px",
+          "font-size": "9.5px",
+          "font-weight": "600",
+          "letter-spacing": "0.16em",
+          "text-transform": "uppercase"
+        },
+        ".vr-status": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "gap": "6px"
+        },
+        ".vr-status-dot": {
+          "width": "6px",
+          "height": "6px",
+          "border-radius": "50%",
+          "background": "currentColor"
+        },
+        ".vr-body[data-state=\"recording\"] .vr-status, .vr-body[data-state=\"error\"] .vr-status": {
+          "color": "var(--dk-led-red)",
+          "text-shadow": "0 0 8px var(--dk-led-red-glow)"
+        },
+        ".vr-body[data-state=\"recording\"] .vr-status-dot": {
+          "animation": "vr-blink 1s steps(1, end) infinite"
+        },
+        ".vr-meta": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "gap": "8px"
+        },
+        ".vr-time": {
+          "margin-top": "10px"
+        },
+        ".vr-sub": {
+          "margin-top": "6px",
+          "height": "14px",
+          "font-size": "11px",
+          "font-weight": "500",
+          "letter-spacing": "0.01em",
+          "white-space": "nowrap",
+          "overflow": "hidden",
+          "text-overflow": "ellipsis",
+          "opacity": "0.78"
+        },
+        ".vr-meter": {
+          "vertical-align": "-1px",
+          "margin": "0 6px"
+        },
+        ".vr-wave": {
+          "margin-top": "auto",
+          "width": "100%",
+          "height": "34px",
+          "display": "block"
+        },
+        ".vr-controls": {
+          "display": "flex",
+          "align-items": "center",
+          "justify-content": "space-between",
+          "margin-top": "24px",
+          "padding": "0 4px 0 2px"
+        },
+        ".vr-small": {
+          "display": "flex",
+          "gap": "12px"
+        },
+        ".vr-encoder": {
+          "position": "absolute",
+          "right": "-9px",
+          "top": "176px"
+        },
+        "@keyframes vr-blink": {
+          "0%": {
+            "opacity": "1"
+          },
+          "50%": {
+            "opacity": "0.15"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".vr-body[data-state=\"recording\"] .vr-status-dot": {
+            "animation": "none"
+          }
+        }
+      },
+      "categories": [
+        "controles",
+        "audio",
+        "gravador",
+        "voz",
+        "nota",
+        "aparelho",
+        "transcricao"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Gravar, pausar e ouvir notas de voz curtas, com a transcrição ao lado",
+          "evite": "Nota de voz em chat: voice-note; editor de áudio com corte"
         }
       }
     }

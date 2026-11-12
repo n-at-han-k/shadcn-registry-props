@@ -1,0 +1,1542 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "spotcheck",
+  "homepage": "https://spotcheckui.com",
+  "items": [
+    {
+      "name": "spotcheck-base",
+      "type": "registry:item",
+      "title": "Spotcheck base",
+      "description": "Tokens, skins, fonts and shared utilities used by every Spotcheck component.",
+      "dependencies": [
+        "@fontsource-variable/archivo",
+        "@fontsource/ibm-plex-mono",
+        "@fontsource/instrument-serif"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "css": {
+        "@import \"@fontsource-variable/archivo/wdth.css\"": {},
+        "@import \"@fontsource/ibm-plex-mono/400.css\"": {},
+        "@import \"@fontsource/ibm-plex-mono/500.css\"": {},
+        "@import \"@fontsource/ibm-plex-mono/600.css\"": {},
+        "@import \"@fontsource/instrument-serif/400.css\"": {},
+        "@import \"@fontsource/instrument-serif/400-italic.css\"": {},
+        ":root": {
+          "color-scheme": "light",
+          "--accent-light": "#2433e0",
+          "--accent-dark": "#7e88ff",
+          "--rule": "2px",
+          "--f-body": "\"Archivo Variable\", system-ui, sans-serif",
+          "--f-mono": "\"IBM Plex Mono\", ui-monospace, Menlo, monospace",
+          "--f-serif": "\"Instrument Serif\", Georgia, serif",
+          "--f-display": "var(--f-body)",
+          "--display-weight": "900",
+          "--display-case": "uppercase",
+          "--display-style": "normal",
+          "--display-stretch": "62%",
+          "--display-tracking": "-0.01em",
+          "--heading-weight": "800",
+          "--heading-stretch": "75%"
+        },
+        ":root, .light, .dark, [data-theme], [data-skin]": {
+          "--paper": "light-dark(#edefec, #0c0d0f)",
+          "--ink": "light-dark(#0d0e11, #e8eae5)",
+          "--mute": "light-dark(#5c616a, #8d929a)",
+          "--wash": "light-dark(#dfe3de, #191b1f)",
+          "--raise": "light-dark(#f7f8f6, #131518)",
+          "--ok": "light-dark(#14733f, #40c47a)",
+          "--warn": "light-dark(#8f5500, #e6a43a)",
+          "--bad": "light-dark(#be2219, #ff5f52)",
+          "--on-accent": "light-dark(#ffffff, #0c0d0f)",
+          "--highlight": "light-dark(#ffffff, #e8eae5)",
+          "--accent-ink": "light-dark(var(--accent-light), var(--accent-dark))",
+          "--accent-on-ink": "light-dark(var(--accent-dark), var(--accent-light))"
+        },
+        ".light, [data-theme=\"light\"]": {
+          "color-scheme": "light"
+        },
+        ".dark, [data-theme=\"dark\"]": {
+          "color-scheme": "dark"
+        },
+        "[data-theme=\"system\"]": {
+          "color-scheme": "light dark"
+        },
+        "[data-skin=\"ledger\"]": {
+          "--accent-light": "#2433e0",
+          "--accent-dark": "#7e88ff"
+        },
+        "[data-skin=\"terminal\"]": {
+          "--accent-light": "#a3530a",
+          "--accent-dark": "#ffb020",
+          "--f-body": "var(--f-mono)",
+          "--f-display": "var(--f-mono)",
+          "--display-weight": "600",
+          "--display-stretch": "100%",
+          "--display-tracking": "0",
+          "--heading-weight": "600",
+          "--heading-stretch": "100%"
+        },
+        "[data-skin=\"folio\"]": {
+          "--accent-light": "#c1122c",
+          "--accent-dark": "#ff5468",
+          "--f-display": "var(--f-serif)",
+          "--display-weight": "400",
+          "--display-case": "none",
+          "--display-style": "italic",
+          "--display-stretch": "100%",
+          "--display-tracking": "-0.02em",
+          "--heading-weight": "400",
+          "--heading-stretch": "100%"
+        },
+        "@keyframes spotcheck-marquee": {
+          "to": {
+            "transform": "translateX(-50%)"
+          }
+        },
+        "@keyframes spotcheck-entry": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateX(-18px)"
+          }
+        },
+        "@keyframes spotcheck-grow": {
+          "from": {
+            "transform": "scaleX(0)"
+          }
+        },
+        "@keyframes spotcheck-blink": {
+          "50%": {
+            "opacity": "0"
+          }
+        },
+        "@keyframes spotcheck-wave": {
+          "0%,\n  100%": {
+            "height": "14%"
+          },
+          "50%": {
+            "height": "100%"
+          }
+        },
+        "@utility spotcheck-display": {
+          "font-family": "var(--f-display)",
+          "font-weight": "var(--display-weight)",
+          "font-style": "var(--display-style)",
+          "font-stretch": "var(--display-stretch)",
+          "letter-spacing": "var(--display-tracking)",
+          "text-transform": "var(--display-case)"
+        },
+        "@utility spotcheck-heading": {
+          "font-family": "var(--f-display)",
+          "font-weight": "var(--heading-weight)",
+          "font-style": "var(--display-style)",
+          "font-stretch": "var(--heading-stretch)",
+          "text-transform": "var(--display-case)"
+        },
+        "@utility spotcheck-focus": {
+          "&:focus-visible": {
+            "outline": "2px solid var(--accent-ink)",
+            "outline-offset": "2px"
+          }
+        },
+        "@utility spotcheck-label": {
+          "font-family": "var(--f-mono)",
+          "font-size": "10.5px",
+          "letter-spacing": "0.12em",
+          "text-transform": "uppercase",
+          "color": "var(--mute)"
+        }
+      },
+      "cssVars": {
+        "theme": {
+          "color-paper": "var(--paper)",
+          "color-ink": "var(--ink)",
+          "color-mute": "var(--mute)",
+          "color-wash": "var(--wash)",
+          "color-raise": "var(--raise)",
+          "color-ok": "var(--ok)",
+          "color-warn": "var(--warn)",
+          "color-bad": "var(--bad)",
+          "color-on-accent": "var(--on-accent)",
+          "color-highlight": "var(--highlight)",
+          "color-accent-ink": "var(--accent-ink)",
+          "color-accent-on-ink": "var(--accent-on-ink)"
+        }
+      }
+    },
+    {
+      "name": "use-reduced-motion",
+      "type": "registry:hook",
+      "title": "useReducedMotion",
+      "description": "Tracks the prefers-reduced-motion setting without a motion engine.",
+      "files": [
+        {
+          "path": "registry/spotcheck/hooks/use-reduced-motion.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-in-view",
+      "type": "registry:hook",
+      "title": "useInView",
+      "description": "Reports whether an element is on screen, for pausing render loops.",
+      "files": [
+        {
+          "path": "registry/spotcheck/hooks/use-in-view.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-gl-palette",
+      "type": "registry:hook",
+      "title": "useGlPalette",
+      "description": "Reads CSS colour tokens for WebGL and follows theme and skin changes.",
+      "files": [
+        {
+          "path": "registry/spotcheck/hooks/use-gl-palette.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-orbit-drag",
+      "type": "registry:hook",
+      "title": "useOrbitDrag",
+      "description": "Rotates on horizontal drag and leaves vertical page scroll working.",
+      "files": [
+        {
+          "path": "registry/spotcheck/hooks/use-orbit-drag.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "gl-stage",
+      "type": "registry:item",
+      "title": "GL Stage",
+      "description": "Creates a WebGL canvas near the viewport and falls back to a description if WebGL fails.",
+      "dependencies": [
+        "three",
+        "@react-three/fiber"
+      ],
+      "devDependencies": [
+        "@types/three"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-in-view.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/gl-stage.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "use-flick",
+      "type": "registry:hook",
+      "title": "useFlick",
+      "description": "Drag, throw and spring-to-nearest for lists that land on an item.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/hooks/use-flick.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-stream",
+      "type": "registry:hook",
+      "title": "useStream",
+      "description": "Reads an AI SDK UI message stream or plain SSE, with stop and regenerate.",
+      "files": [
+        {
+          "path": "registry/spotcheck/hooks/use-stream.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "roll-number",
+      "type": "registry:component",
+      "title": "Roll Number",
+      "description": "Each digit is its own column, so only the digits that change move.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/roll-number.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "detent-slider",
+      "type": "registry:component",
+      "title": "Detent Slider",
+      "description": "Drags freely, then springs into the nearest step with overshoot.",
+      "categories": [
+        "springs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/detent-slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "bar-terrain",
+      "type": "registry:component",
+      "title": "Bar Terrain",
+      "description": "An instanced field of bars driven by a height function, with a pointer bump.",
+      "categories": [
+        "webgl"
+      ],
+      "dependencies": [
+        "three",
+        "@react-three/fiber"
+      ],
+      "devDependencies": [
+        "@types/three"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/gl-stage.json",
+        "https://spotcheckui.com/r/use-gl-palette.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/bar-terrain.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "embedding-space",
+      "type": "registry:component",
+      "title": "Embedding Space",
+      "description": "A cloud of document chunks. Choosing a question draws lines to the closest chunks and ranks them with scores.",
+      "categories": [
+        "webgl"
+      ],
+      "dependencies": [
+        "three",
+        "@react-three/fiber"
+      ],
+      "devDependencies": [
+        "@types/three"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/gl-stage.json",
+        "https://spotcheckui.com/r/use-gl-palette.json",
+        "https://spotcheckui.com/r/use-orbit-drag.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/embedding-space.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:component",
+      "title": "Command Palette",
+      "description": "Grouped commands with a loose filter, run entirely from the keyboard.",
+      "categories": [
+        "screens"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/command-palette.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "ledger-table",
+      "type": "registry:component",
+      "title": "Ledger Table",
+      "description": "Full-bleed rows with the title inside the grid, a numbered rail and sortable headers.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/ledger-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "Hard offset shadow that collapses on press, with the button moving into its shadow.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hold-button",
+      "type": "registry:component",
+      "title": "Hold Button",
+      "description": "A destructive action that needs a press and hold, with a fill that shows progress.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/hold-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "Underline inputs with a mono label row for a counter or requirement. Errors say how to fix the problem.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Condensed uppercase labels with a heavy accent bar that slides between tabs.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/tabs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "A square switch with a real switch role.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/switch.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "segmented",
+      "type": "registry:component",
+      "title": "Segmented",
+      "description": "Ruled buttons for choosing one option from a few.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/segmented.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "A square checkbox on the same hard rule as everything else.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/checkbox.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "Square radios for choosing one option when you want them all visible.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/radio-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "A ruled dropdown for choosing from a short list.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/select.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "A select you can type into, for lists too long to scan.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/combobox.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:component",
+      "title": "Date Picker",
+      "description": "A calendar on a ruled grid, inline or in a popover.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/date-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Ruled page numbers that collapse long runs.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/pagination.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "A modal with a hard shadow. Focus stays inside and returns when it closes.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:component",
+      "title": "Sheet",
+      "description": "A side panel you can swipe away, for detail that shouldn't leave the page.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/sheet.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "A short list of actions behind a button.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/dropdown-menu.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "A small panel anchored to a button, for quick detail or settings.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/popover.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "A short ink label on hover or focus.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/tooltip.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:component",
+      "title": "Toast",
+      "description": "A short message that announces itself and goes away.",
+      "categories": [
+        "core"
+      ],
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/toast.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "status-pill",
+      "type": "registry:component",
+      "title": "Status Pill",
+      "description": "A square marker and a mono label, in one of four tones.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/status-pill.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:component",
+      "title": "Tag",
+      "description": "A small ruled label for categories and engines.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/tag.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:component",
+      "title": "Chip",
+      "description": "A compact item, such as an attachment, that can be removed.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/chip.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:component",
+      "title": "Kbd",
+      "description": "A key shown as a key, with a heavier bottom edge.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/kbd.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "kv-row",
+      "type": "registry:component",
+      "title": "KV Row",
+      "description": "A mono label and a value on one ruled line.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/kv-row.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:component",
+      "title": "Sparkline",
+      "description": "A small trend line with the latest point marked.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/sparkline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "A thin bar for work with a known or unknown length.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/progress.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "A quiet block that holds the space while content loads.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/skeleton.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "app-frame",
+      "type": "registry:component",
+      "title": "App Frame",
+      "description": "A ruled window bar for showing a product surface.",
+      "categories": [
+        "core"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/app-frame.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "settings-screen",
+      "type": "registry:component",
+      "title": "Settings Screen",
+      "description": "A full settings page built only from Spotcheck parts. Drop it in, then cut it down.",
+      "categories": [
+        "screens"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/app-frame.json",
+        "https://spotcheckui.com/r/button.json",
+        "https://spotcheckui.com/r/checkbox.json",
+        "https://spotcheckui.com/r/combobox.json",
+        "https://spotcheckui.com/r/date-picker.json",
+        "https://spotcheckui.com/r/dialog.json",
+        "https://spotcheckui.com/r/field.json",
+        "https://spotcheckui.com/r/hold-button.json",
+        "https://spotcheckui.com/r/ledger-table.json",
+        "https://spotcheckui.com/r/radio-group.json",
+        "https://spotcheckui.com/r/segmented.json",
+        "https://spotcheckui.com/r/select.json",
+        "https://spotcheckui.com/r/status-pill.json",
+        "https://spotcheckui.com/r/switch.json",
+        "https://spotcheckui.com/r/tabs.json",
+        "https://spotcheckui.com/r/toast.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/settings-screen.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scramble-text",
+      "type": "registry:component",
+      "title": "Scramble Text",
+      "description": "Decodes left to right from block glyphs, on mount and on hover.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/scramble-text.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "title": "Marquee",
+      "description": "A ruled band of display type that pauses on hover or focus.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "entry-list",
+      "type": "registry:component",
+      "title": "Entry List",
+      "description": "Rows slide in one after another, like entries posted to a ledger.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/entry-list.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scrub-input",
+      "type": "registry:component",
+      "title": "Scrub Input",
+      "description": "Drag a number sideways to change it while the digits roll. Press it to type.",
+      "categories": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/roll-number.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/scrub-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "magnetic-button",
+      "type": "registry:component",
+      "title": "Magnetic Button",
+      "description": "Leans toward the pointer from outside its edges, while the label lags behind.",
+      "categories": [
+        "springs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/magnetic-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stamp-approval",
+      "type": "registry:component",
+      "title": "Stamp Approval",
+      "description": "Human sign-off for an agent's tool call. The decision lands as a rubber stamp.",
+      "categories": [
+        "springs"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/button.json",
+        "https://spotcheckui.com/r/tag.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/stamp-approval.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "split-flap",
+      "type": "registry:component",
+      "title": "Split-Flap Board",
+      "description": "A departures board for jobs. Each changed cell spins through glyphs, staggered by column and row.",
+      "categories": [
+        "timelines"
+      ],
+      "dependencies": [
+        "animejs"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/split-flap.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "ripple-heatmap",
+      "type": "registry:component",
+      "title": "Ripple Heatmap",
+      "description": "A weekday by hour grid. Press a cell and the grid ripples out from it.",
+      "categories": [
+        "timelines"
+      ],
+      "dependencies": [
+        "animejs"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/ripple-heatmap.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "draw-chart",
+      "type": "registry:component",
+      "title": "Draw Chart",
+      "description": "One timeline: the line draws, points drop in and the headline number counts up.",
+      "categories": [
+        "timelines"
+      ],
+      "dependencies": [
+        "animejs"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-in-view.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/draw-chart.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "swipe-review",
+      "type": "registry:component",
+      "title": "Swipe Review",
+      "description": "A card queue for grading model answers. Drag right to accept, left to reject.",
+      "categories": [
+        "timelines"
+      ],
+      "dependencies": [
+        "animejs"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/button.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/swipe-review.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stream-response",
+      "type": "registry:component",
+      "title": "Stream Response",
+      "description": "Streaming markdown with a block caret, inline citations and a source strip. Stop and regenerate built in.",
+      "categories": [
+        "ai"
+      ],
+      "dependencies": [
+        "streamdown"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/button.json",
+        "https://spotcheckui.com/r/use-stream.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/stream-response.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "agent-trace",
+      "type": "registry:component",
+      "title": "Agent Trace",
+      "description": "Tool calls as ruled rows, with state, tool, argument and duration. Expand a row to see its output.",
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/agent-trace.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "trace-waterfall",
+      "type": "registry:component",
+      "title": "Trace Waterfall",
+      "description": "Nested spans on a shared timeline, so parallel work and slow steps show up at a glance.",
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/trace-waterfall.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "composer",
+      "type": "registry:component",
+      "title": "Composer",
+      "description": "A prompt box with attachment chips, a model picker and a live context meter.",
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/chip.json",
+        "https://spotcheckui.com/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/composer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "thinking",
+      "type": "registry:component",
+      "title": "Thinking",
+      "description": "A bar waveform with a rotating step label, for long-running work.",
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/thinking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "context-budget",
+      "type": "registry:component",
+      "title": "Context Budget",
+      "description": "A segmented bar showing where the context window goes, with a compact action.",
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/context-budget.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "eval-matrix",
+      "type": "registry:component",
+      "title": "Eval Matrix",
+      "description": "Models by tasks, with cells shaded by score.",
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/eval-matrix.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "run-receipt",
+      "type": "registry:component",
+      "title": "Run Receipt",
+      "description": "A tear-off receipt of a run's tokens, cost and tools that prints line by line.",
+      "categories": [
+        "ai"
+      ],
+      "dependencies": [
+        "animejs"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-in-view.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/run-receipt.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "diff-review",
+      "type": "registry:component",
+      "title": "Diff Review",
+      "description": "Accept or reject an agent's edits hunk by hunk, with undo.",
+      "categories": [
+        "ai"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/button.json",
+        "https://spotcheckui.com/r/status-pill.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/diff-review.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "model-race",
+      "type": "registry:component",
+      "title": "Model Race",
+      "description": "One prompt across several models, with live time and cost, and the winner marked.",
+      "categories": [
+        "ai"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/roll-number.json",
+        "https://spotcheckui.com/r/tag.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/model-race.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chat-screen",
+      "type": "registry:component",
+      "title": "Chat Screen",
+      "description": "Thread list, message log and reply bar, wired to Stream Response.",
+      "categories": [
+        "screens"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/app-frame.json",
+        "https://spotcheckui.com/r/stream-response.json",
+        "https://spotcheckui.com/r/use-stream.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/chat-screen.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "linked-bars",
+      "type": "registry:component",
+      "title": "Linked Bars",
+      "description": "A table and a 3D bar chart that share one highlight.",
+      "categories": [
+        "depth"
+      ],
+      "dependencies": [
+        "three",
+        "@react-three/fiber"
+      ],
+      "devDependencies": [
+        "@types/three"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/gl-stage.json",
+        "https://spotcheckui.com/r/use-gl-palette.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/linked-bars.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "drum-picker",
+      "type": "registry:component",
+      "title": "Drum Picker",
+      "description": "A spinning wheel for picking one option. It coasts when flicked and always lands on a row.",
+      "categories": [
+        "depth"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-flick.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/drum-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "coverflow",
+      "type": "registry:component",
+      "title": "Coverflow",
+      "description": "Cards on a 3D shelf that you flick through. A throw carries momentum and lands on the nearest card.",
+      "categories": [
+        "depth"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/button.json",
+        "https://spotcheckui.com/r/use-flick.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/coverflow.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "fold-report",
+      "type": "registry:component",
+      "title": "Fold Report",
+      "description": "An accordion whose rows unfold like folded paper, top to bottom, and fold back up from the end.",
+      "categories": [
+        "depth"
+      ],
+      "dependencies": [
+        "animejs"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/fold-report.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "cube-tabs",
+      "type": "registry:component",
+      "title": "Cube Tabs",
+      "description": "Four tabs on the faces of a cube that turns the short way and settles.",
+      "categories": [
+        "depth"
+      ],
+      "dependencies": [
+        "animejs"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/cube-tabs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tilt-card",
+      "type": "registry:component",
+      "title": "Tilt Card",
+      "description": "A card that tilts toward the pointer, with layers at different depths and a glare spot.",
+      "categories": [
+        "depth"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://spotcheckui.com/r/spotcheck-base.json",
+        "https://spotcheckui.com/r/use-reduced-motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/spotcheck/components/spotcheck/tilt-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

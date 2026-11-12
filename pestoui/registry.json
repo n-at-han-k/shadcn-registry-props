@@ -1,0 +1,3217 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "pestoui",
+  "homepage": "https://pestoui.vercel.app",
+  "items": [
+    {
+      "name": "style",
+      "type": "registry:style",
+      "title": "Pesto UI Style",
+      "description": "Pesto UI's tokens, accent themes, Geist fonts, motion system and base layer. Every component depends on it, so add it first.",
+      "dependencies": [
+        "@fontsource-variable/geist-mono@^5.3.0",
+        "@fontsource-variable/geist@^5.3.0",
+        "shadcn@^4.23.0",
+        "tw-animate-css@^1.4.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/utils"
+      ],
+      "cssVars": {
+        "theme": {
+          "ease-out-expo": "var(--ease-out-expo)",
+          "ease-in-out-circ": "var(--ease-in-out-circ)",
+          "ease-sheet": "var(--ease-sheet)",
+          "ease-out-quart": "var(--ease-out-quart)",
+          "ease-in-quart": "var(--ease-in-quart)",
+          "ease-in-out-quart": "var(--ease-in-out-quart)",
+          "ease-out-back": "var(--ease-out-back)",
+          "ease-spring-press": "var(--ease-spring-press)",
+          "ease-spring-glide": "var(--ease-spring-glide)",
+          "ease-spring-panel": "var(--ease-spring-panel)",
+          "ease-spring-swap": "var(--ease-spring-swap)",
+          "ease-spring-weighted": "var(--ease-spring-weighted)",
+          "ease-spring-overshoot": "var(--ease-spring-overshoot)",
+          "ease-spring-bouncy": "var(--ease-spring-bouncy)",
+          "ease-spring-release": "var(--ease-spring-release)",
+          "ease-spring-editorial": "var(--ease-spring-editorial)",
+          "ease-spring": "var(--ease-spring)",
+          "animate-shake": "shake 450ms var(--ease-out-expo)",
+          "animate-nudge": "nudge 600ms var(--ease-out-expo)",
+          "animate-pulse-ring": "pulse-ring 1600ms var(--ease-in-out-circ) infinite",
+          "animate-shimmer": "shimmer 2500ms linear infinite",
+          "animate-ripple": "ripple 1600ms var(--ease-out-expo)",
+          "animate-travel": "travel-bounce var(--duration-travel) var(--ease-out-back), travel-squish var(--duration-travel) var(--ease-in-out-circ)",
+          "animate-travel-slide": "travel-slide var(--duration-travel) var(--ease-out-back), travel-slide-squish var(--duration-travel) var(--ease-in-out-circ)",
+          "font-heading": "var(--font-sans)",
+          "font-sans": "'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+          "font-mono": "'Geist Mono Variable', ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace",
+          "color-sidebar-ring": "var(--sidebar-ring)",
+          "color-sidebar-border": "var(--sidebar-border)",
+          "color-sidebar-accent-foreground": "var(--sidebar-accent-foreground)",
+          "color-sidebar-accent": "var(--sidebar-accent)",
+          "color-sidebar-primary-foreground": "var(--sidebar-primary-foreground)",
+          "color-sidebar-primary": "var(--sidebar-primary)",
+          "color-sidebar-foreground": "var(--sidebar-foreground)",
+          "color-sidebar": "var(--sidebar)",
+          "color-chart-5": "var(--chart-5)",
+          "color-chart-4": "var(--chart-4)",
+          "color-chart-3": "var(--chart-3)",
+          "color-chart-2": "var(--chart-2)",
+          "color-chart-1": "var(--chart-1)",
+          "color-ring": "var(--ring)",
+          "color-input": "var(--input)",
+          "color-border": "var(--border)",
+          "color-destructive": "var(--destructive)",
+          "color-destructive-ink": "var(--destructive-ink)",
+          "color-accent-foreground": "var(--accent-foreground)",
+          "color-accent": "var(--accent)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-muted": "var(--muted)",
+          "color-secondary-foreground": "var(--secondary-foreground)",
+          "color-secondary": "var(--secondary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-primary": "var(--primary)",
+          "color-popover-foreground": "var(--popover-foreground)",
+          "color-popover": "var(--popover)",
+          "color-card-foreground": "var(--card-foreground)",
+          "color-card": "var(--card)",
+          "color-foreground": "var(--foreground)",
+          "color-background": "var(--background)",
+          "color-info": "var(--info)",
+          "color-info-foreground": "var(--info-foreground)",
+          "color-info-ink": "var(--info-ink)",
+          "color-selected": "var(--selected)",
+          "color-selected-foreground": "var(--selected-foreground)",
+          "color-selected-ink": "var(--selected-ink)",
+          "color-switch-track": "var(--switch-track)",
+          "color-success": "var(--success)",
+          "color-success-foreground": "var(--success-foreground)",
+          "color-success-ink": "var(--success-ink)",
+          "color-warning": "var(--warning)",
+          "color-warning-foreground": "var(--warning-foreground)",
+          "color-warning-ink": "var(--warning-ink)",
+          "color-paper": "var(--paper)",
+          "color-paper-foreground": "var(--paper-foreground)",
+          "color-inverse": "var(--inverse)",
+          "color-inverse-foreground": "var(--inverse-foreground)",
+          "color-inverse-muted": "var(--inverse-muted)",
+          "radius-sm": "calc(var(--radius) * 0.6)",
+          "radius-md": "calc(var(--radius) * 0.8)",
+          "radius-lg": "var(--radius)",
+          "radius-xl": "calc(var(--radius) * 1.4)",
+          "radius-2xl": "calc(var(--radius) * 1.8)",
+          "radius-3xl": "calc(var(--radius) * 2.2)",
+          "radius-4xl": "calc(var(--radius) * 2.6)",
+          "radius-box-16": "0.3rem",
+          "radius-box-20": "0.375rem",
+          "radius-box-24": "0.4375rem",
+          "radius-box-28": "0.5625rem",
+          "radius-box-32": "0.625rem",
+          "radius-box-36": "0.6875rem",
+          "radius-box-40": "0.8125rem",
+          "radius-box-44": "0.9375rem",
+          "radius-box-48": "0.875rem",
+          "radius-box-56": "1rem",
+          "radius-box-64": "1.1875rem",
+          "shadow-hairline": "0 1px 2px oklch(0.216 0.006 56 / 0.04), 0 1px 3px -1px oklch(0.216 0.006 56 / 0.03)",
+          "shadow-xs": "0 1px 2px oklch(0.216 0.006 56 / 0.05), 0 2px 4px -1px oklch(0.216 0.006 56 / 0.06)",
+          "shadow-soft": "0 1px 3px oklch(0.216 0.006 56 / 0.035), 0 6px 16px -4px oklch(0.216 0.006 56 / 0.05)",
+          "shadow-tile": "0 1px 2px oklch(0.216 0.006 56 / 0.05), 0 3px 10px -2px oklch(0.216 0.006 56 / 0.06)",
+          "shadow-card": "0 1px 2px oklch(0.216 0.006 56 / 0.03), 0 10px 30px -8px oklch(0.216 0.006 56 / 0.07)",
+          "shadow-float": "0 4px 12px oklch(0.216 0.006 56 / 0.06), 0 24px 60px -16px oklch(0.216 0.006 56 / 0.28)",
+          "color-surface": "var(--surface)",
+          "color-surface-card": "var(--surface-card)",
+          "color-surface-card-border": "var(--surface-card-border)",
+          "shadow-surface-card": "0 1px 2px 0 oklch(0.216 0.006 56 / 0.05)",
+          "text-micro": "var(--text-micro)",
+          "text-caption-sm": "var(--text-caption-sm)",
+          "text-caption": "var(--text-caption)",
+          "text-body-sm": "var(--text-body-sm)",
+          "text-body": "var(--text-body)",
+          "text-body-md": "var(--text-body-md)",
+          "text-body-lg": "var(--text-body-lg)",
+          "text-lead": "var(--text-lead)",
+          "tracking-snug": "var(--tracking-snug)",
+          "tracking-title": "var(--tracking-title)"
+        },
+        "light": {
+          "ease-out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+          "ease-in-out-circ": "cubic-bezier(0.77, 0, 0.175, 1)",
+          "ease-sheet": "cubic-bezier(0.32, 0.72, 0, 1)",
+          "ease-out-quart": "cubic-bezier(0.25, 1, 0.5, 1)",
+          "ease-in-quart": "cubic-bezier(0.5, 0, 0.75, 0)",
+          "ease-in-out-quart": "cubic-bezier(0.76, 0, 0.24, 1)",
+          "ease-out-back": "cubic-bezier(0.34, 1.35, 0.64, 1)",
+          "ease-spring-press": "linear( 0, 0.0218 4.55%, 0.0765 9.09%, 0.1516 13.64%, 0.2373 18.18%, 0.3268 22.73%, 0.4152 27.27%, 0.4993 31.82%, 0.5769 36.36%, 0.6471 40.91%, 0.7092 45.45%, 0.7634 50%, 0.8099 54.55%, 0.8493 59.09%, 0.8823 63.64%, 0.9095 68.18%, 0.9318 72.73%, 0.9497 77.27%, 0.9639 81.82%, 0.9751 86.36%, 0.9837 90.91%, 0.9902 95.45%, 1 )",
+          "ease-spring-glide": "linear( 0, 0.0866 5.56%, 0.2505 11.11%, 0.4165 16.67%, 0.5588 22.22%, 0.6721 27.78%, 0.7589 33.33%, 0.8239 38.89%, 0.8719 44.44%, 0.9071 50%, 0.9327 55.56%, 0.9513 61.11%, 0.9648 66.67%, 0.9746 72.22%, 0.9817 77.78%, 0.9868 83.33%, 0.9904 88.89%, 0.9931 94.44%, 1 )",
+          "ease-spring-panel": "linear( 0, 0.1403 5.56%, 0.3435 11.11%, 0.5121 16.67%, 0.6399 22.22%, 0.7346 27.78%, 0.8046 33.33%, 0.8561 38.89%, 0.894 44.44%, 0.9219 50%, 0.9425 55.56%, 0.9577 61.11%, 0.9688 66.67%, 0.977 72.22%, 0.9831 77.78%, 0.9876 83.33%, 0.9908 88.89%, 0.9932 94.44%, 1 )",
+          "ease-spring-swap": "linear( 0, 0.0346 4.55%, 0.1161 9.09%, 0.2195 13.64%, 0.3292 18.18%, 0.4355 22.73%, 0.5332 27.27%, 0.6195 31.82%, 0.6939 36.36%, 0.7565 40.91%, 0.8084 45.45%, 0.8507 50%, 0.8848 54.55%, 0.9119 59.09%, 0.9332 63.64%, 0.9499 68.18%, 0.9627 72.73%, 0.9726 77.27%, 0.98 81.82%, 0.9856 86.36%, 0.9898 90.91%, 0.9929 95.45%, 1 )",
+          "ease-spring-weighted": "linear( 0, 0.0373 4.17%, 0.129 8.33%, 0.2504 12.5%, 0.3829 16.67%, 0.5135 20.83%, 0.6337 25%, 0.7387 29.17%, 0.8263 33.33%, 0.8963 37.5%, 0.9498 41.67%, 0.9887 45.83%, 1.0151 50%, 1.0316 54.17%, 1.0402 58.33%, 1.0432 62.5%, 1.0421 66.67%, 1.0384 70.83%, 1.0333 75%, 1.0277 79.17%, 1.022 83.33%, 1.0167 87.5%, 1.012 91.67%, 1.0081 95.83%, 1 )",
+          "ease-spring-overshoot": "linear( 0, 0.0308 3.85%, 0.106 7.69%, 0.2052 11.54%, 0.3141 15.38%, 0.4228 19.23%, 0.5253 23.08%, 0.6178 26.92%, 0.6988 30.77%, 0.7677 34.62%, 0.825 38.46%, 0.8715 42.31%, 0.9086 46.15%, 0.9375 50%, 0.9595 53.85%, 0.9758 57.69%, 0.9877 61.54%, 0.9959 65.38%, 1.0014 69.23%, 1.0048 73.08%, 1.0067 76.92%, 1.0076 80.77%, 1.0077 84.62%, 1.0073 88.46%, 1.0066 92.31%, 1.0058 96.15%, 1 )",
+          "ease-spring-bouncy": "linear( 0, 0.0784 2.94%, 0.273 5.88%, 0.5235 8.82%, 0.7774 11.76%, 0.9961 14.71%, 1.1564 17.65%, 1.2502 20.59%, 1.2814 23.53%, 1.2623 26.47%, 1.2092 29.41%, 1.1393 32.35%, 1.0675 35.29%, 1.005 38.24%, 0.9585 41.18%, 0.9308 44.12%, 0.9209 47.06%, 0.9254 50%, 0.9398 52.94%, 0.9593 55.88%, 0.9796 58.82%, 0.9975 61.76%, 1.0109 64.71%, 1.0191 67.65%, 1.0222 70.59%, 1.0212 73.53%, 1.0173 76.47%, 1.0119 79.41%, 1.0061 82.35%, 1.001 85.29%, 0.9971 88.24%, 0.9947 91.18%, 0.9938 94.12%, 0.994 97.06%, 1 )",
+          "ease-spring-release": "linear( 0, 0.827 3.03%, 1.4128 6.06%, 1.7797 9.09%, 1.963 12.12%, 2.0031 15.15%, 1.941 18.18%, 1.814 21.21%, 1.6536 24.24%, 1.4844 27.27%, 1.3244 30.3%, 1.1851 33.33%, 1.0724 36.36%, 0.9883 39.39%, 0.9313 42.42%, 0.8981 45.45%, 0.8844 48.48%, 0.8853 51.52%, 0.8961 54.55%, 0.9129 57.58%, 0.9323 60.61%, 0.9517 63.64%, 0.9694 66.67%, 0.9844 69.7%, 0.9961 72.73%, 1.0045 75.76%, 1.0099 78.79%, 1.0128 81.82%, 1.0136 84.85%, 1.0129 87.88%, 1.0113 90.91%, 1.0092 93.94%, 1.0069 96.97%, 1 )",
+          "ease-spring-editorial": "linear( 0, 0.0548 5%, 0.1726 10%, 0.3089 15%, 0.4404 20%, 0.557 25%, 0.6552 30%, 0.7351 35%, 0.7986 40%, 0.8482 45%, 0.8864 50%, 0.9155 55%, 0.9375 60%, 0.9539 65%, 0.9662 70%, 0.9752 75%, 0.9819 80%, 0.9869 85%, 0.9905 90%, 0.9931 95%, 1 )",
+          "ease-spring": "var(--ease-spring-press)",
+          "animate-shake": "shake 450ms var(--ease-out-expo)",
+          "animate-nudge": "nudge 600ms var(--ease-out-expo)",
+          "animate-pulse-ring": "pulse-ring 1600ms var(--ease-in-out-circ) infinite",
+          "animate-shimmer": "shimmer 2500ms linear infinite",
+          "animate-ripple": "ripple 1600ms var(--ease-out-expo)",
+          "animate-travel": "travel-bounce var(--duration-travel) var(--ease-out-back), travel-squish var(--duration-travel) var(--ease-in-out-circ)",
+          "animate-travel-slide": "travel-slide var(--duration-travel) var(--ease-out-back), travel-slide-squish var(--duration-travel) var(--ease-in-out-circ)",
+          "text-micro": "0.6875rem",
+          "text-caption-sm": "0.75rem",
+          "text-caption": "0.8125rem",
+          "text-body-sm": "0.875rem",
+          "text-body": "0.9375rem",
+          "text-body-md": "1rem",
+          "text-body-lg": "1.0625rem",
+          "text-lead": "1.125rem",
+          "tracking-snug": "-0.01em",
+          "tracking-title": "-0.02em",
+          "duration-instant": "75ms",
+          "duration-fast": "100ms",
+          "duration-base": "150ms",
+          "duration-slow": "250ms",
+          "duration-slower": "400ms",
+          "duration-exit": "160ms",
+          "duration-spring-press": "170ms",
+          "duration-spring-glide": "364ms",
+          "duration-spring-panel": "443ms",
+          "duration-spring-swap": "219ms",
+          "duration-spring-weighted": "497ms",
+          "duration-spring-overshoot": "584ms",
+          "duration-spring-bouncy": "534ms",
+          "duration-spring-release": "320ms",
+          "duration-spring-editorial": "693ms",
+          "duration-spring": "var(--duration-spring-press)",
+          "duration-travel": "350ms",
+          "press-scale": "0.96",
+          "press-squeeze": "0.9",
+          "press-lean": "calc(var(--spacing) * 1)",
+          "press-lean-angle": "15deg",
+          "travel-lean": "1.6px",
+          "stagger-tight": "25ms",
+          "stagger-base": "35ms",
+          "stagger-loose": "90ms",
+          "lift-hover": "4px",
+          "falloff-neighbor": "0.45",
+          "reveal-duration": "var(--duration-slower)",
+          "reveal-blur": "2px",
+          "reveal-rise": "4px",
+          "orb-violet-base": "#efc8fb",
+          "orb-violet-1": "#864eff",
+          "orb-violet-2": "#a27aff",
+          "orb-violet-3": "#ffebfd",
+          "orb-violet-4": "#ff6fc5",
+          "orb-violet-rim": "#fdeef8",
+          "orb-pink-base": "#ffcee8",
+          "orb-pink-1": "#ff65b8",
+          "orb-pink-2": "#e8a9f7",
+          "orb-pink-3": "#fff7fc",
+          "orb-pink-4": "#ff7f7b",
+          "orb-pink-rim": "#fdeef8",
+          "orb-orange-base": "#ffa595",
+          "orb-orange-1": "#ff8823",
+          "orb-orange-2": "#ffead7",
+          "orb-orange-3": "#fe0011",
+          "orb-orange-rim": "#ffd8ea",
+          "orb-blue-base": "#a0d4ff",
+          "orb-blue-1": "#247dff",
+          "orb-blue-2": "#fdffff",
+          "orb-blue-3": "#2ab5f7",
+          "orb-blue-4": "#c3c3ff",
+          "orb-blue-rim": "#ecf4fd",
+          "orb-teal-base": "#aae6db",
+          "orb-teal-1": "#00d8c0",
+          "orb-teal-2": "#18b0ff",
+          "orb-teal-3": "#00b878",
+          "orb-teal-4": "#e4f6ea",
+          "orb-teal-rim": "#e0f4ea",
+          "tracking-body": "-0.011em",
+          "brand-hue": "121",
+          "background": "oklch(0.9691 0.0038 var(--brand-hue))",
+          "foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "paper": "oklch(0.945 0.0088 var(--brand-hue))",
+          "paper-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "inverse": "oklch(0.2686 0.0072 var(--brand-hue))",
+          "inverse-foreground": "oklch(0.9851 0.0015 var(--brand-hue))",
+          "inverse-muted": "oklch(0.715 0.0088 var(--brand-hue))",
+          "surface": "#F9FAF7",
+          "surface-card": "#FEFFFC",
+          "surface-card-border": "#EFF0ED",
+          "primary": "oklch(0.9192 0.2125 120.78)",
+          "primary-foreground": "oklch(0.3241 0.0723 125.5)",
+          "secondary": "oklch(0.9542 0.0042 var(--brand-hue))",
+          "secondary-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "muted": "oklch(0.9542 0.0042 var(--brand-hue))",
+          "muted-foreground": "oklch(0.515 0.0099 var(--brand-hue))",
+          "accent": "oklch(0.9463 0.0048 var(--brand-hue))",
+          "accent-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "border": "oklch(0.9319 0.0052 var(--brand-hue))",
+          "input": "oklch(0.9319 0.0052 var(--brand-hue))",
+          "switch-track": "oklch(0.885 0.006 95)",
+          "ring": "var(--selected)",
+          "info": "oklch(0.623 0.188 259.8)",
+          "info-foreground": "oklch(1 0 0)",
+          "selected": "oklch(0.62 0.17 var(--brand-hue))",
+          "selected-foreground": "oklch(1 0 0)",
+          "selected-ink": "color-mix(in oklab, var(--selected) 65%, var(--foreground))",
+          "success": "oklch(0.6271 0.1699 149.2)",
+          "success-foreground": "oklch(1 0 0)",
+          "warning": "oklch(0.7686 0.1647 70.08)",
+          "warning-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "warning-ink": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "destructive": "oklch(0.5771 0.2152 27.33)",
+          "success-ink": "oklch(0.48 0.1699 149.2)",
+          "destructive-ink": "oklch(0.465 0.2152 27.33)",
+          "info-ink": "oklch(0.495 0.188 259.8)",
+          "chart-1": "oklch(0.6056 0.2189 292.7)",
+          "chart-2": "oklch(0.7176 0.1767 349.8)",
+          "chart-3": "oklch(0.7505 0.1791 55.9)",
+          "chart-4": "oklch(0.7137 0.1434 254.6)",
+          "chart-5": "oklch(0.777 0.1521 181.9)",
+          "radius": "1rem",
+          "sidebar": "oklch(1 0 0)",
+          "sidebar-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "sidebar-primary": "oklch(0.9192 0.2125 120.78)",
+          "sidebar-primary-foreground": "oklch(0.3241 0.0723 125.5)",
+          "sidebar-accent": "oklch(0.9542 0.0042 var(--brand-hue))",
+          "sidebar-accent-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "sidebar-border": "oklch(0.9319 0.0052 var(--brand-hue))",
+          "sidebar-ring": "var(--selected)",
+          "code-text": "#24292e",
+          "code-punc": "#24292e",
+          "code-comment": "#6a737d",
+          "code-kw": "#d73a49",
+          "code-comp": "#6f42c1",
+          "code-fn": "#6f42c1",
+          "code-attr": "#6f42c1",
+          "code-tag": "#22863a",
+          "code-key": "#005cc5",
+          "code-num": "#005cc5",
+          "code-str": "#032f62",
+          "code-gutter": "#b6bac0"
+        },
+        "dark": {
+          "background": "oklch(0.1822 0.004 var(--brand-hue))",
+          "foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "card": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "card-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "popover": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "popover-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "paper": "oklch(0.2404 0.008 var(--brand-hue))",
+          "paper-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "inverse": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "inverse-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "inverse-muted": "oklch(0.6118 0.0099 var(--brand-hue))",
+          "surface": "oklch(0.205 0.004 var(--brand-hue))",
+          "surface-card": "oklch(0.248 0.005 var(--brand-hue))",
+          "surface-card-border": "oklch(1 0 0 / 8%)",
+          "primary": "oklch(0.9192 0.2125 120.78)",
+          "primary-foreground": "oklch(0.3241 0.0723 125.5)",
+          "secondary": "oklch(0.2686 0.0072 var(--brand-hue))",
+          "secondary-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "muted": "oklch(0.2686 0.0072 var(--brand-hue))",
+          "muted-foreground": "oklch(0.715 0.0088 var(--brand-hue))",
+          "accent": "oklch(0.2904 0.0072 var(--brand-hue))",
+          "accent-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 12%)",
+          "ring": "var(--selected)",
+          "info": "oklch(0.623 0.188 259.8)",
+          "info-foreground": "oklch(1 0 0)",
+          "selected": "oklch(0.64 0.17 var(--brand-hue))",
+          "selected-foreground": "oklch(1 0 0)",
+          "selected-ink": "color-mix(in oklab, var(--selected) 65%, var(--foreground))",
+          "success": "oklch(0.6271 0.1699 149.2)",
+          "success-foreground": "oklch(1 0 0)",
+          "warning": "oklch(0.7686 0.1647 70.08)",
+          "warning-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "warning-ink": "oklch(0.7686 0.1647 70.08)",
+          "destructive": "oklch(0.704 0.1911 22.2)",
+          "success-ink": "oklch(0.68 0.1699 149.2)",
+          "destructive-ink": "oklch(0.81 0.1911 22.2)",
+          "info-ink": "oklch(0.73 0.188 259.8)",
+          "chart-1": "oklch(0.6056 0.2189 292.7)",
+          "chart-2": "oklch(0.7176 0.1767 349.8)",
+          "chart-3": "oklch(0.7505 0.1791 55.9)",
+          "chart-4": "oklch(0.7137 0.1434 254.6)",
+          "chart-5": "oklch(0.777 0.1521 181.9)",
+          "sidebar": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "sidebar-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "sidebar-primary": "oklch(0.9192 0.2125 120.78)",
+          "sidebar-primary-foreground": "oklch(0.3241 0.0723 125.5)",
+          "sidebar-accent": "oklch(0.2686 0.0072 var(--brand-hue))",
+          "sidebar-accent-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "var(--selected)"
+        }
+      },
+      "css": {
+        "@import \"tw-animate-css\"": {},
+        "@import \"shadcn/tailwind.css\"": {},
+        "@import \"@fontsource-variable/geist/wght.css\"": {},
+        "@import \"@fontsource-variable/geist-mono/wght.css\"": {},
+        "@custom-variant dark (&:is(.dark *))": {},
+        ":root": {
+          "color-scheme": "light"
+        },
+        ".dark": {
+          "color-scheme": "dark"
+        },
+        "@keyframes shake": {
+          "0%": {
+            "translate": "0 0"
+          },
+          "16%": {
+            "translate": "-6px 0"
+          },
+          "32%": {
+            "translate": "6px 0"
+          },
+          "48%": {
+            "translate": "-4px 0"
+          },
+          "64%": {
+            "translate": "4px 0"
+          },
+          "82%": {
+            "translate": "-2px 0"
+          },
+          "100%": {
+            "translate": "0 0"
+          }
+        },
+        "@keyframes nudge": {
+          "0%": {
+            "translate": "0 0"
+          },
+          "25%": {
+            "translate": "-2px 0"
+          },
+          "50%": {
+            "translate": "2px 0"
+          },
+          "75%": {
+            "translate": "-1px 0"
+          },
+          "100%": {
+            "translate": "0 0"
+          }
+        },
+        "@keyframes pulse-ring": {
+          "0%, 100%": {
+            "scale": "0.94",
+            "opacity": "0.08"
+          },
+          "50%": {
+            "scale": "1.08",
+            "opacity": "0.16"
+          }
+        },
+        "@keyframes shimmer": {
+          "from": {
+            "background-position": "200% 0"
+          },
+          "to": {
+            "background-position": "-200% 0"
+          }
+        },
+        "@keyframes ripple": {
+          "from": {
+            "scale": "0.05",
+            "opacity": "0.3"
+          },
+          "to": {
+            "scale": "1",
+            "opacity": "0"
+          }
+        },
+        "@keyframes travel-squish": {
+          "0%": {
+            "scale": "1"
+          },
+          "22%": {
+            "scale": "0.9"
+          },
+          "55%": {
+            "scale": "1.012"
+          },
+          "100%": {
+            "scale": "1"
+          }
+        },
+        "@keyframes travel-bounce": {
+          "0%": {
+            "translate": "calc(var(--travel-x) - var(--travel-distance) * var(--travel-dir)) 0"
+          },
+          "55%": {
+            "translate": "calc(var(--travel-x) + 1px * var(--travel-dir)) 0"
+          },
+          "80%": {
+            "translate": "calc(var(--travel-x) + 0.3px * var(--travel-dir)) 0"
+          },
+          "100%": {
+            "translate": "var(--travel-x) 0"
+          }
+        },
+        "@keyframes travel-slide": {
+          "0%": {
+            "translate": "calc(var(--tw-translate-x) + var(--travel-dx, 0px)) calc(var(--tw-translate-y) + var(--travel-dy, 0px))",
+            "animation-timing-function": "cubic-bezier(0.25, 1, 0.5, 1)"
+          },
+          "55%": {
+            "translate": "calc(var(--tw-translate-x) + var(--travel-lean) * var(--travel-dir-x, 0)) calc(var(--tw-translate-y) + var(--travel-lean) * var(--travel-dir-y, 0))"
+          },
+          "80%": {
+            "translate": "calc(var(--tw-translate-x) + var(--travel-lean) * 0.3 * var(--travel-dir-x, 0)) calc(var(--tw-translate-y) + var(--travel-lean) * 0.3 * var(--travel-dir-y, 0))"
+          }
+        },
+        "@keyframes travel-slide-squish": {
+          "22%": {
+            "scale": "var(--travel-squash-x, 0.9) var(--travel-squash-y, 0.9)"
+          },
+          "55%": {
+            "scale": "calc(1 + (1 - var(--travel-squash-x, 0.9)) * 0.12) calc(1 + (1 - var(--travel-squash-y, 0.9)) * 0.12)"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ":root": {
+            "--duration-instant": "1ms",
+            "--duration-fast": "1ms",
+            "--duration-base": "1ms",
+            "--duration-slow": "1ms",
+            "--duration-slower": "1ms",
+            "--duration-exit": "1ms",
+            "--duration-spring-press": "1ms",
+            "--duration-spring-glide": "1ms",
+            "--duration-spring-panel": "1ms",
+            "--duration-spring-swap": "1ms",
+            "--duration-spring-weighted": "1ms",
+            "--duration-spring-overshoot": "1ms",
+            "--duration-spring-bouncy": "1ms",
+            "--duration-spring-release": "1ms",
+            "--duration-spring-editorial": "1ms",
+            "--duration-travel": "1ms",
+            "--stagger-tight": "0ms",
+            "--stagger-base": "0ms",
+            "--stagger-loose": "0ms",
+            "--lift-hover": "0px",
+            "--reveal-blur": "0px",
+            "--reveal-rise": "0px",
+            "--press-scale": "1",
+            "--press-squeeze": "1",
+            "--press-lean": "0px",
+            "--press-lean-angle": "0deg",
+            "--travel-lean": "0px"
+          },
+          "*, *::before, *::after": {
+            "animation-duration": "1ms !important",
+            "animation-iteration-count": "1 !important",
+            "transition-duration": "1ms !important",
+            "scroll-behavior": "auto !important"
+          }
+        },
+        "@utility duration-instant": {
+          "--tw-duration": "var(--duration-instant)",
+          "transition-duration": "var(--duration-instant)"
+        },
+        "@utility duration-fast": {
+          "--tw-duration": "var(--duration-fast)",
+          "transition-duration": "var(--duration-fast)"
+        },
+        "@utility duration-base": {
+          "--tw-duration": "var(--duration-base)",
+          "transition-duration": "var(--duration-base)"
+        },
+        "@utility duration-slow": {
+          "--tw-duration": "var(--duration-slow)",
+          "transition-duration": "var(--duration-slow)"
+        },
+        "@utility duration-slower": {
+          "--tw-duration": "var(--duration-slower)",
+          "transition-duration": "var(--duration-slower)"
+        },
+        "@utility duration-exit": {
+          "--tw-duration": "var(--duration-exit)",
+          "transition-duration": "var(--duration-exit)"
+        },
+        "@utility duration-spring": {
+          "--tw-duration": "var(--duration-spring)",
+          "transition-duration": "var(--duration-spring)"
+        },
+        "@utility duration-spring-press": {
+          "--tw-duration": "var(--duration-spring-press)",
+          "transition-duration": "var(--duration-spring-press)"
+        },
+        "@utility duration-spring-glide": {
+          "--tw-duration": "var(--duration-spring-glide)",
+          "transition-duration": "var(--duration-spring-glide)"
+        },
+        "@utility duration-spring-panel": {
+          "--tw-duration": "var(--duration-spring-panel)",
+          "transition-duration": "var(--duration-spring-panel)"
+        },
+        "@utility duration-spring-swap": {
+          "--tw-duration": "var(--duration-spring-swap)",
+          "transition-duration": "var(--duration-spring-swap)"
+        },
+        "@utility duration-spring-weighted": {
+          "--tw-duration": "var(--duration-spring-weighted)",
+          "transition-duration": "var(--duration-spring-weighted)"
+        },
+        "@utility duration-spring-overshoot": {
+          "--tw-duration": "var(--duration-spring-overshoot)",
+          "transition-duration": "var(--duration-spring-overshoot)"
+        },
+        "@utility duration-spring-bouncy": {
+          "--tw-duration": "var(--duration-spring-bouncy)",
+          "transition-duration": "var(--duration-spring-bouncy)"
+        },
+        "@utility duration-spring-release": {
+          "--tw-duration": "var(--duration-spring-release)",
+          "transition-duration": "var(--duration-spring-release)"
+        },
+        "@utility duration-spring-editorial": {
+          "--tw-duration": "var(--duration-spring-editorial)",
+          "transition-duration": "var(--duration-spring-editorial)"
+        },
+        "@utility anim-fast": {
+          "--tw-animation-duration": "var(--duration-fast)",
+          "animation-duration": "var(--duration-fast)"
+        },
+        "@utility anim-base": {
+          "--tw-animation-duration": "var(--duration-base)",
+          "animation-duration": "var(--duration-base)"
+        },
+        "@utility anim-slow": {
+          "--tw-animation-duration": "var(--duration-slow)",
+          "animation-duration": "var(--duration-slow)"
+        },
+        "@utility anim-slower": {
+          "--tw-animation-duration": "var(--duration-slower)",
+          "animation-duration": "var(--duration-slower)"
+        },
+        "@utility anim-exit": {
+          "--tw-animation-duration": "var(--duration-exit)",
+          "animation-duration": "var(--duration-exit)"
+        },
+        "@utility anim-spring": {
+          "--tw-animation-duration": "var(--duration-spring)",
+          "animation-duration": "var(--duration-spring)"
+        },
+        "@utility anim-spring-panel": {
+          "--tw-animation-duration": "var(--duration-spring-panel)",
+          "animation-duration": "var(--duration-spring-panel)"
+        },
+        "@utility anim-spring-bouncy": {
+          "--tw-animation-duration": "var(--duration-spring-bouncy)",
+          "animation-duration": "var(--duration-spring-bouncy)"
+        },
+        "@utility draw-path": {
+          "stroke-dasharray": "var(--draw-length, 100)",
+          "stroke-dashoffset": "var(--draw-length, 100)",
+          "transition-property": "stroke-dashoffset",
+          "transition-duration": "var(--duration-exit)",
+          "transition-timing-function": "var(--ease-in-quart)"
+        },
+        "@utility draw-path-done": {
+          "stroke-dashoffset": "0",
+          "transition-property": "stroke-dashoffset",
+          "transition-duration": "var(--duration-slow)",
+          "transition-timing-function": "var(--ease-out-expo)"
+        },
+        "@layer utilities": {
+          ".avatar-lift > *": {
+            "transition-property": "translate, scale",
+            "transition-duration": "var(--duration-spring-release)",
+            "transition-timing-function": "var(--ease-spring-release)"
+          },
+          "@media (prefers-reduced-motion: no-preference)": {
+            ".avatar-lift > :where(:is(:hover, :focus-within) + * + * + *), .avatar-lift > :where(:has(+ * + * + *:is(:hover, :focus-within)))": {
+              "--avatar-lift": "0 calc(var(--lift-hover) * -1 * var(--falloff-neighbor) * var(--falloff-neighbor) * var(--falloff-neighbor))"
+            },
+            ".avatar-lift > :where(:is(:hover, :focus-within) + * + *), .avatar-lift > :where(:has(+ * + *:is(:hover, :focus-within)))": {
+              "--avatar-lift": "0 calc(var(--lift-hover) * -1 * var(--falloff-neighbor) * var(--falloff-neighbor))"
+            },
+            ".avatar-lift > :where(:is(:hover, :focus-within) + *), .avatar-lift > :where(:has(+ *:is(:hover, :focus-within)))": {
+              "--avatar-lift": "0 calc(var(--lift-hover) * -1 * var(--falloff-neighbor))"
+            },
+            ".avatar-lift > :is(:hover, :focus-within)": {
+              "--avatar-lift": "0 calc(var(--lift-hover) * -1)",
+              "scale": "1.05",
+              "z-index": "10"
+            },
+            ".avatar-lift:is(:hover, :focus-within) > *": {
+              "translate": "var(--avatar-lift, none)",
+              "transition-duration": "var(--duration-spring-glide)",
+              "transition-timing-function": "var(--ease-spring-glide)"
+            }
+          },
+          ".scrollbar-thin": {
+            "scrollbar-width": "thin",
+            "scrollbar-color": "color-mix(in oklab, var(--foreground) 18%, transparent) transparent"
+          },
+          ".scrollbar-thin::-webkit-scrollbar": {
+            "width": "6px",
+            "height": "6px"
+          },
+          ".scrollbar-thin::-webkit-scrollbar-track": {
+            "background": "transparent"
+          },
+          ".scrollbar-thin::-webkit-scrollbar-thumb": {
+            "background-color": "color-mix(in oklab, var(--foreground) 14%, transparent)",
+            "border-radius": "999px"
+          },
+          ".scrollbar-thin::-webkit-scrollbar-thumb:hover": {
+            "background-color": "color-mix(in oklab, var(--foreground) 26%, transparent)"
+          },
+          ".scrollbar-thin::-webkit-scrollbar-button": {
+            "display": "none",
+            "width": "0",
+            "height": "0"
+          },
+          ".scrollbar-thin::-webkit-scrollbar-corner": {
+            "background": "transparent"
+          },
+          ".gradient-sky": {
+            "background-color": "#afc8f3",
+            "background-image": "radial-gradient(90% 110% at 12% 96%, #b7a2f2 0%, transparent 58%), radial-gradient(120% 100% at 18% 4%, #82aaee 0%, transparent 55%), radial-gradient(110% 130% at 92% 18%, #a6cdf7 0%, transparent 62%), radial-gradient(85% 85% at 62% 72%, #dcebfc 0%, transparent 58%)"
+          },
+          ".gradient-sunrise": {
+            "background-color": "#f5bd6a",
+            "background-image": "radial-gradient(95% 110% at 10% 88%, #f2a0b4 0%, transparent 60%), radial-gradient(100% 100% at 88% 10%, #f7d468 0%, transparent 58%), radial-gradient(90% 90% at 82% 88%, #f6b34f 0%, transparent 55%), radial-gradient(70% 80% at 42% 34%, #fbe1b8 0%, transparent 55%)"
+          },
+          ".gradient-blossom": {
+            "background-color": "#f2aed4",
+            "background-image": "radial-gradient(95% 100% at 14% 10%, #f7c8e3 0%, transparent 58%), radial-gradient(100% 110% at 88% 86%, #ec8ec4 0%, transparent 60%), radial-gradient(80% 90% at 78% 18%, #d9b1f0 0%, transparent 55%), radial-gradient(70% 80% at 40% 78%, #fadef0 0%, transparent 55%)"
+          },
+          ".gradient-meadow": {
+            "background-color": "#55b98d",
+            "background-image": "radial-gradient(100% 120% at 12% 90%, #2f9e70 0%, transparent 60%), radial-gradient(95% 100% at 88% 12%, #93d7b6 0%, transparent 58%), radial-gradient(85% 95% at 84% 84%, #48c19d 0%, transparent 55%), radial-gradient(70% 80% at 46% 40%, #bae6d0 0%, transparent 52%)"
+          }
+        },
+        "@utility digit-column": {
+          "--digit-height": "1.1em",
+          "line-height": "var(--digit-height)",
+          "font-variant-numeric": "tabular-nums",
+          "transition": "translate var(--duration-slower) var(--ease-out-expo)"
+        },
+        "@utility will-move": {
+          "will-change": "transform, opacity"
+        },
+        "@utility turn-travel": {
+          "transition-property": "rotate, transform",
+          "transition-duration": "var(--duration-travel), var(--duration-spring-press)",
+          "transition-timing-function": "var(--ease-out-back), var(--ease-spring-press)"
+        },
+        "@utility press-turn": {
+          "transform": "rotate(calc(var(--press-lean-angle) * var(--turn-dir, 1))) scale(var(--press-squeeze))"
+        },
+        "@utility reveal-stack": {
+          "display": "grid",
+          "> *": {
+            "grid-area": "1 / 1"
+          }
+        },
+        "@utility reveal-skeleton": {
+          "transition": "opacity var(--reveal-duration) var(--ease-in-out-quart), filter var(--reveal-duration) var(--ease-in-out-quart)",
+          "[data-reveal=\"ready\"] > &": {
+            "opacity": "0",
+            "filter": "blur(var(--reveal-blur))",
+            "pointer-events": "none"
+          }
+        },
+        "@utility reveal-content": {
+          "opacity": "0",
+          "filter": "blur(var(--reveal-blur))",
+          "translate": "0 var(--reveal-rise)",
+          "transition": "opacity var(--reveal-duration) var(--ease-in-out-quart), filter var(--reveal-duration) var(--ease-in-out-quart), translate var(--reveal-duration) var(--ease-in-out-quart)",
+          "[data-reveal=\"ready\"] > &": {
+            "opacity": "1",
+            "filter": "none",
+            "translate": "none"
+          }
+        },
+        ".theme-blue": {
+          "--brand-hue": "255",
+          "--primary": "oklch(0.55 0.15 255)",
+          "--primary-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--selected": "oklch(0.55 0.15 255)",
+          "--selected-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--ring": "oklch(0.55 0.15 255)",
+          "--sidebar-primary": "oklch(0.55 0.15 255)",
+          "--sidebar-primary-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--sidebar-ring": "oklch(0.55 0.15 255)"
+        },
+        ".theme-orange": {
+          "--brand-hue": "50",
+          "--primary": "oklch(0.565 0.15 50)",
+          "--primary-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--selected": "oklch(0.66 0.15 50)",
+          "--selected-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--ring": "oklch(0.66 0.15 50)",
+          "--sidebar-primary": "oklch(0.565 0.15 50)",
+          "--sidebar-primary-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--sidebar-ring": "oklch(0.66 0.15 50)"
+        },
+        ".theme-violet": {
+          "--brand-hue": "293",
+          "--primary": "oklch(0.53 0.18 293)",
+          "--primary-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--selected": "oklch(0.53 0.18 293)",
+          "--selected-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--ring": "oklch(0.53 0.18 293)",
+          "--sidebar-primary": "oklch(0.53 0.18 293)",
+          "--sidebar-primary-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--sidebar-ring": "oklch(0.53 0.18 293)"
+        },
+        ".theme-green": {
+          "--brand-hue": "152",
+          "--primary": "oklch(0.535 0.14 152)",
+          "--primary-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--selected": "oklch(0.6 0.14 152)",
+          "--selected-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--ring": "oklch(0.6 0.14 152)",
+          "--sidebar-primary": "oklch(0.535 0.14 152)",
+          "--sidebar-primary-foreground": "oklch(0.985 0.001 var(--brand-hue))",
+          "--sidebar-ring": "oklch(0.6 0.14 152)"
+        },
+        ".theme-blue, .theme-orange, .theme-violet, .theme-green": {
+          "--background": "oklch(0.9691 0.0038 var(--brand-hue))",
+          "--foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--card-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--popover-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--paper": "oklch(0.945 0.0088 var(--brand-hue))",
+          "--paper-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--inverse": "oklch(0.2686 0.0072 var(--brand-hue))",
+          "--inverse-foreground": "oklch(0.9851 0.0015 var(--brand-hue))",
+          "--inverse-muted": "oklch(0.715 0.0088 var(--brand-hue))",
+          "--secondary": "oklch(0.9542 0.0042 var(--brand-hue))",
+          "--secondary-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--muted": "oklch(0.9542 0.0042 var(--brand-hue))",
+          "--muted-foreground": "oklch(0.515 0.0099 var(--brand-hue))",
+          "--accent": "oklch(0.9463 0.0048 var(--brand-hue))",
+          "--accent-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--border": "oklch(0.9319 0.0052 var(--brand-hue))",
+          "--input": "oklch(0.9319 0.0052 var(--brand-hue))",
+          "--warning-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--warning-ink": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--selected-ink": "color-mix(in oklab, var(--selected) 65%, var(--foreground))",
+          "--sidebar-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--sidebar-accent": "oklch(0.9542 0.0042 var(--brand-hue))",
+          "--sidebar-accent-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--sidebar-border": "oklch(0.9319 0.0052 var(--brand-hue))"
+        },
+        ".dark .theme-blue, .dark .theme-orange, .dark .theme-violet, .dark .theme-green": {
+          "--background": "oklch(0.1822 0.004 var(--brand-hue))",
+          "--foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--card": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--card-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--popover": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--popover-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--paper": "oklch(0.2404 0.008 var(--brand-hue))",
+          "--paper-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--inverse": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--inverse-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--inverse-muted": "oklch(0.6118 0.0099 var(--brand-hue))",
+          "--surface": "oklch(0.205 0.004 var(--brand-hue))",
+          "--surface-card": "oklch(0.248 0.005 var(--brand-hue))",
+          "--secondary": "oklch(0.2686 0.0072 var(--brand-hue))",
+          "--secondary-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--muted": "oklch(0.2686 0.0072 var(--brand-hue))",
+          "--muted-foreground": "oklch(0.715 0.0088 var(--brand-hue))",
+          "--accent": "oklch(0.2904 0.0072 var(--brand-hue))",
+          "--accent-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--warning-foreground": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--warning-ink": "oklch(0.7686 0.1647 70.08)",
+          "--sidebar": "oklch(0.2404 0.0055 var(--brand-hue))",
+          "--sidebar-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--sidebar-accent": "oklch(0.2686 0.0072 var(--brand-hue))",
+          "--sidebar-accent-foreground": "oklch(0.9702 0.0027 var(--brand-hue))",
+          "--border": "oklch(1 0 0 / 10%)",
+          "--input": "oklch(1 0 0 / 12%)",
+          "--sidebar-border": "oklch(1 0 0 / 10%)"
+        },
+        "@layer base": {
+          "*": {
+            "@apply border-border outline-ring/50": {}
+          },
+          "body": {
+            "@apply bg-background text-foreground": {},
+            "letter-spacing": "var(--tracking-body)",
+            "-webkit-font-smoothing": "antialiased"
+          },
+          "html": {
+            "@apply font-sans": {}
+          }
+        }
+      }
+    },
+    {
+      "name": "arc",
+      "type": "registry:lib",
+      "title": "Arc",
+      "description": "Ring geometry helpers shared by the circular progress components.",
+      "files": [
+        {
+          "path": "pestoui/lib/arc.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Motion",
+      "description": "The motion token values that JavaScript has to read, such as the glide spring duration.",
+      "files": [
+        {
+          "path": "pestoui/lib/motion.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "theme",
+      "type": "registry:lib",
+      "title": "Theme Engine",
+      "description": "Extracts a brand colour from a logo, derives accessible accent tones from it and applies them as tokens.",
+      "files": [
+        {
+          "path": "pestoui/lib/theme/build.ts",
+          "type": "registry:lib",
+          "target": "@lib/theme/build.ts"
+        },
+        {
+          "path": "pestoui/lib/theme/color.ts",
+          "type": "registry:lib",
+          "target": "@lib/theme/color.ts"
+        },
+        {
+          "path": "pestoui/lib/theme/derive.ts",
+          "type": "registry:lib",
+          "target": "@lib/theme/derive.ts"
+        },
+        {
+          "path": "pestoui/lib/theme/extract.ts",
+          "type": "registry:lib",
+          "target": "@lib/theme/extract.ts"
+        },
+        {
+          "path": "pestoui/lib/theme/index.ts",
+          "type": "registry:lib",
+          "target": "@lib/theme/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "The cn class merger, with tailwind-merge extended for Pesto UI's type scale. Replaces the stock lib/utils.ts.",
+      "docs": "This replaces lib/utils.ts. Its cn registers Pesto UI's type scale with tailwind-merge; accept the overwrite.",
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.6.0"
+      ],
+      "files": [
+        {
+          "path": "pestoui/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "useIsMobile",
+      "description": "Hook that reports whether the viewport is narrower than the mobile breakpoint.",
+      "files": [
+        {
+          "path": "pestoui/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Vertically stacked sections that expand and collapse, built on Radix.",
+      "dependencies": [
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Inline message card with a semantic icon disc, title, body and an optional dismiss or action cluster.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Modal confirmation dialog that expects a response, with an optional media tile.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "Displays content within a fixed width-to-height ratio, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "User image with a fallback, a status badge, and grouped avatars with an overflow count.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Small status or count label with neutral, semantic, outline, ghost and link variants.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge-group",
+      "type": "registry:ui",
+      "title": "Badge Group",
+      "description": "Announcement chip: a pill with a leading badge, trailing copy and an optional addon mark.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/badge",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/badge-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Full-width announcement bar for the top of a page or region, with title, description, actions and close.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/banner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Trail of links to the current page, with separators and an ellipsis.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Button with default, outline, secondary, ghost, inverse, destructive and link variants and squircle icon sizes.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Segmented cluster of buttons that share edges, with optional separators.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/separator",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Month grid for single-date or range selection, built on react-day-picker.",
+      "dependencies": [
+        "lucide-react@^1.27.0",
+        "react-day-picker@^10.0.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Surface container with header, title, description, action, content and footer parts and an elevation axis.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "Slide carousel with previous and next controls, built on Embla.",
+      "dependencies": [
+        "embla-carousel-react@^8.6.0",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Recharts wrapper with a themed container, tooltip and legend driven by a chart config.",
+      "dependencies": [
+        "recharts@^3.8.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/chart.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "pestoui/ui/chart-style.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkbox with an animated check mark, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Region that shows and hides from a trigger, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:ui",
+      "title": "Color Picker",
+      "description": "Swatch palette for choosing a colour, with a standalone swatch part.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/input",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/color-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Command palette with search, groups, items, shortcuts and a dialog form, built on cmdk.",
+      "dependencies": [
+        "cmdk@^1.1.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/dialog",
+        "@pestoui/input-group",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "Right-click menu with items, checkbox and radio items, sub-menus and shortcuts, built on Radix.",
+      "dependencies": [
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "Single-date and date-range pickers that open a calendar in a popover.",
+      "dependencies": [
+        "date-fns@^4.4.0",
+        "lucide-react@^1.27.0",
+        "react-day-picker@^10.0.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/calendar",
+        "@pestoui/popover",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal dialog with header, body, footer, media and illustration parts, and width and scrolling options.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "divider-text",
+      "type": "registry:ui",
+      "title": "Divider Text",
+      "description": "Two hairlines with a label, badge or button between them.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/divider-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "Panel that slides in from an edge of the screen, built on vaul.",
+      "dependencies": [
+        "vaul@^1.1.2"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Menu opened from a trigger, with items, checkbox and radio items, sub-menus and shortcuts, built on Radix.",
+      "dependencies": [
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty State",
+      "description": "Placeholder for an empty list or a search with no results: icon tile, title, description and actions.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/empty-state.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "file-upload",
+      "type": "registry:ui",
+      "title": "File Upload",
+      "description": "Drop zone and file list for choosing files to upload.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/progress",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/file-upload.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "filter",
+      "type": "registry:ui",
+      "title": "Filter",
+      "description": "Filter menu with grouped options, a selection count and a footer, plus helpers for the selection model.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/badge",
+        "@pestoui/button",
+        "@pestoui/checkbox",
+        "@pestoui/empty-state",
+        "@pestoui/popover",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/filter.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "Preview card shown while hovering over a trigger, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Single-line text input.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "Input or textarea with leading or trailing addons, text and buttons inside one field.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/input",
+        "@pestoui/style",
+        "@pestoui/textarea",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "One-time code input split into individual slots, built on input-otp.",
+      "dependencies": [
+        "input-otp@^1.4.2",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Keyboard key label, single or grouped, for shortcuts.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Accessible label for a form control, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "Horizontal application menu bar with menus, items, sub-menus and shortcuts, built on Radix.",
+      "dependencies": [
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "multi-select",
+      "type": "registry:ui",
+      "title": "Multi Select",
+      "description": "Select that holds several values, shown as tags in a field that wraps.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "cmdk@^1.1.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/command",
+        "@pestoui/popover",
+        "@pestoui/style",
+        "@pestoui/tooltip",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/multi-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "Site navigation whose triggers open content panels, built on Radix.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-animation",
+      "type": "registry:ui",
+      "title": "Number Animation",
+      "description": "Animated number and rolling digit ticker for changing values.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/number-animation.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page navigation with previous and next links, numbered pages and an ellipsis.",
+      "dependencies": [
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Floating panel anchored to a trigger, with header, title and description parts, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Horizontal progress bar with tone variants, built on Radix.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress-circle",
+      "type": "registry:ui",
+      "title": "Progress Circle",
+      "description": "Circular progress indicator drawn in SVG, with tone and size variants.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/arc",
+        "@pestoui/motion",
+        "@pestoui/number-animation",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/progress-circle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Set of radio buttons of which one can be selected, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rating",
+      "type": "registry:ui",
+      "title": "Rating",
+      "description": "Star rating input and a compact rating badge.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/rating.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Panel groups with draggable handles for resizing, built on react-resizable-panels.",
+      "dependencies": [
+        "react-resizable-panels@^4.12.2"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "reveal",
+      "type": "registry:ui",
+      "title": "Reveal",
+      "description": "Crossfade from a skeleton to loaded content, driven by a data-reveal attribute.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/reveal.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Scrollable region with custom scrollbars and a keyboard tab stop, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Dropdown list for choosing one value, built on Radix.",
+      "dependencies": [
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Horizontal or vertical dividing line, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Dialog that slides in from a side of the screen, built on Radix.",
+      "dependencies": [
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Composable application sidebar with provider, groups, menus, sub-menus, rail, user row and a mobile sheet.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/collapsible",
+        "@pestoui/input",
+        "@pestoui/popover",
+        "@pestoui/separator",
+        "@pestoui/sheet",
+        "@pestoui/skeleton",
+        "@pestoui/style",
+        "@pestoui/tooltip",
+        "@pestoui/use-mobile",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-nav",
+      "type": "registry:ui",
+      "title": "Sidebar Nav",
+      "description": "Data-driven navigation tree rendered with the sidebar primitives.",
+      "dependencies": [
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/collapsible",
+        "@pestoui/kbd",
+        "@pestoui/sidebar",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/sidebar-nav.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Loading placeholder with a sweeping highlight.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Range input with one or more thumbs, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "social-button",
+      "type": "registry:ui",
+      "title": "Social Button",
+      "description": "Sign-in button for an identity provider, single or grouped.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/spinner",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/social-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Toast notifications styled for the system, built on sonner. Mount the Toaster once.",
+      "dependencies": [
+        "lucide-react@^1.27.0",
+        "next-themes@^0.4.6",
+        "sonner@^2.0.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "Ring spinner and loading dots that take their colour from the surrounding text.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:ui",
+      "title": "Status Badge",
+      "description": "Presence or state pill with a coloured dot and a tinted body.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/status-badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Step indicator for a multi-step flow, with markers, connectors, segments and a counter.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "On and off toggle switch, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Table parts with sortable headers, selection cells, densities, an empty state and skeleton rows.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/skeleton",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table-card",
+      "type": "registry:ui",
+      "title": "Table Card",
+      "description": "Card shell around a table: header, body, footer, count and a bulk-action bar.",
+      "dependencies": [
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/badge",
+        "@pestoui/button",
+        "@pestoui/card",
+        "@pestoui/number-animation",
+        "@pestoui/style",
+        "@pestoui/table",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/table-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tabbed views with pill, underline and segment list styles and a travelling indicator, built on Radix.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "title": "Tag",
+      "description": "Dismissible label for a value the user has committed, such as a recipient or a keyword.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/tag.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multi-line text input.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Two-state button that is either on or off, built on Radix.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "Set of toggles that act as a single or multiple choice, built on Radix.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/toggle",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Label shown on hover or focus that provides its own provider, built on Radix.",
+      "dependencies": [
+        "radix-ui@^1.6.7"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tree-view",
+      "type": "registry:ui",
+      "title": "Tree View",
+      "description": "Hierarchical list with expandable rows and keyboard navigation.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/ui/tree-view.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "activity-feed",
+      "type": "registry:component",
+      "title": "Activity Feed",
+      "description": "Vertical feed of events with squircle markers.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/activity-feed.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "activity-gauge",
+      "type": "registry:component",
+      "title": "Activity Gauge",
+      "description": "Concentric progress rings in SVG, one arc per series.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/arc",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/activity-gauge.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "agent-card",
+      "type": "registry:component",
+      "title": "Agent Card",
+      "description": "Card with a gradient cover, icon tiles, title, description and an optional author row.",
+      "registryDependencies": [
+        "@pestoui/icon-tile",
+        "@pestoui/orb-avatar",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/agent-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "app-row",
+      "type": "registry:component",
+      "title": "App Row",
+      "description": "App directory row with an icon tile, name, blurb and a connect action.",
+      "dependencies": [
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/icon-tile",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/app-row.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "app-switcher",
+      "type": "registry:component",
+      "title": "App Switcher",
+      "description": "Switcher for the top of a sidebar: a mark and space name that open a menu of spaces.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/badge",
+        "@pestoui/dropdown-menu",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/app-switcher.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "appearance-toggle",
+      "type": "registry:component",
+      "title": "Appearance Toggle",
+      "description": "Light and dark segmented toggle for an appearance row in a menu or settings sheet.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/toggle-group",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/appearance-toggle.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "brand-icons",
+      "type": "registry:component",
+      "title": "Brand Icons",
+      "description": "The product logo mark, with a monochrome option that follows the text colour.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/brand-icons.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chart-axis-tick",
+      "type": "registry:component",
+      "title": "Chart Axis Tick",
+      "description": "Recharts axis tick that highlights one value and mutes the rest.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/chart-axis-tick.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chart-reference-label",
+      "type": "registry:component",
+      "title": "Chart Reference Label",
+      "description": "Recharts label for a reference line or dot.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/chart-reference-label.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:component",
+      "title": "Chip",
+      "description": "Category filter pill.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/chip.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "date-tile",
+      "type": "registry:component",
+      "title": "Date Tile",
+      "description": "Square calendar tile showing a short month over a day of the month.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/date-tile.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "description-list",
+      "type": "registry:component",
+      "title": "Description List",
+      "description": "Term and value pairs rendered as a description list.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/description-list.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dot-bars",
+      "type": "registry:component",
+      "title": "Dot Bars",
+      "description": "Dot-matrix column series: one column per sample, with dots stacked to the value.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/dot-bars.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "Form row with a label, a control, and helper or error text.",
+      "registryDependencies": [
+        "@pestoui/label",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "filter-bar",
+      "type": "registry:component",
+      "title": "Filter Bar",
+      "description": "Toolbar above a table or list with search, filter controls, active filters and actions.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/input",
+        "@pestoui/style",
+        "@pestoui/tag",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/filter-bar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "goal-meter",
+      "type": "registry:component",
+      "title": "Goal Meter",
+      "description": "Progress toward a fixed goal, drawn as a gradient fill with a knob and a percent flag.",
+      "registryDependencies": [
+        "@pestoui/progress",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/goal-meter.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "gradient-mark",
+      "type": "registry:component",
+      "title": "Gradient Mark",
+      "description": "Token gradient tile that stands in for an account, workspace or app.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/gradient-mark.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "heat-grid",
+      "type": "registry:component",
+      "title": "Heat Grid",
+      "description": "Matrix heatmap holding one value per cell, with tone variants.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/heat-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "icon-rail",
+      "type": "registry:component",
+      "title": "Icon Rail",
+      "description": "Narrow vertical strip of icon-only navigation destinations.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/icon-rail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "icon-tile",
+      "type": "registry:component",
+      "title": "Icon Tile",
+      "description": "Squircle container for an app or brand mark, raised or soft, in four sizes.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/icon-tile.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "inline-cta",
+      "type": "registry:component",
+      "title": "Inline CTA",
+      "description": "Compact promo block for a sidebar rail or the end of a content column.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/inline-cta.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "legend-list",
+      "type": "registry:component",
+      "title": "Legend List",
+      "description": "Chart key listing each series' dot, name and figure.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/segmented-bar",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/legend-list.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "message-bubble",
+      "type": "registry:component",
+      "title": "Message Bubble",
+      "description": "Chat message bubble and message group with a tail on the speaker's side.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/message-bubble.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "metric-card",
+      "type": "registry:component",
+      "title": "Metric Card",
+      "description": "KPI card with a label, a value and a delta.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/card",
+        "@pestoui/icon-tile",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/metric-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "notification-card",
+      "type": "registry:component",
+      "title": "Notification Card",
+      "description": "Notification card with a coloured icon tile, title and body, and a list wrapper.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/notification-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "orb-avatar",
+      "type": "registry:component",
+      "title": "Orb Avatar",
+      "description": "Gradient orb avatar in identity hues, and a stack of orbs.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/orb-avatar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "page-header",
+      "type": "registry:component",
+      "title": "Page Header",
+      "description": "Top-of-page block with breadcrumb, avatar, title, supporting line and actions.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/page-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "panel-card",
+      "type": "registry:component",
+      "title": "Panel Card",
+      "description": "Card whose header leads with an icon chip and whose footer is a single action link.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/card",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/panel-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "profile-card",
+      "type": "registry:component",
+      "title": "Profile Card",
+      "description": "Expanded identity panel for a sidebar: avatar, name, subtitle, meta items and actions.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/profile-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "promo-card",
+      "type": "registry:component",
+      "title": "Promo Card",
+      "description": "Dark connect or upsell card on the inverse surface.",
+      "registryDependencies": [
+        "@pestoui/button",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/promo-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "quota-tile",
+      "type": "registry:component",
+      "title": "Quota Tile",
+      "description": "Tile for one plan quota: what it is, its status, the count against its allowance and a meter.",
+      "dependencies": [
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/badge",
+        "@pestoui/card",
+        "@pestoui/stat",
+        "@pestoui/style",
+        "@pestoui/usage-meter",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/quota-tile.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "rank-list",
+      "type": "registry:component",
+      "title": "Rank List",
+      "description": "Ordered ranking with a leading identity slot, a muted second line and a trailing figure.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/rank-list.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "section-footer",
+      "type": "registry:component",
+      "title": "Section Footer",
+      "description": "Action bar for a form or card, with helper text on the left and buttons on the right.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/section-footer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "section-header",
+      "type": "registry:component",
+      "title": "Section Header",
+      "description": "In-page header above a table, card body or settings group, with a badge, actions and a tabs slot.",
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/section-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "segmented-bar",
+      "type": "registry:component",
+      "title": "Segmented Bar",
+      "description": "Stacked bar showing the parts of a total, with an optional legend.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/segmented-bar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "setup-card",
+      "type": "registry:component",
+      "title": "Setup Card",
+      "description": "Finish-setup card with a media header, a badge, copy and a step-progress footer.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/progress-circle",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/setup-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "share-panel",
+      "type": "registry:component",
+      "title": "Share Panel",
+      "description": "Share sheet with a document preview, a copy-link field, audience toggles and a primary action.",
+      "dependencies": [
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/badge",
+        "@pestoui/button",
+        "@pestoui/orb-avatar",
+        "@pestoui/style",
+        "@pestoui/switch",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/share-panel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-preview",
+      "type": "registry:component",
+      "title": "Sidebar Preview",
+      "description": "Composed workspace sidebar on a card, for previews and layouts.",
+      "dependencies": [
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/badge",
+        "@pestoui/brand-icons",
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/sidebar-preview.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:component",
+      "title": "Sparkline",
+      "description": "Inline SVG trend line for a KPI tile.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/sparkline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stat",
+      "type": "registry:component",
+      "title": "Stat",
+      "description": "Cardless figure with a unit, a caption and a delta.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/stat.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tick-strip",
+      "type": "registry:component",
+      "title": "Tick Strip",
+      "description": "Dense strip of uniform ticks for recent samples, such as CPU or memory load.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/tick-strip.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "timeline-track",
+      "type": "registry:component",
+      "title": "Timeline Track",
+      "description": "Schedule track with an axis of ticks and one item per row, placed along the span.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/timeline-track.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "trend-pill",
+      "type": "registry:component",
+      "title": "Trend Pill",
+      "description": "Delta chip with a direction arrow and a sentiment colour.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.27.0"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/trend-pill.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "usage-card",
+      "type": "registry:component",
+      "title": "Usage Card",
+      "description": "Sidebar footer upgrade block with a chip, title, copy, meter and a call to action.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/usage-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "usage-meter",
+      "type": "registry:component",
+      "title": "Usage Meter",
+      "description": "Count against a quota, drawn as a row of discrete pips.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/usage-meter.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "user-row",
+      "type": "registry:component",
+      "title": "User Row",
+      "description": "Identity row for the foot of a sidebar: avatar, name, a second line and a trailing affordance.",
+      "dependencies": [
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": [
+        "@pestoui/style",
+        "@pestoui/utils"
+      ],
+      "files": [
+        {
+          "path": "pestoui/components/user-row.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
