@@ -1471,6 +1471,152 @@
       ]
     },
     {
+      "name": "package-command",
+      "type": "registry:component",
+      "title": "Package Command",
+      "description": "A copyable install command with bun, pnpm, yarn and npm tabs. Pass the npm form and it rewrites it for each package manager; the choice is remembered and shared across every command on the page.",
+      "dependencies": [
+        "@base-ui/react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "cn"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-shell": "var(--shell)",
+          "color-shell-border": "var(--shell-border)",
+          "color-table-card": "var(--table-card)",
+          "color-table-card-border": "var(--table-card-border)",
+          "shadow-table-card": "var(--table-card-shadow)"
+        },
+        "light": {
+          "shell": "var(--table-shell)",
+          "shell-border": "var(--table-shell-border)",
+          "table-shell": "#f3f3f2",
+          "table-shell-border": "#e7e7e5",
+          "table-card": "#ffffff",
+          "table-card-border": "#e5e5e5",
+          "table-card-shadow": "0 1px 2px hsl(240 10% 10% / 0.06), 0 2px 8px -2px hsl(240 10% 10% / 0.06)"
+        },
+        "dark": {
+          "shell": "var(--table-shell)",
+          "shell-border": "var(--table-shell-border)",
+          "table-shell": "#161616",
+          "table-shell-border": "#232323",
+          "table-card": "#1f1f1f",
+          "table-card-border": "#2c2c2c",
+          "table-card-shadow": "inset 0 1px 0 hsl(0 0% 100% / 0.05), inset 0 0 0 1px hsl(0 0% 100% / 0.015), inset 0 12px 18px -16px hsl(0 0% 100% / 0.035)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/package-command/components/package-command.tsx",
+          "type": "registry:component",
+          "target": "components/package-command/components/package-command.tsx"
+        },
+        {
+          "path": "registry/notra/package-command/components/package-manager-icon.tsx",
+          "type": "registry:component",
+          "target": "components/package-command/components/package-manager-icon.tsx"
+        },
+        {
+          "path": "registry/notra/package-command/constants/package-command.ts",
+          "type": "registry:lib",
+          "target": "components/package-command/constants/package-command.ts"
+        },
+        {
+          "path": "registry/notra/package-command/hooks/use-package-manager.ts",
+          "type": "registry:hook",
+          "target": "components/package-command/hooks/use-package-manager.ts"
+        },
+        {
+          "path": "registry/notra/package-command/lib/package-command.ts",
+          "type": "registry:lib",
+          "target": "components/package-command/lib/package-command.ts"
+        },
+        {
+          "path": "registry/notra/package-command/types/package-command.ts",
+          "type": "registry:lib",
+          "target": "components/package-command/types/package-command.ts"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "The code block from the Notra dashboard: a dualtone panel with a filename or tabs on the shell, syntax-highlighted code on the card and a copy button, plus a one-line command variant.",
+      "dependencies": [
+        "@base-ui/react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "cn",
+        "sugar-high"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-shell": "var(--shell)",
+          "color-shell-border": "var(--shell-border)",
+          "color-table-card": "var(--table-card)",
+          "color-table-card-border": "var(--table-card-border)",
+          "shadow-table-card": "var(--table-card-shadow)"
+        },
+        "light": {
+          "shell": "var(--table-shell)",
+          "shell-border": "var(--table-shell-border)",
+          "table-shell": "#f3f3f2",
+          "table-shell-border": "#e7e7e5",
+          "table-card": "#ffffff",
+          "table-card-border": "#e5e5e5",
+          "table-card-shadow": "0 1px 2px hsl(240 10% 10% / 0.06), 0 2px 8px -2px hsl(240 10% 10% / 0.06)",
+          "sh-class": "oklch(0.55 0.13 265)",
+          "sh-identifier": "oklch(0.42 0.02 265)",
+          "sh-sign": "oklch(0.62 0.01 265)",
+          "sh-property": "oklch(0.55 0.15 25)",
+          "sh-entity": "oklch(0.55 0.13 265)",
+          "sh-jsxliterals": "oklch(0.52 0.16 300)",
+          "sh-string": "oklch(0.52 0.12 155)",
+          "sh-keyword": "oklch(0.55 0.19 320)",
+          "sh-comment": "oklch(0.65 0.02 265)"
+        },
+        "dark": {
+          "shell": "var(--table-shell)",
+          "shell-border": "var(--table-shell-border)",
+          "table-shell": "#161616",
+          "table-shell-border": "#232323",
+          "table-card": "#1f1f1f",
+          "table-card-border": "#2c2c2c",
+          "table-card-shadow": "inset 0 1px 0 hsl(0 0% 100% / 0.05), inset 0 0 0 1px hsl(0 0% 100% / 0.015), inset 0 12px 18px -16px hsl(0 0% 100% / 0.035)",
+          "sh-class": "oklch(0.78 0.11 255)",
+          "sh-identifier": "oklch(0.86 0.01 265)",
+          "sh-sign": "oklch(0.66 0.01 265)",
+          "sh-property": "oklch(0.76 0.12 30)",
+          "sh-entity": "oklch(0.78 0.11 255)",
+          "sh-jsxliterals": "oklch(0.78 0.13 300)",
+          "sh-string": "oklch(0.79 0.13 150)",
+          "sh-keyword": "oklch(0.76 0.15 330)",
+          "sh-comment": "oklch(0.6 0.02 265)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/notra/code-block/components/code-block.tsx",
+          "type": "registry:component",
+          "target": "components/code-block/components/code-block.tsx"
+        },
+        {
+          "path": "registry/notra/code-block/constants/code-block.ts",
+          "type": "registry:lib",
+          "target": "components/code-block/constants/code-block.ts"
+        },
+        {
+          "path": "registry/notra/code-block/types/code-block.ts",
+          "type": "registry:lib",
+          "target": "components/code-block/types/code-block.ts"
+        }
+      ]
+    },
+    {
       "name": "composer",
       "type": "registry:component",
       "title": "Composer",
