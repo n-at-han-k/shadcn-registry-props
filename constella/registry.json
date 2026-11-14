@@ -155,6 +155,7 @@
       ],
       "registryDependencies": [
         "https://constella.aayush.cv/r/base.json",
+        "https://constella.aayush.cv/r/scroll-area.json",
         "https://constella.aayush.cv/r/scroll-fade.json"
       ],
       "files": [
@@ -786,7 +787,8 @@
       ],
       "registryDependencies": [
         "https://constella.aayush.cv/r/base.json",
-        "https://constella.aayush.cv/r/scroll-fade.json"
+        "https://constella.aayush.cv/r/scroll-fade.json",
+        "https://constella.aayush.cv/r/relay-wheel.json"
       ],
       "files": [
         {
@@ -1186,6 +1188,26 @@
       "type": "registry:ui"
     },
     {
+      "name": "loading-bar",
+      "title": "Loading Bar",
+      "description": "A line along the window's top edge while a page loads, shown only once the load is slow.",
+      "dependencies": [
+        "@base-ui/react",
+        "@stylexjs/stylex"
+      ],
+      "registryDependencies": [
+        "https://constella.aayush.cv/r/base.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/primitives/loading-bar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "docs": "Usage: https://constella.aayush.cv/docs/components/loading-bar/index.md",
+      "type": "registry:ui"
+    },
+    {
       "name": "radio-group",
       "title": "Radio Group",
       "description": "Picks one option out of a few, beside labels, with descriptions or as cards.",
@@ -1277,6 +1299,7 @@
       ],
       "registryDependencies": [
         "https://constella.aayush.cv/r/base.json",
+        "https://constella.aayush.cv/r/scroll-area.json",
         "https://constella.aayush.cv/r/scroll-fade.json"
       ],
       "files": [
@@ -1481,6 +1504,19 @@
       "type": "registry:lib"
     },
     {
+      "name": "relay-wheel",
+      "title": "Relay Wheel",
+      "description": "Scrolls a one-line sideways row on a vertical mouse wheel until its end, then lets the page scroll.",
+      "files": [
+        {
+          "path": "src/lib/constella/relay-wheel.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "docs": "A ref callback for the element that scrolls sideways: `ref={relayWheel}`. In an effect, call it with the element and run what it returns on cleanup. Only for a one-line strip with nothing to read past it; a block with height, like a table or code, keeps the page's scroll.",
+      "type": "registry:lib"
+    },
+    {
       "name": "attachment",
       "title": "Attachment",
       "description": "A file or image with its name, details, upload state and actions.",
@@ -1492,7 +1528,8 @@
         "https://constella.aayush.cv/r/base.json",
         "https://constella.aayush.cv/r/button.json",
         "https://constella.aayush.cv/r/shimmer.json",
-        "https://constella.aayush.cv/r/scroll-fade.json"
+        "https://constella.aayush.cv/r/scroll-fade.json",
+        "https://constella.aayush.cv/r/relay-wheel.json"
       ],
       "files": [
         {
@@ -1587,7 +1624,8 @@
         "https://constella.aayush.cv/r/base.json",
         "https://constella.aayush.cv/r/button.json",
         "https://constella.aayush.cv/r/scroll-area.json",
-        "https://constella.aayush.cv/r/scroll-fade.json"
+        "https://constella.aayush.cv/r/scroll-fade.json",
+        "https://constella.aayush.cv/r/relay-wheel.json"
       ],
       "files": [
         {
@@ -2904,6 +2942,29 @@
         },
         {
           "path": "examples/link/router-link.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "loading-bar-demo",
+      "title": "Loading Bar examples",
+      "description": "Usage snippets from the Loading Bar docs, one file per section. Read them; don't add them: they aren't standalone modules. Full page: https://constella.aayush.cv/docs/components/loading-bar/index.md",
+      "registryDependencies": [
+        "https://constella.aayush.cv/r/loading-bar.json"
+      ],
+      "type": "registry:example",
+      "files": [
+        {
+          "path": "examples/loading-bar/preview.tsx",
+          "type": "registry:example"
+        },
+        {
+          "path": "examples/loading-bar/usage.tsx",
+          "type": "registry:example"
+        },
+        {
+          "path": "examples/loading-bar/router.tsx",
           "type": "registry:example"
         }
       ]
