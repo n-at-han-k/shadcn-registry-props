@@ -168,6 +168,11 @@
             "transform": "translateY(6px)"
           }
         },
+        "@keyframes kn-fade-in": {
+          "from": {
+            "opacity": "0.35"
+          }
+        },
         "@keyframes kn-fade-out": {
           "to": {
             "opacity": "0"
@@ -721,7 +726,8 @@
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/button.json",
         "https://ui.knowns.dev/r/input.json",
-        "https://ui.knowns.dev/r/otp-input.json"
+        "https://ui.knowns.dev/r/otp-input.json",
+        "https://ui.knowns.dev/r/social-button.json"
       ],
       "files": [
         {
@@ -823,7 +829,7 @@
       "name": "dither-field",
       "type": "registry:block",
       "title": "Dither Field",
-      "description": "A soft light rendered as crisp ordered-dither dots: a glow that eases after the pointer, a rising horizon or flowing noise. Canvas, redrawn only while the light changes.",
+      "description": "A soft light rendered as crisp ordered-dither dots: a glow that eases after the pointer, a rising horizon or flowing noise, or any picture redrawn as colour dither cells (src). Canvas, redrawn only while the light changes.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/illustrations-core.json",
         "https://ui.knowns.dev/r/backgrounds-core.json"
@@ -936,6 +942,23 @@
           "path": "registry/knowns/ui/knowns/blocks/backgrounds/perspective-grid.tsx",
           "type": "registry:component",
           "target": "components/ui/knowns/blocks/backgrounds/perspective-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rain-field",
+      "type": "registry:block",
+      "title": "Rain Field",
+      "description": "Thin streaks of light falling at different speeds behind a fine dot screen, so they read as lit pixels. Canvas: the dot screen is baked once, only the lit cells are drawn each frame.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/illustrations-core.json",
+        "https://ui.knowns.dev/r/backgrounds-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/backgrounds/rain-field.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/backgrounds/rain-field.tsx"
         }
       ]
     },
@@ -1334,6 +1357,24 @@
           "path": "registry/knowns/ui/knowns/blocks/marketing/feature-grid.tsx",
           "type": "registry:component",
           "target": "components/ui/knowns/blocks/marketing/feature-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-trio",
+      "type": "registry:block",
+      "title": "Feature trio",
+      "description": "Three quiet feature cards, each a bold lead sentence with a muted continuation and a live product moment underneath. The first card spans both columns; they reveal once on scroll, and show whole without JavaScript or under reduced motion.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/marketing-core.json",
+        "https://ui.knowns.dev/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/feature-trio.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/feature-trio.tsx"
         }
       ]
     },
@@ -2031,6 +2072,7 @@
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/knowns-icons.json",
+        "https://ui.knowns.dev/r/avatar.json",
         "https://ui.knowns.dev/r/button.json",
         "https://ui.knowns.dev/r/menu.json",
         "https://ui.knowns.dev/r/motion.json",
@@ -2980,6 +3022,34 @@
       ]
     },
     {
+      "name": "social-button",
+      "type": "registry:ui",
+      "title": "Social Button",
+      "description": "A sign-in button for 24 providers plus your own: an outline, a brand (official styles for Google, Apple and Microsoft) or an icon-only variant, in the Button sizes, with loading and a verb prop.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/social-button/social-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/social-button/social-button.tsx"
+        },
+        {
+          "path": "registry/knowns/lib/knowns/icons/social-icons.data.ts",
+          "type": "registry:lib",
+          "target": "lib/knowns/icons/social-icons.data.ts"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/social-button/social-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/social-button/social-utils.ts"
+        }
+      ]
+    },
+    {
       "name": "sortable",
       "type": "registry:ui",
       "title": "Sortable",
@@ -3341,6 +3411,27 @@
           "path": "registry/knowns/ui/knowns/time-slots/slots.ts",
           "type": "registry:ui",
           "target": "components/ui/knowns/time-slots/slots.ts"
+        }
+      ]
+    },
+    {
+      "name": "timeline-scrubber",
+      "type": "registry:ui",
+      "title": "Timeline Scrubber",
+      "description": "A time axis with ticks and labels and one marker you drag or move with the keyboard, anchoring a card above it that stays inside the track. Controlled or not. A grab halo on the marker, a faint ghost where a click lands, and the card fades on a click or key move; transform and opacity only.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/timeline-scrubber/timeline-scrubber.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/timeline-scrubber/timeline-scrubber.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/timeline-scrubber/timeline-scrubber-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/timeline-scrubber/timeline-scrubber-utils.ts"
         }
       ]
     },
