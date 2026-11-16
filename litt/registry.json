@@ -21,6 +21,9 @@
           "color-litt-field-ink": "var(--litt-field-ink)",
           "color-litt-field-ink-subtle": "var(--litt-field-ink-subtle)",
           "color-litt-field-line": "var(--litt-field-line)",
+          "color-litt-dial": "var(--litt-dial)",
+          "color-litt-dial-ink": "var(--litt-dial-ink)",
+          "color-litt-signal": "var(--litt-signal)",
           "color-litt-block": "var(--litt-block)",
           "color-litt-slot": "var(--litt-slot)",
           "color-litt-slot-fill": "var(--litt-slot-fill)",
@@ -198,6 +201,7 @@
           "--litt-ease-out": "cubic-bezier(0.23, 1, 0.32, 1)",
           "--litt-press-scale": "0.98",
           "--litt-press-depth": "0.5px",
+          "--litt-block-wall": "2px",
           "--litt-spring-responsive": "200ms 0",
           "--litt-dur-responsive": "425ms",
           "--litt-ease-responsive": "linear(0, 0.0609, 0.1306, 0.2509, 0.3322, 0.4472, 0.5167, 0.6085, 0.6615, 0.7293, 0.7846, 0.8154, 0.854, 0.8753, 0.9017, 0.9163, 0.9342, 0.944, 0.956, 0.9626, 0.9707, 0.977, 0.9805, 0.9847, 0.987, 0.9898, 0.9914, 0.9932, 0.9943, 0.9955, 0.9965, 0.997, 0.9977, 0.998, 0.9984, 0.9987, 0.999, 0.9991, 0.9993, 0.9994, 1)",
@@ -213,7 +217,16 @@
           "--litt-dismiss-velocity": "0.4",
           "--litt-glass-blur": "20px",
           "--litt-glass-saturate": "140%",
-          "--litt-grain": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
+          "--litt-grain": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+          "--litt-object-radius": "var(--litt-radius-surface)",
+          "--litt-object-cast": "var(--litt-plate-lift)",
+          "--litt-object-grain": "0",
+          "--litt-dial": "var(--litt-cap)",
+          "--litt-dial-ink": "var(--litt-fg-muted)",
+          "--litt-dial-lift": "var(--litt-cap-lift)",
+          "--litt-dial-press": "var(--litt-cap-press)",
+          "--litt-dial-recess": "var(--litt-tray-shade)",
+          "--litt-signal": "var(--litt-danger)"
         },
         "@media (min-width: 40rem)": {
           ":root": {
@@ -315,6 +328,15 @@
           "--litt-device-cap-press": "inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 rgba(0, 0, 0, 0.06), 0 0 0 0.5px rgba(0, 0, 0, 0.3), 0 0.5px 1px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.14)",
           "--litt-device-cap-grip": "rgba(0, 0, 0, 0.24)",
           "--litt-device-engrave": "0 1px 0 rgba(255, 255, 255, 0.6)",
+          "--litt-device-dial": "#1c1d21",
+          "--litt-device-dial-ink": "#d6d8dc",
+          "--litt-device-dial-lift": "inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.6), 0 2px 0 0 rgba(0, 0, 0, 0.85), 0 3px 6px -3px rgba(0, 0, 0, 0.5)",
+          "--litt-device-dial-press": "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 0 transparent, 0 1px 2px -1px rgba(0, 0, 0, 0.45)",
+          "--litt-device-dial-recess": "inset 0 1px 2px rgba(0, 0, 0, 0.75), inset 0 0 0 1px rgba(0, 0, 0, 0.5)",
+          "--litt-device-signal": "#d8343a",
+          "--litt-device-object-cast": "0 1px 2px rgba(0, 0, 0, 0.1), 0 18px 36px -18px rgba(0, 0, 0, 0.28), 0 60px 100px -50px rgba(0, 0, 0, 0.38)",
+          "--litt-device-object-radius": "28px",
+          "--litt-device-object-grain": "0.07",
           "--litt-device-screen-canvas": "#111214",
           "--litt-device-screen-well": "#17181a",
           "--litt-device-screen-surface-1": "#17181a",
@@ -383,6 +405,147 @@
           "--litt-device-screen-glass-bg": "rgba(17, 18, 20, 0.88)",
           "--litt-device-screen-glass-bg-solid": "rgba(17, 18, 20, 0.98)",
           "--litt-device-screen-glass-border": "rgba(255, 255, 255, 0.08)",
+          "--litt-plain-canvas": "#ffffff",
+          "--litt-plain-well": "#ffffff",
+          "--litt-plain-surface-1": "#ffffff",
+          "--litt-plain-surface-2": "#f6f6f6",
+          "--litt-plain-surface-3": "#efefef",
+          "--litt-plain-line": "#d6d6d6",
+          "--litt-plain-line-strong": "#a8a8a8",
+          "--litt-plain-line-control": "#767676",
+          "--litt-plain-fg": "#000000",
+          "--litt-plain-fg-muted": "#545454",
+          "--litt-plain-fg-subtle": "#545454",
+          "--litt-plain-fg-disabled": "#a3a3a3",
+          "--litt-plain-accent": "#0000ee",
+          "--litt-plain-accent-hover": "#0000b0",
+          "--litt-plain-accent-fg": "#ffffff",
+          "--litt-plain-accent-tint": "#ebebff",
+          "--litt-plain-accent-text": "#0000ee",
+          "--litt-plain-focus": "#0000ee",
+          "--litt-rack-canvas": "#c8c8c8",
+          "--litt-rack-well": "#e2e2e2",
+          "--litt-rack-surface-1": "#e2e2e2",
+          "--litt-rack-surface-2": "#d7d7d7",
+          "--litt-rack-surface-3": "#cdcdcd",
+          "--litt-rack-line": "#b5b5b5",
+          "--litt-rack-line-strong": "#a2a2a2",
+          "--litt-rack-line-control": "#6c6c6c",
+          "--litt-rack-fg": "#111111",
+          "--litt-rack-fg-muted": "#434343",
+          "--litt-rack-fg-subtle": "#434343",
+          "--litt-rack-fg-disabled": "#8a8a8a",
+          "--litt-rack-tray": "#b9b9b9",
+          "--litt-rack-cut": "#f3f3f3",
+          "--litt-rack-block": "#ededed",
+          "--litt-rack-slot": "#b0b0b0",
+          "--litt-rack-slot-fill": "#5a5a5a",
+          "--litt-rack-cap": "#f6f6f6",
+          "--litt-rack-cap-held": "#e4e4e4",
+          "--litt-rack-accent": "#ffc933",
+          "--litt-rack-accent-hover": "#ffd35c",
+          "--litt-rack-accent-fg": "#111111",
+          "--litt-rack-accent-tint": "#ebdcb9",
+          "--litt-rack-accent-text": "#111111",
+          "--litt-rack-focus": "#111111",
+          "--litt-rack-accent-pink": "#c0007e",
+          "--litt-rack-accent-pink-text": "#90005d",
+          "--litt-rack-accent-blue": "#0957fd",
+          "--litt-rack-accent-blue-hover": "#0e4ada",
+          "--litt-rack-accent-blue-text": "#013ae4",
+          "--litt-rack-focus-blue": "#0957fd",
+          "--litt-rack-success": "#00601f",
+          "--litt-rack-warning": "#824200",
+          "--litt-rack-danger": "#a60e1d",
+          "--litt-rack-data-blue": "#0072b0",
+          "--litt-rack-data-blue-text": "#005686",
+          "--litt-rack-data-blue-tint": "#82d5ff",
+          "--litt-rack-data-amber": "#b94a00",
+          "--litt-rack-data-amber-text": "#913200",
+          "--litt-rack-data-amber-tint": "#ffb687",
+          "--litt-rack-data-teal": "#007c6d",
+          "--litt-rack-data-teal-text": "#005d52",
+          "--litt-rack-data-teal-tint": "#6de2d0",
+          "--litt-rack-data-violet": "#8455c6",
+          "--litt-rack-data-violet-text": "#643c9b",
+          "--litt-rack-data-violet-tint": "#d5baff",
+          "--litt-rack-data-rose": "#227e00",
+          "--litt-rack-data-rose-text": "#0d6100",
+          "--litt-rack-data-rose-tint": "#a4dd98",
+          "--litt-rack-highlight": "inset 0 0 0 0 transparent",
+          "--litt-rack-tray-shade": "inset 0 0 0 1px rgba(0, 0, 0, 0.3)",
+          "--litt-rack-cut-shade": "inset 0 0 0 0 transparent",
+          "--litt-rack-block-lift": "0 0 0 1px rgba(0, 0, 0, 0.55)",
+          "--litt-rack-block-press": "0 0 0 1px rgba(0, 0, 0, 0.75)",
+          "--litt-rack-key-lift": "0 0 0 1px rgba(0, 0, 0, 0.55)",
+          "--litt-rack-slot-shade": "inset 0 0 0 1px rgba(0, 0, 0, 0.3)",
+          "--litt-rack-slot-fill-shade": "inset 0 0 0 0 transparent",
+          "--litt-rack-plate-lift": "0 0 0 0 transparent",
+          "--litt-rack-cap-lift": "0 0 0 1px rgba(0, 0, 0, 0.6)",
+          "--litt-rack-cap-press": "0 0 0 1px rgba(0, 0, 0, 0.8)",
+          "--litt-rack-cap-grip": "rgba(0, 0, 0, 0.35)",
+          "--litt-rack-glass-bg": "rgba(236, 236, 236, 0.98)",
+          "--litt-rack-glass-bg-solid": "rgba(236, 236, 236, 1)",
+          "--litt-rack-glass-border": "rgba(0, 0, 0, 0.4)",
+          "--litt-heat-canvas": "#e4dfd2",
+          "--litt-heat-well": "#ece8dd",
+          "--litt-heat-surface-1": "#f2efe7",
+          "--litt-heat-surface-2": "#e8e3d7",
+          "--litt-heat-surface-3": "#ddd7c9",
+          "--litt-heat-line": "#cdc6b6",
+          "--litt-heat-line-strong": "#b7af9d",
+          "--litt-heat-line-control": "#6f6857",
+          "--litt-heat-fg": "#0d0c0a",
+          "--litt-heat-fg-muted": "#433e33",
+          "--litt-heat-fg-subtle": "#433e33",
+          "--litt-heat-fg-disabled": "#958e7e",
+          "--litt-heat-tray": "#d3cdbe",
+          "--litt-heat-cut": "#f7f5ef",
+          "--litt-heat-block": "#f5f2ea",
+          "--litt-heat-slot": "#c3bcab",
+          "--litt-heat-slot-fill": "#4b4537",
+          "--litt-heat-cap": "#fbfaf6",
+          "--litt-heat-cap-held": "#ebe6db",
+          "--litt-heat-accent": "#e4a230",
+          "--litt-heat-accent-hover": "#d69523",
+          "--litt-heat-accent-fg": "#0d0c0a",
+          "--litt-heat-accent-tint": "#ead6ad",
+          "--litt-heat-accent-text": "#0d0c0a",
+          "--litt-heat-focus": "#0d0c0a",
+          "--litt-heat-accent-pink": "#c0007e",
+          "--litt-heat-accent-pink-text": "#90005d",
+          "--litt-heat-accent-blue": "#0957fd",
+          "--litt-heat-accent-blue-hover": "#0e4ada",
+          "--litt-heat-accent-blue-text": "#013ae4",
+          "--litt-heat-focus-blue": "#0957fd",
+          "--litt-heat-success": "#00601f",
+          "--litt-heat-warning": "#824200",
+          "--litt-heat-danger": "#a60e1d",
+          "--litt-heat-data-blue": "#1170b8",
+          "--litt-heat-data-blue-text": "#005592",
+          "--litt-heat-data-amber": "#b23a1c",
+          "--litt-heat-data-amber-text": "#8c2a12",
+          "--litt-heat-data-teal": "#007b75",
+          "--litt-heat-data-teal-text": "#005d56",
+          "--litt-heat-data-violet": "#7759cc",
+          "--litt-heat-data-violet-text": "#5e3cac",
+          "--litt-heat-data-rose": "#915d80",
+          "--litt-heat-data-rose-text": "#654968",
+          "--litt-heat-highlight": "inset 0 0 0 0 transparent",
+          "--litt-heat-tray-shade": "inset 0 0 0 1px rgba(0, 0, 0, 0.25)",
+          "--litt-heat-cut-shade": "inset 0 0 0 0 transparent",
+          "--litt-heat-block-lift": "0 0 0 1px rgba(0, 0, 0, 0.6)",
+          "--litt-heat-block-press": "0 0 0 1px rgba(0, 0, 0, 0.8)",
+          "--litt-heat-key-lift": "0 0 0 1px rgba(0, 0, 0, 0.6)",
+          "--litt-heat-slot-shade": "inset 0 0 0 1px rgba(0, 0, 0, 0.25)",
+          "--litt-heat-slot-fill-shade": "inset 0 0 0 0 transparent",
+          "--litt-heat-plate-lift": "0 0 0 0 transparent",
+          "--litt-heat-cap-lift": "0 0 0 1px rgba(0, 0, 0, 0.65)",
+          "--litt-heat-cap-press": "0 0 0 1px rgba(0, 0, 0, 0.85)",
+          "--litt-heat-cap-grip": "rgba(0, 0, 0, 0.35)",
+          "--litt-heat-glass-bg": "rgba(242, 239, 231, 0.98)",
+          "--litt-heat-glass-bg-solid": "rgba(242, 239, 231, 1)",
+          "--litt-heat-glass-border": "rgba(0, 0, 0, 0.45)",
           "--litt-accent-blue": "#0957fd",
           "--litt-accent-blue-hover": "#0e4ada",
           "--litt-accent-blue-fg": "#ffffff",
@@ -534,6 +697,15 @@
           "--litt-device-cap-press": "inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(0, 0, 0, 0.8), 0 0.5px 1px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4)",
           "--litt-device-cap-grip": "rgba(255, 255, 255, 0.18)",
           "--litt-device-engrave": "0 -1px 0 rgba(0, 0, 0, 0.6)",
+          "--litt-device-dial": "#e3e5e9",
+          "--litt-device-dial-ink": "#26282c",
+          "--litt-device-dial-lift": "inset 0 1px 0 rgba(255, 255, 255, 1), 0 0 0 1px rgba(0, 0, 0, 0.6), 0 2px 0 0 rgba(0, 0, 0, 0.7), 0 3px 6px -3px rgba(0, 0, 0, 0.8)",
+          "--litt-device-dial-press": "inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 0 transparent, 0 1px 2px -1px rgba(0, 0, 0, 0.75)",
+          "--litt-device-dial-recess": "inset 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(0, 0, 0, 0.07)",
+          "--litt-device-signal": "#ff5c62",
+          "--litt-device-object-cast": "0 1px 2px rgba(0, 0, 0, 0.5), 0 18px 36px -18px rgba(0, 0, 0, 0.7), 0 60px 100px -50px rgba(0, 0, 0, 0.9)",
+          "--litt-device-object-radius": "28px",
+          "--litt-device-object-grain": "0.06",
           "--litt-device-screen-canvas": "#111214",
           "--litt-device-screen-well": "#17181a",
           "--litt-device-screen-surface-1": "#17181a",
@@ -602,6 +774,147 @@
           "--litt-device-screen-glass-bg": "rgba(17, 18, 20, 0.88)",
           "--litt-device-screen-glass-bg-solid": "rgba(17, 18, 20, 0.98)",
           "--litt-device-screen-glass-border": "rgba(255, 255, 255, 0.08)",
+          "--litt-plain-canvas": "#0b0b0b",
+          "--litt-plain-well": "#111111",
+          "--litt-plain-surface-1": "#111111",
+          "--litt-plain-surface-2": "#191919",
+          "--litt-plain-surface-3": "#1e1e1e",
+          "--litt-plain-line": "#2e2e2e",
+          "--litt-plain-line-strong": "#474747",
+          "--litt-plain-line-control": "#858585",
+          "--litt-plain-fg": "#ffffff",
+          "--litt-plain-fg-muted": "#c4c4c4",
+          "--litt-plain-fg-subtle": "#c4c4c4",
+          "--litt-plain-fg-disabled": "#666666",
+          "--litt-plain-accent": "#b3c7ff",
+          "--litt-plain-accent-hover": "#ccd8ff",
+          "--litt-plain-accent-fg": "#000000",
+          "--litt-plain-accent-tint": "#1a1f33",
+          "--litt-plain-accent-text": "#b3c7ff",
+          "--litt-plain-focus": "#b3c7ff",
+          "--litt-rack-canvas": "#161616",
+          "--litt-rack-well": "#262626",
+          "--litt-rack-surface-1": "#262626",
+          "--litt-rack-surface-2": "#2d2d2d",
+          "--litt-rack-surface-3": "#353535",
+          "--litt-rack-line": "#3a3a3a",
+          "--litt-rack-line-strong": "#4a4a4a",
+          "--litt-rack-line-control": "#787878",
+          "--litt-rack-fg": "#ececec",
+          "--litt-rack-fg-muted": "#bebebe",
+          "--litt-rack-fg-subtle": "#bebebe",
+          "--litt-rack-fg-disabled": "#5c5c5c",
+          "--litt-rack-tray": "#101010",
+          "--litt-rack-cut": "#1b1b1b",
+          "--litt-rack-block": "#3b3b3b",
+          "--litt-rack-slot": "#101010",
+          "--litt-rack-slot-fill": "#9a9a9a",
+          "--litt-rack-cap": "#cfcfcf",
+          "--litt-rack-cap-held": "#dedede",
+          "--litt-rack-accent": "#ffc933",
+          "--litt-rack-accent-hover": "#ffd35c",
+          "--litt-rack-accent-fg": "#111111",
+          "--litt-rack-accent-tint": "#443d2e",
+          "--litt-rack-accent-text": "#ececec",
+          "--litt-rack-focus": "#ececec",
+          "--litt-rack-accent-pink": "#d3268e",
+          "--litt-rack-accent-pink-text": "#feb9db",
+          "--litt-rack-accent-blue": "#2166fd",
+          "--litt-rack-accent-blue-hover": "#2569fe",
+          "--litt-rack-accent-blue-text": "#bcd3fe",
+          "--litt-rack-focus-blue": "#7084fd",
+          "--litt-rack-success": "#4dc882",
+          "--litt-rack-warning": "#eba42b",
+          "--litt-rack-danger": "#ff948d",
+          "--litt-rack-data-blue": "#009ded",
+          "--litt-rack-data-blue-text": "#43c4ff",
+          "--litt-rack-data-blue-tint": "#013c5a",
+          "--litt-rack-data-amber": "#e06d00",
+          "--litt-rack-data-amber-text": "#ff964b",
+          "--litt-rack-data-amber-tint": "#562b0d",
+          "--litt-rack-data-teal": "#00ab98",
+          "--litt-rack-data-teal-text": "#00d6bf",
+          "--litt-rack-data-teal-tint": "#00433b",
+          "--litt-rack-data-violet": "#a376e9",
+          "--litt-rack-data-violet-text": "#c6a1ff",
+          "--litt-rack-data-violet-tint": "#3e2e59",
+          "--litt-rack-data-rose": "#51aa3c",
+          "--litt-rack-data-rose-text": "#7cd06a",
+          "--litt-rack-data-rose-tint": "#21411a",
+          "--litt-rack-highlight": "inset 0 0 0 0 transparent",
+          "--litt-rack-tray-shade": "inset 0 0 0 1px rgba(0, 0, 0, 0.6)",
+          "--litt-rack-cut-shade": "inset 0 0 0 0 transparent",
+          "--litt-rack-block-lift": "0 0 0 1px rgba(0, 0, 0, 0.6)",
+          "--litt-rack-block-press": "0 0 0 1px rgba(0, 0, 0, 0.85)",
+          "--litt-rack-key-lift": "0 0 0 1px rgba(0, 0, 0, 0.6)",
+          "--litt-rack-slot-shade": "inset 0 0 0 1px rgba(0, 0, 0, 0.5)",
+          "--litt-rack-slot-fill-shade": "inset 0 0 0 0 transparent",
+          "--litt-rack-plate-lift": "0 0 0 0 transparent",
+          "--litt-rack-cap-lift": "0 0 0 1px rgba(0, 0, 0, 0.7)",
+          "--litt-rack-cap-press": "0 0 0 1px rgba(0, 0, 0, 0.9)",
+          "--litt-rack-cap-grip": "rgba(0, 0, 0, 0.35)",
+          "--litt-rack-glass-bg": "rgba(44, 44, 44, 0.98)",
+          "--litt-rack-glass-bg-solid": "rgba(44, 44, 44, 1)",
+          "--litt-rack-glass-border": "rgba(255, 255, 255, 0.12)",
+          "--litt-heat-canvas": "#050505",
+          "--litt-heat-well": "#0c0c0b",
+          "--litt-heat-surface-1": "#0c0c0b",
+          "--litt-heat-surface-2": "#141412",
+          "--litt-heat-surface-3": "#1b1a18",
+          "--litt-heat-line": "#2a2826",
+          "--litt-heat-line-strong": "#3a3835",
+          "--litt-heat-line-control": "#77736a",
+          "--litt-heat-fg": "#f1ead6",
+          "--litt-heat-fg-muted": "#c4bca6",
+          "--litt-heat-fg-subtle": "#c4bca6",
+          "--litt-heat-fg-disabled": "#55524b",
+          "--litt-heat-tray": "#000000",
+          "--litt-heat-cut": "#0a0a09",
+          "--litt-heat-block": "#2a2927",
+          "--litt-heat-slot": "#000000",
+          "--litt-heat-slot-fill": "#a8a294",
+          "--litt-heat-cap": "#e9e2cc",
+          "--litt-heat-cap-held": "#f6f1e4",
+          "--litt-heat-accent": "#e4a230",
+          "--litt-heat-accent-hover": "#efb24a",
+          "--litt-heat-accent-fg": "#0a0a09",
+          "--litt-heat-accent-tint": "#4a3210",
+          "--litt-heat-accent-text": "#e4a230",
+          "--litt-heat-focus": "#e4a230",
+          "--litt-heat-accent-pink": "#c0007e",
+          "--litt-heat-accent-pink-text": "#feb9db",
+          "--litt-heat-accent-blue": "#0957fd",
+          "--litt-heat-accent-blue-hover": "#1e64fe",
+          "--litt-heat-accent-blue-text": "#6579fd",
+          "--litt-heat-focus-blue": "#5e78fe",
+          "--litt-heat-success": "#4bc680",
+          "--litt-heat-warning": "#e19b1b",
+          "--litt-heat-danger": "#ff756f",
+          "--litt-heat-data-blue": "#2c90e8",
+          "--litt-heat-data-blue-text": "#5aa8f4",
+          "--litt-heat-data-amber": "#e0533a",
+          "--litt-heat-data-amber-text": "#f2775f",
+          "--litt-heat-data-teal": "#09a198",
+          "--litt-heat-data-teal-text": "#42b4ab",
+          "--litt-heat-data-violet": "#8f78df",
+          "--litt-heat-data-violet-text": "#a896ef",
+          "--litt-heat-data-rose": "#d55c8c",
+          "--litt-heat-data-rose-text": "#eb81a7",
+          "--litt-heat-highlight": "inset 0 0 0 0 transparent",
+          "--litt-heat-tray-shade": "inset 0 0 0 1px rgba(255, 255, 255, 0.06)",
+          "--litt-heat-cut-shade": "inset 0 0 0 0 transparent",
+          "--litt-heat-block-lift": "0 0 0 1px rgba(0, 0, 0, 0.7)",
+          "--litt-heat-block-press": "0 0 0 1px rgba(0, 0, 0, 0.9)",
+          "--litt-heat-key-lift": "0 0 0 1px rgba(0, 0, 0, 0.7)",
+          "--litt-heat-slot-shade": "inset 0 0 0 1px rgba(255, 255, 255, 0.06)",
+          "--litt-heat-slot-fill-shade": "inset 0 0 0 0 transparent",
+          "--litt-heat-plate-lift": "0 0 0 0 transparent",
+          "--litt-heat-cap-lift": "0 0 0 1px rgba(0, 0, 0, 0.7)",
+          "--litt-heat-cap-press": "0 0 0 1px rgba(0, 0, 0, 0.9)",
+          "--litt-heat-cap-grip": "rgba(0, 0, 0, 0.35)",
+          "--litt-heat-glass-bg": "rgba(12, 12, 11, 0.98)",
+          "--litt-heat-glass-bg-solid": "rgba(12, 12, 11, 1)",
+          "--litt-heat-glass-border": "rgba(255, 255, 255, 0.1)",
           "--litt-accent-blue": "#0957fd",
           "--litt-accent-blue-hover": "#1e64fe",
           "--litt-accent-blue-fg": "#ffffff",
@@ -754,6 +1067,15 @@
             "--litt-device-cap-press": "inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(0, 0, 0, 0.8), 0 0.5px 1px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4)",
             "--litt-device-cap-grip": "rgba(255, 255, 255, 0.18)",
             "--litt-device-engrave": "0 -1px 0 rgba(0, 0, 0, 0.6)",
+            "--litt-device-dial": "#e3e5e9",
+            "--litt-device-dial-ink": "#26282c",
+            "--litt-device-dial-lift": "inset 0 1px 0 rgba(255, 255, 255, 1), 0 0 0 1px rgba(0, 0, 0, 0.6), 0 2px 0 0 rgba(0, 0, 0, 0.7), 0 3px 6px -3px rgba(0, 0, 0, 0.8)",
+            "--litt-device-dial-press": "inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.6), 0 0 0 0 transparent, 0 1px 2px -1px rgba(0, 0, 0, 0.75)",
+            "--litt-device-dial-recess": "inset 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(0, 0, 0, 0.07)",
+            "--litt-device-signal": "#ff5c62",
+            "--litt-device-object-cast": "0 1px 2px rgba(0, 0, 0, 0.5), 0 18px 36px -18px rgba(0, 0, 0, 0.7), 0 60px 100px -50px rgba(0, 0, 0, 0.9)",
+            "--litt-device-object-radius": "28px",
+            "--litt-device-object-grain": "0.06",
             "--litt-device-screen-canvas": "#111214",
             "--litt-device-screen-well": "#17181a",
             "--litt-device-screen-surface-1": "#17181a",
@@ -822,6 +1144,147 @@
             "--litt-device-screen-glass-bg": "rgba(17, 18, 20, 0.88)",
             "--litt-device-screen-glass-bg-solid": "rgba(17, 18, 20, 0.98)",
             "--litt-device-screen-glass-border": "rgba(255, 255, 255, 0.08)",
+            "--litt-plain-canvas": "#0b0b0b",
+            "--litt-plain-well": "#111111",
+            "--litt-plain-surface-1": "#111111",
+            "--litt-plain-surface-2": "#191919",
+            "--litt-plain-surface-3": "#1e1e1e",
+            "--litt-plain-line": "#2e2e2e",
+            "--litt-plain-line-strong": "#474747",
+            "--litt-plain-line-control": "#858585",
+            "--litt-plain-fg": "#ffffff",
+            "--litt-plain-fg-muted": "#c4c4c4",
+            "--litt-plain-fg-subtle": "#c4c4c4",
+            "--litt-plain-fg-disabled": "#666666",
+            "--litt-plain-accent": "#b3c7ff",
+            "--litt-plain-accent-hover": "#ccd8ff",
+            "--litt-plain-accent-fg": "#000000",
+            "--litt-plain-accent-tint": "#1a1f33",
+            "--litt-plain-accent-text": "#b3c7ff",
+            "--litt-plain-focus": "#b3c7ff",
+            "--litt-rack-canvas": "#161616",
+            "--litt-rack-well": "#262626",
+            "--litt-rack-surface-1": "#262626",
+            "--litt-rack-surface-2": "#2d2d2d",
+            "--litt-rack-surface-3": "#353535",
+            "--litt-rack-line": "#3a3a3a",
+            "--litt-rack-line-strong": "#4a4a4a",
+            "--litt-rack-line-control": "#787878",
+            "--litt-rack-fg": "#ececec",
+            "--litt-rack-fg-muted": "#bebebe",
+            "--litt-rack-fg-subtle": "#bebebe",
+            "--litt-rack-fg-disabled": "#5c5c5c",
+            "--litt-rack-tray": "#101010",
+            "--litt-rack-cut": "#1b1b1b",
+            "--litt-rack-block": "#3b3b3b",
+            "--litt-rack-slot": "#101010",
+            "--litt-rack-slot-fill": "#9a9a9a",
+            "--litt-rack-cap": "#cfcfcf",
+            "--litt-rack-cap-held": "#dedede",
+            "--litt-rack-accent": "#ffc933",
+            "--litt-rack-accent-hover": "#ffd35c",
+            "--litt-rack-accent-fg": "#111111",
+            "--litt-rack-accent-tint": "#443d2e",
+            "--litt-rack-accent-text": "#ececec",
+            "--litt-rack-focus": "#ececec",
+            "--litt-rack-accent-pink": "#d3268e",
+            "--litt-rack-accent-pink-text": "#feb9db",
+            "--litt-rack-accent-blue": "#2166fd",
+            "--litt-rack-accent-blue-hover": "#2569fe",
+            "--litt-rack-accent-blue-text": "#bcd3fe",
+            "--litt-rack-focus-blue": "#7084fd",
+            "--litt-rack-success": "#4dc882",
+            "--litt-rack-warning": "#eba42b",
+            "--litt-rack-danger": "#ff948d",
+            "--litt-rack-data-blue": "#009ded",
+            "--litt-rack-data-blue-text": "#43c4ff",
+            "--litt-rack-data-blue-tint": "#013c5a",
+            "--litt-rack-data-amber": "#e06d00",
+            "--litt-rack-data-amber-text": "#ff964b",
+            "--litt-rack-data-amber-tint": "#562b0d",
+            "--litt-rack-data-teal": "#00ab98",
+            "--litt-rack-data-teal-text": "#00d6bf",
+            "--litt-rack-data-teal-tint": "#00433b",
+            "--litt-rack-data-violet": "#a376e9",
+            "--litt-rack-data-violet-text": "#c6a1ff",
+            "--litt-rack-data-violet-tint": "#3e2e59",
+            "--litt-rack-data-rose": "#51aa3c",
+            "--litt-rack-data-rose-text": "#7cd06a",
+            "--litt-rack-data-rose-tint": "#21411a",
+            "--litt-rack-highlight": "inset 0 0 0 0 transparent",
+            "--litt-rack-tray-shade": "inset 0 0 0 1px rgba(0, 0, 0, 0.6)",
+            "--litt-rack-cut-shade": "inset 0 0 0 0 transparent",
+            "--litt-rack-block-lift": "0 0 0 1px rgba(0, 0, 0, 0.6)",
+            "--litt-rack-block-press": "0 0 0 1px rgba(0, 0, 0, 0.85)",
+            "--litt-rack-key-lift": "0 0 0 1px rgba(0, 0, 0, 0.6)",
+            "--litt-rack-slot-shade": "inset 0 0 0 1px rgba(0, 0, 0, 0.5)",
+            "--litt-rack-slot-fill-shade": "inset 0 0 0 0 transparent",
+            "--litt-rack-plate-lift": "0 0 0 0 transparent",
+            "--litt-rack-cap-lift": "0 0 0 1px rgba(0, 0, 0, 0.7)",
+            "--litt-rack-cap-press": "0 0 0 1px rgba(0, 0, 0, 0.9)",
+            "--litt-rack-cap-grip": "rgba(0, 0, 0, 0.35)",
+            "--litt-rack-glass-bg": "rgba(44, 44, 44, 0.98)",
+            "--litt-rack-glass-bg-solid": "rgba(44, 44, 44, 1)",
+            "--litt-rack-glass-border": "rgba(255, 255, 255, 0.12)",
+            "--litt-heat-canvas": "#050505",
+            "--litt-heat-well": "#0c0c0b",
+            "--litt-heat-surface-1": "#0c0c0b",
+            "--litt-heat-surface-2": "#141412",
+            "--litt-heat-surface-3": "#1b1a18",
+            "--litt-heat-line": "#2a2826",
+            "--litt-heat-line-strong": "#3a3835",
+            "--litt-heat-line-control": "#77736a",
+            "--litt-heat-fg": "#f1ead6",
+            "--litt-heat-fg-muted": "#c4bca6",
+            "--litt-heat-fg-subtle": "#c4bca6",
+            "--litt-heat-fg-disabled": "#55524b",
+            "--litt-heat-tray": "#000000",
+            "--litt-heat-cut": "#0a0a09",
+            "--litt-heat-block": "#2a2927",
+            "--litt-heat-slot": "#000000",
+            "--litt-heat-slot-fill": "#a8a294",
+            "--litt-heat-cap": "#e9e2cc",
+            "--litt-heat-cap-held": "#f6f1e4",
+            "--litt-heat-accent": "#e4a230",
+            "--litt-heat-accent-hover": "#efb24a",
+            "--litt-heat-accent-fg": "#0a0a09",
+            "--litt-heat-accent-tint": "#4a3210",
+            "--litt-heat-accent-text": "#e4a230",
+            "--litt-heat-focus": "#e4a230",
+            "--litt-heat-accent-pink": "#c0007e",
+            "--litt-heat-accent-pink-text": "#feb9db",
+            "--litt-heat-accent-blue": "#0957fd",
+            "--litt-heat-accent-blue-hover": "#1e64fe",
+            "--litt-heat-accent-blue-text": "#6579fd",
+            "--litt-heat-focus-blue": "#5e78fe",
+            "--litt-heat-success": "#4bc680",
+            "--litt-heat-warning": "#e19b1b",
+            "--litt-heat-danger": "#ff756f",
+            "--litt-heat-data-blue": "#2c90e8",
+            "--litt-heat-data-blue-text": "#5aa8f4",
+            "--litt-heat-data-amber": "#e0533a",
+            "--litt-heat-data-amber-text": "#f2775f",
+            "--litt-heat-data-teal": "#09a198",
+            "--litt-heat-data-teal-text": "#42b4ab",
+            "--litt-heat-data-violet": "#8f78df",
+            "--litt-heat-data-violet-text": "#a896ef",
+            "--litt-heat-data-rose": "#d55c8c",
+            "--litt-heat-data-rose-text": "#eb81a7",
+            "--litt-heat-highlight": "inset 0 0 0 0 transparent",
+            "--litt-heat-tray-shade": "inset 0 0 0 1px rgba(255, 255, 255, 0.06)",
+            "--litt-heat-cut-shade": "inset 0 0 0 0 transparent",
+            "--litt-heat-block-lift": "0 0 0 1px rgba(0, 0, 0, 0.7)",
+            "--litt-heat-block-press": "0 0 0 1px rgba(0, 0, 0, 0.9)",
+            "--litt-heat-key-lift": "0 0 0 1px rgba(0, 0, 0, 0.7)",
+            "--litt-heat-slot-shade": "inset 0 0 0 1px rgba(255, 255, 255, 0.06)",
+            "--litt-heat-slot-fill-shade": "inset 0 0 0 0 transparent",
+            "--litt-heat-plate-lift": "0 0 0 0 transparent",
+            "--litt-heat-cap-lift": "0 0 0 1px rgba(0, 0, 0, 0.7)",
+            "--litt-heat-cap-press": "0 0 0 1px rgba(0, 0, 0, 0.9)",
+            "--litt-heat-cap-grip": "rgba(0, 0, 0, 0.35)",
+            "--litt-heat-glass-bg": "rgba(12, 12, 11, 0.98)",
+            "--litt-heat-glass-bg-solid": "rgba(12, 12, 11, 1)",
+            "--litt-heat-glass-border": "rgba(255, 255, 255, 0.1)",
             "--litt-accent-blue": "#0957fd",
             "--litt-accent-blue-hover": "#1e64fe",
             "--litt-accent-blue-fg": "#ffffff",
@@ -1084,6 +1547,15 @@
           "--litt-label-case": "uppercase",
           "--litt-label-tracking": "0.08em",
           "--litt-engrave": "var(--litt-device-engrave)",
+          "--litt-dial": "var(--litt-device-dial)",
+          "--litt-dial-ink": "var(--litt-device-dial-ink)",
+          "--litt-dial-lift": "var(--litt-device-dial-lift)",
+          "--litt-dial-press": "var(--litt-device-dial-press)",
+          "--litt-dial-recess": "var(--litt-device-dial-recess)",
+          "--litt-signal": "var(--litt-device-signal)",
+          "--litt-object-cast": "var(--litt-device-object-cast)",
+          "--litt-object-radius": "var(--litt-device-object-radius)",
+          "--litt-object-grain": "var(--litt-device-object-grain)",
           "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus)",
           "--litt-data-blue-tint": "color-mix(in oklab, var(--litt-data-blue) var(--litt-tint-strength), var(--litt-surface-1))",
           "--litt-data-amber-tint": "color-mix(in oklab, var(--litt-data-amber) var(--litt-tint-strength), var(--litt-surface-1))",
@@ -1236,6 +1708,329 @@
           "--litt-glow": "var(--litt-block-lift)",
           "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-fg)"
         },
+        ":root[data-material=\"plain\"], [data-material=\"plain\"]": {
+          "--litt-canvas": "var(--litt-plain-canvas)",
+          "--litt-well": "var(--litt-plain-well)",
+          "--litt-surface-1": "var(--litt-plain-surface-1)",
+          "--litt-surface-2": "var(--litt-plain-surface-2)",
+          "--litt-surface-3": "var(--litt-plain-surface-3)",
+          "--litt-line": "var(--litt-plain-line)",
+          "--litt-line-strong": "var(--litt-plain-line-strong)",
+          "--litt-line-control": "var(--litt-plain-line-control)",
+          "--litt-fg": "var(--litt-plain-fg)",
+          "--litt-fg-muted": "var(--litt-plain-fg-muted)",
+          "--litt-fg-subtle": "var(--litt-plain-fg-subtle)",
+          "--litt-fg-disabled": "var(--litt-plain-fg-disabled)",
+          "--litt-accent": "var(--litt-plain-accent)",
+          "--litt-accent-hover": "var(--litt-plain-accent-hover)",
+          "--litt-accent-fg": "var(--litt-plain-accent-fg)",
+          "--litt-accent-tint": "var(--litt-plain-accent-tint)",
+          "--litt-accent-text": "var(--litt-plain-accent-text)",
+          "--litt-focus": "var(--litt-plain-focus)",
+          "--litt-light": "none",
+          "--litt-glow": "0 0 0 0 transparent",
+          "--litt-font-sans": "var(--litt-font-choice, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif)",
+          "--litt-radius-control": "0px",
+          "--litt-radius-surface": "0px",
+          "--litt-glass-bg": "var(--litt-canvas)",
+          "--litt-glass-bg-solid": "var(--litt-canvas)",
+          "--litt-glass-border": "var(--litt-line-control)",
+          "--litt-glass-blur": "0px",
+          "--litt-glass-saturate": "100%",
+          "--litt-shadow-tooltip": "0 0 0 0 transparent",
+          "--litt-shadow-float": "0 0 0 0 transparent",
+          "--litt-shadow-modal": "0 0 0 0 transparent",
+          "--litt-grain-opacity": "0",
+          "--litt-highlight": "inset 0 0 0 0 transparent",
+          "--litt-tray": "transparent",
+          "--litt-tray-shade": "inset 0 0 0 0 transparent",
+          "--litt-cut": "var(--litt-canvas)",
+          "--litt-cut-shade": "inset 0 0 0 0 transparent",
+          "--litt-block": "var(--litt-canvas)",
+          "--litt-block-lift": "inset 0 0 0 1px var(--litt-line-control)",
+          "--litt-block-press": "inset 0 0 0 1px var(--litt-fg)",
+          "--litt-key-lift": "inset 0 0 0 1px var(--litt-line-control)",
+          "--litt-slot": "var(--litt-canvas)",
+          "--litt-slot-shade": "inset 0 0 0 1px var(--litt-line-control)",
+          "--litt-slot-fill": "var(--litt-fg-muted)",
+          "--litt-slot-fill-shade": "inset 0 0 0 0 transparent",
+          "--litt-plate-lift": "0 0 0 1px var(--litt-line-control)",
+          "--litt-cap": "var(--litt-canvas)",
+          "--litt-cap-held": "var(--litt-surface-2)",
+          "--litt-cap-lift": "inset 0 0 0 1px var(--litt-line-control)",
+          "--litt-cap-press": "inset 0 0 0 1px var(--litt-fg)",
+          "--litt-cap-grip": "var(--litt-line-control)",
+          "--litt-press-depth": "0px",
+          "--litt-press-scale": "1",
+          "--litt-block-wall": "0px",
+          "--litt-block-hover": "color-mix(in oklab, var(--litt-block), var(--litt-fg) 5%)",
+          "--litt-dur-instant": "0ms",
+          "--litt-dur-responsive": "0ms",
+          "--litt-dur-expressive": "0ms",
+          "--litt-dur-exit-responsive": "0ms",
+          "--litt-dur-exit-expressive": "0ms",
+          "--litt-stagger": "0ms",
+          "--litt-travel": "0px",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus)",
+          "--litt-data-blue-tint": "color-mix(in oklab, var(--litt-data-blue) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-amber-tint": "color-mix(in oklab, var(--litt-data-amber) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-teal-tint": "color-mix(in oklab, var(--litt-data-teal) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-violet-tint": "color-mix(in oklab, var(--litt-data-violet) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-rose-tint": "color-mix(in oklab, var(--litt-data-rose) var(--litt-tint-strength), var(--litt-surface-1))"
+        },
+        ":root[data-material=\"plain\"][data-accent=\"blue\"], [data-material=\"plain\"][data-accent=\"blue\"]": {
+          "--litt-accent": "var(--litt-accent-blue)",
+          "--litt-accent-fg": "var(--litt-accent-blue-fg)",
+          "--litt-accent-hover": "var(--litt-accent-blue-hover)",
+          "--litt-accent-text": "var(--litt-accent-blue-text)",
+          "--litt-accent-tint": "var(--litt-accent-blue-tint)",
+          "--litt-focus": "var(--litt-focus-blue)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus-blue)"
+        },
+        ":root[data-material=\"plain\"][data-accent=\"pink\"], [data-material=\"plain\"][data-accent=\"pink\"]": {
+          "--litt-accent": "var(--litt-accent-pink)",
+          "--litt-accent-fg": "var(--litt-accent-pink-fg)",
+          "--litt-accent-hover": "var(--litt-accent-pink-hover)",
+          "--litt-accent-text": "var(--litt-accent-pink-text)",
+          "--litt-accent-tint": "var(--litt-accent-pink-tint)",
+          "--litt-focus": "var(--litt-focus-pink)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus-pink)"
+        },
+        ":root[data-material=\"plain\"][data-accent=\"mono\"], [data-material=\"plain\"][data-accent=\"mono\"]": {
+          "--litt-accent": "var(--litt-fg)",
+          "--litt-accent-hover": "color-mix(in oklab, var(--litt-fg), var(--litt-canvas) 18%)",
+          "--litt-accent-fg": "var(--litt-canvas)",
+          "--litt-accent-text": "var(--litt-fg)",
+          "--litt-accent-tint": "color-mix(in oklab, var(--litt-fg) 7%, var(--litt-canvas))",
+          "--litt-focus": "var(--litt-fg)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-fg)"
+        },
+        ":root[data-material=\"rack\"], [data-material=\"rack\"]": {
+          "--litt-canvas": "var(--litt-rack-canvas)",
+          "--litt-well": "var(--litt-rack-well)",
+          "--litt-surface-1": "var(--litt-rack-surface-1)",
+          "--litt-surface-2": "var(--litt-rack-surface-2)",
+          "--litt-surface-3": "var(--litt-rack-surface-3)",
+          "--litt-line": "var(--litt-rack-line)",
+          "--litt-line-strong": "var(--litt-rack-line-strong)",
+          "--litt-line-control": "var(--litt-rack-line-control)",
+          "--litt-fg": "var(--litt-rack-fg)",
+          "--litt-fg-muted": "var(--litt-rack-fg-muted)",
+          "--litt-fg-subtle": "var(--litt-rack-fg-subtle)",
+          "--litt-fg-disabled": "var(--litt-rack-fg-disabled)",
+          "--litt-accent": "var(--litt-rack-accent)",
+          "--litt-accent-hover": "var(--litt-rack-accent-hover)",
+          "--litt-accent-fg": "var(--litt-rack-accent-fg)",
+          "--litt-accent-tint": "var(--litt-rack-accent-tint)",
+          "--litt-accent-text": "var(--litt-rack-accent-text)",
+          "--litt-accent-pink": "var(--litt-rack-accent-pink)",
+          "--litt-accent-pink-text": "var(--litt-rack-accent-pink-text)",
+          "--litt-accent-blue": "var(--litt-rack-accent-blue)",
+          "--litt-accent-blue-hover": "var(--litt-rack-accent-blue-hover)",
+          "--litt-accent-blue-text": "var(--litt-rack-accent-blue-text)",
+          "--litt-focus-blue": "var(--litt-rack-focus-blue)",
+          "--litt-focus": "var(--litt-rack-focus)",
+          "--litt-success": "var(--litt-rack-success)",
+          "--litt-warning": "var(--litt-rack-warning)",
+          "--litt-danger": "var(--litt-rack-danger)",
+          "--litt-data-blue": "var(--litt-rack-data-blue)",
+          "--litt-data-blue-text": "var(--litt-rack-data-blue-text)",
+          "--litt-data-amber": "var(--litt-rack-data-amber)",
+          "--litt-data-amber-text": "var(--litt-rack-data-amber-text)",
+          "--litt-data-teal": "var(--litt-rack-data-teal)",
+          "--litt-data-teal-text": "var(--litt-rack-data-teal-text)",
+          "--litt-data-violet": "var(--litt-rack-data-violet)",
+          "--litt-data-violet-text": "var(--litt-rack-data-violet-text)",
+          "--litt-data-rose": "var(--litt-rack-data-rose)",
+          "--litt-data-rose-text": "var(--litt-rack-data-rose-text)",
+          "--litt-focus-pink": "var(--litt-rack-accent-pink)",
+          "--litt-light": "none",
+          "--litt-glow": "var(--litt-block-lift)",
+          "--litt-highlight": "var(--litt-rack-highlight)",
+          "--litt-tray": "var(--litt-rack-tray)",
+          "--litt-tray-shade": "var(--litt-rack-tray-shade)",
+          "--litt-cut": "var(--litt-rack-cut)",
+          "--litt-cut-shade": "var(--litt-rack-cut-shade)",
+          "--litt-block": "var(--litt-rack-block)",
+          "--litt-block-lift": "var(--litt-rack-block-lift)",
+          "--litt-block-press": "var(--litt-rack-block-press)",
+          "--litt-key-lift": "var(--litt-rack-key-lift)",
+          "--litt-slot": "var(--litt-rack-slot)",
+          "--litt-slot-shade": "var(--litt-rack-slot-shade)",
+          "--litt-slot-fill": "var(--litt-rack-slot-fill)",
+          "--litt-slot-fill-shade": "var(--litt-rack-slot-fill-shade)",
+          "--litt-plate-lift": "var(--litt-rack-plate-lift)",
+          "--litt-cap": "var(--litt-rack-cap)",
+          "--litt-cap-held": "var(--litt-rack-cap-held)",
+          "--litt-cap-lift": "var(--litt-rack-cap-lift)",
+          "--litt-cap-press": "var(--litt-rack-cap-press)",
+          "--litt-cap-grip": "var(--litt-rack-cap-grip)",
+          "--litt-glass-bg": "var(--litt-rack-glass-bg)",
+          "--litt-glass-bg-solid": "var(--litt-rack-glass-bg-solid)",
+          "--litt-glass-border": "var(--litt-rack-glass-border)",
+          "--litt-press-depth": "0px",
+          "--litt-block-hover": "color-mix(in oklab, var(--litt-block), var(--litt-fg) 6%)",
+          "--litt-field": "var(--litt-cut)",
+          "--litt-field-ink": "var(--litt-fg)",
+          "--litt-field-ink-subtle": "var(--litt-fg-subtle)",
+          "--litt-field-line": "var(--litt-line-control)",
+          "--litt-field-shade": "var(--litt-cut-shade)",
+          "--litt-font-sans": "var(--litt-font-choice, \"Inter\", \"Helvetica Neue\", Helvetica, Arial, sans-serif)",
+          "--litt-radius-control": "2px",
+          "--litt-radius-surface": "6px",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus)",
+          "--litt-data-blue-tint": "var(--litt-rack-data-blue-tint)",
+          "--litt-data-amber-tint": "var(--litt-rack-data-amber-tint)",
+          "--litt-data-teal-tint": "var(--litt-rack-data-teal-tint)",
+          "--litt-data-violet-tint": "var(--litt-rack-data-violet-tint)",
+          "--litt-data-rose-tint": "var(--litt-rack-data-rose-tint)"
+        },
+        ":root[data-material=\"rack\"][data-accent=\"blue\"], [data-material=\"rack\"][data-accent=\"blue\"]": {
+          "--litt-accent": "var(--litt-accent-blue)",
+          "--litt-accent-fg": "var(--litt-accent-blue-fg)",
+          "--litt-accent-hover": "var(--litt-accent-blue-hover)",
+          "--litt-accent-text": "var(--litt-accent-blue-text)",
+          "--litt-accent-tint": "var(--litt-accent-blue-tint)",
+          "--litt-focus": "var(--litt-focus-blue)",
+          "--litt-light": "radial-gradient(120% 70% at 50% -10%, color-mix(in oklab, var(--litt-accent-blue) var(--litt-light-strength), transparent) 0%, transparent 65%)",
+          "--litt-glow": "0 0 0 1px color-mix(in oklab, var(--litt-accent-blue) 55%, transparent), 0 0 24px color-mix(in oklab, var(--litt-accent-blue) var(--litt-glow-strength), transparent)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus-blue)"
+        },
+        ":root[data-material=\"rack\"][data-accent=\"pink\"], [data-material=\"rack\"][data-accent=\"pink\"]": {
+          "--litt-accent": "var(--litt-accent-pink)",
+          "--litt-accent-fg": "var(--litt-accent-pink-fg)",
+          "--litt-accent-hover": "var(--litt-accent-pink-hover)",
+          "--litt-accent-text": "var(--litt-accent-pink-text)",
+          "--litt-accent-tint": "var(--litt-accent-pink-tint)",
+          "--litt-focus": "var(--litt-focus-pink)",
+          "--litt-light": "radial-gradient(120% 70% at 50% -10%, color-mix(in oklab, var(--litt-accent-pink) var(--litt-light-strength), transparent) 0%, transparent 65%)",
+          "--litt-glow": "0 0 0 1px color-mix(in oklab, var(--litt-accent-pink) 55%, transparent), 0 0 24px color-mix(in oklab, var(--litt-accent-pink) var(--litt-glow-strength), transparent)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus-pink)"
+        },
+        ":root[data-material=\"rack\"][data-accent=\"mono\"], [data-material=\"rack\"][data-accent=\"mono\"]": {
+          "--litt-accent": "var(--litt-fg)",
+          "--litt-accent-hover": "color-mix(in oklab, var(--litt-fg), var(--litt-canvas) 18%)",
+          "--litt-accent-fg": "var(--litt-canvas)",
+          "--litt-accent-text": "var(--litt-fg)",
+          "--litt-accent-tint": "color-mix(in oklab, var(--litt-fg) 7%, var(--litt-canvas))",
+          "--litt-focus": "var(--litt-fg)",
+          "--litt-light": "none",
+          "--litt-glow": "var(--litt-block-lift)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-fg)"
+        },
+        ":root[data-material=\"heat\"], [data-material=\"heat\"]": {
+          "--litt-canvas": "var(--litt-heat-canvas)",
+          "--litt-well": "var(--litt-heat-well)",
+          "--litt-surface-1": "var(--litt-heat-surface-1)",
+          "--litt-surface-2": "var(--litt-heat-surface-2)",
+          "--litt-surface-3": "var(--litt-heat-surface-3)",
+          "--litt-line": "var(--litt-heat-line)",
+          "--litt-line-strong": "var(--litt-heat-line-strong)",
+          "--litt-line-control": "var(--litt-heat-line-control)",
+          "--litt-fg": "var(--litt-heat-fg)",
+          "--litt-fg-muted": "var(--litt-heat-fg-muted)",
+          "--litt-fg-subtle": "var(--litt-heat-fg-subtle)",
+          "--litt-fg-disabled": "var(--litt-heat-fg-disabled)",
+          "--litt-accent": "var(--litt-heat-accent)",
+          "--litt-accent-hover": "var(--litt-heat-accent-hover)",
+          "--litt-accent-fg": "var(--litt-heat-accent-fg)",
+          "--litt-accent-tint": "var(--litt-heat-accent-tint)",
+          "--litt-accent-text": "var(--litt-heat-accent-text)",
+          "--litt-accent-pink": "var(--litt-heat-accent-pink)",
+          "--litt-accent-pink-text": "var(--litt-heat-accent-pink-text)",
+          "--litt-accent-blue": "var(--litt-heat-accent-blue)",
+          "--litt-accent-blue-hover": "var(--litt-heat-accent-blue-hover)",
+          "--litt-accent-blue-text": "var(--litt-heat-accent-blue-text)",
+          "--litt-focus-blue": "var(--litt-heat-focus-blue)",
+          "--litt-focus": "var(--litt-heat-focus)",
+          "--litt-success": "var(--litt-heat-success)",
+          "--litt-warning": "var(--litt-heat-warning)",
+          "--litt-danger": "var(--litt-heat-danger)",
+          "--litt-data-blue": "var(--litt-heat-data-blue)",
+          "--litt-data-blue-text": "var(--litt-heat-data-blue-text)",
+          "--litt-data-amber": "var(--litt-heat-data-amber)",
+          "--litt-data-amber-text": "var(--litt-heat-data-amber-text)",
+          "--litt-data-teal": "var(--litt-heat-data-teal)",
+          "--litt-data-teal-text": "var(--litt-heat-data-teal-text)",
+          "--litt-data-violet": "var(--litt-heat-data-violet)",
+          "--litt-data-violet-text": "var(--litt-heat-data-violet-text)",
+          "--litt-data-rose": "var(--litt-heat-data-rose)",
+          "--litt-data-rose-text": "var(--litt-heat-data-rose-text)",
+          "--litt-focus-pink": "var(--litt-heat-accent-pink)",
+          "--litt-light": "none",
+          "--litt-glow": "var(--litt-block-lift)",
+          "--litt-highlight": "var(--litt-heat-highlight)",
+          "--litt-tray": "var(--litt-heat-tray)",
+          "--litt-tray-shade": "var(--litt-heat-tray-shade)",
+          "--litt-cut": "var(--litt-heat-cut)",
+          "--litt-cut-shade": "var(--litt-heat-cut-shade)",
+          "--litt-block": "var(--litt-heat-block)",
+          "--litt-block-lift": "var(--litt-heat-block-lift)",
+          "--litt-block-press": "var(--litt-heat-block-press)",
+          "--litt-key-lift": "var(--litt-heat-key-lift)",
+          "--litt-slot": "var(--litt-heat-slot)",
+          "--litt-slot-shade": "var(--litt-heat-slot-shade)",
+          "--litt-slot-fill": "var(--litt-heat-slot-fill)",
+          "--litt-slot-fill-shade": "var(--litt-heat-slot-fill-shade)",
+          "--litt-plate-lift": "var(--litt-heat-plate-lift)",
+          "--litt-cap": "var(--litt-heat-cap)",
+          "--litt-cap-held": "var(--litt-heat-cap-held)",
+          "--litt-cap-lift": "var(--litt-heat-cap-lift)",
+          "--litt-cap-press": "var(--litt-heat-cap-press)",
+          "--litt-cap-grip": "var(--litt-heat-cap-grip)",
+          "--litt-glass-bg": "var(--litt-heat-glass-bg)",
+          "--litt-glass-bg-solid": "var(--litt-heat-glass-bg-solid)",
+          "--litt-glass-border": "var(--litt-heat-glass-border)",
+          "--litt-press-depth": "0px",
+          "--litt-block-hover": "color-mix(in oklab, var(--litt-block), var(--litt-fg) 6%)",
+          "--litt-field": "var(--litt-cut)",
+          "--litt-field-ink": "var(--litt-fg)",
+          "--litt-field-ink-subtle": "var(--litt-fg-subtle)",
+          "--litt-field-line": "var(--litt-line-control)",
+          "--litt-field-shade": "var(--litt-cut-shade)",
+          "--litt-font-sans": "var(--litt-font-choice, \"Saira\", \"Helvetica Neue\", Helvetica, Arial, sans-serif)",
+          "--litt-radius-control": "0px",
+          "--litt-radius-surface": "0px",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus)",
+          "--litt-data-blue-tint": "color-mix(in oklab, var(--litt-data-blue) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-amber-tint": "color-mix(in oklab, var(--litt-data-amber) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-teal-tint": "color-mix(in oklab, var(--litt-data-teal) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-violet-tint": "color-mix(in oklab, var(--litt-data-violet) var(--litt-tint-strength), var(--litt-surface-1))",
+          "--litt-data-rose-tint": "color-mix(in oklab, var(--litt-data-rose) var(--litt-tint-strength), var(--litt-surface-1))"
+        },
+        ":root[data-material=\"heat\"][data-accent=\"blue\"], [data-material=\"heat\"][data-accent=\"blue\"]": {
+          "--litt-accent": "var(--litt-accent-blue)",
+          "--litt-accent-fg": "var(--litt-accent-blue-fg)",
+          "--litt-accent-hover": "var(--litt-accent-blue-hover)",
+          "--litt-accent-text": "var(--litt-accent-blue-text)",
+          "--litt-accent-tint": "var(--litt-accent-blue-tint)",
+          "--litt-focus": "var(--litt-focus-blue)",
+          "--litt-light": "radial-gradient(120% 70% at 50% -10%, color-mix(in oklab, var(--litt-accent-blue) var(--litt-light-strength), transparent) 0%, transparent 65%)",
+          "--litt-glow": "0 0 0 1px color-mix(in oklab, var(--litt-accent-blue) 55%, transparent), 0 0 24px color-mix(in oklab, var(--litt-accent-blue) var(--litt-glow-strength), transparent)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus-blue)"
+        },
+        ":root[data-material=\"heat\"][data-accent=\"pink\"], [data-material=\"heat\"][data-accent=\"pink\"]": {
+          "--litt-accent": "var(--litt-accent-pink)",
+          "--litt-accent-fg": "var(--litt-accent-pink-fg)",
+          "--litt-accent-hover": "var(--litt-accent-pink-hover)",
+          "--litt-accent-text": "var(--litt-accent-pink-text)",
+          "--litt-accent-tint": "var(--litt-accent-pink-tint)",
+          "--litt-focus": "var(--litt-focus-pink)",
+          "--litt-light": "radial-gradient(120% 70% at 50% -10%, color-mix(in oklab, var(--litt-accent-pink) var(--litt-light-strength), transparent) 0%, transparent 65%)",
+          "--litt-glow": "0 0 0 1px color-mix(in oklab, var(--litt-accent-pink) 55%, transparent), 0 0 24px color-mix(in oklab, var(--litt-accent-pink) var(--litt-glow-strength), transparent)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus-pink)"
+        },
+        ":root[data-material=\"heat\"][data-accent=\"mono\"], [data-material=\"heat\"][data-accent=\"mono\"]": {
+          "--litt-accent": "var(--litt-fg)",
+          "--litt-accent-hover": "color-mix(in oklab, var(--litt-fg), var(--litt-canvas) 18%)",
+          "--litt-accent-fg": "var(--litt-canvas)",
+          "--litt-accent-text": "var(--litt-fg)",
+          "--litt-accent-tint": "color-mix(in oklab, var(--litt-fg) 7%, var(--litt-canvas))",
+          "--litt-focus": "var(--litt-fg)",
+          "--litt-light": "none",
+          "--litt-glow": "var(--litt-block-lift)",
+          "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-fg)"
+        },
         "@supports not (color: color-mix(in oklab, red, blue))": {
           ":root, [data-theme], .dark, .light": {
             "--litt-light": "none",
@@ -1256,6 +2051,25 @@
             "--litt-glow": "0 0 0 1px var(--litt-accent-pink)"
           },
           ":root[data-material=\"device\"], [data-material=\"device\"]": {
+            "--litt-block-hover": "var(--litt-surface-2)",
+            "--litt-data-blue-tint": "var(--litt-surface-2)",
+            "--litt-data-amber-tint": "var(--litt-surface-2)",
+            "--litt-data-teal-tint": "var(--litt-surface-2)",
+            "--litt-data-violet-tint": "var(--litt-surface-2)",
+            "--litt-data-rose-tint": "var(--litt-surface-2)"
+          },
+          ":root[data-material=\"plain\"], [data-material=\"plain\"]": {
+            "--litt-block-hover": "var(--litt-surface-2)",
+            "--litt-data-blue-tint": "var(--litt-surface-2)",
+            "--litt-data-amber-tint": "var(--litt-surface-2)",
+            "--litt-data-teal-tint": "var(--litt-surface-2)",
+            "--litt-data-violet-tint": "var(--litt-surface-2)",
+            "--litt-data-rose-tint": "var(--litt-surface-2)"
+          },
+          ":root[data-material=\"rack\"], [data-material=\"rack\"]": {
+            "--litt-block-hover": "var(--litt-surface-2)"
+          },
+          ":root[data-material=\"heat\"], [data-material=\"heat\"]": {
             "--litt-block-hover": "var(--litt-surface-2)",
             "--litt-data-blue-tint": "var(--litt-surface-2)",
             "--litt-data-amber-tint": "var(--litt-surface-2)",
@@ -1289,7 +2103,7 @@
           }
         },
         "@media (prefers-contrast: more)": {
-          ":root, :root:not([data-theme=\"light\"], .light), [data-theme], .dark, .light, :root[data-material=\"flat\"], [data-material=\"flat\"], :root[data-material=\"device\"], [data-material=\"device\"]": {
+          ":root, :root:not([data-theme=\"light\"], .light), [data-theme], .dark, .light, :root[data-material=\"flat\"], [data-material=\"flat\"], :root[data-material=\"device\"], [data-material=\"device\"], :root[data-material=\"plain\"], [data-material=\"plain\"], :root[data-material=\"rack\"], [data-material=\"rack\"], :root[data-material=\"heat\"], [data-material=\"heat\"]": {
             "--litt-fg-muted": "var(--litt-fg)",
             "--litt-fg-subtle": "var(--litt-fg)",
             "--litt-line": "var(--litt-line-control)",
@@ -1376,8 +2190,8 @@
       },
       "docs": "Added to your global CSS: --litt-* variables, Tailwind names such as bg-litt-surface-1 and rounded-litt-control, and the litt-glass class and its siblings. Nothing of yours is changed. Dark follows .dark, [data-theme=\"dark\"] or the system setting. For Monochrome or Pink instead of Blue 4, set data-accent=\"mono\" or \"pink\" on <html>. For Flat instead of the press material, set data-material=\"flat\" on <html>.",
       "meta": {
-        "version": "2026.11.13",
-        "released": "2026-11-13",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       }
     },
@@ -1420,6 +2234,10 @@
             "outline": "2px solid var(--litt-focus)",
             "outline-offset": "2px"
           },
+          ":where([data-material=\"plain\"]) :is(p, dd, td, th, figcaption, blockquote, caption) a:any-link": {
+            "text-decoration-line": "underline",
+            "text-underline-offset": "0.15em"
+          },
           "[data-theme], [data-material], .dark, .light": {
             "font-family": "var(--litt-font-sans)"
           }
@@ -1438,8 +2256,8 @@
       },
       "docs": "This one restyles your whole app: the html font, heading weight, button and input radius and the focus outline. No component needs it. Skip it if you only want the components.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       }
     },
@@ -1721,8 +2539,8 @@
       ],
       "docs": "Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1740,6 +2558,16 @@
           "path": "registry/litt/ui/bodies/button.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/button.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/button.plain.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/button.plain.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/button.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/button.rack.tsx"
         }
       ]
     },
@@ -1804,8 +2632,8 @@
       ],
       "docs": "Import CardPicker from components/litt/card-picker. Give it a legend, options ({ value, label, description, detail, picture, disabled }), and value with onValueChange. size=\"sm\" draws tiles; name and required make it a form field.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1823,6 +2651,11 @@
           "path": "registry/litt/ui/bodies/card-picker.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/card-picker.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/card-picker.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/card-picker.rack.tsx"
         }
       ]
     },
@@ -1931,8 +2764,8 @@
       ],
       "docs": "Import BarChart, LineChart, StackedBarChart and Meter from components/litt/chart. Pass a label, the category labels and series of { name, values }, with an optional hue per series or hues on the chart. The chart measures its container, so give it a width. Every chart ships a hidden table and a summary for screen readers.",
       "meta": {
-        "version": "2026.11.11",
-        "released": "2026-11-11",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1945,6 +2778,11 @@
           "path": "registry/litt/ui/bodies/chart.device.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/chart.device.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/chart.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/chart.rack.tsx"
         }
       ]
     },
@@ -1963,8 +2801,8 @@
       ],
       "docs": "Import Checkbox, CheckboxGroup, Radio and RadioGroup from components/litt/checkbox. They are native inputs, so name and value work in a form. Pass appearance=\"native\" for the browser's own 16px box.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -1982,6 +2820,16 @@
           "path": "registry/litt/ui/bodies/checkbox.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/checkbox.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/checkbox.plain.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/checkbox.plain.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/checkbox.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/checkbox.rack.tsx"
         }
       ]
     },
@@ -2023,8 +2871,8 @@
       ],
       "docs": "Import CodeInput from components/litt/code-input. Give it a label and check the code in onComplete; show what was wrong in error.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2042,6 +2890,11 @@
           "path": "registry/litt/ui/bodies/code-input.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/code-input.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/code-input.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/code-input.rack.tsx"
         }
       ]
     },
@@ -2172,8 +3025,8 @@
       ],
       "docs": "Import CommandMenu and useCommandShortcut from components/litt/command-menu. Give it groups of items and an onSelect.",
       "meta": {
-        "version": "2026.11.13",
-        "released": "2026-11-13",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2200,8 +3053,8 @@
       ],
       "docs": "Import Composer (and FileChip) from components/litt/composer. Hold the files yourself and pass onSend, streaming and onStop: the field clears after a send, and Send becomes Stop while streaming is true. Pass onFiles to show Attach and take pastes and drops, files and onRemoveFile to draw the chips, tools for a model Select at sm, suggestions for an empty chat, hint for a line under the box, and maxLength for the count. On a touch screen Return adds a line and Send sends by itself (enterSends overrides it); keep the composer above the keyboard with useVisibleScreen.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2219,6 +3072,11 @@
           "path": "registry/litt/ui/bodies/composer.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/composer.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/composer.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/composer.rack.tsx"
         }
       ]
     },
@@ -2439,8 +3297,8 @@
       ],
       "docs": "Import Dialog, DialogTrigger, DialogContent and DialogClose from components/litt/dialog. Pair a form's submit with a Cancel, both at size md.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2522,8 +3380,8 @@
       ],
       "docs": "Import FileDrop, FileList and FileRow from components/litt/file-drop. FileDrop hands the files that passed to onFiles; you upload them and render a FileRow for each.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2541,6 +3399,11 @@
           "path": "registry/litt/ui/bodies/file-drop.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/file-drop.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/file-drop.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/file-drop.rack.tsx"
         }
       ]
     },
@@ -2756,8 +3619,8 @@
       ],
       "docs": "Import HoverCard, HoverCardTrigger and HoverCardContent from components/litt/hover-card, as shadcn's hover card is written. The trigger must be a real link to the same information: never put anything only in the card.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2801,8 +3664,8 @@
       ],
       "docs": "Import TextField, Input and Textarea from components/litt/input. TextField wires the label, hint and error for you, and a bare Input needs an aria-label. Text is 16px on touch screens.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2820,6 +3683,16 @@
           "path": "registry/litt/ui/bodies/input.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/input.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/input.plain.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/input.plain.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/input.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/input.rack.tsx"
         }
       ]
     },
@@ -2923,8 +3796,8 @@
       ],
       "docs": "Import Legend and legendHues from components/litt/legend. Pass a label and the items as { name, hue?, value? } in the chart's order, five at most. Control it with hidden and onHiddenChange, or start it with defaultHidden. Pass the chart only the shown series, each with hue: legendHues(items)[name], so a series keeps its color when another is hidden, and turn the chart's own legend off with legend={false}. Alt with a click or Enter shows only that series.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2942,6 +3815,11 @@
           "path": "registry/litt/ui/bodies/legend.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/legend.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/legend.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/legend.rack.tsx"
         }
       ]
     },
@@ -3092,8 +3970,8 @@
       ],
       "docs": "Import Menu and MenuItem from components/litt/menu. Its submenus are solid, never glass on glass.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3146,8 +4024,8 @@
       ],
       "docs": "Installed in lib/litt/motion. The components use it for you, and it needs no provider. Fun mode, a trial, is a <FunMode> around the app: springier motion, the same at rest.",
       "meta": {
-        "version": "2026.11.13",
-        "released": "2026-11-13",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3213,8 +4091,8 @@
       ],
       "docs": "Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3232,6 +4110,11 @@
           "path": "registry/litt/ui/bodies/number-field.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/number-field.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/number-field.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/number-field.rack.tsx"
         }
       ]
     },
@@ -3247,8 +4130,8 @@
       ],
       "docs": "Import OptionPicker from components/litt/option-picker. Pass the option's name and values; give values a swatch ({ color } or { image }) to show chips. optionsFor from product-card marks which values are sold out among the other picks.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3266,6 +4149,11 @@
           "path": "registry/litt/ui/bodies/option-picker.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/option-picker.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/option-picker.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/option-picker.rack.tsx"
         }
       ]
     },
@@ -3307,8 +4195,8 @@
       ],
       "docs": "Import Pagination from components/litt/pagination. Hold the page in state and pass page, pageSize, total and onPageChange. Give it a label that says what is paged.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3326,6 +4214,11 @@
           "path": "registry/litt/ui/bodies/pagination.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/pagination.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/pagination.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/pagination.rack.tsx"
         }
       ]
     },
@@ -3375,8 +4268,8 @@
       ],
       "docs": "Import Popover, PopoverTrigger, PopoverContent and PopoverClose from components/litt/popover. It turns solid when its trigger sits inside glass.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3681,8 +4574,8 @@
       ],
       "docs": "Import RunList from components/litt/run-list. Pass runs ({ id, title, status, detail?, progress?, updated, href? }) in your order, selectedId and onSelect, and onStop and onArchive for the row actions. updated is words you give (\"2m ago\"): the list reads no clock.",
       "meta": {
-        "version": "2026.11.05",
-        "released": "2026-11-05",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3733,8 +4626,8 @@
       ],
       "docs": "Import Segmented from components/litt/segmented. Give it a legend, a value, onValueChange and options. In a form, pass showLegend and block.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3752,6 +4645,16 @@
           "path": "registry/litt/ui/bodies/segmented.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/segmented.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/segmented.plain.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/segmented.plain.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/segmented.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/segmented.rack.tsx"
         }
       ]
     },
@@ -3772,8 +4675,8 @@
       ],
       "docs": "Import Select or SelectField from components/litt/select. Pass options as { value, label } and a label, because a placeholder is not a label.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3791,6 +4694,16 @@
           "path": "registry/litt/ui/bodies/select.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/select.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/select.plain.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/select.plain.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/select.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/select.rack.tsx"
         }
       ]
     },
@@ -3941,8 +4854,8 @@
       ],
       "docs": "Import SlideConfirm from components/litt/slide-confirm. Give it a label that says what happens (\"Slide to delete Atelier Nord\"), a confirmedLabel and onConfirm, which runs once. Remount it with a new key to ask again. Use it for what cannot be undone, on touch screens; anything that can be undone should just happen, with Undo in a toast.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3960,6 +4873,11 @@
           "path": "registry/litt/ui/bodies/slide-confirm.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/slide-confirm.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/slide-confirm.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/slide-confirm.rack.tsx"
         }
       ]
     },
@@ -3977,8 +4895,8 @@
       ],
       "docs": "Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.14",
+        "released": "2026-11-14",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3996,6 +4914,11 @@
           "path": "registry/litt/ui/bodies/slider.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/slider.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/slider.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/slider.rack.tsx"
         }
       ]
     },
@@ -4041,8 +4964,8 @@
       ],
       "docs": "Import Sparkline from components/litt/sparkline. Pass a label and the values, oldest first. It fills its container's width, so give a table cell a wrapper with a width, and fix min and max so rows compare. Put the exact figure beside it. Stat takes one in its trend prop.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.14",
+        "released": "2026-11-14",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4060,6 +4983,11 @@
           "path": "registry/litt/ui/bodies/sparkline.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/sparkline.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/sparkline.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/sparkline.rack.tsx"
         }
       ]
     },
@@ -4126,8 +5054,8 @@
       ],
       "docs": "Import Stat and StatGroup from components/litt/stat. Say the direction in the delta's words, and set tone to good, bad or neutral for whether it is news. Put the tiles in a StatGroup: two across, four across from 40rem.",
       "meta": {
-        "version": "2026.11.10",
-        "released": "2026-11-10",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4145,6 +5073,11 @@
           "path": "registry/litt/ui/bodies/stat.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/stat.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/stat.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/stat.rack.tsx"
         }
       ]
     },
@@ -4208,8 +5141,8 @@
       ],
       "docs": "Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4227,6 +5160,16 @@
           "path": "registry/litt/ui/bodies/switch.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/switch.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/switch.plain.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/switch.plain.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/switch.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/switch.rack.tsx"
         }
       ]
     },
@@ -4247,8 +5190,8 @@
       ],
       "docs": "Import Table, TableHeader, TableBody, TableRow, TableHead and TableCell from components/litt/table. Give the Table a label, and a max height such as max-h-96 if you want the header to stick. The entrance is off until you pass entrance.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.14",
+        "released": "2026-11-14",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4266,6 +5209,11 @@
           "path": "registry/litt/ui/bodies/table.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/table.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/table.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/table.rack.tsx"
         }
       ]
     },
@@ -4308,8 +5256,8 @@
       ],
       "docs": "Import Tabs, TabsList, TabsTrigger, TabsPanels and TabsPanel from components/litt/tabs.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4327,6 +5275,16 @@
           "path": "registry/litt/ui/bodies/tabs.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/tabs.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/tabs.plain.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/tabs.plain.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/tabs.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/tabs.rack.tsx"
         }
       ]
     },
@@ -4341,8 +5299,8 @@
       ],
       "docs": "Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4360,6 +5318,11 @@
           "path": "registry/litt/ui/bodies/tag.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/tag.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/tag.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/tag.rack.tsx"
         }
       ]
     },
@@ -4516,8 +5479,8 @@
       ],
       "docs": "Import Toaster, toast and useToast from components/litt/toast. Mount Toaster once, then call toast() anywhere.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4542,8 +5505,8 @@
       ],
       "docs": "Import TokenInput from components/litt/token-input. Give it a label and hold the values in state with value and onValueChange, or pass a defaultValue. Add validate to reject a value with a message, max to cap the list, collapseAfter to fold it, and name to post every value with a form.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4561,6 +5524,11 @@
           "path": "registry/litt/ui/bodies/token-input.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/token-input.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/token-input.rack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/token-input.rack.tsx"
         }
       ]
     },
@@ -4609,8 +5577,8 @@
       ],
       "docs": "Import Tooltip from components/litt/tooltip. Mount TooltipProvider once near the root so tooltips share one skip window.",
       "meta": {
-        "version": "2026.11.13",
-        "released": "2026-11-13",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4716,8 +5684,8 @@
       ],
       "docs": "Import VariantsDemo from components/litt/examples/button-demo, or read it for how @litt/button is used. Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/button"
       },
@@ -4741,8 +5709,8 @@
       ],
       "docs": "Import VerifyDemo from components/litt/examples/code-input-demo, or read it for how @litt/code-input is used. Import CodeInput from components/litt/code-input. Give it a label and check the code in onComplete; show what was wrong in error.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/code-input"
       },
@@ -4815,8 +5783,8 @@
       ],
       "docs": "Import UploadDemo from components/litt/examples/file-drop-demo, or read it for how @litt/file-drop is used. Import FileDrop, FileList and FileRow from components/litt/file-drop. FileDrop hands the files that passed to onFiles; you upload them and render a FileRow for each.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/file-drop"
       },
@@ -4838,8 +5806,8 @@
       ],
       "docs": "Import StatesDemo from components/litt/examples/input-demo, or read it for how @litt/input is used. Import TextField, Input and Textarea from components/litt/input. TextField wires the label, hint and error for you, and a bare Input needs an aria-label. Text is 16px on touch screens.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/input"
       },
@@ -4861,8 +5829,8 @@
       ],
       "docs": "Import SeatsDemo from components/litt/examples/number-field-demo, or read it for how @litt/number-field is used. Import NumberField from components/litt/number-field. Pass a label, min, max and step, and a unit or a format for a currency or a percent. The value is a number, or null when empty.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/number-field"
       },
@@ -4887,8 +5855,8 @@
       ],
       "docs": "Import AccountFormDemo from components/litt/examples/select-demo, or read it for how @litt/select is used. Import Select or SelectField from components/litt/select. Pass options as { value, label } and a label, because a placeholder is not a label.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/select"
       },
@@ -4913,8 +5881,8 @@
       ],
       "docs": "Import SendersDemo from components/litt/examples/token-input-demo, or read it for how @litt/token-input is used. Import TokenInput from components/litt/token-input. Give it a label and hold the values in state with value and onValueChange, or pass a defaultValue. Add validate to reject a value with a message, max to cap the list, collapseAfter to fold it, and name to post every value with a form.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/token-input"
       },
@@ -4936,8 +5904,8 @@
       ],
       "docs": "Import StatesDemo from components/litt/examples/checkbox-demo, or read it for how @litt/checkbox is used. Import Checkbox, CheckboxGroup, Radio and RadioGroup from components/litt/checkbox. They are native inputs, so name and value work in a form. Pass appearance=\"native\" for the browser's own 16px box.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/checkbox"
       },
@@ -5035,8 +6003,8 @@
       ],
       "docs": "Import DeleteProjectDemo from components/litt/examples/slide-confirm-demo, or read it for how @litt/slide-confirm is used. Import SlideConfirm from components/litt/slide-confirm. Give it a label that says what happens (\"Slide to delete Atelier Nord\"), a confirmedLabel and onConfirm, which runs once. Remount it with a new key to ask again. Use it for what cannot be undone, on touch screens; anything that can be undone should just happen, with Undo in a toast.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slide-confirm"
       },
@@ -5060,8 +6028,8 @@
       ],
       "docs": "Import SpeedDemo from components/litt/examples/slider-demo, or read it for how @litt/slider is used. Import Slider, or RangeSlider for a span, from components/litt/slider. Give it a label, and minLabel and maxLabel to say which way is which. A range value is [from, to], and each thumb is named by the label and its end.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.14",
+        "released": "2026-11-14",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/slider"
       },
@@ -5114,8 +6082,8 @@
       ],
       "docs": "Import SettingsListDemo from components/litt/examples/switch-demo, or read it for how @litt/switch is used. Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/switch"
       },
@@ -5162,8 +6130,8 @@
       ],
       "docs": "Import PlanDemo from components/litt/examples/card-picker-demo, or read it for how @litt/card-picker is used. Import CardPicker from components/litt/card-picker. Give it a legend, options ({ value, label, description, detail, picture, disabled }), and value with onValueChange. size=\"sm\" draws tiles; name and required make it a form field.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/card-picker"
       },
@@ -5244,8 +6212,8 @@
       ],
       "docs": "Import ThemeDemo from components/litt/examples/segmented-demo, or read it for how @litt/segmented is used. Import Segmented from components/litt/segmented. Give it a legend, a value, onValueChange and options. In a form, pass showLegend and block.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/segmented"
       },
@@ -5300,8 +6268,8 @@
       ],
       "docs": "Import ProjectTabs from components/litt/examples/tabs-demo, or read it for how @litt/tabs is used. Import Tabs, TabsList, TabsTrigger, TabsPanels and TabsPanel from components/litt/tabs.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tabs"
       },
@@ -5324,8 +6292,8 @@
       ],
       "docs": "Import LabelsDemo from components/litt/examples/tag-demo, or read it for how @litt/tag is used. Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tag"
       },
@@ -5398,8 +6366,8 @@
       ],
       "docs": "Import Toolbar from components/litt/examples/tooltip-demo, or read it for how @litt/tooltip is used. Import Tooltip from components/litt/tooltip. Mount TooltipProvider once near the root so tooltips share one skip window.",
       "meta": {
-        "version": "2026.11.13",
-        "released": "2026-11-13",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tooltip"
       },
@@ -5423,8 +6391,8 @@
       ],
       "docs": "Import PersonDemo from components/litt/examples/hover-card-demo, or read it for how @litt/hover-card is used. Import HoverCard, HoverCardTrigger and HoverCardContent from components/litt/hover-card, as shadcn's hover card is written. The trigger must be a real link to the same information: never put anything only in the card.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/hover-card"
       },
@@ -5451,8 +6419,8 @@
       ],
       "docs": "Import ShareDemo from components/litt/examples/popover-demo, or read it for how @litt/popover is used. Import Popover, PopoverTrigger, PopoverContent and PopoverClose from components/litt/popover. It turns solid when its trigger sits inside glass.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/popover"
       },
@@ -5505,8 +6473,8 @@
       ],
       "docs": "Import ProjectMenu from components/litt/examples/menu-demo, or read it for how @litt/menu is used. Import Menu and MenuItem from components/litt/menu. Its submenus are solid, never glass on glass.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/menu"
       },
@@ -5532,8 +6500,8 @@
       ],
       "docs": "Import OpenDemo from components/litt/examples/command-menu-demo, or read it for how @litt/command-menu is used. Import CommandMenu and useCommandShortcut from components/litt/command-menu. Give it groups of items and an onSelect.",
       "meta": {
-        "version": "2026.11.13",
-        "released": "2026-11-13",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/command-menu"
       },
@@ -5557,8 +6525,8 @@
       ],
       "docs": "Import PublishDemo from components/litt/examples/dialog-demo, or read it for how @litt/dialog is used. Import Dialog, DialogTrigger, DialogContent and DialogClose from components/litt/dialog. Pair a form's submit with a Cancel, both at size md.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/dialog"
       },
@@ -5582,8 +6550,8 @@
       ],
       "docs": "Import SavedDemo from components/litt/examples/toast-demo, or read it for how @litt/toast is used. Import Toaster, toast and useToast from components/litt/toast. Mount Toaster once, then call toast() anywhere.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/toast"
       },
@@ -5903,8 +6871,8 @@
       ],
       "docs": "Import DeployHistoryDemo from components/litt/examples/table-demo, or read it for how @litt/table is used. Import Table, TableHeader, TableBody, TableRow, TableHead and TableCell from components/litt/table. Give the Table a label, and a max height such as max-h-96 if you want the header to stick. The entrance is off until you pass entrance.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.14",
+        "released": "2026-11-14",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/table"
       },
@@ -6143,8 +7111,8 @@
       ],
       "docs": "Import ChartDemo from components/litt/examples/legend-demo, or read it for how @litt/legend is used. Import Legend and legendHues from components/litt/legend. Pass a label and the items as { name, hue?, value? } in the chart's order, five at most. Control it with hidden and onHiddenChange, or start it with defaultHidden. Pass the chart only the shown series, each with hue: legendHues(items)[name], so a series keeps its color when another is hidden, and turn the chart's own legend off with legend={false}. Alt with a click or Enter shows only that series.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/legend"
       },
@@ -6213,8 +7181,8 @@
       ],
       "docs": "Import BesideAFigureDemo from components/litt/examples/sparkline-demo, or read it for how @litt/sparkline is used. Import Sparkline from components/litt/sparkline. Pass a label and the values, oldest first. It fills its container's width, so give a table cell a wrapper with a width, and fix min and max so rows compare. Put the exact figure beside it. Stat takes one in its trend prop.",
       "meta": {
-        "version": "2026.11.12",
-        "released": "2026-11-12",
+        "version": "2026.11.14",
+        "released": "2026-11-14",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/sparkline"
       },
@@ -6309,8 +7277,8 @@
       ],
       "docs": "Import DeploysDemo from components/litt/examples/chart-demo, or read it for how @litt/chart is used. Import BarChart, LineChart, StackedBarChart and Meter from components/litt/chart. Pass a label, the category labels and series of { name, values }, with an optional hue per series or hues on the chart. The chart measures its container, so give it a width. Every chart ships a hidden table and a summary for screen readers.",
       "meta": {
-        "version": "2026.11.11",
-        "released": "2026-11-11",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/chart"
       },
@@ -6361,8 +7329,8 @@
       ],
       "docs": "Import DeploysDemo from components/litt/examples/pagination-demo, or read it for how @litt/pagination is used. Import Pagination from components/litt/pagination. Hold the page in state and pass page, pageSize, total and onPageChange. Give it a label that says what is paged.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/pagination"
       },
@@ -6434,8 +7402,8 @@
       ],
       "docs": "Import StudioStatsDemo from components/litt/examples/stat-demo, or read it for how @litt/stat is used. Import Stat and StatGroup from components/litt/stat. Say the direction in the delta's words, and set tone to good, bad or neutral for whether it is news. Put the tiles in a StatGroup: two across, four across from 40rem.",
       "meta": {
-        "version": "2026.11.10",
-        "released": "2026-11-10",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/stat"
       },
@@ -6534,8 +7502,8 @@
       ],
       "docs": "Import StudioDemo from components/litt/examples/composer-demo, or read it for how @litt/composer is used. Import Composer (and FileChip) from components/litt/composer. Hold the files yourself and pass onSend, streaming and onStop: the field clears after a send, and Send becomes Stop while streaming is true. Pass onFiles to show Attach and take pastes and drops, files and onRemoveFile to draw the chips, tools for a model Select at sm, suggestions for an empty chat, hint for a line under the box, and maxLength for the count. On a touch screen Return adds a line and Send sends by itself (enterSends overrides it); keep the composer above the keyboard with useVisibleScreen.",
       "meta": {
-        "version": "2026.11.09",
-        "released": "2026-11-09",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/composer"
       },
@@ -6658,8 +7626,8 @@
       ],
       "docs": "Import SidebarDemo from components/litt/examples/run-list-demo, or read it for how @litt/run-list is used. Import RunList from components/litt/run-list. Pass runs ({ id, title, status, detail?, progress?, updated, href? }) in your order, selectedId and onSelect, and onStop and onArchive for the row actions. updated is words you give (\"2m ago\"): the list reads no clock.",
       "meta": {
-        "version": "2026.11.05",
-        "released": "2026-11-05",
+        "version": "2026.11.15",
+        "released": "2026-11-15",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/run-list"
       },

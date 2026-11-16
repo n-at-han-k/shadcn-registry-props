@@ -4,6 +4,26 @@
   "homepage": "https://avaraui.com",
   "items": [
     {
+      "name": "accent",
+      "type": "registry:lib",
+      "title": "Accent helper",
+      "author": "AlgorizeTech",
+      "description": "Helper module (not a component) that repoints the --primary token for one subtree, so a block can take a `color` prop. Install it when a docs example imports `accentStyle` from `@/lib/accent`.",
+      "categories": [
+        "utilities"
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/lib/accent.ts",
+          "type": "registry:lib",
+          "target": "lib/accent.ts"
+        }
+      ],
+      "docs": "Named exports: accentStyle, accentTokens, accentForeground, resolveAccent, isDefaultAccent, toBlockColor. `accentStyle(color)` returns a style object that sets --primary (and the tokens derived from it) for the element it is spread on; for the default accent it returns an empty object, so the theme keeps control."
+    },
+    {
       "name": "accordion",
       "type": "registry:component",
       "title": "Accordion",
@@ -964,6 +984,28 @@
       "docs": "Named exports: ChartBlock. `data` takes { label, value, color? }; switch presentation with `type` (bar | line | pie | donut | donut-legend | stacked-bar) and set `height` in pixels for the axis charts. The two legend types colour each share from `colors` (theme accent first) and take `centerLabel` / `hoverLabel`. Hand-drawn SVG with no chart library, so bundle cost is nil — but there are no axes or scales beyond what is drawn. Use a real charting library for analytical work."
     },
     {
+      "name": "chart-tokens",
+      "type": "registry:lib",
+      "title": "Chart Tokens",
+      "author": "AlgorizeTech",
+      "description": "Hook (not a component) that reads the theme's CSS tokens into the plain colour strings Recharts, Chart.js and AG Grid need. Install it when a docs example imports `useChartTokens` from `@/lib/chart-tokens`.",
+      "categories": [
+        "utilities"
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "https://avaraui.com/r/accent.json"
+      ],
+      "files": [
+        {
+          "path": "src/lib/chart-tokens.ts",
+          "type": "registry:lib",
+          "target": "lib/chart-tokens.ts"
+        }
+      ],
+      "docs": "Named exports: useChartTokens, ChartTokens. `useChartTokens(color?)` returns { foreground, muted, border, card, primary, series } and re-reads them when the theme class on <html> changes."
+    },
+    {
       "name": "chat",
       "type": "registry:component",
       "title": "Chat",
@@ -1890,7 +1932,7 @@
       "type": "registry:component",
       "title": "Error",
       "author": "AlgorizeTech",
-      "description": "Ask the user to pick one of 4 error variants: https://avaraui.com/view/error. This item holds 4 of them as looks of one component (terminal, quantum-glitch, modern-animated, service-pipeline). Skip the question if the user already named one. A responsive, animated Cyberpunk Diagnostic Terminal Error Website Section with full Light and Dark mode adaptive styling, diagnostic monitors, and live stacktrace inspection.",
+      "description": "Ask the user to pick one of 5 error variants: https://avaraui.com/view/error. This item holds 5 of them as looks of one component (terminal, quantum-glitch, modern-animated, service-pipeline, prismatic-glass). Skip the question if the user already named one. A responsive, animated Cyberpunk Diagnostic Terminal Error Website Section with full Light and Dark mode adaptive styling, diagnostic monitors, and live stacktrace inspection.",
       "categories": [
         "marketing",
         "layout",
@@ -3330,7 +3372,7 @@
       "type": "registry:component",
       "title": "Not Found",
       "author": "AlgorizeTech",
-      "description": "Ask the user to pick one of 3 not found variants: https://avaraui.com/view/not-found. This item holds 3 of them as looks of one component (blueprint, hyperspace, quantum-hologram). Skip the question if the user already named one. A responsive, full-page 404 Hyperspace website section with ambient radial glow, masked cyber grid backdrop, animated compass indicator, and customizable shortcuts.",
+      "description": "Ask the user to pick one of 6 not found variants: https://avaraui.com/view/not-found. This item holds 6 of them as looks of one component (component-wall, aurora-glass, blueprint, spatial-portal, hyperspace, quantum-hologram). Skip the question if the user already named one. A responsive, full-page 404 Hyperspace website section with ambient radial glow, masked cyber grid backdrop, animated compass indicator, and customizable shortcuts.",
       "categories": [
         "marketing",
         "layout",

@@ -431,7 +431,10 @@
             "outline-offset": "var(--pixel)"
           }
         }
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "pixel-glyphs",
@@ -449,6 +452,9 @@
       ],
       "registryDependencies": [
         "@ui95/theme"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -463,8 +469,8 @@
           "target": "@lib/dither/inks.ts"
         }
       ],
-      "registryDependencies": [
-        "@ui95/theme"
+      "categories": [
+        "shared"
       ]
     },
     {
@@ -499,6 +505,9 @@
       "registryDependencies": [
         "@ui95/theme",
         "@ui95/dither-inks"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -513,9 +522,9 @@
           "target": "@lib/shaders/types.ts"
         },
         {
-          "path": "lib/shaders/shader-mount.ts",
+          "path": "lib/shaders/shader-mount-core.ts",
           "type": "registry:lib",
-          "target": "@lib/shaders/shader-mount.ts"
+          "target": "@lib/shaders/shader-mount-core.ts"
         },
         {
           "path": "components/ui/shader-mount.tsx",
@@ -524,6 +533,9 @@
       ],
       "registryDependencies": [
         "@ui95/dither-inks"
+      ],
+      "categories": [
+        "shared"
       ]
     },
     {
@@ -536,6 +548,9 @@
           "path": "hooks/use-prefers-reduced-motion.ts",
           "type": "registry:hook"
         }
+      ],
+      "categories": [
+        "shared"
       ]
     },
     {
@@ -557,6 +572,9 @@
       "registryDependencies": [
         "@ui95/theme",
         "@ui95/shader-mount"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -609,6 +627,92 @@
           "type": "registry:file",
           "target": "~/scripts/95-sound-lib.mjs"
         }
+      ],
+      "categories": [
+        "shared"
+      ]
+    },
+    {
+      "name": "hardware",
+      "type": "registry:ui",
+      "title": "Hardware95 foundation",
+      "description": "The base of every Hardware95 part: shared material, legend, accent, bevel and shadow tokens, a matte plastic Faceplate in putty, cream or khaki, printed Legend text and a glass pilot Lamp.",
+      "docs": "Hardware95 parts style themselves under [data-hw] and never touch your shadcn theme, so they drop into any app. Faceplate takes finish=\"putty\" | \"cream\" | \"khaki\" and draws corner screws unless screws={false}. Legend prints condensed caps onto the panel in size sm, md or lg. Lamp takes on and tone=\"red\" | \"amber\" | \"green\". Every color and depth recipe is a --hw-* custom property, so override one on any ancestor to restyle every part inside it.",
+      "categories": [
+        "hardware"
+      ],
+      "files": [
+        {
+          "path": "components/hardware/hardware.css",
+          "type": "registry:component",
+          "target": "@components/hardware/hardware.css"
+        },
+        {
+          "path": "components/hardware/faceplate.tsx",
+          "type": "registry:component",
+          "target": "@components/hardware/faceplate.tsx"
+        },
+        {
+          "path": "components/hardware/lamp.tsx",
+          "type": "registry:component",
+          "target": "@components/hardware/lamp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rotary-knob",
+      "type": "registry:ui",
+      "title": "Rotary knob",
+      "description": "A matte charcoal plastic knob with a white indicator line over a scale printed on the faceplate, as a skirted knob or a pointer knob. Turn it by dragging, scrolling or with the arrow keys, and it clicks at each tick.",
+      "docs": "variant=\"skirted\" | \"pointer\" picks the knob shape, and cap=\"red\" | \"amber\" | \"green\" | \"slate\" adds a coloured cap insert. Drag up or right to turn it up, and hold Shift for fine control. The wheel and the arrow keys move one step, Page Up and Page Down a tenth of the range, Home and End to the stops. It is a role=\"slider\", so screen readers announce its value. The light stays at the top-left while the knob turns. With the sound item installed, data-slot=\"rotary-knob\" plays knob.tick at each printed tick.",
+      "categories": [
+        "hardware"
+      ],
+      "registryDependencies": [
+        "@ui95/hardware"
+      ],
+      "files": [
+        {
+          "path": "components/hardware/rotary-knob.css",
+          "type": "registry:component",
+          "target": "@components/hardware/rotary-knob.css"
+        },
+        {
+          "path": "components/hardware/rotary-knob.tsx",
+          "type": "registry:component",
+          "target": "@components/hardware/rotary-knob.tsx"
+        }
+      ],
+      "meta": {
+        "sounds": [
+          "knob.tick"
+        ]
+      }
+    },
+    {
+      "name": "crt-monitor",
+      "type": "registry:ui",
+      "title": "CRT monitor",
+      "description": "A beige monitor housing with a charcoal bezel, a curved CRT screen, a glass reflection, vents, a model badge and a power key. Whatever you put inside runs on the screen.",
+      "docs": "Render any content as children; it runs inside the CRT effect from crt-screen. on and onPowerChange control it, or pass defaultOn={false} to start dark. brightness (0.4 to 1.4) and curvature set the picture. Put knobs or lamps in the controls slot and they sit in the chin next to the power key. Turning it on plays a short warm-up that reduced motion skips.",
+      "categories": [
+        "hardware"
+      ],
+      "registryDependencies": [
+        "@ui95/hardware",
+        "@ui95/crt-screen"
+      ],
+      "files": [
+        {
+          "path": "components/hardware/crt-monitor.css",
+          "type": "registry:component",
+          "target": "@components/hardware/crt-monitor.css"
+        },
+        {
+          "path": "components/hardware/crt-monitor.tsx",
+          "type": "registry:component",
+          "target": "@components/hardware/crt-monitor.tsx"
+        }
       ]
     },
     {
@@ -637,7 +741,10 @@
           "small-button.press",
           "small-button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "cta-button",
@@ -665,7 +772,10 @@
           "keycap.press",
           "keycap.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "checkbox",
@@ -691,7 +801,10 @@
           "checkbox.on",
           "checkbox.off"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "slider",
@@ -715,7 +828,10 @@
         "sounds": [
           "slider.tick"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "progress",
@@ -734,6 +850,9 @@
       ],
       "registryDependencies": [
         "@ui95/theme"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -755,6 +874,9 @@
           "path": "components/ui/dialog.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -780,7 +902,10 @@
           "typewriter.space",
           "typewriter.return"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "textarea",
@@ -805,7 +930,10 @@
           "typewriter.space",
           "typewriter.return"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "label",
@@ -824,6 +952,9 @@
           "path": "components/ui/label.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -849,7 +980,10 @@
         "sounds": [
           "radio.select"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "switch",
@@ -874,7 +1008,10 @@
           "switch.on",
           "switch.off"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "select",
@@ -901,7 +1038,10 @@
           "button.release",
           "menu.select"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "tabs",
@@ -926,7 +1066,10 @@
         "sounds": [
           "tab.select"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "tooltip",
@@ -945,6 +1088,9 @@
           "path": "components/ui/tooltip.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -970,7 +1116,10 @@
         "sounds": [
           "menu.select"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "menubar",
@@ -995,7 +1144,10 @@
         "sounds": [
           "menu.select"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "scroll-area",
@@ -1014,6 +1166,9 @@
           "path": "components/ui/scroll-area.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1033,6 +1188,9 @@
           "path": "components/ui/separator.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1053,6 +1211,9 @@
           "path": "components/ui/badge.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1073,6 +1234,9 @@
           "path": "components/ui/plate.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1091,6 +1255,9 @@
           "path": "components/ui/highlighted-text.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1110,6 +1277,9 @@
           "path": "components/ui/alert.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1128,6 +1298,9 @@
           "path": "components/ui/card.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1148,6 +1321,9 @@
           "path": "components/ui/accordion.tsx",
           "type": "registry:ui"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1166,6 +1342,9 @@
       ],
       "dependencies": [
         "cn"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1192,7 +1371,10 @@
           "toggle.on",
           "toggle.off"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "toggle-group",
@@ -1220,7 +1402,10 @@
           "toggle.off",
           "toggle.select"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "collapsible",
@@ -1244,7 +1429,10 @@
           "button.press",
           "button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "popover",
@@ -1269,7 +1457,10 @@
           "button.press",
           "button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "hover-card",
@@ -1288,6 +1479,9 @@
       "dependencies": [
         "cn",
         "radix-ui"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1314,7 +1508,10 @@
           "button.press",
           "button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "sheet",
@@ -1341,7 +1538,10 @@
           "button.press",
           "button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "context-menu",
@@ -1366,7 +1566,10 @@
         "sounds": [
           "menu.select"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "skeleton",
@@ -1385,6 +1588,9 @@
       ],
       "dependencies": [
         "cn"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1403,6 +1609,9 @@
       ],
       "dependencies": [
         "cn"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1422,6 +1631,9 @@
       "dependencies": [
         "cn",
         "radix-ui"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1442,6 +1654,9 @@
       "dependencies": [
         "cn",
         "radix-ui"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1460,6 +1675,9 @@
       ],
       "dependencies": [
         "cn"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1486,7 +1704,10 @@
           "button.press",
           "button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "button-group",
@@ -1507,6 +1728,9 @@
         "class-variance-authority",
         "cn",
         "radix-ui"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1526,6 +1750,9 @@
       "dependencies": [
         "class-variance-authority",
         "cn"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1545,6 +1772,9 @@
       ],
       "dependencies": [
         "cn"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1564,6 +1794,9 @@
       "dependencies": [
         "cn",
         "radix-ui"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1585,6 +1818,9 @@
         "class-variance-authority",
         "cn",
         "radix-ui"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1606,6 +1842,9 @@
       "dependencies": [
         "class-variance-authority",
         "cn"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1635,7 +1874,10 @@
           "typewriter.space",
           "typewriter.return"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "navigation-menu",
@@ -1662,7 +1904,10 @@
           "button.press",
           "button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "input-otp",
@@ -1682,6 +1927,9 @@
       "dependencies": [
         "cn",
         "input-otp"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1711,7 +1959,10 @@
           "typewriter.space",
           "typewriter.return"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "resizable",
@@ -1735,7 +1986,10 @@
         "sounds": [
           "slider.tick"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "sidebar",
@@ -1774,7 +2028,10 @@
           "small-button.press",
           "small-button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "calendar",
@@ -1803,7 +2060,10 @@
           "small-button.press",
           "small-button.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "sonner",
@@ -1824,6 +2084,9 @@
       "dependencies": [
         "next-themes",
         "sonner"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1843,6 +2106,9 @@
       "dependencies": [
         "cn",
         "vaul"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1864,6 +2130,9 @@
       "dependencies": [
         "cn",
         "embla-carousel-react"
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1897,7 +2166,10 @@
           "drag.drop",
           "drag.friction"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "error-dialog",
@@ -1916,6 +2188,9 @@
           "type": "registry:component",
           "target": "@components/retro/error-dialog.tsx"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1935,6 +2210,9 @@
           "type": "registry:component",
           "target": "@components/retro/terminal.tsx"
         }
+      ],
+      "categories": [
+        "ui"
       ]
     },
     {
@@ -1962,7 +2240,10 @@
           "taskbar.press",
           "taskbar.release"
         ]
-      }
+      },
+      "categories": [
+        "ui"
+      ]
     },
     {
       "name": "crt-screen",
@@ -1974,7 +2255,6 @@
         "cn"
       ],
       "registryDependencies": [
-        "@ui95/theme",
         "@ui95/shader-mount",
         "@ui95/use-prefers-reduced-motion"
       ],
@@ -1994,6 +2274,9 @@
           "type": "registry:component",
           "target": "@components/retro/crt-screen.tsx"
         }
+      ],
+      "categories": [
+        "shared"
       ]
     }
   ]

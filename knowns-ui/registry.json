@@ -66,6 +66,34 @@
       ]
     },
     {
+      "name": "quiz-glyphs",
+      "type": "registry:lib",
+      "title": "Quiz glyphs",
+      "description": "The small one-style icons of the quiz components: check, cross, clock, plus, trash, arrows, grip, flag, download, upload, restart and spark. 16px, stroke follows currentColor.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/knowns/lib/knowns/quiz-glyphs.tsx",
+          "type": "registry:lib",
+          "target": "lib/knowns/quiz-glyphs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "quiz",
+      "type": "registry:lib",
+      "title": "Quiz model",
+      "description": "Shared quiz types (QuizQuestion, QuizResponse) and grading: gradeQuestion with partial credit for multiple choice, scoreQuiz, and validateQuestion. Pure functions, no React.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/knowns/lib/knowns/quiz.ts",
+          "type": "registry:lib",
+          "target": "lib/knowns/quiz.ts"
+        }
+      ]
+    },
+    {
       "name": "knowns-core",
       "type": "registry:lib",
       "title": "Knowns UI core",
@@ -586,6 +614,23 @@
       ]
     },
     {
+      "name": "answer-pad",
+      "type": "registry:ui",
+      "title": "Answer pad",
+      "description": "The student's phone view of a live question: big tap targets for the choices, locked after one answer, with waiting, right and wrong states. The answer shows at once and is sent in the background; if sending fails it stays saved and goes again when the phone is back online.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/quiz.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/answer-pad/answer-pad.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/answer-pad/answer-pad.tsx"
+        }
+      ]
+    },
+    {
       "name": "approval-prompt",
       "type": "registry:ui",
       "title": "Approval prompt",
@@ -635,6 +680,65 @@
           "path": "registry/knowns/ui/knowns/badge.tsx",
           "type": "registry:ui",
           "target": "components/ui/knowns/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "area-trend-card",
+      "type": "registry:block",
+      "title": "Area trend card",
+      "description": "A card for a total that is made of parts over time: a label, a headline total with a change badge, a period dropdown, a soft-gradient area chart (stacked, overlaid or 100% share) and a legend with each series' total. Pointing at a band, a line or a legend entry swaps the headline to that series' total, which rolls with the number; leaving restores the grand total.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/animated-number.json",
+        "https://ui.knowns.dev/r/chart.json",
+        "https://ui.knowns.dev/r/dropdown.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/analytics/area-trend-card.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/analytics/area-trend-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "eval-score",
+      "type": "registry:block",
+      "title": "Eval score",
+      "description": "A score card for AI evals: one 0 to 100 score made of weighted sub-scores, drawn as a half-arc (or ring) of rounded segments that fill over a faint track, a rating from your thresholds, a stepper between eval runs and a row per sub-score. Pointing at or focusing a row or a segment dims the rest.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/animated-number.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/card.json",
+        "https://ui.knowns.dev/r/chart.json",
+        "https://ui.knowns.dev/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/analytics/eval-score.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/analytics/eval-score.tsx"
+        }
+      ]
+    },
+    {
+      "name": "goal-rings",
+      "type": "registry:block",
+      "title": "Goal rings",
+      "description": "A compact card of progress rings with a stat for each ring: label, value, goal and percent. Pointing at or focusing a ring or its stat brings that ring forward and dims the others; a ring past its goal laps the start.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/animated-number.json",
+        "https://ui.knowns.dev/r/card.json",
+        "https://ui.knowns.dev/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/analytics/goal-rings.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/analytics/goal-rings.tsx"
         }
       ]
     },
@@ -986,6 +1090,8 @@
       "description": "A catalogue page: category tabs with counts over a grid of thumbnail cards with New and Pro badges, plus a Sketch kit for quiet monochrome thumbnails in one visual language.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/input.json",
+        "https://ui.knowns.dev/r/segmented-control.json",
         "https://ui.knowns.dev/r/toggle-group.json"
       ],
       "files": [
@@ -1261,6 +1367,43 @@
       ]
     },
     {
+      "name": "class-core",
+      "type": "registry:ui",
+      "title": "Class core",
+      "description": "Shared pure helpers for the class blocks (class-roster, gradebook, student-progress): students, assignments and a score book, averages, typed score parsing, quiz scores from responses, topic mastery, attendance counts and a safe CSV export. No React.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/quiz.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/education/class-core.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/blocks/education/class-core.ts"
+        }
+      ]
+    },
+    {
+      "name": "class-roster",
+      "type": "registry:block",
+      "title": "Class roster",
+      "description": "The teacher's list of students: search, today's attendance as a chip that cycles Present, Late, Absent and Excused, the average so far and when each student was last active. Built on the data table, driven by props, no backend.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/avatar.json",
+        "https://ui.knowns.dev/r/badge.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/class-core.json",
+        "https://ui.knowns.dev/r/data-table.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/education/class-roster.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/education/class-roster.tsx"
+        }
+      ]
+    },
+    {
       "name": "error-pages",
       "type": "registry:block",
       "title": "Error Pages",
@@ -1375,6 +1518,93 @@
           "path": "registry/knowns/ui/knowns/blocks/marketing/feature-trio.tsx",
           "type": "registry:component",
           "target": "components/ui/knowns/blocks/marketing/feature-trio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-columns",
+      "type": "registry:block",
+      "title": "Footer columns",
+      "description": "Marketing footer with the brand and a blurb, the Newsletter block as its sign-up, two to four link columns that stay two across on a phone, text-only social links and the legal row.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/newsletter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/footer-columns.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/footer-columns.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/footer-parts.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/footer-parts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-minimal",
+      "type": "registry:block",
+      "title": "Footer minimal",
+      "description": "One-line marketing footer: brand, a few links and the copyright. Wraps to a centred stack on a phone. For a landing page that ends at a call to action.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/footer-minimal.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/footer-minimal.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/footer-parts.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/footer-parts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-status",
+      "type": "registry:block",
+      "title": "Footer status",
+      "description": "Marketing footer with a live system status pill (a still dot, a label and a link to your status page), an optional 30-day uptime strip, link columns and the legal row. Status comes from your data; the footer never fetches.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/status-dot.json",
+        "https://ui.knowns.dev/r/uptime-bar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/footer-status.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/footer-status.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/footer-parts.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/footer-parts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "footer-wordmark",
+      "type": "registry:block",
+      "title": "Footer wordmark",
+      "description": "Marketing footer that ends in the brand word set as wide as the page and cropped at the bottom edge, fading out. A quiet row of links, text-only socials and the legal line sit above it. No JavaScript.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/footer-wordmark.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/footer-wordmark.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/footer-parts.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/footer-parts.tsx"
         }
       ]
     },
@@ -2040,7 +2270,7 @@
       "name": "chart",
       "type": "registry:ui",
       "title": "Chart",
-      "description": "Line, bar (grouped or stacked), area and sparkline in plain SVG with no dependency: axes, grid, keyboard tooltip, legend toggles, empty state and a screen-reader data table.",
+      "description": "Line, bar (grouped or stacked), area, donut, pie, activity rings and sparkline in plain SVG with no dependency: axes, grid, keyboard tooltip, legend toggles, empty state and a screen-reader data table.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/animated-number.json",
@@ -2061,6 +2291,11 @@
           "path": "registry/knowns/ui/knowns/chart/sparkline.tsx",
           "type": "registry:ui",
           "target": "components/ui/knowns/chart/sparkline.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/chart/chart-radial.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/chart/chart-radial.tsx"
         }
       ]
     },
@@ -2433,6 +2668,28 @@
           "path": "registry/knowns/ui/knowns/file-drop.tsx",
           "type": "registry:ui",
           "target": "components/ui/knowns/file-drop.tsx"
+        }
+      ]
+    },
+    {
+      "name": "filter-chips",
+      "type": "registry:ui",
+      "title": "Filter Chips",
+      "description": "A standalone, fully controlled filter bar: a chip per field with a multi-select menu (search, avatars), a value summary, clear buttons and Clear all. It filters nothing itself, so the value can live in the URL or on the server.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/avatar.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/combobox.json",
+        "https://ui.knowns.dev/r/input.json",
+        "https://ui.knowns.dev/r/menu.json",
+        "https://ui.knowns.dev/r/popover.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/filter-chips.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/filter-chips.tsx"
         }
       ]
     },
@@ -2848,6 +3105,22 @@
       ]
     },
     {
+      "name": "priority-bars",
+      "type": "registry:ui",
+      "title": "Priority bars",
+      "description": "Priority as three rising bars: low fills one, medium two, high three; urgent is an orange exclamation square and none is three faint bars. A real image role with a spoken label, or decorative beside a word.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/priority-bars.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/priority-bars.tsx"
+        }
+      ]
+    },
+    {
       "name": "progress",
       "type": "registry:ui",
       "title": "Progress",
@@ -2856,13 +3129,33 @@
         "class-variance-authority@^0.7.1"
       ],
       "registryDependencies": [
-        "https://ui.knowns.dev/r/knowns-core.json"
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/tooltip.json"
       ],
       "files": [
         {
           "path": "registry/knowns/ui/knowns/progress.tsx",
           "type": "registry:ui",
           "target": "components/ui/knowns/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "question-card",
+      "type": "registry:ui",
+      "title": "Question Card",
+      "description": "One quiz question to answer: single choice, multiple choice, true or false or a typed answer. Keys 1 to 9 pick a choice, Enter submits, and a verdict with the explanation opens when the answer is checked. Right and wrong are announced to screen readers.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/motion.json",
+        "https://ui.knowns.dev/r/quiz.json",
+        "https://ui.knowns.dev/r/quiz-glyphs.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/question-card/question-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/question-card/question-card.tsx"
         }
       ]
     },
