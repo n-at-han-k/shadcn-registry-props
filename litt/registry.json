@@ -1448,6 +1448,9 @@
           "--litt-cap-grip": "var(--litt-surface-3)",
           "--litt-press-depth": "0px",
           "--litt-block-hover": "color-mix(in oklab, var(--litt-block), var(--litt-fg) 2.5%)",
+          "--litt-spring-expressive": "350ms 0.28",
+          "--litt-dur-expressive": "579ms",
+          "--litt-ease-expressive": "linear(0, 0.0219, 0.0897, 0.1597, 0.2671, 0.3519, 0.4643, 0.5446, 0.6434, 0.7099, 0.7874, 0.8371, 0.8925, 0.9264, 0.9624, 0.9832, 1.004, 1.0151, 1.0249, 1.0294, 1.0322, 1.0326, 1.0318, 1.0295, 1.0272, 1.0237, 1.0209, 1.0173, 1.0147, 1.0115, 1.0093, 1.0068, 1.0052, 1.0034, 1.0023, 1.0012, 1.0005, 0.9998, 0.9995, 0.9992, 1)",
           "--litt-focus-ring": "0 0 0 2px var(--litt-canvas), 0 0 0 4px var(--litt-focus)",
           "--litt-data-blue-tint": "color-mix(in oklab, var(--litt-data-blue) var(--litt-tint-strength), var(--litt-surface-1))",
           "--litt-data-amber-tint": "color-mix(in oklab, var(--litt-data-amber) var(--litt-tint-strength), var(--litt-surface-1))",
@@ -2090,7 +2093,7 @@
           }
         },
         "@media (prefers-reduced-motion: reduce)": {
-          ":root, :root[data-material=\"device\"], [data-material=\"device\"]": {
+          ":root, :root[data-material=\"flat\"], [data-material=\"flat\"], :root[data-material=\"device\"], [data-material=\"device\"]": {
             "--litt-dur-instant": "0ms",
             "--litt-dur-responsive": "0ms",
             "--litt-dur-expressive": "0ms",
@@ -2539,8 +2542,8 @@
       ],
       "docs": "Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2558,6 +2561,11 @@
           "path": "registry/litt/ui/bodies/button.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/button.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/button.heat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/button.heat.tsx"
         },
         {
           "path": "registry/litt/ui/bodies/button.plain.tsx",
@@ -2801,8 +2809,8 @@
       ],
       "docs": "Import Checkbox, CheckboxGroup, Radio and RadioGroup from components/litt/checkbox. They are native inputs, so name and value work in a form. Pass appearance=\"native\" for the browser's own 16px box.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -2820,6 +2828,11 @@
           "path": "registry/litt/ui/bodies/checkbox.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/checkbox.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/checkbox.heat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/checkbox.heat.tsx"
         },
         {
           "path": "registry/litt/ui/bodies/checkbox.plain.tsx",
@@ -3664,8 +3677,8 @@
       ],
       "docs": "Import TextField, Input and Textarea from components/litt/input. TextField wires the label, hint and error for you, and a bare Input needs an aria-label. Text is 16px on touch screens.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -3683,6 +3696,11 @@
           "path": "registry/litt/ui/bodies/input.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/input.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/input.heat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/input.heat.tsx"
         },
         {
           "path": "registry/litt/ui/bodies/input.plain.tsx",
@@ -4024,8 +4042,8 @@
       ],
       "docs": "Installed in lib/litt/motion. The components use it for you, and it needs no provider. Fun mode, a trial, is a <FunMode> around the app: springier motion, the same at rest.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4626,8 +4644,8 @@
       ],
       "docs": "Import Segmented from components/litt/segmented. Give it a legend, a value, onValueChange and options. In a form, pass showLegend and block.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4645,6 +4663,11 @@
           "path": "registry/litt/ui/bodies/segmented.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/segmented.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/segmented.heat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/segmented.heat.tsx"
         },
         {
           "path": "registry/litt/ui/bodies/segmented.plain.tsx",
@@ -4964,8 +4987,8 @@
       ],
       "docs": "Import Sparkline from components/litt/sparkline. Pass a label and the values, oldest first. It fills its container's width, so give a table cell a wrapper with a width, and fix min and max so rows compare. Put the exact figure beside it. Stat takes one in its trend prop.",
       "meta": {
-        "version": "2026.11.14",
-        "released": "2026-11-14",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -5030,8 +5053,8 @@
       ],
       "docs": "Import SpringEditor from components/litt/spring-editor. Give it a label and hold the spring ({ time, bounce }) in state with value and onValueChange. Pass tier=\"expressive\" or \"responsive\" to check it against litt's motion rules, and defaultMark for the default. Time and Bounce are range inputs for the keyboard and screen readers.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -5141,8 +5164,8 @@
       ],
       "docs": "Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -5160,6 +5183,11 @@
           "path": "registry/litt/ui/bodies/switch.flat.tsx",
           "type": "registry:ui",
           "target": "components/litt/bodies/switch.flat.tsx"
+        },
+        {
+          "path": "registry/litt/ui/bodies/switch.heat.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/bodies/switch.heat.tsx"
         },
         {
           "path": "registry/litt/ui/bodies/switch.plain.tsx",
@@ -5425,8 +5453,8 @@
       ],
       "docs": "Import TimeScrubber from components/litt/time-scrubber. Give it a label, max (and min), the run's events as marks ({ at, label, tone }) and a formatValue for the units (\"+12s\", \"09:30\"). Hold the value in state and show what it replays beside it, such as a LogView with the lines up to the needle. A setting that stays is a Slider.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -5634,8 +5662,8 @@
       ],
       "docs": "Import useTune and TuneRoot from components/litt/tune. Wrap the app in TuneRoot once, then call useTune with a name and fields from t (radius, space, spring, easing, toggle, choice, number, action). Pass enabled to show the panels in a production build, and inline to draw them after the children instead of floating. The code ships wherever tune is imported, hidden or not, so paste the copied tokens and remove the call once the values fit.",
       "meta": {
-        "version": "2026.11.01",
-        "released": "2026-11-01",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -5684,8 +5712,8 @@
       ],
       "docs": "Import VariantsDemo from components/litt/examples/button-demo, or read it for how @litt/button is used. Import Button from components/litt/button. Primary is the one accent fill in a view. An icon-only button needs an aria-label.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/button"
       },
@@ -5806,8 +5834,8 @@
       ],
       "docs": "Import StatesDemo from components/litt/examples/input-demo, or read it for how @litt/input is used. Import TextField, Input and Textarea from components/litt/input. TextField wires the label, hint and error for you, and a bare Input needs an aria-label. Text is 16px on touch screens.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/input"
       },
@@ -5904,8 +5932,8 @@
       ],
       "docs": "Import StatesDemo from components/litt/examples/checkbox-demo, or read it for how @litt/checkbox is used. Import Checkbox, CheckboxGroup, Radio and RadioGroup from components/litt/checkbox. They are native inputs, so name and value work in a form. Pass appearance=\"native\" for the browser's own 16px box.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/checkbox"
       },
@@ -6058,8 +6086,8 @@
       ],
       "docs": "Import ToastSpringDemo from components/litt/examples/spring-editor-demo, or read it for how @litt/spring-editor is used. Import SpringEditor from components/litt/spring-editor. Give it a label and hold the spring ({ time, bounce }) in state with value and onValueChange. Pass tier=\"expressive\" or \"responsive\" to check it against litt's motion rules, and defaultMark for the default. Time and Bounce are range inputs for the keyboard and screen readers.",
       "meta": {
-        "version": "2026.10.27",
-        "released": "2026-10-27",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/spring-editor"
       },
@@ -6082,8 +6110,8 @@
       ],
       "docs": "Import SettingsListDemo from components/litt/examples/switch-demo, or read it for how @litt/switch is used. Import Switch from components/litt/switch. Give it a label. Use align=\"end\" in a settings list so the switches line up at the row's end.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/switch"
       },
@@ -6106,8 +6134,8 @@
       ],
       "docs": "Import ReplayDemo from components/litt/examples/time-scrubber-demo, or read it for how @litt/time-scrubber is used. Import TimeScrubber from components/litt/time-scrubber. Give it a label, max (and min), the run's events as marks ({ at, label, tone }) and a formatValue for the units (\"+12s\", \"09:30\"). Hold the value in state and show what it replays beside it, such as a LogView with the lines up to the needle. A setting that stays is a Slider.",
       "meta": {
-        "version": "2026.11.06",
-        "released": "2026-11-06",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/time-scrubber"
       },
@@ -6212,8 +6240,8 @@
       ],
       "docs": "Import ThemeDemo from components/litt/examples/segmented-demo, or read it for how @litt/segmented is used. Import Segmented from components/litt/segmented. Give it a legend, a value, onValueChange and options. In a form, pass showLegend and block.",
       "meta": {
-        "version": "2026.11.15",
-        "released": "2026-11-15",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/segmented"
       },
@@ -6243,8 +6271,8 @@
       ],
       "docs": "Import PlanCardDemo from components/litt/examples/tune-demo, or read it for how @litt/tune is used. Import useTune and TuneRoot from components/litt/tune. Wrap the app in TuneRoot once, then call useTune with a name and fields from t (radius, space, spring, easing, toggle, choice, number, action). Pass enabled to show the panels in a production build, and inline to draw them after the children instead of floating. The code ships wherever tune is imported, hidden or not, so paste the copied tokens and remove the call once the values fit.",
       "meta": {
-        "version": "2026.11.01",
-        "released": "2026-11-01",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tune"
       },
@@ -7181,8 +7209,8 @@
       ],
       "docs": "Import BesideAFigureDemo from components/litt/examples/sparkline-demo, or read it for how @litt/sparkline is used. Import Sparkline from components/litt/sparkline. Pass a label and the values, oldest first. It fills its container's width, so give a table cell a wrapper with a width, and fix min and max so rows compare. Put the exact figure beside it. Stat takes one in its trend prop.",
       "meta": {
-        "version": "2026.11.14",
-        "released": "2026-11-14",
+        "version": "2026.11.16",
+        "released": "2026-11-16",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/sparkline"
       },
