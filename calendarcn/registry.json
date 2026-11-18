@@ -24,6 +24,10 @@
           "type": "registry:component"
         },
         {
+          "path": "src/components/scheduling-provider.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "src/components/calendar-popover-context.tsx",
           "type": "registry:component"
         },
@@ -36,11 +40,23 @@
           "type": "registry:component"
         },
         {
+          "path": "src/components/calendar-people.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "src/hooks/use-calendar-shortcuts.ts",
           "type": "registry:hook"
         },
         {
           "path": "src/hooks/use-controllable-state.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "src/hooks/use-day-range-draw.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "src/hooks/use-double-click.ts",
           "type": "registry:hook"
         },
         {
@@ -77,6 +93,26 @@
         },
         {
           "path": "src/lib/event-history.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/lib/event-selection.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/lib/free-busy.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/lib/people.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/lib/keyboard-shortcuts.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/lib/availability.ts",
           "type": "registry:lib"
         }
       ],
@@ -296,6 +332,14 @@
           "type": "registry:component"
         },
         {
+          "path": "src/components/event-draft.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/event-series-scope-dialog.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "src/hooks/use-popover-dismiss.ts",
           "type": "registry:hook"
         },
@@ -322,10 +366,14 @@
       "type": "registry:component",
       "title": "Time Grid",
       "description": "The hour grid behind the day and week views: all-day row, time axis and current-time line, with drag, resize and create.",
-      "dependencies": ["date-fns"],
+      "dependencies": ["date-fns", "lucide-react"],
       "registryDependencies": [
         "@calendarcn/calendar-core",
-        "@calendarcn/event-details"
+        "@calendarcn/event-details",
+        "command",
+        "kbd",
+        "popover",
+        "tooltip"
       ],
       "files": [
         {
@@ -353,11 +401,31 @@
           "type": "registry:component"
         },
         {
+          "path": "src/components/week-view-people.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/time-zone-axis-label.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/time-zone-list.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/availability-layer.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "src/hooks/use-all-day-resize.ts",
           "type": "registry:hook"
         },
         {
           "path": "src/hooks/use-event-drag.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "src/hooks/use-event-draw.ts",
           "type": "registry:hook"
         },
         {
@@ -404,7 +472,7 @@
       "name": "month-view",
       "type": "registry:component",
       "title": "Month View",
-      "description": "The month grid, with drag and resize.",
+      "description": "The month grid, with drag, resize and create.",
       "dependencies": ["date-fns"],
       "registryDependencies": [
         "@calendarcn/calendar-core",
@@ -509,7 +577,7 @@
       "name": "command-menu",
       "type": "registry:component",
       "title": "Command Menu",
-      "description": "The live demo's ⌘K menu: today, previous/next and the views, plus your app's panel, theme and .ics commands.",
+      "description": "The live demo's ⌘K menu: create an event, go to a typed date, today, previous/next, the views and the time zones, plus your app's panel, search, shortcut, theme and .ics commands.",
       "registryDependencies": [
         "@calendarcn/calendar-core",
         "command",
@@ -520,6 +588,14 @@
         {
           "path": "src/components/command-menu.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "src/components/time-zone-list.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/date-query.ts",
+          "type": "registry:lib"
         }
       ],
       "css": {
@@ -527,6 +603,24 @@
           "background-color": "rgb(0 0 0 / 0.3)"
         }
       }
+    },
+    {
+      "name": "people-picker",
+      "type": "registry:component",
+      "title": "People Picker",
+      "description": "Notion Calendar's F and P dialog: search your contacts to meet with someone or show a teammate's calendar.",
+      "registryDependencies": [
+        "@calendarcn/calendar-core",
+        "command",
+        "dialog",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "src/components/people-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
     },
     {
       "name": "calendar-toaster",
@@ -538,6 +632,25 @@
       "files": [
         {
           "path": "src/components/calendar-toaster.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "calendar-settings",
+      "type": "registry:component",
+      "title": "Calendar Settings",
+      "description": "Notion Calendar's settings dialog: the calendar view, time format and theme, and each calendar account's calendars, with what your app can change.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "@calendarcn/calendar-core",
+        "button",
+        "dialog",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "src/components/calendar-settings.tsx",
           "type": "registry:component"
         }
       ]
@@ -716,6 +829,7 @@
         "@calendarcn/sidebar-overlay",
         "@calendarcn/theme-toggle",
         "button",
+        "dropdown-menu",
         "kbd",
         "sidebar",
         "tooltip"
@@ -724,6 +838,10 @@
         {
           "path": "src/components/calendar-sidebar.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "src/components/calendar-sidebar-people.tsx",
+          "type": "registry:component"
         }
       ]
     },
@@ -731,13 +849,14 @@
       "name": "details-sidebar",
       "type": "registry:component",
       "title": "Details Sidebar",
-      "description": "The right context panel: the selected event's details, event search and useful shortcuts.",
+      "description": "The right context panel: the selected event's details, event search, useful shortcuts, the full keyboard shortcut list and the scheduling panel.",
       "dependencies": ["date-fns", "lucide-react"],
       "registryDependencies": [
         "@calendarcn/calendar-core",
         "@calendarcn/event-details",
         "@calendarcn/sidebar-overlay",
         "button",
+        "dropdown-menu",
         "kbd",
         "sidebar",
         "tooltip"
@@ -745,6 +864,10 @@
       "files": [
         {
           "path": "src/components/details-sidebar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/availability-panel.tsx",
           "type": "registry:component"
         }
       ]
@@ -763,7 +886,9 @@
         "@calendarcn/year-view",
         "@calendarcn/calendar-header",
         "@calendarcn/command-menu",
+        "@calendarcn/people-picker",
         "@calendarcn/calendar-toaster",
+        "@calendarcn/calendar-settings",
         "@calendarcn/calendar-sidebar",
         "@calendarcn/details-sidebar",
         "@calendarcn/theme-toggle",

@@ -39,7 +39,38 @@
           "SaaS and AI product landing pages",
           "Analytics, data and dashboard products",
           "Launch pages that need proof above the fold"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The entrance rise, the noise-field sweep and the sliding button labels and brackets are dropped (hover swaps happen instantly), and the logo wall stops cycling, showing one name per cell.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the nav links and “Try for free” (below lg: “Try for free”, “Menu”, its links), then the hero links."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "On “Menu” (below lg), shows or hides the nav links under the header."
+            },
+            {
+              "keys": "Esc",
+              "action": "In the open menu, closes it and returns focus to “Menu”."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the focused link."
+            }
+          ],
+          "notes": [
+            "The headline “Private company data and signals API” is an h1, with no prop to change its level, so the section should open the page.",
+            "Below lg a “Menu” button (aria-expanded) shows the same five nav links in a “Site” nav under the header; closed, they're hidden and out of the tab order.",
+            "Every call to action is a plain link; icons and the duplicate copy of each rolling label are aria-hidden, so each link is read once.",
+            "The noise-field ticks and sentiment bars are aria-hidden; a screen-reader sentence gives the figures (197 of 1,000 articles kept). The canonical record is a description list.",
+            "The flipping logo wall is aria-hidden, and a screen-reader line lists the customers once: KPMG, Adobe, JLL, Chicago Booth, BabyAGI."
+          ],
+          "gaps": [
+            "The logo wall flips every 2.6–3.5 s for as long as it's on screen, with no pause control; only the reduced-motion setting stops it (WCAG 2.2.2 Pause, Stop, Hide)."
+          ]
+        }
       },
       "dependencies": [
         "@hugeicons/core-free-icons",
@@ -83,7 +114,18 @@
           "Comparison pages: why you over a competitor",
           "SaaS and developer-tool landing pages",
           "Launch or investor pages that lead with numbers"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The header and the chart grid fade and rise in as they scroll into view; with reduced motion they are simply shown in place. Nothing else animates.",
+          "keyboard": [],
+          "notes": [
+            "The section heading is an h2, and each metric is an article whose title is an h3 with its qualifier, e.g. “F1 Score (accuracy × recall)”.",
+            "Each SVG chart is one image with a label such as “F1 Score by provider, isometric bar chart”, so its drawn labels aren't read one by one.",
+            "Under every chart a visually hidden list gives each provider and figure, e.g. “akta.pro: 81.3”, so the data doesn't depend on the drawing; the Accuracy unit field's visible rows are aria-hidden so nothing is read twice.",
+            "The metric icons and the eyebrow's square are hidden from screen readers."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "@hugeicons/core-free-icons",
@@ -124,7 +166,27 @@
           "About and company pages",
           "Careers and hiring pages",
           "Agency and studio team pages"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The rise and scale on entry, the hover lift, the press shrink and the role badge's slide are dropped, leaving fades. The photo's colour and dimming still change with a short transition.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the six role rows, one stop per person; the avatar tiles are for the pointer only."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Selects that person: their photo turns to colour, the others dim, and their row is marked."
+            }
+          ],
+          "notes": [
+            "The heading “The people behind the work” is an h2, with the eyebrow and the body as paragraphs.",
+            "Each role row is a button named by its own text, e.g. “Founder & CEO, Maya Ellis, Started the studio in 2019.”, with aria-pressed marking the chosen person.",
+            "The avatar tiles are `focusable={false}` here (a new AvatarGrid prop): not Tab stops and hidden from screen readers, since the rows offer the same choice.",
+            "Role icons, the centre logo mark and the empty hatched tiles are aria-hidden; below lg, the active person's name and role also show in a badge beside their tile."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "@hugeicons/core-free-icons",
@@ -167,7 +229,54 @@
           "Developer platforms and API dashboards",
           "Admin panels that manage keys or tokens",
           "SaaS settings and account pages"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Under reduced motion the Refresh icon doesn't spin and the loading rows don't pulse; the 0.7 s refresh shows still placeholder rows. Menus and dialogs animate as your shadcn primitives do.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the header links, search, filters and Refresh, then each row's checkbox, name, copy and actions."
+            },
+            {
+              "keys": "Space",
+              "action": "Ticks or unticks a row's checkbox or “Select all rows on this page”."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Presses a button: a key's name opens “Edit API key”; Status, User, View and row actions open menus."
+            },
+            {
+              "keys": "↑ / ↓",
+              "action": "Moves through an open menu's items; Enter / Space picks one."
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes an open menu or dialog."
+            },
+            {
+              "keys": "Enter",
+              "action": "In a dialog's field, submits it (Create, Save changes, Rotate key, Delete) once the input is valid."
+            },
+            {
+              "keys": "C / R / S / D",
+              "action": "With focus or the pointer in the table, outside text fields: create a key, refresh, open SDK, open Documentation."
+            },
+            {
+              "keys": "/",
+              "action": "With focus or the pointer in the table, jumps to the “Search API keys” field."
+            }
+          ],
+          "notes": [
+            "The “API Keys” heading is an h2, and the keys sit in a real table with column headers; the last column's header is the screen-reader text “Row actions”.",
+            "Icon-only controls are named (“Refresh API keys”, “Copy prefix of production”, “Actions for production”, “Next page”), and each key's name button reads “Rename production”, though only “production” shows.",
+            "Row checkboxes are named “Select {key name}” and “Select all rows on this page” reports mixed; Create, Edit, Rotate and Delete open titled dialogs, focus starts in the name field.",
+            "Shortcuts never answer page-wide, and `shortcuts={false}` turns them off with their hints. The key hints are hidden from screen readers and exposed as `aria-keyshortcuts`, so names read “Create API key”.",
+            "A polite status line announces “Refreshing API keys.”, “Copied the prefix of production.” and, once a search or filter settles, how many keys match (“3 keys match.”)."
+          ],
+          "gaps": [
+            "The shortcuts also answer while the pointer rests over the table with focus elsewhere, and only the host (`shortcuts={false}`) can turn them off, not the visitor; kept so mouse users keep them (WCAG 2.1.4 Character Key Shortcuts)."
+          ]
+        }
       },
       "dependencies": [
         "lucide-react"
@@ -215,7 +324,52 @@
           "Help-desk and customer-support tools",
           "Internal ops and admin dashboards",
           "SaaS apps with a filterable queue of records"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The ticket sheet fades in and out instead of sliding, and the refresh icon stays still during the 0.7 s refresh. Menus and dialogs keep the shadcn fade and slight zoom.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through Export, New ticket, the view tabs, search, Filter, View and Refresh, then each row’s controls"
+            },
+            {
+              "keys": "← / →",
+              "action": "In the view tabs, moves to another view and shows it; in a menu, closes or opens a submenu"
+            },
+            {
+              "keys": "↑ / ↓",
+              "action": "Moves through the items of an open menu"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Activates the focused button or menu item; Space also ticks a checkbox"
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the open menu, dialog or ticket sheet"
+            },
+            {
+              "keys": "C",
+              "action": "Opens the New ticket dialog, only while focus is in the table and not in a field"
+            },
+            {
+              "keys": "/",
+              "action": "Moves focus to “Search tickets”, only while focus is in the table"
+            },
+            {
+              "keys": "R / E",
+              "action": "Refreshes the list, or exports the matching tickets as CSV, only while focus is in the table"
+            }
+          ],
+          "notes": [
+            "The section has an h2 “Support tickets”; the table uses real header cells, the sortable Priority and Due headers set aria-sort, and the actions column has a hidden “Row actions” header.",
+            "Cell menus are named per row, like “Status of TCK-1047”; unread subjects add a hidden “(unread)”. The shortcut letters are hidden from screen readers and exposed through aria-keyshortcuts.",
+            "The single-letter shortcuts answer only while focus is inside the section; clicking anywhere in it puts focus there (the section has `tabIndex={-1}`, so it is not a Tab stop).",
+            "A polite live region announces refreshes, exports, created and deleted tickets, copied links, and, after a search, filter or view change, how many tickets match, e.g. “12 tickets match.”",
+            "In New ticket, Subject and Email are `required` and the dialog’s description says “Subject and email are required.”; all fields have visible labels."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "lucide-react"
@@ -268,7 +422,34 @@
           "Agency, studio and freelancer portfolios",
           "Photographers', filmmakers' and creators' showreels",
           "Brand sites that lead with their work"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The wheel's spin-in, the text rise and the logo marquee are off, autoplay stops, and the wheel jumps to the next frame instead of springing. Dragging still moves it under your finger.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to the frame at the crest of the wheel, then “Book a call” and “See how we work”."
+            },
+            {
+              "keys": "← / → / ↑ / ↓",
+              "action": "Turns the wheel one frame back or forward; focus follows the new frame at the crest."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows “Book a call”, “See how we work”, or a reel's caption link when the reel has an `href`."
+            }
+          ],
+          "notes": [
+            "The title is an h1 by default (h2 with `headingLevel={2}`). The wheel is a region labelled “Showreel” with the role description “carousel”.",
+            "Only the crest frame is in the Tab order: a button named by its reel's description, described by its picture's alt text, and marked aria-current. Only the crest's caption is exposed, with counts read as “YouTube views 1.2M”.",
+            "After the first interaction, a polite live region reads the new crest's description; autoplay steps before that are not announced.",
+            "The scrolling logo row is hidden from screen readers and replaced by one hidden sentence, “Trusted by: Figma, Slack, Supabase, …”."
+          ],
+          "gaps": [
+            "The wheel advances every 5 seconds while on screen with no visible pause button; it only holds while the pointer is over it or a frame has focus. (WCAG 2.2.2 Pause, Stop, Hide)",
+            "The logo row loops without end and pauses only on mouse hover, with no pause control for keyboard or touch users. (WCAG 2.2.2 Pause, Stop, Hide)"
+          ]
+        }
       },
       "dependencies": [
         "lucide-react",
@@ -320,7 +501,30 @@
           "SaaS and B2B landing pages",
           "Sales, CRM and revenue tool websites",
           "Customer story and case study pages"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Stories still advance every 6 seconds, but the progress bars are hidden and the arrows no longer nudge on hover or shrink when pressed. The quote, photo and figures still cross-fade (opacity only).",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to “Previous testimonial”, then “Next testimonial”; under 640px they are hidden until one of them has focus."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Shows the previous or next story, restarts the timer and announces the new story."
+            }
+          ],
+          "notes": [
+            "The heading is an h2 by default (`headingLevel` sets 1–3) and each quote is a blockquote.",
+            "The large portrait's alt names the person, role and company, e.g. “Marcus Vance, CEO & Co-founder at Vance Systems”; the small avatar shown on narrower screens uses just the name.",
+            "The arrow and trend icons are hidden from screen readers; each change is written out with its sign, e.g. “+14.6%”, so it doesn't rely on the icon or its green colour.",
+            "A polite status region reads the new story after a button press or swipe, e.g. “2 of 5: Elena Rostova, VP of Operations at Stratum Dynamics.” and the quote; automatic changes are not announced."
+          ],
+          "gaps": [
+            "Stories advance every 6 seconds with no pause or stop control, and the timer doesn't hold on hover or focus. (WCAG 2.2.2 Pause, Stop, Hide)",
+            "Under 640px the arrow buttons show only on keyboard focus, so touch users without a keyboard or screen reader still change stories by swiping; showing them would change the phone design. (WCAG 2.5.1 Pointer Gestures)"
+          ]
+        }
       },
       "dependencies": [
         "lucide-react",
@@ -359,7 +563,34 @@
           "Agency and studio websites",
           "Brand, product or campaign image showcases",
           "Event and launch microsites"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The globe doesn't turn on its own and a fling stops dead; a group's images jump straight into the pile with no flight, toss or squash, and images appear without fading. Dragging still turns it.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through “All” and the seven group buttons, which appear over the sphere while one has focus."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Opens that group's pile; “All” puts the images back on the sphere."
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the open group while focus is in the block, and hides the hover tag."
+            }
+          ],
+          "notes": [
+            "The block is a region named “Images by group”, and the WebGL canvas and the hover tag are aria-hidden.",
+            "The group buttons sit in a group named “Groups” and mark the open one with aria-pressed; when the parent controls `group`, these buttons are left out.",
+            "A hidden list gives screen readers the images by their alt text: every image, once, in a list named “Images on the sphere”, or the open group's pile, e.g. “Architecture images”.",
+            "Opening a group is announced politely, for example “Architecture: 12 images”.",
+            "Without WebGL2, a plain grid of images with their alt text replaces the sphere."
+          ],
+          "gaps": [
+            "The globe turns continuously (one turn per 45 s by default) with no pause control; it stops only while a group is open, with autoRotate off, or under reduced motion (WCAG 2.2.2 Pause, Stop, Hide)."
+          ]
+        }
       },
       "files": [
         {
@@ -404,7 +635,36 @@
           "Creator, illustrator and designer platforms",
           "Portfolio and gallery sites that lead with the work",
           "Membership launches for creative communities"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The deck rising, the fan opening, the text rising and the hint drawing are all skipped, and transitions are off: cards still lift, part their neighbours and turn over, but instantly.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the artwork cards (4 on phones, 5 on tablets, 7 on desktops), then “Sign up” and “Read more”."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Turns the focused card over to show the artist, title, medium and price; press again to turn it back."
+            },
+            {
+              "keys": "Esc",
+              "action": "Turns an opened card back."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows “Sign up” or “Read more”."
+            }
+          ],
+          "notes": [
+            "The headline is an h1 by default (headingLevel={2} inside a longer page); the cards sit in a list named “Featured artworks”.",
+            "Each card is a button named by its image's alt text plus “by {artist}. Show details.”, e.g. “Pink and white flower painting by Hana Sato. Show details.”, with aria-expanded and aria-controls pointing at its back.",
+            "A card's back is aria-hidden until it's turned over; then it reads the artist, handle, “Artwork”, title, medium and year, price and status, all as text (the status dot is backed by the word “Available”).",
+            "The hand-drawn hint (“hover to know the artist”) and its arrow are aria-hidden, since each card's name already says it shows details; the small thumbnail on the back has alt=\"\".",
+            "While a card is turned over, its back shows the same 3px focus ring as the front, since focus stays on the front's button."
+          ],
+          "gaps": []
+        }
       },
       "files": [
         {
@@ -440,7 +700,35 @@
           "Creative agency and portfolio landing pages",
           "Editorial launch pages leading with photos",
           "Luxury architecture and spatial design sites"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The opening curtain intro is skipped and the slices start at rest. They don't follow the pointer, a click opens or closes them at once, and the photo still fades from grey to colour.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the six nav links and “Inquire”, then the photo; below lg a menu button replaces the links"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "On the photo, opens or closes the curtain slices; on the menu button, opens or closes the menu"
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the focused link"
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the open mobile menu"
+            }
+          ],
+          "notes": [
+            "The headline is an h1 by default (headingLevel 2 for secondary use); the nav sits in a header and the content in a plain div, so the page keeps its single main landmark.",
+            "The photo is a focusable element with role=\"button\" that reports aria-expanded, named “Toggle curtain slices: Luminescent green tendrils flowing through darkness” (`imageAlt` folded into the name).",
+            "The greyscale copy of the photo and the seam strips are aria-hidden.",
+            "The mobile menu button is named “Open navigation menu” or “Close navigation menu” and reports aria-expanded."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "lucide-react",
@@ -478,7 +766,29 @@
           "SaaS sites that end with an app download call",
           "Product landing pages with store badges",
           "Startup sites that need a full footer with socials"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The light beams on the wires and the ripple round the hub are hidden, the hub's equaliser bars stop, and the store badges no longer shrink when pressed.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the two store badges, the 14 column links, the pinned post and the three social links."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the focused link."
+            }
+          ],
+          "notes": [
+            "The headline “Connect. Don't Just Listen” is an h2; each link column is a nav landmark named after its title (“Platform”, “Company”, “Resources”, “Legal”), though the titles themselves are plain text, not headings.",
+            "The store badges are links named “Download on the App Store” and “Get it on Google Play”; the icon-only social links are named “Clova on Instagram”, “Clova on Facebook” and “Clova on X”.",
+            "The pinned post link reads “Clova, @clovaapp: We've just announced…”: hidden separators keep the name, handle and text apart.",
+            "The whole hub diagram, including its node labels, is aria-hidden, as are the brand marks and icons."
+          ],
+          "gaps": [
+            "With normal motion settings the beams, hub ripple and equaliser bars loop forever with no pause control; only the reduced-motion setting stops them (WCAG 2.2.2 Pause, Stop, Hide)."
+          ]
+        }
       },
       "dependencies": [
         "@hugeicons/core-free-icons",
@@ -516,7 +826,19 @@
           "Brand stories and manifesto sections",
           "Agency, studio and fashion websites",
           "Launch pages that need a cinematic moment"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing moves: scroll is followed directly, the lines stay parted round the small circle and fade out, the circle crossfades into the whole photo instead of growing, and the second statement only fades in.",
+          "keyboard": [],
+          "notes": [
+            "The full statement is a visually hidden h2 (h1 with headingLevel={1}) and the second statement a hidden paragraph, so each is read once; the moving word copies are aria-hidden.",
+            "The photo is a real image named by `image.alt` (“Wind turbines against the rising sun”); the still copy used for the reduced-motion crossfade has empty alt, so it's read once.",
+            "The eyebrow “(02) — Field notes” is plain visible text and is read as written.",
+            "It has nothing to focus; keyboard users pass through it by scrolling, and it stays pinned for three screen heights by default (the length prop).",
+            "A change to the reduced-motion setting takes effect at once, without a reload."
+          ],
+          "gaps": []
+        }
       },
       "files": [
         {
@@ -555,7 +877,35 @@
           "Agency and studio services pages",
           "Product feature overviews with imagery",
           "Editorial and portfolio websites"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The index lines and descriptions change without easing. The sphere stops turning by itself, images jump straight into and out of the pile, and it stops when you let go of a drag. A setting change applies at once.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the five feature buttons; the open feature's “View work” link comes right after its button."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Opens the focused feature: its description unfolds and its images fly into the pile."
+            },
+            {
+              "keys": "↑ / ↓",
+              "action": "Moves focus to the previous or next feature button, wrapping at the ends."
+            },
+            {
+              "keys": "Home / End",
+              "action": "Moves focus to the first or last feature button."
+            }
+          ],
+          "notes": [
+            "A visually hidden h2, “What we do”, names the section; each feature name is an h3 holding a button with aria-expanded.",
+            "The open feature's button is aria-disabled (read as unavailable) because one feature always stays open; closed descriptions are inert, so their text and links are skipped.",
+            "The link reads “View work: Architecture”, with the feature name added as hidden text; the row numbers are hidden from screen readers.",
+            "The sphere's canvas is hidden; the open feature's images are listed by their alt text in a hidden list, and a polite live region announces changes such as “Aviation: 8 images”."
+          ],
+          "gaps": []
+        }
       },
       "files": [
         {
@@ -604,7 +954,17 @@
           "SaaS and analytics product landing pages",
           "Developer tool feature overviews",
           "Product pages that explain an approach in three points"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "It doesn't animate by default, so nothing changes. When a card has an `href`, its arrow nudges on hover only when motion is allowed.",
+          "keyboard": [],
+          "notes": [
+            "The headline is an h2 by default (`headingLevel` sets 1–3) and each card title is one level below it; the three cards are a list.",
+            "The three drawings are hidden from screen readers, so each card's claim comes from its title and description.",
+            "When a card has an `href`, its title becomes a link stretched over the whole card, and the card shows a focus outline while the link has focus."
+          ],
+          "gaps": []
+        }
       },
       "registryDependencies": [
         "card"
@@ -640,7 +1000,18 @@
           "E-commerce and logistics landing pages",
           "Fulfillment, shipping and Shopify app websites",
           "Product pages with illustrated feature grids"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "It doesn't animate, so nothing changes.",
+          "keyboard": [],
+          "notes": [
+            "The headline is an h2 by default (headingLevel sets 1–3), and each feature title takes the next level down, so the four titles are h3s.",
+            "The features are a real list (ul/li), each with its title and description as text.",
+            "Every drawing, the parcel badge in the headline and the crop marks are aria-hidden, so the words on the truck and flag (“Parcel”, “Tue 14”) aren't read; the titles carry the meaning.",
+            "The dashed guide lines are decorative separators that screen readers skip; the small numbers “01”–“04” are plain text read just before each title."
+          ],
+          "gaps": []
+        }
       },
       "registryDependencies": [
         "separator"
@@ -676,7 +1047,17 @@
           "Crypto wallet and fintech app websites",
           "Security and privacy feature pages",
           "Mobile app landing pages with a device mockup"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "It doesn’t animate, so nothing changes.",
+          "keyboard": [],
+          "notes": [
+            "The headline is an h2 by default (headingLevel sets 1 to 3), and each feature title is one level below it, inside two lists of tiles.",
+            "The blurred background photo has empty alt text, and the phone mockup (including its on-screen text), icon plates and engraving are SVGs marked aria-hidden.",
+            "Screen readers get the headline, the intro and the five feature titles with their descriptions, in that order."
+          ],
+          "gaps": []
+        }
       },
       "registryDependencies": [
         "card"
@@ -742,7 +1123,48 @@
           "Enterprise search and RAG platform landing pages",
           "Developer tools that keep docs in sync with code",
           "Product pages that compare a live system with a stale one"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing plays: the chart is drawn complete with no line-end pulse, the chat shows its whole answer with a fade only and no shimmer, the windows swap without sliding, and the crosshair jumps.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to the “Live context” link, the chart's slider, then the “Traceable answers” link."
+            },
+            {
+              "keys": "→ / ↑",
+              "action": "On the chart, steps to the next change and shows it as a diff."
+            },
+            {
+              "keys": "← / ↓",
+              "action": "On the chart, steps to the previous change."
+            },
+            {
+              "keys": "Page Up / Page Down",
+              "action": "On the chart, jumps ten changes forward or back."
+            },
+            {
+              "keys": "Home / End",
+              "action": "On the chart, jumps to the first or the last change."
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the change details."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the focused column-title link."
+            }
+          ],
+          "notes": [
+            "The section title is an h2 by default and the two column titles are h3 links, “Live context” and “Traceable answers”.",
+            "The chart drawing is aria-hidden; a screen-reader sentence gives the totals: share still live, the snapshot's share, the number of changes and the sources.",
+            "The slider “Changes since the snapshot” reads each change in words: date, file, who changed it, the old and new line, and the snapshot's share at that point.",
+            "In the chat, the question and answer carry hidden “Question:” and “Answer:” prefixes, the chips are a list named “Sources”, and the “Reading 4 sources” shimmer is hidden.",
+            "Tabbing into the chart brings its window to the front, and tabbing out of it brings the chat back."
+          ],
+          "gaps": []
+        }
       }
     },
     {
@@ -784,7 +1206,33 @@
           "Concept and department store homepages",
           "Wholesale platforms showing who they stock",
           "Retail landing pages featuring partner brands"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing cycles by itself, and the “Show more brands” button shows under the rows. Pointing at or tabbing to a row still lights it, but the name, thumbnail, products and caption swap instantly, with no roll, slide or blur.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to “Browse all brands”, the seven brand links (focus lights one and holds the cycle), then “Show more brands”."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the focused link."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "On “Show more brands”, swaps the brands waiting in the roster into the rows at once."
+            }
+          ],
+          "notes": [
+            "The heading is an h2 (“Shop from brands like”) and the brands are a list of links, each named by its brand, like “Kilnworks”.",
+            "Each link's description gives the brand's category, product count and its three product photos' alt text, since the photos sit in aria-hidden cells that swap every step; the thumbnail has empty alt.",
+            "“Show more brands” is visually hidden until focused (always shown with reduced motion), and a status line reads what it brought in, e.g. “Now showing Morrow, Solen, Quietform, Vale Parfums.”",
+            "The caption under the products (brand, category, product count) is plain text and isn't announced when it changes; the same details are in each link's description."
+          ],
+          "gaps": [
+            "While on screen, a new row lights up and rolls to another brand every 3 seconds; it pauses only on hover or focus, with no visible pause control (WCAG 2.2.2 Pause, Stop, Hide)."
+          ]
+        }
       }
     },
     {
@@ -812,7 +1260,45 @@
           "Architecture and design studio websites",
           "Portfolio and selected work pages",
           "Collection and campaign showcases"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Autoplay starts paused. Steps jump straight to the item instead of springing, the image swaps with no slide, blur or fade, and the speed lean, detent pulse and hover transitions are off.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to “Pause” (shown only while focused), then the dial, then the “View project: …” image link."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "On “Pause”, stops autoplay; the button then reads “Play” and resumes it."
+            },
+            {
+              "keys": "↑ / →",
+              "action": "On the dial, steps to the next project."
+            },
+            {
+              "keys": "↓ / ←",
+              "action": "On the dial, steps to the previous project."
+            },
+            {
+              "keys": "Home / End",
+              "action": "On the dial, jumps to the first or last project."
+            },
+            {
+              "keys": "Enter",
+              "action": "On the dial or the image link, opens the active project's link."
+            }
+          ],
+          "notes": [
+            "The block is a region named “Selected projects” with the role description “carousel”, and autoplay pauses while focus or the pointer is inside it.",
+            "The dial is a vertical slider of the same name whose value reads like “Quiet Room, 2024, 5 of 6”; the labels drawn on the arc are aria-hidden.",
+            "Each image uses its item's alt text, and the link around it is named “View project: <project>”.",
+            "Changes made by dragging or tapping are announced through a polite live region; autoplay steps stay silent."
+          ],
+          "gaps": [
+            "Autoplay steps every 2.5 s or so without end, and the lasting “Pause” button is only visible while it has keyboard focus, so mouse and touch users can only pause by hovering or dragging (WCAG 2.2.2 Pause, Stop, Hide)."
+          ]
+        }
       },
       "dependencies": [
         "motion"
@@ -850,7 +1336,20 @@
           "Products sold to several kinds of customers",
           "Enterprise sites with a page per industry",
           "Agency and studio home pages"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "It doesn't roll on its own: it holds on the first word with its neighbours faded above and below, and every transition is off.",
+          "keyboard": [],
+          "notes": [
+            "Screen readers get it as a sentence: the lead (“Built for”), then a list of every audience once; the copies of a short list and the bold duplicate layer are aria-hidden.",
+            "The rolling isn't announced: there's no live region, so screen readers aren't interrupted every step.",
+            "It renders no heading element; wrap it in your own h1 or h2 when it's the page's headline.",
+            "Words given an href become links and Tab stops; focusing one rolls it to the middle and holds the wheel still."
+          ],
+          "gaps": [
+            "With normal motion it rolls every 2 s with no end (unless loops is set) and no visible pause control; it holds only on mouse hover or focus, so touch users can't stop it (WCAG 2.2.2 Pause, Stop, Hide)."
+          ]
+        }
       },
       "files": [
         {
@@ -885,7 +1384,29 @@
           "Company values and culture pages",
           "Careers pages that show what a team believes",
           "Agency and studio manifestos"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Every change is instant: no mosaic dissolve, no word-by-word rise and no counter fade, and the card never moves on by itself, even with `interval` set.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to the card, which is one button: “Next principle” in the docs, “Show next” by default (`nextLabel`)."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Shows the next photo and line, looping back after the last, and announces them."
+            }
+          ],
+          "notes": [
+            "The card is a figure: the photo has alt text, e.g. “An open hand, softly lit against black”, and the figcaption is the current line, led by a hidden position such as “1 of 4:”.",
+            "A transparent button covers the whole card and shows an inset focus ring; focusing it also holds any automatic change.",
+            "After a press, a polite status region reads the new position, line and photo, e.g. “2 of 4: Leave room to breathe. Concrete arches with a patch of sunlight on the floor”; automatic changes are not announced.",
+            "The leaving line, the mosaic tiles, the shade and the drawn “01 / 04” counter are hidden from screen readers."
+          ],
+          "gaps": [
+            "With `interval` set (the docs preview uses 4 seconds) it moves on by itself with no visible pause control; it only holds on mouse hover, on focus or off screen. (WCAG 2.2.2 Pause, Stop, Hide)"
+          ]
+        }
       },
       "files": [
         {
@@ -921,7 +1442,35 @@
           "Studio and agency project indexes",
           "Team, speaker and cast pages with a bio for each person",
           "Menus, rooms or destinations with a story behind each one"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Cards no longer travel, grow or swap places, and text no longer rises; they jump into place. The pane's text, back button and shades still fade in.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the five card buttons; with a card open, through its “Add to bag” link, “Back to all” and the rail."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Opens the focused card into the pane, or swaps in a rail card, and moves focus to the pane's title."
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the pane and returns focus to the card that was open."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the open card's link, e.g. “Add to bag”."
+            }
+          ],
+          "notes": [
+            "Each card is a button named by its title, subtitle and photo, e.g. “Dusk vases, Set of three · $180. Three stoneware vases by a window in late red light”.",
+            "The open pane's photo is a background image with role=\"img\", labelled by the item's `alt`.",
+            "The open pane is a section labelled by its h3 title, and focus moves to that title when a card opens, so screen readers start on the new story.",
+            "The back button is icon-only and named “Back to all” (`backLabel`); the arrow icons and shades are hidden from screen readers."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "motion"
@@ -959,7 +1508,31 @@
           "Research, sales and support agents running tools",
           "Copilots built on function calling or MCP",
           "Landing pages for AI agent products"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Labels and calls swap with a plain fade instead of rising and blurring, panels take their new height at once and only fade, the step dots stop pulsing, the check appears without drawing, and the loaders hold still.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Reaches “Run”; once a run starts, the “Steps” line, then “Run again” when it ends, then each step when the list is open"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Starts the run, opens or closes the steps list, or opens one step’s input and output"
+            },
+            {
+              "keys": "↑ / ↓",
+              "action": "Scrolls a step’s input and output panel once it has focus"
+            }
+          ],
+          "notes": [
+            "A polite live region reads the run as a sentence, like “Step 2 of 4: Reading acme.com/about”, and ends with the summary, tool count and time.",
+            "The visible line text is hidden from screen readers; the line itself is a button named “Steps” with aria-expanded, and focus moves to it after “Run” is pressed.",
+            "Each step is a button (tool name, result, duration) with aria-expanded; steps not yet started are disabled. Its JSON sits in a focusable region named after the tool, like “search_web input and output”.",
+            "Closed panels are inert, so their content is out of the Tab order and hidden from screen readers. The orb, dots, loaders and chevrons are aria-hidden."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "motion"
@@ -1007,7 +1580,48 @@
           "Founder and investor updates on monthly recurring revenue",
           "Subscription analytics on Stripe or Paddle events",
           "Admin panels that explain why revenue moved this month"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The draw-in sweep, line-end rings and number spins are skipped, and the crosshair and change card jump instead of gliding. Switching months and the change card still fade briefly.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to the “Month: November 2026” button, then the “Changes this month” slider."
+            },
+            {
+              "keys": "Enter / Space / ↓",
+              "action": "On the month button, opens the list of months with each month's net."
+            },
+            {
+              "keys": "↑ / ↓",
+              "action": "In the month list, moves between months; Enter / Space shows that month and Esc closes the list."
+            },
+            {
+              "keys": "→ / ↓",
+              "action": "On the slider, steps to the next change and opens it as a diff card."
+            },
+            {
+              "keys": "← / ↑",
+              "action": "On the slider, steps to the previous change."
+            },
+            {
+              "keys": "Home / End",
+              "action": "On the slider, jumps to the month's first or last change."
+            },
+            {
+              "keys": "Esc",
+              "action": "On the slider, clears the picked change and hides its card."
+            }
+          ],
+          "notes": [
+            "The chart itself is aria-hidden; its data reaches screen readers through the slider, whose value text reads each change, e.g. “Nov 24: Juniper, Started on Team, +$249 a month”.",
+            "A polite live region reads the month's summary whenever the month changes: the title, month, amount gained, amount lost, the net and the number of changes.",
+            "The month list is a radio group, so the month on show is announced as checked, each with its net beside it.",
+            "On the plan lanes a gain's tick rises above its lane and a loss's hangs below it, as the chart's lines do, so the sign doesn't rest on green and red alone.",
+            "The card's title (“MRR movements”) is plain text, not a heading."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "@number-flow/react",
@@ -1052,7 +1666,32 @@
           "Voice mode in AI chat apps",
           "Call, dictation and voice note recorders",
           "Landing pages for voice AI products"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The orb holds still (no spin, twinkle, ripple, wobble or voice reaction) and changes look at once; the level bars rest, the label doesn't morph, and the “Now playing” line only fades in.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to the talk button (“Start talking” / “Stop”), then “Use my mic” in the built-in demo."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "On the talk button, starts or stops the conversation, or calls `onToggle` when you pass `state`."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "On “Use my mic”, asks for the microphone or turns it off."
+            }
+          ],
+          "notes": [
+            "The ball of points is hidden from screen readers; its status, e.g. “Listening…” or “Now playing: Rain on Glass”, is repeated in a polite live region, so each change is announced.",
+            "The talk button is icon-only and named for what a press does: “Start talking” or “Stop” (or `buttonLabel`). “Use my mic” is a toggle with aria-pressed and reads “Mic blocked” if access is refused.",
+            "The five state chips in the docs preview (“Idle” to “Now playing”) belong to the docs stage, which hides the block's own buttons; they don't ship with the block."
+          ],
+          "gaps": [
+            "The orb keeps moving at rest (a slow spin and twinkle) with no control to pause it other than the system reduced-motion setting. (WCAG 2.2.2 Pause, Stop, Hide)"
+          ]
+        }
       },
       "dependencies": [
         "motion",
@@ -1099,7 +1738,29 @@
           "Voice mode in AI chat apps",
           "Music and audio companions that react to sound",
           "Landing pages for voice AI products"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The ball holds still: no ripples, breathing, waves or turning, and states switch at once. The level bars rest, the label swaps without morphing, and the “Now playing” line only fades in.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to the talk button, then “Use my mic” (shown by default; showControls={false} removes them)."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "“Start talking” / “Stop” runs or ends the demo (or calls onToggle); “Use my mic” turns your microphone on or off."
+            }
+          ],
+          "notes": [
+            "The orb's canvas is aria-hidden; the state's word (“Listening…”, “Thinking…”) is visible text and is also announced through a polite live region, e.g. “Now playing: Rain on Glass”.",
+            "The talk button is named “Start talking” or “Stop” (buttonLabel overrides it).",
+            "The mic toggle reports aria-pressed and changes to “Mic blocked” if permission is refused.",
+            "The docs preview hides these controls and adds its own state buttons (“Idle” to “Now playing”); those aren't part of the block."
+          ],
+          "gaps": [
+            "The ball turns slowly even at idle (about one turn every 40 s) and moves continuously in the active states, with no pause in the block; only the reduced-motion setting stills it (WCAG 2.2.2 Pause, Stop, Hide)."
+          ]
+        }
       },
       "dependencies": [
         "motion",
@@ -1146,7 +1807,44 @@
           "Profile menus in community and creator apps",
           "Workspace switchers and settings shortcuts",
           "Admin panels and internal tools"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The card no longer grows out of the avatar and the press scale is dropped: the card appears in place, and its name, email and items still fade in from a light blur over 0.2 s.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to the “Account menu” avatar button. Tabbing out of the open menu closes it."
+            },
+            {
+              "keys": "Enter / Space / ↓",
+              "action": "Opens the menu with focus on its first item."
+            },
+            {
+              "keys": "↑ / ↓",
+              "action": "Moves between the items, wrapping round at the ends."
+            },
+            {
+              "keys": "Home / End",
+              "action": "Jumps to the first or last item."
+            },
+            {
+              "keys": "Enter",
+              "action": "Picks the focused item and closes the menu (Space also works on “Sign out”)."
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the menu and returns focus to the avatar."
+            }
+          ],
+          "notes": [
+            "The avatar is a button named “Account menu” (set by the label prop) with aria-haspopup=\"menu\" and aria-expanded; the photo inside it has alt=\"\".",
+            "The items sit in a role=\"menu\" named “Account menu”, as menuitem links and buttons in groups split by separators; the page you're on is marked aria-current=\"page\".",
+            "Item icons are aria-hidden; the Team row's plus badge reads “Invite” through screen-reader-only text, and the “PRO” badge is plain text.",
+            "The name and email sit above the menu as plain text, outside the menu role, so they're read when browsing the card, not while arrowing through items.",
+            "Opening from the keyboard focuses the first item; Esc, picking an item and the “Close account menu” avatar in the card all return focus to the trigger."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "motion"
@@ -1183,7 +1881,27 @@
           "SaaS and B2B product landing pages",
           "Developer tool and software showcase sites",
           "Customer proof and wall-of-love pages"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The cards fade in without sliding, the arrows move the row by one card in a jump instead of a smooth scroll, and the arrow icons don't nudge when pressed.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to “Previous testimonials” and “Next testimonials”; both stay focusable at the ends of the row."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Scrolls the row back or forward by one card; at an end of the row it does nothing."
+            }
+          ],
+          "notes": [
+            "The title (“Trusted by Teams”) is an h2 by default; headingLevel sets 1–3.",
+            "Each testimonial is a figure: the quote in a blockquote and the author's name, role and company in a figcaption. The avatar is decorative (alt=\"\"), since the name follows in the caption.",
+            "The arrow buttons are named “Previous testimonials” and “Next testimonials” and are aria-disabled at the ends, so focus stays on them; their icons are hidden from screen readers.",
+            "Every card stays in the page, so screen readers reach all testimonials whatever the scroll position."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "lucide-react",
@@ -1221,7 +1939,33 @@
           "High-impact SaaS landing pages",
           "Executive and enterprise software websites",
           "Founders and product leadership case studies"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Each change is a plain fade: the quote lines and author details fade in line by line without sliding or blurring, the portrait cross-fades, and the arrow buttons don't shrink when pressed.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves to “Previous testimonial”, then “Next testimonial”"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Shows the previous or next testimonial"
+            },
+            {
+              "keys": "← / →",
+              "action": "Shows the previous or next testimonial while focus is inside the section, never from a text field"
+            }
+          ],
+          "notes": [
+            "A visually hidden h2 names the section, “Customer Testimonials” by default (set with title).",
+            "The quote is a blockquote split into one span per displayed line; the hidden copy used to measure lines is aria-hidden.",
+            "The portrait’s alt text is the customer’s name, like “Sam Davies”, and the arrow buttons are named “Previous testimonial” and “Next testimonial”.",
+            "A polite `role=\"status\"` region reads each change you make, like “Testimonial 2 of 5. Elena Rostova, Head of Infrastructure, Stratum Dynamics:” and the quote; autoplay changes stay silent."
+          ],
+          "gaps": [
+            "With autoPlayInterval set, it advances on a timer with no pause control (WCAG 2.2.2 Pause, Stop, Hide); autoplay is off by default."
+          ]
+        }
       },
       "dependencies": [
         "lucide-react",
@@ -1260,7 +2004,37 @@
           "Furniture, product and lifestyle brand websites",
           "Campaign and lookbook pages",
           "Studio and portfolio home pages"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "The rail stops drifting, and opening, closing, the dock swell and the custom cursor jump straight to their end state instead of easing. Focusing a photo still shifts the rail, instantly.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the nine photos; the rail shifts to keep the focused one in view"
+            },
+            {
+              "keys": "← / →",
+              "action": "Moves focus to the previous or next photo, wrapping at the ends"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Opens the focused photo large, or closes it again"
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the open photo"
+            }
+          ],
+          "notes": [
+            "The headline is an h2 by default (headingLevel sets 1 to 3).",
+            "Each photo is a button named by its alt text, like “A pale wooden bar stool against a soft blue wall”, with aria-expanded showing whether it is open; the image inside has empty alt.",
+            "The rail repeats the photos so it can loop, but only one set is focusable and exposed; the copies are aria-hidden and out of the Tab order.",
+            "The “View” / “Close” cursor disc is aria-hidden and only appears for a mouse or trackpad."
+          ],
+          "gaps": [
+            "With normal motion the rail drifts sideways without end and stops only while hovered, focused or open; there is no visible pause control, though `speed={0}` holds it still (WCAG 2.2.2 Pause, Stop, Hide)."
+          ]
+        }
       },
       "files": [
         {
@@ -1295,7 +2069,39 @@
           "Press and media pages",
           "'As featured in' strips on company and about pages",
           "Studios, agencies and brands with magazine coverage"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Opening a card loses the grow and slide: the deck parts and the card moves into place at once, and its extra text fades without rising. Scrolling moves the deck in whole steps, each card dropping into the stack at once.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the six press cards; a card that is out of view scrolls into place as it takes focus."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Opens the focused card as a dialog and moves focus to its “Close” button."
+            },
+            {
+              "keys": "Tab / Shift+Tab",
+              "action": "Inside an open card, cycles between “Close” and “Read the article” without leaving it."
+            },
+            {
+              "keys": "Enter",
+              "action": "On “Read the article”, follows the link to the article."
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the open card and returns focus to its headline."
+            }
+          ],
+          "notes": [
+            "The heading “As featured in” is an h2 by default (headingLevel changes it), and each card's headline is the next level down, holding a button marked as opening a dialog.",
+            "An open card is a modal dialog labelled by its headline and described by its excerpt; the rest of the page is made inert and stops scrolling until it closes.",
+            "The close button is named “Close”, and the article link reads “Read the article (The Material Review)”, adding “opens in a new tab” for external links.",
+            "Dates are time elements and the article type (“Review”, “Interview”) is read beside the date (after the publication on phones); the “Read more” cue and the arrow icons are hidden from screen readers."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "motion"
@@ -2355,7 +3161,44 @@
           "CRM and sales dashboard prompts",
           "Agent consoles and internal tools",
           "Any app where people write prompts to a model"
-        ]
+        ],
+        "a11y": {
+          "reducedMotion": "Menus and the quick-prompts tray fade without scaling or rising, the tray unfolds at once, and hover pills jump instead of sliding. While listening, the voice bars hold still and “Listening...” stops pulsing.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through “Quick prompts” (and its six prompts once unfolded), “Message”, then the footer buttons"
+            },
+            {
+              "keys": "Enter",
+              "action": "In “Message”, sends the prompt; “Send” stays disabled while the field is empty"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Activates the focused button: picks a prompt, opens a menu, chooses an option or toggles voice input"
+            },
+            {
+              "keys": "Tab",
+              "action": "In the model menu, focusing a model opens its reasoning depths; Tab walks through them before the next model"
+            },
+            {
+              "keys": "Tab",
+              "action": "In the permission menu, focusing a mode shows its description at once"
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the open attachment, model or permission menu; the model and permission menus return focus to their button"
+            }
+          ],
+          "notes": [
+            "The text field is named “Message”; the icon buttons are named “Add attachment”, “Voice input” or “Stop listening” (with aria-pressed) and “Send”. Each attachment pill has a remove button like “Remove dataset.csv”.",
+            "“Quick prompts”, “Add attachment” and the model and permission buttons report aria-expanded; the model button reads e.g. “Quick ChatGPT”. While the tray is folded, its prompts are inert: out of the Tab order and hidden.",
+            "The chosen model, reasoning depth and permission mode are marked with aria-pressed. Each permission mode carries its description as its accessible description; tabbing out of the model or permission menu closes it.",
+            "Usage limits show the percentage left as text beside each ring, and the menu icons are hidden from screen readers.",
+            "While listening, the text field is replaced by a wave and the text “Listening...”."
+          ],
+          "gaps": []
+        }
       },
       "dependencies": [
         "motion",

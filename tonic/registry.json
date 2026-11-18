@@ -1,0 +1,383 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "tonic",
+  "homepage": "https://ui.tonicagentic.com",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Theme",
+      "description": "Pearl color tokens for light and dark. Soft gray page, white elevated surfaces, near-black primary.",
+      "cssVars": {
+        "theme": {
+          "font-sans": "-apple-system, BlinkMacSystemFont, sans-serif",
+          "font-mono": "ui-monospace, \"SF Mono\", SFMono-Regular, Menlo, Monaco, monospace",
+          "radius": "0.625rem"
+        },
+        "light": {
+          "background": "oklch(0.971 0 0)",
+          "foreground": "oklch(0.16 0 0)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.16 0 0)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.16 0 0)",
+          "primary": "oklch(0.19 0 0)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "secondary": "oklch(0.94 0 0)",
+          "secondary-foreground": "oklch(0.19 0 0)",
+          "muted": "oklch(0.94 0 0)",
+          "muted-foreground": "oklch(0.6 0 0)",
+          "accent": "oklch(0.94 0 0)",
+          "accent-foreground": "oklch(0.19 0 0)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.916 0 0)",
+          "input": "oklch(0.916 0 0)",
+          "ring": "oklch(0.708 0 0)"
+        },
+        "dark": {
+          "background": "oklch(0.145 0 0)",
+          "foreground": "oklch(0.985 0 0)",
+          "card": "oklch(0.205 0 0)",
+          "card-foreground": "oklch(0.985 0 0)",
+          "popover": "oklch(0.205 0 0)",
+          "popover-foreground": "oklch(0.985 0 0)",
+          "primary": "oklch(0.922 0 0)",
+          "primary-foreground": "oklch(0.205 0 0)",
+          "secondary": "oklch(0.269 0 0)",
+          "secondary-foreground": "oklch(0.985 0 0)",
+          "muted": "oklch(0.269 0 0)",
+          "muted-foreground": "oklch(0.708 0 0)",
+          "accent": "oklch(0.269 0 0)",
+          "accent-foreground": "oklch(0.985 0 0)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.556 0 0)"
+        }
+      },
+      "files": [
+        {
+          "path": "registry/tonic/theme/theme.css",
+          "type": "registry:file",
+          "target": "app/tonic-theme.css"
+        }
+      ]
+    },
+    {
+      "name": "surfaces",
+      "type": "registry:lib",
+      "title": "Surfaces",
+      "description": "Shared Pearl chat surface tokens, shimmer/swap labels, and motion helpers.",
+      "files": [
+        {
+          "path": "registry/tonic/lib/surfaces.tsx",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/tonic/lib/surfaces.css",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-elapsed-label",
+      "type": "registry:hook",
+      "title": "useElapsedLabel",
+      "description": "Live elapsed badge timer for streaming thinking and timeline chrome.",
+      "files": [
+        {
+          "path": "registry/tonic/hooks/use-elapsed-label.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Radix collapsible primitive used by timeline, tool group, and tool fallback.",
+      "dependencies": ["@radix-ui/react-collapsible"],
+      "files": [
+        {
+          "path": "registry/tonic/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Button primitive.",
+      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/tonic/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Textarea primitive.",
+      "files": [
+        {
+          "path": "registry/tonic/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-composer",
+      "type": "registry:component",
+      "title": "Chat Composer",
+      "description": "A presentational chat composer shell with slots for attachments, input, and actions. Adapted from Pearl.",
+      "files": [
+        {
+          "path": "registry/tonic/chat-composer/chat-composer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "thinking-indicator",
+      "type": "registry:component",
+      "title": "Thinking Indicator",
+      "description": "A quiet shimmer status line with optional elapsed time and label swaps. Adapted from Pearl.",
+      "registryDependencies": ["surfaces"],
+      "files": [
+        {
+          "path": "registry/tonic/thinking-indicator/thinking-indicator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "typing-indicator",
+      "type": "registry:component",
+      "title": "Typing Indicator",
+      "description": "Three-dot typing chrome for an idle assistant turn.",
+      "registryDependencies": ["surfaces"],
+      "files": [
+        {
+          "path": "registry/tonic/typing-indicator/typing-indicator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tool-presentation",
+      "type": "registry:lib",
+      "title": "Tool Presentation",
+      "description": "Human labels and icons for Pearl tool ids.",
+      "files": [
+        {
+          "path": "registry/tonic/tool-presentation/tool-presentation.tsx",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "tool-timeline",
+      "type": "registry:component",
+      "title": "Tool Timeline",
+      "description": "Collapsible Working/Worked timeline with thought and tool steps.",
+      "registryDependencies": ["surfaces", "collapsible"],
+      "files": [
+        {
+          "path": "registry/tonic/tool-timeline/tool-timeline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tool-group",
+      "type": "registry:component",
+      "title": "Tool Group",
+      "description": "Collapsible group of tool calls with count and optional solo tool label.",
+      "registryDependencies": ["collapsible", "tool-presentation"],
+      "files": [
+        {
+          "path": "registry/tonic/tool-group/tool-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tool-fallback",
+      "type": "registry:component",
+      "title": "Tool Fallback",
+      "description": "Presentational tool call shell with args, result, error, and approval.",
+      "registryDependencies": ["collapsible", "button", "textarea"],
+      "files": [
+        {
+          "path": "registry/tonic/tool-fallback/tool-fallback.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "reasoning",
+      "type": "registry:component",
+      "title": "Reasoning",
+      "description": "Collapsible Thought shell with shimmer trigger and scrollable body.",
+      "registryDependencies": ["surfaces"],
+      "files": [
+        {
+          "path": "registry/tonic/reasoning/reasoning.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "citation",
+      "type": "registry:component",
+      "title": "Citation",
+      "description": "Citation chips and sources list for numbered markdown references.",
+      "registryDependencies": ["surfaces"],
+      "files": [
+        {
+          "path": "registry/tonic/citation/citation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "message-markdown",
+      "type": "registry:component",
+      "title": "Message Markdown",
+      "description": "GFM markdown renderer for assistant message text with citation chips.",
+      "dependencies": ["react-markdown", "remark-gfm"],
+      "registryDependencies": ["citation", "button"],
+      "files": [
+        {
+          "path": "registry/tonic/message-markdown/message-markdown.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file",
+      "type": "registry:component",
+      "title": "File",
+      "description": "File message part chip with mime icon, size, and download.",
+      "files": [
+        {
+          "path": "registry/tonic/file/file.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image",
+      "type": "registry:component",
+      "title": "Image",
+      "description": "Image message part with loading, error, and lightbox zoom.",
+      "files": [
+        {
+          "path": "registry/tonic/image/image.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "task-card",
+      "type": "registry:component",
+      "title": "Task Card",
+      "description": "Delegated or subagent task card with state, elapsed, and transcript.",
+      "registryDependencies": ["surfaces"],
+      "files": [
+        {
+          "path": "registry/tonic/task-card/task-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "todo-list",
+      "type": "registry:component",
+      "title": "Todo List",
+      "description": "Agent todo checklist card with progress.",
+      "files": [
+        {
+          "path": "registry/tonic/todo-list/todo-list.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "authorization",
+      "type": "registry:component",
+      "title": "Authorization",
+      "description": "HITL authorization / device-login waiting card.",
+      "files": [
+        {
+          "path": "registry/tonic/authorization/authorization.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "follow-up-suggestions",
+      "type": "registry:component",
+      "title": "Follow-up Suggestions",
+      "description": "Horizontal suggestion chip row with edge fades.",
+      "files": [
+        {
+          "path": "registry/tonic/follow-up-suggestions/follow-up-suggestions.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:component",
+      "title": "Icon Button",
+      "description": "Compact labeled icon action for message toolbars.",
+      "files": [
+        {
+          "path": "registry/tonic/icon-button/icon-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "message-attachment",
+      "type": "registry:component",
+      "title": "Message Attachment",
+      "description": "User/assistant message attachment chips with upload states.",
+      "files": [
+        {
+          "path": "registry/tonic/message-attachment/message-attachment.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "agent-message",
+      "type": "registry:block",
+      "title": "Agent Message",
+      "description": "Composed Pearl assistant turn: thinking, timeline, todos, tools, task card, markdown, citations, follow-ups.",
+      "registryDependencies": [
+        "thinking-indicator",
+        "tool-timeline",
+        "todo-list",
+        "tool-group",
+        "tool-fallback",
+        "task-card",
+        "message-markdown",
+        "citation",
+        "follow-up-suggestions",
+        "icon-button"
+      ],
+      "files": [
+        {
+          "path": "registry/tonic/blocks/agent-message/agent-message.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

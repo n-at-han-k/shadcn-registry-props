@@ -1,0 +1,687 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "scrollfx",
+  "homepage": "https://scrollfx-ui.vercel.app",
+  "items": [
+    {
+      "name": "plotter",
+      "type": "registry:lib",
+      "title": "Plotter",
+      "description": "Seeded line-drawing generators (flow fields, contours, globes, tunnels, rosettes, harmonographs, spirals, Lissajous knots, ridgelines, routes, hatching, fingerprints, starbursts, gauges, moirés, logo marks and sketched rules) and scrollWindow(), the trigger that finishes a drawing as it reaches the middle of the screen. Every scrollfx block draws with it.",
+      "files": [
+        {
+          "path": "lib/plotter.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:lib",
+      "title": "Charts",
+      "description": "What the scrollfx charts share: series from a config, nice ticks and scales, monotone curves, markers, hatching for bars, areas and wedges, and the pens that ink a chart in order (axes, hatching, then the lines) as it reaches the middle of the screen.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "lib/chart.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "hero-flow-field",
+      "type": "registry:block",
+      "title": "Hero, flow field",
+      "description": "A hero beside a print: a round flow field of several hundred strokes, plotted top to bottom on arrival, with a live stroke count.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero-flow-field.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Watch it arrive: the pen plots the print, top to bottom.",
+        "tall": false
+      }
+    },
+    {
+      "name": "logos-plotted",
+      "type": "registry:block",
+      "title": "Plotted logo cloud",
+      "description": "A logo cloud between two rules a pen draws across the page, each name beside a simple mark it plots line by line: rings, a hatched disc, triangles, waves, a ruled square, a burst.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/logos-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to it: the rules are drawn across and each mark is plotted.",
+        "tall": false
+      }
+    },
+    {
+      "name": "hatch-highlight",
+      "type": "registry:block",
+      "title": "Hatched highlight",
+      "description": "A large statement whose key phrases a pen hatches over as they are read, like a proof marked up by hand.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hatch-highlight.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to it: the marked phrases are hatched in.",
+        "tall": false
+      }
+    },
+    {
+      "name": "plotted-chart",
+      "type": "registry:block",
+      "title": "Plotted chart",
+      "description": "Figures that count up beside an area chart a pen plots as you scroll: hatched in from left to right, the curve drawn over it.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/plotted-chart.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll through it: the hatching and the curve plot left to right.",
+        "tall": true
+      }
+    },
+    {
+      "name": "feature-plates",
+      "type": "registry:block",
+      "title": "Feature plates",
+      "description": "Features beside plates a pen draws as you reach them: a topographic map, a wireframe globe, a tunnel of turning squares.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/feature-plates.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll down: each plate is drawn as it arrives.",
+        "tall": true
+      }
+    },
+    {
+      "name": "bento-plotted",
+      "type": "registry:block",
+      "title": "Plotted bento grid",
+      "description": "A bento grid of cards in mixed sizes, each with a drawing of its own: a moiré of two ring sets, a Lissajous knot, a rosette, ridgelines and a globe.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/bento-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll down: each card's drawing is plotted as it arrives.",
+        "tall": true
+      }
+    },
+    {
+      "name": "steps-route",
+      "type": "registry:block",
+      "title": "Steps on a route",
+      "description": "How it works as a route on a map: numbered stops a pen rings in turn, joined by a line that wanders from one to the next and ends on a cross.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/steps-route.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to it: the pen rings each stop and travels on.",
+        "tall": false
+      }
+    },
+    {
+      "name": "stats-plotted",
+      "type": "registry:block",
+      "title": "Plotted stats",
+      "description": "Figures that count up, each over a gauge a pen plots tick by tick, with an accent band out to the figure's share of the dial and a needle pointing at it.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/stats-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to it: the gauges are plotted and the figures count up.",
+        "tall": false
+      }
+    },
+    {
+      "name": "changelog-plotted",
+      "type": "registry:block",
+      "title": "Plotted changelog",
+      "description": "Releases down a rail that inks itself as you read, each stamped with a rosette drawn from its version number.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/changelog-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Read down: the rail inks, each stamp is drawn.",
+        "tall": true
+      }
+    },
+    {
+      "name": "pricing-plotted",
+      "type": "registry:block",
+      "title": "Plotted pricing",
+      "description": "Plans headed by marks that grow denser with the plan, the recommended one framed by a pen that goes round it twice, and prices that count.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/pricing-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to it: the marks and the frame are drawn.",
+        "tall": true
+      }
+    },
+    {
+      "name": "testimonials-plotted",
+      "type": "registry:block",
+      "title": "Plotted testimonials",
+      "description": "Quotes on sheets, each stamped with a spiral a pen winds from the rim inward, seeded from the person's name, with their initials in its eye.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/testimonials-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to them: each spiral winds in as its card arrives.",
+        "tall": false
+      }
+    },
+    {
+      "name": "team-plotted",
+      "type": "registry:block",
+      "title": "Team with fingerprints",
+      "description": "The people behind the product, each over a fingerprint seeded from their name, drawn ring by ring from the core outward.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/team-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to them: each print grows ring by ring as its card arrives.",
+        "tall": false
+      }
+    },
+    {
+      "name": "faq-plotted",
+      "type": "registry:block",
+      "title": "Plotted FAQ",
+      "description": "Questions that open in place with the browser's own disclosure, beside a plate where a pen draws a Lissajous knot.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/faq-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to it: the knot is traced, four times over.",
+        "tall": false
+      }
+    },
+    {
+      "name": "newsletter-plotted",
+      "type": "registry:block",
+      "title": "Starburst sign-up",
+      "description": "A newsletter sign-up beside a starburst a pen draws ray by ray, clockwise from the top, with every twelfth ray in the accent colour.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/newsletter-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to it: the rays sweep round from the top.",
+        "tall": false
+      }
+    },
+    {
+      "name": "cta-harmonograph",
+      "type": "registry:block",
+      "title": "Harmonograph call to action",
+      "description": "The closing call to action beside a harmonograph: one unbroken line, the trace of two pendulums, drawn as the section arrives.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/cta-harmonograph.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to it: one line spirals in as the swing dies away.",
+        "tall": false
+      }
+    },
+    {
+      "name": "footer-plotted",
+      "type": "registry:block",
+      "title": "Plotted footer",
+      "description": "A footer under a horizon of ridgelines a pen plots back to front as it comes into view, with link columns and a closing line below.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/footer-plotted.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "motion": "Scroll to the end: the horizon is plotted, back to front.",
+        "tall": false
+      }
+    },
+    {
+      "name": "chart-line",
+      "type": "registry:ui",
+      "title": "Line chart",
+      "description": "A line chart a pen plots as you scroll: gridlines, then each series left to right, the first in the accent, then a marker on every point. One series or several; smooth, straight or stepped.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/chart-line.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/chart-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-area",
+      "type": "registry:ui",
+      "title": "Area chart",
+      "description": "An area chart hatched in stroke by stroke under its curve, then the curve drawn over it in the accent. One series, or several stacked, each with its own hatch.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/chart-area.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/chart-area.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-bar",
+      "type": "registry:ui",
+      "title": "Bar chart",
+      "description": "Hatched bars, outlined by the pen as you scroll. Vertical or horizontal, one series, grouped side by side, or stacked.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/chart-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/chart-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-pie",
+      "type": "registry:ui",
+      "title": "Pie chart",
+      "description": "A pie or donut whose wedges are shaded by hatching of different angles and densities, the way a plotter shades without colour, then outlined.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/chart-pie.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/chart-pie.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar",
+      "type": "registry:ui",
+      "title": "Radar chart",
+      "description": "A radar chart: rings and spokes, then each series' shape hatched in and outlined, the first in the accent.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/chart-radar.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/chart-radar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-scatter",
+      "type": "registry:ui",
+      "title": "Scatter chart",
+      "description": "Points plotted left to right as small marks, one shape per series, with an optional fitted trend line drawn last.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/chart-scatter.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/chart-scatter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:ui",
+      "title": "Sparkline",
+      "description": "A tiny inline line for tables and stat cards, drawn as it reaches the middle of the screen, with an optional hatched area and an end dot.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/chart.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sparkline.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/sparkline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ink",
+      "type": "registry:lib",
+      "title": "Ink",
+      "description": "What the ink components share: useInk(), which hands an svg to svg-scroll-draw on the scroll (finishing at mid-screen) or once in view; useSize(); and Hershey's script, a public-domain single-stroke handwriting font, laid out by script().",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json"
+      ],
+      "files": [
+        {
+          "path": "lib/ink.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "ink-highlight",
+      "type": "registry:ui",
+      "title": "Ink highlight",
+      "description": "A mark a pen makes on words in running text: underline, double underline, circle, box, strike or hatch fill. Inline in a paragraph, one mark per line when the words wrap.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/ink.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/ink-highlight.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/ink-highlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ink-divider",
+      "type": "registry:ui",
+      "title": "Ink divider",
+      "description": "A rule a pen draws across the page: straight, wavy, sketchy (ink then accent), dotted, or two rules drawn outward from a label.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/ink.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/ink-divider.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/ink-divider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ink-frame",
+      "type": "registry:ui",
+      "title": "Ink frame",
+      "description": "A border a pen draws round any children: rect or rounded (twice round, ink then accent), double, or crop marks at the corners.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/ink.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/ink-frame.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/ink-frame.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ink-progress",
+      "type": "registry:ui",
+      "title": "Ink progress",
+      "description": "A value plotted as it is reached: a bar hatched in to the value, a ring with an accent band, or a ticked gauge with a needle. role=\"progressbar\".",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/ink.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/ink-progress.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/ink-progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ink-stamp",
+      "type": "registry:ui",
+      "title": "Ink stamp",
+      "description": "A short word or two inside a plotted stamp: a circle with text round its rim, a rectangle ruled twice, or a scalloped seal, set a little askew.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/ink.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/ink-stamp.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/ink-stamp.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ink-signature",
+      "type": "registry:ui",
+      "title": "Ink signature",
+      "description": "A name written stroke by stroke at one steady speed in Hershey's single-stroke script, underlined with a flourish; or your own signature as SVG paths.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/ink.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/ink-signature.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/ink-signature.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ink-arrow",
+      "type": "registry:ui",
+      "title": "Ink arrow",
+      "description": "A hand-drawn arrow pointing at something: nearly straight, curved, or looped, with a head made in one stroke.",
+      "dependencies": [
+        "svg-scroll-draw@^2.29.0"
+      ],
+      "registryDependencies": [
+        "https://scrollfx-ui.vercel.app/r/plotter.json",
+        "https://scrollfx-ui.vercel.app/r/ink.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/ink-arrow.tsx",
+          "type": "registry:ui",
+          "target": "components/scrollfx/ink-arrow.tsx"
+        }
+      ]
+    }
+  ]
+}

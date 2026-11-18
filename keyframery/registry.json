@@ -63,13 +63,26 @@
       }
     },
     {
+      "name": "agent-content",
+      "type": "registry:item",
+      "title": "Agent content",
+      "description": "Read-only content exposure for Keyframery's UI SDK primitives.",
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/agent-content-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/agent-content-core.ts"
+        }
+      ]
+    },
+    {
       "name": "accordion",
       "type": "registry:component",
       "title": "Accordion",
       "description": "Panels open to their real height on a spring while their contents rise in one after another.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -88,13 +101,43 @@
       ]
     },
     {
+      "name": "alert",
+      "type": "registry:component",
+      "title": "Alert",
+      "description": "Alerts drop into place out of a blur on a spring while their icon pops into its tile and draws, and when dismissed they fade and fold their height away.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/alert-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/alert-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/alert.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/alert.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/alert.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/alert.tsx"
+        }
+      ]
+    },
+    {
       "name": "alert-dialog",
       "type": "registry:component",
       "title": "Alert Dialog",
       "description": "A confirmation that rises out of a blur, with the warning icon popping in before the rest.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -113,13 +156,75 @@
       ]
     },
     {
+      "name": "aspect-ratio",
+      "type": "registry:component",
+      "title": "Aspect Ratio",
+      "description": "Frames that hold their shape and reshape on a spring when the ratio changes, with photos that fade up out of a blur once they have loaded.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/aspect-ratio-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/aspect-ratio-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/aspect-ratio.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/aspect-ratio.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/aspect-ratio.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/aspect-ratio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "attachment",
+      "type": "registry:component",
+      "title": "Attachment",
+      "description": "File cards with image previews, upload progress, retry and remove actions, built on UI SDK core.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/message-scroller",
+        "@keyframery/button"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/attachment-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/attachment-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/attachment.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/attachment.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/attachment.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/attachment.tsx"
+        }
+      ]
+    },
+    {
       "name": "autocomplete",
       "type": "registry:component",
       "title": "Autocomplete",
       "description": "Suggestions cascade in under the field and one highlight glides between them as you type.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -143,8 +248,8 @@
       "title": "Avatar",
       "description": "Photos fade up out of a blur once loaded, and stacked avatars spring apart on hover.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -166,12 +271,21 @@
       "name": "badge",
       "type": "registry:component",
       "title": "Badge",
-      "description": "Badges pop in, and a count rolls its digits up or down when the number changes.",
-      "dependencies": [],
+      "description": "Badges pop in, a count rolls its digits up or down when the number changes, and a status dot sends out one ring each time the badge's text or count changes.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
       "registryDependencies": [
-        "@keyframery/motion"
+        "@keyframery/motion",
+        "@keyframery/agent-content"
       ],
       "files": [
+        {
+          "path": "registry/components/keyframery/core/badge-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/badge-core.ts"
+        },
         {
           "path": "registry/components/keyframery/primitives/badge.tsx",
           "type": "registry:component",
@@ -185,13 +299,76 @@
       ]
     },
     {
+      "name": "breadcrumb",
+      "type": "registry:component",
+      "title": "Breadcrumb",
+      "description": "Crumbs arrive one after another with their chevrons drawing themselves, a crumb for a deeper page slides in from the right, and links underline from their start.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/agent-content"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/breadcrumb-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/breadcrumb-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/breadcrumb.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/breadcrumb.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/breadcrumb.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/breadcrumb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:component",
+      "title": "Bubble",
+      "description": "Chat bubbles that grow from their sender’s corner, with grouped messages, reply actions and delayed reactions, built on UI SDK core.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/agent-content",
+        "@keyframery/message-scroller"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/bubble-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/bubble-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/bubble.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/bubble.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/bubble.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/bubble.tsx"
+        }
+      ]
+    },
+    {
       "name": "button",
       "type": "registry:component",
       "title": "Button",
       "description": "Presses spring back, the label lifts away for a spinner while pending, and an arrow nudges on hover.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -210,13 +387,43 @@
       ]
     },
     {
+      "name": "button-group",
+      "type": "registry:component",
+      "title": "Button Group",
+      "description": "Buttons join into one strip, and a single highlight glides from segment to segment under the pointer or keyboard focus, taking each segment's corners as it goes.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/button-group-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/button-group-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/button-group.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/button-group.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/button-group.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/button-group.tsx"
+        }
+      ]
+    },
+    {
       "name": "calendar",
       "type": "registry:component",
       "title": "Calendar",
       "description": "One key glides from the old day to the new one, and weeks slide in from the side you turned to.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -238,12 +445,21 @@
       "name": "card",
       "type": "registry:component",
       "title": "Card",
-      "description": "Card parts cascade in, interactive cards lift on hover, and an optional light follows the pointer.",
-      "dependencies": [],
+      "description": "Card parts cascade in, interactive cards lift on hover and sink while pressed, by pointer or by Space and Enter, and an optional light follows the pointer.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
       "registryDependencies": [
-        "@keyframery/motion"
+        "@keyframery/motion",
+        "@keyframery/agent-content"
       ],
       "files": [
+        {
+          "path": "registry/components/keyframery/core/card-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/card-core.ts"
+        },
         {
           "path": "registry/components/keyframery/primitives/card.tsx",
           "type": "registry:component",
@@ -262,8 +478,8 @@
       "title": "Carousel",
       "description": "Slides travel on a spring and the active dot stretches into a bar.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -282,13 +498,43 @@
       ]
     },
     {
+      "name": "chart",
+      "type": "registry:component",
+      "title": "Chart",
+      "description": "Bar, line, area and donut charts in plain SVG and CSS, no charting library: bars grow from the baseline one after another, lines draw themselves, rings sweep round, and every change of data tweens on a spring. The tooltip glides with rolling numbers, the legend folds series away, and the arrow keys walk the points.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/chart-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/chart-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/chart.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/chart.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/chart.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/chart.tsx"
+        }
+      ]
+    },
+    {
       "name": "checkbox",
       "type": "registry:component",
       "title": "Checkbox",
       "description": "The box pops as it fills and the check draws itself.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -307,13 +553,43 @@
       ]
     },
     {
+      "name": "code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "Lines cascade in from the left, a highlighted line's band sweeps across and follows the highlight when it moves, and copying pops a tick that draws itself.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/code-block-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/code-block-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/code-block.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/code-block.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/code-block.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/code-block.tsx"
+        }
+      ]
+    },
+    {
       "name": "collapsible",
       "type": "registry:component",
       "title": "Collapsible",
       "description": "Content opens to its real height on a spring and its rows fall in one after another.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -337,8 +613,8 @@
       "title": "Color Picker",
       "description": "The picker unfolds from its swatch, the thumb grows while you drag and the colour cross-fades.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -362,8 +638,8 @@
       "title": "Combobox",
       "description": "The list unfolds from the field, rows cascade in and one highlight glides between options.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -387,8 +663,8 @@
       "title": "Command",
       "description": "A command palette whose rows cascade in, with one highlight gliding between results and pages sliding sideways.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -435,8 +711,8 @@
       "title": "Date Input",
       "description": "One highlight glides between day, month and year as you move through the segments.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -460,8 +736,8 @@
       "title": "Date Picker",
       "description": "A field that opens a calendar unfolding from it, with the selected day gliding to its new place.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -485,8 +761,8 @@
       "title": "Dialog",
       "description": "Rises from below out of a blur, then its title, fields and buttons arrive one after another.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -505,13 +781,43 @@
       ]
     },
     {
+      "name": "direction",
+      "type": "registry:component",
+      "title": "Direction",
+      "description": "A UI SDK core reading-direction boundary and toggle that mirror content between left-to-right and right-to-left layouts.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/direction-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/direction-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/direction.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/direction.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/direction.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/direction.tsx"
+        }
+      ]
+    },
+    {
       "name": "drawer",
       "type": "registry:component",
       "title": "Drawer",
       "description": "Slides in from any edge on a spring; its grip stretches while you drag it.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -530,13 +836,44 @@
       ]
     },
     {
+      "name": "empty",
+      "type": "registry:component",
+      "title": "Empty",
+      "description": "Empty states arrive part by part: the icon tile pops and its strokes draw, then the title, the description and each action rise in out of a blur.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/agent-content"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/empty-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/empty-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/empty.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/empty.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/empty.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/empty.tsx"
+        }
+      ]
+    },
+    {
       "name": "field",
       "type": "registry:component",
       "title": "Field",
       "description": "Labels, hints and errors move together: an error slides in under the field and the ring turns red.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -560,8 +897,8 @@
       "title": "File Input",
       "description": "A drop zone that wakes up when a file is over it, with new file rows arriving one after another.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -580,13 +917,44 @@
       ]
     },
     {
+      "name": "form",
+      "type": "registry:component",
+      "title": "Form",
+      "description": "Fields that settle back while the form sends, a submit button whose label rises through sending to a drawn check, and server errors that open in place under the field they belong to.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/field"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/form-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/form-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/form.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/form.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/form.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/form.tsx"
+        }
+      ]
+    },
+    {
       "name": "hover-card",
       "type": "registry:component",
       "title": "Hover Card",
       "description": "A preview card that unfolds from the link you are pointing at.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -610,8 +978,8 @@
       "title": "Image Cropper",
       "description": "The selection springs to a new ratio, handles grow while you drag and the zoom settles on a spring.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -635,8 +1003,8 @@
       "title": "Input",
       "description": "The focus ring closes in around the field on a spring.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -655,15 +1023,88 @@
       ]
     },
     {
+      "name": "input-group",
+      "type": "registry:component",
+      "title": "Input Group",
+      "description": "Icons, text, buttons and a count around an input or textarea, in one field: the focus ring closes in on the whole group, the count rolls as you type and a send button pops in with the first character.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/button",
+        "@keyframery/input",
+        "@keyframery/textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/input-group-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/input-group-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/input-group.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/input-group.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/input-group.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/input-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:component",
+      "title": "Item",
+      "description": "Rows of content that arrive one after another, with one highlight gliding between the rows you can open.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/agent-content"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/item-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/item-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/item.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/item.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/item.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/item.tsx"
+        }
+      ]
+    },
+    {
       "name": "kbd",
       "type": "registry:component",
       "title": "Kbd",
       "description": "Keyboard keys that sink and spring back when pressed, one after another for a combination.",
-      "dependencies": [],
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
       "registryDependencies": [
-        "@keyframery/motion"
+        "@keyframery/motion",
+        "@keyframery/agent-content"
       ],
       "files": [
+        {
+          "path": "registry/components/keyframery/core/kbd-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/kbd-core.ts"
+        },
         {
           "path": "registry/components/keyframery/primitives/kbd.tsx",
           "type": "registry:component",
@@ -682,8 +1123,8 @@
       "title": "Label",
       "description": "A label whose colour follows its control's focus and errors, with a small marker that pops in.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -707,8 +1148,8 @@
       "title": "Listbox",
       "description": "One highlight glides between options and checks pop in as you choose.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -727,13 +1168,44 @@
       ]
     },
     {
+      "name": "marker",
+      "type": "registry:component",
+      "title": "Marker",
+      "description": "A quiet line in a stream whose rules draw out from its words, with a light that sweeps across it while the work it names is still going.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/agent-content"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/marker-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/marker-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/marker.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/marker.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/marker.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/marker.tsx"
+        }
+      ]
+    },
+    {
       "name": "menu",
       "type": "registry:component",
       "title": "Menu",
       "description": "The sheet unfolds from its button, or from the pointer on a right-click, rows cascade in and one highlight glides between items.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -757,8 +1229,8 @@
       "title": "Menubar",
       "description": "A highlight glides along the bar from one menu to the next, and each menu unfolds from its title.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -777,13 +1249,76 @@
       ]
     },
     {
+      "name": "message",
+      "type": "registry:component",
+      "title": "Message",
+      "description": "Sender-aware chat messages with avatars, headers and read receipts that arrive in sequence, built on UI SDK core.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/agent-content",
+        "@keyframery/message-scroller"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/message-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/message-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/message.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/message.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/message.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/message.tsx"
+        }
+      ]
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:component",
+      "title": "Message Scroller",
+      "description": "A conversation scroller that follows new messages, preserves reading position and counts unread messages, composed from UI SDK scroll area and core.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/scroll-area"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/message-scroller-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/message-scroller-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/message-scroller.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/message-scroller.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/message-scroller.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/message-scroller.tsx"
+        }
+      ]
+    },
+    {
       "name": "meter",
       "type": "registry:component",
       "title": "Meter",
       "description": "The bar springs to its value, changes colour at thresholds and the digits roll.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -825,13 +1360,43 @@
       ]
     },
     {
+      "name": "native-select",
+      "type": "registry:component",
+      "title": "Native Select",
+      "description": "The browser's own select in a Keyframery field: each new choice rises in out of a blur as the old one leaves upward, and the chevron dips.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/native-select-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/native-select-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/native-select.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/native-select.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/native-select.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/native-select.tsx"
+        }
+      ]
+    },
+    {
       "name": "navigation-menu",
       "type": "registry:component",
       "title": "Navigation Menu",
       "description": "The marker stretches between items and the panel resizes on a spring to fit each menu.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -855,8 +1420,8 @@
       "title": "Number Input",
       "description": "Digits roll up or down as the value changes, and the buttons press in.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -880,8 +1445,8 @@
       "title": "OTP Input",
       "description": "One ring glides from slot to slot, digits pop into place and the slots pulse when the code is complete.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -905,8 +1470,8 @@
       "title": "Pagination",
       "description": "One raised key glides between page numbers and the range count rolls.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -930,8 +1495,8 @@
       "title": "Password Input",
       "description": "The text comes into focus out of a blur when revealed, and requirements tick as they are met.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -955,8 +1520,8 @@
       "title": "Popover",
       "description": "Unfolds from the button that opened it, then its contents cascade in.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -980,8 +1545,8 @@
       "title": "Preferences",
       "description": "Puts people's choices on data attributes for your CSS, with a switcher whose key stretches to the value and the four motion styles ready-made.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion",
@@ -1006,8 +1571,8 @@
       "title": "Progress",
       "description": "The bar fills on a spring, the percentage rolls and it turns green when complete.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1026,13 +1591,47 @@
       ]
     },
     {
+      "name": "questionnaire",
+      "type": "registry:component",
+      "title": "Questionnaire",
+      "description": "A step-by-step form with selectable answers, keyboard shortcuts, validation and progress, built on UI SDK core and its radio, checkbox and input components.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/button",
+        "@keyframery/checkbox",
+        "@keyframery/input",
+        "@keyframery/radio"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/questionnaire-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/questionnaire-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/questionnaire.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/questionnaire.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/questionnaire.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/questionnaire.tsx"
+        }
+      ]
+    },
+    {
       "name": "radio",
       "type": "registry:component",
       "title": "Radio",
       "description": "One selection ring glides to the chosen option and the dot pops in.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1056,8 +1655,8 @@
       "title": "Rating",
       "description": "Stars fill one after another from the left, and the chosen star pops.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1081,8 +1680,8 @@
       "title": "Resizable",
       "description": "Panels glide to a new size on a spring, and the handle's grip stretches while you drag.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1106,8 +1705,8 @@
       "title": "Scroll Area",
       "description": "The scrollbar fades in and its thumb springs thicker when you reach for it.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1131,8 +1730,8 @@
       "title": "Segmented Control",
       "description": "The selected key stretches across toward the new option, then closes up.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1156,8 +1755,8 @@
       "title": "Select",
       "description": "The list unfolds from the field, one highlight glides between options and the chosen value rises in.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1181,8 +1780,8 @@
       "title": "Separator",
       "description": "The line draws itself from the centre outward, then its label fades in.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1204,13 +1803,21 @@
       "name": "sidebar",
       "type": "registry:component",
       "title": "Sidebar",
-      "description": "The current page's key glides between items, groups fold away on a spring, and the sidebar narrows to an icon rail. On a phone it slides in over the page.",
-      "dependencies": [],
+      "description": "An app sidebar whose current-page key glides between items, that narrows to an icon rail, and that slides in over the page on a phone.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
       "registryDependencies": [
         "@keyframery/motion",
         "@keyframery/collapsible"
       ],
       "files": [
+        {
+          "path": "registry/components/keyframery/core/sidebar-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/sidebar-core.ts"
+        },
         {
           "path": "registry/components/keyframery/primitives/sidebar.tsx",
           "type": "registry:component",
@@ -1227,12 +1834,20 @@
       "name": "skeleton",
       "type": "registry:component",
       "title": "Skeleton",
-      "description": "A shimmering placeholder that cross-fades to the real content, which rises in out of a blur.",
-      "dependencies": [],
+      "description": "A shimmering placeholder that cross-fades to the real content, which rises in out of a blur. While it loads the content is hidden from screen readers and can't be tabbed into.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
       "registryDependencies": [
         "@keyframery/motion"
       ],
       "files": [
+        {
+          "path": "registry/components/keyframery/core/skeleton-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/skeleton-core.ts"
+        },
         {
           "path": "registry/components/keyframery/primitives/skeleton.tsx",
           "type": "registry:component",
@@ -1251,8 +1866,8 @@
       "title": "Slider",
       "description": "The thumb grows while you drag, the fill springs to new values and the digits roll.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1271,13 +1886,43 @@
       ]
     },
     {
+      "name": "spinner",
+      "type": "registry:component",
+      "title": "Spinner",
+      "description": "Spinners pop in where the work starts, then the ring turns at a steady pace while its arc stretches and shrinks, the one part allowed to keep moving.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/spinner-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/spinner-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/spinner.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/spinner.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/spinner.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/spinner.tsx"
+        }
+      ]
+    },
+    {
       "name": "switch",
       "type": "registry:component",
       "title": "Switch",
       "description": "The thumb stretches toward the side it is moving to, then settles.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1299,12 +1944,21 @@
       "name": "table",
       "type": "registry:component",
       "title": "Table",
-      "description": "Rows cascade in, a sortable header's arrow turns over on a spring, and selected rows fade in. On a phone it scrolls sideways with a soft edge.",
-      "dependencies": [],
+      "description": "Rows cascade in, a sortable header's arrow turns over on a spring and reports the sort to screen readers, and selected rows fade in. On a phone it scrolls sideways with a soft edge.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
       "registryDependencies": [
-        "@keyframery/motion"
+        "@keyframery/motion",
+        "@keyframery/agent-content"
       ],
       "files": [
+        {
+          "path": "registry/components/keyframery/core/table-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/table-core.ts"
+        },
         {
           "path": "registry/components/keyframery/primitives/table.tsx",
           "type": "registry:component",
@@ -1323,8 +1977,8 @@
       "title": "Tabs",
       "description": "The key stretches across the list to the tab you pick, and the panel slides in from that side.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1348,8 +2002,8 @@
       "title": "Textarea",
       "description": "The focus ring closes in on a spring and the character count rolls.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1373,8 +2027,8 @@
       "title": "Time Input",
       "description": "One highlight glides between hours, minutes and AM/PM as you move.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1398,8 +2052,8 @@
       "title": "Timeline",
       "description": "Events rise in one after another, a finished step's check draws itself and the rail fills.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1423,8 +2077,8 @@
       "title": "Toast",
       "description": "Toasts slide in and stack, the ones behind shrink back, and they spread out when you hover.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1448,8 +2102,8 @@
       "title": "Toggle",
       "description": "The pressed surface pops in, and in a group one hover highlight glides between toggles.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1473,8 +2127,8 @@
       "title": "Token Input",
       "description": "Tokens pop into the field as you add them, and the remove buttons press in.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1498,8 +2152,8 @@
       "title": "Toolbar",
       "description": "One highlight springs between the toolbar's buttons, and presses pop back.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1523,8 +2177,8 @@
       "title": "Tooltip",
       "description": "Pops out of its button, and switches instantly as you move to the next one.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1543,13 +2197,45 @@
       ]
     },
     {
+      "name": "trace",
+      "type": "registry:component",
+      "title": "Trace",
+      "description": "Steps rise in one after another, a running title has a light passing through it, a finished step's tick pops in and draws itself, and a row opens to its real height with its detail cascading in.",
+      "dependencies": [
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/agent-content",
+        "@keyframery/collapsible"
+      ],
+      "files": [
+        {
+          "path": "registry/components/keyframery/core/trace-core.ts",
+          "type": "registry:component",
+          "target": "components/keyframery/core/trace-core.ts"
+        },
+        {
+          "path": "registry/components/keyframery/primitives/trace.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/primitives/trace.tsx"
+        },
+        {
+          "path": "registry/components/keyframery/trace.tsx",
+          "type": "registry:component",
+          "target": "components/keyframery/trace.tsx"
+        }
+      ]
+    },
+    {
       "name": "tree",
       "type": "registry:component",
       "title": "Tree",
       "description": "Branches open on a spring with their rows falling in, and the selected row's key glides.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1573,8 +2259,8 @@
       "title": "Trigger Menu",
       "description": "Typing @ or / opens a menu at the cursor, with rows cascading in and a gliding highlight.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1598,8 +2284,8 @@
       "title": "Waterfall",
       "description": "Request bars grow from their start time one row after another, and nested spans cascade in.",
       "dependencies": [
-        "@ui-sdk/core@0.1.0-beta.5",
-        "@ui-sdk/react@0.1.0-beta.5"
+        "@ui-sdk/core@0.1.0-beta.9",
+        "@ui-sdk/react@0.1.0-beta.9"
       ],
       "registryDependencies": [
         "@keyframery/motion"
@@ -1618,22 +2304,89 @@
       ]
     },
     {
+      "name": "round",
+      "type": "registry:block",
+      "title": "Round landing page",
+      "description": "A landing page people can operate. It loads by splitting a bill, the hero is a ring you divide by dragging, the scroll settles the debts on a screen-wide odometer, and one switch re-prices every figure on the page.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@keyframery/motion",
+        "@keyframery/toggle",
+        "@keyframery/button",
+        "@keyframery/accordion",
+        "@keyframery/segmented-control",
+        "@keyframery/slider"
+      ],
+      "files": [
+        {
+          "path": "registry/templates/round/claim.tsx",
+          "type": "registry:component",
+          "target": "components/round/claim.tsx"
+        },
+        {
+          "path": "registry/templates/round/data.ts",
+          "type": "registry:component",
+          "target": "components/round/data.ts"
+        },
+        {
+          "path": "registry/templates/round/parts.tsx",
+          "type": "registry:component",
+          "target": "components/round/parts.tsx"
+        },
+        {
+          "path": "registry/templates/round/rest.tsx",
+          "type": "registry:component",
+          "target": "components/round/rest.tsx"
+        },
+        {
+          "path": "registry/templates/round/ring.tsx",
+          "type": "registry:component",
+          "target": "components/round/ring.tsx"
+        },
+        {
+          "path": "registry/templates/round/round.css",
+          "type": "registry:component",
+          "target": "components/round/round.css"
+        },
+        {
+          "path": "registry/templates/round/round.tsx",
+          "type": "registry:component",
+          "target": "components/round/round.tsx"
+        },
+        {
+          "path": "registry/templates/round/settle.tsx",
+          "type": "registry:component",
+          "target": "components/round/settle.tsx"
+        }
+      ]
+    },
+    {
       "name": "all",
       "type": "registry:item",
       "title": "All components",
-      "description": "Every Keyframery UI component (63) and the motion tokens.",
+      "description": "Every Keyframery UI component (83) and the motion tokens.",
       "registryDependencies": [
         "@keyframery/motion",
         "@keyframery/accordion",
+        "@keyframery/alert",
         "@keyframery/alert-dialog",
+        "@keyframery/aspect-ratio",
+        "@keyframery/attachment",
         "@keyframery/autocomplete",
         "@keyframery/avatar",
         "@keyframery/badge",
+        "@keyframery/breadcrumb",
+        "@keyframery/bubble",
         "@keyframery/button",
+        "@keyframery/button-group",
         "@keyframery/calendar",
         "@keyframery/card",
         "@keyframery/carousel",
+        "@keyframery/chart",
         "@keyframery/checkbox",
+        "@keyframery/code-block",
         "@keyframery/collapsible",
         "@keyframery/color-picker",
         "@keyframery/combobox",
@@ -1642,19 +2395,28 @@
         "@keyframery/date-input",
         "@keyframery/date-picker",
         "@keyframery/dialog",
+        "@keyframery/direction",
         "@keyframery/drawer",
+        "@keyframery/empty",
         "@keyframery/field",
         "@keyframery/file-input",
+        "@keyframery/form",
         "@keyframery/hover-card",
         "@keyframery/image-cropper",
         "@keyframery/input",
+        "@keyframery/input-group",
+        "@keyframery/item",
         "@keyframery/kbd",
         "@keyframery/label",
         "@keyframery/listbox",
+        "@keyframery/marker",
         "@keyframery/menu",
         "@keyframery/menubar",
+        "@keyframery/message",
+        "@keyframery/message-scroller",
         "@keyframery/meter",
         "@keyframery/motion-style",
+        "@keyframery/native-select",
         "@keyframery/navigation-menu",
         "@keyframery/number-input",
         "@keyframery/otp-input",
@@ -1663,6 +2425,7 @@
         "@keyframery/popover",
         "@keyframery/preferences",
         "@keyframery/progress",
+        "@keyframery/questionnaire",
         "@keyframery/radio",
         "@keyframery/rating",
         "@keyframery/resizable",
@@ -1673,6 +2436,7 @@
         "@keyframery/sidebar",
         "@keyframery/skeleton",
         "@keyframery/slider",
+        "@keyframery/spinner",
         "@keyframery/switch",
         "@keyframery/table",
         "@keyframery/tabs",
@@ -1684,6 +2448,7 @@
         "@keyframery/token-input",
         "@keyframery/toolbar",
         "@keyframery/tooltip",
+        "@keyframery/trace",
         "@keyframery/tree",
         "@keyframery/trigger-menu",
         "@keyframery/waterfall"

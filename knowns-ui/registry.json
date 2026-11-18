@@ -241,16 +241,6 @@
             "scrollbar-color": "var(--kn-thumb) transparent"
           }
         },
-        "@property --kn-fade-l": {
-          "syntax": "\"<length>\"",
-          "inherits": "false",
-          "initial-value": "0px"
-        },
-        "@property --kn-fade-r": {
-          "syntax": "\"<length>\"",
-          "inherits": "false",
-          "initial-value": "0px"
-        },
         ".kn-scroll-fade-x": {
           "mask-image": "linear-gradient(to right, #000 var(--kn-fade-inset-l, 0px), transparent var(--kn-fade-inset-l, 0px), #000 calc(var(--kn-fade-inset-l, 0px) + var(--kn-fade-l)), #000 calc(100% - var(--kn-fade-r)), transparent), linear-gradient(#000, #000)",
           "mask-size": "100% calc(100% - 10px), 100% 10px",
@@ -2229,6 +2219,32 @@
       ]
     },
     {
+      "name": "call-overlay",
+      "type": "registry:ui",
+      "title": "Call overlay",
+      "description": "A call and recording overlay for AI voice apps, built on live-activity: connecting, live, on hold, muted, recording and ended in a collapsed pill with a timer, mute and end, opening into a card with who is speaking, hold, record and a confirmed end. A recording variant has pause, stop and discard. Controlled; bring your own timer and audio.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/live-activity.json",
+        "https://ui.knowns.dev/r/motion.json",
+        "https://ui.knowns.dev/r/status-dot.json",
+        "https://ui.knowns.dev/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/call-overlay/call-overlay.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/call-overlay/call-overlay.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/call-overlay/call-state.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/call-overlay/call-state.ts"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
@@ -2694,6 +2710,22 @@
       ]
     },
     {
+      "name": "floating-dock",
+      "type": "registry:ui",
+      "title": "Floating Dock",
+      "description": "A floating panel pinned to one of the four corners of the screen or of a parent, with a margin and the device safe area kept clear. It holds anything: a player, a call, a chat. The corner is a prop; dragging and snapping are in the Pro media-dock.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/floating-dock.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/floating-dock.tsx"
+        }
+      ]
+    },
+    {
       "name": "ghost-text",
       "type": "registry:ui",
       "title": "Ghost text",
@@ -2998,6 +3030,35 @@
           "path": "registry/knowns/ui/knowns/message-actions/message-actions-utils.ts",
           "type": "registry:ui",
           "target": "components/ui/knowns/message-actions/message-actions-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "now-playing",
+      "type": "registry:ui",
+      "title": "Now playing",
+      "description": "A music player for an app that does not own the audio or does. A capsule built on Live Activity (pill that opens into a card), or a tile in three sizes (compact, medium, large) that fills its container and picks the size from its width. Headless: pass the pushed state (track, position, playing, volume) and the handlers; the time keeps running between pushes and never jumps back on a stale one. Empty and pending states, every string translatable, a read-only progress bar when there is no seek, and an optional useAudioPlayer hook.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/live-activity.json",
+        "https://ui.knowns.dev/r/slider.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/now-playing/now-playing.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/now-playing/now-playing.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/now-playing/now-playing-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/now-playing/now-playing-utils.ts"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/now-playing/use-audio-player.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/now-playing/use-audio-player.ts"
         }
       ]
     },
