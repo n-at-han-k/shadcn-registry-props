@@ -1474,6 +1474,114 @@
       ]
     },
     {
+      "name": "edge-light",
+      "type": "registry:component",
+      "title": "Edge Light",
+      "description": "A soft light sweeping around a surface's border while work is in progress, white on dark and black on light. Runs on the compositor alone.",
+      "dependencies": ["cn"],
+      "files": [
+        {
+          "path": "registry/notra/edge-light/components/edge-light.tsx",
+          "type": "registry:component",
+          "target": "components/edge-light/components/edge-light.tsx"
+        },
+        {
+          "path": "registry/notra/edge-light/constants/edge-light.ts",
+          "type": "registry:lib",
+          "target": "components/edge-light/constants/edge-light.ts"
+        },
+        {
+          "path": "registry/notra/edge-light/types/edge-light.ts",
+          "type": "registry:lib",
+          "target": "components/edge-light/types/edge-light.ts"
+        }
+      ],
+      "css": {
+        "@layer components": {
+          ".edge-light": {
+            "--edge-light-duration": "3s",
+            "--edge-light-diagonal": "hypot(100cqw, 100cqh)",
+            "--edge-light-ink": "0 0 0",
+            "--edge-light-rim": "0.06",
+            "--edge-light-glow": "0.13",
+            "--edge-light-inset": "0.14",
+            "--edge-light-sweep": "conic-gradient(transparent 0 61%, rgb(0 0 0 / 0.0034) 62%, rgb(0 0 0 / 0.0136) 65%, rgb(0 0 0 / 0.034) 67%, rgb(0 0 0 / 0.068) 69%, rgb(0 0 0 / 0.102) 70% 70.5%, rgb(0 0 0 / 0.068) 71.5%, rgb(0 0 0 / 0.034) 73%, rgb(0 0 0 / 0.0136) 75%, rgb(0 0 0 / 0.0034) 78%, transparent 82%), conic-gradient(transparent 0 54%, rgb(0 0 0 / 0.0048) 57%, rgb(0 0 0 / 0.012) 60%, rgb(0 0 0 / 0.024) 63%, rgb(0 0 0 / 0.033) 66%, rgb(0 0 0 / 0.024) 69%, rgb(0 0 0 / 0.012) 72%, rgb(0 0 0 / 0.0048) 75%, transparent 78%)",
+            "--edge-light-rim-highlights": "radial-gradient(70px 40px at 33% -7.4%, rgb(0 0 0 / 0.29), transparent), radial-gradient(60px 35px at 12% -5%, rgb(0 0 0 / 0.45), transparent), radial-gradient(40px 70px at 2.1% 68.3%, rgb(0 0 0 / 0.37), transparent), radial-gradient(20px 35px at 2.1% 68.3%, rgb(0 0 0 / 0.49), transparent), radial-gradient(180px 32px at 74.4% 100%, rgb(0 0 0 / 0.33), transparent), radial-gradient(85px 26px at 55% 100%, rgb(0 0 0 / 0.41), transparent), radial-gradient(74px 32px at 93.9% 0%, rgb(0 0 0 / 0.25), transparent), radial-gradient(26px 42px at 100% 27.1%, rgb(0 0 0 / 0.43), transparent), radial-gradient(52px 48px at 100% 27.1%, rgb(0 0 0 / 0.35), transparent)",
+            "--edge-light-glow-highlights": "radial-gradient(63px 36px at 33% -7.4%, rgb(0 0 0 / 0.066), transparent), radial-gradient(54px 32px at 12% -5%, rgb(0 0 0 / 0.1), transparent), radial-gradient(36px 63px at 2.1% 68.3%, rgb(0 0 0 / 0.084), transparent), radial-gradient(18px 32px at 2.1% 68.3%, rgb(0 0 0 / 0.11), transparent), radial-gradient(162px 29px at 74.4% 100%, rgb(0 0 0 / 0.075), transparent), radial-gradient(77px 23px at 55% 100%, rgb(0 0 0 / 0.093), transparent), radial-gradient(67px 29px at 93.9% 0%, rgb(0 0 0 / 0.057), transparent), radial-gradient(23px 38px at 100% 27.1%, rgb(0 0 0 / 0.097), transparent), radial-gradient(47px 43px at 100% 27.1%, rgb(0 0 0 / 0.079), transparent)",
+            "position": "absolute",
+            "inset": "0",
+            "z-index": "20",
+            "border-radius": "inherit",
+            "overflow": "clip",
+            "pointer-events": "none",
+            "container-type": "size",
+            "contain": "strict",
+            "opacity": "0",
+            "transition": "opacity 500ms ease"
+          },
+          ".dark .edge-light, [data-theme=\"dark\"] .edge-light": {
+            "--edge-light-ink": "255 255 255",
+            "--edge-light-rim": "0.13",
+            "--edge-light-glow": "0.21",
+            "--edge-light-inset": "0.27",
+            "--edge-light-sweep": "conic-gradient(transparent 0 61%, rgb(255 255 255 / 0.0036) 62%, rgb(255 255 255 / 0.0096) 65%, rgb(255 255 255 / 0.024) 67%, rgb(255 255 255 / 0.054) 69%, rgb(255 255 255 / 0.102) 70% 70.5%, rgb(255 255 255 / 0.054) 71.5%, rgb(255 255 255 / 0.024) 73%, rgb(255 255 255 / 0.0096) 75%, rgb(255 255 255 / 0.0036) 78%, transparent 82%), conic-gradient(transparent 0 54%, rgb(255 255 255 / 0.013) 57%, rgb(255 255 255 / 0.039) 60%, rgb(255 255 255 / 0.078) 63%, rgb(255 255 255 / 0.0975) 66%, rgb(255 255 255 / 0.078) 69%, rgb(255 255 255 / 0.039) 72%, rgb(255 255 255 / 0.013) 75%, transparent 78%)",
+            "--edge-light-rim-highlights": "radial-gradient(70px 40px at 33% -7.4%, rgb(0 0 0 / 0.67), transparent), radial-gradient(60px 35px at 12% -5%, rgb(0 0 0 / 0.49), transparent), radial-gradient(40px 70px at 2.1% 68.3%, rgb(0 0 0 / 0.58), transparent), radial-gradient(20px 35px at 2.1% 68.3%, rgb(0 0 0 / 0.45), transparent), radial-gradient(180px 32px at 74.4% 100%, rgb(0 0 0 / 0.62), transparent), radial-gradient(85px 26px at 55% 100%, rgb(0 0 0 / 0.54), transparent), radial-gradient(74px 32px at 93.9% 0%, rgb(0 0 0 / 0.71), transparent), radial-gradient(26px 42px at 100% 27.1%, rgb(0 0 0 / 0.51), transparent), radial-gradient(52px 48px at 100% 27.1%, rgb(0 0 0 / 0.6), transparent)",
+            "--edge-light-glow-highlights": "radial-gradient(63px 36px at 33% -7.4%, rgb(0 0 0 / 0.15), transparent), radial-gradient(54px 32px at 12% -5%, rgb(0 0 0 / 0.11), transparent), radial-gradient(36px 63px at 2.1% 68.3%, rgb(0 0 0 / 0.13), transparent), radial-gradient(18px 32px at 2.1% 68.3%, rgb(0 0 0 / 0.1), transparent), radial-gradient(162px 29px at 74.4% 100%, rgb(0 0 0 / 0.14), transparent), radial-gradient(77px 23px at 55% 100%, rgb(0 0 0 / 0.12), transparent), radial-gradient(67px 29px at 93.9% 0%, rgb(0 0 0 / 0.16), transparent), radial-gradient(23px 38px at 100% 27.1%, rgb(0 0 0 / 0.12), transparent), radial-gradient(47px 43px at 100% 27.1%, rgb(0 0 0 / 0.14), transparent)"
+          },
+          ".edge-light[data-active]": {
+            "opacity": "1",
+            "transition-duration": "600ms",
+            "@starting-style": {
+              "opacity": "0"
+            }
+          },
+          ".edge-light__rim, .edge-light__highlights, .edge-light__glow, .edge-light__glow-shape": {
+            "position": "absolute",
+            "inset": "0",
+            "border-radius": "inherit"
+          },
+          ".edge-light__rim": {
+            "padding": "1px",
+            "mask": "linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0)"
+          },
+          ".edge-light__highlights": {
+            "opacity": "var(--edge-light-rim)",
+            "mask": "var(--edge-light-rim-highlights)"
+          },
+          ".edge-light__glow": {
+            "opacity": "var(--edge-light-glow)",
+            "mask": "linear-gradient(#000, transparent 28px, transparent calc(100% - 28px), #000), linear-gradient(to right, #000, transparent 28px, transparent calc(100% - 28px), #000)"
+          },
+          ".edge-light__glow-shape": {
+            "--edge-light-inset-fade": "rgb(0 0 0 / calc(var(--edge-light-inset) * 0.6)), rgb(0 0 0 / calc(var(--edge-light-inset) * 0.5)) 1px, rgb(0 0 0 / calc(var(--edge-light-inset) * 0.33)) 3px, rgb(0 0 0 / calc(var(--edge-light-inset) * 0.16)) 5.5px, rgb(0 0 0 / calc(var(--edge-light-inset) * 0.05)) 8px, transparent 10px",
+            "mask": "linear-gradient(to bottom, var(--edge-light-inset-fade)), linear-gradient(to top, var(--edge-light-inset-fade)), linear-gradient(to right, var(--edge-light-inset-fade)), linear-gradient(to left, var(--edge-light-inset-fade)), var(--edge-light-glow-highlights)"
+          },
+          ".edge-light__turn": {
+            "position": "absolute",
+            "top": "calc(50% - var(--edge-light-diagonal) / 2)",
+            "left": "calc(50% - var(--edge-light-diagonal) / 2)",
+            "width": "var(--edge-light-diagonal)",
+            "height": "var(--edge-light-diagonal)",
+            "background": "var(--edge-light-sweep)",
+            "animation": "edge-light-turn var(--edge-light-duration) linear infinite"
+          },
+          ".edge-light__turn[data-window]": {
+            "background": "conic-gradient(transparent 0 30%, rgb(var(--edge-light-ink) / 0.1) 36%, rgb(var(--edge-light-ink) / 0.35) 44%, rgb(var(--edge-light-ink)) 52% 80%, rgb(var(--edge-light-ink) / 0.35) 86%, rgb(var(--edge-light-ink) / 0.1) 92%, transparent 95%)"
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            ".edge-light__turn": {
+              "animation": "none"
+            }
+          }
+        },
+        "@keyframes edge-light-turn": {
+          "to": {
+            "transform": "rotate(1turn)"
+          }
+        }
+      }
+    },
+    {
       "name": "step-slider",
       "type": "registry:component",
       "title": "Step Slider",
@@ -1676,9 +1784,10 @@
       "name": "composer",
       "type": "registry:component",
       "title": "Composer",
-      "description": "The chat composer from the Notra dashboard: a dualtone input card, with queued messages and attachments as chips. Built on the Notra Button and Tooltip and the shadcn Textarea.",
+      "description": "The chat composer from the Notra dashboard: a dualtone input card, with queued messages and attachments as chips, and an edge light while a reply streams. Built on the Notra Button and Tooltip and the shadcn Textarea.",
       "dependencies": ["@base-ui/react", "cn", "lucide-react", "motion"],
       "registryDependencies": [
+        "https://ui.usenotra.com/r/edge-light.json",
         "https://ui.usenotra.com/r/notra-button.json",
         "https://ui.usenotra.com/r/notra-tooltip.json",
         "spinner",

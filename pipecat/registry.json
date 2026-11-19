@@ -581,6 +581,205 @@
       "categories": ["voice"]
     },
     {
+      "name": "graph-tone",
+      "type": "registry:lib",
+      "title": "Graph Tones",
+      "description": "The palette graph parts colour themselves from: eight tones taken from Tailwind's colours, each one variable, with soft, mid and ink shades mixed from it. Add a tone of your own by naming a variable.",
+      "files": [
+        {
+          "path": "src/components/graph/tone.ts",
+          "type": "registry:lib",
+          "target": "components/pipecat/graph/tone.ts"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-graph-tone": "var(--graph-tone, var(--graph-neutral))",
+          "color-graph-tone-soft": "var(--graph-tone-soft, color-mix(in oklab, var(--graph-tone, var(--graph-neutral)) 14%, var(--card)))",
+          "color-graph-tone-mid": "var(--graph-tone-mid, color-mix(in oklab, var(--graph-tone, var(--graph-neutral)) 45%, var(--card)))",
+          "color-graph-tone-ink": "var(--graph-tone-ink, color-mix(in oklab, var(--graph-tone, var(--graph-neutral)) 55%, var(--foreground)))"
+        },
+        "light": {
+          "graph-neutral": "var(--muted-foreground)",
+          "graph-blue": "var(--color-blue-600)",
+          "graph-purple": "var(--color-violet-600)",
+          "graph-amber": "var(--color-amber-600)",
+          "graph-green": "var(--color-emerald-600)",
+          "graph-pink": "var(--color-pink-600)",
+          "graph-coral": "var(--color-orange-600)",
+          "graph-red": "var(--color-red-600)"
+        },
+        "dark": {
+          "graph-neutral": "var(--muted-foreground)",
+          "graph-blue": "var(--color-blue-400)",
+          "graph-purple": "var(--color-violet-400)",
+          "graph-amber": "var(--color-amber-400)",
+          "graph-green": "var(--color-emerald-400)",
+          "graph-pink": "var(--color-pink-400)",
+          "graph-coral": "var(--color-orange-400)",
+          "graph-red": "var(--color-red-400)"
+        }
+      },
+      "docs": "A tone prop on Graph, NodeGroup, GraphNode, NodeConnector or a NodeWire's data puts a palette colour in scope; style from it with bg-graph-tone, bg-graph-tone-soft, bg-graph-tone-mid and text-graph-tone-ink. Change a tone by editing its --graph-* variable in your CSS, or add one: define --graph-<name> and use tone=\"<name>\".",
+      "categories": ["graph"]
+    },
+    {
+      "name": "graph",
+      "type": "registry:component",
+      "title": "Graph",
+      "description": "A canvas for nodes and wires: React Flow with the theme's colours, a grid drawn as dots, lines or crosses, snapping, groups that size themselves and keep apart, and nodes lined up in rows or columns inside them. Every React Flow prop passes through.",
+      "dependencies": ["@xyflow/react@^12.12.1", "motion@^13.2.0"],
+      "registryDependencies": ["@pipecat/graph-tone"],
+      "files": [
+        {
+          "path": "src/components/graph/graph.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/graph/graph.tsx"
+        },
+        {
+          "path": "src/components/graph/group-layout.ts",
+          "type": "registry:lib",
+          "target": "components/pipecat/graph/group-layout.ts"
+        }
+      ],
+      "css": {
+        "@import \"@xyflow/react/dist/base.css\" layer(base)": {}
+      },
+      "docs": "Graph takes React Flow's props (nodes, edges, nodeTypes, edgeTypes and so on) plus grid, pattern, snap, packGrid, groupGap, packGroups and tone. Give it a parent with a height. Colour the canvas with --graph-canvas and --graph-grid. React Flow's stylesheet is imported into the base layer, so utilities can restyle its nodes, edges and handles.",
+      "categories": ["graph"]
+    },
+    {
+      "name": "graph-node",
+      "type": "registry:component",
+      "title": "Graph Node",
+      "description": "The parts of a node for graph and flow editors, as plain markup: a box, a card, header, content and footer, with room on either side for connectors. Four sizes, fixed and fluid widths, palette tones, a subflow variant, and statuses with a badge for showing a call as it plays. No canvas, wires or script.",
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.41.0"
+      ],
+      "registryDependencies": ["button", "@pipecat/graph-tone"],
+      "files": [
+        {
+          "path": "src/components/graph/node.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/graph/node.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "animate-node-glow": "node-glow 1.8s ease-out infinite",
+          "animate-node-shake": "node-shake 0.45s ease-in-out"
+        }
+      },
+      "css": {
+        "@keyframes node-glow": {
+          "0%": {
+            "outline": "0 solid color-mix(in oklab, var(--node-status) 50%, transparent)",
+            "outline-offset": "3px"
+          },
+          "70%": {
+            "outline": "14px solid transparent",
+            "outline-offset": "3px"
+          },
+          "100%": {
+            "outline": "0 solid transparent",
+            "outline-offset": "3px"
+          }
+        },
+        "@keyframes node-shake": {
+          "20%": {
+            "translate": "-6px"
+          },
+          "40%": {
+            "translate": "6px"
+          },
+          "60%": {
+            "translate": "-4px"
+          },
+          "80%": {
+            "translate": "4px"
+          }
+        }
+      },
+      "docs": "Compose GraphNode > NodeCard > NodeHeader, NodeContent and NodeFooter; add connectors with @pipecat/graph-node-connector. GraphNode is a size container: give it a width with size, or fluid to fill its parent. Give a node a tone to colour it from the graph palette. During playback set status (active, guard, error) and statusTone on GraphNode, and put a NodeStatusBadge inside it to say the status in words. Restyle through className and the --node-* variables; every part takes Base UI's render prop.",
+      "categories": ["graph"]
+    },
+    {
+      "name": "graph-node-connector",
+      "type": "registry:component",
+      "title": "Graph Node Connector",
+      "description": "Connector areas for the left and right edges of a graph node: rows of ports, with or without labels. A port is a circle or a diamond, outlined, dashed or solid, shows a halo on hover, and takes the node's tone or one of its own.",
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": ["@pipecat/graph-tone", "@pipecat/graph-node"],
+      "files": [
+        {
+          "path": "src/components/graph/node-connector.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/graph/node-connector.tsx"
+        }
+      ],
+      "docs": "Put NodeConnectorsLeft or NodeConnectorsRight in a GraphNode, with one NodeConnector per row holding a NodeConnectorPort and an optional NodeConnectorLabel. Size connectors with the --node-connector-* variables on the area.",
+      "categories": ["graph"]
+    },
+    {
+      "name": "graph-node-group",
+      "type": "registry:component",
+      "title": "Graph Node Group",
+      "description": "A group of graph nodes, as plain markup: a tinted island around them and a name tag on its top edge with a drag handle and room for controls. Four sizes, palette tones, and an empty state with an add button in the group's tone. It hugs the nodes inside it, or takes its size from a canvas.",
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^1.41.0"
+      ],
+      "registryDependencies": ["button", "@pipecat/graph-tone"],
+      "files": [
+        {
+          "path": "src/components/graph/node-group.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/graph/node-group.tsx"
+        }
+      ],
+      "docs": "Compose NodeGroup > NodeGroupTag (NodeGroupHandle, NodeGroupTitle, your buttons) and NodeGroupIsland around the nodes. On a canvas, give NodeGroup a position and size and leave the island bare; put the tag in a second NodeGroup to draw it over the nodes. Size it with the --node-group-* variables.",
+      "categories": ["graph"]
+    },
+    {
+      "name": "graph-node-wire",
+      "type": "registry:component",
+      "title": "Graph Node Wire",
+      "description": "A wire between two ports, as a React Flow edge type: a curve in its tone with a drifting signal dot, that unfurls on springs when it is connected and loops back under its nodes. Includes the line drawn while connecting.",
+      "dependencies": [
+        "@xyflow/react@^12.12.1",
+        "lucide-react@^1.41.0",
+        "motion@^13.2.0"
+      ],
+      "registryDependencies": ["button", "@pipecat/graph"],
+      "files": [
+        {
+          "path": "src/components/graph/node-wire.tsx",
+          "type": "registry:component",
+          "target": "components/pipecat/graph/node-wire.tsx"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "animate-wire-pulse": "wire-pulse 1.8s linear infinite"
+        }
+      },
+      "css": {
+        "@keyframes wire-pulse": {
+          "to": {
+            "stroke-dashoffset": "-56"
+          }
+        }
+      },
+      "docs": "Register NodeWire as an edge type and NodeWireConnection as the connection line on Graph: edgeTypes={{ wire: NodeWire }} connectionLineComponent={NodeWireConnection}. Set an edge's type to \"wire\" and its tone, dashed, signal, active and bounce through data. NodeWireAction is a button in the wire's tone for the edge's label.",
+      "categories": ["graph"]
+    },
+    {
       "name": "metrics",
       "type": "registry:block",
       "title": "Metrics",

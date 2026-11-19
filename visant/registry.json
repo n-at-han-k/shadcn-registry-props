@@ -9411,17 +9411,105 @@
       }
     },
     {
+      "name": "software-glyph",
+      "type": "registry:ui",
+      "title": "Software Glyph",
+      "description": "Logo de software em uma cor e leitores de nome de ferramenta e de link.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "lucide-react",
+        "simple-icons"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/software-glyph.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "agente",
+        "ia",
+        "logo",
+        "link",
+        "ferramenta"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Mostrar qual software está por trás de uma ação de agente ou de um link colado",
+          "evite": "Parede de logos de cliente: logo-wall"
+        }
+      }
+    },
+    {
+      "name": "context-chip",
+      "type": "registry:ui",
+      "title": "Context Chip",
+      "description": "Pastilha de referência com mini thumb (capa, logo de software), detalhe e tirar.",
+      "author": "Visant Labs <visantsupply@gmail.com>",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/visant/ui/context-chip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        "@keyframes visant-context-chip": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(2px) scale(0.98)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "none"
+          }
+        },
+        "@layer components": {
+          ".visant-context-chip": {
+            "animation": "visant-context-chip var(--dur-fast, 160ms) var(--ease-out, ease-out) both"
+          }
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".visant-context-chip": {
+            "animation": "none"
+          }
+        }
+      },
+      "categories": [
+        "chat",
+        "agente",
+        "anexo",
+        "referencia",
+        "arquivo"
+      ],
+      "meta": {
+        "uso": {
+          "quando": "Referência a arquivo, mídia, link ou software dentro de chat, campo ou texto",
+          "evite": "Filtro liga/desliga: chip; tag de status: badge"
+        }
+      }
+    },
+    {
       "name": "prompt-composer",
       "type": "registry:ui",
       "title": "Prompt Composer",
-      "description": "Campo de agente: texto que cresce, anexos com prévia, ferramentas e Enviar/Parar.",
+      "description": "Campo de agente: texto que cresce, anexos com thumb, menções @, fila de mensagens e Enviar/Parar.",
       "author": "Visant Labs <visantsupply@gmail.com>",
       "dependencies": [
         "lucide-react"
       ],
       "registryDependencies": [
         "utils",
-        "@visant/working-glyph"
+        "@visant/working-glyph",
+        "@visant/context-chip"
       ],
       "files": [
         {
@@ -9457,7 +9545,9 @@
         "agente",
         "ia",
         "prompt",
-        "anexo"
+        "anexo",
+        "mencao",
+        "fila"
       ],
       "meta": {
         "uso": {
