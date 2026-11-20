@@ -544,8 +544,7 @@
       "title": "Image sphere",
       "description": "Your images on a WebGL globe you can hold: fling it, click an image and its group lands in a labelled pile.",
       "categories": [
-        "marketing",
-        "portfolio"
+        "marketing"
       ],
       "meta": {
         "id": "BLK-0001",
@@ -1241,7 +1240,6 @@
       "title": "Arc carousel",
       "description": "Project names turn on a curved dial beside a linked image: it steps on a spring, drags and flicks by hand with detents, and opens the project in the centre.",
       "categories": [
-        "portfolio",
         "marketing"
       ],
       "meta": {
@@ -1422,8 +1420,7 @@
       "title": "Swap grid",
       "description": "A row of tall photo cards: tap one and it grows into a pane with its story and a link while the others shrink into a rail, and picking another swaps the two mid-flight.",
       "categories": [
-        "ecommerce",
-        "portfolio"
+        "marketing"
       ],
       "meta": {
         "id": "BLK-JNF3JR",
@@ -1560,8 +1557,7 @@
       "title": "MRR movements",
       "description": "Recurring revenue month by month as two running totals, gained climbing and lost falling with a dotted net between, a lane per plan, and every customer's upgrade or cancellation shown as a diff.",
       "categories": [
-        "finance",
-        "data"
+        "dashboard"
       ],
       "meta": {
         "id": "BLK-56QZAT",
@@ -1638,6 +1634,534 @@
           "path": "registry/blocks/mrr-movements.tsx",
           "type": "registry:block",
           "target": "components/blocks/mrr-movements.tsx"
+        }
+      ]
+    },
+    {
+      "name": "profile-settings",
+      "type": "registry:block",
+      "title": "Profile settings",
+      "description": "A settings page for the signed-in person: photo, name, a username checked as you type and a bio behind one save bar, then emails, passkeys and connected accounts.",
+      "categories": [
+        "settings-profile"
+      ],
+      "meta": {
+        "id": "BLK-WKGE5B",
+        "library": "blocks",
+        "types": [
+          "settings",
+          "forms"
+        ],
+        "styles": [
+          "motion",
+          "minimal",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-18",
+        "useCases": [
+          "Account settings in SaaS apps",
+          "Profile pages for team workspaces",
+          "Apps with social and passkey sign-in",
+          "Admin and user dashboards"
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing slides, grows or shakes: the save bar, the opening lists and the email edits only fade, rows below take their new place at once, and the spinners hold still.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the nav, each field, the email pens, the sign-in buttons and, when it shows, the save bar"
+            },
+            {
+              "keys": "⌘+S / Ctrl+S",
+              "action": "Saves the profile while there are unsaved changes"
+            },
+            {
+              "keys": "Esc",
+              "action": "In a field, leaves it; pressed again, discards the unsaved changes. While an email is being changed, cancels that change"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Opens the passkeys list, More sign-in options or an account's ⋯ menu"
+            }
+          ],
+          "notes": [
+            "Every field has a visible label; descriptions and hints are linked with `aria-describedby`, and the username's availability is announced in a polite live region.",
+            "The save bar is a region named “Unsaved changes”. Its message (“2 unsaved changes”, “Changes saved”) is a polite live region, and a changed row adds “(changed)” to its label for screen readers.",
+            "Icon-only buttons are named for what they do: “Change photo”, “Change primary email”, “More actions for Google”. The provider logos are hidden from screen readers.",
+            "The passkeys count and More sign-in options are buttons with `aria-expanded` and `aria-controls`; the current nav link has `aria-current=\"page\"`.",
+            "Leaving with unsaved changes keeps you on the page and says “Save or discard your changes first”; closing the tab asks the browser to confirm."
+          ],
+          "gaps": [
+            "Disconnecting an account or removing the secondary email happens at once, with no confirmation or undo. (WCAG 3.3.4 Error Prevention)"
+          ]
+        }
+      },
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "dropdown-menu",
+        "input",
+        "kbd",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/profile-settings/profile-settings.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/profile-settings/profile-settings.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings/settings-nav.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings/settings-nav.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings/profile-fields.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings/profile-fields.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings/email-field.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings/email-field.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings/sign-in-methods.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings/sign-in-methods.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings/save-bar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings/save-bar.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings/motion.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings/motion.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings/status-button.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings/status-button.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings/surface.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/profile-settings/surface.ts"
+        }
+      ]
+    },
+    {
+      "name": "profile-settings-02",
+      "type": "registry:block",
+      "title": "Personal details settings",
+      "description": "A full settings screen inside an app: a sidebar with folding groups, a workspace switcher and usage, settings tabs, and a personal details card with a country-code phone field.",
+      "categories": [
+        "settings-profile"
+      ],
+      "meta": {
+        "id": "BLK-AR88JJ",
+        "library": "blocks",
+        "types": [
+          "settings",
+          "forms"
+        ],
+        "styles": [
+          "motion",
+          "minimal",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-18",
+        "useCases": [
+          "Settings pages for SaaS and AI apps",
+          "Workspace apps with a sidebar and team plans",
+          "Account pages with contact and phone details",
+          "Admin dashboards and internal tools"
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing slides, grows or shakes: sidebar groups and the sidebar itself fold at once, the country list and menus only fade, the footer doesn't shake, and the spinner holds still.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the workspace menu, the sidebar, the top bar, the settings tabs, each field, then Cancel and Update profile"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Folds or opens a sidebar group, opens the workspace, account or country menu, or stars a run"
+            },
+            {
+              "keys": "↑ / ↓",
+              "action": "Moves through the country list and menus; typing in the country list filters it"
+            },
+            {
+              "keys": "⌘+S / Ctrl+S",
+              "action": "Saves the profile while there are unsaved changes"
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes an open menu, list or the phone sidebar"
+            }
+          ],
+          "notes": [
+            "Every field has a visible label; errors sit under their field, linked with `aria-describedby`, and say how to fix it.",
+            "The footer message (“1 unsaved change”, “Save or cancel your changes first”, “Changes saved”) is a polite live region.",
+            "Sidebar group headings are buttons with `aria-expanded`; the current sidebar link and tab have `aria-current=\"page\"`; a folded sidebar is inert.",
+            "Icon-only buttons are named for what they do: “Hide sidebar”, “Notifications, 3 unread”, “Star Lead scoring pipeline”, “Country code: India (+91)”.",
+            "Leaving with unsaved changes (a tab or sidebar link) keeps you on the page and says why; closing the tab asks the browser to confirm."
+          ],
+          "gaps": [
+            "Flags in the country list are emoji; on systems without flag emoji they show as two-letter codes, which screen readers read letter by letter (the country name follows). (WCAG 1.1.1 Non-text Content)"
+          ]
+        }
+      },
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "command",
+        "dropdown-menu",
+        "input",
+        "kbd",
+        "popover",
+        "sheet",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/profile-settings-02/profile-settings-02.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/profile-settings-02/profile-settings-02.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-02/app-shell.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-02/app-shell.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-02/settings-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-02/settings-tabs.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-02/phone-field.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-02/phone-field.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-02/surface.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/profile-settings-02/surface.ts"
+        },
+        {
+          "path": "registry/blocks/profile-settings-02/motion.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-02/motion.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-02/status-button.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-02/status-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "profile-settings-03",
+      "type": "registry:block",
+      "title": "Verified profile settings",
+      "description": "A creator-style profile page: handle, bio, social links, cover and accent colour, privacy switches, and email and phone changed in place with a 6-digit code.",
+      "categories": [
+        "settings-profile"
+      ],
+      "meta": {
+        "id": "BLK-YQKQY9",
+        "library": "blocks",
+        "types": [
+          "settings",
+          "forms"
+        ],
+        "styles": [
+          "motion",
+          "minimal",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-18",
+        "useCases": [
+          "Account settings for newsletters and creator apps",
+          "Profile pages with social links and handles",
+          "Apps that verify email and phone changes",
+          "SaaS settings pages with a settings sidebar"
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing slides, grows or shakes: popovers and new rows only fade, the code boxes don't shake on a wrong code, and spinners hold still; the code caret still blinks.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the settings rail, the tabs, each field and button, the accent colours and the privacy switches"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Opens “Edit handle”, “Change email address” or “Change phone number”, picks a colour, flips a switch, or saves a row"
+            },
+            {
+              "keys": "↑ / ↓",
+              "action": "Moves between handle choices and through the country list"
+            },
+            {
+              "keys": "0–9",
+              "action": "Types the 6-digit code; pasting a code or the browser's one-time-code autofill fills all six boxes"
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes an open popover, list or menu without changing anything"
+            }
+          ],
+          "notes": [
+            "The 6-digit code is one real input (`autocomplete=\"one-time-code\"`) behind the boxes, so screen readers and autofill see a single field named “Verification code”.",
+            "Every field has a visible label; errors sit under their field, linked with `aria-describedby`, and say how to fix it. Saved, verified and handle-availability messages are polite live regions.",
+            "Accent colours are a radio group (each named, e.g. “Teal”, with `aria-checked`); privacy switches are labelled by what they show.",
+            "The current rail page and tab have `aria-current=\"page\"`; read-only email and phone fields change only through their code popover.",
+            "Each row saves on its own: Save and Cancel appear only once that row changes, so nothing is saved by accident."
+          ],
+          "gaps": [
+            "Flags in the country list are emoji; on systems without flag emoji they show as two-letter codes. (WCAG 1.1.1 Non-text Content)",
+            "The resend countdown updates once a second inside a polite live region, which some screen readers announce often. (WCAG 4.1.3 Status Messages)"
+          ]
+        }
+      },
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "command",
+        "dropdown-menu",
+        "input",
+        "popover",
+        "radio-group",
+        "switch",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/profile-settings-03/profile-settings-03.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/profile-settings-03/profile-settings-03.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/settings-rail.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/settings-rail.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/handle-field.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/handle-field.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/verify-popover.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/verify-popover.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/code-input.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/code-input.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/phone-field.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/phone-field.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/social-links.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/social-links.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/profile-extras.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/profile-extras.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/motion.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/motion.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/status-button.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/profile-settings-03/status-button.tsx"
+        },
+        {
+          "path": "registry/blocks/profile-settings-03/surface.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/profile-settings-03/surface.ts"
+        }
+      ]
+    },
+    {
+      "name": "security-settings",
+      "type": "registry:block",
+      "title": "Security settings",
+      "description": "A security page: a checkup with Done, Recommended and At risk badges, password, two-factor with QR setup, passkeys, sessions and alerts.",
+      "categories": [
+        "settings-security"
+      ],
+      "meta": {
+        "id": "BLK-GKB8JN",
+        "library": "blocks",
+        "types": [
+          "settings",
+          "forms"
+        ],
+        "styles": [
+          "motion",
+          "minimal",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-19",
+        "useCases": [
+          "Account security pages for SaaS and fintech apps",
+          "Two-factor setup with an authenticator app or text",
+          "Reviewing and signing out sessions and devices",
+          "Security checkups that nudge people to finish setup"
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing slides, grows or shakes: the checkup ring jumps to its value, rows and the password form appear without folding, dialogs only fade, the code boxes don't shake on a wrong code, and the checkup scrolls without smooth scrolling.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the settings nav, the checkup fixes, every row's button, the password fields and the alert switches"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Runs a fix from the checkup, opens the password form or a two-factor setup, signs a session out, or flips an alert"
+            },
+            {
+              "keys": "0–9",
+              "action": "Types the 6-digit code; pasting a code or the browser's one-time-code autofill fills all six boxes"
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes a setup or confirm dialog without changing anything"
+            }
+          ],
+          "notes": [
+            "Status badges say Done, Recommended or At risk in words as well as colour, and the checkup summary (“2 at risk, 1 recommended”) is a polite live region.",
+            "A checkup fix moves focus to the section it scrolls to; after a two-factor setup started from the checkup, focus returns to the sign-in card because the button that opened it is gone.",
+            "Each password field has a visible label and a show/hide button named for it; the requirements are a list linked to the new password with `aria-describedby`, and each says done or not yet to screen readers.",
+            "Turning off two-factor, making new recovery codes and signing out every other session ask first, in a dialog that names the action and the count.",
+            "The 6-digit code is one real input (`autocomplete=\"one-time-code\"`) behind the boxes, so screen readers and autofill see a single field."
+          ],
+          "gaps": [
+            "The QR code has a text alternative (the setup key, shown and copyable), but the image itself can't be read by screen readers. (WCAG 1.1.1 Non-text Content)",
+            "Flags in the country list are emoji; on systems without flag emoji they show as two-letter codes. (WCAG 1.1.1 Non-text Content)"
+          ]
+        }
+      },
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion",
+        "qrcode.react"
+      ],
+      "registryDependencies": [
+        "button",
+        "checkbox",
+        "command",
+        "dialog",
+        "input",
+        "popover",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/security-settings/security-settings.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/security-settings/security-settings.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/security-checkup.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/security-checkup.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/sign-in-methods.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/sign-in-methods.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/password-field.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/password-field.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/two-factor.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/two-factor.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/passkeys.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/passkeys.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/sessions.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/sessions.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/security-alerts.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/security-alerts.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/confirm-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/confirm-dialog.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/status-button.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/status-button.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/settings-nav.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/settings-nav.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/code-input.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/code-input.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/phone-field.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/phone-field.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/motion.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/security-settings/motion.tsx"
+        },
+        {
+          "path": "registry/blocks/security-settings/surface.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/security-settings/surface.ts"
         }
       ]
     },
