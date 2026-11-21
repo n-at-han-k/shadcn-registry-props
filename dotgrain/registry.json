@@ -40,6 +40,11 @@
           "target": "lib/dotgrain/glyphs.ts"
         },
         {
+          "path": "registry/engine/grain.tsx",
+          "type": "registry:lib",
+          "target": "lib/dotgrain/grain.tsx"
+        },
+        {
           "path": "registry/engine/images.ts",
           "type": "registry:lib",
           "target": "lib/dotgrain/images.ts"
@@ -303,17 +308,45 @@
       }
     },
     {
-      "name": "toggle",
+      "name": "switch",
       "type": "registry:ui",
-      "title": "Toggle",
-      "description": "A native checkbox switch with a dithered track that eases between off and on.",
+      "title": "Switch",
+      "description": "An on/off switch on Radix with a dithered track that eases between off and on.",
       "categories": [
         "control"
       ],
       "registryDependencies": [
         "https://dotgrain.space/r/engine.json"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither"
+        ]
+      }
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A two-state press button on Radix whose face dithers full when pressed.",
+      "categories": [
+        "control"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
       "files": [
         {
           "path": "registry/ui/toggle.tsx",
@@ -322,7 +355,1506 @@
       ],
       "meta": {
         "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A native text input on the palette with a dithered underline that fills while focused.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A native textarea on the palette with a dithered underline that fills while focused.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "An accessible Radix label in plain DOM text that pairs with any dotgrain control.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
           "dither"
+        ]
+      }
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "title": "Native Select",
+      "description": "A native select on the palette with an ASCII chevron and a dithered focus underline.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A Radix checkbox whose box dithers full when checked and half when indeterminate.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither"
+        ]
+      }
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Radix radio buttons whose centres dither outward when selected.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither"
+        ]
+      }
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A Radix slider whose selected range is dithered, with solid square thumbs.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither"
+        ]
+      }
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A Radix group of press buttons where pressed items dither full.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A Radix select with a palette trigger and a dither-framed option list.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "A one-time-code input drawn as slots whose active underline dithers full.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "An input with addons, text and buttons in one box whose underline dithers while focused.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/button.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Groups related dotgrain buttons into one row or column with text cells and separators.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/button.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Form layout parts: field sets, groups, labels, descriptions, ASCII separators and errors.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/label.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither"
+        ]
+      }
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A Radix modal over a dithered screen-door scrim, its frame materialising as it opens.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A Radix confirmation dialog with a heavy dithered frame and dithered buttons.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A Radix dialog docked to a screen edge, with a dithered scrim and frame.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A Vaul bottom drawer with a dithered drag handle, scrim and frame.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "vaul"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A Radix popover whose dithered frame materialises beside its trigger.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A Radix tooltip: a small label with a one-mark dithered rim.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "A Radix hover card that previews a link inside a dithered frame.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "A Radix menu in a dithered frame; the highlighted item gets a dithered wash.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "A Radix right-click menu in a dithered frame, with dithered item highlights.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Sonner toasts in palette colours with dithered status marks.",
+      "categories": [
+        "overlay"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Radix tabs over a dithered rule; the active tab is a solid dithered chip.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Radix accordion with glyph chevrons and dithered rules between items.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "A Radix collapsible whose content hangs off a dithered rail.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "A breadcrumb trail with glyph separators and a dithered underline on the current page.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page links where the current page is a solid dithered chip.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A Radix site navigation whose dropdown panel sits in a dithered frame.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "A Radix desktop-style menubar; menus open in dithered frames.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "A cmdk command palette in a dithered frame; the selected item gets a dithered wash.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/dialog.json"
+      ],
+      "dependencies": [
+        "cmdk"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "A searchable select: a Popover holding a Command list, as in shadcn's recipe.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/popover.json",
+        "https://dotgrain.space/r/command.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "A collapsible app sidebar edged by a dithered rail, toggled with ⌘B.",
+      "categories": [
+        "navigation"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A small label on a dithered chip: solid, halftone or framed.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "A callout in a dithered frame, with a heavier frame and ✖ mark for destructive alerts.",
+      "categories": [
+        "feedback"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "A round Radix avatar whose image is dithered once it loads, with dithered initials as the fallback.",
+      "categories": [
+        "media"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "A Radix separator drawn in box glyphs, horizontal or vertical.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "A key cap: monospace text in a thin dithered frame, with a group for chords.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "A row of media, title, description and actions, framed or on a faint dither.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/separator.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "An empty state with centred media in a dithered glow, a title, description and actions.",
+      "categories": [
+        "feedback"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "shadcn's small inline spinner, as a dithered Loader ring.",
+      "categories": [
+        "feedback"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/loader.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "Radix's box that holds a width-to-height ratio, for dithered images and fields.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "shadcn's progress bar, as a DitherProgress whose dithered edge eases to the value.",
+      "categories": [
+        "feedback"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/dither-progress.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "A plain table whose header cells sit on a dithered rule.",
+      "categories": [
+        "data"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Native scrolling inside a Radix scroll area with a dithered track and thumb.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "A react-day-picker calendar where selected days fill with dither and range middles go halftone.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "react-day-picker"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "shadcn's date-picker recipe as one component: a button that opens a dithered Calendar in a Popover.",
+      "categories": [
+        "form"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/popover.json",
+        "https://dotgrain.space/r/calendar.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/date-picker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "An Embla carousel whose dithered rule fills as you scroll, with dithered previous and next buttons.",
+      "categories": [
+        "media"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/button.json"
+      ],
+      "dependencies": [
+        "embla-carousel-react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Resizable panel groups split by dithered handles that thicken while dragged.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "react-resizable-panels"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Bar and line charts for several series in dither or glyphs, with a legend, axis labels and a hover tooltip.",
+      "categories": [
+        "data"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "A sortable, filterable, selectable and paged table built on the dotgrain Table, without TanStack.",
+      "categories": [
+        "data"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json",
+        "https://dotgrain.space/r/table.json",
+        "https://dotgrain.space/r/checkbox.json",
+        "https://dotgrain.space/r/input.json",
+        "https://dotgrain.space/r/button.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/data-table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui",
+      "title": "Attachment",
+      "description": "A file chip in a dithered frame that shimmers while it uploads.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/attachment.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "title": "Bubble",
+      "description": "A chat bubble: a solid pane of text set in a dithered mat.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/bubble.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui",
+      "title": "Marker",
+      "description": "An inline status line in a feed, plain, between box-glyph rules or underlined.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/marker.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "Layout for one chat turn: avatar, header, bubbles and footer, mirrored for the sender.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:ui",
+      "title": "Message Scroller",
+      "description": "A chat log that follows new messages at the bottom, with a dithered jump-to-end button.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/message-scroller.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
+        ]
+      }
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "title": "Direction",
+      "description": "Sets left-to-right or right-to-left reading for every Radix-based component inside.",
+      "categories": [
+        "surface"
+      ],
+      "registryDependencies": [
+        "https://dotgrain.space/r/engine.json"
+      ],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/direction.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "modes": [
+          "dither",
+          "ascii"
         ]
       }
     },

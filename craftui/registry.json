@@ -2166,6 +2166,182 @@
       ]
     },
     {
+      "name": "billing-settings",
+      "type": "registry:block",
+      "title": "Billing settings",
+      "description": "A SaaS billing page inside the app: the plan, the card on file with its health, billing details edited in place, an invoice table, and a payment methods dialog with card slots, a backup card, add and edit in the slot, undo, and wallets.",
+      "categories": [
+        "billing-payment-methods",
+        "billing-invoices",
+        "billing-plans"
+      ],
+      "meta": {
+        "id": "BLK-SGBAYA",
+        "library": "blocks",
+        "types": [
+          "settings",
+          "forms",
+          "tables"
+        ],
+        "styles": [
+          "motion",
+          "minimal",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-20",
+        "useCases": [
+          "Billing pages for SaaS and AI apps on a subscription",
+          "Managing saved cards, a backup card and wallets in one place",
+          "Account pages with invoices and billing details",
+          "Admin dashboards with a sidebar and a settings area"
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing slides, scales or blurs: amounts appear without rolling, panels and cards only fade, the dialog's height changes at once, removed cards fade out instead of shrinking, and spinners hold still.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the sidebar, the plan and payment method links, Edit on billing details, each invoice download, and every control in the dialog"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Opens the payment methods dialog, picks a method tab, makes a card the default, retries or updates a card, adds, edits or removes a card, or connects a wallet"
+            },
+            {
+              "keys": "← / →",
+              "action": "Moves between the Cards, PayPal, Apple Pay and Google Pay tabs"
+            },
+            {
+              "keys": "↑ / ↓ / ← / →",
+              "action": "Moves the default between saved cards that can be charged"
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the dialog without saving; focus returns to Manage payment methods"
+            }
+          ],
+          "notes": [
+            "Opening the dialog puts focus on the method tabs; closing it returns focus to the link that opened it.",
+            "Saved cards are a radio group: each card's name says its number, its health (“Declined on Nov 1”, “Expired 10/26”) and whether it is the default or the backup. Expired cards can't be chosen and say so.",
+            "Removing a card shows an Undo toast that is a polite live region and says what changed; its timer pauses while the pointer or focus is on it. The default card's remove button is disabled with the reason in a tooltip.",
+            "Every field in the add, edit and billing forms has a visible label; errors sit under the field, are linked with `aria-describedby`, and clear as soon as the field is edited.",
+            "Status is never colour alone: pills and health lines carry the word (Active, Paid, Expiring, Payment failed), and icon-only buttons are named (“Download invoice #1042”, “Edit Visa ending 4242”)."
+          ],
+          "gaps": [
+            "Card brand logos (Visa, Mastercard, Amex) are drawn as images with a name; a brand with no logo here shows as Visa until you add its mark. (WCAG 1.1.1 Non-text Content)"
+          ]
+        }
+      },
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion",
+        "@base-ui/react",
+        "react-use-measure"
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "input",
+        "label",
+        "sheet",
+        "switch",
+        "tabs",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/billing-settings/billing-settings.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/billing-settings/billing-settings.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/app-shell.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/app-shell.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/payment-methods-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/payment-methods-dialog.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/card-slot.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/card-slot.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/card-editor.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/card-editor.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/add-card-form.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/add-card-form.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/wallets.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/wallets.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/billing-details.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/billing-details.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/undo-toast.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/undo-toast.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/brand-marks.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/brand-marks.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/status-button.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/status-button.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/odometer.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/odometer.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/ui.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/ui.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/actions.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/billing-settings/actions.tsx"
+        },
+        {
+          "path": "registry/blocks/billing-settings/use-card-draft.ts",
+          "type": "registry:hook",
+          "target": "components/blocks/billing-settings/use-card-draft.ts"
+        },
+        {
+          "path": "registry/blocks/billing-settings/card-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/billing-settings/card-data.ts"
+        },
+        {
+          "path": "registry/blocks/billing-settings/billing-motion.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/billing-settings/billing-motion.ts"
+        },
+        {
+          "path": "registry/blocks/billing-settings/surface.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/billing-settings/surface.ts"
+        }
+      ]
+    },
+    {
       "name": "voice-orb",
       "type": "registry:block",
       "title": "Voice orb",
