@@ -956,7 +956,7 @@
       "name": "dither-field",
       "type": "registry:block",
       "title": "Dither Field",
-      "description": "A soft light rendered as crisp ordered-dither dots: a glow that eases after the pointer, a rising horizon or flowing noise, or any picture redrawn as colour dither cells (src). Canvas, redrawn only while the light changes.",
+      "description": "A soft light rendered as crisp ordered-dither dots: a glow that eases after the pointer or a held finger, a rising horizon, flowing noise, aurora curtains, diagonal waves or drifting clouds, in one colour or a low, mid and high ramp. Any picture or muted looping video redraws as colour dither cells (src). Canvas, redrawn only while the light changes.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/illustrations-core.json",
         "https://ui.knowns.dev/r/backgrounds-core.json"
@@ -1115,7 +1115,7 @@
       "name": "catalog-grid",
       "type": "registry:block",
       "title": "Catalog grid",
-      "description": "A catalogue page: category tabs with counts over a grid of thumbnail cards with New and Pro badges, plus a Sketch kit for quiet monochrome thumbnails in one visual language.",
+      "description": "A catalogue page: category tabs with counts over a grid of thumbnail cards with New and Pro badges, plus a Sketch kit for quiet monochrome thumbnails in one visual language and skeleton placeholders for cards waiting to go live.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/input.json",
@@ -1132,6 +1132,11 @@
           "path": "registry/knowns/ui/knowns/blocks/catalog/catalog-utils.ts",
           "type": "registry:component",
           "target": "components/ui/knowns/blocks/catalog/catalog-utils.ts"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/catalog/placeholder.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/catalog/placeholder.tsx"
         },
         {
           "path": "registry/knowns/ui/knowns/blocks/catalog/sketch.tsx",
@@ -1821,7 +1826,8 @@
       "description": "Shared pieces for the marketing sections: section heading, action buttons and arrow links, a fixed-aspect media frame (lazy image, dark variant, click-to-load video, live content), and pure helpers for tilt, marquee timing, bento spans and row sides.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
-        "https://ui.knowns.dev/r/button.json"
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/marquee.json"
       ],
       "files": [
         {
@@ -3208,6 +3214,28 @@
           "path": "registry/knowns/ui/knowns/live-activity/activity-utils.ts",
           "type": "registry:ui",
           "target": "components/ui/knowns/live-activity/activity-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "Any row or column of content in an endless loop, sideways or top to bottom, at a steady speed with faded edges. A visible Pause button (WCAG 2.2.2), pause on hover and focus, offscreen and in hidden tabs; reduced motion shows a still wrapping layout. Loop copies are hidden from screen readers and Tab. Free.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/illustrations-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/marquee/marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/marquee/marquee.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/marquee/marquee-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/marquee/marquee-utils.ts"
         }
       ]
     },

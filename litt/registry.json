@@ -1638,7 +1638,7 @@
           "--litt-slot-shade": "inset 0 0 0 0 transparent",
           "--litt-slot-fill": "color-mix(in oklab, var(--litt-surface-3), var(--litt-fg) 14%)",
           "--litt-raised-line": "transparent",
-          "--litt-type-figure-size": "2.5rem",
+          "--litt-type-figure-size": "1.75rem",
           "--litt-type-figure-leading": "1.1",
           "--litt-type-figure-tracking": "-0.03em",
           "--litt-slot-fill-shade": "inset 0 0 0 0 transparent",
@@ -2513,8 +2513,8 @@
       },
       "docs": "Added to your global CSS: --litt-* variables, Tailwind names such as bg-litt-surface-1 and rounded-litt-control, and the litt-glass class and its siblings. Nothing of yours is changed. Dark follows .dark, [data-theme=\"dark\"] or the system setting. For Monochrome or Pink instead of Blue 4, set data-accent=\"mono\" or \"pink\" on <html>. For Flat instead of the press material, set data-material=\"flat\" on <html>.",
       "meta": {
-        "version": "2026.11.18",
-        "released": "2026-11-18",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       }
     },
@@ -2707,6 +2707,51 @@
       ]
     },
     {
+      "name": "agent-chain",
+      "type": "registry:ui",
+      "title": "Agent chain",
+      "description": "An Ableton-style modular five-stage agent signal chain with clip-colored stages, per-stage bypass switches, vertical-drag parameter boxes, tool toggles and instant-cut presets. A Rack part.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json"
+      ],
+      "docs": "Needs data-material=\"rack\" on <html>. Drag parameter boxes vertically, bypass stages on the frame or recall a pipeline preset.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/agent-chain.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/agent-chain.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-dispatch",
+      "type": "registry:ui",
+      "title": "Agent dispatch",
+      "description": "A four-channel hardware agent console on an aluminium plate with smoked LCD glass, monochrome token-burst meters, recessed signal lamps and tactile channel keys with synthesized sound. A Device part.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"device\" on <html>. Select channels with the hardware keys, approve waiting work when the orange lamp lights, or hold and retry channels.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/agent-dispatch.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/agent-dispatch.tsx"
+        }
+      ]
+    },
+    {
       "name": "agent-indicator",
       "type": "registry:ui",
       "title": "Agent indicator",
@@ -2726,6 +2771,79 @@
           "path": "registry/litt/ui/agent-indicator.tsx",
           "type": "registry:ui",
           "target": "components/litt/agent-indicator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-run",
+      "type": "registry:ui",
+      "title": "Agent run",
+      "description": "A framed Flat paper card showing an editorial assistant turn from frameless colored dot steps to streamed prose with a collapsible step toggle and one-tap replay. A Flat part.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"flat\" on <html>. Tap Run again to step through the turn and stream the draft, or fold steps behind Hide steps.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/agent-run.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/agent-run.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-throttle",
+      "type": "registry:ui",
+      "title": "Agent throttle",
+      "description": "A street-racing HUD steering and overdrive slab framed by corner brackets and hazard stripes with three 12-dash tuning rows and an instant Halt kill-switch. A Heat part.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/button.json",
+        "https://littmd.vercel.app/r/kbd.json",
+        "https://littmd.vercel.app/r/tag.json"
+      ],
+      "docs": "Needs data-material=\"heat\" on <html>. Focus the slab to drive rows with Up and Down, tune dashes with Left and Right, press H to halt or R to reset to Cruise.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/agent-throttle.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/agent-throttle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-transcript",
+      "type": "registry:ui",
+      "title": "Agent transcript",
+      "description": "A document-native agent step ledger with 1px rules, four corner brackets on the active filter, inline link-blue Approve, Skip, Inspect and Rollback controls, and zero motion. A Plain part.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json"
+      ],
+      "docs": "Needs data-material=\"plain\" on <html>. Filter steps by state, inspect raw payloads inline, approve or skip queued steps or roll back after any applied step.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/agent-transcript.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/agent-transcript.tsx"
         }
       ]
     },
@@ -2756,6 +2874,28 @@
           "path": "registry/litt/ui/app-shell.tsx",
           "type": "registry:ui",
           "target": "components/litt/app-shell.tsx"
+        }
+      ]
+    },
+    {
+      "name": "autonomy-gate",
+      "type": "registry:ui",
+      "title": "Autonomy gate",
+      "description": "A tactile agent autonomy selector, cut-in session budget slot and queued action approval gate on warm stone. A Press part.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json"
+      ],
+      "docs": "Uses Press's default warm-stone materials. Pick Observe, Confirm or Autonomous in the recessed tray and allow or hold queued actions.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/autonomy-gate.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/autonomy-gate.tsx"
         }
       ]
     },
@@ -3468,6 +3608,32 @@
       ]
     },
     {
+      "name": "context-budget",
+      "type": "registry:ui",
+      "title": "Context budget",
+      "description": "A framed Flat paper (or ink) context window picker pairing a 28px standing percentage, proportional color segments and frameless dot tags. A Flat part.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"flat\" on <html>. Pass title, sources and capacity; tapping any source tag attaches or excludes it.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/context-budget.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/context-budget.tsx"
+        }
+      ]
+    },
+    {
       "name": "context-menu",
       "type": "registry:ui",
       "title": "Context menu",
@@ -3995,8 +4161,8 @@
       ],
       "docs": "Needs data-material=\"flat\" on <html>. Pass title, target and unit; the circular − and + keys step the ring and announce progress once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4085,6 +4251,32 @@
           "path": "registry/litt/ui/heatmap.tsx",
           "type": "registry:ui",
           "target": "components/litt/heatmap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hold-confirm",
+      "type": "registry:ui",
+      "title": "Hold to confirm",
+      "description": "A framed Flat paper publishing card where holding the pill lights four sunset segments alongside a live 28px percentage readout, then settles with one-tap Undo. A Flat part.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"flat\" on <html>. Hold the pill by pointer, touch, or Space/Enter to confirm, release early to rewind, or tap Undo once complete.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/hold-confirm.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/hold-confirm.tsx"
         }
       ]
     },
@@ -4288,8 +4480,8 @@
       ],
       "docs": "Needs data-material=\"flat\" on <html>. Pass count and subject; one more at the cap clears the reader's kudos. Under reduced motion nothing springs or floats and the count updates at once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -4830,8 +5022,8 @@
       ],
       "docs": "Needs data-material=\"flat\" on <html>. Pass the question and choices; choosing one reveals or moves your vote and announces the share in words. Under reduced motion the bars land at once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -5077,8 +5269,8 @@
       ],
       "docs": "Needs data-material=\"flat\" on <html>. Pass subject and optional items; choosing a reaction tints it and announces the updated count once. Under reduced motion nothing springs or floats.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -5103,8 +5295,8 @@
       ],
       "docs": "Needs data-material=\"flat\" on <html>. Pass title and chapters; choosing a chapter jumps to it and announces the progress once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -5887,8 +6079,8 @@
       ],
       "docs": "Needs data-material=\"flat\" on <html>. Pass the slots and unit; mark the latest slot current so readers can toggle it. Under reduced motion the count and pill update at once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -6086,8 +6278,8 @@
       ],
       "docs": "Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.11.19",
-        "released": "2026-11-19",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md"
       },
       "files": [
@@ -6280,6 +6472,32 @@
           "path": "registry/litt/ui/toast.tsx",
           "type": "registry:ui",
           "target": "components/litt/toast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast-stack",
+      "type": "registry:ui",
+      "title": "Toast stack",
+      "description": "Stacked Flat paper notices with frameless colored status dots that tuck behind the newest card and fan out smoothly on hover, focus, or tap. A Flat part.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/litt.json",
+        "https://littmd.vercel.app/r/motion.json"
+      ],
+      "docs": "Needs data-material=\"flat\" on <html>. Hover or tap Fan out to spread notices apart, dismiss individual items, or add fresh notices to the deck.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md"
+      },
+      "files": [
+        {
+          "path": "registry/litt/ui/toast-stack.tsx",
+          "type": "registry:ui",
+          "target": "components/litt/toast-stack.tsx"
         }
       ]
     },
@@ -7159,8 +7377,8 @@
       ],
       "docs": "Import LabelsDemo from components/litt/examples/tag-demo, or read it for how @litt/tag is used. Import Tag from components/litt/tag. Leave status out for a plain label, or set it to success, warning, danger or neutral: the text takes that color and there is no dot, so the word carries the status.",
       "meta": {
-        "version": "2026.11.19",
-        "released": "2026-11-19",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/tag"
       },
@@ -8237,8 +8455,8 @@
       ],
       "docs": "Import ReadingGoalDemo from components/litt/examples/goal-ring-demo, or read it for how @litt/goal-ring is used. Needs data-material=\"flat\" on <html>. Pass title, target and unit; the circular − and + keys step the ring and announce progress once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/goal-ring"
       },
@@ -8247,6 +8465,29 @@
           "path": "registry/litt/examples/goal-ring-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/goal-ring-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hold-confirm-demo",
+      "type": "registry:example",
+      "title": "Hold to confirm example",
+      "description": "A working hold to confirm: PublishIssueDemo, the first demo on its page (https://littmd.vercel.app/#hold-confirm). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/hold-confirm.json"
+      ],
+      "docs": "Import PublishIssueDemo from components/litt/examples/hold-confirm-demo, or read it for how @litt/hold-confirm is used. Needs data-material=\"flat\" on <html>. Hold the pill by pointer, touch, or Space/Enter to confirm, release early to rewind, or tap Undo once complete.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/hold-confirm"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/hold-confirm-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/hold-confirm-demo.tsx"
         }
       ]
     },
@@ -8261,8 +8502,8 @@
       ],
       "docs": "Import PostKudosDemo from components/litt/examples/kudos-demo, or read it for how @litt/kudos is used. Needs data-material=\"flat\" on <html>. Pass count and subject; one more at the cap clears the reader's kudos. Under reduced motion nothing springs or floats and the count updates at once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/kudos"
       },
@@ -8332,8 +8573,8 @@
       ],
       "docs": "Import ReaderPollDemo from components/litt/examples/poll-demo, or read it for how @litt/poll is used. Needs data-material=\"flat\" on <html>. Pass the question and choices; choosing one reveals or moves your vote and announces the share in words. Under reduced motion the bars land at once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/poll"
       },
@@ -8378,8 +8619,8 @@
       ],
       "docs": "Import EssayReactionsDemo from components/litt/examples/reaction-bar-demo, or read it for how @litt/reaction-bar is used. Needs data-material=\"flat\" on <html>. Pass subject and optional items; choosing a reaction tints it and announces the updated count once. Under reduced motion nothing springs or floats.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/reaction-bar"
       },
@@ -8401,8 +8642,8 @@
       ],
       "docs": "Import EssayProgressDemo from components/litt/examples/reading-progress-demo, or read it for how @litt/reading-progress is used. Needs data-material=\"flat\" on <html>. Pass title and chapters; choosing a chapter jumps to it and announces the progress once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/reading-progress"
       },
@@ -8570,8 +8811,8 @@
       ],
       "docs": "Import LetterCadenceDemo from components/litt/examples/streak-demo, or read it for how @litt/streak is used. Needs data-material=\"flat\" on <html>. Pass the slots and unit; mark the latest slot current so readers can toggle it. Under reduced motion the count and pill update at once.",
       "meta": {
-        "version": "2026.11.21",
-        "released": "2026-11-21",
+        "version": "2026.11.22",
+        "released": "2026-11-22",
         "changelog": "https://littmd.vercel.app/changelog.md",
         "example": "@litt/streak"
       },
@@ -8580,6 +8821,75 @@
           "path": "registry/litt/examples/streak-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/streak-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast-stack-demo",
+      "type": "registry:example",
+      "title": "Toast stack example",
+      "description": "A working toast stack: PublishingNoticesDemo, the first demo on its page (https://littmd.vercel.app/#toast-stack). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/toast-stack.json"
+      ],
+      "docs": "Import PublishingNoticesDemo from components/litt/examples/toast-stack-demo, or read it for how @litt/toast-stack is used. Needs data-material=\"flat\" on <html>. Hover or tap Fan out to spread notices apart, dismiss individual items, or add fresh notices to the deck.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/toast-stack"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/toast-stack-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/toast-stack-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-chain-demo",
+      "type": "registry:example",
+      "title": "Agent chain example",
+      "description": "A working agent chain: ChainDemo, the first demo on its page (https://littmd.vercel.app/#agent-chain). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/agent-chain.json"
+      ],
+      "docs": "Import ChainDemo from components/litt/examples/agent-chain-demo, or read it for how @litt/agent-chain is used. Needs data-material=\"rack\" on <html>. Drag parameter boxes vertically, bypass stages on the frame or recall a pipeline preset.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/agent-chain"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/agent-chain-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/agent-chain-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-dispatch-demo",
+      "type": "registry:example",
+      "title": "Agent dispatch example",
+      "description": "A working agent dispatch: DispatchDemo, the first demo on its page (https://littmd.vercel.app/#agent-dispatch). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/agent-dispatch.json"
+      ],
+      "docs": "Import DispatchDemo from components/litt/examples/agent-dispatch-demo, or read it for how @litt/agent-dispatch is used. Needs data-material=\"device\" on <html>. Select channels with the hardware keys, approve waiting work when the orange lamp lights, or hold and retry channels.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/agent-dispatch"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/agent-dispatch-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/agent-dispatch-demo.tsx"
         }
       ]
     },
@@ -8604,6 +8914,98 @@
           "path": "registry/litt/examples/agent-indicator-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/agent-indicator-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-run-demo",
+      "type": "registry:example",
+      "title": "Agent run example",
+      "description": "A working agent run: OpeningDraftDemo, the first demo on its page (https://littmd.vercel.app/#agent-run). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/agent-run.json"
+      ],
+      "docs": "Import OpeningDraftDemo from components/litt/examples/agent-run-demo, or read it for how @litt/agent-run is used. Needs data-material=\"flat\" on <html>. Tap Run again to step through the turn and stream the draft, or fold steps behind Hide steps.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/agent-run"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/agent-run-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/agent-run-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-throttle-demo",
+      "type": "registry:example",
+      "title": "Agent throttle example",
+      "description": "A working agent throttle: BoostDemo, the first demo on its page (https://littmd.vercel.app/#agent-throttle). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/agent-throttle.json"
+      ],
+      "docs": "Import BoostDemo from components/litt/examples/agent-throttle-demo, or read it for how @litt/agent-throttle is used. Needs data-material=\"heat\" on <html>. Focus the slab to drive rows with Up and Down, tune dashes with Left and Right, press H to halt or R to reset to Cruise.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/agent-throttle"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/agent-throttle-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/agent-throttle-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-transcript-demo",
+      "type": "registry:example",
+      "title": "Agent transcript example",
+      "description": "A working agent transcript: LedgerDemo, the first demo on its page (https://littmd.vercel.app/#agent-transcript). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/agent-transcript.json"
+      ],
+      "docs": "Import LedgerDemo from components/litt/examples/agent-transcript-demo, or read it for how @litt/agent-transcript is used. Needs data-material=\"plain\" on <html>. Filter steps by state, inspect raw payloads inline, approve or skip queued steps or roll back after any applied step.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/agent-transcript"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/agent-transcript-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/agent-transcript-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "autonomy-gate-demo",
+      "type": "registry:example",
+      "title": "Autonomy gate example",
+      "description": "A working autonomy gate: ConfirmGateDemo, the first demo on its page (https://littmd.vercel.app/#autonomy-gate). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/autonomy-gate.json"
+      ],
+      "docs": "Import ConfirmGateDemo from components/litt/examples/autonomy-gate-demo, or read it for how @litt/autonomy-gate is used. Uses Press's default warm-stone materials. Pick Observe, Confirm or Autonomous in the recessed tray and allow or hold queued actions.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/autonomy-gate"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/autonomy-gate-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/autonomy-gate-demo.tsx"
         }
       ]
     },
@@ -8653,6 +9055,29 @@
           "path": "registry/litt/examples/composer-demo.tsx",
           "type": "registry:example",
           "target": "components/litt/examples/composer-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "context-budget-demo",
+      "type": "registry:example",
+      "title": "Context budget example",
+      "description": "A working context budget: DraftContextDemo, the first demo on its page (https://littmd.vercel.app/#context-budget). It installs the components it uses.",
+      "registryDependencies": [
+        "https://littmd.vercel.app/r/context-budget.json"
+      ],
+      "docs": "Import DraftContextDemo from components/litt/examples/context-budget-demo, or read it for how @litt/context-budget is used. Needs data-material=\"flat\" on <html>. Pass title, sources and capacity; tapping any source tag attaches or excludes it.",
+      "meta": {
+        "version": "2026.11.22",
+        "released": "2026-11-22",
+        "changelog": "https://littmd.vercel.app/changelog.md",
+        "example": "@litt/context-budget"
+      },
+      "files": [
+        {
+          "path": "registry/litt/examples/context-budget-demo.tsx",
+          "type": "registry:example",
+          "target": "components/litt/examples/context-budget-demo.tsx"
         }
       ]
     },

@@ -853,6 +853,70 @@
       ]
     },
     {
+      "name": "hero-section-05",
+      "type": "registry:block",
+      "title": "Case study hero",
+      "description": "A project page header for studios on one 6-column grid: the project's name and story, a row of details and three photos, with a live studio clock and an entrance that builds the page row by row.",
+      "categories": [
+        "portfolio",
+        "marketing"
+      ],
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/hero-section-05/hero-section-05.tsx",
+          "type": "registry:block",
+          "target": "components/sections/hero-section-05/hero-section-05.tsx"
+        }
+      ],
+      "meta": {
+        "id": "SEC-FCXVAM",
+        "library": "templates",
+        "types": [
+          "hero",
+          "gallery"
+        ],
+        "styles": [
+          "motion",
+          "minimal",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-21",
+        "useCases": [
+          "Case study pages for architecture studios",
+          "Project pages for design and brand agencies",
+          "Portfolio pages for photographers",
+          "Work pages that lead with photos and credits"
+        ],
+        "a11y": {
+          "reducedMotion": "No rising title, opening photos or zoom: everything fades in over 200ms, the clock's digits swap in place, and the link arrows and underline don't move on hover.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the studio name, the main links, Start a project, All projects and All photos."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the focused link."
+            }
+          ],
+          "notes": [
+            "The project's name is the page's h1; the details are a description list (label and value), and every photo has alt text from its `alt` prop.",
+            "The current main link is marked with aria-current=\"page\".",
+            "The clock is read after the page loads and every 15 seconds; screen readers get the whole time, not the rolling digits.",
+            "Below the md breakpoint the main links and the clock are hidden, and the third photo is left out; its link stays."
+          ],
+          "gaps": [
+            "On phones the main links are hidden with no menu to reach them; add your own menu if the section is your page's only navigation. (WCAG 2.4.5 Multiple Ways)"
+          ]
+        }
+      }
+    },
+    {
       "name": "feature-sphere-section",
       "type": "registry:block",
       "title": "Feature index sphere",
@@ -2338,6 +2402,123 @@
           "path": "registry/blocks/billing-settings/surface.ts",
           "type": "registry:lib",
           "target": "components/blocks/billing-settings/surface.ts"
+        }
+      ]
+    },
+    {
+      "name": "usage-dashboard",
+      "type": "registry:block",
+      "title": "Usage dashboard",
+      "description": "A usage-based billing page inside the app: spend so far, a forecast against the budget, a running-total chart with the total and a line per service, and a table of usage against plan limits, with a month switch.",
+      "categories": [
+        "billing-usage",
+        "dashboard"
+      ],
+      "meta": {
+        "id": "BLK-Q9J3AK",
+        "library": "blocks",
+        "types": [
+          "charts",
+          "tables"
+        ],
+        "styles": [
+          "motion",
+          "minimal",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-21",
+        "useCases": [
+          "Usage pages for cloud, API and AI products",
+          "Showing where this month's spend will land against a budget",
+          "A bill by service, with plan limits and overages",
+          "Admin dashboards with a sidebar and a usage area"
+        ],
+        "a11y": {
+          "reducedMotion": "Nothing draws, slides or rolls: the chart appears with a short fade, lines change at once between months, labels and the budget pill only fade, and the selected month and pinned row backgrounds jump to their place.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the sidebar, the month switch, the chart, and each service in the table"
+            },
+            {
+              "keys": "← / →",
+              "action": "On the chart, reads the day before or after: the total, that day's spend or the forecast range, and every service"
+            },
+            {
+              "keys": "Home / End",
+              "action": "On the chart, jumps to the first or last day of the month"
+            },
+            {
+              "keys": "Esc",
+              "action": "On the chart, clears the day being read"
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Picks a month, or pins a service so the figures above show it (again to unpin)"
+            }
+          ],
+          "notes": [
+            "The chart is a focusable group whose name sums it up (spent so far, where it's heading, the budget); the day being read is announced in a polite live region.",
+            "A hidden table repeats every running total by day, for screen readers.",
+            "Status is never colour alone: the budget pill says it in words (“Crosses budget on Nov 27”, “Under budget”), and a service over its plan limit shows a warning icon and is announced as over the plan limit.",
+            "Service colours are a fixed order checked for colour-blind separation in light and dark mode; every line also has its name and amount in the table beside it."
+          ],
+          "gaps": [
+            "Service lines are told apart by colour on the chart itself; the table and the readout name each one, but the lines have no pattern or direct label. (WCAG 1.4.1 Use of Color)"
+          ]
+        }
+      },
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion",
+        "react-use-measure"
+      ],
+      "registryDependencies": [
+        "button",
+        "sheet",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/usage-dashboard/usage-dashboard.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/usage-dashboard/usage-dashboard.tsx"
+        },
+        {
+          "path": "registry/blocks/usage-dashboard/usage-card.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/usage-dashboard/usage-card.tsx"
+        },
+        {
+          "path": "registry/blocks/usage-dashboard/spend-chart.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/usage-dashboard/spend-chart.tsx"
+        },
+        {
+          "path": "registry/blocks/usage-dashboard/app-shell.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/usage-dashboard/app-shell.tsx"
+        },
+        {
+          "path": "registry/blocks/usage-dashboard/odometer.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/usage-dashboard/odometer.tsx"
+        },
+        {
+          "path": "registry/blocks/usage-dashboard/ui.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/usage-dashboard/ui.tsx"
+        },
+        {
+          "path": "registry/blocks/usage-dashboard/usage-data.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/usage-dashboard/usage-data.ts"
+        },
+        {
+          "path": "registry/blocks/usage-dashboard/surface.ts",
+          "type": "registry:lib",
+          "target": "components/blocks/usage-dashboard/surface.ts"
         }
       ]
     },

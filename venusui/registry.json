@@ -47,6 +47,188 @@
       }
     },
     {
+      "name": "agency-landing",
+      "type": "registry:block",
+      "title": "Agency Landing",
+      "description": "A complete, animated site for a digital agency: a hero with tilted work cards, about, services, process, projects, client results, team, reviews, FAQ and contact.",
+      "author": "VenusUI",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-navbar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-hero.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-about.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-services.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-process.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-projects.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-results.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-team.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-stats.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-testimonials.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-faq.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-cta.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-footer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-logo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-art.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-motion.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-landing/components/agency-landing-media.ts",
+          "type": "registry:component"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-agency-accent": "var(--agency-accent)",
+          "color-agency-surface": "var(--agency-surface)",
+          "color-agency-card": "var(--agency-card)",
+          "animate-agency-marquee": "agency-marquee 28s linear infinite",
+          "animate-agency-wheel": "agency-wheel 140s linear infinite",
+          "animate-agency-flip": "agency-flip 18s ease-in-out infinite",
+          "animate-agency-drift": "agency-drift 14s ease-in-out infinite alternate",
+          "animate-agency-glow": "agency-glow 16s ease-in-out infinite alternate"
+        },
+        "light": {
+          "agency-accent": "oklch(0.56 0.24 290)",
+          "agency-surface": "oklch(0.978 0.006 255)",
+          "agency-card": "oklch(1 0 0)",
+          "agency-muted": "oklch(0.5 0 0)"
+        },
+        "dark": {
+          "agency-accent": "oklch(0.56 0.22 290)",
+          "agency-surface": "oklch(0.16 0.01 270)",
+          "agency-card": "oklch(0.205 0.012 270)",
+          "agency-muted": "oklch(0.72 0 0)"
+        }
+      },
+      "css": {
+        "@keyframes agency-marquee": {
+          "from": {
+            "transform": "translateX(0)"
+          },
+          "to": {
+            "transform": "translateX(-50%)"
+          }
+        },
+        "@keyframes agency-wheel": {
+          "from": {
+            "transform": "rotate(0deg)"
+          },
+          "to": {
+            "transform": "rotate(-360deg)"
+          }
+        },
+        "@keyframes agency-flip": {
+          "0%, 58%": {
+            "transform": "rotateY(0deg)"
+          },
+          "64%, 80%": {
+            "transform": "rotateY(180deg)"
+          },
+          "86%, 100%": {
+            "transform": "rotateY(360deg)"
+          }
+        },
+        "@keyframes agency-drift": {
+          "from": {
+            "transform": "scale(1.05) translate(0, 0)"
+          },
+          "to": {
+            "transform": "scale(1.25) translate(-6%, 4%)"
+          }
+        },
+        "@keyframes agency-glow": {
+          "from": {
+            "transform": "translate(0, 0) scale(1)"
+          },
+          "to": {
+            "transform": "translate(18%, 12%) scale(1.2)"
+          }
+        },
+        "@layer components": {
+          ".agency-faq": {
+            "interpolate-size": "allow-keywords"
+          },
+          ".agency-faq::details-content": {
+            "block-size": "0",
+            "overflow": "hidden",
+            "transition": "block-size 0.35s ease, content-visibility 0.35s allow-discrete"
+          },
+          ".agency-faq[open]::details-content": {
+            "block-size": "auto"
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            ".agency-faq::details-content": {
+              "transition": "none"
+            }
+          }
+        }
+      },
+      "categories": [
+        "templates"
+      ],
+      "meta": {
+        "version": "0.2.0"
+      }
+    },
+    {
       "name": "analog-clock",
       "type": "registry:ui",
       "title": "Analog Clock",
