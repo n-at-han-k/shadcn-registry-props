@@ -783,6 +783,11 @@
           "target": "components/data-grid/sort-filter/build-group-view.ts"
         },
         {
+          "path": "registry/default/blocks/data-grid/sort-filter/build-pivot.ts",
+          "type": "registry:component",
+          "target": "components/data-grid/sort-filter/build-pivot.ts"
+        },
+        {
           "path": "registry/default/blocks/data-grid/store/group-state.ts",
           "type": "registry:component",
           "target": "components/data-grid/store/group-state.ts"
@@ -801,6 +806,26 @@
           "path": "registry/default/blocks/data-grid/store/group-positions.ts",
           "type": "registry:component",
           "target": "components/data-grid/store/group-positions.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid/store/pivot-view.ts",
+          "type": "registry:component",
+          "target": "components/data-grid/store/pivot-view.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid/pivot-columns.ts",
+          "type": "registry:component",
+          "target": "components/data-grid/pivot-columns.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid/pivot-note.tsx",
+          "type": "registry:component",
+          "target": "components/data-grid/pivot-note.tsx"
+        },
+        {
+          "path": "registry/default/blocks/data-grid/error-bar.tsx",
+          "type": "registry:component",
+          "target": "components/data-grid/error-bar.tsx"
         },
         {
           "path": "registry/default/blocks/data-grid/store/group-patch.ts",
@@ -1916,6 +1941,11 @@
           "target": "components/data-grid-server/read-groups-answer.ts"
         },
         {
+          "path": "registry/default/blocks/data-grid-server/read-pivot-answer.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server/read-pivot-answer.ts"
+        },
+        {
           "path": "registry/default/blocks/data-grid-server/server-state.ts",
           "type": "registry:component",
           "target": "components/data-grid-server/server-state.ts"
@@ -2750,7 +2780,7 @@
       "name": "data-grid-pinning-all-sides-demo",
       "type": "registry:example",
       "title": "Data Grid Pinning All Sides Demo",
-      "description": "All four pin zones at once: Name pinned left, Score pinned right, plus an averages row pinned to the top band and a totals row pinned to the bottom band via the data-grid-pinned-rows add-on, over 200 rows so both directions scroll.",
+      "description": "All four pin zones at once: Name pinned left, Logins pinned right, plus an averages row pinned to the top band and a totals row pinned to the bottom band via the data-grid-pinned-rows add-on, over 200 rows so both directions scroll.",
       "author": "gridcn",
       "registryDependencies": [
         "@gridcn/data-grid",
@@ -2834,7 +2864,7 @@
       "name": "data-grid-column-groups-demo",
       "type": "registry:example",
       "title": "Data Grid Column Groups Demo",
-      "description": "Column groups: Contact, Work with a nested History group, and Standing sit above their columns. Click a group header to select its columns, drag a group header to move the block, and use the columns menu to hide members.",
+      "description": "Column groups: Contact, Work with a nested History group, and Activity sit above their columns. Click a group header to select its columns, drag a group header to move the block, and use the columns menu to hide members.",
       "author": "gridcn",
       "registryDependencies": [
         "@gridcn/data-grid",
@@ -3048,6 +3078,11 @@
           "path": "registry/default/examples/fake-remote-server.ts",
           "type": "registry:example",
           "target": "components/fake-remote-server.ts"
+        },
+        {
+          "path": "registry/default/examples/sales-data.ts",
+          "type": "registry:example",
+          "target": "components/sales-data.ts"
         }
       ],
       "categories": [
@@ -3142,6 +3177,11 @@
           "path": "registry/default/examples/demo-data.ts",
           "type": "registry:example",
           "target": "components/demo-data.ts"
+        },
+        {
+          "path": "registry/default/examples/sales-data.ts",
+          "type": "registry:example",
+          "target": "components/sales-data.ts"
         }
       ],
       "categories": [
@@ -3209,6 +3249,11 @@
           "path": "registry/default/examples/data-grid-server-selection-demo.tsx",
           "type": "registry:example",
           "target": "components/data-grid-server-selection-demo.tsx"
+        },
+        {
+          "path": "registry/default/examples/sales-data.ts",
+          "type": "registry:example",
+          "target": "components/sales-data.ts"
         }
       ],
       "categories": [
@@ -4258,6 +4303,11 @@
           "path": "registry/default/examples/demo-data.ts",
           "type": "registry:example",
           "target": "components/demo-data.ts"
+        },
+        {
+          "path": "registry/default/examples/sales-data.ts",
+          "type": "registry:example",
+          "target": "components/sales-data.ts"
         }
       ],
       "categories": [
@@ -4542,6 +4592,21 @@
           "target": "components/data-grid-server-query/parse-import-rows.ts"
         },
         {
+          "path": "registry/default/blocks/data-grid-server-query/validate-change.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query/validate-change.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query/parse-selection.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query/parse-selection.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query/cursor.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query/cursor.ts"
+        },
+        {
           "path": "registry/default/blocks/data-grid-server-query/operands.ts",
           "type": "registry:component",
           "target": "components/data-grid-server-query/operands.ts"
@@ -4590,7 +4655,7 @@
       "name": "data-grid-server-query-drizzle",
       "type": "registry:block",
       "title": "Data Grid Server Query Drizzle",
-      "description": "Runs the grid's sort, filter tree, quick search, row range, row count, set values, and flat aggregates with Drizzle on PostgreSQL and SQLite: columnsFromDrizzleTable builds the column map from a schema, createDrizzleGridQuery returns fetchRows for useDataGridServerRows.",
+      "description": "Runs the grid's sort, filter tree, quick search, offset or cursor paging, row count, set values, aggregates, groups, and pivots with Drizzle on PostgreSQL and SQLite: columnsFromDrizzleTable builds the column map from a schema, createDrizzleGridQuery returns fetchRows for useDataGridServerRows.",
       "author": "gridcn",
       "dependencies": [
         "drizzle-orm@>=0.45.0 <1"
@@ -4623,7 +4688,7 @@
       "name": "data-grid-server-query-kysely",
       "type": "registry:block",
       "title": "Data Grid Server Query Kysely",
-      "description": "Runs the grid's sort, filter tree, quick search, row range, row count, set values, and flat aggregates with Kysely on PostgreSQL and SQLite: createKyselyGridQuery returns fetchRows for useDataGridServerRows.",
+      "description": "Runs the grid's sort, filter tree, quick search, offset or cursor paging, row count, set values, aggregates, groups, and pivots with Kysely on PostgreSQL and SQLite: createKyselyGridQuery returns fetchRows for useDataGridServerRows.",
       "author": "gridcn",
       "dependencies": [
         "kysely@>=0.29.0 <1"
@@ -4641,6 +4706,81 @@
           "path": "registry/default/blocks/data-grid-server-query-kysely/data-grid-server-query-kysely.ts",
           "type": "registry:component",
           "target": "components/data-grid-server-query-kysely/data-grid-server-query-kysely.ts"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "data-grid-server-query-prisma",
+      "type": "registry:block",
+      "title": "Data Grid Server Query Prisma",
+      "description": "Runs the grid's sort, filter tree, quick search, offset or cursor paging, row count, set values, aggregates, groups, and pivots with the Prisma Client object API on PostgreSQL and SQLite: definePrismaColumnMap builds the column map, typed by a generated model, and createPrismaGridQuery returns fetchRows for useDataGridServerRows.",
+      "author": "gridcn",
+      "registryDependencies": [
+        "@gridcn/data-grid-server-query"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/data-grid-server-query-prisma/columns.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query-prisma/columns.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query-prisma/create-prisma-grid-query.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query-prisma/create-prisma-grid-query.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query-prisma/render-prisma.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query-prisma/render-prisma.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query-prisma/data-grid-server-query-prisma.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query-prisma/data-grid-server-query-prisma.ts"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "data-grid-server-query-supabase",
+      "type": "registry:block",
+      "title": "Data Grid Server Query Supabase",
+      "description": "Runs the grid's sort, filter tree, quick search, offset or cursor paging, and row count through the caller's Supabase client over PostgREST: createSupabaseGridQuery returns fetchRows for useDataGridServerRows. grid-query.sql defines the grid function that answers set values, aggregates, groups, and pivots.",
+      "author": "gridcn",
+      "registryDependencies": [
+        "@gridcn/data-grid-server-query"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/data-grid-server-query-supabase/create-supabase-grid-query.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query-supabase/create-supabase-grid-query.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query-supabase/render-postgrest.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query-supabase/render-postgrest.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query-supabase/quote.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query-supabase/quote.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query-supabase/data-grid-server-query-supabase.ts",
+          "type": "registry:component",
+          "target": "components/data-grid-server-query-supabase/data-grid-server-query-supabase.ts"
+        },
+        {
+          "path": "registry/default/blocks/data-grid-server-query-supabase/grid-query.sql",
+          "type": "registry:file",
+          "target": "components/data-grid-server-query-supabase/grid-query.sql"
         }
       ],
       "categories": [
@@ -4675,6 +4815,11 @@
           "path": "registry/default/examples/data-grid-server-query-demo-db.ts",
           "type": "registry:example",
           "target": "components/data-grid-server-query-demo-db.ts"
+        },
+        {
+          "path": "registry/default/examples/sales-data.ts",
+          "type": "registry:example",
+          "target": "components/sales-data.ts"
         }
       ],
       "categories": [
@@ -4685,7 +4830,7 @@
       "name": "data-grid-row-grouping-demo",
       "type": "registry:example",
       "title": "Data Grid Row Grouping Demo",
-      "description": "Rows grouped by role with a count, an average age, and a total score on each group row, buttons to open, close, and regroup, and Group by items in the header menu.",
+      "description": "Car sales grouped by region and then by dealership, with a count, an average discount, and the revenue on each group row, buttons to open, close, and regroup, and Group by items in the header menu.",
       "author": "gridcn",
       "registryDependencies": [
         "@gridcn/data-grid",
@@ -4699,9 +4844,35 @@
           "target": "components/data-grid-row-grouping-demo.tsx"
         },
         {
-          "path": "registry/default/examples/demo-data.ts",
+          "path": "registry/default/examples/sales-data.ts",
           "type": "registry:example",
-          "target": "components/demo-data.ts"
+          "target": "components/sales-data.ts"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "data-grid-pivot-demo",
+      "type": "registry:example",
+      "title": "Data Grid Pivot Demo",
+      "description": "5,000 car sales pivoted on the client: one row per region, one column per make, and the revenue in each cell, with buttons that switch the pivot column to financed or turn the pivot off.",
+      "author": "gridcn",
+      "registryDependencies": [
+        "@gridcn/data-grid",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/data-grid-pivot-demo.tsx",
+          "type": "registry:example",
+          "target": "components/data-grid-pivot-demo.tsx"
+        },
+        {
+          "path": "registry/default/examples/sales-data.ts",
+          "type": "registry:example",
+          "target": "components/sales-data.ts"
         }
       ],
       "categories": [
@@ -4735,12 +4906,53 @@
           "path": "registry/default/examples/data-grid-server-query-demo-db.ts",
           "type": "registry:example",
           "target": "components/data-grid-server-query-demo-db.ts"
+        },
+        {
+          "path": "registry/default/examples/sales-data.ts",
+          "type": "registry:example",
+          "target": "components/sales-data.ts"
+        }
+      ],
+      "categories": [
+        "data"
+      ]
+    },
+    {
+      "name": "data-grid-server-pivot-demo",
+      "type": "registry:example",
+      "title": "Data Grid Server Pivot Demo",
+      "description": "A server pivot on an in-browser PostgreSQL (PGlite): one row per region, one generated column per make, and the revenue in each cell. A panel shows the last statement with its bound parameters.",
+      "author": "gridcn",
+      "dependencies": [
+        "@electric-sql/pglite@^0.5.15",
+        "drizzle-orm@>=0.45.0 <1"
+      ],
+      "registryDependencies": [
+        "@gridcn/data-grid",
+        "@gridcn/data-grid-server",
+        "@gridcn/data-grid-server-query",
+        "@gridcn/data-grid-server-query-drizzle"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/data-grid-server-pivot-demo.tsx",
+          "type": "registry:example",
+          "target": "components/data-grid-server-pivot-demo.tsx"
+        },
+        {
+          "path": "registry/default/examples/data-grid-server-query-demo-db.ts",
+          "type": "registry:example",
+          "target": "components/data-grid-server-query-demo-db.ts"
+        },
+        {
+          "path": "registry/default/examples/sales-data.ts",
+          "type": "registry:example",
+          "target": "components/sales-data.ts"
         }
       ],
       "categories": [
         "data"
       ]
     }
-  ],
-  "files": []
+  ]
 }

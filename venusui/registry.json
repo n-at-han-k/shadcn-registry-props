@@ -47,10 +47,75 @@
       }
     },
     {
+      "name": "agency-about",
+      "type": "registry:block",
+      "title": "Agency About",
+      "description": "An animated About page for a digital agency: a hero collage with live stat cards, a mission that lights up as you read, a timeline, a client chat that plays out, the team and a contact form.",
+      "author": "VenusUI",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://venusui.com/r/agency-landing.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/agency-about/components/agency-about.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-about/components/agency-about-hero.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-about/components/agency-about-mission.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-about/components/agency-about-story.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-about/components/agency-about-vision.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-about/components/agency-about-team.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/agency-about/components/agency-about-media.ts",
+          "type": "registry:component"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "animate-agency-bob": "agency-bob 6s ease-in-out infinite"
+        }
+      },
+      "css": {
+        "@keyframes agency-bob": {
+          "0%, 100%": {
+            "transform": "translateY(0)"
+          },
+          "50%": {
+            "transform": "translateY(-10px)"
+          }
+        }
+      },
+      "categories": [
+        "templates"
+      ],
+      "meta": {
+        "version": "0.1.0"
+      }
+    },
+    {
       "name": "agency-landing",
       "type": "registry:block",
       "title": "Agency Landing",
-      "description": "A complete, animated site for a digital agency: a hero with tilted work cards, about, services, process, projects, client results, team, reviews, FAQ and contact.",
+      "description": "A complete, animated site for a digital agency: a hero with tilted work cards, about, services, process, projects, client results, team, reviews, FAQ and a contact section with a project enquiry form.",
       "author": "VenusUI",
       "dependencies": [
         "lucide-react",
@@ -142,8 +207,7 @@
           "animate-agency-marquee": "agency-marquee 28s linear infinite",
           "animate-agency-wheel": "agency-wheel 140s linear infinite",
           "animate-agency-flip": "agency-flip 18s ease-in-out infinite",
-          "animate-agency-drift": "agency-drift 14s ease-in-out infinite alternate",
-          "animate-agency-glow": "agency-glow 16s ease-in-out infinite alternate"
+          "animate-agency-drift": "agency-drift 14s ease-in-out infinite alternate"
         },
         "light": {
           "agency-accent": "oklch(0.56 0.24 290)",
@@ -192,14 +256,6 @@
           },
           "to": {
             "transform": "scale(1.25) translate(-6%, 4%)"
-          }
-        },
-        "@keyframes agency-glow": {
-          "from": {
-            "transform": "translate(0, 0) scale(1)"
-          },
-          "to": {
-            "transform": "translate(18%, 12%) scale(1.2)"
           }
         },
         "@layer components": {
@@ -5624,10 +5680,11 @@
       "name": "saas-landing",
       "type": "registry:block",
       "title": "SaaS Landing",
-      "description": "A complete marketing site for a product analytics startup, with real photos, a product dashboard, feature mockups, a customer story, pricing, FAQ and footer.",
+      "description": "A spacious, animated marketing site for a product analytics startup: a dark, glowing hero whose dashboard settles into place, feature spotlights with live mockups, a customer story, pricing, FAQ and footer.",
       "author": "VenusUI",
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "motion"
       ],
       "registryDependencies": [
         "button",
@@ -5659,6 +5716,10 @@
           "type": "registry:component"
         },
         {
+          "path": "registry/default/blocks/saas-landing/components/saas-landing-mockups.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "registry/default/blocks/saas-landing/components/saas-landing-customers.tsx",
           "type": "registry:component"
         },
@@ -5683,6 +5744,14 @@
           "type": "registry:component"
         },
         {
+          "path": "registry/default/blocks/saas-landing/components/saas-landing-heading.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/default/blocks/saas-landing/components/saas-landing-motion.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "registry/default/blocks/saas-landing/components/saas-landing-media.ts",
           "type": "registry:component"
         }
@@ -5690,7 +5759,12 @@
       "cssVars": {
         "theme": {
           "color-saas-primary": "var(--saas-primary)",
-          "color-saas-accent": "var(--saas-accent)"
+          "color-saas-accent": "var(--saas-accent)",
+          "animate-saas-marquee": "saas-marquee 40s linear infinite",
+          "animate-saas-marquee-slow": "saas-marquee 70s linear infinite",
+          "animate-saas-marquee-reverse": "saas-marquee 70s linear infinite reverse",
+          "animate-saas-beam": "saas-beam 8s linear infinite",
+          "animate-saas-glow": "saas-glow 8s ease-in-out infinite alternate"
         },
         "light": {
           "saas-primary": "oklch(0.511 0.262 276.966)",
@@ -5701,11 +5775,57 @@
           "saas-accent": "oklch(0.765 0.177 163.223)"
         }
       },
+      "css": {
+        "@keyframes saas-marquee": {
+          "from": {
+            "transform": "translateX(0)"
+          },
+          "to": {
+            "transform": "translateX(-50%)"
+          }
+        },
+        "@keyframes saas-beam": {
+          "from": {
+            "transform": "translateY(0)"
+          },
+          "to": {
+            "transform": "translateY(calc(100vh + 24rem))"
+          }
+        },
+        "@keyframes saas-glow": {
+          "from": {
+            "opacity": "0.55",
+            "scale": "0.95"
+          },
+          "to": {
+            "opacity": "1",
+            "scale": "1.05"
+          }
+        },
+        "@layer saas-landing": {
+          ".saas-faq": {
+            "interpolate-size": "allow-keywords"
+          },
+          ".saas-faq::details-content": {
+            "block-size": "0",
+            "overflow": "hidden",
+            "transition": "block-size 0.35s ease, content-visibility 0.35s allow-discrete"
+          },
+          ".saas-faq[open]::details-content": {
+            "block-size": "auto"
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            ".saas-faq::details-content": {
+              "transition": "none"
+            }
+          }
+        }
+      },
       "categories": [
         "templates"
       ],
       "meta": {
-        "version": "0.2.1"
+        "version": "0.3.0"
       }
     },
     {
