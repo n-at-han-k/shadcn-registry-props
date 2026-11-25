@@ -1576,6 +1576,96 @@
       ]
     },
     {
+      "name": "category-budget",
+      "type": "registry:block",
+      "title": "Category budget",
+      "description": "A month's budget by category: a donut of where the money went, the total against the limit with how far ahead of an even pace it is, and a row for each category with spent, left or over, and a bar with today's pace marker. Tap a row for a sheet that sets the limit with a stepper and quick amounts, the alert threshold and rollover. Built on chart, sheet, segmented-control and switch.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/badge.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/chart.json",
+        "https://ui.knowns.dev/r/expense-core.json",
+        "https://ui.knowns.dev/r/segmented-control.json",
+        "https://ui.knowns.dev/r/sheet.json",
+        "https://ui.knowns.dev/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/expense/category-budget.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/expense/category-budget.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expense-core",
+      "type": "registry:ui",
+      "title": "Expense core",
+      "description": "Shared pieces for the expense blocks (transactions-list, category-budget, subscriptions, receipt-capture, expense-report, spend-insights): categories with their colour and glyph, a category tile, a money figure, a pace meter, a swipe row with a keyboard path, a bar that sticks to the bottom of a narrow screen, and pure helpers for money, days, filters, budget pace, report policy and subscription dates.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/expense/expense-parts.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/blocks/expense/expense-parts.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/expense/expense-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/blocks/expense/expense-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "subscriptions",
+      "type": "registry:block",
+      "title": "Subscriptions",
+      "description": "Recurring charges found in your spending: the monthly total, a strip of the next seven days with what is due, and a row per plan with its next date, a cue (unused for 60 days, new, up 22%, renews soon), the trend and the amount. Tap one for a sheet with what cancelling saves, past charges, a reminder switch and Keep or Cancel. Built on sheet, sparkline, badge and switch.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/badge.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/chart.json",
+        "https://ui.knowns.dev/r/expense-core.json",
+        "https://ui.knowns.dev/r/sheet.json",
+        "https://ui.knowns.dev/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/expense/subscriptions.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/expense/subscriptions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transactions-list",
+      "type": "registry:block",
+      "title": "Transactions list",
+      "description": "Spending grouped by day: a category tile, merchant, card and note, the amount with refunds in green and a cue for a missing receipt. Search, quick category chips and a filter sheet (category, account, amount, no receipt). On a desktop, tick rows and recategorise them together; on a phone, swipe a row for Category and Receipt. Loading and empty states. Built on sheet, input, checkbox, switch and skeleton.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/checkbox.json",
+        "https://ui.knowns.dev/r/empty.json",
+        "https://ui.knowns.dev/r/expense-core.json",
+        "https://ui.knowns.dev/r/input.json",
+        "https://ui.knowns.dev/r/sheet.json",
+        "https://ui.knowns.dev/r/skeleton.json",
+        "https://ui.knowns.dev/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/expense/transactions-list.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/expense/transactions-list.tsx"
+        }
+      ]
+    },
+    {
       "name": "bento-section",
       "type": "registry:block",
       "title": "Bento section",
@@ -1640,6 +1730,27 @@
           "path": "registry/knowns/ui/knowns/blocks/marketing/cta-section.tsx",
           "type": "registry:component",
           "target": "components/ui/knowns/blocks/marketing/cta-section.tsx"
+        }
+      ]
+    },
+    {
+      "name": "display-heading",
+      "type": "registry:block",
+      "title": "Display heading",
+      "description": "A display headline at 72 to 96px with tight tracking and one accent device (a marker, one coloured word or a coloured full stop), plus an intro layout with the headline on the left and the paragraph and buttons on the right.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/display-heading.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/display-heading.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/display-heading-utils.ts",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/display-heading-utils.ts"
         }
       ]
     },
@@ -1791,6 +1902,27 @@
           "path": "registry/knowns/ui/knowns/blocks/marketing/footer-parts.tsx",
           "type": "registry:component",
           "target": "components/ui/knowns/blocks/marketing/footer-parts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "frame",
+      "type": "registry:block",
+      "title": "Frame",
+      "description": "The structure of a crafted landing page: a centred frame with hairline rules down both sides, sections cut by hairline rows, hairline-boxed grid cells that share their borders, tick marks where rules cross and one full-bleed band that breaks the frame.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/frame.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/frame.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/marketing/frame-utils.ts",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/marketing/frame-utils.ts"
         }
       ]
     },
@@ -1969,6 +2101,84 @@
       ]
     },
     {
+      "name": "booking-card",
+      "type": "registry:block",
+      "title": "Booking card",
+      "description": "Book a meeting in one card: a month calendar, the day's free times, a duration, a repeat rule and the time zone, then a confirm step with a summary and a note, and a booked state. Built on calendar and time-slots.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/calendar.json",
+        "https://ui.knowns.dev/r/segmented-control.json",
+        "https://ui.knowns.dev/r/select.json",
+        "https://ui.knowns.dev/r/textarea.json",
+        "https://ui.knowns.dev/r/time-slots.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/schedule/booking-card.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/schedule/booking-card.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/schedule/schedule-utils.ts",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/schedule/schedule-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "day-agenda",
+      "type": "registry:block",
+      "title": "Day agenda",
+      "description": "A month calendar beside the chosen day's events: time, title, status tint, avatars, room or call link, with a filter, an Add button and an empty day. Built on calendar, badge and avatar.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/avatar.json",
+        "https://ui.knowns.dev/r/badge.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/calendar.json",
+        "https://ui.knowns.dev/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/schedule/day-agenda.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/schedule/day-agenda.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/schedule/schedule-utils.ts",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/schedule/schedule-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "time-range-card",
+      "type": "registry:block",
+      "title": "Time range card",
+      "description": "Pick a start and an end time with duration chips and a Selected duration note; an end before the start is flagged and Apply waits. Built on select and segmented-control.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/calendar.json",
+        "https://ui.knowns.dev/r/segmented-control.json",
+        "https://ui.knowns.dev/r/select.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/schedule/time-range-card.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/schedule/time-range-card.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/schedule/schedule-utils.ts",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/schedule/schedule-utils.ts"
+        }
+      ]
+    },
+    {
       "name": "settings-api-keys",
       "type": "registry:block",
       "title": "API keys settings",
@@ -2002,6 +2212,7 @@
       "title": "Billing settings",
       "description": "Current plan with status and renewal, usage meters, payment method, invoices, and cancel or resume with confirmation.",
       "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/badge.json",
         "https://ui.knowns.dev/r/button.json",
         "https://ui.knowns.dev/r/dialog.json",
@@ -2254,6 +2465,31 @@
       ]
     },
     {
+      "name": "open-in-ai",
+      "type": "registry:block",
+      "title": "Open in AI",
+      "description": "A prompt to hand to a coding agent: folded to a few lines, Copy prompt, and Open in Claude, ChatGPT or Cursor, with an optional safe or with-secret choice.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/knowns-icons.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/motion.json",
+        "https://ui.knowns.dev/r/segmented-control.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/blocks/site/open-in-ai.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/site/open-in-ai.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/blocks/site/open-in-ai-utils.ts",
+          "type": "registry:component",
+          "target": "components/ui/knowns/blocks/site/open-in-ai-utils.ts"
+        }
+      ]
+    },
+    {
       "name": "site-footer",
       "type": "registry:block",
       "title": "Site footer",
@@ -2383,13 +2619,16 @@
       "name": "template-waitlist-landing",
       "type": "registry:block",
       "title": "Waitlist landing page",
-      "description": "A one-screen launch page: an announcement pill, a headline over an aurora, a countdown to the launch day, an email field that returns the person's place on the list, and a line of faces and a count as proof.",
+      "description": "A launch page that shows the product working: a finished call turns into a summary and a follow-up beside the headline (thinking, a streamed answer, message actions), then an email field that returns the person's place on the list, a countdown to the launch day and a line of faces as proof.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
-        "https://ui.knowns.dev/r/announcement-pill.json",
+        "https://ui.knowns.dev/r/ai-answer.json",
         "https://ui.knowns.dev/r/aurora.json",
         "https://ui.knowns.dev/r/avatar.json",
-        "https://ui.knowns.dev/r/newsletter.json"
+        "https://ui.knowns.dev/r/message-actions.json",
+        "https://ui.knowns.dev/r/newsletter.json",
+        "https://ui.knowns.dev/r/site-header.json",
+        "https://ui.knowns.dev/r/thinking-state.json"
       ],
       "files": [
         {
@@ -2983,6 +3222,98 @@
           "type": "registry:ui",
           "target": "components/ui/knowns/floating-dock.tsx"
         }
+      ]
+    },
+    {
+      "name": "flow-approve-a-tool-call",
+      "type": "registry:block",
+      "title": "Approve a tool call flow",
+      "description": "Read the agent's plan and approve it, watch its tool calls run, answer the one call that needs you, and see the run carry on. Steps: Plan, Tool call, Approval, Run continues.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/agent-plan.json",
+        "https://ui.knowns.dev/r/approval-prompt.json",
+        "https://ui.knowns.dev/r/tool-call-card.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/flows/approve-a-tool-call.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/flows/approve-a-tool-call.tsx"
+        }
+      ],
+      "categories": [
+        "flow"
+      ]
+    },
+    {
+      "name": "flow-book-a-meeting",
+      "type": "registry:block",
+      "title": "Book a meeting flow",
+      "description": "Pick a day and one of the host's free times, check the details, book, and see it on your day. Steps: Pick a day, Pick a time, Confirm, Agenda.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/booking-card.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/calendar.json",
+        "https://ui.knowns.dev/r/day-agenda.json",
+        "https://ui.knowns.dev/r/time-range-card.json",
+        "https://ui.knowns.dev/r/time-slots.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/flows/book-a-meeting.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/flows/book-a-meeting.tsx"
+        }
+      ],
+      "categories": [
+        "flow"
+      ]
+    },
+    {
+      "name": "flow-cancel-an-idle-subscription",
+      "type": "registry:block",
+      "title": "Cancel an idle subscription flow",
+      "description": "Spot the plan nobody has opened in two months, see what cancelling saves, cancel it, and check its past charges. Steps: Subscriptions, Details, Cancelled.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/expense-core.json",
+        "https://ui.knowns.dev/r/subscriptions.json",
+        "https://ui.knowns.dev/r/transactions-list.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/flows/cancel-an-idle-subscription.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/flows/cancel-an-idle-subscription.tsx"
+        }
+      ],
+      "categories": [
+        "flow"
+      ]
+    },
+    {
+      "name": "flow-sign-up-and-set-up",
+      "type": "registry:block",
+      "title": "Sign up and set up flow",
+      "description": "Create an account with an email code, answer three setup questions, and land on a short checklist. Steps: Sign up, Setup, Checklist.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/auth-card.json",
+        "https://ui.knowns.dev/r/onboarding-checklist.json",
+        "https://ui.knowns.dev/r/setup-wizard.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/flows/sign-up-and-set-up.tsx",
+          "type": "registry:component",
+          "target": "components/ui/knowns/flows/sign-up-and-set-up.tsx"
+        }
+      ],
+      "categories": [
+        "flow"
       ]
     },
     {

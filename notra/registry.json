@@ -1697,6 +1697,317 @@
       ]
     },
     {
+      "name": "fun-slider",
+      "type": "registry:component",
+      "title": "Fun Slider",
+      "description": "Slide to confirm, with a little face on the thumb that reacts as you drag, a dotted violet fill that turns into the progress bar, and hearts when it lands.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "https://ui.usenotra.com/r/shimmer.json"
+      ],
+      "css": {
+        "@property --fun-slider-p": {
+          "syntax": "\"<number>\"",
+          "inherits": "true",
+          "initial-value": "0"
+        },
+        "@property --fun-slider-ripple": {
+          "syntax": "\"<length>\"",
+          "inherits": "false",
+          "initial-value": "0px"
+        },
+        "@layer components": {
+          ".fun-slider-track": {
+            "transition": "--fun-slider-p 300ms cubic-bezier(0.23, 1, 0.32, 1)"
+          },
+          ".fun-slider-track[data-phase=\"dragging\"]": {
+            "transition": "none"
+          },
+          ".fun-slider-thumb-x": {
+            "translate": "calc(var(--fun-slider-p) * var(--fun-slider-max) * var(--fun-slider-dir, 1)) 0"
+          },
+          ".fun-slider-trail": {
+            "width": "calc(var(--fun-slider-p) * var(--fun-slider-max) + var(--fun-slider-thumb))",
+            "opacity": "clamp(0, calc(var(--fun-slider-p) * var(--fun-slider-fade) - var(--fun-slider-fade-from)), 1)"
+          },
+          "[data-phase=\"pending\"] > .fun-slider-trail, [data-phase=\"success\"] > .fun-slider-trail": {
+            "width": "100%",
+            "opacity": "1"
+          },
+          ".fun-slider-ripple-mask": {
+            "mask-image": "radial-gradient(circle at var(--fun-slider-ripple-at, 100%) 50%, transparent max(0px, calc(var(--fun-slider-ripple) - 56px)), #000 max(0px, calc(var(--fun-slider-ripple) - 20px)), transparent var(--fun-slider-ripple))"
+          },
+          "@media (prefers-reduced-motion: reduce)": {
+            ".fun-slider-track": {
+              "transition": "none"
+            }
+          },
+          "@media (prefers-reduced-motion: no-preference)": {
+            ".fun-slider-sweep": {
+              "animation": "fun-slider-sweep 1.2s ease-out infinite"
+            },
+            ".fun-slider-shake": {
+              "animation": "fun-slider-shake 320ms ease-out"
+            },
+            ".fun-slider-hint": {
+              "animation": "fun-slider-hint 3.2s ease-in-out infinite"
+            },
+            ".fun-slider-jelly": {
+              "animation": "fun-slider-jelly 520ms ease-out"
+            },
+            ".fun-slider-jump": {
+              "animation": "fun-slider-jump 540ms ease-out"
+            },
+            ".fun-slider-boing": {
+              "animation": "fun-slider-boing 260ms cubic-bezier(0.23, 1, 0.32, 1)"
+            },
+            ".fun-slider-blink": {
+              "animation": "fun-slider-blink 3.6s ease-in-out infinite"
+            },
+            ".fun-slider-idle-eyes": {
+              "animation": "fun-slider-blink 3.6s ease-in-out infinite, fun-slider-glance 3.2s ease-in-out infinite"
+            },
+            ".fun-slider-tear": {
+              "animation": "fun-slider-tear 900ms ease-in infinite"
+            },
+            ".fun-slider-pop": {
+              "animation": "fun-slider-pop 420ms ease-out"
+            },
+            ".fun-slider-ripple": {
+              "animation": "fun-slider-ripple 900ms cubic-bezier(0.23, 1, 0.32, 1) forwards"
+            },
+            ".fun-slider-float": {
+              "animation": "fun-slider-float 800ms cubic-bezier(0.23, 1, 0.32, 1) both"
+            },
+            ".fun-slider-check": {
+              "animation": "fun-slider-check 280ms cubic-bezier(0.23, 1, 0.32, 1) 100ms both"
+            },
+            ".fun-slider-roll-in": {
+              "animation": "fun-slider-roll-in 360ms cubic-bezier(0.23, 1, 0.32, 1) both"
+            },
+            ".fun-slider-hop": {
+              "animation": "fun-slider-hop 900ms ease-in-out infinite"
+            }
+          },
+          "@keyframes fun-slider-jump": {
+            "0%": {
+              "translate": "0 0",
+              "scale": "1 1",
+              "rotate": "0deg"
+            },
+            "18%": {
+              "translate": "0 2px",
+              "scale": "1.18 0.82"
+            },
+            "45%": {
+              "translate": "0 -14px",
+              "scale": "0.9 1.12",
+              "rotate": "-12deg"
+            },
+            "70%": {
+              "translate": "0 0",
+              "scale": "1.14 0.86",
+              "rotate": "0deg"
+            },
+            "85%": {
+              "scale": "0.97 1.04"
+            },
+            "100%": {
+              "translate": "0 0",
+              "scale": "1 1"
+            }
+          },
+          "@keyframes fun-slider-boing": {
+            "from": {
+              "scale": "0.7"
+            },
+            "60%": {
+              "scale": "1.15"
+            },
+            "to": {
+              "scale": "1"
+            }
+          },
+          "@keyframes fun-slider-blink": {
+            "0%, 90%, 96%, 100%": {
+              "scale": "1 1"
+            },
+            "93%": {
+              "scale": "1 0.1"
+            }
+          },
+          "@keyframes fun-slider-glance": {
+            "0%, 70%, 96%, 100%": {
+              "translate": "0 0"
+            },
+            "76%, 90%": {
+              "translate": "calc(1px * var(--fun-slider-dir, 1)) 0"
+            }
+          },
+          "@keyframes fun-slider-tear": {
+            "from": {
+              "translate": "0 0",
+              "opacity": "1"
+            },
+            "to": {
+              "translate": "0 4px",
+              "opacity": "0"
+            }
+          },
+          "@keyframes fun-slider-hint": {
+            "0%, 76%, 100%": {
+              "translate": "0 0"
+            },
+            "82%": {
+              "translate": "calc(5px * var(--fun-slider-dir, 1)) 0"
+            },
+            "88%": {
+              "translate": "0 0"
+            },
+            "93%": {
+              "translate": "calc(2px * var(--fun-slider-dir, 1)) 0"
+            }
+          },
+          "@keyframes fun-slider-jelly": {
+            "30%": {
+              "scale": "1.25 0.8"
+            },
+            "50%": {
+              "scale": "0.85 1.15"
+            },
+            "70%": {
+              "scale": "1.08 0.94"
+            },
+            "100%": {
+              "scale": "1 1"
+            }
+          },
+          "@keyframes fun-slider-pop": {
+            "30%": {
+              "scale": "1.03 0.9"
+            },
+            "55%": {
+              "scale": "0.99 1.06"
+            },
+            "75%": {
+              "scale": "1.01 0.98"
+            },
+            "100%": {
+              "scale": "1 1"
+            }
+          },
+          "@keyframes fun-slider-ripple": {
+            "from": {
+              "--fun-slider-ripple": "0px",
+              "opacity": "1"
+            },
+            "to": {
+              "--fun-slider-ripple": "520px",
+              "opacity": "0"
+            }
+          },
+          "@keyframes fun-slider-float": {
+            "0%": {
+              "translate": "0 0",
+              "scale": "0.2",
+              "opacity": "0"
+            },
+            "18%": {
+              "scale": "1.15",
+              "opacity": "1"
+            },
+            "70%": {
+              "opacity": "1"
+            },
+            "100%": {
+              "translate": "var(--dx) var(--dy)",
+              "rotate": "var(--rot)",
+              "scale": "0.8",
+              "opacity": "0"
+            }
+          },
+          "@keyframes fun-slider-check": {
+            "from": {
+              "stroke-dashoffset": "1"
+            },
+            "to": {
+              "stroke-dashoffset": "0"
+            }
+          },
+          "@keyframes fun-slider-roll-in": {
+            "from": {
+              "translate": "0 10px",
+              "opacity": "0",
+              "filter": "blur(2px)"
+            },
+            "to": {
+              "translate": "0 0",
+              "opacity": "1",
+              "filter": "blur(0)"
+            }
+          },
+          "@keyframes fun-slider-hop": {
+            "0%, 60%, 100%": {
+              "translate": "0 0"
+            },
+            "30%": {
+              "translate": "0 -3px"
+            }
+          },
+          "@keyframes fun-slider-sweep": {
+            "from": {
+              "mask-position": "-60% 0"
+            },
+            "to": {
+              "mask-position": "160% 0"
+            }
+          },
+          "@keyframes fun-slider-shake": {
+            "20%, 60%": {
+              "translate": "-4px 0"
+            },
+            "40%, 80%": {
+              "translate": "4px 0"
+            }
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "../../packages/ui/src/components/registry/fun-slider/components/fun-slider.tsx",
+          "type": "registry:component",
+          "target": "components/fun-slider/components/fun-slider.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/fun-slider/components/fun-slider-parts.tsx",
+          "type": "registry:component",
+          "target": "components/fun-slider/components/fun-slider-parts.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/fun-slider/hooks/use-fun-slider.ts",
+          "type": "registry:hook",
+          "target": "components/fun-slider/hooks/use-fun-slider.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/fun-slider/constants/fun-slider.ts",
+          "type": "registry:lib",
+          "target": "components/fun-slider/constants/fun-slider.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/fun-slider/lib/fun-slider.ts",
+          "type": "registry:lib",
+          "target": "components/fun-slider/lib/fun-slider.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/fun-slider/types/fun-slider.ts",
+          "type": "registry:lib",
+          "target": "components/fun-slider/types/fun-slider.ts"
+        }
+      ]
+    },
+    {
       "name": "stepper",
       "type": "registry:component",
       "title": "Stepper",
