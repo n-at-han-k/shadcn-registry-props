@@ -39,11 +39,6 @@
           "target": "lib/knowns/icons/actor-icon.tsx"
         },
         {
-          "path": "registry/knowns/lib/knowns/icons/model-icons.data.ts",
-          "type": "registry:lib",
-          "target": "lib/knowns/icons/model-icons.data.ts"
-        },
-        {
           "path": "registry/knowns/lib/knowns/icons/model-icons.tsx",
           "type": "registry:lib",
           "target": "lib/knowns/icons/model-icons.tsx"
@@ -52,6 +47,11 @@
           "path": "registry/knowns/lib/knowns/icons/tool-icons.tsx",
           "type": "registry:lib",
           "target": "lib/knowns/icons/tool-icons.tsx"
+        },
+        {
+          "path": "registry/knowns/lib/knowns/icons/model-icons.data.ts",
+          "type": "registry:lib",
+          "target": "lib/knowns/icons/model-icons.data.ts"
         },
         {
           "path": "registry/knowns/lib/knowns/icons/tool-icons.data.ts",
@@ -69,7 +69,7 @@
       "name": "motion",
       "type": "registry:lib",
       "title": "Motion",
-      "description": "Shared motion for state changes: duration and easing tokens, and helpers for a status icon that draws, shakes or pulses, a fold, rows that slide in and collapse out, a number that counts and a value that flashes. Reduced motion is instant.",
+      "description": "Shared motion for state changes: duration and easing tokens, and helpers for a status icon that draws, shakes or pulses, a rare confirm, a fold, rows that slide in and collapse out, a number that counts or rolls like an odometer, a value that flashes, and an interruptible spring for things that follow the hand. Reduced motion is instant.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json"
       ],
@@ -168,7 +168,9 @@
           "--kn-ease-inout": "cubic-bezier(0.65, 0, 0.35, 1)",
           "--kn-dur-fast": "120ms",
           "--kn-dur": "180ms",
-          "--kn-dur-slow": "280ms"
+          "--kn-dur-slow": "280ms",
+          "--kn-dur-travel": "420ms",
+          "--kn-dur-celebrate": "760ms"
         },
         "@keyframes kn-breathe": {
           "0%, 100%": {
@@ -407,6 +409,11 @@
           "path": "registry/knowns/ui/knowns/agent-cursors/cursor-parts.tsx",
           "type": "registry:ui",
           "target": "components/ui/knowns/agent-cursors/cursor-parts.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/agent-cursors/cursor-physics.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/agent-cursors/cursor-physics.ts"
         },
         {
           "path": "registry/knowns/ui/knowns/agent-cursors/cursors-model.ts",
@@ -663,7 +670,7 @@
       "name": "animated-number",
       "type": "registry:ui",
       "title": "Animated number",
-      "description": "A number whose changed digits roll up or down to the new value: Intl formatting for currency, percent and decimals, tabular widths, instant with reduced motion.",
+      "description": "A number whose changed digits roll like an odometer to the new value, the carry travelling from the right: Intl formatting for currency, percent and decimals, tabular widths, instant with reduced motion.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/motion.json"
@@ -702,7 +709,8 @@
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/knowns-icons.json",
         "https://ui.knowns.dev/r/button.json",
-        "https://ui.knowns.dev/r/code-block.json"
+        "https://ui.knowns.dev/r/code-block.json",
+        "https://ui.knowns.dev/r/motion.json"
       ],
       "files": [
         {
@@ -1586,6 +1594,7 @@
         "https://ui.knowns.dev/r/button.json",
         "https://ui.knowns.dev/r/chart.json",
         "https://ui.knowns.dev/r/expense-core.json",
+        "https://ui.knowns.dev/r/motion.json",
         "https://ui.knowns.dev/r/segmented-control.json",
         "https://ui.knowns.dev/r/sheet.json",
         "https://ui.knowns.dev/r/switch.json"
@@ -2520,7 +2529,7 @@
       "name": "site-header",
       "type": "registry:block",
       "title": "Site header",
-      "description": "Sticky site header with a blur and hairline on scroll, links, dropdowns and a mega panel with a featured card, active indicator, search trigger, theme toggle, account or Sign in, and CTA. Includes a mobile drawer: a modal dialog with accordion groups and scroll lock. Marketing and minimal variants.",
+      "description": "Sticky site header with a blur and hairline on scroll, links, dropdowns and mega panels in one shared box that springs between items, product cards with thumbnails, a featured card, active indicator, search trigger, theme toggle, account or Sign in, and CTA. Includes a mobile drawer: a modal dialog with accordion groups and scroll lock. Marketing and minimal variants.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/accordion.json",
@@ -2856,6 +2865,28 @@
       ]
     },
     {
+      "name": "citation-fly",
+      "type": "registry:ui",
+      "title": "Citation fly",
+      "description": "An answer with numbered citations where a picked [n] flies on an arc to its source card, which lands with a small pop and a flash; going back flies it home and returns focus to the chip. Sources sit beside the answer, or under it on a narrow screen.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/citation-fly/citation-fly.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/citation-fly/citation-fly.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/citation-fly/citation-fly-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/citation-fly/citation-fly-utils.ts"
+        }
+      ]
+    },
+    {
       "name": "code-block",
       "type": "registry:ui",
       "title": "Code Block",
@@ -2920,6 +2951,40 @@
           "path": "registry/knowns/ui/knowns/command-menu/command-utils.ts",
           "type": "registry:ui",
           "target": "components/ui/knowns/command-menu/command-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "comment",
+      "type": "registry:ui",
+      "title": "Comment",
+      "description": "Comments for any page: a comment with @mentions, links and an edited mark, hover actions (react, reply, more), a reactions row, a thread that folds older replies and marks what is new, resolve and reopen, and a composer with an @mention picker for people and agents, attachments, Cmd+Enter to send and edit in place.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/knowns-floating.json",
+        "https://ui.knowns.dev/r/avatar.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/empty.json",
+        "https://ui.knowns.dev/r/menu.json",
+        "https://ui.knowns.dev/r/motion.json",
+        "https://ui.knowns.dev/r/skeleton.json",
+        "https://ui.knowns.dev/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/comment/comment.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/comment/comment.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/comment/comment-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/comment/comment-utils.ts"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/chat-composer/use-autosize.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/chat-composer/use-autosize.ts"
         }
       ]
     },
@@ -3340,6 +3405,30 @@
       ]
     },
     {
+      "name": "heading-mark",
+      "type": "registry:ui",
+      "title": "Heading Mark",
+      "description": "Logos and icons that stand in for words inside a heading's sentence. Each mark sits at the cap height of the heading's font as the bare mark (or on an opt-in plate for monochrome glyphs), keeps its name for screen readers and in a tooltip, and a group stays on one line as a row, an overlapping stack or a hand of cards, with a real or or and before the last. A cycling slot rolls through marks in place. Hover spreads a group on a spring; nothing moves on first render.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/fan-stack.json",
+        "https://ui.knowns.dev/r/motion.json",
+        "https://ui.knowns.dev/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/heading-mark.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/heading-mark.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/heading-mark-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/heading-mark-utils.ts"
+        }
+      ]
+    },
+    {
       "name": "heatmap",
       "type": "registry:ui",
       "title": "Heatmap",
@@ -3648,6 +3737,28 @@
       ]
     },
     {
+      "name": "magnet-chips",
+      "type": "registry:ui",
+      "title": "Magnet chips",
+      "description": "Prompt suggestions that answer the pointer: chips lean toward it, a picked one flies into the input and types itself in while its neighbours are nudged away in order of distance. Any key finishes the typing at once; Enter sends.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/magnet-chips/magnet-chips.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/magnet-chips/magnet-chips.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/magnet-chips/magnet-chips-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/magnet-chips/magnet-chips-utils.ts"
+        }
+      ]
+    },
+    {
       "name": "marquee",
       "type": "registry:ui",
       "title": "Marquee",
@@ -3696,6 +3807,7 @@
         "https://ui.knowns.dev/r/button.json",
         "https://ui.knowns.dev/r/input.json",
         "https://ui.knowns.dev/r/menu.json",
+        "https://ui.knowns.dev/r/motion.json",
         "https://ui.knowns.dev/r/toggle-group.json",
         "https://ui.knowns.dev/r/tooltip.json"
       ],
@@ -3946,7 +4058,8 @@
         "class-variance-authority@^0.7.1"
       ],
       "registryDependencies": [
-        "https://ui.knowns.dev/r/knowns-core.json"
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/motion.json"
       ],
       "files": [
         {
@@ -4045,7 +4158,8 @@
       "title": "Slider",
       "description": "Single value or range slider with steps, marks, a value bubble and full keyboard support.",
       "registryDependencies": [
-        "https://ui.knowns.dev/r/knowns-core.json"
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/motion.json"
       ],
       "files": [
         {
@@ -4182,7 +4296,8 @@
       "title": "Tabs",
       "description": "Tabs in underline, pill and button styles, horizontal or vertical, with icons, counts, overflow scrolling and a sliding indicator.",
       "registryDependencies": [
-        "https://ui.knowns.dev/r/knowns-core.json"
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/motion.json"
       ],
       "files": [
         {
@@ -4454,7 +4569,8 @@
       "title": "Timeline Scrubber",
       "description": "A time axis with ticks and labels and one marker you drag or move with the keyboard, anchoring a card above it that stays inside the track. Controlled or not. A grab halo on the marker, a faint ghost where a click lands, and the card fades on a click or key move; transform and opacity only.",
       "registryDependencies": [
-        "https://ui.knowns.dev/r/knowns-core.json"
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/motion.json"
       ],
       "files": [
         {
@@ -4473,7 +4589,7 @@
       "name": "toast",
       "type": "registry:ui",
       "title": "Toast",
-      "description": "Notifications with ToastProvider and useToast().",
+      "description": "Notifications with ToastProvider and useToast(): a stack that spreads out on hover or focus, and a swipe to dismiss.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/knowns-floating.json",
@@ -4484,6 +4600,11 @@
           "path": "registry/knowns/ui/knowns/toast.tsx",
           "type": "registry:ui",
           "target": "components/ui/knowns/toast.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/toast-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/toast-utils.ts"
         }
       ]
     },

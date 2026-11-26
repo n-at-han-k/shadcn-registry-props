@@ -3382,6 +3382,9 @@
       ],
       "meta": {
         "figmaNodeId": "17936-107791",
+        "previewProps": {
+          "videoSrc": "https://assets.shadcncraft.com/videos/shadcncraft-hero-full.mp4"
+        },
         "addedAt": "2025-12-05",
         "bundle": "pro-marketing",
         "tier": "pro"
@@ -13856,7 +13859,6 @@
         "alert",
         "alert-dialog",
         "avatar",
-        "badge",
         "button",
         "calendar",
         "card",
@@ -13874,11 +13876,11 @@
         "progress",
         "radio-group",
         "select",
+        "sheet",
         "sidebar",
         "slider",
         "sonner",
         "spinner",
-        "textarea",
         "toggle",
         "toggle-group",
         "tooltip",
@@ -13917,9 +13919,54 @@
           "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/application-shell.tsx"
         },
         {
-          "path": "blocks/pro-application/forms/loan-application-1/components/application-sections.tsx",
+          "path": "blocks/pro-application/forms/loan-application-1/components/section-parts.tsx",
           "type": "registry:component",
-          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/application-sections.tsx"
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/section-parts.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/components/applicants-section.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/applicants-section.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/components/income-section.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/income-section.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/components/expenses-section.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/expenses-section.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/components/assets-section.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/assets-section.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/components/liabilities-section.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/liabilities-section.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/components/property-section.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/property-section.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/components/documents-section.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/documents-section.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/components/review-section.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/components/review-section.tsx"
+        },
+        {
+          "path": "blocks/pro-application/forms/loan-application-1/lib/uploads.ts",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/forms/loan-application-1/lib/uploads.ts"
         },
         {
           "path": "blocks/pro-application/forms/loan-application-1/components/form-fields.tsx",
@@ -20047,13 +20094,17 @@
       "description": "The complete Profit Analytics app for Next.js: an inset app shell with 10 screens (overview, projects, project detail, leakage, clients, forecast, pricing, capacity, alerts and reports), assembled from the individually installable Profit Analytics blocks. Installs routes under `app/profit`, so the app lives at /profit beside your existing pages.",
       "registryDependencies": [
         "button",
+        "command",
         "dialog",
         "dropdown-menu",
+        "separator",
         "sidebar",
-        "toggle-group",
+        "table",
+        "tabs",
         "tooltip",
         "@shadcncraft/action-queue-1",
         "@shadcncraft/app-shell-3",
+        "@shadcncraft/badge",
         "@shadcncraft/budget-burn-1",
         "@shadcncraft/capacity-planner-1",
         "@shadcncraft/capacity-swap-1",
@@ -20106,13 +20157,11 @@
         "@shadcncraft/true-margin-1",
         "@shadcncraft/weighted-pipeline-1",
         "avatar",
-        "breadcrumb",
         "direction",
         "field",
         "input",
         "kbd",
-        "select",
-        "switch"
+        "select"
       ],
       "files": [
         {
@@ -20124,6 +20173,11 @@
           "path": "blocks/pro-application/dashboard-profit-analytics/profit-analytics-1/components/shell.tsx",
           "type": "registry:component",
           "target": "@components/shadcncraft/pro-application/dashboard-profit-analytics/profit-analytics-1/components/shell.tsx"
+        },
+        {
+          "path": "blocks/pro-application/dashboard-profit-analytics/profit-analytics-1/components/header.tsx",
+          "type": "registry:component",
+          "target": "@components/shadcncraft/pro-application/dashboard-profit-analytics/profit-analytics-1/components/header.tsx"
         },
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/profit-analytics-1/components/navigation.tsx",
@@ -20314,8 +20368,8 @@
     {
       "name": "true-margin-1",
       "title": "True Margin 1 – Fee breakdown by client",
-      "description": "Each client's fee split into delivery cost, non-billable time and an overhead share, with the gross margin marked on the bar and the true margin beside it. Group by client, service or team.",
-      "registryDependencies": ["button", "card", "tabs"],
+      "description": "Each client's fee split into delivery cost, non-billable time and an overhead share, with the gross margin marked on the bar and the true margin beside it. Group by client, service or team. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton", "tabs"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/true-margin-1/index.tsx",
@@ -20335,8 +20389,8 @@
     {
       "name": "effective-rate-1",
       "title": "Effective Rate 1 – Dollars an hour against the rate card",
-      "description": "What each client pays an hour, as bars diverging from the rate card, with the blended rate above. Use it to see who is quietly under the card.",
-      "registryDependencies": ["button", "card", "tabs"],
+      "description": "What each client pays an hour, as bars diverging from the rate card, with the blended rate above. Use it to see who is quietly under the card. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton", "tabs"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/effective-rate-1/index.tsx",
@@ -20356,9 +20410,9 @@
     {
       "name": "client-quadrant-1",
       "title": "Client Quadrant 1 – Revenue against true margin",
-      "description": "Clients plotted by revenue and true margin, sized by hours logged, split into grow, protect, review and fix pricing quadrants.",
+      "description": "Clients plotted by revenue and true margin, sized by hours logged, split into grow, protect, review and fix pricing quadrants. Includes loading, empty and error states.",
       "dependencies": ["recharts"],
-      "registryDependencies": ["button", "card", "chart"],
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/client-quadrant-1/index.tsx",
@@ -20378,9 +20432,9 @@
     {
       "name": "quote-accuracy-1",
       "title": "Quote Accuracy 1 – Typical overrun by producer",
-      "description": "How far each producer's hours typically run past the quote, as one bar each against an on-target band, with the buffer to add.",
+      "description": "How far each producer's hours typically run past the quote, as one bar each against an on-target band, with the buffer to add. Includes loading, empty and error states.",
       "dependencies": ["recharts"],
-      "registryDependencies": ["button", "card", "chart"],
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/quote-accuracy-1/index.tsx",
@@ -20400,8 +20454,8 @@
     {
       "name": "capacity-planner-1",
       "title": "Capacity Planner 1 – Booked hours per person and week",
-      "description": "Hours booked per person for the next eight weeks as one tile a week, with over-capacity weeks marked and the team load for the chosen week.",
-      "registryDependencies": ["avatar", "button", "card"],
+      "description": "Hours booked per person for the next eight weeks as one tile a week, with over-capacity weeks marked and the team load for the chosen week. Includes loading, empty and error states.",
+      "registryDependencies": ["avatar", "button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/capacity-planner-1/index.tsx",
@@ -20421,9 +20475,9 @@
     {
       "name": "scope-creep-1",
       "title": "Scope Creep 1 – Unbilled work added past the quote",
-      "description": "Hours added to a project after the quote was signed, stepped over time and split into unbilled and billed, with each request dated and priced and the margin it cost.",
+      "description": "Hours added to a project after the quote was signed, stepped over time and split into unbilled and billed, with each request dated and priced and the margin it cost. Includes loading, empty and error states.",
       "dependencies": ["recharts"],
-      "registryDependencies": ["button", "card", "chart"],
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/scope-creep-1/index.tsx",
@@ -20443,8 +20497,15 @@
     {
       "name": "money-flow-1",
       "title": "Money Flow 1 – Where fees go, as a flow",
-      "description": "Fees flowing into delivery, client care, overhead and profit on one scale, for the month or split by client, with true margin against gross.",
-      "registryDependencies": ["button", "card", "separator", "tabs"],
+      "description": "Fees flowing into delivery, client care, overhead and profit on one scale, for the month or split by client, with true margin against gross. Includes loading, empty and error states.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "empty",
+        "separator",
+        "skeleton",
+        "tabs"
+      ],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/money-flow-1/index.tsx",
@@ -20464,8 +20525,8 @@
     {
       "name": "spend-vs-progress-1",
       "title": "Spend vs Progress 1 – Budget consumed against work accepted",
-      "description": "Two concentric rings for one project, budget consumed and work accepted, with the points spend runs ahead of delivery.",
-      "registryDependencies": ["button", "card", "separator"],
+      "description": "Two concentric rings for one project, budget consumed and work accepted, with the points spend runs ahead of delivery. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "separator", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/spend-vs-progress-1/index.tsx",
@@ -20485,8 +20546,8 @@
     {
       "name": "landing-window-1",
       "title": "Landing Window 1 – Margin range at delivery",
-      "description": "The range a project's margin can land in at delivery against target, for the current plan and with an intervention.",
-      "registryDependencies": ["button", "card", "chart", "tabs"],
+      "description": "The range a project's margin can land in at delivery against target, for the current plan and with an intervention. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton", "tabs"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/landing-window-1/index.tsx",
@@ -20506,8 +20567,8 @@
     {
       "name": "hours-bank-1",
       "title": "Hours Bank 1 – Retainer hours as a balance",
-      "description": "Each retainer's hours as tiles in a bank: drawn on pace, drawn ahead of pace and still available, with rollover.",
-      "registryDependencies": ["button", "card"],
+      "description": "Each retainer's hours as tiles in a bank: drawn on pace, drawn ahead of pace and still available, with rollover. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/hours-bank-1/index.tsx",
@@ -20527,8 +20588,8 @@
     {
       "name": "revenue-cliff-1",
       "title": "Revenue Cliff 1 – Signed backlog against target",
-      "description": "Signed revenue stepping down month by month with weighted pipeline over it, the first month below target, and the deals that cover the gap.",
-      "registryDependencies": ["button", "card", "chart", "tabs"],
+      "description": "Signed revenue stepping down month by month with weighted pipeline over it, the first month below target, and the deals that cover the gap. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton", "tabs"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/revenue-cliff-1/index.tsx",
@@ -20548,8 +20609,8 @@
     {
       "name": "client-constellation-1",
       "title": "Client Constellation 1 – Clients by revenue and true margin",
-      "description": "Clients plotted by revenue and true margin, sized by hours on demand, with one client's share of hours set against its share of profit.",
-      "registryDependencies": ["button", "card", "tabs"],
+      "description": "Clients plotted by revenue and true margin, sized by hours on demand, with one client's share of hours set against its share of profit. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton", "tabs"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/client-constellation-1/index.tsx",
@@ -20569,8 +20630,8 @@
     {
       "name": "invisible-hour-1",
       "title": "Invisible Hour 1 – Effective rate as minutes of an hour",
-      "description": "An hour drawn as sixty tiles, the minutes the fee pays for at the rate card and the ones it does not, with the effective rate.",
-      "registryDependencies": ["button", "card"],
+      "description": "An hour drawn as sixty tiles, the minutes the fee pays for at the rate card and the ones it does not, with the effective rate. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/invisible-hour-1/index.tsx",
@@ -20590,8 +20651,8 @@
     {
       "name": "estimate-fingerprint-1",
       "title": "Estimate Fingerprint 1 – Where quotes land against actual hours",
-      "description": "Completed quotes plotted by how far actual hours ran over, with the density, the median and a suggested hours buffer, per producer or for the team.",
-      "registryDependencies": ["button", "card", "tabs"],
+      "description": "Completed quotes plotted by how far actual hours ran over, with the density, the median and a suggested hours buffer, per producer or for the team. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton", "tabs"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/estimate-fingerprint-1/index.tsx",
@@ -20611,8 +20672,8 @@
     {
       "name": "capacity-swap-1",
       "title": "Capacity Swap 1 – Clear overtime by moving hours",
-      "description": "Booked hours per person for eight weeks with overtime marked, and a previewable swap that moves hours between two people in one week.",
-      "registryDependencies": ["button", "card", "separator"],
+      "description": "Booked hours per person for eight weeks with overtime marked, and a previewable swap that moves hours between two people in one week. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "separator", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/capacity-swap-1/index.tsx",
@@ -20632,8 +20693,8 @@
     {
       "name": "change-order-trail-1",
       "title": "Change Order Trail 1 – Out-of-scope requests on a project",
-      "description": "Out-of-scope requests on one project split into billed, absorbed and pending, with each request dated and priced and a change order to prepare.",
-      "registryDependencies": ["button", "card"],
+      "description": "Out-of-scope requests on one project split into billed, absorbed and pending, with each request dated and priced and a change order to prepare. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/change-order-trail-1/index.tsx",
@@ -20653,8 +20714,8 @@
     {
       "name": "recovery-frontier-1",
       "title": "Recovery Frontier 1 – Profit moves by effort and value",
-      "description": "Recovery opportunities plotted by effort and value, with the quick-win corner shaded and the first move to make.",
-      "registryDependencies": ["button", "card", "tabs"],
+      "description": "Recovery opportunities plotted by effort and value, with the quick-win corner shaded and the first move to make. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton", "tabs"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/recovery-frontier-1/index.tsx",
@@ -20695,9 +20756,17 @@
     {
       "name": "margin-alerts-1",
       "title": "Margin Alerts 1 – Triggered profit rules",
-      "description": "Triage inbox of triggered profit rules, open, snoozed and resolved, with the rule that fired and a task, an owner or a snooze for the top one.",
+      "description": "Triage inbox of triggered profit rules, open, snoozed and resolved, with the rule that fired and a task, an owner or a snooze for the top one. Includes loading, empty and error states.",
       "dependencies": ["recharts"],
-      "registryDependencies": ["button", "card", "chart", "tabs", "dropdown-menu"],
+      "registryDependencies": [
+        "button",
+        "card",
+        "chart",
+        "dropdown-menu",
+        "empty",
+        "skeleton",
+        "tabs"
+      ],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/margin-alerts-1/index.tsx",
@@ -20739,8 +20808,8 @@
     {
       "name": "margin-summary-1",
       "title": "Margin Summary 1 – Gross margin against the week's target",
-      "description": "The week's gross margin as a headline figure, its change on last week, a meter showing the distance to target, and the revenue, gross profit and projects behind it.",
-      "registryDependencies": ["card", "chart"],
+      "description": "The week's gross margin as a headline figure, its change on last week, a meter showing the distance to target, and the revenue, gross profit and projects behind it. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/margin-summary-1/index.tsx",
@@ -20760,8 +20829,8 @@
     {
       "name": "margin-trend-1",
       "title": "Margin Trend 1 – Twelve weeks against the target",
-      "description": "Twelve weeks of gross margin against a dashed target line, past weeks in a light tint and the current week solid, with every week in the data table.",
-      "registryDependencies": ["card", "chart"],
+      "description": "Twelve weeks of gross margin against a dashed target line, past weeks in a light tint and the current week solid, with every week in the data table. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/margin-trend-1/index.tsx",
@@ -20781,8 +20850,8 @@
     {
       "name": "target-gap-1",
       "title": "Target Gap 1 – Margin lost against plan, by driver",
-      "description": "The margin lost against a 38 percent target split into five drivers as a waterfall, each in points and dollars, ending at the actual margin, with a link through to leakage.",
-      "registryDependencies": ["button", "card", "chart"],
+      "description": "The margin lost against a 38 percent target split into five drivers as a waterfall, each in points and dollars, ending at the actual margin, with a link through to leakage. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/target-gap-1/index.tsx",
@@ -20802,9 +20871,16 @@
     {
       "name": "leakage-summary-1",
       "title": "Leakage Summary 1 – Profit lost to cost exceptions",
-      "description": "Profit lost in the month or its latest week, with the change on the period before, exceptions per week against a fixed scale, and the share that three priorities can recover.",
+      "description": "Profit lost in the month or its latest week, with the change on the period before, exceptions per week against a fixed scale, and the share that three priorities can recover. Includes loading, empty and error states.",
       "dependencies": ["recharts"],
-      "registryDependencies": ["card", "chart", "progress"],
+      "registryDependencies": [
+        "button",
+        "card",
+        "chart",
+        "empty",
+        "progress",
+        "skeleton"
+      ],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/leakage-summary-1/index.tsx",
@@ -20824,8 +20900,15 @@
     {
       "name": "leakage-heatmap-1",
       "title": "Leakage Heatmap 1 – Losses by team and cause",
-      "description": "A heatmap of lost profit with teams down the side and causes across the top, every cell labelled with its value, row and column totals, a team and period filter, and a detail dialog for each cell.",
-      "registryDependencies": ["card", "progress", "table"],
+      "description": "A heatmap of lost profit with teams down the side and causes across the top, every cell labelled with its value, row and column totals, a team and period filter, and a detail dialog for each cell. Includes loading, empty and error states.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "empty",
+        "progress",
+        "skeleton",
+        "table"
+      ],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/leakage-heatmap-1/index.tsx",
@@ -20845,12 +20928,14 @@
     {
       "name": "leak-sources-1",
       "title": "Leak Sources 1 – Projects losing the most profit",
-      "description": "The projects behind the losses, with the cause, the lead and how far over the quote each one ran. Filter by cause.",
+      "description": "The projects behind the losses, with the cause, the lead and how far over the quote each one ran. Filter by cause. Includes loading, empty and error states.",
       "registryDependencies": [
         "avatar",
         "button",
         "card",
+        "empty",
         "progress",
+        "skeleton",
         "table",
         "toggle-group"
       ],
@@ -20894,8 +20979,8 @@
     {
       "name": "opportunity-ranking-1",
       "title": "Opportunity Ranking 1 – Patterns ranked by profit at stake",
-      "description": "The three patterns holding the most recoverable profit, ranked with the cash at stake, what drives them and one review for each.",
-      "registryDependencies": ["button", "card", "dialog"],
+      "description": "The three patterns holding the most recoverable profit, ranked with the cash at stake, what drives them and one review for each. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "dialog", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/opportunity-ranking-1/index.tsx",
@@ -20915,9 +21000,9 @@
     {
       "name": "retainer-health-1",
       "title": "Retainer Health 1 – Effective rate per retainer",
-      "description": "What each retainer earns an hour once overruns are counted, against the rate card.",
+      "description": "What each retainer earns an hour once overruns are counted, against the rate card. Includes loading, empty and error states.",
       "dependencies": ["recharts"],
-      "registryDependencies": ["button", "card", "chart"],
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/retainer-health-1/index.tsx",
@@ -20937,9 +21022,16 @@
     {
       "name": "weighted-pipeline-1",
       "title": "Weighted Pipeline 1 – Forecast against the target",
-      "description": "Signed work plus open proposals weighted by win probability over the next six months, against a monthly target, with the deals that would close the gap.",
+      "description": "Signed work plus open proposals weighted by win probability over the next six months, against a monthly target, with the deals that would close the gap. Includes loading, empty and error states.",
       "dependencies": ["recharts"],
-      "registryDependencies": ["button", "card", "chart", "progress"],
+      "registryDependencies": [
+        "button",
+        "card",
+        "chart",
+        "empty",
+        "progress",
+        "skeleton"
+      ],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/weighted-pipeline-1/index.tsx",
@@ -20959,8 +21051,8 @@
     {
       "name": "cause-explorer-1",
       "title": "Cause Explorer 1 – Lost profit drilled from cause to producer",
-      "description": "Lost profit broken down by cause, team, project type and producer, with each level drilling into the next and a breadcrumb back up the path.",
-      "registryDependencies": ["button", "card"],
+      "description": "Lost profit broken down by cause, team, project type and producer, with each level drilling into the next and a breadcrumb back up the path. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/cause-explorer-1/index.tsx",
@@ -20980,8 +21072,8 @@
     {
       "name": "hours-comparison-1",
       "title": "Hours Comparison 1 – Estimated against actual hours",
-      "description": "Campaigns counted in half-hour bins, estimated hours above actual hours, with each series average, the overrun as a percentage, and the gap and the campaigns that ran long summed below.",
-      "registryDependencies": ["card", "chart"],
+      "description": "Campaigns counted in half-hour bins, estimated hours above actual hours, with each series average, the overrun as a percentage, and the gap and the campaigns that ran long summed below. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/hours-comparison-1/index.tsx",
@@ -21001,8 +21093,14 @@
     {
       "name": "suggested-fix-1",
       "title": "Suggested Fix 1 – Corrective action for one campaign type",
-      "description": "The fix for campaign production: the new allowance in hours, what it replaces, and the revenue it recovers each month, with one action to apply it.",
-      "registryDependencies": ["button", "card", "@shadcncraft/estimate-update-1"],
+      "description": "The fix for campaign production: the new allowance in hours, what it replaces, and the revenue it recovers each month, with one action to apply it. Includes loading, empty and error states.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "empty",
+        "skeleton",
+        "@shadcncraft/estimate-update-1"
+      ],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/suggested-fix-1/index.tsx",
@@ -21022,14 +21120,12 @@
     {
       "name": "profit-projects-table-1",
       "title": "Profit Projects Table 1 – Completed projects ranked by gross margin",
-      "description": "Completed projects ranked by gross margin, worst first, with search, a status filter, a margin meter against target, the main issue and status per row, optional row links and page controls. Built on TanStack Table.",
+      "description": "Completed projects ranked by gross margin, worst first, with search, a status filter, a margin meter against target, the main issue and status per row, optional row links and page controls. Built on TanStack Table. Includes loading, empty and error states.",
       "dependencies": ["@tanstack/react-table@^8.21.3", "date-fns"],
       "registryDependencies": [
         "button",
-        "card",
-        "dropdown-menu",
         "empty",
-        "input-group",
+        "skeleton",
         "table",
         "@shadcncraft/badge",
         "@shadcncraft/data-table-pagination"
@@ -21053,8 +21149,8 @@
     {
       "name": "estimate-comparison-1",
       "title": "Estimate Comparison 1 – Estimated against actual cost",
-      "description": "Each line's estimate and actual as a pair of bars, the overspend in red and the change beside it, switchable between cost and hours, with the total and the share over estimate below.",
-      "registryDependencies": ["card", "chart", "tabs"],
+      "description": "Each line's estimate and actual as a pair of bars, the overspend in red and the change beside it, switchable between cost and hours, with the total and the share over estimate below. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton", "tabs"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/estimate-comparison-1/index.tsx",
@@ -21074,8 +21170,8 @@
     {
       "name": "project-result-1",
       "title": "Project Result 1 – Margin against the contract target",
-      "description": "One project's margin against its estimate, revenue, cost and profit beside what was planned, and the planned profit lost by cause with a link to the profit bridge.",
-      "registryDependencies": ["card", "chart"],
+      "description": "One project's margin against its estimate, revenue, cost and profit beside what was planned, and the planned profit lost by cause with a link to the profit bridge. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/project-result-1/index.tsx",
@@ -21095,8 +21191,8 @@
     {
       "name": "full-cost-stack-1",
       "title": "Full Cost Stack 1 – Planned fee against actual revenue",
-      "description": "The planned fee and the actual revenue as two bars on one scale, each split by cost line with profit at the end. Pair it with Cost Breakdown Table 1 for the amounts.",
-      "registryDependencies": ["card"],
+      "description": "The planned fee and the actual revenue as two bars on one scale, each split by cost line with profit at the end. Pair it with Cost Breakdown Table 1 for the amounts. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/full-cost-stack-1/index.tsx",
@@ -21116,8 +21212,8 @@
     {
       "name": "cost-breakdown-table-1",
       "title": "Cost Breakdown Table 1 – Planned against actual by cost line",
-      "description": "A table of every cost line and the profit left, planned against actual with the change per line and revenue as the footer. Colours match Full Cost Stack 1.",
-      "registryDependencies": ["card", "table"],
+      "description": "A table of every cost line and the profit left, planned against actual with the change per line and revenue as the footer. Colours match Full Cost Stack 1. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton", "table"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/cost-breakdown-table-1/index.tsx",
@@ -21137,9 +21233,9 @@
     {
       "name": "budget-burn-1",
       "title": "Budget Burn 1 – Spend against the budget",
-      "description": "Spend to date, the weekly burn and the day the budget runs out, charted from the start of work with the forecast to delivery and the threshold dates. Use it to see a campaign running out of budget before it ships.",
+      "description": "Spend to date, the weekly burn and the day the budget runs out, charted from the start of work with the forecast to delivery and the threshold dates. Use it to see a campaign running out of budget before it ships. Includes loading, empty and error states.",
       "dependencies": ["date-fns", "recharts"],
-      "registryDependencies": ["badge", "button", "card", "chart"],
+      "registryDependencies": ["badge", "button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/budget-burn-1/index.tsx",
@@ -21159,8 +21255,8 @@
     {
       "name": "projected-finish-1",
       "title": "Projected Finish 1 – Margin today against the forecast at completion",
-      "description": "Each active project's margin today and its forecast margin at completion on one scale, against the target, with the average finish. Use it to see which projects will still miss the target when they close.",
-      "registryDependencies": ["button", "card", "tooltip"],
+      "description": "Each active project's margin today and its forecast margin at completion on one scale, against the target, with the average finish. Use it to see which projects will still miss the target when they close. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton", "tooltip"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/projected-finish-1/index.tsx",
@@ -21180,8 +21276,8 @@
     {
       "name": "project-timeline-1",
       "title": "Project Timeline 1 – From proposal to final delivery",
-      "description": "Proposal, fee adjustment, production, revision and invoice on one timeline, one figure per step, with the steps that cost margin marked.",
-      "registryDependencies": ["card"],
+      "description": "Proposal, fee adjustment, production, revision and invoice on one timeline, one figure per step, with the steps that cost margin marked. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/project-timeline-1/index.tsx",
@@ -21201,8 +21297,8 @@
     {
       "name": "profit-bridge-1",
       "title": "Profit Bridge 1 – Planned to retained profit",
-      "description": "A waterfall from planned profit to retained profit, each deduction floating between running totals, with the loss, retained share and final margin below.",
-      "registryDependencies": ["card"],
+      "description": "A waterfall from planned profit to retained profit, each deduction floating between running totals, with the loss, retained share and final margin below. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/profit-bridge-1/index.tsx",
@@ -21222,11 +21318,12 @@
     {
       "name": "profit-causes-1",
       "title": "Profit Causes 1 – Each cause with its corrective action",
-      "description": "The four causes of a lost profit, each with its date, amount and the action that addresses it.",
+      "description": "The four causes of a lost profit, each with its date, amount and the action that addresses it. Includes loading, empty and error states.",
       "registryDependencies": [
         "button",
         "card",
-        "dropdown-menu",
+        "empty",
+        "skeleton",
         "@shadcncraft/report-actions-1"
       ],
       "files": [
@@ -21322,8 +21419,8 @@
     {
       "name": "pattern-insight-1",
       "title": "Pattern Insight 1 – Finding backed by evidence",
-      "description": "One finding at a time: the size of the gap, what it is measured against, the fix and the projects behind it, with the other findings a step away.",
-      "registryDependencies": ["badge", "button", "card"],
+      "description": "One finding at a time: the size of the gap, what it is measured against, the fix and the projects behind it, with the other findings a step away. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/pattern-insight-1/index.tsx",
@@ -21343,8 +21440,8 @@
     {
       "name": "action-queue-1",
       "title": "Action Queue 1 – Exceptions needing a decision",
-      "description": "The operational exceptions left this week, most expensive first, each with its evidence and a link through to it.",
-      "registryDependencies": ["card", "item"],
+      "description": "The operational exceptions left this week, most expensive first, each with its evidence and a link through to it. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "item", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/action-queue-1/index.tsx",
@@ -21364,13 +21461,8 @@
     {
       "name": "project-distribution-1",
       "title": "Project Distribution 1 – One dot per completed project",
-      "description": "Every project completed in the week as a dot on its final margin, banded against a 38% target. Pick a project on the plot to open it. A narrow card switches to 2-point bins.",
-      "registryDependencies": [
-        "button",
-        "card",
-        "dropdown-menu",
-        "@shadcncraft/report-actions-1"
-      ],
+      "description": "Every project completed in the week as a dot on its final margin, banded against a 38% target. Pick a project on the plot to open it. A narrow card switches to 2-point bins. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/project-distribution-1/index.tsx",
@@ -21414,8 +21506,8 @@
     {
       "name": "forecast-summary-1",
       "title": "Forecast Summary 1 – Margin, revenue and the gap to target",
-      "description": "The month or quarter at a glance: projected margin, revenue with what is already booked, the gap to target in dollars and the margin one change adds back.",
-      "registryDependencies": ["card"],
+      "description": "The month or quarter at a glance: projected margin, revenue with what is already booked, the gap to target in dollars and the margin one change adds back. Includes loading, empty and error states.",
+      "registryDependencies": ["button", "card", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/forecast-summary-1/index.tsx",
@@ -21435,9 +21527,9 @@
     {
       "name": "margin-outlook-1",
       "title": "Margin Outlook 1 – Actual margin and two forecasts",
-      "description": "Gross margin from April to December: actual through September, then the current path and the path with changes as dashed forecasts inside a likely range, against a 38% target.",
+      "description": "Gross margin from April to December: actual through September, then the current path and the path with changes as dashed forecasts inside a likely range, against a 38% target. Includes loading, empty and error states.",
       "dependencies": ["recharts"],
-      "registryDependencies": ["card", "chart"],
+      "registryDependencies": ["button", "card", "chart", "empty", "skeleton"],
       "files": [
         {
           "path": "blocks/pro-application/dashboard-profit-analytics/margin-outlook-1/index.tsx",

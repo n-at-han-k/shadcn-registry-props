@@ -857,30 +857,10 @@
       "type": "registry:ui"
     },
     {
-      "name": "drawer",
-      "description": "A drawer component that slides in from different sides",
-      "dependencies": [
-        "motion",
-        "react-aria-components",
-        "cn@^0.2.4"
-      ],
-      "registryDependencies": [
-        "https://ui-three-mu.vercel.app/r/button.json"
-      ],
-      "files": [
-        {
-          "path": "registry/preskok/ui/preskok-ui/drawer.tsx",
-          "type": "registry:ui"
-        }
-      ],
-      "type": "registry:ui"
-    },
-    {
       "name": "sheet",
-      "description": "A sheet component that slides in from different sides with blur effects",
+      "description": "A swipeable sheet built on the React Aria Sheet, with snap points and stacking",
       "dependencies": [
-        "react-aria-components",
-        "cn@^0.2.4",
+        "react-aria-components@^1.22.0",
         "tailwind-variants"
       ],
       "registryDependencies": [
@@ -892,6 +872,21 @@
           "type": "registry:ui"
         }
       ],
+      "css": {
+        "@keyframes sheet-backdrop": {
+          "from": {
+            "opacity": "0"
+          },
+          "to": {
+            "opacity": "1"
+          }
+        },
+        "@keyframes sheet-scale-back": {
+          "to": {
+            "transform": "translate(var(--sheet-stack-x, 0px), var(--sheet-stack-y, 0px)) scale(0.95)"
+          }
+        }
+      },
       "type": "registry:ui"
     },
     {
@@ -3002,6 +2997,20 @@
       "type": "registry:example"
     },
     {
+      "name": "grid-list-reorder-preskok-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/grid-list.json",
+        "https://ui-three-mu.vercel.app/r/checkbox.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/grid-list-reorder-preskok-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
       "name": "grid-list-preskok-demo",
       "registryDependencies": [
         "https://ui-three-mu.vercel.app/r/grid-list.json",
@@ -3010,6 +3019,34 @@
       "files": [
         {
           "path": "registry/preskok/examples/grid-list-preskok-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "grid-list-variants-preskok-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/grid-list.json",
+        "https://ui-three-mu.vercel.app/r/checkbox.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/grid-list-variants-preskok-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "grid-list-controls-preskok-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/grid-list.json",
+        "https://ui-three-mu.vercel.app/r/switch.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/grid-list-controls-preskok-demo.tsx",
           "type": "registry:example"
         }
       ],
@@ -3945,20 +3982,6 @@
       "type": "registry:example"
     },
     {
-      "name": "drawer-preskok-demo",
-      "registryDependencies": [
-        "https://ui-three-mu.vercel.app/r/drawer.json",
-        "https://ui-three-mu.vercel.app/r/button.json"
-      ],
-      "files": [
-        {
-          "path": "registry/preskok/examples/drawer-preskok-demo.tsx",
-          "type": "registry:example"
-        }
-      ],
-      "type": "registry:example"
-    },
-    {
       "name": "drop-zone-preskok-demo",
       "registryDependencies": [
         "https://ui-three-mu.vercel.app/r/drop-zone.json"
@@ -4289,6 +4312,146 @@
       "files": [
         {
           "path": "registry/preskok/examples/tooltip-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-side-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json",
+        "https://ui-three-mu.vercel.app/r/avatar.json",
+        "https://ui-three-mu.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-side-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-snap-points-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-snap-points-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-position-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json",
+        "https://ui-three-mu.vercel.app/r/switch.json",
+        "https://ui-three-mu.vercel.app/r/grid-list.json",
+        "https://ui-three-mu.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-position-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-controlled-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json",
+        "https://ui-three-mu.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-controlled-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-stacking-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json",
+        "https://ui-three-mu.vercel.app/r/radio.json",
+        "https://ui-three-mu.vercel.app/r/text-field.json",
+        "https://ui-three-mu.vercel.app/r/textarea.json",
+        "https://ui-three-mu.vercel.app/r/grid-list.json",
+        "https://ui-three-mu.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-stacking-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-prevent-dismissal-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-prevent-dismissal-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-animation-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json",
+        "https://ui-three-mu.vercel.app/r/grid-list.json",
+        "https://ui-three-mu.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-animation-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-scrollable-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-scrollable-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "type": "registry:example"
+    },
+    {
+      "name": "sheet-cart-demo",
+      "registryDependencies": [
+        "https://ui-three-mu.vercel.app/r/sheet.json",
+        "https://ui-three-mu.vercel.app/r/button.json",
+        "https://ui-three-mu.vercel.app/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "registry/preskok/examples/sheet-cart-demo.tsx",
           "type": "registry:example"
         }
       ],

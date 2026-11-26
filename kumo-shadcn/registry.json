@@ -1,0 +1,3135 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "kumo-shadcn",
+  "homepage": "https://kumo-shadcn.thomasricci.dev",
+  "items": [
+    {
+      "name": "kumo-base",
+      "type": "registry:item",
+      "title": "Kumo base styles",
+      "description": "Kumo's keyframes, helper classes and Tailwind token registration (from @cloudflare/kumo@2.19.1), all under kumo- names. Every Kumo component installs it. Add a theme item too.",
+      "cssVars": {
+        "theme": {
+          "--ease-kumo-bounce": "cubic-bezier(0.2, 0, 0, 1.5)",
+          "--animate-kumo-refresh": "kumo-refresh 0.5s ease-in-out infinite",
+          "--animate-kumo-right": "kumo-right 15s linear infinite",
+          "--color-kumo-arrow-edge": "var(--kumo-arrow-edge)",
+          "--color-kumo-arrow-stroke": "var(--kumo-arrow-stroke)",
+          "--color-kumo-badge-blue": "var(--kumo-badge-blue)",
+          "--color-kumo-badge-green": "var(--kumo-badge-green)",
+          "--color-kumo-badge-inverted": "var(--kumo-badge-inverted)",
+          "--color-kumo-badge-neutral": "var(--kumo-badge-neutral)",
+          "--color-kumo-badge-orange": "var(--kumo-badge-orange)",
+          "--color-kumo-badge-purple": "var(--kumo-badge-purple)",
+          "--color-kumo-badge-red": "var(--kumo-badge-red)",
+          "--color-kumo-badge-secondary": "var(--kumo-badge-secondary)",
+          "--color-kumo-badge-teal": "var(--kumo-badge-teal)",
+          "--color-kumo-banner-info": "var(--kumo-banner-info)",
+          "--color-kumo-banner-warning": "var(--kumo-banner-warning)",
+          "--color-kumo-base": "var(--kumo-base)",
+          "--color-kumo-brand": "var(--kumo-brand)",
+          "--color-kumo-brand-hover": "var(--kumo-brand-hover)",
+          "--color-kumo-canvas": "var(--kumo-canvas)",
+          "--color-kumo-contrast": "var(--kumo-contrast)",
+          "--color-kumo-control": "var(--kumo-control)",
+          "--color-kumo-danger": "var(--kumo-danger)",
+          "--color-kumo-danger-tint": "var(--kumo-danger-tint)",
+          "--color-kumo-elevated": "var(--kumo-elevated)",
+          "--color-kumo-fill": "var(--kumo-fill)",
+          "--color-kumo-fill-hover": "var(--kumo-fill-hover)",
+          "--color-kumo-focus": "var(--kumo-focus)",
+          "--color-kumo-hairline": "var(--kumo-hairline)",
+          "--color-kumo-info": "var(--kumo-info)",
+          "--color-kumo-info-tint": "var(--kumo-info-tint)",
+          "--color-kumo-interact": "var(--kumo-interact)",
+          "--color-kumo-line": "var(--kumo-line)",
+          "--color-kumo-overlay": "var(--kumo-overlay)",
+          "--color-kumo-recessed": "var(--kumo-recessed)",
+          "--color-kumo-shadow-drop": "var(--kumo-shadow-drop)",
+          "--color-kumo-shadow-edge": "var(--kumo-shadow-edge)",
+          "--color-kumo-success": "var(--kumo-success)",
+          "--color-kumo-success-tint": "var(--kumo-success-tint)",
+          "--color-kumo-tint": "var(--kumo-tint)",
+          "--color-kumo-warning": "var(--kumo-warning)",
+          "--color-kumo-warning-tint": "var(--kumo-warning-tint)",
+          "--text-color-kumo-badge-inverted": "var(--kumo-text-badge-inverted)",
+          "--text-color-kumo-badge-neutral-subtle": "var(--kumo-text-badge-neutral-subtle)",
+          "--text-color-kumo-badge-orange-subtle": "var(--kumo-text-badge-orange-subtle)",
+          "--text-color-kumo-badge-teal-subtle": "var(--kumo-text-badge-teal-subtle)",
+          "--text-color-kumo-brand": "var(--kumo-text-brand)",
+          "--text-color-kumo-danger": "var(--kumo-text-danger)",
+          "--text-color-kumo-default": "var(--kumo-text-default)",
+          "--text-color-kumo-inactive": "var(--kumo-text-inactive)",
+          "--text-color-kumo-info": "var(--kumo-text-info)",
+          "--text-color-kumo-inverse": "var(--kumo-text-inverse)",
+          "--text-color-kumo-link": "var(--kumo-text-link)",
+          "--text-color-kumo-placeholder": "var(--kumo-text-placeholder)",
+          "--text-color-kumo-strong": "var(--kumo-text-strong)",
+          "--text-color-kumo-subtle": "var(--kumo-text-subtle)",
+          "--text-color-kumo-success": "var(--kumo-text-success)",
+          "--text-color-kumo-warning": "var(--kumo-text-warning)"
+        }
+      },
+      "css": {
+        "@layer base": {
+          ":root": {
+            "color-scheme": "light",
+            "--color-kumo-red-650": "oklch(55% 0.238 27.4)",
+            "--color-kumo-red-750": "oklch(46% 0.195 27.2)",
+            "--color-kumo-orange-650": "oklch(81.5% 0.197 76)",
+            "--color-kumo-teal-650": "oklch(54.9% 0.096 184.565)",
+            "--color-kumo-neutral-50": "oklch(98.75% 0 0)",
+            "--color-kumo-neutral-75": "oklch(98% 0 0)",
+            "--color-kumo-neutral-125": "oklch(96.5% 0 0)",
+            "--color-kumo-neutral-450": "oklch(89% 0 0)",
+            "--color-kumo-neutral-750": "oklch(32% 0 0)",
+            "--color-kumo-neutral-850": "oklch(24% 0 0)",
+            "--color-kumo-neutral-925": "oklch(17% 0 0)",
+            "--color-kumo-neutral-950": "oklch(15% 0 0)",
+            "--color-kumo-neutral-975": "oklch(12% 0 0)",
+            "--color-kumo-neutral-1000": "oklch(10% 0 0)",
+            "--kumo-transition-duration": "100ms"
+          },
+          "[data-mode=\"dark\"], .dark": {
+            "color-scheme": "dark"
+          },
+          "@keyframes kumo-right": {
+            "to": {
+              "transform": "translateX(100%)"
+            }
+          },
+          "@keyframes kumo-float": {
+            "to": {
+              "transform": "translate(5px, 15px)"
+            }
+          },
+          "@keyframes kumo-refresh": {
+            "from": {
+              "transform": "rotate(0deg)"
+            },
+            "to": {
+              "transform": "rotate(360deg)"
+            }
+          },
+          "@keyframes kumo-bounce-in": {
+            "0%": {
+              "transform": "scale(0.6)",
+              "opacity": "0"
+            },
+            "50%": {
+              "transform": "scale(1.2)",
+              "opacity": "1"
+            },
+            "100%": {
+              "transform": "scale(1)"
+            }
+          },
+          "@keyframes kumo-shimmer": {
+            "0%": {
+              "transform": "translateX(-100%)"
+            },
+            "100%": {
+              "transform": "translateX(100%)"
+            }
+          },
+          "@keyframes kumo-toast-bump": {
+            "0%": {
+              "transform": "scale(1)"
+            },
+            "20%": {
+              "transform": "scale(1.02)"
+            },
+            "100%": {
+              "transform": "scale(1)"
+            }
+          },
+          "@keyframes kumo-toast-bump-alternate": {
+            "0%": {
+              "transform": "scale(1)"
+            },
+            "20%": {
+              "transform": "scale(1.02)"
+            },
+            "100%": {
+              "transform": "scale(1)"
+            }
+          },
+          "@keyframes kumo-clipboard-toast-bump": {
+            "0%": {
+              "transform": "scale(1)"
+            },
+            "35%": {
+              "transform": "scale(1.04)"
+            },
+            "100%": {
+              "transform": "scale(1)"
+            }
+          },
+          ".kumo-skeleton-line": {
+            "position": "relative",
+            "overflow": "hidden",
+            "border-radius": "2px",
+            "height": "0.5rem",
+            "width": "var(--skeleton-width)",
+            "background-color": "#f3f4f6"
+          },
+          ".kumo-skeleton-line::after": {
+            "position": "absolute",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "animation": "kumo-shimmer var(--shimmer-duration, 1.5s) var(--shimmer-delay, 0s)\n      infinite ease-in-out",
+            "content": "\"\"",
+            "background": "linear-gradient(\n      90deg,\n      rgba(0, 0, 0, 0) 0%,\n      rgba(0, 0, 0, 0.08) 50%,\n      rgba(0, 0, 0, 0) 100%\n    )"
+          },
+          "[data-mode=\"dark\"] .kumo-skeleton-line, .dark .kumo-skeleton-line": {
+            "background-color": "rgba(255, 255, 255, 0.06)"
+          },
+          "[data-mode=\"dark\"] .kumo-skeleton-line::after, .dark .kumo-skeleton-line::after": {
+            "background": "linear-gradient(\n      90deg,\n      rgba(255, 255, 255, 0) 0%,\n      rgba(255, 255, 255, 0.05) 50%,\n      rgba(255, 255, 255, 0) 100%\n    )"
+          },
+          "@keyframes kumo-scroll-fade-x-left": {
+            "from": {
+              "--kumo-fade-left-n": "0"
+            },
+            "to": {
+              "--kumo-fade-left-n": "1"
+            }
+          },
+          "@keyframes kumo-scroll-fade-x-right": {
+            "from": {
+              "--kumo-fade-right-n": "1"
+            },
+            "to": {
+              "--kumo-fade-right-n": "0"
+            }
+          },
+          "@keyframes kumo-rdp-slide_in_left": {
+            "from": {
+              "transform": "translateX(-100%)"
+            },
+            "to": {
+              "transform": "translateX(0)"
+            }
+          },
+          "@keyframes kumo-rdp-slide_in_right": {
+            "from": {
+              "transform": "translateX(100%)"
+            },
+            "to": {
+              "transform": "translateX(0)"
+            }
+          },
+          "@keyframes kumo-rdp-slide_out_left": {
+            "from": {
+              "transform": "translateX(0)"
+            },
+            "to": {
+              "transform": "translateX(-100%)"
+            }
+          },
+          "@keyframes kumo-rdp-slide_out_right": {
+            "from": {
+              "transform": "translateX(0)"
+            },
+            "to": {
+              "transform": "translateX(100%)"
+            }
+          },
+          "@keyframes kumo-rdp-fade_in": {
+            "from": {
+              "opacity": "0"
+            },
+            "to": {
+              "opacity": "1"
+            }
+          },
+          "@keyframes kumo-rdp-fade_out": {
+            "from": {
+              "opacity": "1"
+            },
+            "to": {
+              "opacity": "0"
+            }
+          },
+          "@keyframes kumo-skeleton": {
+            "0%": {
+              "background-position": "200% 0"
+            },
+            "100%": {
+              "background-position": "-200% 0"
+            }
+          },
+          ":root, .dark, [data-mode], [data-theme]": {
+            "--color-kumo-arrow-edge": "var(--kumo-arrow-edge)",
+            "--color-kumo-arrow-stroke": "var(--kumo-arrow-stroke)",
+            "--color-kumo-badge-blue": "var(--kumo-badge-blue)",
+            "--color-kumo-badge-green": "var(--kumo-badge-green)",
+            "--color-kumo-badge-inverted": "var(--kumo-badge-inverted)",
+            "--color-kumo-badge-neutral": "var(--kumo-badge-neutral)",
+            "--color-kumo-badge-orange": "var(--kumo-badge-orange)",
+            "--color-kumo-badge-purple": "var(--kumo-badge-purple)",
+            "--color-kumo-badge-red": "var(--kumo-badge-red)",
+            "--color-kumo-badge-secondary": "var(--kumo-badge-secondary)",
+            "--color-kumo-badge-teal": "var(--kumo-badge-teal)",
+            "--color-kumo-banner-info": "var(--kumo-banner-info)",
+            "--color-kumo-banner-warning": "var(--kumo-banner-warning)",
+            "--color-kumo-base": "var(--kumo-base)",
+            "--color-kumo-brand": "var(--kumo-brand)",
+            "--color-kumo-brand-hover": "var(--kumo-brand-hover)",
+            "--color-kumo-canvas": "var(--kumo-canvas)",
+            "--color-kumo-contrast": "var(--kumo-contrast)",
+            "--color-kumo-control": "var(--kumo-control)",
+            "--color-kumo-danger": "var(--kumo-danger)",
+            "--color-kumo-danger-tint": "var(--kumo-danger-tint)",
+            "--color-kumo-elevated": "var(--kumo-elevated)",
+            "--color-kumo-fill": "var(--kumo-fill)",
+            "--color-kumo-fill-hover": "var(--kumo-fill-hover)",
+            "--color-kumo-focus": "var(--kumo-focus)",
+            "--color-kumo-hairline": "var(--kumo-hairline)",
+            "--color-kumo-info": "var(--kumo-info)",
+            "--color-kumo-info-tint": "var(--kumo-info-tint)",
+            "--color-kumo-interact": "var(--kumo-interact)",
+            "--color-kumo-line": "var(--kumo-line)",
+            "--color-kumo-overlay": "var(--kumo-overlay)",
+            "--color-kumo-recessed": "var(--kumo-recessed)",
+            "--color-kumo-shadow-drop": "var(--kumo-shadow-drop)",
+            "--color-kumo-shadow-edge": "var(--kumo-shadow-edge)",
+            "--color-kumo-success": "var(--kumo-success)",
+            "--color-kumo-success-tint": "var(--kumo-success-tint)",
+            "--color-kumo-tint": "var(--kumo-tint)",
+            "--color-kumo-warning": "var(--kumo-warning)",
+            "--color-kumo-warning-tint": "var(--kumo-warning-tint)",
+            "--text-color-kumo-badge-inverted": "var(--kumo-text-badge-inverted)",
+            "--text-color-kumo-badge-neutral-subtle": "var(--kumo-text-badge-neutral-subtle)",
+            "--text-color-kumo-badge-orange-subtle": "var(--kumo-text-badge-orange-subtle)",
+            "--text-color-kumo-badge-teal-subtle": "var(--kumo-text-badge-teal-subtle)",
+            "--text-color-kumo-brand": "var(--kumo-text-brand)",
+            "--text-color-kumo-danger": "var(--kumo-text-danger)",
+            "--text-color-kumo-default": "var(--kumo-text-default)",
+            "--text-color-kumo-inactive": "var(--kumo-text-inactive)",
+            "--text-color-kumo-info": "var(--kumo-text-info)",
+            "--text-color-kumo-inverse": "var(--kumo-text-inverse)",
+            "--text-color-kumo-link": "var(--kumo-text-link)",
+            "--text-color-kumo-placeholder": "var(--kumo-text-placeholder)",
+            "--text-color-kumo-strong": "var(--kumo-text-strong)",
+            "--text-color-kumo-subtle": "var(--kumo-text-subtle)",
+            "--text-color-kumo-success": "var(--kumo-text-success)",
+            "--text-color-kumo-warning": "var(--kumo-text-warning)"
+          }
+        },
+        "@layer utilities": {
+          ".kumo-no-scrollbar::-webkit-scrollbar": {
+            "display": "none"
+          },
+          ".kumo-no-scrollbar": {
+            "-ms-overflow-style": "none",
+            "scrollbar-width": "none"
+          },
+          ".kumo-no-input-spinner": {
+            "appearance": "textfield"
+          },
+          ".kumo-no-input-spinner ::-webkit-outer-spin-button, .kumo-no-input-spinner ::-webkit-inner-spin-button": {
+            "appearance": "none"
+          },
+          ".kumo-link-current": {
+            "text-decoration-color": "color-mix(in oklch, currentColor 35%, transparent)"
+          },
+          "[data-mode=\"dark\"] .kumo-link-current, .dark .kumo-link-current": {
+            "text-decoration-color": "color-mix(in oklch, currentColor 65%, transparent)"
+          },
+          ".kumo-link-current:hover": {
+            "text-decoration-color": "currentColor"
+          },
+          ".kumo-link-external-icon": {
+            "stroke-width": "1.75"
+          },
+          "[data-mode=\"dark\"] .kumo-link-external-icon, .dark .kumo-link-external-icon": {
+            "stroke-width": "2"
+          }
+        },
+        ".kumo-float": {
+          "animation": "kumo-float 5s linear infinite alternate"
+        },
+        ".animate-kumo-bounce-in": {
+          "animation": "kumo-bounce-in 0.4s ease-out"
+        },
+        ".kumo-chart-shimmer": {
+          "animation": "kumo-shimmer 1.8s ease-in-out infinite",
+          "transform-box": "fill-box"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".kumo-chart-shimmer": {
+            "animation": "none",
+            "transform": "none"
+          },
+          ".animate-kumo-toast-bump, .animate-kumo-toast-bump-alternate": {
+            "animation": "none"
+          },
+          ".animate-kumo-clipboard-toast-bump": {
+            "animation": "none"
+          },
+          ".kumo-rdp-root": {
+            "--kumo-rdp-animation_duration": "0.01ms"
+          }
+        },
+        ".animate-kumo-toast-bump": {
+          "animation": "kumo-toast-bump 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "transform-origin": "center"
+        },
+        ".animate-kumo-toast-bump-alternate": {
+          "animation": "kumo-toast-bump-alternate 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "transform-origin": "center"
+        },
+        ".animate-kumo-clipboard-toast-bump": {
+          "animation": "kumo-clipboard-toast-bump 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
+          "transform-origin": "center"
+        },
+        "@property --kumo-fade-left-n": {
+          "syntax": "\"<number>\"",
+          "inherits": "false",
+          "initial-value": "0"
+        },
+        "@property --kumo-fade-right-n": {
+          "syntax": "\"<number>\"",
+          "inherits": "false",
+          "initial-value": "0"
+        },
+        "@supports (animation-timeline: scroll())": {
+          "[data-kumo-overflowing]": {
+            "mask-image": "linear-gradient(\n      var(--scroll-fade-direction, to right),\n      transparent,\n      white calc(var(--kumo-fade-left-n) * var(--scroll-fade-width, 3rem)),\n      white calc(100% - var(--kumo-fade-right-n) * var(--scroll-fade-width, 3rem)),\n      transparent\n    )",
+            "animation-name": "kumo-scroll-fade-x-left, kumo-scroll-fade-x-right",
+            "animation-timing-function": "linear, linear",
+            "animation-timeline": "scroll(self x)",
+            "animation-range": "0 var(--scroll-fade-range, 3rem),\n      calc(100% - var(--scroll-fade-range, 3rem)) 100%",
+            "animation-fill-mode": "both"
+          },
+          ".kumo-tabs-list": {
+            "scrollbar-width": "none",
+            "-ms-overflow-style": "none"
+          },
+          ".kumo-tabs-list::-webkit-scrollbar": {
+            "display": "none"
+          }
+        },
+        ".kumo-tabs-list": {
+          "overscroll-behavior-x": "contain"
+        },
+        "[data-mode=\"dark\"] .kumo-tooltip-popup, [data-mode=\"dark\"] .kumo-popover-popup, .dark .kumo-tooltip-popup, .dark .kumo-popover-popup": {
+          "outline-offset": "-1px"
+        },
+        ".kumo-input-placeholder::placeholder": {
+          "color": "var(--text-color-kumo-placeholder)"
+        },
+        ".kumo-rdp-root": {
+          "--kumo-rdp-animation_duration": "0.2s",
+          "--kumo-rdp-animation_timing": "ease-out"
+        },
+        ".kumo-rdp-weeks_before_enter": {
+          "animation": "kumo-rdp-slide_in_left var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-weeks_before_exit": {
+          "animation": "kumo-rdp-slide_out_left var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-weeks_after_enter": {
+          "animation": "kumo-rdp-slide_in_right var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-weeks_after_exit": {
+          "animation": "kumo-rdp-slide_out_right var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-root[dir=\"rtl\"] .kumo-rdp-weeks_after_enter": {
+          "animation": "kumo-rdp-slide_in_left var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-root[dir=\"rtl\"] .kumo-rdp-weeks_before_exit": {
+          "animation": "kumo-rdp-slide_out_right var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-root[dir=\"rtl\"] .kumo-rdp-weeks_before_enter": {
+          "animation": "kumo-rdp-slide_in_right var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-root[dir=\"rtl\"] .kumo-rdp-weeks_after_exit": {
+          "animation": "kumo-rdp-slide_out_left var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-caption_after_enter": {
+          "animation": "kumo-rdp-fade_in var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-caption_after_exit": {
+          "animation": "kumo-rdp-fade_out var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-caption_before_enter": {
+          "animation": "kumo-rdp-fade_in var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ".kumo-rdp-caption_before_exit": {
+          "animation": "kumo-rdp-fade_out var(--kumo-rdp-animation_duration)\n    var(--kumo-rdp-animation_timing) forwards"
+        },
+        ":where( a[href], button, input[type=\"button\"], input[type=\"checkbox\"], input[type=\"radio\"], input[type=\"submit\"], input[type=\"reset\"], label[for], select, summary, [role=\"button\"], [role=\"link\"], [role=\"menuitem\"], [role=\"menuitemcheckbox\"], [role=\"menuitemradio\"], [role=\"option\"], [role=\"tab\"], [role=\"checkbox\"], [role=\"radio\"], [role=\"switch\"] ):where([data-kumo-component], [data-kumo-part]):where(:not(:disabled)):where( :not([disabled]) ):where(:not([aria-disabled=\"true\"])):where(:not([data-disabled]))": {
+          "cursor": "pointer"
+        },
+        ".kumo-skeleton": {
+          "background": "linear-gradient(\n    90deg,\n    transparent 0%,\n    rgba(0, 0, 0, 0.05) 50%,\n    transparent 100%\n  )",
+          "background-size": "200% 100%",
+          "animation": "kumo-skeleton 1.5s ease-in-out infinite"
+        },
+        "[data-mode=\"dark\"] .kumo-skeleton, .dark .kumo-skeleton": {
+          "background": "linear-gradient(\n    90deg,\n    transparent 0%,\n    rgba(255, 255, 255, 0.05) 50%,\n    transparent 100%\n  )"
+        },
+        ".animate-kumo-refresh": {
+          "animation": "kumo-refresh 1s linear infinite"
+        },
+        ".kumo-shiki pre": {
+          "background-color": "transparent !important"
+        },
+        "[data-mode=\"dark\"] .kumo-shiki span:not(.line-highlighted), .dark .kumo-shiki span:not(.line-highlighted)": {
+          "color": "var(--shiki-dark) !important",
+          "background-color": "transparent !important"
+        },
+        "[data-mode=\"dark\"] .kumo-shiki .line-highlighted, .dark .kumo-shiki .line-highlighted": {
+          "color": "var(--shiki-dark) !important"
+        },
+        ".kumo-shiki code": {
+          "display": "block",
+          "width": "fit-content",
+          "min-width": "100%",
+          "padding-right": "1rem"
+        },
+        ".kumo-shiki": {
+          "--kumo-code-highlight-bg": "rgba(0, 0, 0, 0.05)"
+        },
+        "[data-mode=\"dark\"] .kumo-shiki, .dark .kumo-shiki": {
+          "--kumo-code-highlight-bg": "rgba(255, 255, 255, 0.08)"
+        },
+        ".kumo-shiki .line.line-highlighted": {
+          "display": "inline-block",
+          "width": "calc(100% + 2rem)",
+          "margin": "0 -1rem",
+          "padding": "0 1rem",
+          "background-color": "var(--kumo-code-highlight-bg)"
+        },
+        ".kumo-line-numbers": {
+          "padding-left": "0.75rem",
+          "line-height": "1.625"
+        }
+      },
+      "docs": "Kumo components need exactly one theme item: kumo-theme (Kumo's own look), kumo-cloudflare (Kumo with the Cloudflare dashboard's sidebar) or kumo-binding (follows your shadcn theme). See https://github.com/tom-ricci/kumo-shadcn#themes"
+    },
+    {
+      "name": "kumo-theme",
+      "type": "registry:theme",
+      "title": "Kumo theme",
+      "description": "Kumo's own colors and type scale, as Kumo ships them (light, dark, and Kumo's fedramp theme). Install one theme item: kumo-theme, kumo-cloudflare or kumo-binding. From @cloudflare/kumo@2.19.1.",
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json"
+      ],
+      "css": {
+        "@layer base": {
+          ":root, [data-theme=\"kumo\"]": {
+            "--kumo-text-default": "var(\n      --color-neutral-900,\n      oklch(21% 0.006 285.885)\n    )",
+            "--kumo-text-inverse": "var(--color-neutral-100, oklch(97% 0 0))",
+            "--kumo-text-strong": "var(--color-neutral-950, oklch(14.5% 0 0))",
+            "--kumo-text-subtle": "var(--color-neutral-500, oklch(55.6% 0 0))",
+            "--kumo-text-inactive": "var(--color-neutral-300, oklch(87% 0 0))",
+            "--kumo-text-placeholder": "var(--color-neutral-400, oklch(70.8% 0 0))",
+            "--kumo-text-brand": "#f6821f",
+            "--kumo-text-link": "var(--color-blue-800, oklch(42.4% 0.199 265.638))",
+            "--kumo-text-info": "var(--color-blue-800, oklch(42.4% 0.199 265.638))",
+            "--kumo-text-success": "var(\n      --color-emerald-800,\n      oklch(43.2% 0.095 166.913)\n    )",
+            "--kumo-text-danger": "var(--color-red-700, oklch(50.5% 0.213 27.518))",
+            "--kumo-text-warning": "oklch(59.7% 0.144 57.5)",
+            "--kumo-text-badge-orange-subtle": "var(\n      --color-orange-800,\n      oklch(47% 0.157 37.304)\n    )",
+            "--kumo-text-badge-teal-subtle": "var(\n      --color-teal-800,\n      oklch(43.7% 0.078 188.216)\n    )",
+            "--kumo-text-badge-neutral-subtle": "var(\n      --color-neutral-800,\n      oklch(26.9% 0 0)\n    )",
+            "--kumo-text-badge-inverted": "var(--color-white, #fff)",
+            "--kumo-canvas": "var(--color-kumo-neutral-25, oklch(98.75% 0 0))",
+            "--kumo-elevated": "var(--color-kumo-neutral-75, oklch(98% 0 0))",
+            "--kumo-recessed": "var(--color-kumo-neutral-125, oklch(96% 0 0))",
+            "--kumo-base": "var(--color-white, #fff)",
+            "--kumo-tint": "var(--color-neutral-100, oklch(97% 0 0))",
+            "--kumo-contrast": "var(--color-kumo-neutral-975, oklch(8.5% 0 0))",
+            "--kumo-overlay": "var(--color-kumo-neutral-50, oklch(97.5% 0 0))",
+            "--kumo-control": "var(--color-white, #fff)",
+            "--kumo-interact": "var(--color-neutral-300, oklch(87% 0 0))",
+            "--kumo-fill": "var(--color-neutral-200, oklch(92.2% 0 0))",
+            "--kumo-fill-hover": "var(--color-kumo-neutral-125, oklch(96.5% 0 0))",
+            "--kumo-brand": "oklch(0.5772 0.2324 260)",
+            "--kumo-brand-hover": "var(--color-blue-700, oklch(48.8% 0.243 264.376))",
+            "--kumo-line": "oklch(14.5% 0 0 / 0.1)",
+            "--kumo-hairline": "var(--color-kumo-neutral-150, oklch(93.5% 0 0))",
+            "--kumo-focus": "var(--color-kumo-neutral-950, oklch(15% 0 0))",
+            "--kumo-shadow-edge": "oklch(0% 0 0 / 0.12)",
+            "--kumo-shadow-drop": "oklch(0% 0 0 / 0.08)",
+            "--kumo-arrow-edge": "oklch(14.5% 0 0 / 0.1)",
+            "--kumo-arrow-stroke": "transparent",
+            "--kumo-info-tint": "oklch(93.2% 0.032 255.6 / 0.45)",
+            "--kumo-info": "var(--color-blue-500, oklch(68.5% 0.169 237.323))",
+            "--kumo-warning-tint": "oklch(93.1% 0.107 94.6 / 0.2)",
+            "--kumo-warning": "oklch(73.9% 0.177 58.2)",
+            "--kumo-danger-tint": "oklch(93.6% 0.032 17.7 / 0.42)",
+            "--kumo-danger": "var(--color-red-500, oklch(63.7% 0.237 25.331))",
+            "--kumo-success-tint": "oklch(96.2% 0.043 156.7 / 0.57)",
+            "--kumo-success": "var(--color-emerald-600, oklch(59.6% 0.145 163.225))",
+            "--kumo-banner-info": "oklch(93.2% 0.032 255.585 / 0.7)",
+            "--kumo-banner-warning": "var(\n      --color-yellow-100,\n      oklch(97.3% 0.071 103.193)\n    )",
+            "--kumo-badge-secondary": "var(\n      --color-kumo-neutral-125,\n      oklch(96.5% 0 0)\n    )",
+            "--kumo-badge-red": "var(--color-red-600, oklch(57.7% 0.245 27.325))",
+            "--kumo-badge-green": "var(\n      --color-emerald-600,\n      oklch(59.6% 0.145 163.225)\n    )",
+            "--kumo-badge-orange": "var(--color-kumo-orange-650, oklch(81.5% 0.197 76))",
+            "--kumo-badge-purple": "var(\n      --color-purple-600,\n      oklch(55.8% 0.288 302.321)\n    )",
+            "--kumo-badge-teal": "var(--color-kumo-teal-650, oklch(54.9% 0.096 184.565))",
+            "--kumo-badge-blue": "var(--color-blue-600, oklch(54.6% 0.245 262.881))",
+            "--kumo-badge-neutral": "var(--color-neutral-500, oklch(55.6% 0 0))",
+            "--kumo-badge-inverted": "var(--color-neutral-950, oklch(14.5% 0 0))",
+            "--kumo-font-size-xs": "12px",
+            "--kumo-line-height-xs": "calc(1 / 0.75)",
+            "--kumo-font-size-sm": "13px",
+            "--kumo-line-height-sm": "calc(1.25 / 0.875)",
+            "--kumo-font-size-base": "14px",
+            "--kumo-line-height-base": "1.5",
+            "--kumo-font-size-lg": "16px",
+            "--kumo-line-height-lg": "1.5"
+          },
+          ":root[data-mode=\"dark\"], [data-mode=\"dark\"]:not([data-theme]), [data-mode=\"dark\"] [data-theme=\"kumo\"], [data-theme=\"kumo\"][data-mode=\"dark\"], [data-theme=\"kumo\"] [data-mode=\"dark\"], :root.dark, .dark:not([data-theme]), .dark [data-theme=\"kumo\"], [data-theme=\"kumo\"].dark, [data-theme=\"kumo\"] .dark": {
+            "--kumo-text-default": "var(--color-neutral-100, oklch(97% 0 0))",
+            "--kumo-text-inverse": "var(--color-neutral-900, oklch(20.5% 0 0))",
+            "--kumo-text-strong": "var(--color-neutral-50, oklch(98.5% 0 0))",
+            "--kumo-text-subtle": "var(--color-neutral-400, oklch(70.8% 0 0))",
+            "--kumo-text-inactive": "var(--color-neutral-600, oklch(43.9% 0 0))",
+            "--kumo-text-placeholder": "var(--color-neutral-500, oklch(55.6% 0 0))",
+            "--kumo-text-brand": "#f6821f",
+            "--kumo-text-link": "var(--color-blue-400, oklch(70.7% 0.165 254.624))",
+            "--kumo-text-info": "var(--color-blue-400, oklch(70.7% 0.165 254.624))",
+            "--kumo-text-success": "var(\n      --color-emerald-200,\n      oklch(90.5% 0.093 164.15)\n    )",
+            "--kumo-text-danger": "var(--color-red-400, oklch(70.4% 0.191 22.216))",
+            "--kumo-text-warning": "var(--color-orange-400, oklch(75% 0.183 55.934))",
+            "--kumo-text-badge-orange-subtle": "var(\n      --color-orange-200,\n      oklch(90.1% 0.076 70.697)\n    )",
+            "--kumo-text-badge-teal-subtle": "var(\n      --color-teal-200,\n      oklch(91% 0.096 180.426)\n    )",
+            "--kumo-text-badge-neutral-subtle": "var(\n      --color-neutral-200,\n      oklch(92.2% 0 0)\n    )",
+            "--kumo-text-badge-inverted": "var(--color-black, #000)",
+            "--kumo-canvas": "var(--color-kumo-neutral-1000, oklch(10% 0 0))",
+            "--kumo-elevated": "var(--color-kumo-neutral-975, oklch(12% 0 0))",
+            "--kumo-recessed": "var(--color-kumo-neutral-950, oklch(15% 0 0))",
+            "--kumo-base": "var(--color-kumo-neutral-925, oklch(17% 0 0))",
+            "--kumo-tint": "var(--color-kumo-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-contrast": "var(--color-kumo-neutral-25, oklch(98.5% 0 0))",
+            "--kumo-overlay": "var(--color-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-control": "var(--color-neutral-900, oklch(21% 0.006 285.885))",
+            "--kumo-interact": "var(--color-neutral-700, oklch(37.1% 0 0))",
+            "--kumo-fill": "var(--color-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-fill-hover": "var(--color-neutral-800, oklch(37.1% 0 0))",
+            "--kumo-brand": "color-mix(\n      in oklch,\n      oklch(0.5772 0.2324 260),\n      black 10%\n    )",
+            "--kumo-brand-hover": "var(--color-blue-700, oklch(48.8% 0.243 264.376))",
+            "--kumo-line": "var(--color-kumo-neutral-750, oklch(32% 0 0))",
+            "--kumo-hairline": "var(--color-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-focus": "var(--color-kumo-neutral-150, oklch(93.5% 0 0))",
+            "--kumo-shadow-edge": "oklch(100% 0 0 / 0.1)",
+            "--kumo-shadow-drop": "oklch(0% 0 0 / 0.3)",
+            "--kumo-arrow-edge": "transparent",
+            "--kumo-arrow-stroke": "var(--color-kumo-neutral-750, oklch(32% 0 0))",
+            "--kumo-info-tint": "oklch(38% 0.145 265.5 / 0.22)",
+            "--kumo-info": "var(--color-blue-500, oklch(68.5% 0.169 237.323))",
+            "--kumo-warning-tint": "oklch(35.3% 0.079 65 / 0.37)",
+            "--kumo-warning": "oklch(64.5% 0.168 50)",
+            "--kumo-danger-tint": "oklch(42.9% 0.176 28.7 / 0.17)",
+            "--kumo-danger": "var(--color-red-600, oklch(57.7% 0.245 27.325))",
+            "--kumo-success-tint": "oklch(39.3% 0.096 152.3 / 0.2)",
+            "--kumo-success": "var(--color-emerald-400, oklch(76.5% 0.177 163.223))",
+            "--kumo-banner-info": "oklch(37.9% 0.146 265.522 / 0.5)",
+            "--kumo-banner-warning": "oklch(55.4% 0.135 66.442 / 0.5)",
+            "--kumo-badge-secondary": "var(--color-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-badge-red": "var(--color-red-700, oklch(50.5% 0.213 27.518))",
+            "--kumo-badge-green": "var(\n      --color-emerald-700,\n      oklch(50.8% 0.118 165.612)\n    )",
+            "--kumo-badge-orange": "var(--color-kumo-orange-650, oklch(81.5% 0.197 76))",
+            "--kumo-badge-purple": "var(\n      --color-purple-700,\n      oklch(49.6% 0.265 301.924)\n    )",
+            "--kumo-badge-teal": "var(--color-teal-700, oklch(51.1% 0.096 186.391))",
+            "--kumo-badge-blue": "var(--color-blue-700, oklch(48.8% 0.243 264.376))",
+            "--kumo-badge-neutral": "var(--color-neutral-600, oklch(43.9% 0 0))",
+            "--kumo-badge-inverted": "var(--color-white, #fff)"
+          },
+          "[data-theme=\"fedramp\"]": {
+            "--kumo-canvas": "#5b697c",
+            "--kumo-base": "#5b697c",
+            "--kumo-hairline": "#c8d4e5"
+          },
+          "[data-mode=\"dark\"] [data-theme=\"fedramp\"], [data-theme=\"fedramp\"][data-mode=\"dark\"], [data-theme=\"fedramp\"] [data-mode=\"dark\"], .dark [data-theme=\"fedramp\"], [data-theme=\"fedramp\"].dark, [data-theme=\"fedramp\"] .dark": {
+            "--kumo-canvas": "#5b697c",
+            "--kumo-base": "#5b697c",
+            "--kumo-hairline": "#c8d4e5"
+          }
+        }
+      },
+      "docs": "Use one Kumo theme item at a time. To switch, delete the previous theme's rules from @layer base in your CSS file, then add the new one. See https://github.com/tom-ricci/kumo-shadcn#themes"
+    },
+    {
+      "name": "kumo-cloudflare",
+      "type": "registry:theme",
+      "title": "Kumo theme, Cloudflare dashboard variant",
+      "description": "Kumo's own colors with the Cloudflare dashboard's direction: one highlight shade for every hover and selected background, and a canvas-colored sidebar. Install one theme item: kumo-theme, kumo-cloudflare or kumo-binding. From @cloudflare/kumo@2.19.1.",
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json"
+      ],
+      "css": {
+        "@layer base": {
+          ":root, [data-theme=\"kumo\"]": {
+            "--kumo-text-default": "var(\n      --color-neutral-900,\n      oklch(21% 0.006 285.885)\n    )",
+            "--kumo-text-inverse": "var(--color-neutral-100, oklch(97% 0 0))",
+            "--kumo-text-strong": "var(--color-neutral-950, oklch(14.5% 0 0))",
+            "--kumo-text-subtle": "var(--color-neutral-500, oklch(55.6% 0 0))",
+            "--kumo-text-inactive": "var(--color-neutral-300, oklch(87% 0 0))",
+            "--kumo-text-placeholder": "var(--color-neutral-400, oklch(70.8% 0 0))",
+            "--kumo-text-brand": "#f6821f",
+            "--kumo-text-link": "var(--color-blue-800, oklch(42.4% 0.199 265.638))",
+            "--kumo-text-info": "var(--color-blue-800, oklch(42.4% 0.199 265.638))",
+            "--kumo-text-success": "var(\n      --color-emerald-800,\n      oklch(43.2% 0.095 166.913)\n    )",
+            "--kumo-text-danger": "var(--color-red-700, oklch(50.5% 0.213 27.518))",
+            "--kumo-text-warning": "oklch(59.7% 0.144 57.5)",
+            "--kumo-text-badge-orange-subtle": "var(\n      --color-orange-800,\n      oklch(47% 0.157 37.304)\n    )",
+            "--kumo-text-badge-teal-subtle": "var(\n      --color-teal-800,\n      oklch(43.7% 0.078 188.216)\n    )",
+            "--kumo-text-badge-neutral-subtle": "var(\n      --color-neutral-800,\n      oklch(26.9% 0 0)\n    )",
+            "--kumo-text-badge-inverted": "var(--color-white, #fff)",
+            "--kumo-canvas": "var(--color-kumo-neutral-25, oklch(98.75% 0 0))",
+            "--kumo-elevated": "var(--color-kumo-neutral-75, oklch(98% 0 0))",
+            "--kumo-recessed": "var(--color-kumo-neutral-125, oklch(96% 0 0))",
+            "--kumo-base": "var(--color-white, #fff)",
+            "--kumo-tint": "var(--color-neutral-100, oklch(97% 0 0))",
+            "--kumo-contrast": "var(--color-kumo-neutral-975, oklch(8.5% 0 0))",
+            "--kumo-overlay": "var(--color-kumo-neutral-50, oklch(97.5% 0 0))",
+            "--kumo-control": "var(--color-white, #fff)",
+            "--kumo-interact": "var(--color-neutral-300, oklch(87% 0 0))",
+            "--kumo-fill": "var(--color-neutral-200, oklch(92.2% 0 0))",
+            "--kumo-fill-hover": "var(--color-kumo-neutral-125, oklch(96.5% 0 0))",
+            "--kumo-brand": "oklch(0.5772 0.2324 260)",
+            "--kumo-brand-hover": "var(--color-blue-700, oklch(48.8% 0.243 264.376))",
+            "--kumo-line": "oklch(14.5% 0 0 / 0.1)",
+            "--kumo-hairline": "var(--color-kumo-neutral-150, oklch(93.5% 0 0))",
+            "--kumo-focus": "var(--color-kumo-neutral-950, oklch(15% 0 0))",
+            "--kumo-shadow-edge": "oklch(0% 0 0 / 0.12)",
+            "--kumo-shadow-drop": "oklch(0% 0 0 / 0.08)",
+            "--kumo-arrow-edge": "oklch(14.5% 0 0 / 0.1)",
+            "--kumo-arrow-stroke": "transparent",
+            "--kumo-info-tint": "oklch(93.2% 0.032 255.6 / 0.45)",
+            "--kumo-info": "var(--color-blue-500, oklch(68.5% 0.169 237.323))",
+            "--kumo-warning-tint": "oklch(93.1% 0.107 94.6 / 0.2)",
+            "--kumo-warning": "oklch(73.9% 0.177 58.2)",
+            "--kumo-danger-tint": "oklch(93.6% 0.032 17.7 / 0.42)",
+            "--kumo-danger": "var(--color-red-500, oklch(63.7% 0.237 25.331))",
+            "--kumo-success-tint": "oklch(96.2% 0.043 156.7 / 0.57)",
+            "--kumo-success": "var(--color-emerald-600, oklch(59.6% 0.145 163.225))",
+            "--kumo-banner-info": "oklch(93.2% 0.032 255.585 / 0.7)",
+            "--kumo-banner-warning": "var(\n      --color-yellow-100,\n      oklch(97.3% 0.071 103.193)\n    )",
+            "--kumo-badge-secondary": "var(\n      --color-kumo-neutral-125,\n      oklch(96.5% 0 0)\n    )",
+            "--kumo-badge-red": "var(--color-red-600, oklch(57.7% 0.245 27.325))",
+            "--kumo-badge-green": "var(\n      --color-emerald-600,\n      oklch(59.6% 0.145 163.225)\n    )",
+            "--kumo-badge-orange": "var(--color-kumo-orange-650, oklch(81.5% 0.197 76))",
+            "--kumo-badge-purple": "var(\n      --color-purple-600,\n      oklch(55.8% 0.288 302.321)\n    )",
+            "--kumo-badge-teal": "var(--color-kumo-teal-650, oklch(54.9% 0.096 184.565))",
+            "--kumo-badge-blue": "var(--color-blue-600, oklch(54.6% 0.245 262.881))",
+            "--kumo-badge-neutral": "var(--color-neutral-500, oklch(55.6% 0 0))",
+            "--kumo-badge-inverted": "var(--color-neutral-950, oklch(14.5% 0 0))",
+            "--kumo-font-size-xs": "12px",
+            "--kumo-line-height-xs": "calc(1 / 0.75)",
+            "--kumo-font-size-sm": "13px",
+            "--kumo-line-height-sm": "calc(1.25 / 0.875)",
+            "--kumo-font-size-base": "14px",
+            "--kumo-line-height-base": "1.5",
+            "--kumo-font-size-lg": "16px",
+            "--kumo-line-height-lg": "1.5",
+            "--kumo-highlight": "var(--color-kumo-neutral-125, oklch(96.5% 0 0))",
+            "--kumo-sidebar-bg": "var(--color-kumo-canvas)"
+          },
+          ":root[data-mode=\"dark\"], [data-mode=\"dark\"]:not([data-theme]), [data-mode=\"dark\"] [data-theme=\"kumo\"], [data-theme=\"kumo\"][data-mode=\"dark\"], [data-theme=\"kumo\"] [data-mode=\"dark\"], :root.dark, .dark:not([data-theme]), .dark [data-theme=\"kumo\"], [data-theme=\"kumo\"].dark, [data-theme=\"kumo\"] .dark": {
+            "--kumo-text-default": "var(--color-neutral-100, oklch(97% 0 0))",
+            "--kumo-text-inverse": "var(--color-neutral-900, oklch(20.5% 0 0))",
+            "--kumo-text-strong": "var(--color-neutral-50, oklch(98.5% 0 0))",
+            "--kumo-text-subtle": "var(--color-neutral-400, oklch(70.8% 0 0))",
+            "--kumo-text-inactive": "var(--color-neutral-600, oklch(43.9% 0 0))",
+            "--kumo-text-placeholder": "var(--color-neutral-500, oklch(55.6% 0 0))",
+            "--kumo-text-brand": "#f6821f",
+            "--kumo-text-link": "var(--color-blue-400, oklch(70.7% 0.165 254.624))",
+            "--kumo-text-info": "var(--color-blue-400, oklch(70.7% 0.165 254.624))",
+            "--kumo-text-success": "var(\n      --color-emerald-200,\n      oklch(90.5% 0.093 164.15)\n    )",
+            "--kumo-text-danger": "var(--color-red-400, oklch(70.4% 0.191 22.216))",
+            "--kumo-text-warning": "var(--color-orange-400, oklch(75% 0.183 55.934))",
+            "--kumo-text-badge-orange-subtle": "var(\n      --color-orange-200,\n      oklch(90.1% 0.076 70.697)\n    )",
+            "--kumo-text-badge-teal-subtle": "var(\n      --color-teal-200,\n      oklch(91% 0.096 180.426)\n    )",
+            "--kumo-text-badge-neutral-subtle": "var(\n      --color-neutral-200,\n      oklch(92.2% 0 0)\n    )",
+            "--kumo-text-badge-inverted": "var(--color-black, #000)",
+            "--kumo-canvas": "var(--color-kumo-neutral-1000, oklch(10% 0 0))",
+            "--kumo-elevated": "var(--color-kumo-neutral-975, oklch(12% 0 0))",
+            "--kumo-recessed": "var(--color-kumo-neutral-950, oklch(15% 0 0))",
+            "--kumo-base": "var(--color-kumo-neutral-925, oklch(17% 0 0))",
+            "--kumo-tint": "var(--color-kumo-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-contrast": "var(--color-kumo-neutral-25, oklch(98.5% 0 0))",
+            "--kumo-overlay": "var(--color-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-control": "var(--color-neutral-900, oklch(21% 0.006 285.885))",
+            "--kumo-interact": "var(--color-neutral-700, oklch(37.1% 0 0))",
+            "--kumo-fill": "var(--color-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-fill-hover": "var(--color-neutral-800, oklch(37.1% 0 0))",
+            "--kumo-brand": "color-mix(\n      in oklch,\n      oklch(0.5772 0.2324 260),\n      black 10%\n    )",
+            "--kumo-brand-hover": "var(--color-blue-700, oklch(48.8% 0.243 264.376))",
+            "--kumo-line": "var(--color-kumo-neutral-750, oklch(32% 0 0))",
+            "--kumo-hairline": "var(--color-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-focus": "var(--color-kumo-neutral-150, oklch(93.5% 0 0))",
+            "--kumo-shadow-edge": "oklch(100% 0 0 / 0.1)",
+            "--kumo-shadow-drop": "oklch(0% 0 0 / 0.3)",
+            "--kumo-arrow-edge": "transparent",
+            "--kumo-arrow-stroke": "var(--color-kumo-neutral-750, oklch(32% 0 0))",
+            "--kumo-info-tint": "oklch(38% 0.145 265.5 / 0.22)",
+            "--kumo-info": "var(--color-blue-500, oklch(68.5% 0.169 237.323))",
+            "--kumo-warning-tint": "oklch(35.3% 0.079 65 / 0.37)",
+            "--kumo-warning": "oklch(64.5% 0.168 50)",
+            "--kumo-danger-tint": "oklch(42.9% 0.176 28.7 / 0.17)",
+            "--kumo-danger": "var(--color-red-600, oklch(57.7% 0.245 27.325))",
+            "--kumo-success-tint": "oklch(39.3% 0.096 152.3 / 0.2)",
+            "--kumo-success": "var(--color-emerald-400, oklch(76.5% 0.177 163.223))",
+            "--kumo-banner-info": "oklch(37.9% 0.146 265.522 / 0.5)",
+            "--kumo-banner-warning": "oklch(55.4% 0.135 66.442 / 0.5)",
+            "--kumo-badge-secondary": "var(--color-neutral-800, oklch(26.9% 0 0))",
+            "--kumo-badge-red": "var(--color-red-700, oklch(50.5% 0.213 27.518))",
+            "--kumo-badge-green": "var(\n      --color-emerald-700,\n      oklch(50.8% 0.118 165.612)\n    )",
+            "--kumo-badge-orange": "var(--color-kumo-orange-650, oklch(81.5% 0.197 76))",
+            "--kumo-badge-purple": "var(\n      --color-purple-700,\n      oklch(49.6% 0.265 301.924)\n    )",
+            "--kumo-badge-teal": "var(--color-teal-700, oklch(51.1% 0.096 186.391))",
+            "--kumo-badge-blue": "var(--color-blue-700, oklch(48.8% 0.243 264.376))",
+            "--kumo-badge-neutral": "var(--color-neutral-600, oklch(43.9% 0 0))",
+            "--kumo-badge-inverted": "var(--color-white, #fff)",
+            "--kumo-highlight": "var(--color-neutral-900, oklch(20.5% 0 0))",
+            "--kumo-sidebar-bg": "var(--color-kumo-canvas)"
+          },
+          "[data-theme=\"fedramp\"]": {
+            "--kumo-canvas": "#5b697c",
+            "--kumo-base": "#5b697c",
+            "--kumo-hairline": "#c8d4e5"
+          },
+          "[data-mode=\"dark\"] [data-theme=\"fedramp\"], [data-theme=\"fedramp\"][data-mode=\"dark\"], [data-theme=\"fedramp\"] [data-mode=\"dark\"], .dark [data-theme=\"fedramp\"], [data-theme=\"fedramp\"].dark, [data-theme=\"fedramp\"] .dark": {
+            "--kumo-canvas": "#5b697c",
+            "--kumo-base": "#5b697c",
+            "--kumo-hairline": "#c8d4e5"
+          }
+        }
+      },
+      "docs": "Use one Kumo theme item at a time. To switch, delete the previous theme's rules from @layer base in your CSS file, then add the new one. See https://github.com/tom-ricci/kumo-shadcn#themes"
+    },
+    {
+      "name": "kumo-binding",
+      "type": "registry:theme",
+      "title": "Kumo binding to your shadcn theme",
+      "description": "Sets Kumo's color tokens from your shadcn CSS variables (--background, --foreground, --primary, ...), so Kumo components follow your theme. Needs tailwind.cssVariables: true in components.json (with false there are no shadcn variables to read). Install one theme item: kumo-theme, kumo-cloudflare or kumo-binding.",
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json"
+      ],
+      "css": {
+        "@layer base": {
+          ":root": {
+            "--kumo-arrow-edge": "var(--border)",
+            "--kumo-arrow-stroke": "transparent",
+            "--kumo-badge-blue": "var(--color-blue-600, oklch(54.6% 0.245 262.881))",
+            "--kumo-badge-green": "var(\n      --color-emerald-600,\n      oklch(59.6% 0.145 163.225)\n    )",
+            "--kumo-badge-inverted": "var(--foreground)",
+            "--kumo-badge-neutral": "var(--muted-foreground)",
+            "--kumo-badge-orange": "var(--color-kumo-orange-650, oklch(81.5% 0.197 76))",
+            "--kumo-badge-purple": "var(\n      --color-purple-600,\n      oklch(55.8% 0.288 302.321)\n    )",
+            "--kumo-badge-red": "var(--color-red-600, oklch(57.7% 0.245 27.325))",
+            "--kumo-badge-secondary": "var(--secondary)",
+            "--kumo-badge-teal": "var(--color-kumo-teal-650, oklch(54.9% 0.096 184.565))",
+            "--kumo-banner-info": "color-mix(in oklab, var(--kumo-info) 12%, transparent)",
+            "--kumo-banner-warning": "color-mix(in oklab, var(--kumo-warning) 9%, transparent)",
+            "--kumo-base": "var(--card)",
+            "--kumo-brand": "var(--primary)",
+            "--kumo-brand-hover": "color-mix(in oklab, var(--kumo-brand), black 15%)",
+            "--kumo-canvas": "color-mix(in oklab, var(--background), var(--foreground) 1.4%)",
+            "--kumo-contrast": "var(--foreground)",
+            "--kumo-control": "var(--background)",
+            "--kumo-danger": "var(--destructive)",
+            "--kumo-danger-tint": "color-mix(in oklab, var(--destructive) 5%, transparent)",
+            "--kumo-elevated": "color-mix(in oklab, var(--background), var(--foreground) 2.2%)",
+            "--kumo-fill": "color-mix(in oklab, var(--secondary), var(--secondary-foreground) 6%)",
+            "--kumo-fill-hover": "var(--accent)",
+            "--kumo-focus": "var(--ring)",
+            "--kumo-hairline": "color-mix(in oklab, var(--border), var(--background) 25%)",
+            "--kumo-info": "var(--info, var(--color-blue-500, oklch(68.5% 0.169 237.323)))",
+            "--kumo-info-tint": "color-mix(in oklab, var(--kumo-info) 7%, transparent)",
+            "--kumo-interact": "color-mix(in oklab, var(--accent), var(--accent-foreground) 13%)",
+            "--kumo-line": "var(--border)",
+            "--kumo-overlay": "color-mix(in oklab, var(--popover), var(--popover-foreground) 1.4%)",
+            "--kumo-recessed": "color-mix(in oklab, var(--background), var(--foreground) 4%)",
+            "--kumo-shadow-drop": "oklch(0% 0 0 / 0.08)",
+            "--kumo-shadow-edge": "oklch(0% 0 0 / 0.12)",
+            "--kumo-success": "var(--success, var(--color-emerald-600, oklch(59.6% 0.145 163.225)))",
+            "--kumo-success-tint": "color-mix(in oklab, var(--kumo-success) 5%, transparent)",
+            "--kumo-tint": "var(--muted)",
+            "--kumo-warning": "var(--warning, oklch(73.9% 0.177 58.2))",
+            "--kumo-warning-tint": "color-mix(in oklab, var(--kumo-warning) 7%, transparent)",
+            "--kumo-text-badge-inverted": "var(--background)",
+            "--kumo-text-badge-neutral-subtle": "color-mix(in oklab, var(--foreground), var(--background) 15%)",
+            "--kumo-text-badge-orange-subtle": "var(\n      --color-orange-800,\n      oklch(47% 0.157 37.304)\n    )",
+            "--kumo-text-badge-teal-subtle": "var(\n      --color-teal-800,\n      oklch(43.7% 0.078 188.216)\n    )",
+            "--kumo-text-brand": "#f6821f",
+            "--kumo-text-danger": "color-mix(in oklab, var(--destructive), black 15%)",
+            "--kumo-text-default": "color-mix(in oklab, var(--foreground), var(--background) 6%)",
+            "--kumo-text-inactive": "color-mix(in oklab, var(--muted-foreground), var(--background) 70%)",
+            "--kumo-text-info": "color-mix(in oklab, var(--kumo-info), black 31%)",
+            "--kumo-text-inverse": "color-mix(in oklab, var(--background), var(--foreground) 3%)",
+            "--kumo-text-link": "color-mix(in oklab, var(--kumo-info), black 31%)",
+            "--kumo-text-placeholder": "color-mix(in oklab, var(--muted-foreground), var(--background) 35%)",
+            "--kumo-text-strong": "var(--foreground)",
+            "--kumo-text-subtle": "var(--muted-foreground)",
+            "--kumo-text-success": "color-mix(in oklab, var(--kumo-success), black 28%)",
+            "--kumo-text-warning": "color-mix(in oklab, var(--kumo-warning), black 20%)",
+            "--kumo-font-size-xs": "var(--text-xs, 0.75rem)",
+            "--kumo-line-height-xs": "var(--text-xs--line-height, calc(1 / 0.75))",
+            "--kumo-font-size-sm": "var(--text-sm, 0.875rem)",
+            "--kumo-line-height-sm": "var(--text-sm--line-height, calc(1.25 / 0.875))",
+            "--kumo-font-size-base": "var(--text-base, 1rem)",
+            "--kumo-line-height-base": "var(--text-base--line-height, calc(1.5 / 1))",
+            "--kumo-font-size-lg": "var(--text-lg, 1.125rem)",
+            "--kumo-line-height-lg": "var(--text-lg--line-height, calc(1.75 / 1.125))"
+          },
+          ".dark": {
+            "--kumo-arrow-edge": "transparent",
+            "--kumo-arrow-stroke": "var(--kumo-line)",
+            "--kumo-badge-blue": "var(--color-blue-700, oklch(48.8% 0.243 264.376))",
+            "--kumo-badge-green": "var(\n      --color-emerald-700,\n      oklch(50.8% 0.118 165.612)\n    )",
+            "--kumo-badge-inverted": "var(--foreground)",
+            "--kumo-badge-neutral": "color-mix(in oklab, var(--muted-foreground), var(--background) 48%)",
+            "--kumo-badge-orange": "var(--color-kumo-orange-650, oklch(81.5% 0.197 76))",
+            "--kumo-badge-purple": "var(\n      --color-purple-700,\n      oklch(49.6% 0.265 301.924)\n    )",
+            "--kumo-badge-red": "var(--color-red-700, oklch(50.5% 0.213 27.518))",
+            "--kumo-badge-secondary": "var(--secondary)",
+            "--kumo-badge-teal": "var(--color-teal-700, oklch(51.1% 0.096 186.391))",
+            "--kumo-banner-info": "color-mix(in oklab, var(--kumo-info) 21%, transparent)",
+            "--kumo-banner-warning": "color-mix(in oklab, var(--kumo-warning) 40%, transparent)",
+            "--kumo-base": "color-mix(in oklab, var(--card), var(--background) 50%)",
+            "--kumo-brand": "var(--primary)",
+            "--kumo-brand-hover": "color-mix(in oklab, var(--kumo-brand), black 8%)",
+            "--kumo-canvas": "color-mix(in oklab, var(--background), black 35%)",
+            "--kumo-contrast": "var(--foreground)",
+            "--kumo-control": "var(--card)",
+            "--kumo-danger": "var(--destructive)",
+            "--kumo-danger-tint": "color-mix(in oklab, var(--destructive) 6%, transparent)",
+            "--kumo-elevated": "color-mix(in oklab, var(--background), black 20%)",
+            "--kumo-fill": "var(--secondary)",
+            "--kumo-fill-hover": "var(--accent)",
+            "--kumo-focus": "var(--ring)",
+            "--kumo-hairline": "var(--border)",
+            "--kumo-info": "var(--info, var(--color-blue-500, oklch(68.5% 0.169 237.323)))",
+            "--kumo-info-tint": "color-mix(in oklab, var(--kumo-info) 9%, transparent)",
+            "--kumo-interact": "color-mix(in oklab, var(--accent), var(--accent-foreground) 14%)",
+            "--kumo-line": "color-mix(in oklab, var(--border), var(--foreground) 4%)",
+            "--kumo-overlay": "color-mix(in oklab, var(--popover), var(--popover-foreground) 7%)",
+            "--kumo-recessed": "var(--background)",
+            "--kumo-shadow-drop": "oklch(0% 0 0 / 0.3)",
+            "--kumo-shadow-edge": "oklch(100% 0 0 / 0.1)",
+            "--kumo-success": "var(--success, var(--color-emerald-400, oklch(76.5% 0.177 163.223)))",
+            "--kumo-success-tint": "color-mix(in oklab, var(--kumo-success) 7%, transparent)",
+            "--kumo-tint": "var(--muted)",
+            "--kumo-warning": "var(--warning, oklch(64.5% 0.168 50))",
+            "--kumo-warning-tint": "color-mix(in oklab, var(--kumo-warning) 13%, transparent)",
+            "--kumo-text-badge-inverted": "var(--background)",
+            "--kumo-text-badge-neutral-subtle": "color-mix(in oklab, var(--foreground), var(--background) 8%)",
+            "--kumo-text-badge-orange-subtle": "var(\n      --color-orange-200,\n      oklch(90.1% 0.076 70.697)\n    )",
+            "--kumo-text-badge-teal-subtle": "var(\n      --color-teal-200,\n      oklch(91% 0.096 180.426)\n    )",
+            "--kumo-text-brand": "#f6821f",
+            "--kumo-text-danger": "var(--destructive)",
+            "--kumo-text-default": "color-mix(in oklab, var(--foreground), var(--background) 2%)",
+            "--kumo-text-inactive": "color-mix(in oklab, var(--muted-foreground), var(--background) 45%)",
+            "--kumo-text-info": "color-mix(in oklab, var(--kumo-info), white 22%)",
+            "--kumo-text-inverse": "color-mix(in oklab, var(--background), var(--foreground) 7%)",
+            "--kumo-text-link": "color-mix(in oklab, var(--kumo-info), white 22%)",
+            "--kumo-text-placeholder": "color-mix(in oklab, var(--muted-foreground), var(--background) 25%)",
+            "--kumo-text-strong": "var(--foreground)",
+            "--kumo-text-subtle": "var(--muted-foreground)",
+            "--kumo-text-success": "color-mix(in oklab, var(--kumo-success), white 55%)",
+            "--kumo-text-warning": "color-mix(in oklab, var(--kumo-warning), white 28%)"
+          },
+          "@supports (color: oklch(from red l c h))": {
+            ":root": {
+              "--kumo-brand": "oklch(from var(--primary) min(l, 0.6) c h)",
+              "--kumo-danger": "oklch(from var(--destructive) min(l, 0.64) c h)"
+            },
+            ".dark": {
+              "--kumo-brand": "oklch(from var(--primary) min(l, 0.6) c h)",
+              "--kumo-danger": "oklch(from var(--destructive) min(l, 0.6) c h)"
+            }
+          }
+        }
+      },
+      "docs": "Use one Kumo theme item at a time. To switch, delete the previous theme's rules from @layer base in your CSS file, then add the new one. See https://github.com/tom-ricci/kumo-shadcn#themes"
+    },
+    {
+      "name": "kumo-utils",
+      "type": "registry:lib",
+      "title": "Kumo utilities",
+      "description": "Kumo's shared helpers (cn, variants, link/locale/portal providers, ...) from @cloudflare/kumo@2.19.1.",
+      "files": [
+        {
+          "path": "registry/kumo/lib/kumo/index.ts",
+          "type": "registry:lib",
+          "target": "@lib/kumo/index.ts"
+        },
+        {
+          "path": "registry/kumo/lib/kumo/link-provider.tsx",
+          "type": "registry:lib",
+          "target": "@lib/kumo/link-provider.tsx"
+        },
+        {
+          "path": "registry/kumo/lib/kumo/locale-provider.tsx",
+          "type": "registry:lib",
+          "target": "@lib/kumo/locale-provider.tsx"
+        },
+        {
+          "path": "registry/kumo/lib/kumo/portal-provider.tsx",
+          "type": "registry:lib",
+          "target": "@lib/kumo/portal-provider.tsx"
+        },
+        {
+          "path": "registry/kumo/lib/kumo/random-id.ts",
+          "type": "registry:lib",
+          "target": "@lib/kumo/random-id.ts"
+        },
+        {
+          "path": "registry/kumo/lib/kumo/resolve-variant.ts",
+          "type": "registry:lib",
+          "target": "@lib/kumo/resolve-variant.ts"
+        },
+        {
+          "path": "registry/kumo/lib/kumo/unwrap-lazy-element.ts",
+          "type": "registry:lib",
+          "target": "@lib/kumo/unwrap-lazy-element.ts"
+        },
+        {
+          "path": "registry/kumo/lib/kumo/use-copy-feedback.ts",
+          "type": "registry:lib",
+          "target": "@lib/kumo/use-copy-feedback.ts"
+        },
+        {
+          "path": "registry/kumo/lib/kumo/process-env.d.ts",
+          "type": "registry:lib",
+          "target": "@lib/kumo/process-env.d.ts"
+        }
+      ]
+    },
+    {
+      "name": "kumo-icons",
+      "type": "registry:lib",
+      "title": "Kumo icon shim",
+      "description": "The Phosphor icons Kumo uses, drawn with the icon library from your components.json (lucide, tabler, hugeicons, phosphor or remixicon).",
+      "files": [
+        {
+          "path": "registry/kumo/lib/kumo/icons.tsx",
+          "type": "registry:lib",
+          "target": "@lib/kumo/icons.tsx"
+        }
+      ],
+      "docs": "The shadcn CLI picks the icons from iconLibrary in components.json. Set it before adding Kumo components."
+    },
+    {
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "Autocomplete — free-form text input with an optional filtered suggestion list. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/autocomplete",
+          "components": [
+            "Autocomplete"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/field.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/autocomplete/autocomplete.tsx",
+          "type": "registry:ui",
+          "target": "@ui/autocomplete/autocomplete.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/autocomplete/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/autocomplete/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Small status label for categorizing or highlighting content. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "display"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/badge",
+          "components": [
+            "Badge"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/badge/badge.tsx",
+          "type": "registry:ui",
+          "target": "@ui/badge/badge.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/badge/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/badge/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Full-width message bar with an optional trailing CTA slot. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "feedback"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/banner",
+          "components": [
+            "Banner"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/link.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/banner/banner-action.tsx",
+          "type": "registry:ui",
+          "target": "@ui/banner/banner-action.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/banner/banner.tsx",
+          "type": "registry:ui",
+          "target": "@ui/banner/banner.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/banner/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/banner/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumbs",
+      "type": "registry:ui",
+      "title": "Breadcrumbs",
+      "description": "Breadcrumbs component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "display"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/breadcrumbs",
+          "components": [
+            "Breadcrumbs"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/loader.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/breadcrumbs/breadcrumbs.tsx",
+          "type": "registry:ui",
+          "target": "@ui/breadcrumbs/breadcrumbs.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/breadcrumbs/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/breadcrumbs/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Primary action trigger. Supports multiple variants, sizes, shapes, icons, and loading state. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "action"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/button",
+          "components": [
+            "Button"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/loader.json",
+        "https://kumo-shadcn.thomasricci.dev/r/tooltip.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/button/button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/button/button.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/button/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/button/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Joins a small set of tightly-coupled buttons into a single control — most commonly a **split button**: a primary action next to a dropdown trigger for related, secondary actions. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "action"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/button-group",
+          "components": [
+            "ButtonGroup"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/button-group/button-group.tsx",
+          "type": "registry:ui",
+          "target": "@ui/button-group/button-group.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/button-group/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/button-group/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Chart — a low-level wrapper around [Apache ECharts](https://echarts.apache.org). Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "data-visualization"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/chart",
+          "components": [
+            "BubbleMap",
+            "Chart",
+            "ChoroplethMap",
+            "GlobeMap",
+            "SankeyChart",
+            "TimeseriesChart"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0",
+        "d3-geo@^3.1.1",
+        "echarts@^6.0.0"
+      ],
+      "devDependencies": [
+        "@types/d3-geo@^3.1.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/loader.json",
+        "https://kumo-shadcn.thomasricci.dev/r/text.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/chart/Color.ts",
+          "type": "registry:ui",
+          "target": "@ui/chart/Color.ts"
+        },
+        {
+          "path": "registry/kumo/ui/chart/EChart.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart/EChart.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/chart/GlobeMap.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart/GlobeMap.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/chart/Legend.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart/Legend.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/chart/Maps.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart/Maps.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/chart/SankeyChart.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart/SankeyChart.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/chart/TimeseriesChart.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart/TimeseriesChart.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/chart/globe-land-mask.ts",
+          "type": "registry:ui",
+          "target": "@ui/chart/globe-land-mask.ts"
+        },
+        {
+          "path": "registry/kumo/ui/chart/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/chart/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/chart/timeseries-markers.ts",
+          "type": "registry:ui",
+          "target": "@ui/chart/timeseries-markers.ts"
+        },
+        {
+          "path": "registry/kumo/ui/chart/timeseries-thresholds.ts",
+          "type": "registry:ui",
+          "target": "@ui/chart/timeseries-thresholds.ts"
+        },
+        {
+          "path": "registry/kumo/ui/chart/timeseries-tooltip.tsx",
+          "type": "registry:ui",
+          "target": "@ui/chart/timeseries-tooltip.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/chart/tooltip-utils.ts",
+          "type": "registry:ui",
+          "target": "@ui/chart/tooltip-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkbox component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/checkbox",
+          "components": [
+            "Checkbox"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/label.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/checkbox/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "@ui/checkbox/checkbox.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/checkbox/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/checkbox/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "clipboard-text",
+      "type": "registry:ui",
+      "title": "Clipboard Text",
+      "description": "Read-only text field with a one-click copy-to-clipboard button. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "action"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/clipboard-text",
+          "components": [
+            "ClipboardText"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/clipboard-text/clipboard-text.tsx",
+          "type": "registry:ui",
+          "target": "@ui/clipboard-text/clipboard-text.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/clipboard-text/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/clipboard-text/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "cloudflare-logo",
+      "type": "registry:ui",
+      "title": "Cloudflare Logo",
+      "description": "Cloudflare logo component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/cloudflare-logo",
+          "components": [
+            "CloudflareLogo"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/cloudflare-logo/cloudflare-logo.tsx",
+          "type": "registry:ui",
+          "target": "@ui/cloudflare-logo/cloudflare-logo.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/cloudflare-logo/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/cloudflare-logo/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "code",
+      "type": "registry:ui",
+      "title": "Code",
+      "description": "Code component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "display"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/code",
+          "components": [
+            "Code"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/code/code.tsx",
+          "type": "registry:ui",
+          "target": "@ui/code/code.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/code/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/code/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Collapsible — a composable disclosure component for showing/hiding content. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "display"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/collapsible",
+          "components": [
+            "Collapsible"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/collapsible/collapsible.tsx",
+          "type": "registry:ui",
+          "target": "@ui/collapsible/collapsible.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/collapsible/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/collapsible/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Combobox — autocomplete input with filterable dropdown list. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/combobox",
+          "components": [
+            "Combobox"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/field.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/combobox/combobox.tsx",
+          "type": "registry:ui",
+          "target": "@ui/combobox/combobox.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/combobox/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/combobox/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:ui",
+      "title": "Command Palette",
+      "description": "CommandPalette — accessible command palette / spotlight search overlay. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/command-palette",
+          "components": [
+            "CommandPalette"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/layer-card.json",
+        "https://kumo-shadcn.thomasricci.dev/r/loader.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/command-palette/command-palette.tsx",
+          "type": "registry:ui",
+          "target": "@ui/command-palette/command-palette.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/command-palette/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/command-palette/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/command-palette/types.ts",
+          "type": "registry:ui",
+          "target": "@ui/command-palette/types.ts"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "DatePicker — a date selection calendar. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/date-picker",
+          "components": [
+            "DatePicker"
+          ]
+        }
+      },
+      "dependencies": [
+        "react-day-picker@^9.13.2"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/date-picker/date-picker.tsx",
+          "type": "registry:ui",
+          "target": "@ui/date-picker/date-picker.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/date-picker/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/date-picker/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "date-range-picker",
+      "type": "registry:ui",
+      "title": "DateRangePicker",
+      "description": "Kumo DateRangePicker component, from @cloudflare/kumo@2.19.1.",
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/date-range-picker"
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/date-range-picker/date-range-picker.tsx",
+          "type": "registry:ui",
+          "target": "@ui/date-range-picker/date-range-picker.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/date-range-picker/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/date-range-picker/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "delete-resource",
+      "type": "registry:block",
+      "title": "Delete Resource",
+      "description": "DeleteResource component. Kumo block, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/blocks/delete-resource",
+          "components": [
+            "DeleteResource"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/banner.json",
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/dialog.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/blocks/delete-resource/delete-resource.tsx",
+          "type": "registry:component",
+          "target": "@components/delete-resource/delete-resource.tsx"
+        },
+        {
+          "path": "registry/kumo/blocks/delete-resource/index.ts",
+          "type": "registry:component",
+          "target": "@components/delete-resource/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Dialog component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/dialog",
+          "components": [
+            "Dialog"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/layer-card.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/dialog/dialog.tsx",
+          "type": "registry:ui",
+          "target": "@ui/dialog/dialog.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/dialog/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/dialog/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "dropdown",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "DropdownMenu — accessible dropdown menu anchored to a trigger. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/dropdown",
+          "components": [
+            "DropdownMenu"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/dropdown/dropdown.tsx",
+          "type": "registry:ui",
+          "target": "@ui/dropdown/dropdown.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/dropdown/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/dropdown/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Placeholder shown when a list, table, or page has no content to display. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "display"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/empty",
+          "components": [
+            "Empty"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/text.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/empty/empty.tsx",
+          "type": "registry:ui",
+          "target": "@ui/empty/empty.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/empty/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/empty/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Form field wrapper that provides a label, optional description, and error display around any form control. Built on Base UI Field primitives. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/field",
+          "components": [
+            "Field"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/label.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/field/field.tsx",
+          "type": "registry:ui",
+          "target": "@ui/field/field.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/field/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/field/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "flow",
+      "type": "registry:ui",
+      "title": "Flow",
+      "description": "Kumo Flow component, from @cloudflare/kumo@2.19.1.",
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/flow"
+        }
+      },
+      "dependencies": [
+        "motion@^12.34.1"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/flow/connectors.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow/connectors.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/flow/diagram.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow/diagram.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/flow/flow-layout.ts",
+          "type": "registry:ui",
+          "target": "@ui/flow/flow-layout.ts"
+        },
+        {
+          "path": "registry/kumo/ui/flow/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/flow/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/flow/node.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow/node.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/flow/parallel.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow/parallel.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/flow/use-children.tsx",
+          "type": "registry:ui",
+          "target": "@ui/flow/use-children.tsx"
+        }
+      ]
+    },
+    {
+      "name": "grid",
+      "type": "registry:ui",
+      "title": "Grid",
+      "description": "Responsive CSS grid layout container with preset column configurations. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "layout"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/grid",
+          "components": [
+            "Grid"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/grid/grid.tsx",
+          "type": "registry:ui",
+          "target": "@ui/grid/grid.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/grid/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/grid/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "inline-copy-text",
+      "type": "registry:ui",
+      "title": "Inline Copy Text",
+      "description": "Compact, borderless copy control for IDs and other short values displayed inline or inside dense table cells. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "action"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/inline-copy-text",
+          "components": [
+            "InlineCopyText"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/text.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/inline-copy-text/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/inline-copy-text/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/inline-copy-text/inline-copy-text.tsx",
+          "type": "registry:ui",
+          "target": "@ui/inline-copy-text/inline-copy-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Input component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/input",
+          "components": [
+            "Input",
+            "InputArea"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/field.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input-group.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/input/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/input/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/input/input-area.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input/input-area.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/input/input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "InputGroup component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/input-group",
+          "components": [
+            "InputGroup"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/field.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/tooltip.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/input-group/context.ts",
+          "type": "registry:ui",
+          "target": "@ui/input-group/context.ts"
+        },
+        {
+          "path": "registry/kumo/ui/input-group/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/input-group/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/input-group/input-group-addon.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input-group/input-group-addon.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/input-group/input-group-button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input-group/input-group-button.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/input-group/input-group-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input-group/input-group-input.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/input-group/input-group-suffix.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input-group/input-group-suffix.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/input-group/input-group.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input-group/input-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Label component for form fields. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/label",
+          "components": [
+            "Label"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/tooltip.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/label/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/label/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/label/label.tsx",
+          "type": "registry:ui",
+          "target": "@ui/label/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layer-card",
+      "type": "registry:ui",
+      "title": "Layer Card",
+      "description": "LayerCard component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "display"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/layer-card",
+          "components": [
+            "LayerCard"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/layer-card/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/layer-card/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/layer-card/layer-card.tsx",
+          "type": "registry:ui",
+          "target": "@ui/layer-card/layer-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "layer-dialog",
+      "type": "registry:ui",
+      "title": "Layer Dialog",
+      "description": "LayerDialog component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/layer-dialog",
+          "components": [
+            "LayerDialog"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/button-group.json",
+        "https://kumo-shadcn.thomasricci.dev/r/dropdown.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/layer-card.json",
+        "https://kumo-shadcn.thomasricci.dev/r/text.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/layer-dialog/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/layer-dialog/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/layer-dialog/layer-dialog.tsx",
+          "type": "registry:ui",
+          "target": "@ui/layer-dialog/layer-dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "type": "registry:ui",
+      "title": "Link",
+      "description": "Link component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/link",
+          "components": [
+            "Link"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/link/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/link/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/link/link.tsx",
+          "type": "registry:ui",
+          "target": "@ui/link/link.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader",
+      "type": "registry:ui",
+      "title": "Loader",
+      "description": "Animated circular spinner for indicating loading states. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "feedback"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/loader",
+          "components": [
+            "Loader"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/loader/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/loader/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/loader/loader.tsx",
+          "type": "registry:ui",
+          "target": "@ui/loader/loader.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/loader/skeleton-line.tsx",
+          "type": "registry:ui",
+          "target": "@ui/loader/skeleton-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menu Bar",
+      "description": "MenuBar — horizontal icon-button toolbar with keyboard arrow-key navigation. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/menubar",
+          "components": [
+            "MenuBar"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/tooltip.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/menubar/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/menubar/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/menubar/menubar.tsx",
+          "type": "registry:ui",
+          "target": "@ui/menubar/menubar.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/menubar/use-menu-navigation.ts",
+          "type": "registry:ui",
+          "target": "@ui/menubar/use-menu-navigation.ts"
+        }
+      ]
+    },
+    {
+      "name": "meter",
+      "type": "registry:ui",
+      "title": "Meter",
+      "description": "Progress bar showing a measured value within a known range (e.g. quota usage). Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "display"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/meter",
+          "components": [
+            "Meter"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/meter/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/meter/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/meter/meter.tsx",
+          "type": "registry:ui",
+          "target": "@ui/meter/meter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-header",
+      "type": "registry:block",
+      "title": "Page Header",
+      "description": "PageHeader component. Kumo block, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "layout"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/blocks/page-header",
+          "components": [
+            "PageHeader"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/tabs.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/blocks/page-header/index.ts",
+          "type": "registry:component",
+          "target": "@components/page-header/index.ts"
+        },
+        {
+          "path": "registry/kumo/blocks/page-header/page-header.tsx",
+          "type": "registry:component",
+          "target": "@components/page-header/page-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Pagination component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/pagination",
+          "components": [
+            "Pagination"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/input-group.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/select.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/pagination/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/pagination/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/pagination/pagination.tsx",
+          "type": "registry:ui",
+          "target": "@ui/pagination/pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Popover component for displaying accessible popup content anchored to a trigger. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/popover",
+          "components": [
+            "Popover"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/popover/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/popover/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/popover/popover.tsx",
+          "type": "registry:ui",
+          "target": "@ui/popover/popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "Radio — radio button group for single-select choices. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/radio",
+          "components": [
+            "Radio"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/radio/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/radio/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/radio/radio.tsx",
+          "type": "registry:ui",
+          "target": "@ui/radio/radio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "resource-list",
+      "type": "registry:block",
+      "title": "Resource List Page",
+      "description": "ResourceListPage - A layout component for resource list pages. Kumo block, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "layout"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/blocks/resource-list",
+          "components": [
+            "ResourceListPage"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/blocks/resource-list/index.ts",
+          "type": "registry:component",
+          "target": "@components/resource-list/index.ts"
+        },
+        {
+          "path": "registry/kumo/blocks/resource-list/resource-list.tsx",
+          "type": "registry:component",
+          "target": "@components/resource-list/resource-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Select component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/select",
+          "components": [
+            "Select"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/field.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/label.json",
+        "https://kumo-shadcn.thomasricci.dev/r/loader.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/select/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/select/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/select/select.tsx",
+          "type": "registry:ui",
+          "target": "@ui/select/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sensitive-input",
+      "type": "registry:ui",
+      "title": "Sensitive Input",
+      "description": "Password/secret input that masks its value by default and reveals on click. Includes a built-in copy-to-clipboard button on hover. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/sensitive-input",
+          "components": [
+            "SensitiveInput"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/field.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/sensitive-input/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/sensitive-input/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/sensitive-input/sensitive-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/sensitive-input/sensitive-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Sidebar — responsive navigation panel with expand/collapse support. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/sidebar",
+          "components": [
+            "Sidebar"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/loader.json",
+        "https://kumo-shadcn.thomasricci.dev/r/tooltip.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/sidebar/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/sidebar/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/sidebar/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "@ui/sidebar/sidebar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Slider component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/slider",
+          "components": [
+            "Slider"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/slider/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/slider/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/slider/slider.tsx",
+          "type": "registry:ui",
+          "target": "@ui/slider/slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "surface",
+      "type": "registry:ui",
+      "title": "Surface",
+      "description": "Surface component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "layout"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/surface",
+          "components": [
+            "Surface"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "https://kumo-shadcn.thomasricci.dev/r/layer-card.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/surface/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/surface/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/surface/surface.tsx",
+          "type": "registry:ui",
+          "target": "@ui/surface/surface.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Switch component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "input"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/switch",
+          "components": [
+            "Switch"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/field.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/switch/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/switch/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/switch/switch.tsx",
+          "type": "registry:ui",
+          "target": "@ui/switch/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Table — semantic HTML table with styled rows, cells, and selection support. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/table",
+          "components": [
+            "Table"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/checkbox.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/table/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/table/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/table/table.tsx",
+          "type": "registry:ui",
+          "target": "@ui/table/table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "table-of-contents",
+      "type": "registry:ui",
+      "title": "Table Of Contents",
+      "description": "TableOfContents — presentational compound component for section navigation. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/table-of-contents",
+          "components": [
+            "TableOfContents"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/table-of-contents/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/table-of-contents/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/table-of-contents/table-of-contents.tsx",
+          "type": "registry:ui",
+          "target": "@ui/table-of-contents/table-of-contents.tsx"
+        },
+        {
+          "path": "registry/kumo/ui/table-of-contents/use-table-of-contents-active-id.ts",
+          "type": "registry:ui",
+          "target": "@ui/table-of-contents/use-table-of-contents-active-id.ts"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tab navigation component with segmented or underline style. Built on Base UI Tabs with animated active indicator. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/tabs",
+          "components": [
+            "Tabs"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/tabs/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/tabs/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/tabs/tabs.tsx",
+          "type": "registry:ui",
+          "target": "@ui/tabs/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tag-input",
+      "type": "registry:ui",
+      "title": "Tag Input",
+      "description": "TagInput component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/tag-input",
+          "components": [
+            "TagInput"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/field.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/tag-input/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/tag-input/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/tag-input/tag-input.tsx",
+          "type": "registry:ui",
+          "target": "@ui/tag-input/tag-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text",
+      "type": "registry:ui",
+      "title": "Text",
+      "description": "Text component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "display"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/text",
+          "components": [
+            "Text"
+          ]
+        }
+      },
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/text/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/text/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/text/text.tsx",
+          "type": "registry:ui",
+          "target": "@ui/text/text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toasty",
+      "description": "Toasty — toast notification provider and viewport. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "feedback"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/toast",
+          "components": [
+            "Toasty"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-icons.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/toast/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/toast/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/toast/toast.tsx",
+          "type": "registry:ui",
+          "target": "@ui/toast/toast.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:ui",
+      "title": "Toolbar",
+      "description": "Toolbar component. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "other"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/toolbar",
+          "components": [
+            "Toolbar"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/button.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input.json",
+        "https://kumo-shadcn.thomasricci.dev/r/input-group.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/toolbar/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/toolbar/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/toolbar/toolbar.tsx",
+          "type": "registry:ui",
+          "target": "@ui/toolbar/toolbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Accessible popup that shows additional information on hover/focus. Wrap your app or section with `<TooltipProvider>` to enable delay grouping. Kumo component, from @cloudflare/kumo@2.19.1.",
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "kumo": {
+          "release": "2.19.1",
+          "source": "packages/kumo/src/components/tooltip",
+          "components": [
+            "Tooltip"
+          ]
+        }
+      },
+      "dependencies": [
+        "@base-ui/react@^1.9.0"
+      ],
+      "registryDependencies": [
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-base.json",
+        "https://kumo-shadcn.thomasricci.dev/r/kumo-utils.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/kumo/ui/tooltip/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/tooltip/index.ts"
+        },
+        {
+          "path": "registry/kumo/ui/tooltip/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "@ui/tooltip/tooltip.tsx"
+        }
+      ]
+    }
+  ]
+}

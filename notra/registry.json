@@ -1102,6 +1102,42 @@
           "path": "../../packages/ui/src/components/registry/tooltip/components/tooltip.tsx",
           "type": "registry:component",
           "target": "components/tooltip/components/tooltip.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/tooltip/constants/tooltip.ts",
+          "type": "registry:lib",
+          "target": "components/tooltip/constants/tooltip.ts"
+        }
+      ]
+    },
+    {
+      "name": "notra-kbd",
+      "type": "registry:component",
+      "title": "Kbd",
+      "description": "A keycap that draws modifier symbols like ⌘ ⇧ ⌥ on the cap height of the label, so a whole shortcut reads as one key.",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "../../packages/ui/src/components/registry/kbd/components/kbd.tsx",
+          "type": "registry:component",
+          "target": "components/kbd/components/kbd.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/kbd/constants/kbd.ts",
+          "type": "registry:lib",
+          "target": "components/kbd/constants/kbd.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/kbd/lib/kbd.ts",
+          "type": "registry:lib",
+          "target": "components/kbd/lib/kbd.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/kbd/types/kbd.ts",
+          "type": "registry:lib",
+          "target": "components/kbd/types/kbd.ts"
         }
       ]
     },
@@ -1125,6 +1161,73 @@
           "path": "registry/notra/sonner/components/sonner.tsx",
           "type": "registry:component",
           "target": "components/sonner/components/sonner.tsx"
+        }
+      ]
+    },
+    {
+      "name": "status-badge",
+      "type": "registry:component",
+      "title": "Status Badge",
+      "description": "Notra's rounded status badge with semantic colors and an optional icon.",
+      "dependencies": [
+        "@base-ui/react",
+        "@hugeicons/react",
+        "class-variance-authority",
+        "cnfast"
+      ],
+      "cssVars": {
+        "theme": {
+          "color-badge-destructive": "var(--badge-destructive)",
+          "color-badge-info": "var(--badge-info)",
+          "color-badge-merged": "var(--badge-merged)",
+          "color-badge-secondary": "var(--badge-secondary)",
+          "color-badge-success": "var(--badge-success)",
+          "color-badge-warning": "var(--badge-warning)",
+          "color-info": "var(--info)",
+          "color-merged": "var(--merged)",
+          "color-success": "var(--success)",
+          "color-warning": "var(--warning)"
+        },
+        "light": {
+          "badge-destructive": "oklch(0.48 0.18 25)",
+          "badge-info": "oklch(0.46 0.13 250)",
+          "badge-merged": "oklch(0.47 0.2 295)",
+          "badge-secondary": "var(--secondary)",
+          "badge-success": "oklch(0.46 0.109 155)",
+          "badge-warning": "oklch(0.46 0.113 55)",
+          "info": "oklch(0.55 0.13 250)",
+          "merged": "oklch(0.55 0.2 295)",
+          "success": "oklch(0.55 0.109 155)",
+          "warning": "oklch(0.57 0.113 55)"
+        },
+        "dark": {
+          "badge-destructive": "oklch(0.76 0.16 25)",
+          "badge-info": "oklch(0.76 0.12 250)",
+          "badge-merged": "oklch(0.76 0.13 295)",
+          "badge-secondary": "color-mix(in oklab, var(--foreground) 10%, transparent)",
+          "badge-success": "oklch(0.76 0.125 155)",
+          "badge-warning": "oklch(0.76 0.125 55)",
+          "info": "oklch(0.7 0.12 250)",
+          "merged": "oklch(0.68 0.16 295)",
+          "success": "oklch(0.7 0.125 155)",
+          "warning": "oklch(0.7 0.125 55)"
+        }
+      },
+      "files": [
+        {
+          "path": "../../packages/ui/src/components/status-badge.tsx",
+          "type": "registry:component",
+          "target": "components/status-badge/components/status-badge.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/components/ui/badge.tsx",
+          "type": "registry:component",
+          "target": "components/status-badge/components/ui/badge.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/types/status-badge.ts",
+          "type": "registry:lib",
+          "target": "components/status-badge/types/status-badge.ts"
         }
       ]
     },
@@ -1478,7 +1581,7 @@
         "https://ui.usenotra.com/r/notra-sidebar.json",
         "https://ui.usenotra.com/r/notra-dropdown-menu.json",
         "avatar",
-        "kbd"
+        "https://ui.usenotra.com/r/notra-kbd.json"
       ],
       "files": [
         {
@@ -2008,6 +2111,68 @@
       ]
     },
     {
+      "name": "calendar",
+      "type": "registry:component",
+      "title": "Calendar",
+      "description": "A date picker grid for single days and ranges, with the violet fill from the Stepper, a raised chip for today and a month and year picker inside the caption.",
+      "dependencies": [
+        "@base-ui/react",
+        "cn",
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "registryDependencies": [
+        "https://ui.usenotra.com/r/notra-button.json"
+      ],
+      "files": [
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/components/calendar.tsx",
+          "type": "registry:component",
+          "target": "components/calendar/components/calendar.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/components/calendar-cell.tsx",
+          "type": "registry:component",
+          "target": "components/calendar/components/calendar-cell.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/components/calendar-picker.tsx",
+          "type": "registry:component",
+          "target": "components/calendar/components/calendar-picker.tsx"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/constants/calendar.ts",
+          "type": "registry:lib",
+          "target": "components/calendar/constants/calendar.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/hooks/use-calendar-month-slide.ts",
+          "type": "registry:hook",
+          "target": "components/calendar/hooks/use-calendar-month-slide.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/hooks/use-calendar-picker.ts",
+          "type": "registry:hook",
+          "target": "components/calendar/hooks/use-calendar-picker.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/hooks/use-calendar-sweep.ts",
+          "type": "registry:hook",
+          "target": "components/calendar/hooks/use-calendar-sweep.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/lib/calendar.ts",
+          "type": "registry:lib",
+          "target": "components/calendar/lib/calendar.ts"
+        },
+        {
+          "path": "../../packages/ui/src/components/registry/calendar/types/calendar.ts",
+          "type": "registry:lib",
+          "target": "components/calendar/types/calendar.ts"
+        }
+      ]
+    },
+    {
       "name": "stepper",
       "type": "registry:component",
       "title": "Stepper",
@@ -2234,7 +2399,7 @@
       "name": "composer",
       "type": "registry:component",
       "title": "Composer",
-      "description": "The chat composer from the Notra dashboard: a dualtone input card, with queued messages and attachments as chips, and an edge light while a reply streams. Built on the Notra Button and Tooltip and the shadcn Textarea.",
+      "description": "The chat composer from the Notra dashboard: a dualtone input card, with queued messages as rows, images and files in line, quotes from Add to chat, and an edge light while a reply streams. Built on the Notra Button and Tooltip and the shadcn Textarea.",
       "dependencies": [
         "@base-ui/react",
         "cn",
@@ -2245,6 +2410,7 @@
         "https://ui.usenotra.com/r/edge-light.json",
         "https://ui.usenotra.com/r/notra-button.json",
         "https://ui.usenotra.com/r/notra-tooltip.json",
+        "https://ui.usenotra.com/r/shimmer.json",
         "spinner",
         "textarea"
       ],
@@ -12688,14 +12854,15 @@
       "title": "Outreach Prospect Table",
       "description": "Listicles that AI answers cite, with engines, competitors, domain rating and outreach status.",
       "dependencies": [
+        "@hugeicons/core-free-icons",
         "@xyflow/react",
         "cn",
         "lucide-react"
       ],
       "registryDependencies": [
-        "badge",
         "button",
-        "https://ui.usenotra.com/r/notra-table.json"
+        "https://ui.usenotra.com/r/notra-table.json",
+        "https://ui.usenotra.com/r/status-badge.json"
       ],
       "files": [
         {
@@ -12707,6 +12874,11 @@
           "path": "registry/notra/outreach/components/outreach-status.tsx",
           "type": "registry:component",
           "target": "components/outreach/components/outreach-status.tsx"
+        },
+        {
+          "path": "registry/notra/outreach/constants/outreach-status.ts",
+          "type": "registry:lib",
+          "target": "components/outreach/constants/outreach-status.ts"
         },
         {
           "path": "registry/notra/outreach/constants/outreach.ts",
@@ -12811,15 +12983,16 @@
       "title": "Outreach Prospect Sheet",
       "description": "A side sheet with why a listicle matters, who's on it, the owner and the email sequence.",
       "dependencies": [
+        "@hugeicons/core-free-icons",
         "@xyflow/react",
         "cn",
         "lucide-react"
       ],
       "registryDependencies": [
         "avatar",
-        "badge",
         "button",
-        "sheet"
+        "sheet",
+        "https://ui.usenotra.com/r/status-badge.json"
       ],
       "files": [
         {
@@ -12836,6 +13009,11 @@
           "path": "registry/notra/outreach/components/outreach-status.tsx",
           "type": "registry:component",
           "target": "components/outreach/components/outreach-status.tsx"
+        },
+        {
+          "path": "registry/notra/outreach/constants/outreach-status.ts",
+          "type": "registry:lib",
+          "target": "components/outreach/constants/outreach-status.ts"
         },
         {
           "path": "registry/notra/outreach/constants/outreach.ts",
@@ -13593,6 +13771,7 @@
       "title": "Listicle Outreach",
       "description": "Track the listicles AI answers cite and pitch their owners, with stats, a prospect table, a detail sheet and an email modal.",
       "dependencies": [
+        "@hugeicons/core-free-icons",
         "@xyflow/react",
         "cn",
         "lucide-react",
@@ -13600,13 +13779,13 @@
       ],
       "registryDependencies": [
         "avatar",
-        "badge",
         "button",
         "dialog",
         "input",
         "sheet",
         "https://ui.usenotra.com/r/notra-table.json",
-        "tabs",
+        "https://ui.usenotra.com/r/icon-tabs.json",
+        "https://ui.usenotra.com/r/status-badge.json",
         "textarea"
       ],
       "files": [
@@ -13639,6 +13818,11 @@
           "path": "registry/notra/outreach/components/outreach-status.tsx",
           "type": "registry:component",
           "target": "components/outreach/components/outreach-status.tsx"
+        },
+        {
+          "path": "registry/notra/outreach/constants/outreach-status.ts",
+          "type": "registry:lib",
+          "target": "components/outreach/constants/outreach-status.ts"
         },
         {
           "path": "registry/notra/outreach/constants/outreach.ts",
