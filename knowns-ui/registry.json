@@ -2191,7 +2191,7 @@
       "name": "settings-api-keys",
       "type": "registry:block",
       "title": "API keys settings",
-      "description": "API keys with live or test environments, idle detection, inline create that shows the secret once, rotate, expandable details, hold to revoke and a loading state.",
+      "description": "API keys with live or test environments, idle detection, inline create that shows the secret once, rotate, an optional hold to reveal and copy per key with an audit callback, expandable details, hold to revoke and a loading state.",
       "registryDependencies": [
         "https://ui.knowns.dev/r/knowns-core.json",
         "https://ui.knowns.dev/r/badge.json",
@@ -2202,6 +2202,7 @@
         "https://ui.knowns.dev/r/input.json",
         "https://ui.knowns.dev/r/menu.json",
         "https://ui.knowns.dev/r/motion.json",
+        "https://ui.knowns.dev/r/secret-field.json",
         "https://ui.knowns.dev/r/segmented-control.json",
         "https://ui.knowns.dev/r/select.json",
         "https://ui.knowns.dev/r/settings-layout.json",
@@ -2270,7 +2271,9 @@
         "https://ui.knowns.dev/r/button.json",
         "https://ui.knowns.dev/r/dialog.json",
         "https://ui.knowns.dev/r/progress.json",
-        "https://ui.knowns.dev/r/settings-layout.json"
+        "https://ui.knowns.dev/r/secret-field.json",
+        "https://ui.knowns.dev/r/settings-layout.json",
+        "https://ui.knowns.dev/r/tooltip.json"
       ],
       "files": [
         {
@@ -4046,6 +4049,55 @@
           "path": "registry/knowns/ui/knowns/resizable-utils.ts",
           "type": "registry:ui",
           "target": "components/ui/knowns/resizable-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "save-state",
+      "type": "registry:ui",
+      "title": "Save state",
+      "description": "Autosave status for an editor header: idle, saving, saved with how long ago, failed with Retry, offline with queued edits, and a conflict with Review, Keep mine and Keep theirs. Controlled, polite live region, quiet routine saves, a drawn check when a save recovers and one shake on a failure.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/button.json",
+        "https://ui.knowns.dev/r/motion.json",
+        "https://ui.knowns.dev/r/spinner.json",
+        "https://ui.knowns.dev/r/status-dot.json",
+        "https://ui.knowns.dev/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/save-state/save-state.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/save-state/save-state.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/save-state/save-state-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/save-state/save-state-utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "secret-field",
+      "type": "registry:ui",
+      "title": "Secret field",
+      "description": "A read-only API key or token, masked to its prefix and last 4 characters. Reveal by press and hold or a toggle, copy without revealing, and the mask comes back on its own after a timeout, a copy, a blur or a hidden tab.",
+      "registryDependencies": [
+        "https://ui.knowns.dev/r/knowns-core.json",
+        "https://ui.knowns.dev/r/knowns-field.json",
+        "https://ui.knowns.dev/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/knowns/ui/knowns/secret-field/secret-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/secret-field/secret-field.tsx"
+        },
+        {
+          "path": "registry/knowns/ui/knowns/secret-field/secret-field-utils.ts",
+          "type": "registry:ui",
+          "target": "components/ui/knowns/secret-field/secret-field-utils.ts"
         }
       ]
     },

@@ -725,6 +725,142 @@
       "categories": [
         "components"
       ]
+    },
+    {
+      "name": "thinking-effort",
+      "type": "registry:ui",
+      "title": "Thinking Effort",
+      "description": "A model picker with configurable thinking effort options, a draggable slider, and model defaults.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "button",
+        "icon-context",
+        "utils",
+        "motion",
+        "font-weight"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/thinking-effort.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/thinking-effort.tsx"
+        }
+      ],
+      "css": {
+        ".thinking-effort-trigger-label": {
+          "position": "relative",
+          "display": "inline-grid",
+          "min-width": "0",
+          "overflow": "clip",
+          "width": "var(--thinking-effort-selected-width, auto)",
+          "transition": "width 180ms cubic-bezier(.23, 1, .32, 1)"
+        },
+        ".thinking-effort-trigger-label > span": {
+          "grid-area": "1 / 1",
+          "width": "max-content",
+          "white-space": "nowrap",
+          "transition": "opacity 80ms cubic-bezier(.23, 1, .32, 1)"
+        },
+        ".thinking-effort-trigger-label > [data-label=\"expanded\"]": {
+          "position": "absolute",
+          "opacity": "0"
+        },
+        ".thinking-effort-trigger-label[data-open=\"true\"]": {
+          "width": "var(--thinking-effort-expanded-width, auto)"
+        },
+        ".thinking-effort-trigger-label[data-open=\"true\"] > [data-label=\"selected\"]": {
+          "opacity": "0"
+        },
+        ".thinking-effort-trigger-label[data-open=\"true\"] > [data-label=\"expanded\"],\n.thinking-effort-trigger-label[data-open=\"false\"] > [data-label=\"selected\"]": {
+          "opacity": "1",
+          "transition": "opacity 100ms cubic-bezier(.23, 1, .32, 1) 80ms"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".thinking-effort-trigger-label, .thinking-effort-trigger-label > span": {
+            "transition": "none !important"
+          },
+          ".thinking-effort-popup": {
+            "transition": "none"
+          },
+          ".thinking-effort-view": {
+            "animation": "none"
+          },
+          ".thinking-effort-slider .thinking-effort-slider-thumb,\n  .thinking-effort-slider .thinking-effort-slider-thumb-surface,\n  .thinking-effort-slider .thinking-effort-slider-fill,\n  .thinking-effort-slider .thinking-effort-slider-dot": {
+            "transition": "none",
+            "transition-delay": "0s",
+            "scale": "1"
+          }
+        },
+        ".thinking-effort-popup": {
+          "transform-origin": "var(--transform-origin)",
+          "box-shadow": "0 0 0 1px color-mix(in oklab, var(--foreground) 4%, transparent),\n    0 2px 8px color-mix(in oklab, var(--foreground) 4%, transparent),\n    0 4px 80px 8px color-mix(in oklab, var(--foreground) 2.4%, transparent)",
+          "transition": "opacity 150ms ease-out, transform 150ms ease-out,\n    height 320ms cubic-bezier(.19, 1, .22, 1)"
+        },
+        ".thinking-effort-popup[data-starting-style],\n.thinking-effort-popup[data-ending-style]": {
+          "opacity": "0",
+          "transform": "scale(.96)"
+        },
+        ".thinking-effort-view": {
+          "animation": "thinking-effort-view-in 320ms cubic-bezier(.19, 1, .22, 1),\n    thinking-effort-fade-in 200ms cubic-bezier(.23, 1, .32, 1)"
+        },
+        "@keyframes thinking-effort-view-in": {
+          "from": {
+            "translate": "0 6px"
+          },
+          "to": {
+            "translate": "0 0"
+          }
+        },
+        "@keyframes thinking-effort-fade-in": {
+          "from": {
+            "opacity": "0"
+          },
+          "to": {
+            "opacity": "1"
+          }
+        },
+        ".thinking-effort-slider-control": {
+          "cursor": "pointer",
+          "--thinking-effort-position": "var(--thinking-effort-step-position)"
+        },
+        ".thinking-effort-slider-thumb": {
+          "transition": "left 180ms cubic-bezier(.23, 1, .32, 1), right 180ms cubic-bezier(.23, 1, .32, 1)"
+        },
+        ".thinking-effort-slider-thumb-surface": {
+          "transition": "scale 240ms cubic-bezier(.34, 1.56, .64, 1)"
+        },
+        ".thinking-effort-slider-fill": {
+          "width": "var(--thinking-effort-position)",
+          "transition": "width 180ms cubic-bezier(.23, 1, .32, 1)"
+        },
+        ".thinking-effort-slider-dot": {
+          "transition": "background-color 120ms ease-out"
+        },
+        ".thinking-effort-slider-dot[data-selected]": {
+          "background-color": "var(--color-muted-foreground)"
+        },
+        ".thinking-effort-slider-control[data-pointer-held]": {
+          "cursor": "grabbing",
+          "--thinking-effort-position": "var(--thinking-effort-pointer-position)"
+        },
+        ".thinking-effort-slider-control[data-pointer-held] .thinking-effort-slider-thumb": {
+          "transition": "none"
+        },
+        ".thinking-effort-slider-control[data-pointer-held] .thinking-effort-slider-fill": {
+          "transition": "none"
+        },
+        ".thinking-effort-slider-control[data-pointer-held] .thinking-effort-slider-thumb-surface": {
+          "scale": "1.25"
+        },
+        ".thinking-effort-slider-control[data-dragging] .thinking-effort-slider-thumb,\n.thinking-effort-slider-control[data-dragging] .thinking-effort-slider-fill": {
+          "transition": "none"
+        }
+      },
+      "categories": [
+        "components"
+      ]
     }
   ]
 }

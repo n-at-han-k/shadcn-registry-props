@@ -917,6 +917,178 @@
       }
     },
     {
+      "name": "hero-section-06",
+      "type": "registry:block",
+      "title": "Infrastructure hero",
+      "description": "An infrastructure hero over a live line ribbon: navbar, a deploys chip with a status sparkline, and a deployments dashboard that fills as deploys land and fades out below.",
+      "categories": [
+        "marketing"
+      ],
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/hero-section-06/hero-section-06.tsx",
+          "type": "registry:block",
+          "target": "components/sections/hero-section-06/hero-section-06.tsx"
+        },
+        {
+          "path": "registry/sections/hero-section-06/ribbon-canvas.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-section-06/ribbon-canvas.tsx"
+        },
+        {
+          "path": "registry/sections/hero-section-06/rolling-number.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-section-06/rolling-number.tsx"
+        },
+        {
+          "path": "registry/sections/hero-section-06/use-deploy-feed.ts",
+          "type": "registry:hook",
+          "target": "components/sections/hero-section-06/use-deploy-feed.ts"
+        }
+      ],
+      "meta": {
+        "id": "SEC-46VJ71",
+        "library": "templates",
+        "types": [
+          "hero"
+        ],
+        "styles": [
+          "motion",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-25",
+        "useCases": [
+          "Developer tools and deploy platforms",
+          "DevOps and infrastructure SaaS homepages",
+          "API products that show live activity",
+          "Launch pages for engineering teams"
+        ],
+        "a11y": {
+          "reducedMotion": "The ribbon is drawn once and stays still, the deploy feed stops (no new rows, bars or numbers), and the spinner and pulsing bar don't move. Hover and press effects don't move either.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the logo, the main links, Get started, the deploys chip, Get started and Book a demo."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the focused link."
+            },
+            {
+              "keys": "Enter / Space",
+              "action": "Below md, on the menu button, opens or closes the menu panel."
+            },
+            {
+              "keys": "Esc",
+              "action": "Closes the menu panel."
+            }
+          ],
+          "notes": [
+            "The title is the page's h1; the navbar is a `nav` named \"Main\".",
+            "The chip's number is read in full from a hidden copy, with a hidden summary of the sparkline, e.g. \"Last 14 deploys: 12 ready, 1 failed, 1 building.\"",
+            "The ribbon canvas is aria-hidden; the dashboard window is one image named after the project (\"shipyard / web deployments dashboard\") and its contents are hidden.",
+            "Below md the links move into a menu panel; its button says \"Open menu\" or \"Close menu\" and reports aria-expanded."
+          ],
+          "gaps": [
+            "The ribbon and the deploy feed move on their own for as long as the page is open, with no pause button; only reduced motion stops them. (WCAG 2.2.2 Pause, Stop, Hide)",
+            "Focus doesn't move into the menu panel when it opens, and doesn't return to the button when Esc closes it. (WCAG 2.4.3 Focus Order)"
+          ]
+        }
+      }
+    },
+    {
+      "name": "hero-section-07",
+      "type": "registry:block",
+      "title": "Data analyst hero",
+      "description": "A dark hero for an AI data analyst: a one-line headline, data sources as logo chips, and the product window answering a question on a loop, from SQL to a chart.",
+      "categories": [
+        "marketing"
+      ],
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/sections/hero-section-07/hero-section-07.tsx",
+          "type": "registry:block",
+          "target": "components/sections/hero-section-07/hero-section-07.tsx"
+        },
+        {
+          "path": "registry/sections/hero-section-07/agent-window.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-section-07/agent-window.tsx"
+        },
+        {
+          "path": "registry/sections/hero-section-07/revenue-chart.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-section-07/revenue-chart.tsx"
+        },
+        {
+          "path": "registry/sections/hero-section-07/brand-mark.tsx",
+          "type": "registry:component",
+          "target": "components/sections/hero-section-07/brand-mark.tsx"
+        },
+        {
+          "path": "registry/sections/hero-section-07/source-logos.ts",
+          "type": "registry:lib",
+          "target": "components/sections/hero-section-07/source-logos.ts"
+        },
+        {
+          "path": "registry/sections/hero-section-07/DESIGN.md",
+          "type": "registry:file",
+          "target": "components/sections/hero-section-07/DESIGN.md"
+        }
+      ],
+      "meta": {
+        "id": "SEC-71D0B3",
+        "library": "templates",
+        "types": [
+          "hero"
+        ],
+        "styles": [
+          "motion",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-26",
+        "useCases": [
+          "AI analytics and BI products",
+          "SQL and data tools for business teams",
+          "Homepages that show the product working",
+          "AI agents that show their reasoning"
+        ],
+        "a11y": {
+          "reducedMotion": "The window shows the finished answer and stays still: nothing streams in, the chart doesn't draw, the loop doesn't run, and the buttons don't scale when pressed.",
+          "keyboard": [
+            {
+              "keys": "Tab",
+              "action": "Moves through the logo, the main links (from md up), the navbar's Get a demo, Get a demo and Start free trial."
+            },
+            {
+              "keys": "Enter",
+              "action": "Follows the focused link."
+            }
+          ],
+          "notes": [
+            "The title is the page's h1; the navbar is a `nav` named \"Main\".",
+            "The source chips read as one sentence, \"Works with Snowflake, Postgres, BigQuery and Google Sheets.\": the commas are hidden on screen but read aloud.",
+            "The product window is one image named \"Sightline answering a question about revenue, with the SQL it ran and a chart of the answer\"; its contents are hidden.",
+            "The section is always dark: its root carries the `dark` class, so it stays dark on a light page."
+          ],
+          "gaps": [
+            "The window loops for as long as the page is open, with no pause button; only reduced motion stops it. (WCAG 2.2.2 Pause, Stop, Hide)",
+            "Below md the main links are hidden and there is no menu, so only the logo and Get a demo remain in the navbar."
+          ]
+        }
+      }
+    },
+    {
       "name": "feature-sphere-section",
       "type": "registry:block",
       "title": "Feature index sphere",
@@ -1614,6 +1786,70 @@
           "target": "components/blocks/generative-ui.tsx"
         }
       ]
+    },
+    {
+      "name": "ai-analyst",
+      "type": "registry:block",
+      "title": "AI analyst",
+      "description": "A product window where an AI data analyst answers a question on a loop: reasoning streams in, SQL queries run, and an answer card fills in place with a chart.",
+      "categories": [
+        "ai",
+        "dashboard"
+      ],
+      "dependencies": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/ai-analyst/ai-analyst.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/ai-analyst/ai-analyst.tsx"
+        },
+        {
+          "path": "registry/blocks/ai-analyst/revenue-chart.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/ai-analyst/revenue-chart.tsx"
+        },
+        {
+          "path": "registry/blocks/ai-analyst/DESIGN.md",
+          "type": "registry:file",
+          "target": "components/blocks/ai-analyst/DESIGN.md"
+        }
+      ],
+      "meta": {
+        "id": "BLK-ANPQN7",
+        "library": "blocks",
+        "types": [
+          "charts",
+          "cards"
+        ],
+        "styles": [
+          "motion",
+          "minimal",
+          "dark-mode"
+        ],
+        "publishedAt": "2026-11-26",
+        "useCases": [
+          "Landing pages for AI analytics products",
+          "Feature sections that demo an AI agent",
+          "BI and SQL tools for business teams",
+          "Showing an agent's reasoning and queries"
+        ],
+        "a11y": {
+          "reducedMotion": "The window shows the finished answer and stays still: every word is shown, the chart is drawn, and the loop, spinner and shimmer don't run.",
+          "keyboard": [],
+          "notes": [
+            "The window is one image named \"Sightline answering a question about revenue, with the SQL it ran and a chart of the answer\" (the brand prop changes the name); its contents are hidden from screen readers.",
+            "Nothing inside it is focusable: it is a demonstration, not a working app.",
+            "The loop pauses while the window is scrolled out of view."
+          ],
+          "gaps": [
+            "With loop on (the default), the window plays for as long as it is on screen, with no pause button; only reduced motion stops it. Pass loop={false} to play it once. (WCAG 2.2.2 Pause, Stop, Hide)"
+          ]
+        }
+      }
     },
     {
       "name": "mrr-movements",

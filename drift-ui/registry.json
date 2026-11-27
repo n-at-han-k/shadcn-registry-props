@@ -589,6 +589,33 @@
       ]
     },
     {
+      "name": "locale-picker",
+      "type": "registry:ui",
+      "title": "Locale Picker",
+      "description": "Combobox for picking a BCP 47 locale with native names, English names and country flags.",
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": [
+        "utils",
+        "popover",
+        "@drift-ui/use-controllable-state",
+        "@drift-ui/shape"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/locale-picker.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/locale-picker-utils.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/default/lib/countries.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "log-viewer",
       "type": "registry:ui",
       "title": "Log Viewer",
@@ -918,6 +945,56 @@
       ]
     },
     {
+      "name": "regex-input",
+      "type": "registry:ui",
+      "title": "Regex Input",
+      "description": "Validate regular expressions live with flags toggles, error feedback, and match previews.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "badge",
+        "@drift-ui/use-controllable-state",
+        "@drift-ui/shape"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/regex-input.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/regex-input-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "request-inspector",
+      "type": "registry:ui",
+      "title": "Request Inspector",
+      "description": "Inspect HTTP requests and responses with status codes, headers, timing, format detection, and cURL generation.",
+      "dependencies": ["radix-ui", "lucide-react"],
+      "registryDependencies": [
+        "utils",
+        "badge",
+        "button",
+        "@drift-ui/json-viewer",
+        "@drift-ui/secret-field",
+        "@drift-ui/use-controllable-state",
+        "@drift-ui/use-copy-to-clipboard",
+        "@drift-ui/warning-color"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/request-inspector.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/request-inspector-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "saved-views",
       "type": "registry:ui",
       "title": "Saved Views",
@@ -1054,6 +1131,32 @@
       ]
     },
     {
+      "name": "snooze-picker",
+      "type": "registry:ui",
+      "title": "Snooze Picker",
+      "description": "Menu for scheduling reminders, snoozing notifications, or deferring tasks with quick presets and custom date-time picker.",
+      "dependencies": ["lucide-react", "react-day-picker"],
+      "registryDependencies": [
+        "utils",
+        "button",
+        "calendar",
+        "popover",
+        "@drift-ui/time-field",
+        "@drift-ui/use-controllable-state",
+        "@drift-ui/shape"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/snooze-picker.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/snooze-picker-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "sortable-list",
       "type": "registry:ui",
       "title": "Sortable List",
@@ -1133,7 +1236,9 @@
       "description": "Neutral color tokens for light and dark mode, with AA contrast for secondary text.",
       "cssVars": {
         "theme": {
-          "radius": "0.625rem"
+          "radius": "0.625rem",
+          "color-warning": "var(--warning)",
+          "color-warning-foreground": "var(--warning-foreground)"
         },
         "light": {
           "background": "oklch(1 0 0)",
@@ -1151,6 +1256,8 @@
           "accent": "oklch(0.97 0 0)",
           "accent-foreground": "oklch(0.205 0 0)",
           "destructive": "oklch(0.577 0.245 27.325)",
+          "warning": "oklch(0.555 0.163 48.998)",
+          "warning-foreground": "oklch(0.985 0 0)",
           "border": "oklch(0.9 0 0)",
           "input": "oklch(0.9 0 0)",
           "ring": "oklch(0.708 0 0)",
@@ -1176,6 +1283,8 @@
           "accent": "oklch(0.269 0 0)",
           "accent-foreground": "oklch(0.985 0 0)",
           "destructive": "oklch(0.704 0.191 22.216)",
+          "warning": "oklch(0.828 0.189 84.429)",
+          "warning-foreground": "oklch(0.205 0 0)",
           "border": "oklch(1 0 0 / 10%)",
           "input": "oklch(1 0 0 / 15%)",
           "ring": "oklch(0.556 0 0)",
@@ -1251,7 +1360,7 @@
       "title": "Toast",
       "description": "Toasts that keep shadcn's API and add undo with a working shortcut, progress, merging of repeated toasts, reading-time durations and a handoff to the notification inbox.",
       "dependencies": ["sonner", "next-themes", "lucide-react"],
-      "registryDependencies": ["@drift-ui/shape"],
+      "registryDependencies": ["@drift-ui/shape", "@drift-ui/warning-color"],
       "files": [
         {
           "path": "registry/default/ui/sonner.tsx",
@@ -1387,7 +1496,8 @@
         "badge",
         "popover",
         "utils",
-        "@drift-ui/use-controllable-state"
+        "@drift-ui/use-controllable-state",
+        "@drift-ui/warning-color"
       ],
       "files": [
         {
@@ -1396,6 +1506,24 @@
         },
         {
           "path": "registry/default/lib/uptime-bar-utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "usage-meter",
+      "type": "registry:ui",
+      "title": "Usage Meter",
+      "description": "Progress meter for storage, seats, and rate limits with thresholds, segmented breakdown, and overage tracking.",
+      "dependencies": [],
+      "registryDependencies": ["badge", "utils", "@drift-ui/warning-color"],
+      "files": [
+        {
+          "path": "registry/default/ui/usage-meter.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/lib/usage-meter-utils.ts",
           "type": "registry:lib"
         }
       ]
@@ -1453,6 +1581,26 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "warning-color",
+      "type": "registry:theme",
+      "title": "Warning Color",
+      "description": "Amber warning tokens for light and dark mode that pass AA contrast as small text.",
+      "cssVars": {
+        "theme": {
+          "color-warning": "var(--warning)",
+          "color-warning-foreground": "var(--warning-foreground)"
+        },
+        "light": {
+          "warning": "oklch(0.555 0.163 48.998)",
+          "warning-foreground": "oklch(0.985 0 0)"
+        },
+        "dark": {
+          "warning": "oklch(0.828 0.189 84.429)",
+          "warning-foreground": "oklch(0.205 0 0)"
+        }
+      }
     },
     {
       "name": "weekly-hours",
