@@ -5340,11 +5340,17 @@
       "name": "agency-header",
       "type": "registry:block",
       "title": "Agency: Header",
-      "description": "One line with the studio's availability, its pages as a list and the way in, then its name set bold, edge to edge.",
+      "description": "The masthead: availability, the pages as one comma list with the studio's tile under the current page, the way in and the name edge to edge; a small card docks at the top once it scrolls away, and below md a full-screen menu.",
+      "dependencies": [
+        "motion",
+        "@base-ui/react"
+      ],
       "registryDependencies": [
         "https://eased.dev/r/eased-tokens.json",
         "https://eased.dev/r/eased-motion.json",
-        "https://eased.dev/r/agency-core.json"
+        "https://eased.dev/r/agency-core.json",
+        "https://eased.dev/r/eased-indicator.json",
+        "https://eased.dev/r/button.json"
       ],
       "files": [
         {
@@ -5834,6 +5840,99 @@
       ],
       "meta": {
         "releaseAt": "2026-10-23"
+      }
+    },
+    {
+      "name": "template-core",
+      "type": "registry:lib",
+      "title": "Template core",
+      "description": "The structure every Eased template shares, styled only by the template's tokens and classes: links that follow the mount, a legal page with contents, a not-found shell, a contact form, an email capture, a FAQ, a pricing table, a footer, a proof strip and a closing band.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://eased.dev/r/eased-tokens.json",
+        "https://eased.dev/r/eased-motion.json",
+        "https://eased.dev/r/accordion.json",
+        "https://eased.dev/r/button.json",
+        "https://eased.dev/r/field.json",
+        "https://eased.dev/r/input.json",
+        "https://eased.dev/r/number-roll.json",
+        "https://eased.dev/r/segmented.json",
+        "https://eased.dev/r/select.json",
+        "https://eased.dev/r/textarea.json",
+        "https://eased.dev/r/toast.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/eased/templates/_shared/base.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/base.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/heading.ts",
+          "type": "registry:lib",
+          "target": "@components/eased/templates/_shared/heading.ts"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/send.ts",
+          "type": "registry:lib",
+          "target": "@components/eased/templates/_shared/send.ts"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/legal.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/legal.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/not-found.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/not-found.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/contact-form.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/contact-form.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/email-capture.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/email-capture.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/faq.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/faq.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/pricing.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/pricing.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/footer.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/footer.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/proof-strip.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/proof-strip.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/proof-numbers.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/proof-numbers.tsx"
+        },
+        {
+          "path": "src/registry/eased/templates/_shared/closing-band.tsx",
+          "type": "registry:component",
+          "target": "@components/eased/templates/_shared/closing-band.tsx"
+        }
+      ],
+      "meta": {
+        "kind": "template-lib",
+        "releaseAt": "2026-11-26"
       }
     }
   ]
